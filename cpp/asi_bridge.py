@@ -26,6 +26,7 @@ class TickData(ctypes.Structure):
         ("last", ctypes.c_double),
         ("volume", ctypes.c_double),
         ("time_msc", ctypes.c_int64),
+        ("time", ctypes.c_double),
     ]
 
 class OrderFlowResult(ctypes.Structure):
