@@ -57,7 +57,13 @@ class ASIBrain:
         self.trinity_core = TrinityCore()
         self.risk_engine = RiskQuantumEngine()
         self.executor = SniperExecutor(bridge, self.risk_engine)
-        self.position_manager = PositionManager(bridge)
+        
+        # Callback para Anti-Metralhadora Pós-Close
+        def on_position_closed(direction: str):
+            self.executor._post_close_direction = direction
+            self.executor._post_close_candle_count = 0
+            
+        self.position_manager = PositionManager(bridge, on_close_callback=on_position_closed)
 
         # ═══ PHASE 5: WEB SCRAPERS (Zero-Cost External Intelligence) ═══
         self.sentiment_scraper = SentimentScraper()

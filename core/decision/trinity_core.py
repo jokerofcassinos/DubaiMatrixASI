@@ -142,6 +142,24 @@ class TrinityCore:
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
 
+        # ═══ ADAPTIVE SPREAD/FEE VALIDATION (Phase 20) ═══
+        # A taxa real do trade (spread) não pode corroer o potencial de lucro.
+        sym_info = snapshot.symbol_info
+        if sym_info:
+            spread_points = sym_info.get("spread", 0)
+            point_val = sym_info.get("point", 1.0)
+            spread_cost_in_price = spread_points * point_val
+            
+            if reward > 0:
+                spread_impact = spread_cost_in_price / reward
+                max_impact = OMEGA.get("max_spread_reward_impact", 0.25)
+                
+                if spread_impact > max_impact:
+                    return self._wait(
+                        f"SPREAD_TOO_EXPENSIVE (Cost={spread_cost_in_price:.2f}, "
+                        f"Reward={reward:.2f}, Impact={spread_impact:.1%}>{max_impact:.1%})"
+                    )
+
         # ═══ MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
         volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar

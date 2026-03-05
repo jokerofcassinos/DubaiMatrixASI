@@ -4843,3 +4843,221 @@
 [DubaiMatrixASI] 23:48:28.991    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
 [DubaiMatrixASI] 23:48:29.209    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361878 | Pico=$22.02 → Atual=$8.02 (perdeu 64% do pico)
 [DubaiMatrixASI] 23:48:29.217    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
+[DubaiMatrixASI] 23:50:37.199    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:50:37.200    OMEGA │ ⚡ 🧬 Gen #1: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:52:53.220    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:52:53.436    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:52:53.444    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:52:53.464    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:52:53.473    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:52:53.479    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:52:53.479    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-05T02:52:53.479668+00:00
+[DubaiMatrixASI] 23:52:55.859    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core.dll
+[DubaiMatrixASI] 23:53:02.222    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:53:02.223    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:53:02.223    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:53:02.223    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:53:02.224    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:53:02.224    OMEGA │ ⚡ 📅 2026-03-05T02:53:02.224475+00:00
+[DubaiMatrixASI] 23:53:02.224    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:53:02.225    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:53:02.379    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:53:02.383    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:53:02.383    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=72498.16, Bid=72473.26
+[DubaiMatrixASI] 23:53:02.384    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:53:02.385    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:53:02.425    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:53:02.426    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:53:02.436    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:53:02.443    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos
+[DubaiMatrixASI] 23:53:02.444    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:53:02.445    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:53:02.446    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:53:02.475    OMEGA │ ⚡ 🌊 REGIME CHANGE → TRENDING_BEAR (conf=0.74)
+[DubaiMatrixASI] 23:53:02.613    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56956)
+[DubaiMatrixASI] 23:53:02.641    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.55 (em 5 slots) price=72473.26 SL=72818.93 TP=71954.76
+[DubaiMatrixASI] 23:53:02.845    TRADE │ #1 SELL BTCUSD lot=0.71 price=72473.27 SL=72818.93 TP=71954.76 P&L=+0.00 | ticket=1580370291 deal=1430781471
+[DubaiMatrixASI] 23:53:02.855  WARNING │ ⏱️ LATENCY [send_market_order] 213.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:53:03.064    TRADE │ #2 SELL BTCUSD lot=0.71 price=72473.27 SL=72818.93 TP=71954.76 P&L=+0.00 | ticket=1580370303 deal=1430781485
+[DubaiMatrixASI] 23:53:03.070  WARNING │ ⏱️ LATENCY [send_market_order] 214.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:53:03.279    TRADE │ #3 SELL BTCUSD lot=0.71 price=72473.01 SL=72818.93 TP=71954.76 P&L=+0.00 | ticket=1580370317 deal=1430781497
+[DubaiMatrixASI] 23:53:03.312  WARNING │ ⏱️ LATENCY [send_market_order] 240.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:53:03.924    TRADE │ #4 SELL BTCUSD lot=0.71 price=72473.01 SL=72818.93 TP=71954.76 P&L=+0.00 | ticket=1580370324 deal=1430781508
+[DubaiMatrixASI] 23:53:03.941  WARNING │ ⏱️ LATENCY [send_market_order] 628.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:53:04.191    TRADE │ #5 SELL BTCUSD lot=0.71 price=72472.81 SL=72818.93 TP=71954.76 P&L=+0.00 | ticket=1580370352 deal=1430781536
+[DubaiMatrixASI] 23:53:04.193  WARNING │ ⏱️ LATENCY [send_market_order] 243.5ms (threshold: 200ms)
+[DubaiMatrixASI] 23:53:04.194    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=3.55 @ 72473.07 | 5 tickets gerados | SELL signal=-0.234 conf=0.73 coherence=0.75 regime=TRENDING_BEAR ATR=172.83 RR=1
+[DubaiMatrixASI] 23:53:04.202  WARNING │ ⏱️ LATENCY [execute] 1560.8ms (threshold: 500ms)
+[DubaiMatrixASI] 23:53:04.202  WARNING │ ⏱️ LATENCY [think] 1756.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:54:24.497    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370291 | Pico=$15.37 → Atual=$5.41 (perdeu 65% do pico)
+[DubaiMatrixASI] 23:54:24.497    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370291 (via socket)
+[DubaiMatrixASI] 23:54:24.498    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370303 | Pico=$15.37 → Atual=$5.41 (perdeu 65% do pico)
+[DubaiMatrixASI] 23:54:24.498    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370303 (via socket)
+[DubaiMatrixASI] 23:54:24.498    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370317 | Pico=$15.19 → Atual=$5.23 (perdeu 66% do pico)
+[DubaiMatrixASI] 23:54:24.499    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370317 (via socket)
+[DubaiMatrixASI] 23:54:24.499    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370324 | Pico=$15.19 → Atual=$5.23 (perdeu 66% do pico)
+[DubaiMatrixASI] 23:54:24.500    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370324 (via socket)
+[DubaiMatrixASI] 23:54:24.500    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370352 | Pico=$15.04 → Atual=$5.08 (perdeu 66% do pico)
+[DubaiMatrixASI] 23:54:24.501    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370352 (via socket)
+[DubaiMatrixASI] 23:54:24.774    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370303 | Pico=$15.37 → Atual=$5.23 (perdeu 66% do pico)
+[DubaiMatrixASI] 23:54:24.775    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370303 (via socket)
+[DubaiMatrixASI] 23:54:24.775    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370317 | Pico=$15.19 → Atual=$5.04 (perdeu 67% do pico)
+[DubaiMatrixASI] 23:54:24.775    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370317 (via socket)
+[DubaiMatrixASI] 23:54:24.776    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370324 | Pico=$15.19 → Atual=$5.04 (perdeu 67% do pico)
+[DubaiMatrixASI] 23:54:24.776    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370324 (via socket)
+[DubaiMatrixASI] 23:54:24.776    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370352 | Pico=$15.04 → Atual=$4.90 (perdeu 67% do pico)
+[DubaiMatrixASI] 23:54:24.793    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370352 (via socket)
+[DubaiMatrixASI] 23:54:25.005    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370317 | Pico=$15.19 → Atual=$5.49 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:54:25.024    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370317 (via socket)
+[DubaiMatrixASI] 23:54:25.030    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370324 | Pico=$15.19 → Atual=$5.49 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:54:25.034    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370324 (via socket)
+[DubaiMatrixASI] 23:54:25.040    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370352 | Pico=$15.04 → Atual=$5.35 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:54:25.041    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370352 (via socket)
+[DubaiMatrixASI] 23:54:25.250    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370324 | Pico=$15.19 → Atual=$5.52 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:54:25.255    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370324 (via socket)
+[DubaiMatrixASI] 23:54:25.256    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580370352 | Pico=$15.04 → Atual=$5.37 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:54:25.256    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580370352 (via socket)
+[DubaiMatrixASI] 23:54:25.545    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.49 (em 5 slots) price=72440.34 SL=72792.63 TP=71911.90
+[DubaiMatrixASI] 23:54:25.758    TRADE │ #6 SELL BTCUSD lot=0.70 price=72439.60 SL=72792.63 TP=71911.90 P&L=+0.00 | ticket=1580374476 deal=1430785562
+[DubaiMatrixASI] 23:54:25.779  WARNING │ ⏱️ LATENCY [send_market_order] 232.9ms (threshold: 200ms)
+[DubaiMatrixASI] 23:54:25.986    TRADE │ #7 SELL BTCUSD lot=0.70 price=72439.57 SL=72792.63 TP=71911.90 P&L=+0.00 | ticket=1580374484 deal=1430785569
+[DubaiMatrixASI] 23:54:25.996  WARNING │ ⏱️ LATENCY [send_market_order] 215.8ms (threshold: 200ms)
+[DubaiMatrixASI] 23:54:26.212    TRADE │ #8 SELL BTCUSD lot=0.70 price=72439.86 SL=72792.63 TP=71911.90 P&L=+0.00 | ticket=1580374494 deal=1430785578
+[DubaiMatrixASI] 23:54:26.231  WARNING │ ⏱️ LATENCY [send_market_order] 229.5ms (threshold: 200ms)
+[DubaiMatrixASI] 23:54:26.442    TRADE │ #9 SELL BTCUSD lot=0.70 price=72439.84 SL=72792.63 TP=71911.90 P&L=+0.00 | ticket=1580374500 deal=1430785581
+[DubaiMatrixASI] 23:54:26.443  WARNING │ ⏱️ LATENCY [send_market_order] 211.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:54:26.661    TRADE │ #10 SELL BTCUSD lot=0.69 price=72439.84 SL=72792.63 TP=71911.90 P&L=+0.00 | ticket=1580374504 deal=1430785585
+[DubaiMatrixASI] 23:54:26.662  WARNING │ ⏱️ LATENCY [send_market_order] 200.6ms (threshold: 200ms)
+[DubaiMatrixASI] 23:54:26.670    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=3.49 @ 72439.74 | 5 tickets gerados | SELL signal=-0.352 conf=0.78 coherence=0.75 regime=TRENDING_BEAR ATR=176.15 RR=1
+[DubaiMatrixASI] 23:54:26.677  WARNING │ ⏱️ LATENCY [execute] 1132.7ms (threshold: 500ms)
+[DubaiMatrixASI] 23:54:26.678  WARNING │ ⏱️ LATENCY [think] 1319.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:55:33.139    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.65 (em 5 slots) price=72373.41 SL=72710.46 TP=71867.84
+[DubaiMatrixASI] 23:55:33.358    TRADE │ #11 SELL BTCUSD lot=0.73 price=72371.60 SL=72710.46 TP=71867.84 P&L=+0.00 | ticket=1580376740 deal=1430787820
+[DubaiMatrixASI] 23:55:33.359  WARNING │ ⏱️ LATENCY [send_market_order] 220.1ms (threshold: 200ms)
+[DubaiMatrixASI] 23:55:33.578    TRADE │ #12 SELL BTCUSD lot=0.73 price=72371.60 SL=72710.46 TP=71867.84 P&L=+0.00 | ticket=1580376745 deal=1430787825
+[DubaiMatrixASI] 23:55:33.585  WARNING │ ⏱️ LATENCY [send_market_order] 220.1ms (threshold: 200ms)
+[DubaiMatrixASI] 23:55:33.803    TRADE │ #13 SELL BTCUSD lot=0.73 price=72371.48 SL=72710.46 TP=71867.84 P&L=+0.00 | ticket=1580376750 deal=1430787830
+[DubaiMatrixASI] 23:55:33.809  WARNING │ ⏱️ LATENCY [send_market_order] 222.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:55:34.019    TRADE │ #14 SELL BTCUSD lot=0.73 price=72371.13 SL=72710.46 TP=71867.84 P&L=+0.00 | ticket=1580376754 deal=1430787834
+[DubaiMatrixASI] 23:55:34.036  WARNING │ ⏱️ LATENCY [send_market_order] 227.1ms (threshold: 200ms)
+[DubaiMatrixASI] 23:55:34.234    TRADE │ #15 SELL BTCUSD lot=0.73 price=72369.43 SL=72710.46 TP=71867.84 P&L=+0.00 | ticket=1580376758 deal=1430787838
+[DubaiMatrixASI] 23:55:34.252  WARNING │ ⏱️ LATENCY [send_market_order] 214.8ms (threshold: 200ms)
+[DubaiMatrixASI] 23:55:34.253    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | SELL lot=3.65 @ 72371.05 | 5 tickets gerados | SELL signal=-0.274 conf=0.78 coherence=0.72 regime=TRENDING_BEAR ATR=168.52 RR=1
+[DubaiMatrixASI] 23:55:34.261  WARNING │ ⏱️ LATENCY [execute] 1123.1ms (threshold: 500ms)
+[DubaiMatrixASI] 23:55:34.263  WARNING │ ⏱️ LATENCY [think] 1284.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:55:37.697    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:55:37.697    OMEGA │ ⚡ 🧬 Gen #1: 4 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:56:10.639    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374476 | Pico=$42.74 → Atual=$22.06 (perdeu 48% do pico)
+[DubaiMatrixASI] 23:56:10.640    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374476 (via socket)
+[DubaiMatrixASI] 23:56:10.640    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374484 | Pico=$42.72 → Atual=$22.04 (perdeu 48% do pico)
+[DubaiMatrixASI] 23:56:10.657    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374484 (via socket)
+[DubaiMatrixASI] 23:56:10.664    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374494 | Pico=$42.92 → Atual=$22.24 (perdeu 48% do pico)
+[DubaiMatrixASI] 23:56:10.667    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374494 (via socket)
+[DubaiMatrixASI] 23:56:10.673    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374500 | Pico=$42.91 → Atual=$22.23 (perdeu 48% do pico)
+[DubaiMatrixASI] 23:56:10.673    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374500 (via socket)
+[DubaiMatrixASI] 23:56:10.674    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374504 | Pico=$42.30 → Atual=$21.91 (perdeu 48% do pico)
+[DubaiMatrixASI] 23:56:10.674    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374504 (via socket)
+[DubaiMatrixASI] 23:56:10.843    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374484 | Pico=$42.72 → Atual=$19.05 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:10.855    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374484 (via socket)
+[DubaiMatrixASI] 23:56:10.856    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374494 | Pico=$42.92 → Atual=$19.25 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:10.874    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374494 (via socket)
+[DubaiMatrixASI] 23:56:10.886    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374500 | Pico=$42.91 → Atual=$19.24 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:10.892    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374500 (via socket)
+[DubaiMatrixASI] 23:56:10.892    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374504 | Pico=$42.30 → Atual=$18.96 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:10.893    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374504 (via socket)
+[DubaiMatrixASI] 23:56:11.155    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374494 | Pico=$42.92 → Atual=$19.26 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:11.156    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374494 (via socket)
+[DubaiMatrixASI] 23:56:11.172    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374500 | Pico=$42.91 → Atual=$19.25 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:11.173    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374500 (via socket)
+[DubaiMatrixASI] 23:56:11.182    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374504 | Pico=$42.30 → Atual=$18.98 (perdeu 55% do pico)
+[DubaiMatrixASI] 23:56:11.188    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374504 (via socket)
+[DubaiMatrixASI] 23:56:11.412    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374500 | Pico=$42.91 → Atual=$19.59 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:56:11.412    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374500 (via socket)
+[DubaiMatrixASI] 23:56:11.413    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374504 | Pico=$42.30 → Atual=$19.31 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:56:11.413    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580374504 (via socket)
+[DubaiMatrixASI] 23:56:11.661    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580374504 | Pico=$42.30 → Atual=$19.58 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:56:11.675  WARNING │ Posição 1580374504 não encontrada
+[DubaiMatrixASI] 23:58:09.561    OMEGA │ ⚡ 🧬 Gen #2: 1 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:58:21.015    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:58:21.085    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:58:21.091    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:58:21.095    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:58:21.096    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:58:21.096    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:58:21.097    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-05T02:58:21.097450+00:00
+[DubaiMatrixASI] 00:06:18.923    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core.dll
+[DubaiMatrixASI] 00:06:20.741    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 00:06:20.742    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 00:06:20.742    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 00:06:20.742    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 00:06:20.743    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 00:06:20.743    OMEGA │ ⚡ 📅 2026-03-05T03:06:20.743467+00:00
+[DubaiMatrixASI] 00:06:20.743    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 00:06:20.744    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 00:06:20.760    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 00:06:20.764    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 00:06:20.765    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=72727.06, Bid=72702.16
+[DubaiMatrixASI] 00:06:20.767    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 00:06:20.768    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 00:06:20.794    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 00:06:20.819    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 00:06:20.828    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 00:06:20.836    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos
+[DubaiMatrixASI] 00:06:20.838    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 00:06:20.839    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 00:06:20.840    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 00:06:20.872    OMEGA │ ⚡ 🌊 REGIME CHANGE → TRENDING_BEAR (conf=0.73)
+[DubaiMatrixASI] 00:06:21.028    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.54 (em 5 slots) price=72702.16 SL=73044.83 TP=72188.15
+[DubaiMatrixASI] 00:06:21.242    TRADE │ #1 SELL BTCUSD lot=0.71 price=72702.17 SL=73044.83 TP=72188.15 P&L=+0.00 | ticket=1580395633 deal=1430805818
+[DubaiMatrixASI] 00:06:21.247  WARNING │ ⏱️ LATENCY [send_market_order] 212.4ms (threshold: 200ms)
+[DubaiMatrixASI] 00:06:21.464    TRADE │ #2 SELL BTCUSD lot=0.71 price=72702.14 SL=73044.83 TP=72188.15 P&L=+0.00 | ticket=1580395638 deal=1430805821
+[DubaiMatrixASI] 00:06:21.486  WARNING │ ⏱️ LATENCY [send_market_order] 230.6ms (threshold: 200ms)
+[DubaiMatrixASI] 00:06:21.694    TRADE │ #3 SELL BTCUSD lot=0.71 price=72702.18 SL=73044.83 TP=72188.15 P&L=+0.00 | ticket=1580395641 deal=1430805823
+[DubaiMatrixASI] 00:06:21.720  WARNING │ ⏱️ LATENCY [send_market_order] 233.9ms (threshold: 200ms)
+[DubaiMatrixASI] 00:06:21.949    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 57548)
+[DubaiMatrixASI] 00:06:21.954    TRADE │ #4 SELL BTCUSD lot=0.71 price=72702.18 SL=73044.83 TP=72188.15 P&L=+0.00 | ticket=1580395645 deal=1430805827
+[DubaiMatrixASI] 00:06:21.962  WARNING │ ⏱️ LATENCY [send_market_order] 240.3ms (threshold: 200ms)
+[DubaiMatrixASI] 00:06:22.173    TRADE │ #5 SELL BTCUSD lot=0.70 price=72702.19 SL=73044.83 TP=72188.15 P&L=+0.00 | ticket=1580395648 deal=1430805830
+[DubaiMatrixASI] 00:06:22.190  WARNING │ ⏱️ LATENCY [send_market_order] 226.8ms (threshold: 200ms)
+[DubaiMatrixASI] 00:06:22.191    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=3.54 @ 72702.17 | 5 tickets gerados | SELL signal=-0.270 conf=0.74 coherence=0.68 regime=TRENDING_BEAR ATR=171.34 RR=1
+[DubaiMatrixASI] 00:06:22.192  WARNING │ ⏱️ LATENCY [execute] 1163.9ms (threshold: 500ms)
+[DubaiMatrixASI] 00:06:22.209  WARNING │ ⏱️ LATENCY [think] 1368.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 00:08:30.858    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395633 | Pico=$5.81 → Atual=$0.58 (perdeu 90% do pico)
+[DubaiMatrixASI] 00:08:30.858    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395633 (via socket)
+[DubaiMatrixASI] 00:08:30.859    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395638 | Pico=$5.79 → Atual=$0.55 (perdeu 91% do pico)
+[DubaiMatrixASI] 00:08:30.859    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395638 (via socket)
+[DubaiMatrixASI] 00:08:30.859    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395641 | Pico=$5.82 → Atual=$0.58 (perdeu 90% do pico)
+[DubaiMatrixASI] 00:08:30.860    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395641 (via socket)
+[DubaiMatrixASI] 00:08:30.860    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395645 | Pico=$5.82 → Atual=$0.58 (perdeu 90% do pico)
+[DubaiMatrixASI] 00:08:30.861    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395645 (via socket)
+[DubaiMatrixASI] 00:08:30.861    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395648 | Pico=$5.75 → Atual=$0.58 (perdeu 90% do pico)
+[DubaiMatrixASI] 00:08:30.862    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395648 (via socket)
+[DubaiMatrixASI] 00:08:31.145    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395638 | Pico=$5.79 → Atual=$0.49 (perdeu 92% do pico)
+[DubaiMatrixASI] 00:08:31.145    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395638 (via socket)
+[DubaiMatrixASI] 00:08:31.155    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395641 | Pico=$5.82 → Atual=$0.52 (perdeu 91% do pico)
+[DubaiMatrixASI] 00:08:31.160    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395641 (via socket)
+[DubaiMatrixASI] 00:08:31.160    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395645 | Pico=$5.82 → Atual=$0.52 (perdeu 91% do pico)
+[DubaiMatrixASI] 00:08:31.161    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395645 (via socket)
+[DubaiMatrixASI] 00:08:31.161    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395648 | Pico=$5.75 → Atual=$0.52 (perdeu 91% do pico)
+[DubaiMatrixASI] 00:08:31.162    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395648 (via socket)
+[DubaiMatrixASI] 00:08:31.632    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395641 | Pico=$5.82 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.649    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395641 (via socket)
+[DubaiMatrixASI] 00:08:31.651    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395645 | Pico=$5.82 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.651    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395645 (via socket)
+[DubaiMatrixASI] 00:08:31.661    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395648 | Pico=$5.75 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.667    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395648 (via socket)
+[DubaiMatrixASI] 00:08:31.877    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395641 | Pico=$5.82 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.878    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395641 (via socket)
+[DubaiMatrixASI] 00:08:31.878    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395645 | Pico=$5.82 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.879    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395645 (via socket)
+[DubaiMatrixASI] 00:08:31.879    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395648 | Pico=$5.75 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:31.880    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395648 (via socket)
+[DubaiMatrixASI] 00:08:32.143    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580395648 | Pico=$5.75 → Atual=$0.31 (perdeu 95% do pico)
+[DubaiMatrixASI] 00:08:32.159    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580395648 (via socket)
+[DubaiMatrixASI] 00:08:39.132    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 00:08:39.340    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 00:08:39.340    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 00:08:39.343    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 00:08:39.344    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 00:08:39.345    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 00:08:39.345    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-05T03:08:39.345368+00:00

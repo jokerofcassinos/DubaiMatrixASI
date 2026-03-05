@@ -39,14 +39,23 @@ class SniperExecutor:
         # Throttling por candle: evita infinite re-entry no mesmo candle
         self._current_candle_time = 0
         self._orders_in_candle = 0
-        self._max_orders_per_candle = 5
+        self._max_orders_per_candle = 2  # Phase 20: Reduzido de 5 → 2 (anti-metralhadora)
         
         # ═══ ANTI-METRALHADORA: Previne re-entry no mesmo nível de preço ═══
         self._last_entry_price = 0.0          # Último preço de entrada
         self._last_entry_direction = None     # Última direção (BUY/SELL)
         self._last_entry_timestamp = 0        # Timestamp da última entrada (epoch seconds)
         self._min_entry_cooldown_s = 60       # Mínimo 60 segundos entre entradas
-        self._min_price_distance_atr = 0.5    # Distância mínima: 0.5 ATR do último entry
+        self._min_price_distance_atr = 0.3    # Distância mínima: 0.3 ATR do último entry
+        
+        # ═══ CANDLE DIRECTIONAL LOCK (Phase 20) ═══
+        # Após executar numa direção, bloqueia re-entrada na MESMA direção
+        # até o candle M1 atual fechar. Previne sell-TP-re-sell no mesmo candle.
+        self._candle_direction_lock = None     # "BUY" ou "SELL" ou None
+        self._candle_lock_time = 0             # Candle minute timestamp do lock
+        self._post_close_direction = None      # Direção da última posição fechada
+        self._post_close_candle_count = 0      # Candles passados desde o último close
+        self._post_close_candle_time = 0       # Candle timestamp do close
 
     @timed(log_threshold_ms=500)
     @catch_and_log(default_return=None)
@@ -65,9 +74,33 @@ class SniperExecutor:
         if current_minute != self._current_candle_time:
             self._current_candle_time = current_minute
             self._orders_in_candle = 0
+            # ═══ CANDLE DIRECTIONAL LOCK RESET ═══
+            # Novo candle → liberar o lock direcional
+            self._candle_direction_lock = None
+            # Incrementar contador de candles pós-close
+            if self._post_close_direction is not None:
+                self._post_close_candle_count += 1
+                if self._post_close_candle_count >= 2:  # 2 candles de cooldown pós-close
+                    self._post_close_direction = None
+                    self._post_close_candle_count = 0
         
         if self._orders_in_candle >= self._max_orders_per_candle:
             log.debug(f"Pausa tática: Limite de {self._max_orders_per_candle} ordens por candle atingido. Aguardando próximo minuto.")
+            return None
+
+        # ═══ CANDLE DIRECTIONAL LOCK CHECK (Phase 20) ═══
+        # Se já executamos nessa direção NESTE candle → bloqueia
+        if self._candle_direction_lock == decision.action.value:
+            log.debug(f"🔒 Candle Lock: já executou {decision.action.value} neste candle. Aguardando próximo.")
+            return None
+
+        # ═══ POST-CLOSE DIRECTIONAL COOLDOWN (Phase 20) ═══
+        # Após Smart TP fechar posição, bloqueia re-entrada na MESMA direção por 2 candles
+        if self._post_close_direction == decision.action.value:
+            log.debug(
+                f"⏸️ Post-Close Cooldown: aguardando {2 - self._post_close_candle_count} candle(s) "
+                f"antes de re-{decision.action.value}"
+            )
             return None
 
         # ═══ ANTI-METRALHADORA PHASE 1: COOLDOWN TIMER ═══
@@ -82,6 +115,12 @@ class SniperExecutor:
 
         # ═══ ANTI-METRALHADORA PHASE 2: DISTÂNCIA MÍNIMA DE PREÇO ═══
         # Impede entrada se o preço atual está muito próximo da última entrada
+        # RESET: Se não há posições abertas, o ghost-block é irrelevante
+        open_positions_check = self.bridge.get_open_positions() or []
+        if not open_positions_check and self._last_entry_price > 0:
+            self._last_entry_price = 0.0
+            self._last_entry_direction = None
+        
         min_dist_atr = OMEGA.get("min_entry_distance_atr")
         if self._last_entry_price > 0:
             atr_values = snapshot.indicators.get("M5_atr_14")
@@ -212,6 +251,9 @@ class SniperExecutor:
         self._last_entry_price = decision.entry_price
         self._last_entry_direction = decision.action.value
         self._last_entry_timestamp = datetime.now(timezone.utc).timestamp()
+        
+        # ═══ CANDLE DIRECTIONAL LOCK: Ativar lock ═══
+        self._candle_direction_lock = decision.action.value
 
         # Atualizar peak balance
         if balance > asi_state.peak_balance:

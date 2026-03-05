@@ -169,15 +169,17 @@ class OmegaParameterSpace:
                         "Peso do agente de correlação")
 
         # ═══ EXECUTION PARAMETERS ═══
-        self._register("max_spread_points", 3000.0, 30.0, 5000.0,
-                        "Spread máximo aceito em points")
+        self._register("max_spread_points", 5000.0, 30.0, 10000.0,
+                        "Spread máximo aceito em points brutos")
+        self._register("max_spread_reward_impact", 0.25, 0.05, 0.50,
+                        "Impacto máximo do spread no TP desejado (0.25 = spread não pode comer mais de 25% do TP)")
         self._register("entry_urgency", 0.5, 0.1, 1.0,
                         "Urgência de entrada (1.0 = market order sempre)")
 
         # ═══ ANTI-METRALHADORA PARAMETERS ═══
         self._register("entry_cooldown_seconds", 60.0, 10.0, 300.0,
                         "Cooldown mínimo (segundos) entre entradas consecutivas")
-        self._register("min_entry_distance_atr", 0.5, 0.1, 3.0,
+        self._register("min_entry_distance_atr", 0.3, 0.1, 3.0,
                         "Distância mínima da última entrada em múltiplos de ATR")
         self._register("duplicate_position_distance_atr", 1.0, 0.3, 5.0,
                         "Distância mínima de posição existente na mesma direção em ATR")

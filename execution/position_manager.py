@@ -43,9 +43,11 @@ class PositionManager:
        fecha para liberar capital para o próximo strike.
     """
 
-    def __init__(self, bridge: MT5Bridge):
+    def __init__(self, bridge: MT5Bridge, on_close_callback=None):
         self.bridge = bridge
         self._positions_state = {}
+        # Callback chamado quando uma posição é fechada: fn(direction: str)
+        self._on_close_callback = on_close_callback
 
     @catch_and_log(default_return=None)
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
@@ -123,7 +125,7 @@ class PositionManager:
                         f"Pico=${state['peak_profit']:.2f} → Atual=${profit:.2f} "
                         f"(perdeu {drawdown_pct:.0%} do pico)"
                     )
-                    self.bridge.close_position(ticket)
+                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
                     continue
 
             # ═══════════════════════════════════════════════════
@@ -143,7 +145,7 @@ class PositionManager:
                         f"Profit=${profit:.2f} | Delta={flow_delta:+.0f} | "
                         f"FlowSignal={flow_signal:+.2f}"
                     )
-                    self.bridge.close_position(ticket)
+                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
                     continue
 
             # ═══════════════════════════════════════════════════
@@ -168,7 +170,7 @@ class PositionManager:
                         f"👁️ {early_exit_reason}: Ticket {ticket} | "
                         f"Profit=${profit:.2f} | Climax={climax_score:.1f}"
                     )
-                    self.bridge.close_position(ticket)
+                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
                     continue
 
             # ═══════════════════════════════════════════════════
@@ -210,20 +212,29 @@ class PositionManager:
                         f"⏰ TIME DECAY EXIT: Ticket {ticket} | "
                         f"Aberto por {elapsed_seconds:.0f}s | Profit=${profit:.2f}"
                     )
-                    self.bridge.close_position(ticket)
+                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
                     continue
                 elif profit > -10:  # Perda pequena: fecha para não piorar
                     log.omega(
                         f"⏰ TIME DECAY CUT: Ticket {ticket} | "
                         f"Aberto por {elapsed_seconds:.0f}s | Loss=${profit:.2f}"
                     )
-                    self.bridge.close_position(ticket)
+                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
                     continue
 
         # ═══ CLEANUP: Remover tickets fechados do state ═══
         closed = [t for t in self._positions_state if t not in current_tickets]
         for t in closed:
             del self._positions_state[t]
+
+    def _close_with_notify(self, ticket: int, direction: str):
+        """Fecha posição e notifica o executor para ativar post-close cooldown."""
+        self.bridge.close_position(ticket)
+        if self._on_close_callback:
+            try:
+                self._on_close_callback(direction)
+            except Exception:
+                pass  # Nunca bloquear o close por erro de callback
 
     def close_all(self):
         """Emergency Panic Mode — fecha tudo instantaneamente."""
