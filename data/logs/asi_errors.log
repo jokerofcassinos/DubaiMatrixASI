@@ -1,0 +1,385 @@
+[DubaiMatrixASI] 19:24:58.846    ERROR │ ❌ MT5 initialize falhou: (-10003, "IPC initialize failed, Process create failed 'C:\\Program Files\\FBS MetaTrader 5\terminal64.exe'")
+[DubaiMatrixASI] 19:24:58.847 CRITICAL │ ❌ FALHA NA CONEXÃO MT5 — Verifique credenciais e terminal MT5
+[DubaiMatrixASI] 20:23:20.292    ERROR │ 💀 EXCEPTION in [mutate]: AttributeError: 'OmegaParameterSpace' object has no attribute 'to_dict'
+[DubaiMatrixASI] 20:34:53.942    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:47:17.280    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:17.555    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:17.811    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:18.050    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:18.369    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:18.582    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:18.835    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:19.088    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:19.338    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:19.587    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:19.840    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:20.089    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:45.422    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:45.684    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 20:47:45.948    ERROR │ 💀 EXCEPTION in [process]: TypeError: OmegaParameterSpace.get() takes 2 positional arguments but 3 were given
+[DubaiMatrixASI] 21:15:27.219    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:27.222    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:27.247    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:27.266    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:30.011    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.039    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.041    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.043    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.044    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:30.046    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.304    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.322    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.338    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.340    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:30.342    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.541    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.543    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.545    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.546    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:30.548    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.804    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:30.823    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.839    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:30.840    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:30.842    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:31.050    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:15:31.053    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:31.054    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 21:15:31.056    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 21:15:31.058    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MarketSnapshot' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 21:17:31.389    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:34.562    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:34.801    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:35.059    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:35.304    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:35.569    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:35.813    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:36.073    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:36.329    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:36.574    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:36.830    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:36.846    ERROR │ 💀 EXCEPTION in [analyze]: KeyError: 1
+[DubaiMatrixASI] 21:17:37.080    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:37.108    ERROR │ 💀 EXCEPTION in [analyze]: KeyError: 1
+[DubaiMatrixASI] 21:17:37.342    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'MathEngine' object has no attribute 'rsi'
+[DubaiMatrixASI] 21:17:37.374    ERROR │ 💀 EXCEPTION in [analyze]: KeyError: 1
+[DubaiMatrixASI] 21:42:34.776    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:34.838    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:35.048    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:35.075    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:35.306    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:35.342    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:35.539    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:35.561    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:35.823    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:35.850    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:36.039    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:36.055    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:36.364    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:36.398    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:36.581    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:36.616    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:36.811    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:36.828    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:37.066    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:37.095    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:37.316    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:37.326    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:42:37.573    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_fractal_dimension' not found
+[DubaiMatrixASI] 21:42:37.600    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: function 'asi_cross_scale_correlation' not found
+[DubaiMatrixASI] 21:52:36.539    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:36.798    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:37.045    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:37.334    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:37.549    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:37.797    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:38.053    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:38.302    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:38.556    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:52:38.807    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:21.342    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:21.604    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:21.848    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:22.098    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:22.367    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:22.604    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 21:53:22.921    ERROR │ 💀 EXCEPTION in [analyze]: IndexError: list index out of range
+[DubaiMatrixASI] 22:08:24.082    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.86, Livre: $0.00
+[DubaiMatrixASI] 22:08:30.894    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.80, Livre: $0.00
+[DubaiMatrixASI] 22:08:33.906    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.82, Livre: $0.00
+[DubaiMatrixASI] 22:08:35.868    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.82, Livre: $0.00
+[DubaiMatrixASI] 22:08:37.033    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.82, Livre: $0.00
+[DubaiMatrixASI] 22:08:40.336    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.85, Livre: $0.00
+[DubaiMatrixASI] 22:08:41.271    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.85, Livre: $0.00
+[DubaiMatrixASI] 22:08:42.287    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.84, Livre: $0.00
+[DubaiMatrixASI] 22:08:43.724    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.84, Livre: $0.00
+[DubaiMatrixASI] 22:08:46.648    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.78, Livre: $0.00
+[DubaiMatrixASI] 22:08:47.651    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.78, Livre: $0.00
+[DubaiMatrixASI] 22:08:48.691    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.78, Livre: $0.00
+[DubaiMatrixASI] 22:08:49.709    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.78, Livre: $0.00
+[DubaiMatrixASI] 22:08:52.633    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $145.79, Livre: $0.00
+[DubaiMatrixASI] 22:09:54.431    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:09:54.432    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:09:54.434    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:09:55.426    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:09:55.427    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:09:55.428    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:09:55.429    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:09:55.430    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:09:55.431    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:09:55.431    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:09:56.353    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:09:56.441    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:09:56.687    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:09:58.199    ERROR │ 💀 EXCEPTION in [monitor_positions]: KeyError: 'price_open'
+[DubaiMatrixASI] 22:12:10.784    ERROR │ ❌ Ordem rejeitada! code=10016 comment=Invalid stops
+[DubaiMatrixASI] 22:12:10.784    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:10.785    ERROR │ ❌ Ordem rejeitada! code=10016 comment=Invalid stops
+[DubaiMatrixASI] 22:12:10.786    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:10.786    ERROR │ ❌ Ordem rejeitada! code=10016 comment=Invalid stops
+[DubaiMatrixASI] 22:12:10.787    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:10.787    ERROR │ ❌ Ordem rejeitada! code=10016 comment=Invalid stops
+[DubaiMatrixASI] 22:12:10.787    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:10.788    ERROR │ ❌ Ordem rejeitada! code=10016 comment=Invalid stops
+[DubaiMatrixASI] 22:12:10.789    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:10.789    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:41.597    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:41.598    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:41.599    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:41.600    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:41.602    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:41.602    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:42.609    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:42.610    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:42.611    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:42.612    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:42.629    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:42.638    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:44.955    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:44.981    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:44.999    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:45.000    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:45.001    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:45.002    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:46.116    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:46.116    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:46.117    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:46.118    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:46.119    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:46.119    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:49.131    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:49.152    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:49.180    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:49.185    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:49.188    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:49.188    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:51.392    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:51.393    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:51.394    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:51.395    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:51.396    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:51.397    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:52.510    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:52.512    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:52.513    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:52.514    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:52.515    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:52.515    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:54.701    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:54.702    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:54.702    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:54.703    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:54.704    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:54.705    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:55.799    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:12:55.800    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:55.801    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:55.802    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:55.803    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:12:55.804    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:12:57.145    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:12:57.169    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:12:57.179    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:12:57.180    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:47.209    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:47.210    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:47.211    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:47.212    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:47.212    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:47.213    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:18:48.229    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:48.230    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:48.231    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:48.252    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:48.269    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:48.275    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:18:49.307    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:49.308    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:49.309    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:49.310    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:49.311    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:49.311    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:18:51.348    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:51.349    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:51.350    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:51.370    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:51.389    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:51.398    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:18:53.652    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:53.659    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:53.668    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:53.669    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:53.670    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:53.671    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:18:54.595    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:18:54.596    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:18:54.597    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:18:54.598    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:18:54.599    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:18:54.599    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:01.936    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:01.937    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:01.938    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:01.939    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:01.940    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:01.940    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:02.952    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:02.953    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:02.954    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:02.955    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:02.955    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:02.956    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:03.956    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:03.957    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:03.957    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:03.958    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:03.959    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:03.960    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:07.372    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:07.373    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:07.374    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:07.375    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:07.375    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:07.376    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:08.472    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:08.473    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:08.474    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:08.475    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:08.476    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:08.477    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:09.486    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:09.487    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:09.488    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:09.489    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:09.490    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:09.490    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:14.349    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:14.350    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:14.351    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:14.352    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:14.359    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:14.374    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:15.436    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:15.437    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:15.438    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:15.439    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:15.440    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:15.440    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:16.527    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:16.528    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:16.529    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:16.530    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:16.531    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:16.531    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:20.855    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:20.856    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:20.857    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:20.858    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:20.859    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:20.860    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:24.066    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:24.067    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:24.068    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:24.069    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:24.069    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:24.070    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:26.496    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:26.497    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:26.498    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:26.498    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:26.499    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:26.500    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:29.606    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:29.607    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:29.607    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:29.608    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:29.609    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:29.610    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:32.749    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:32.750    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:32.751    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:32.752    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:32.753    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:32.753    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:35.838    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:35.839    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:35.840    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:35.841    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:35.842    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:35.843    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:38.249    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:38.250    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:38.251    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:38.252    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:38.253    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:38.253    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:39.468    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:39.470    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:39.471    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:39.472    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:39.474    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:39.474    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:41.593    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:41.594    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:41.594    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:41.595    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:41.596    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:41.596    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:43.642    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:43.661    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:43.671    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:43.677    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:43.678    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:43.679    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:46.131    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:46.141    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:46.147    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:46.148    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:46.149    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:46.150    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:19:47.220    ERROR │ ❌ Falha ao executar slot 1
+[DubaiMatrixASI] 22:19:47.244    ERROR │ ❌ Falha ao executar slot 2
+[DubaiMatrixASI] 22:19:47.253    ERROR │ ❌ Falha ao executar slot 3
+[DubaiMatrixASI] 22:19:47.254    ERROR │ ❌ Falha ao executar slot 4
+[DubaiMatrixASI] 22:19:47.255    ERROR │ ❌ Falha ao executar slot 5
+[DubaiMatrixASI] 22:19:47.255    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 22:34:23.740    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $1160.68, Livre: $587.31
+[DubaiMatrixASI] 22:53:00.669    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:00.925    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:01.206    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:01.445    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:01.677    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:01.925    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:02.193    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:02.452    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 22:53:02.722    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'valid_signals' is not defined
+[DubaiMatrixASI] 23:02:44.333    ERROR │ 💀 EXCEPTION in [simulate_trade]: IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 23:02:44.338    ERROR │ 💀 EXCEPTION in [execute]: AttributeError: 'MarketSnapshot' object has no attribute 'raw_timestamp'
+[DubaiMatrixASI] 23:05:00.368    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239028
+[DubaiMatrixASI] 23:05:00.617    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239028
+[DubaiMatrixASI] 23:05:01.130    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239018
+[DubaiMatrixASI] 23:05:01.369    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239018
+[DubaiMatrixASI] 23:05:02.638    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239018
+[DubaiMatrixASI] 23:05:02.902    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239018
+[DubaiMatrixASI] 23:05:03.152    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x0000019E59239018
+[DubaiMatrixASI] 23:14:24.237    ERROR │ 💀 EXCEPTION in [analyze_ticks]: OSError: exception: access violation reading 0x000001C53EBA0028

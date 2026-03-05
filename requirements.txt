@@ -1,0 +1,21 @@
+# ═══════════════════════════════════════════════
+# DubaiMatrixASI — Dependencies
+# Superintelligência Financial Omega-Class
+# ═══════════════════════════════════════════════
+
+# MT5 Interface
+MetaTrader5>=5.0.45
+
+# Computação Numérica
+numpy>=1.24.0
+scipy>=1.10.0
+pandas>=2.0.0
+
+# Machine Learning (para regime detection futuro)
+scikit-learn>=1.2.0
+hmmlearn>=0.3.0
+
+# Web Scraping (zero API cost)
+requests>=2.28.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
