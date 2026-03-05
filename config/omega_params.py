@@ -105,7 +105,7 @@ class OmegaParameterSpace:
                         "Score mínimo para decisão BUY")
         self._register("sell_threshold", -0.20, -0.95, -0.05,
                         "Score mínimo para decisão SELL (negativo)")
-        self._register("confidence_min", 0.65, 0.10, 0.95,
+        self._register("confidence_min", 0.60, 0.10, 0.95,
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")

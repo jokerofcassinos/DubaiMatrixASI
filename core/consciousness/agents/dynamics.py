@@ -219,7 +219,7 @@ class AggressivenessAgent(BaseAgent):
             # ─── 1. BODY-TO-RANGE RATIO (BRR) — Último candle ───
             ranges = highs - lows
             bodies = np.abs(closes - opens)
-            brr = np.where(ranges > 0, bodies / ranges, 0)
+            brr = np.divide(bodies, ranges, out=np.zeros_like(bodies), where=ranges > 0)
             current_brr = brr[-1]
 
             # ─── 2. VOLUME INTENSITY INDEX (VII) ───

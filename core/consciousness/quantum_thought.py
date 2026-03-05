@@ -79,15 +79,15 @@ class QuantumThoughtEngine:
         active_signals = [s for s in valid_signals if abs(s.signal) > 0.1]
         
         if active_signals:
+            # Pesos baseados na magnitude do sinal (mais convicção = mais peso na confiança)
+            conviction_weights = [abs(s.signal) * s.weight for s in active_signals]
             avg_confidence = float(np.average([s.confidence for s in active_signals], 
-                                             weights=[s.weight for s in active_signals]))
+                                             weights=conviction_weights))
         else:
             # Se ninguém tem convicção, a confiança é o piso dos neutros (geralmente baixa)
             avg_confidence = float(np.mean([s.confidence for s in valid_signals])) * 0.5
             
-        # log.debug(f"🧠 Quantum Logic: Total={len(valid_signals)} | Active={len(active_signals)} | Conf={avg_confidence:.2f}")
-
-        # ═══ AGREGANDO VIA C++ (BLAZING FAST) ═══
+        # ═══ 3. AGREGANDO VIA C++ (BLAZING FAST) ═══
         cpp_signals = [{"signal": s.signal, "confidence": s.confidence, "weight": s.weight} for s in valid_signals]
         buy_threshold = OMEGA.get("buy_threshold", 0.7)
         convergence_threshold = OMEGA.get("convergence_threshold", 0.75)
@@ -103,9 +103,20 @@ class QuantumThoughtEngine:
         system_entropy = cpp_result["energy"]  # Energy no C++ funciona como proxy de entropia/força
         should_collapse = cpp_result["should_collapse"]
         
+        # ═══ 5. COHERENCE BOOST & COLLAPSE POLICY ═══
+        # Se a coerência é alta (>0.7), damos um boost na confiança (Efeito Enxame)
+        if coherence > 0.70:
+            boost = (coherence - 0.70) * 0.5  # Max boost de +0.15 para coerência 1.0
+            avg_confidence = min(1.0, avg_confidence + boost)
+            
         # Override de segurança adicional (Python layer policy)
-        confidence_min_val = OMEGA.get("confidence_min", 0.3)
-        if avg_confidence < confidence_min_val * 0.8:
+        confidence_min_val = OMEGA.get("confidence_min", 0.65)
+        
+        # Se coerência > 0.85 (unanimidade), somos mais permissivos no threshold
+        if coherence > 0.85:
+            confidence_min_val *= 0.9
+            
+        if avg_confidence < confidence_min_val:
             should_collapse = False
 
         if should_collapse:

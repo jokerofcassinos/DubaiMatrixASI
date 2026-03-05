@@ -583,3 +583,4 @@
 [DubaiMatrixASI] 23:31:42.061    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
 [DubaiMatrixASI] 23:31:42.062    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
 [DubaiMatrixASI] 23:31:42.063    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:46:52.000    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'coherence' is not defined
