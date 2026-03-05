@@ -8,6 +8,7 @@
 ╚══════════════════════════════════════════════════════════════════════════════╝
 """
 
+import time
 import numpy as np
 from dataclasses import dataclass
 from typing import Optional
@@ -68,6 +69,7 @@ class TrinityCore:
         self._veto_count = 0
         self._execute_count = 0
         self.monte_carlo = QuantumMonteCarloEngine()
+        self._creation_time = time.time()
 
     @catch_and_log(default_return=None)
     def decide(self, quantum_state: QuantumState,
@@ -142,23 +144,52 @@ class TrinityCore:
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
 
-        # ═══ ADAPTIVE SPREAD/FEE VALIDATION (Phase 20) ═══
-        # A taxa real do trade (spread) não pode corroer o potencial de lucro.
+        # ═══ ADAPTIVE SPREAD/FEE VALIDATION (Phase 28) ═══
+        # A taxa real do trade (spread) não pode corroer o potencial de lucro nem dominar o ATR.
         sym_info = snapshot.symbol_info
         if sym_info:
             spread_points = sym_info.get("spread", 0)
             point_val = sym_info.get("point", 1.0)
             spread_cost_in_price = spread_points * point_val
             
+            # Validação 1: Impacto no Reward Esperado
             if reward > 0:
                 spread_impact = spread_cost_in_price / reward
-                max_impact = OMEGA.get("max_spread_reward_impact", 0.25)
+                max_impact = OMEGA.get("max_spread_reward_impact", 0.15) # Mais rígido (15%)
                 
                 if spread_impact > max_impact:
                     return self._wait(
-                        f"SPREAD_TOO_EXPENSIVE (Cost={spread_cost_in_price:.2f}, "
+                        f"SPREAD_TOO_EXPENSIVE_REWARD (Cost={spread_cost_in_price:.2f}, "
                         f"Reward={reward:.2f}, Impact={spread_impact:.1%}>{max_impact:.1%})"
                     )
+                    
+            # Validação 2: Impacto na Volatilidade/Liquidez (ATR)
+            if atr > 0:
+                spread_atr_impact = spread_cost_in_price / atr
+                max_atr_impact = OMEGA.get("max_spread_atr_impact", 0.10) # Max 10% do ATR
+                if spread_atr_impact > max_atr_impact:
+                    return self._wait(
+                        f"SPREAD_TOO_EXPENSIVE_ATR (Cost={spread_cost_in_price:.2f}, "
+                        f"ATR={atr:.2f}, Impact={spread_atr_impact:.1%}>{max_atr_impact:.1%})"
+                    )
+
+        # ═══ KINEMATIC EXHAUSTION VETO (Phase 29) ═══
+        # Proteção contra compra de topos (Liquidity Hunts) após esticada irracional
+        candles_m1 = snapshot.candles.get("M1")
+        if candles_m1 and len(candles_m1["close"]) >= 5:
+            closures = np.array(candles_m1["close"], dtype=np.float64)
+            last_close = closures[-1]
+            
+            if action == Action.BUY:
+                local_min = np.min(closures[-5:])
+                distance = last_close - local_min
+                if distance > atr * 3.0:  # 3x o ATR numa tacada
+                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > 3xATR={atr*3.0:.1f}) | TOP_HUNT_RISK")
+            elif action == Action.SELL:
+                local_max = np.max(closures[-5:])
+                distance = local_max - last_close
+                if distance > atr * 3.0:
+                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > 3xATR={atr*3.0:.1f}) | BOTTOM_HUNT_RISK")
 
         # ═══ MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
@@ -258,12 +289,18 @@ class TrinityCore:
         Sistema de veto — rejeita trades em condições de perigo.
         NÃO é paralisante: veta apenas em casos claros.
         """
-        # 1. Spread excessivo
+        # 0. Startup Cooldown (Evita trades com sistema "frio")
+        uptime = time.time() - self._creation_time
+        startup_cooldown = OMEGA.get("startup_cooldown_seconds", 120)  # Default 2 minutos
+        if uptime < startup_cooldown:
+            return f"STARTUP_COOLDOWN({uptime:.0f}s/{startup_cooldown}s)"
+
+        # 1. Spread excessivo absoluto
         if snapshot.tick:
-            max_spread = OMEGA.get("max_spread_points")
+            max_spread = OMEGA.get("max_spread_points", 5000)
             sym_info = snapshot.symbol_info
             if sym_info and sym_info.get("spread", 0) > max_spread:
-                return f"SPREAD_HIGH({sym_info['spread']}>{max_spread})"
+                return f"SPREAD_HIGH_ABSOLUTE({sym_info['spread']}>{max_spread})"
 
         # 2. Circuit breaker ativo
         if asi_state and asi_state.circuit_breaker_active:

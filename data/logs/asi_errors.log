@@ -584,3 +584,23 @@
 [DubaiMatrixASI] 23:31:42.062    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
 [DubaiMatrixASI] 23:31:42.063    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
 [DubaiMatrixASI] 23:46:52.000    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'coherence' is not defined
+[DubaiMatrixASI] 16:39:01.535    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 17:09:35.855    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:10:26.300    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:10:27.314    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:10:32.334    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:10:33.372    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:10:59.925    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:11:01.570    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:11:04.282    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:11:18.267    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 17:53:05.660    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:05.940    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:06.220    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:06.449    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:06.698    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:06.953    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:07.188    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:07.454    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:07.741    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'
+[DubaiMatrixASI] 17:53:07.989    ERROR │ 💀 EXCEPTION in [process]: AttributeError: 'dict' object has no attribute 'confidence'

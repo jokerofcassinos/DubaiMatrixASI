@@ -29,6 +29,12 @@ class MarketRegime(Enum):
     BREAKOUT_DOWN = "BREAKOUT_DOWN"
     HIGH_VOL_CHAOS = "HIGH_VOL_CHAOS"
     LOW_LIQUIDITY = "LOW_LIQUIDITY"
+    # Phase 24: High-Fidelity Micro Regimes
+    SQUEEZE_BUILDUP = "SQUEEZE_BUILDUP"
+    CREEPING_BULL = "CREEPING_BULL"
+    DRIFTING_BEAR = "DRIFTING_BEAR"
+    LIQUIDITY_HUNT = "LIQUIDITY_HUNT"
+    MEAN_REVERTING = "MEAN_REVERTING"
     UNKNOWN = "UNKNOWN"
 
 
@@ -67,6 +73,12 @@ class RegimeDetector:
         MarketRegime.BREAKOUT_DOWN:   1.5,
         MarketRegime.HIGH_VOL_CHAOS:  0.2,   # Mínimo em caos
         MarketRegime.LOW_LIQUIDITY:   0.4,   # Conservador em baixa liquidez
+        # Phase 24 Additions
+        MarketRegime.SQUEEZE_BUILDUP: 0.5,   # Preparação para o bote
+        MarketRegime.CREEPING_BULL:   1.1,   # Tendência rasteira
+        MarketRegime.DRIFTING_BEAR:   1.1,   # Sangramento lento
+        MarketRegime.LIQUIDITY_HUNT:  0.3,   # Manipulação de stops
+        MarketRegime.MEAN_REVERTING:  0.6,   # Ping-pong de algoritmos
         MarketRegime.UNKNOWN:         0.5,
     }
 
@@ -181,18 +193,6 @@ class RegimeDetector:
         if f["atr_pct"] > 3.0 and f["entropy"] > 4.5:
             return MarketRegime.HIGH_VOL_CHAOS, 0.9, "ATR_EXTREME + HIGH_ENTROPY"
 
-        # TRENDING BEAR - Prioridade Máxima Se Alinhado ou Momentum Forte
-        if f["ema_aligned_bear"] or (f["hurst"] > 0.6 and f["atr_pct"] > 1.0):
-            confidence = min(1.0, f["hurst"] * 0.6 + 0.4)
-            return MarketRegime.TRENDING_BEAR, confidence, \
-                   f"BEAR_STRUCTURE HURST={f['hurst']:.2f}"
-
-        # TRENDING BULL - Prioridade Máxima Se Alinhado ou Momentum Forte
-        if f["ema_aligned_bull"] or (f["hurst"] > 0.6 and f["atr_pct"] > 1.0):
-            confidence = min(1.0, f["hurst"] * 0.6 + 0.4)
-            return MarketRegime.TRENDING_BULL, confidence, \
-                   f"BULL_STRUCTURE HURST={f['hurst']:.2f}"
-
         # BREAKOUT — BB squeeze + volume spike
         if f["bb_width_avg"] > 0:
             squeeze_ratio = f["bb_width"] / f["bb_width_avg"]
@@ -204,10 +204,47 @@ class RegimeDetector:
                     return MarketRegime.BREAKOUT_DOWN, 0.75, \
                            f"BB_EXPAND={squeeze_ratio:.1f}x VOL={f['vol_ratio']:.1f}x"
 
+        # SQUEEZE_BUILDUP (Phase 24) — Compressão brutal pré-breakout
+        if f["bb_width_avg"] > 0 and f["bb_width"] < f["bb_width_avg"] * 0.4 and f["vol_ratio"] < 0.5:
+            return MarketRegime.SQUEEZE_BUILDUP, 0.8, \
+                   f"BB_COMPRESSION={(f['bb_width']/f['bb_width_avg']):.2f}x VOL_LOW={f['vol_ratio']:.1f}x"
+
+        # LIQUIDITY_HUNT (Phase 24) — Volatilidade monstruosa + Hurt indicando mean reversion (Caça a stops)
+        if f["atr_pct"] > 1.5 and f["hurst"] < 0.45 and f["entropy"] > 3.5:
+            return MarketRegime.LIQUIDITY_HUNT, 0.75, \
+                   f"ATR_HIGH={f['atr_pct']:.2f}% HURST={f['hurst']:.2f} (Caçador de Liquidez)"
+
+        # TRENDING BEAR - Prioridade Máxima Se Alinhado ou Momentum Forte
+        if f["ema_aligned_bear"]:
+            if f["atr_pct"] > 0.8 and f["hurst"] > 0.6:
+                confidence = min(1.0, f["hurst"] * 0.6 + 0.4)
+                return MarketRegime.TRENDING_BEAR, confidence, \
+                       f"STRONG_BEAR HURST={f['hurst']:.2f} ATR={f['atr_pct']:.2f}%"
+            elif f["atr_pct"] < 0.6 and f["hurst"] > 0.5:
+                # DRIFTING BEAR (Phase 24) - Sangramento lento
+                return MarketRegime.DRIFTING_BEAR, 0.7, \
+                       f"SLOW_BLEED HURST={f['hurst']:.2f} ATR={f['atr_pct']:.2f}%"
+
+        # TRENDING BULL - Prioridade Máxima Se Alinhado ou Momentum Forte
+        if f["ema_aligned_bull"]:
+            if f["atr_pct"] > 0.8 and f["hurst"] > 0.6:
+                confidence = min(1.0, f["hurst"] * 0.6 + 0.4)
+                return MarketRegime.TRENDING_BULL, confidence, \
+                       f"STRONG_BULL HURST={f['hurst']:.2f} ATR={f['atr_pct']:.2f}%"
+            elif f["atr_pct"] < 0.6 and f["hurst"] > 0.5:
+                # CREEPING BULL (Phase 24) - Alta lenta persistente
+                return MarketRegime.CREEPING_BULL, 0.7, \
+                       f"SLOW_GRIND HURST={f['hurst']:.2f} ATR={f['atr_pct']:.2f}%"
+
         # RANGING
-        if f["hurst"] < 0.45 and f["fractal_dim"] < 1.5:
+        if f["hurst"] < 0.45 and f["fractal_dim"] < 1.5 and f["atr_pct"] < 1.0:
             return MarketRegime.RANGING, 0.7, \
                    f"HURST={f['hurst']:.2f}:MEAN_REV FD={f['fractal_dim']:.2f}"
+
+        # MEAN_REVERTING (Phase 24) - Algoritmos Ping-Pong, Hurst Baixíssimo, ATR estagnado
+        if f["hurst"] < 0.40 and f["entropy"] < 3.0:
+            return MarketRegime.MEAN_REVERTING, 0.8, \
+                   f"PING_PONG HURST={f['hurst']:.2f} ENTROPY={f['entropy']:.2f}"
 
         # CHOPPY
         if f["fractal_dim"] > 1.6 and f["hurst"] < 0.5:
@@ -219,8 +256,8 @@ class RegimeDetector:
             return MarketRegime.LOW_LIQUIDITY, 0.6, \
                    f"VOL_LOW={f['vol_ratio']:.2f} ATR_LOW={f['atr_pct']:.2f}"
 
-        # Default
-        return MarketRegime.UNKNOWN, 0.3, "NO_CLEAR_REGIME"
+        # Default (Raro agora, mas mantido por safety)
+        return MarketRegime.UNKNOWN, 0.3, "NO_CLEAR_REGIME_FOUND"
 
     def _estimate_transition_probability(self, current: MarketRegime,
                                           features: dict) -> float:

@@ -146,6 +146,13 @@ class OmegaParameterSpace:
         self._register("chaos_regime_aggression", 0.3, 0.1, 0.8,
                         "Multiplicador de agressividade em regime caótico")
 
+        # ═══ PHASE 22 & 23: CONVICTION & SMART TP PARAMETERS ═══
+        self._register("high_conviction_multiplier", 2.0, 1.0, 5.0,
+                        "Multiplicador do Lot Size quando Coerência > 0.8 e Confiança > 0.8")
+        self._register("smart_tp_micro_reversal_buffer", 15.0, 5.0, 50.0,
+                        "Buffer de lucro ($) onde ignoramos exaustões de baixo impacto (limpa traps)")
+
+
         # ═══ AGENT WEIGHT DEFAULTS ═══
         self._register("weight_trend", 1.0, 0.1, 3.0,
                         "Peso do agente de tendência")
@@ -171,10 +178,14 @@ class OmegaParameterSpace:
         # ═══ EXECUTION PARAMETERS ═══
         self._register("max_spread_points", 5000.0, 30.0, 10000.0,
                         "Spread máximo aceito em points brutos")
-        self._register("max_spread_reward_impact", 0.25, 0.05, 0.50,
-                        "Impacto máximo do spread no TP desejado (0.25 = spread não pode comer mais de 25% do TP)")
+        self._register("max_spread_reward_impact", 0.15, 0.05, 0.50,
+                        "Impacto max do spread no lucro (0.15 = max 15% do TP devorado pelo spread)")
+        self._register("max_spread_atr_impact", 0.10, 0.02, 0.30,
+                        "Impacto max do spread na volatilidade (0.10 = max 10% do ATR)")
         self._register("entry_urgency", 0.5, 0.1, 1.0,
                         "Urgência de entrada (1.0 = market order sempre)")
+        self._register("startup_cooldown_seconds", 120.0, 10.0, 600.0,
+                        "Cooldown de imersão inicial da ASI após o boot")
 
         # ═══ ANTI-METRALHADORA PARAMETERS ═══
         self._register("entry_cooldown_seconds", 60.0, 10.0, 300.0,

@@ -96,6 +96,13 @@ class MonteCarloOutputC(ctypes.Structure):
         ("simulation_time_ms", ctypes.c_double),
     ]
 
+class HyperspaceOutputC(ctypes.Structure):
+    _fields_ = [
+        ("confidence_boost", ctypes.c_double),
+        ("expected_max_excursion", ctypes.c_double),
+        ("probability_density", ctypes.c_double),
+        ("hyperspace_time_ms", ctypes.c_double),
+    ]
 
 class CppASICore:
     """
@@ -250,6 +257,9 @@ class CppASICore:
 
         lib.asi_monte_carlo_merton.argtypes = [ctypes.POINTER(MonteCarloInputC), ctypes.POINTER(MonteCarloOutputC)]
         lib.asi_monte_carlo_merton.restype = None
+
+        lib.asi_simulate_4096_hyperspace.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(HyperspaceOutputC)]
+        lib.asi_simulate_4096_hyperspace.restype = None
 
     # ═══ HELPER: numpy array → C pointer ═══
     @staticmethod
@@ -487,6 +497,17 @@ class CppASICore:
             "var_95": out.var_95,
             "cvar_95": out.cvar_95,
             "simulation_time_ms": out.simulation_time_ms
+        }
+
+    def simulate_4096_hyperspace(self, closes: np.ndarray, current_volatility: float) -> dict:
+        closes = self._ensure_f64(closes)
+        out = HyperspaceOutputC()
+        self._lib.asi_simulate_4096_hyperspace(self._ptr(closes), len(closes), current_volatility, ctypes.byref(out))
+        return {
+            "confidence_boost": out.confidence_boost,
+            "expected_max_excursion": out.expected_max_excursion,
+            "probability_density": out.probability_density,
+            "hyperspace_time_ms": out.hyperspace_time_ms
         }
 
 

@@ -133,10 +133,17 @@ class PositionManager:
             #  Se o fluxo inverte fortemente contra a posição
             # ═══════════════════════════════════════════════════
             if profit > 2.0:  # Mínimo $2 de lucro para ativar
+                # ═══ [OMEGA INJECTION] ANTI-FRAGILE SMART TP (Phase 23) ═══
+                # Evita pular fora num pullback raso (micro-trap)
+                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 15.0)
+                
+                req_delta = 50 if profit > buffer_tp else 250
+                req_signal = 0.3 if profit > buffer_tp else 0.85
+                
                 delta_against = False
-                if is_buy and flow_delta < -50 and flow_signal < -0.3:
+                if is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
                     delta_against = True
-                elif not is_buy and flow_delta > 50 and flow_signal > 0.3:
+                elif not is_buy and flow_delta > req_delta and flow_signal > req_signal:
                     delta_against = True
 
                 if delta_against:
@@ -156,8 +163,15 @@ class PositionManager:
                 is_exhausted = exhaustion.get("detected", False)
                 is_absorbed = absorption.get("detected", False)
                 
-                # Threshold de clímax adaptativo: mais baixo com mais lucro
-                climax_threshold = 2.0 if profit > 50 else 2.5 if profit > 20 else 3.0
+                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 15.0)
+                
+                # Threshold de clímax adaptativo: mais alto quando há pouco lucro para ignorar ruído
+                if profit > 50:
+                    climax_threshold = 2.0
+                elif profit > buffer_tp:
+                    climax_threshold = 2.5
+                else:
+                    climax_threshold = 3.5  # Precisa de uma exaustão colossal para justificar TP minúsculo
                 
                 early_exit_reason = None
                 if is_buy and (is_exhausted or is_absorbed) and climax_score > climax_threshold:

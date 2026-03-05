@@ -18,4 +18,10 @@
 - **Risco:** [VERDE] Maior parte absorvida pelas correções correntes. Todavia, atesta falta da adoção de tipagens sólidas e TDD nessas raízes experimentais.
 - **Solução Proposta:** Impor rotinas de Type Checking (Mypy) nos commits automáticos da ASI.
 
-*(Atualizado: 2026-03-04. Versão: 1.0.0-omega)*
+### DÍVIDA TÉCNICA 04: Falta de Tipagem Estrita nos Sinais de Agentes (Dict vs AgentSignal) — [RESOLVIDO]
+- **Localização:** `core/consciousness/agents/meta_swarm.py` e interação com `quantum_thought.py`.
+- **Descrição:** Agentes de segunda ordem (`ConfidenceAggregatorAgent` e `ExecutionScalerAgent`) estavam retornando dicionários crus (`{"signal": 0.0, ...}`) ao invés de instâncias instanciadas e tipadas de `AgentSignal`, causando o crash letal `AttributeError: 'dict' object has no attribute 'confidence'` no motor Quântico que tentava iterar pelas propriedades dos objetos.
+- **Risco:** [RESOLVIDO] Erro sanado em 2026-03-05. A persistência de tipagem flexiva (duck typing) em zonas críticas de colapso quântico cria Single Points of Failure grotescos.
+- **Solução Futura:** Estabelecer decorators de `@validate_return_type(AgentSignal)` explícito na interface da classe base.
+
+*(Atualizado: 2026-03-05. Versão: 7.0.1-omega)*

@@ -34,6 +34,7 @@ if %ERRORLEVEL% EQU 0 (
         src\orderflow_processor.cpp ^
         src\signal_aggregator.cpp ^
         src\agent_cluster.cpp ^
+        src\hyperspace_core.cpp ^
         /Fe:..\asi_core.dll /link /LTCG
     echo ✅ Compilação MSVC concluída!
     goto :done
@@ -49,6 +50,7 @@ if %ERRORLEVEL% EQU 0 (
         src\orderflow_processor.cpp ^
         src\signal_aggregator.cpp ^
         src\agent_cluster.cpp ^
+        src\hyperspace_core.cpp ^
         -o ..\asi_core.dll
     echo ✅ Compilação G++ concluída!
     goto :done

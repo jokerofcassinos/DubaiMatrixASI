@@ -159,3 +159,17 @@ ASI_API void asi_monte_carlo_merton(const MonteCarloInput* input, MonteCarloOutp
 
 ASI_API void asi_process_raw_ticks(const TickData* ticks, int len, 
                                   double* out_cumulative_delta, double* out_vpin, double* out_entropy);
+
+// ═══════════════════════════════════════════════════════════
+//  HYPERSPACE 4096D ENGINE (Phase 25)
+// ═══════════════════════════════════════════════════════════
+
+struct HyperspaceOutput {
+    double confidence_boost;
+    double expected_max_excursion;
+    double probability_density;
+    double hyperspace_time_ms;
+};
+
+// Vórtice multidimensional: simula 4096 instâncias de caminhos e concentrações.
+ASI_API void asi_simulate_4096_hyperspace(const double* closes, int len, double current_volatility, HyperspaceOutput* output);

@@ -83,6 +83,11 @@ from core.consciousness.agents.dynamics import (
     PriceVelocityAgent, OscillationWaveAgent,
 )
 
+# Phase 26 — Meta-Swarm Agents (2)
+from core.consciousness.agents.meta_swarm import (
+    ConfidenceAggregatorAgent, ExecutionScalerAgent,
+)
+
 
 # ═══════════════════════════════════════════════════════════════
 #  NEURAL SWARM — O ENXAME COMPLETO
@@ -185,6 +190,10 @@ class NeuralSwarm:
             ExplosionDetectorAgent(weight=2.0),
             PriceVelocityAgent(weight=1.8),
             OscillationWaveAgent(weight=1.5),
+
+            # ═══ META-SWARM (Phase 26) ═══
+            ConfidenceAggregatorAgent(),
+            ExecutionScalerAgent(),
         ]
 
     def analyze(self, snapshot, orderflow_analysis: dict = None) -> List[AgentSignal]:

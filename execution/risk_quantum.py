@@ -40,7 +40,7 @@ class RiskQuantumEngine:
     @catch_and_log(default_return=0.01)
     def calculate_lot_size(self, balance: float, stop_loss_distance: float,
                            win_rate: float, avg_win: float, avg_loss: float,
-                           symbol_info: dict = None) -> float:
+                           symbol_info: dict = None, confidence: float = 0.5) -> float:
         """
         Calcula lot size ótimo usando Kelly Criterion modificado via C++.
         """
@@ -58,8 +58,18 @@ class RiskQuantumEngine:
         kelly_fraction = OMEGA.get("kelly_fraction")
         safe_kelly = kelly * kelly_fraction
 
+        # ═══ [OMEGA INJECTION] CONVICTION SIZING (Phase 22) ═══
+        if confidence >= 0.80:
+            mult = OMEGA.get("high_conviction_multiplier", 2.0)
+            safe_kelly *= mult
+            log.omega(f"🔥 HIGH CONVICTION DETECTED (Conf={confidence:.2f}). Sizing Multiplier = {mult}x")
+
         # Risco máximo por posição
         max_risk_pct = OMEGA.get("position_size_pct")
+        if confidence >= 0.80:
+            # Em altíssima convicção, podemos permitir um pouco mais do max_risk_pct global (ex: 7.5% ao invez de 5%)
+            max_risk_pct *= 1.5
+
         risk_fraction = min(safe_kelly, max_risk_pct / 100.0)
         risk_fraction = max(0.001, risk_fraction)  # Mínimo 0.1%
 

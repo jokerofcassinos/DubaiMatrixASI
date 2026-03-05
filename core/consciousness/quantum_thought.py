@@ -74,6 +74,88 @@ class QuantumThoughtEngine:
         if not valid_signals:
             return self._empty_state("NO_VALID_SIGNALS")
 
+        # ═══ [OMEGA INJECTION] QUANTUM STRUCTURAL ENTANGLEMENT (Phase 20) ═══
+        # A inércia (Momentum) é cega para a topologia (Estrutura).
+        # A Estrutura modula a inércia, asfixiando falsos rompimentos (Smart Money Traps).
+        structure_bear = any(s.agent_name in ["ChartStructureAgent", "MicrostructureAgent", "FairValueGapAgent", "LiquidityHeatmapAgent"] and s.signal < -0.5 for s in valid_signals)
+        structure_bull = any(s.agent_name in ["ChartStructureAgent", "MicrostructureAgent", "FairValueGapAgent", "LiquidityHeatmapAgent"] and s.signal > 0.5 for s in valid_signals)
+        
+        for s in valid_signals:
+            if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "BreakOfStructureAgent", "LiquidationVacuumAgent", "ExplosionDetectorAgent"]:
+                if structure_bear and s.signal > 0.4:
+                    s.weight *= 0.25  # Crush: 75% da autoridade eliminada
+                    s.reasoning += " [!WEIGHT_CRUSHED by Overhead Resistance!]"
+                elif structure_bull and s.signal < -0.4:
+                    s.weight *= 0.25  # Crush: 75% da autoridade eliminada
+                    s.reasoning += " [!WEIGHT_CRUSHED by Underlying Support!]"
+
+        # ═══ [OMEGA INJECTION] CLUSTER ENTROPY MAPPING (Phase 21) ═══
+        # Diferenciamos a entropia dos Institucionais da entropia dos Reativos Matemáticos
+        institutional_agents = {
+            "StopHunterAgent", "LiquidityHeatmapAgent", "CrossScaleConvergenceAgent",
+            "LiquidationVacuumAgent", "AggressivenessAgent", "WhaleTrackerAgent",
+            "IcebergHunterAgent", "FairValueGapAgent", "MarketStructureShiftAgent"
+        }
+        
+        inst_signals = [s for s in valid_signals if s.agent_name in institutional_agents and abs(s.signal) > 0.1]
+        math_signals = [s for s in valid_signals if s.agent_name not in institutional_agents and abs(s.signal) > 0.1]
+        
+        if len(inst_signals) >= 3 and len(math_signals) >= 5:
+            inst_bull = sum(1 for s in inst_signals if s.signal > 0)
+            inst_bear = sum(1 for s in inst_signals if s.signal < 0)
+            inst_coherence = max(inst_bull, inst_bear) / len(inst_signals)
+            
+            math_bull = sum(1 for s in math_signals if s.signal > 0)
+            math_bear = sum(1 for s in math_signals if s.signal < 0)
+            math_coherence = max(math_bull, math_bear) / len(math_signals)
+            
+            if inst_coherence > 0.75 and math_coherence < 0.60:
+                for s in inst_signals:
+                    s.weight *= 2.0  # Boost
+                    s.reasoning += " [!INSTITUTIONAL_CLARITY_BOOST!]"
+
+        # ═══ [OMEGA INJECTION] SMART MONEY TRAP VETO / INVERSION (Phase 27) ═══
+        # Retail Vende Suporte. Smart Money Compra Suporte.
+        # Se agentes do Smart Money convergirem para forte rejeição (Trap), esmagar inércia de Varejo.
+        smc_trap_bull = sum(1 for s in valid_signals if s.agent_name in ["OrderBlockAgent", "PremiumDiscountAgent", "LiquidationVacuumAgent", "SRAgent", "LiquidationSweepAgent"] and s.signal > 0.5)
+        smc_trap_bear = sum(1 for s in valid_signals if s.agent_name in ["OrderBlockAgent", "PremiumDiscountAgent", "LiquidationVacuumAgent", "SRAgent", "LiquidationSweepAgent"] and s.signal < -0.5)
+
+        if smc_trap_bull >= 2:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "SentimentFearGreedAgent", "ChartStructureAgent", "MicrostructureAgent"]:
+                    if s.signal < -0.1:
+                        s.weight *= 0.05  # Esmaga em 95% a força (Morte da heurística burra)
+                        s.reasoning += " [!TRAP_VETO: SMART MONEY BUYING SUPPORT!]"
+                        
+        if smc_trap_bear >= 2:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "SentimentFearGreedAgent", "ChartStructureAgent", "MicrostructureAgent"]:
+                    if s.signal > 0.1:
+                        s.weight *= 0.05  # Esmaga em 95% a força 
+                        s.reasoning += " [!TRAP_VETO: SMART MONEY SELLING RESISTANCE!]"
+
+        # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29) ═══
+        # Se os agentes cinéticos apontam ignição parabólica, MAS a estrutura global diverge ou é neutra.
+        aggr_bull = any(s.agent_name in ["AggressivenessAgent", "PriceVelocityAgent", "ExplosionDetectorAgent"] and s.signal > 0.8 for s in valid_signals)
+        aggr_bear = any(s.agent_name in ["AggressivenessAgent", "PriceVelocityAgent", "ExplosionDetectorAgent"] and s.signal < -0.8 for s in valid_signals)
+        
+        struct_bear = any(s.agent_name in ["ChartStructureAgent", "MarketStructureShiftAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal < -0.3 for s in valid_signals)
+        struct_bull = any(s.agent_name in ["ChartStructureAgent", "MarketStructureShiftAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal > 0.3 for s in valid_signals)
+        
+        if aggr_bull and not struct_bull:
+            for s in valid_signals:
+                if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
+                    if s.signal > 0.4:
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP: STRUCTURAL DIVERGENCE (Bull Burst vs Flat/Bear Structure)!]"
+                        
+        if aggr_bear and not struct_bear:
+            for s in valid_signals:
+                if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
+                    if s.signal < -0.4:
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP: STRUCTURAL DIVERGENCE (Bear Burst vs Flat/Bull Structure)!]"
+
         # ═══ 2. CONVICTION-WEIGHTED CONFIDENCE (Phase 19) ═══
         # Ignora agentes neutros (signal=0) para evitar diluição da confiança média.
         active_signals = [s for s in valid_signals if abs(s.signal) > 0.1]

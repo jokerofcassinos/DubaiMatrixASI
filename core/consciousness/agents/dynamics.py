@@ -279,6 +279,9 @@ class AggressivenessAgent(BaseAgent):
                 # O candle atual é fraco vs os anteriores que eram fortes
                 signal *= -0.3  # Inversion por exaustão
                 reasons.append(f"{tf}:AGGR_EXHAUSTION(BRR dropping)")
+            elif vol_intensity > 15.0:  # Phase 29: Climax de Volume Absurdo (Squeeze Trap)
+                signal *= 0.1
+                reasons.append(f"{tf}:CLIMAX_DAMPING(vol > 15x)")
 
             signals.append(float(signal))
 
@@ -563,6 +566,12 @@ class PriceVelocityAgent(BaseAgent):
         conf_bonus = 0.2 if all_same_dir and len(velocity_vectors) >= 2 else 0.0
 
         confidence = min(1.0, abs(signal) * 0.7 + 0.15 + conf_bonus)
+        
+        # Phase 29: Damping Kinemático em Acelerações Irreais (Prevenção de topo/fundo)
+        if abs(avg_velocity) > 0.3 and abs(avg_accel) > 0.2:
+            signal *= 0.3  # Corta sinal para evitar compra de pico absoluto
+            confidence *= 0.5
+            reasons.append("KINEMATIC_DAMPING(extreme velocity/accel climax)")
 
         return AgentSignal(
             self.name, float(np.clip(signal, -1, 1)),

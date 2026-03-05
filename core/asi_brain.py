@@ -10,6 +10,9 @@
 import time
 from datetime import datetime, timezone
 from typing import Optional
+import subprocess
+import socket
+import threading
 
 from market.mt5_bridge import MT5Bridge
 from market.data_engine import DataEngine, MarketSnapshot
@@ -86,6 +89,17 @@ class ASIBrain:
         self.sentiment_scraper.start()
         self.onchain_scraper.start()
         self.macro_scraper.start()
+        
+        # Iniciar Java PnLPredictor
+        self.java_daemon = None
+        try:
+            self.java_daemon = subprocess.Popen(
+                ["java", "-cp", "d:\\DubaiMatrixASI\\java\\src", "com.dubaimatrix.PnLPredictor"],
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE
+            )
+            log.omega("☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)")
+        except Exception as e:
+            log.warning(f"⚠️ Falha ao iniciar Java Daemon: {e}")
 
         log.omega(f"🧠 Neural Swarm inicializado: {len(self.neural_swarm.agents)} agentes ativos")
         log.omega("🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados")
@@ -173,6 +187,28 @@ class ASIBrain:
             self.state.save()
             OMEGA.save()
 
+        # ═══ 11. JAVA ENTERPRISE PNL PREDICTOR (Phase 25) ═══
+        if self._cycle_count % 250 == 0:
+            try:
+                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                    s.settimeout(1.0)
+                    s.connect(('127.0.0.1', 5556))
+                    
+                    win_rate = self.state.win_rate if self.state.total_trades > 10 else 0.5
+                    avg_win = max(1.0, self.state.total_profit / max(1, self.state.total_wins))
+                    avg_loss = max(1.0, abs(self.state.total_profit) / max(1, self.state.total_losses))
+                    
+                    account_balance = snapshot.account.get("balance", 0.0) if snapshot.account else 0.0
+                    msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}\n"
+                    s.sendall(msg.encode('utf-8'))
+                    
+                    resp = s.recv(1024).decode('utf-8').strip()
+                    if resp.startswith("ACK:"):
+                        prediction = resp.split("ACK:")[1]
+                        log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
+            except Exception as e:
+                log.debug(f"Pausa tática: Java PnL Predictor indisponível - {e}")
+
         # Log periódico (a cada 50 ciclos)
         if self._cycle_count % 50 == 0:
             self._log_status(result, quantum_state, regime_state)
@@ -202,6 +238,12 @@ class ASIBrain:
         self.macro_scraper.stop()
         # Parar data engine background worker
         self.data_engine.shutdown()
+        # Matar subprocesso Java (Phase 25)
+        if hasattr(self, 'java_daemon') and self.java_daemon:
+            try:
+                self.java_daemon.terminate()
+            except Exception as e:
+                pass
         # Salvar estado
         self.state.save()
         OMEGA.save()

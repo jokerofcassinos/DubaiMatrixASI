@@ -179,6 +179,7 @@ class SniperExecutor:
             avg_win=max(1.0, asi_state.total_profit / max(1, asi_state.total_wins)),
             avg_loss=max(1.0, abs(asi_state.total_profit) / max(1, asi_state.total_losses)),
             symbol_info=snapshot.symbol_info,
+            confidence=decision.confidence, # OMEGA Phase 22
         )
 
         # 3. Validação de risco
@@ -190,14 +191,29 @@ class SniperExecutor:
             log.warning(f"⚠️ Trade REJEITADO pelo Risk Engine: {reason}")
             return None
 
-        # 4. EXECUTAR! (Order Split & Margin Check)
-        max_slots = int(OMEGA.get("max_order_splits", 5))
+        # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
+        base_max_slots = int(OMEGA.get("max_order_splits", 5))
+        
+        # Hydra Logic: Multiplica os slots baseados na confiança e tipo de regime
+        if decision.confidence > 0.85:
+            # Extrema convicção (ex: gerada pelo Meta-Swarm) -> Ativar Hydra Mode
+            hydra_multiplier = 3 
+            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"]:
+                hydra_multiplier = 5 # Até 25 slots progressivos em modo demente
+                
+            max_slots = base_max_slots * hydra_multiplier
+            
+            # Libera a metralhadora temporariamente para esta vela
+            self._max_orders_per_candle = 15
+            log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 15")
+        else:
+            max_slots = base_max_slots
+            self._max_orders_per_candle = 2 # Default safety
 
         # 4.1. Pre-flight Slot Check (Evitar log spam quando limite atingido)
         from config.exchange_config import MAX_OPEN_POSITIONS
         current_positions = len(self.bridge.get_open_positions() or [])
         if current_positions + max_slots > MAX_OPEN_POSITIONS:
-            # log silencioso em nível debug para não spamar
             log.debug(f"Pausa tática: Limite de posições ({MAX_OPEN_POSITIONS}) atingiria excesso com +{max_slots} slots.")
             return None
         

@@ -18,6 +18,7 @@ add_library(asi_core SHARED
     src/orderflow_processor.cpp
     src/signal_aggregator.cpp
     src/agent_cluster.cpp
+    src/hyperspace_core.cpp
 )
 
 # Export symbols no Windows
