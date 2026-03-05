@@ -9343,3 +9343,127 @@ NameError: name 'coherence' is not defined
 [DubaiMatrixASI] 23:47:42.554     INFO │ 📈 Trades: 0
 [DubaiMatrixASI] 23:47:42.554     INFO │ 📈 Win Rate: 0.0%
 [DubaiMatrixASI] 23:47:42.554     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:48:02.399    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core.dll
+[DubaiMatrixASI] 23:48:04.053     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:48:04.054     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:48:04.054     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:48:04.055    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:48:04.055    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:48:04.056    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:48:04.056    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:48:04.056    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:48:04.057    OMEGA │ ⚡ 📅 2026-03-05T02:48:04.057209+00:00
+[DubaiMatrixASI] 23:48:04.057    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:48:04.057    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:48:04.058     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:48:04.071     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:48:04.071    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:48:04.072     INFO │    Terminal: FBS MetaTrader 5
+[DubaiMatrixASI] 23:48:04.072     INFO │    Conta: 105437713
+[DubaiMatrixASI] 23:48:04.073     INFO │    Servidor: FBS-Demo
+[DubaiMatrixASI] 23:48:04.073     INFO │    Saldo: $12232.67
+[DubaiMatrixASI] 23:48:04.073     INFO │    Leverage: 1:1000
+[DubaiMatrixASI] 23:48:04.073     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:48:04.074     INFO │    Spread: 2490 points
+[DubaiMatrixASI] 23:48:04.075    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:48:04.075     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:48:04.076    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=72476.86, Bid=72451.96
+[DubaiMatrixASI] 23:48:04.076     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:48:04.077    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:48:04.077    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:48:04.102    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:48:04.122    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:48:04.124    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:48:04.137    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos
+[DubaiMatrixASI] 23:48:04.139    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:48:04.145     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 2490, 'balance': 12232.67, 'equity': 12232.67, 'tick_buffer_size': 1, 'last_tick_ms': 1772686088091}
+[DubaiMatrixASI] 23:48:04.146    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:48:04.146    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:48:04.176    OMEGA │ ⚡ 🌊 REGIME CHANGE → TRENDING_BEAR (conf=0.75)
+[DubaiMatrixASI] 23:48:05.379    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56817)
+[DubaiMatrixASI] 23:48:05.711     INFO │ 🌍 Macro Update: ETH=$2118.29 | BTC/ETH=34.2 | Gold=$5188 | Vol24h=$172.6B | Bias=+0.200 | Sources=3
+[DubaiMatrixASI] 23:48:06.597     INFO │ ⛓️ On-Chain Update: Mempool=35,078 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:48:06.841   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.215 conf=0.72 coherence=0.71 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.215 COHERENCE=0.71 CONFIDENCE=0.72 ENTROPY=0.21 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent,AggressivenessAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.277 WP=44.7% EV=-25.72 CVaR=-353.58 sim=30.7ms]
+[DubaiMatrixASI] 23:48:06.846    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.46 (em 5 slots) price=72443.18 SL=72796.76 TP=71912.81
+[DubaiMatrixASI] 23:48:07.058    TRADE │ #1 SELL BTCUSD lot=0.69 price=72442.54 SL=72796.76 TP=71912.81 P&L=+0.00 | ticket=1580361864 deal=1430773433
+[DubaiMatrixASI] 23:48:07.060     INFO │ 📊 Sentiment Update: F&G=22 (Extreme Fear) | BTC Dom=57.4% | 24h=+6.37% | Score=-0.321 | Sources=2
+[DubaiMatrixASI] 23:48:07.060  WARNING │ ⏱️ LATENCY [send_market_order] 203.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:48:07.287    TRADE │ #2 SELL BTCUSD lot=0.69 price=72443.02 SL=72796.76 TP=71912.81 P&L=+0.00 | ticket=1580361867 deal=1430773436
+[DubaiMatrixASI] 23:48:07.308  WARNING │ ⏱️ LATENCY [send_market_order] 242.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:48:07.512    TRADE │ #3 SELL BTCUSD lot=0.69 price=72449.52 SL=72796.76 TP=71912.81 P&L=+0.00 | ticket=1580361871 deal=1430773440
+[DubaiMatrixASI] 23:48:07.529  WARNING │ ⏱️ LATENCY [send_market_order] 220.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:48:07.733    TRADE │ #4 SELL BTCUSD lot=0.69 price=72449.61 SL=72796.76 TP=71912.81 P&L=+0.00 | ticket=1580361875 deal=1430773444
+[DubaiMatrixASI] 23:48:07.743  WARNING │ ⏱️ LATENCY [send_market_order] 211.8ms (threshold: 200ms)
+[DubaiMatrixASI] 23:48:07.974    TRADE │ #5 SELL BTCUSD lot=0.70 price=72449.62 SL=72796.76 TP=71912.81 P&L=+0.00 | ticket=1580361878 deal=1430773450
+[DubaiMatrixASI] 23:48:07.986  WARNING │ ⏱️ LATENCY [send_market_order] 237.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:48:07.987    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=3.46 @ 72446.87 | 5 tickets gerados | SELL signal=-0.215 conf=0.72 coherence=0.71 regime=TRENDING_BEAR ATR=176.79 RR=1
+[DubaiMatrixASI] 23:48:07.988  WARNING │ ⏱️ LATENCY [execute] 1141.7ms (threshold: 500ms)
+[DubaiMatrixASI] 23:48:08.005  WARNING │ ⏱️ LATENCY [think] 1321.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:48:08.182   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.223 conf=0.72 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.223 COHERENCE=0.73 CONFIDENCE=0.72 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent,AggressivenessAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.260 WP=45.5% EV=-23.76 CVaR=-353.58 sim=29.3ms]
+[DubaiMatrixASI] 23:48:08.199    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (0s/60s)
+[DubaiMatrixASI] 23:48:08.477   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.213 conf=0.72 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.213 COHERENCE=0.73 CONFIDENCE=0.72 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent,AggressivenessAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.250 WP=45.3% EV=-21.40 CVaR=-353.58 sim=32.9ms]
+[DubaiMatrixASI] 23:48:08.488    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (1s/60s)
+[DubaiMatrixASI] 23:48:08.669   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.213 conf=0.72 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.213 COHERENCE=0.73 CONFIDENCE=0.72 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent,AggressivenessAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.289 WP=44.9% EV=-28.62 CVaR=-353.58 sim=29.7ms]
+[DubaiMatrixASI] 23:48:08.675    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (1s/60s)
+[DubaiMatrixASI] 23:48:08.963   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.215 conf=0.72 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.215 COHERENCE=0.73 CONFIDENCE=0.72 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent,AggressivenessAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.243 WP=45.8% EV=-20.79 CVaR=-353.58 sim=29.4ms]
+[DubaiMatrixASI] 23:48:08.980    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (1s/60s)
+[DubaiMatrixASI] 23:48:09.180   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.226 conf=0.73 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.226 COHERENCE=0.73 CONFIDENCE=0.73 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.245 WP=46.0% EV=-21.55 CVaR=-353.58 sim=34.8ms]
+[DubaiMatrixASI] 23:48:09.185    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (1s/60s)
+[DubaiMatrixASI] 23:48:09.443   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.226 conf=0.73 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.226 COHERENCE=0.73 CONFIDENCE=0.73 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.236 WP=46.2% EV=-19.95 CVaR=-353.58 sim=29.6ms]
+[DubaiMatrixASI] 23:48:09.444    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (1s/60s)
+[DubaiMatrixASI] 23:48:09.692   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.227 conf=0.73 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.227 COHERENCE=0.73 CONFIDENCE=0.73 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.267 WP=45.3% EV=-24.76 CVaR=-353.58 sim=29.3ms]
+[DubaiMatrixASI] 23:48:09.704    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (2s/60s)
+[DubaiMatrixASI] 23:48:09.941   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.227 conf=0.73 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.227 COHERENCE=0.73 CONFIDENCE=0.73 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,HarmonicResonanceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.288 WP=45.1% EV=-28.72 CVaR=-353.58 sim=30.0ms]
+[DubaiMatrixASI] 23:48:09.945    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (2s/60s)
+[DubaiMatrixASI] 23:48:10.359   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.235 conf=0.75 coherence=0.76 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.235 COHERENCE=0.76 CONFIDENCE=0.75 ENTROPY=0.21 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.271 WP=45.1% EV=-25.25 CVaR=-353.58 sim=32.2ms]
+[DubaiMatrixASI] 23:48:10.359    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (2s/60s)
+[DubaiMatrixASI] 23:48:10.512   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.211 conf=0.76 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.211 COHERENCE=0.73 CONFIDENCE=0.76 ENTROPY=0.24 COLLAPSED | BULL[StopHunterAgent,MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.266 WP=44.5% EV=-23.24 CVaR=-353.58 sim=29.9ms]
+[DubaiMatrixASI] 23:48:10.515    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (3s/60s)
+[DubaiMatrixASI] 23:48:10.787   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.211 conf=0.76 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.211 COHERENCE=0.73 CONFIDENCE=0.76 ENTROPY=0.24 COLLAPSED | BULL[StopHunterAgent,MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.245 WP=46.2% EV=-21.79 CVaR=-353.58 sim=31.3ms]
+[DubaiMatrixASI] 23:48:10.788    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (3s/60s)
+[DubaiMatrixASI] 23:48:11.019   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.211 conf=0.76 coherence=0.73 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.211 COHERENCE=0.73 CONFIDENCE=0.76 ENTROPY=0.24 COLLAPSED | BULL[StopHunterAgent,MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.233 WP=46.0% EV=-19.09 CVaR=-353.58 sim=31.1ms]
+[DubaiMatrixASI] 23:48:11.020    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (3s/60s)
+[DubaiMatrixASI] 23:48:17.826     INFO │ 💫 Cycle #50 | Action=WAIT | Signal=-0.195 | Coherence=0.72 | Regime=TRENDING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 23:48:26.983    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361864 | Pico=$16.82 → Atual=$10.05 (perdeu 40% do pico)
+[DubaiMatrixASI] 23:48:26.984    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361864 (via socket)
+[DubaiMatrixASI] 23:48:27.192     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|SUCCESS|1430773837|72427.98
+[DubaiMatrixASI] 23:48:28.472    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361867 | Pico=$17.15 → Atual=$7.02 (perdeu 59% do pico)
+[DubaiMatrixASI] 23:48:28.473    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361867 (via socket)
+[DubaiMatrixASI] 23:48:28.474    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361871 | Pico=$21.64 → Atual=$11.50 (perdeu 47% do pico)
+[DubaiMatrixASI] 23:48:28.475    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361871 (via socket)
+[DubaiMatrixASI] 23:48:28.475    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361875 | Pico=$21.70 → Atual=$11.56 (perdeu 47% do pico)
+[DubaiMatrixASI] 23:48:28.476    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361875 (via socket)
+[DubaiMatrixASI] 23:48:28.476    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361878 | Pico=$22.02 → Atual=$11.74 (perdeu 47% do pico)
+[DubaiMatrixASI] 23:48:28.477    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
+[DubaiMatrixASI] 23:48:28.687     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|SUCCESS|1430773862|72435.11
+[DubaiMatrixASI] 23:48:28.742    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361871 | Pico=$21.64 → Atual=$9.94 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:48:28.746    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361871 (via socket)
+[DubaiMatrixASI] 23:48:28.747    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361875 | Pico=$21.70 → Atual=$10.01 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:48:28.764    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361875 (via socket)
+[DubaiMatrixASI] 23:48:28.774    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361878 | Pico=$22.02 → Atual=$10.16 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:48:28.780    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
+[DubaiMatrixASI] 23:48:28.886     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|SUCCESS|1430773874|72438.34
+[DubaiMatrixASI] 23:48:28.958    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361875 | Pico=$21.70 → Atual=$7.78 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:48:28.969    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361875 (via socket)
+[DubaiMatrixASI] 23:48:28.970    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361878 | Pico=$22.02 → Atual=$7.90 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:48:28.991    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
+[DubaiMatrixASI] 23:48:29.107     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|SUCCESS|1430773877|72438.16
+[DubaiMatrixASI] 23:48:29.209    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580361878 | Pico=$22.02 → Atual=$8.02 (perdeu 64% do pico)
+[DubaiMatrixASI] 23:48:29.217    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=1580361878 (via socket)
+[DubaiMatrixASI] 23:48:29.299     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|SUCCESS|1430773883|72438.17
+[DubaiMatrixASI] 23:48:29.309     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:29.310     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:29.327     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:29.331     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:29.331     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:29.343     INFO │ 📩 Resposta EA Socket: RESULT|CLOSE|ERROR|NOT_FOUND
+[DubaiMatrixASI] 23:48:30.494     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.178 | Coherence=0.73 | Regime=TRENDING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 23:48:43.145     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=-0.158 | Coherence=0.74 | Regime=TRENDING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 23:48:52.328   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.238 conf=0.75 coherence=0.76 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.238 COHERENCE=0.76 CONFIDENCE=0.75 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,TimeWarpAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.279 WP=45.1% EV=-26.86 CVaR=-353.58 sim=31.2ms]
+[DubaiMatrixASI] 23:48:52.339    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (44s/60s)
+[DubaiMatrixASI] 23:48:52.793   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.226 conf=0.76 coherence=0.77 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.226 COHERENCE=0.77 CONFIDENCE=0.76 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,TimeWarpAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.255 WP=45.7% EV=-23.07 CVaR=-353.58 sim=43.4ms]
+[DubaiMatrixASI] 23:48:52.797    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (45s/60s)
+[DubaiMatrixASI] 23:48:52.955   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.226 conf=0.76 coherence=0.77 regime=TRENDING_BEAR ATR=176.79 RR=1.50 | Quantum: SIGNAL=-0.226 COHERENCE=0.77 CONFIDENCE=0.76 ENTROPY=0.20 COLLAPSED | BULL[MacroBiasAgent,PremiumDiscountAgent,ChartStructureAgent,CandleAnatomyAgent] BEAR[TrendAgent,MomentumAgent,MicrostructureAgent,LiquidationVacuumAgent,SentimentFearGreedAgent,GameTheoryNashAgent,CppFractalAgent,FVGAgent,BOSAgent,PriceGravityAgent,OscillationWaveAgent] NEUTRAL[VolumeAgent,VolatilityAgent,StatisticalAgent,FractalAgent,SRAgent,DivergenceAgent,TimeWarpAgent,OnChainPressureAgent,AggressivenessAgent,ExplosionDetectorAgent,PriceVelocityAgent] | MC[score=-0.266 WP=45.7% EV=-25.16 CVaR=-353.58 sim=29.4ms]
+[DubaiMatrixASI] 23:48:52.956    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (45s/60s)
+[DubaiMatrixASI] 23:48:55.986     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.098 | Coherence=0.71 | Regime=TRENDING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
