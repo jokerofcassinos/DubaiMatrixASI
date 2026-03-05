@@ -4325,3 +4325,412 @@
 [DubaiMatrixASI] 23:29:59.327    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=3.99 @ 72715.85 | 5 tickets gerados | BUY signal=+0.256 conf=0.69 coherence=0.56 regime=TRENDING_BEAR ATR=164.56 RR=1.
 [DubaiMatrixASI] 23:29:59.327  WARNING │ ⏱️ LATENCY [execute] 1109.9ms (threshold: 500ms)
 [DubaiMatrixASI] 23:29:59.329  WARNING │ ⏱️ LATENCY [think] 1274.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:30:22.800    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:30:22.801    OMEGA │ ⚡ 🧬 Gen #1: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:31:08.393    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.82 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:08.410    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.411    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.81 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:08.420    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.426    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.80 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:08.426    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.427    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.80 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:08.428    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.428    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.13 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:08.429    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.661    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$7.75 (perdeu 56% do pico)
+[DubaiMatrixASI] 23:31:08.662    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.662    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$7.74 (perdeu 56% do pico)
+[DubaiMatrixASI] 23:31:08.663    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.663    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$7.73 (perdeu 56% do pico)
+[DubaiMatrixASI] 23:31:08.664    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.664    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$7.73 (perdeu 56% do pico)
+[DubaiMatrixASI] 23:31:08.665    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.665    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$8.00 (perdeu 56% do pico)
+[DubaiMatrixASI] 23:31:08.666    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.900    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$8.16 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:31:08.906    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.907    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$8.15 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:31:08.924    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.931    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$8.14 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:31:08.937    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.944    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$8.14 (perdeu 54% do pico)
+[DubaiMatrixASI] 23:31:08.944    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:08.945    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$8.43 (perdeu 53% do pico)
+[DubaiMatrixASI] 23:31:08.946    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.141    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.78 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:09.142    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.159    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.77 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:09.161    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.169    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.75 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:09.175    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.175    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.75 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:09.176    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.176    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.09 (perdeu 44% do pico)
+[DubaiMatrixASI] 23:31:09.177    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.417    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.72 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.428    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.429    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.71 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.445    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.455    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.69 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.460    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.461    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.69 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.462    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.462    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.02 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.463    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.670    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.72 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.670    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.671    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.71 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.672    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.672    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.69 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.672    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.673    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.69 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.673    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.674    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.02 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.674    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.932    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.65 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.940    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.940    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.64 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.957    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.958    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.63 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.970    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.971    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.63 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.976    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:09.977    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.96 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:09.977    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.146    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.54 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.152    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.152    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.53 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.169    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.171    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.52 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.180    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.186    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.52 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.186    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.187    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.84 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.187    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.441    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.54 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.451    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.452    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.53 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.468    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.471    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.52 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.480    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.486    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.52 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.487    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.487    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.84 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.488    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.658    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.55 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.663    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.664    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.55 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.681    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.690    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.53 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.696    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.696    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.53 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.697    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.697    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.86 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:10.698    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.931    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.61 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:10.931    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.932    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.60 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:10.932    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.933    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.58 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:10.933    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.934    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.58 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:10.934    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:10.935    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.91 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:10.935    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:11.206    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.57 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:11.206    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:11.207    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.56 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:11.207    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:11.208    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.55 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:11.208    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:11.209    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.55 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:11.209    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:11.210    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.87 (perdeu 45% do pico)
+[DubaiMatrixASI] 23:31:11.210    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:14.487    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.92 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:14.490    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:14.491    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.91 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:14.508    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:14.509    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.90 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:14.519    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:14.524    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.90 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:14.525    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:14.526    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.34 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:14.526    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.252    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.78 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.253    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.253    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.77 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.254    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.254    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.76 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.255    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.256    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.76 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.257    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.257    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.20 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.258    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.517    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.92 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.535    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.546    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.91 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.552    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.553    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.90 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.554    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.555    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.90 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.555    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:15.556    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.34 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:15.556    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.019    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.90 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.029    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.030    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.89 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.048    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.057    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.88 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.063    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.063    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.88 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.064    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.064    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.32 | Delta=+72791541 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.065    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.503    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.64 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.504    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.504    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.63 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.505    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.505    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.62 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.506    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.507    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.62 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.507    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.508    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.05 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.508    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.766    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$13.64 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.783    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.792    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$13.63 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.798    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.799    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$13.62 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.799    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.800    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$13.62 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.801    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:16.802    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$14.05 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:16.802    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.009    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$10.88 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:17.010    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.011    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$10.87 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:17.011    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.012    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$10.86 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:17.012    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.013    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$10.86 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:17.013    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.014    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$11.22 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:17.015    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.302    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.50 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.302    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.303    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.49 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.303    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.304    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.48 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.304    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.305    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.48 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.305    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.305    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.80 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.306    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.519    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$9.52 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.519    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.520    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$9.51 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.520    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.521    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$9.49 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.521    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.522    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$9.49 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.522    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.523    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$9.82 (perdeu 46% do pico)
+[DubaiMatrixASI] 23:31:17.523    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.768    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:17.780    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.781    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:17.797    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.800    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:17.806    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.810    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:17.816    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:17.817    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.73 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:17.817    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.057    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.057    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.079    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.080    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.097    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.104    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.108    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.113    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.114    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.73 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.114    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.356    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.41 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.356    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.357    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.357    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.358    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.39 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.358    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.359    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.39 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.359    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.380    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.74 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.381    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.532    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.32 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.532    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.533    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.31 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.533    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.534    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.29 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.534    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.535    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.29 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.535    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.536    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.64 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.536    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.793    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.34 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.807    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.807    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.33 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.824    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.827    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.32 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.842    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.852    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.32 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.854    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:18.855    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.66 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:18.856    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.069    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.070    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.070    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.39 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.071    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.071    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.37 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.072    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.072    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.37 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.072    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.073    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.72 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.073    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.294    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.295    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.295    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.40 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.296    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.296    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.297    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.297    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.38 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.298    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.298    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.73 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.299    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.572    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330813 | Pico=$17.58 → Atual=$10.45 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.573    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.573    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330814 | Pico=$17.58 → Atual=$10.44 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.574    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.574    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330818 | Pico=$17.56 → Atual=$10.43 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.575    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.575    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330821 | Pico=$17.56 → Atual=$10.43 (perdeu 41% do pico)
+[DubaiMatrixASI] 23:31:19.575    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.576    OMEGA │ ⚡ 🔒 PROFIT LOCK: Ticket 1580330822 | Pico=$18.10 → Atual=$10.78 (perdeu 40% do pico)
+[DubaiMatrixASI] 23:31:19.576    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.803    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$12.85 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:19.804    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.804    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$12.85 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:19.805    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.806    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$12.83 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:19.806    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.807    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$12.83 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:19.807    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:19.808    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$13.25 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:19.808    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:20.054    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$12.85 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:20.060    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:20.060    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$12.84 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:20.077    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:20.087    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$12.82 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:20.092    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:20.093    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$12.82 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:20.094    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:20.094    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$13.24 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:20.095    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:22.869    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$18.46 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:22.870    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:22.871    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$18.45 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:22.871    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:22.872    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$18.43 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:22.873    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:22.873    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$18.43 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:22.874    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:22.874    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$19.00 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:22.875    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.083    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$18.46 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.083    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.084    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$18.46 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.085    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.085    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$18.44 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.086    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.086    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$18.44 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.087    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.088    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$19.01 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.088    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.362    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$29.10 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.371    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.371    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$29.09 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.377    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.378    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$29.07 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.379    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.380    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$29.07 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.380    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.381    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$29.93 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:23.381    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.587    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$29.35 | Delta=+78218964 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:23.587    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.588    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$29.34 | Delta=+78218964 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:23.589    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.589    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$29.33 | Delta=+78218964 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:23.590    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.590    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$29.33 | Delta=+78218964 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:23.591    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:23.591    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$30.19 | Delta=+78218964 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:23.592    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:37.747    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$84.10 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:37.747    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:37.748    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$84.09 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:37.749    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:37.749    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$84.08 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:37.750    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:37.750    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$84.08 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:37.751    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:37.751    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$86.42 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:37.752    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.008    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$84.15 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:38.011    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.012    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$84.14 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:38.028    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.034    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$84.12 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:38.038    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.044    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$84.12 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:38.044    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.045    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$86.47 | Delta=+293591096165907390885190607327790969028076408822274244258265455650891773593325234854005408683175038820300286564160806347266620740010158890212304814584827150618609892311361753734282897189371015785663940642869838541126810290540667254970689767705992622596933564261563565505885581398165375199402245750784 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:38.046    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.511    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$84.40 | Delta=+78220915 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:38.523    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.523    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$84.39 | Delta=+78220915 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:38.541    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.541    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$84.37 | Delta=+78220915 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:38.550    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.556    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$84.37 | Delta=+78220915 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:38.556    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:38.557    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$86.72 | Delta=+78220915 | FlowSignal=+0.68
+[DubaiMatrixASI] 23:31:38.558    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:41.556    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$80.69 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:41.557    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:41.557    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$80.68 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:41.558    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:41.558    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$80.67 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:41.559    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:41.559    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$80.67 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:41.581    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:41.582    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$82.92 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:41.598    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:42.057    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330813 | Profit=$80.99 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:42.058    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330813: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:42.059    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330814 | Profit=$80.99 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:42.060    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330814: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:42.060    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330818 | Profit=$80.97 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:42.061    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330818: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:42.061    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330821 | Profit=$80.97 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:42.062    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330821: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:31:42.062    OMEGA │ ⚡ 🔄 MOMENTUM REVERSAL: Ticket 1580330822 | Profit=$83.23 | Delta=+80298925373464656717322427773866993285849786975991685946127433806919332465895304943252457662814795287584565263627758610013667942693750045816000835389729716428460868937635277354870936017959568505947468543025148020035988602015626446074297467948814666258312841243788248138080022834446336 | FlowSignal=+0.70
+[DubaiMatrixASI] 23:31:42.063    ERROR │ ❌ Falha ao enviar CLOSE via tcp socket para 1580330822: 'MT5Bridge' object has no attribute '_tcp_socket'
+[DubaiMatrixASI] 23:32:20.163    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:32:20.311    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:32:20.311    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:32:20.315    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:32:20.315    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:32:20.316    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:32:20.316    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-05T02:32:20.316432+00:00

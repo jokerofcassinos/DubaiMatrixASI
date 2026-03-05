@@ -622,20 +622,45 @@ class MT5Bridge:
 
         # Inverter a ordem para fechar
         # Phase 18 Modification: Envio via Socket (Latência Zeo) em vez do Python MT5 API
-        cmd = f"CLOSE|{ticket}\n"
-        try:
-            self._tcp_socket.sendall(cmd.encode('utf-8'))
+        cmd = f"CLOSE|{ticket}"
+        if self.send_socket_command(cmd):
             log.omega(f"⚡ FAST CLOSE SINALIZADO: ticket={ticket} (via socket)")
             return {"success": True, "ticket": ticket, "action": "CLOSE_SIGNALED"}
-        except Exception as e:
-            log.error(f"❌ Falha ao enviar CLOSE via tcp socket para {ticket}: {e}")
+            
+        # Fallback MT5 API
+        log.warning(f"⚠️ Socket falhou para {ticket}. Tentando fechamento pela API Python MT5.")
+        tick = mt5.symbol_info_tick(self.symbol)
+        if not tick:
+            log.error(f"❌ Sem tick da API MT5 para fechar ticket {ticket}")
             return None
-
+            
+        type_close = mt5.ORDER_TYPE_SELL if pos.type == mt5.ORDER_TYPE_BUY else mt5.ORDER_TYPE_BUY
+        price_close = tick.bid if pos.type == mt5.ORDER_TYPE_BUY else tick.ask
+        
+        request = {
+            "action": mt5.TRADE_ACTION_DEAL,
+            "symbol": self.symbol,
+            "volume": pos.volume,
+            "type": type_close,
+            "position": ticket,
+            "price": price_close,
+            "deviation": ORDER_DEVIATION,
+            "magic": pos.magic,
+            "comment": "ASI Fallback Close",
+            "type_time": mt5.ORDER_TIME_GTC,
+            "type_filling": mt5.ORDER_FILLING_IOC,
+        }
+        
+        result = mt5.order_send(request)
+        if result is None or result.retcode != mt5.TRADE_RETCODE_DONE:
+            log.error(f"❌ Falha no fallback MT5 API para fechar {ticket}")
+            return None
+            
         profit = pos.profit
         log.trade(
             action="CLOSE", symbol=self.symbol, lot=pos.volume,
             price=result.price, profit=profit,
-            reason=f"ticket={ticket} closed"
+            reason=f"ticket={ticket} closed via API"
         )
 
         return {
