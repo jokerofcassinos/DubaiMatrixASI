@@ -4274,3 +4274,54 @@
 [DubaiMatrixASI] 23:16:07.233    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
 [DubaiMatrixASI] 23:16:07.233    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
 [DubaiMatrixASI] 23:16:07.233    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-05T02:16:07.233765+00:00
+[DubaiMatrixASI] 23:27:47.496    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core.dll
+[DubaiMatrixASI] 23:27:48.994    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:27:48.995    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:27:48.995    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:27:48.995    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:27:48.995    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:27:48.996    OMEGA │ ⚡ 📅 2026-03-05T02:27:48.996313+00:00
+[DubaiMatrixASI] 23:27:48.996    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:27:48.996    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:27:49.010    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:27:49.013    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:27:49.014    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=72665.9, Bid=72641.0
+[DubaiMatrixASI] 23:27:49.015    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:27:49.016    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:27:49.040    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:27:49.060    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:27:49.070    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:27:49.071    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 52 agentes ativos
+[DubaiMatrixASI] 23:27:49.073    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:27:49.080    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:27:49.080    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:27:49.108    OMEGA │ ⚡ 🌊 REGIME CHANGE → TRENDING_BEAR (conf=0.75)
+[DubaiMatrixASI] 23:27:50.521    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56026)
+[DubaiMatrixASI] 23:27:53.785    OMEGA │ ⚡ ⚡ EXECUTING SELL lot=3.72 (em 5 slots) price=72634.09 SL=72987.33 TP=72104.23
+[DubaiMatrixASI] 23:27:53.990    TRADE │ #1 SELL BTCUSD lot=0.74 price=72634.47 SL=72987.33 TP=72104.23 P&L=+0.00 | ticket=1580330813 deal=1430744367
+[DubaiMatrixASI] 23:27:54.007  WARNING │ ⏱️ LATENCY [send_market_order] 220.8ms (threshold: 200ms)
+[DubaiMatrixASI] 23:27:54.203    TRADE │ #2 SELL BTCUSD lot=0.74 price=72634.46 SL=72987.33 TP=72104.23 P&L=+0.00 | ticket=1580330814 deal=1430744368
+[DubaiMatrixASI] 23:27:54.223  WARNING │ ⏱️ LATENCY [send_market_order] 215.5ms (threshold: 200ms)
+[DubaiMatrixASI] 23:27:54.436    TRADE │ #3 SELL BTCUSD lot=0.74 price=72634.44 SL=72987.33 TP=72104.23 P&L=+0.00 | ticket=1580330818 deal=1430744372
+[DubaiMatrixASI] 23:27:54.437  WARNING │ ⏱️ LATENCY [send_market_order] 205.1ms (threshold: 200ms)
+[DubaiMatrixASI] 23:27:54.645    TRADE │ #4 SELL BTCUSD lot=0.74 price=72634.44 SL=72987.33 TP=72104.23 P&L=+0.00 | ticket=1580330821 deal=1430744375
+[DubaiMatrixASI] 23:27:54.667  WARNING │ ⏱️ LATENCY [send_market_order] 225.3ms (threshold: 200ms)
+[DubaiMatrixASI] 23:27:54.875    TRADE │ #5 SELL BTCUSD lot=0.76 price=72634.53 SL=72987.33 TP=72104.23 P&L=+0.00 | ticket=1580330822 deal=1430744376
+[DubaiMatrixASI] 23:27:54.892  WARNING │ ⏱️ LATENCY [send_market_order] 224.2ms (threshold: 200ms)
+[DubaiMatrixASI] 23:27:54.894    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=3.72 @ 72634.47 | 5 tickets gerados | SELL signal=-0.292 conf=0.67 coherence=0.65 regime=TRENDING_BEAR ATR=176.62 RR=1
+[DubaiMatrixASI] 23:27:54.902  WARNING │ ⏱️ LATENCY [execute] 1117.1ms (threshold: 500ms)
+[DubaiMatrixASI] 23:27:54.908  WARNING │ ⏱️ LATENCY [think] 1261.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 23:29:58.218    OMEGA │ ⚡ ⚡ EXECUTING BUY lot=3.99 (em 5 slots) price=72718.20 SL=72389.08 TP=73211.88
+[DubaiMatrixASI] 23:29:58.434    TRADE │ #6 BUY BTCUSD lot=0.80 price=72718.21 SL=72389.08 TP=73211.88 P&L=+0.00 | ticket=1580333188 deal=1430746610
+[DubaiMatrixASI] 23:29:58.437  WARNING │ ⏱️ LATENCY [send_market_order] 213.5ms (threshold: 200ms)
+[DubaiMatrixASI] 23:29:58.642    TRADE │ #7 BUY BTCUSD lot=0.80 price=72718.12 SL=72389.08 TP=73211.88 P&L=+0.00 | ticket=1580333197 deal=1430746619
+[DubaiMatrixASI] 23:29:58.648  WARNING │ ⏱️ LATENCY [send_market_order] 210.0ms (threshold: 200ms)
+[DubaiMatrixASI] 23:29:58.855    TRADE │ #8 BUY BTCUSD lot=0.80 price=72716.80 SL=72389.08 TP=73211.88 P&L=+0.00 | ticket=1580333203 deal=1430746624
+[DubaiMatrixASI] 23:29:58.871  WARNING │ ⏱️ LATENCY [send_market_order] 222.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:29:59.085    TRADE │ #9 BUY BTCUSD lot=0.80 price=72713.66 SL=72389.08 TP=73211.88 P&L=+0.00 | ticket=1580333210 deal=1430746631
+[DubaiMatrixASI] 23:29:59.086  WARNING │ ⏱️ LATENCY [send_market_order] 208.9ms (threshold: 200ms)
+[DubaiMatrixASI] 23:29:59.311    TRADE │ #10 BUY BTCUSD lot=0.79 price=72712.42 SL=72389.08 TP=73211.88 P&L=+0.00 | ticket=1580333212 deal=1430746633
+[DubaiMatrixASI] 23:29:59.321  WARNING │ ⏱️ LATENCY [send_market_order] 216.7ms (threshold: 200ms)
+[DubaiMatrixASI] 23:29:59.327    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=3.99 @ 72715.85 | 5 tickets gerados | BUY signal=+0.256 conf=0.69 coherence=0.56 regime=TRENDING_BEAR ATR=164.56 RR=1.
+[DubaiMatrixASI] 23:29:59.327  WARNING │ ⏱️ LATENCY [execute] 1109.9ms (threshold: 500ms)
+[DubaiMatrixASI] 23:29:59.329  WARNING │ ⏱️ LATENCY [think] 1274.6ms (threshold: 1000ms)

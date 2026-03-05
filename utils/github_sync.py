@@ -78,19 +78,30 @@ def github_sync():
     run_cmd(f'git commit -m "{commit_msg}"')
 
     # 3. Push para o repositório remoto (origin)
-    print("🚀 Iniciando propulsão orbital (git push origin main)...")
+    print("🚀 Iniciando propulsão orbital (git push origin)...")
     
-    # Pode ser necessário adaptar "main" para o nome correto da branch (master ou main)
     # Pegar o nome da branch atual:
-    branch = run_cmd("git rev-parse --abbrev-ref HEAD")
-    
     try:
+        branch = run_cmd("git rev-parse --abbrev-ref HEAD")
+    except Exception:
+        branch = "main"
+        
+    try:
+        # Check if remote exists
+        remotes = subprocess.run("git remote -v", shell=True, capture_output=True, text=True).stdout
+        if "origin" not in remotes:
+            print("\n⚠️ [ALERTA DE SISTEMA] Repositório remoto 'origin' não configurado.")
+            print("Para completar a sincronização orbital, execute no terminal:")
+            print("  git remote add origin <URL_DO_SEU_REPOSITORIO_GITHUB>")
+            print("  git push -u origin main")
+            print("✅ Commit OMEGA forjado localmente com sucesso. Aguardando link de uplink.")
+            return
+
         run_cmd(f"git push origin {branch}")
         print("\n✅ Sincronização OMEGA concluída com sucesso absoluto. O código é imortal.")
     except Exception as e:
         print(f"\n❌ Falha na propulsão orbital: {e}")
-        print("❗ DICA: Verifique se o remote origin está configurado: git remote -v")
-        print("❗ DICA: Se for o primeiro push, certifique-se que fez git remote add origin <URL>")
+        print("❗ DICA: Verifique se o remote origin está configurado corretamente: git remote -v")
 
 if __name__ == "__main__":
     github_sync()
