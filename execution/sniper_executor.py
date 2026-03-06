@@ -181,6 +181,7 @@ class SniperExecutor:
             symbol_info=snapshot.symbol_info,
             confidence=decision.confidence, # OMEGA Phase 22
             asi_state=asi_state,
+            snapshot=snapshot,
         )
 
         # 3. Validação de risco

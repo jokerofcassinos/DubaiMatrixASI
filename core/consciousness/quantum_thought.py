@@ -121,16 +121,55 @@ class QuantumThoughtEngine:
         freight_train_bear = any(s.agent_name in ["PriceVelocityAgent", "AggressivenessAgent", "MomentumAgent"] and s.signal < -0.85 for s in valid_signals)
         
         if freight_train_bull:
+            # PHASE 40: Elasticity Sovereignty (Trem-Bala não atropela Elástico Esticado)
+            extreme_tension_bear = any(s.agent_name in ["PremiumDiscountAgent", "PriceGravityAgent"] and s.signal < -0.8 for s in valid_signals)
+            
+            # PHASE 45: Liquidity Hunt Detection (Bullish Expansion in Bear Regime)
+            # Se estamos subindo forte para limpar liquidez (Vacuum/Explosion), esmagamos qualquer sinal Bear local.
+            liquidity_hunt_bull = any(s.agent_name in ["LiquidationVacuumAgent", "ExplosionDetectorAgent"] and s.signal > 0.7 for s in valid_signals)
+
             for s in valid_signals:
                 if s.agent_name in ["SRAgent", "PremiumDiscountAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal < -0.3:
-                    s.weight *= 0.1
-                    s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN PIERCING RESISTANCE!]"
+                    if extreme_tension_bear:
+                        s.weight *= 2.0  # Boost: A estrutura é a última linha de defesa
+                        s.reasoning += " [!SOVEREIGN_IMMUNITY: ELASTICITY OVERRIDES FREIGHT TRAIN!]"
+                    else:
+                        s.weight *= 0.05 # Esmagado: Em caça à liquidez, a resistência vira papel.
+                        s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN PIERCING RESISTANCE!]"
+                
+                # VETO TOTAL sobre agentes Bear durante Trem-Bala de Alta
+                if s.signal < -0.2:
+                    if liquidity_hunt_bull:
+                        s.weight *= 0.01  # Aniquilação total do sinal oposto
+                        s.reasoning += " [!TRAP_VETO: LIQUIDITY HUNT UNSTOPPABLE BULL MOMENTUM!]"
+                    else:
+                        s.weight *= 0.1
+                        s.reasoning += " [!WEIGHT_DAMPENED: AGAINST FREIGHT TRAIN!]"
                     
         if freight_train_bear:
+            # PHASE 40: Elasticity Sovereignty
+            extreme_tension_bull = any(s.agent_name in ["PremiumDiscountAgent", "PriceGravityAgent"] and s.signal > 0.8 for s in valid_signals)
+            
+            # PHASE 45: Liquidity Hunt Detection (Bearish Expansion)
+            liquidity_hunt_bear = any(s.agent_name in ["LiquidationVacuumAgent", "ExplosionDetectorAgent"] and s.signal < -0.7 for s in valid_signals)
+
             for s in valid_signals:
                 if s.agent_name in ["SRAgent", "PremiumDiscountAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal > 0.3:
-                    s.weight *= 0.1
-                    s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN SHATTERING SUPPORT!]"
+                    if extreme_tension_bull:
+                        s.weight *= 2.0  # Boost
+                        s.reasoning += " [!SOVEREIGN_IMMUNITY: ELASTICITY OVERRIDES FREIGHT TRAIN!]"
+                    else:
+                        s.weight *= 0.05
+                        s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN SHATTERING SUPPORT!]"
+
+                # VETO TOTAL sobre agentes Bull durante Trem-Bala de Baixa
+                if s.signal > 0.2:
+                    if liquidity_hunt_bear:
+                        s.weight *= 0.01
+                        s.reasoning += " [!TRAP_VETO: LIQUIDITY HUNT UNSTOPPABLE BEAR MOMENTUM!]"
+                    else:
+                        s.weight *= 0.1
+                        s.reasoning += " [!WEIGHT_DAMPENED: AGAINST FREIGHT TRAIN!]"
 
 
         # ═══ [OMEGA INJECTION] SMART MONEY TRAP VETO / INVERSION (Phase 27) ═══

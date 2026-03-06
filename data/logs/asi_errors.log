@@ -63,3 +63,11 @@
 [DubaiMatrixASI] 11:04:53.980    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
 [DubaiMatrixASI] 11:04:53.987    ERROR │ ❌ Falha ao executar slot 20
 [DubaiMatrixASI] 12:02:01.258    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'asi_state' is not defined
+[DubaiMatrixASI] 12:27:54.102    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 12:55:04.431    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 12:55:04.449    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 12:55:04.450    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 12:55:04.460    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 13:19:24.074    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 13:19:24.352    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 13:19:25.141    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined

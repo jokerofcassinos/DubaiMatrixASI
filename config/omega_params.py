@@ -105,7 +105,7 @@ class OmegaParameterSpace:
                         "Score mínimo para decisão BUY")
         self._register("sell_threshold", -0.20, -0.95, -0.05,
                         "Score mínimo para decisão SELL (negativo)")
-        self._register("confidence_min", 0.60, 0.10, 0.95,
+        self._register("confidence_min", 0.70, 0.10, 0.95,
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
@@ -198,6 +198,12 @@ class OmegaParameterSpace:
                         "Máximo de slots por execução")
         self._register("kinematic_exhaustion_atr_mult", 1.8, 1.0, 3.5,
                         "Distância máxima de estiramento em 5 velas antes da reversão")
+
+        # ═══ PHASE 40: ZERO-DRAWDOWN CITADEL ═══
+        self._register("exposure_ceiling_balance_ratio", 500.0, 100.0, 5000.0,
+                        "Ratio de balanço por lote (ex: 500 = 1 lot a cada $500).")
+        self._register("v_reversal_atr_multiplier", 3.0, 2.0, 6.0,
+                        "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

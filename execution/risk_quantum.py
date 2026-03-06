@@ -41,7 +41,7 @@ class RiskQuantumEngine:
     def calculate_lot_size(self, balance: float, stop_loss_distance: float,
                            win_rate: float, avg_win: float, avg_loss: float,
                            symbol_info: dict = None, confidence: float = 0.5,
-                           asi_state: ASIState = None) -> float:
+                           asi_state: ASIState = None, snapshot = None) -> float:
         """
         Calcula lot size ótimo usando Kelly Criterion modificado via C++.
         """
@@ -96,7 +96,20 @@ class RiskQuantumEngine:
 
         risk_fraction = max(0.001, risk_fraction)  # Mínimo 0.1%
 
-        # Calcular lot size final usando C++ Core
+        # ═══ [OMEGA INJECTION] PHASE 40: ZERO-DRAWDOWN CITADEL (Exposure Capping) ═══
+        # 1. V-Reversal Guard (Climax Damping)
+        # Se o snapshot tiver ATR e candles, verificar se o movimento atual é um "blow-off"
+        # snapshot.indicators.get('M1_atr_14')
+        atr_m1 = snapshot.indicators.get("M1_atr_14") if hasattr(snapshot, 'indicators') else None
+        if atr_m1 is not None and len(atr_m1) > 0:
+            avg_atr = np.mean(atr_m1[-14:])
+            curr_atr = atr_m1[-1]
+            v_reversal_mult = OMEGA.get("v_reversal_atr_multiplier", 3.5)
+            if curr_atr > avg_atr * v_reversal_mult: # Climax detectado
+                risk_fraction *= 0.1 # Reduz risco em 90%
+                log.warning(f"🛡️ V-REVERSAL GUARD: ATR Climax detectado ({curr_atr:.2f} > {v_reversal_mult}x {avg_atr:.2f}). Esmagando risco.")
+
+        # 2. Calcular lot size usando C++ Core
         point_value = 1.0  # Default para BTC
         if symbol_info:
             contract_size = symbol_info.get("trade_contract_size", 1)
@@ -110,6 +123,15 @@ class RiskQuantumEngine:
             sl_distance=stop_loss_distance,
             point_value=point_value
         )
+
+        # 3. PHASE 40: Hard Exposure Ceiling
+        # $30k account -> Max 15.0 lots (Safety ratio: 2000 units of balance per lot)
+        # Isso garante que mesmo em Total War, não batemos 100 lotes que liquidam com 0.4% de variação.
+        exposure_ratio = OMEGA.get("exposure_ceiling_balance_ratio", 2000.0)
+        max_safe_lots = balance / max(500.0, exposure_ratio) 
+        if lot_size > max_safe_lots:
+            log.omega(f"🛡️ EXPOSURE CEILING: Lote {lot_size:.2f} excedeu teto de segurança {max_safe_lots:.2f}. Limitando.")
+            lot_size = max_safe_lots
 
         # Arredondar para step e clamp (segurança extra local)
         lot_size = round(lot_size / LOT_STEP) * LOT_STEP
