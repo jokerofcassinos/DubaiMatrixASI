@@ -25,6 +25,8 @@
 - **Freight Train Override (Phase 30)**: Detecta momentum parabólico e desarma vetores de "Smart Money Trap" para não lutar contra a avalanche.
 - **Elastic Snapback Veto (Phase 33)**: Sensor de tensão multivariável que asfixia Trend/Momentum no fim do elástico estatístico, evitando bottom-selling.
 - **Dead Cat Bounce Protection (Phase 32)**: Filtro de divergência Macro vs Micro que impede compra de repiques em tendências de baixa dominantes.
+- **Maximum Margin Extraction (MME - Phase 37)**: Auto-scaling de lotes para máxima utilização da margem disponível sem rejeição de ordens.
+- **Total War Protocol (Phase 38)**: Escalonamento de risco agressivo (30% / 50% / 95%) baseado em níveis de confiança agressivos (>0.65).
 - **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
 
 ### 2B. SIMULAÇÃO QUANTUM MONTE CARLO & PNL PREDICTION (Phase 8 e 25)

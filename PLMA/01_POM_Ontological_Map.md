@@ -48,4 +48,4 @@
 - O sistema subentende latência inferior a "ticks rate" (sub-milissegundo para os cálculos neurais), utilizando o `CONSCIOUSNESS_CYCLE_MS` para não asfixiar o CPU indevidamente se necessário.
 - Paradigma multi-agentes: Cada arquivo sob `core` atua como subsistema dotado de capacidade de auto relato, fornecendo `metrics` unificadas ao Brain.
 
-*(Atualizado: 2026-03-06. Versão: 3.2.0-omega+shield — Phase 34 Integration)*
+*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war — Phase 38 Victory)*

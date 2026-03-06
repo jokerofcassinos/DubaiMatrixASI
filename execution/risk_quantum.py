@@ -13,7 +13,7 @@ from config.omega_params import OMEGA
 from config.settings import (
     RISK_MAX_DAILY_LOSS_PCT, RISK_MAX_DRAWDOWN_PCT,
     RISK_CIRCUIT_BREAKER_PAUSE_MIN, RISK_MAX_CONSECUTIVE_LOSSES,
-    RISK_MAX_POSITION_PCT
+    RISK_MAX_POSITION_PCT, ASIState
 )
 from config.exchange_config import MIN_LOT_SIZE, MAX_LOT_SIZE, LOT_STEP
 from utils.math_tools import MathEngine
@@ -40,7 +40,8 @@ class RiskQuantumEngine:
     @catch_and_log(default_return=0.01)
     def calculate_lot_size(self, balance: float, stop_loss_distance: float,
                            win_rate: float, avg_win: float, avg_loss: float,
-                           symbol_info: dict = None, confidence: float = 0.5) -> float:
+                           symbol_info: dict = None, confidence: float = 0.5,
+                           asi_state: ASIState = None) -> float:
         """
         Calcula lot size ótimo usando Kelly Criterion modificado via C++.
         """
@@ -74,7 +75,13 @@ class RiskQuantumEngine:
         
         # ═══ [OMEGA INJECTION] TOTAL WAR: TIERED AGGRESSION FLOOR (Phase 38) ═══
         if balance >= 5000.0:
-            if confidence >= 0.85:
+            # PHASE 39: Capital Preservation Guard (Lock 70% of Peak)
+            if asi_state and balance < asi_state.peak_balance * 0.70:
+                risk_fraction *= 0.25 # Corta risco em 75%
+                confidence *= 0.50    # Reduz percepção de convicção
+                log.warning(f"⚠️ CAPITAL PRESERVATION ACTIVE: Balanço (${balance:.2f}) abaixo do reservado (${asi_state.peak_balance*0.7:.2f}). Reduzindo agressividade.")
+            
+            elif confidence >= 0.85:
                 # ALL-IN TÁTICO: Forçar 95% da margem livre (via MME no executor)
                 risk_fraction = max(risk_fraction, 0.95)
                 log.omega(f"🔱 ALL-IN TÁTICO: Confidence {confidence:.2f} >= 0.85 | Forçando Risk = 95%")

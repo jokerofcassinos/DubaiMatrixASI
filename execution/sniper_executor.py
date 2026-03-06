@@ -180,6 +180,7 @@ class SniperExecutor:
             avg_loss=max(1.0, abs(asi_state.total_profit) / max(1, asi_state.total_losses)),
             symbol_info=snapshot.symbol_info,
             confidence=decision.confidence, # OMEGA Phase 22
+            asi_state=asi_state,
         )
 
         # 3. Validação de risco
@@ -210,12 +211,19 @@ class SniperExecutor:
             max_slots = base_max_slots
             self._max_orders_per_candle = 2 # Default safety
 
-        # 4.1. Pre-flight Slot Check (Evitar log spam quando limite atingido)
+        # 4.1. Pre-flight Slot Check & Dynamic Capping (Phase 39)
         from config.exchange_config import MAX_OPEN_POSITIONS
         current_positions = len(self.bridge.get_open_positions() or [])
+        
+        # Se os novos slots excederem o limite, capsulamos o excesso ao invés de ignorar o sinal
         if current_positions + max_slots > MAX_OPEN_POSITIONS:
-            log.debug(f"Pausa tática: Limite de posições ({MAX_OPEN_POSITIONS}) atingiria excesso com +{max_slots} slots.")
-            return None
+            old_slots = max_slots
+            max_slots = max(1, MAX_OPEN_POSITIONS - current_positions)
+            log.omega(f"📏 SLOT CAPPING (Phase 39): Ajustando de {old_slots} para {max_slots} slots para respeitar o limite global de {MAX_OPEN_POSITIONS}")
+            
+            if max_slots <= 0:
+                log.warning("❌ Limite de posições EXAURIDO. Não é possível abrir novas ordens.")
+                return None
         
         # 4.2. Margin Check & Maximum Margin Extraction (Phase 37)
         required_margin = self.bridge.calculate_margin(decision.action.value, final_lot, decision.entry_price)

@@ -27,3 +27,39 @@
 [DubaiMatrixASI] 10:23:13.388    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $13985.08, Livre: $7535.23
 [DubaiMatrixASI] 10:23:13.664    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $13985.00, Livre: $7535.23
 [DubaiMatrixASI] 10:23:13.873    ERROR │ ❌ MARGEM INSUFICIENTE. Req: $13985.15, Livre: $7535.23
+[DubaiMatrixASI] 10:32:52.491    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:32:52.509    ERROR │ ❌ Falha ao executar slot 18
+[DubaiMatrixASI] 10:32:52.510    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:32:52.521    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 10:32:52.526    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:32:52.527    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 10:34:49.568    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:34:49.570    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 10:36:47.376    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:36:47.377    ERROR │ ❌ Falha ao executar slot 18
+[DubaiMatrixASI] 10:36:47.382    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:36:47.383    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 10:36:47.383    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:36:47.384    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 10:40:52.542    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 10:50:21.995    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:50:21.995    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 10:50:21.996    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:50:21.996    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 10:53:04.604    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:53:04.605    ERROR │ ❌ Falha ao executar slot 18
+[DubaiMatrixASI] 10:53:04.605    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:53:04.606    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 10:53:04.606    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:53:04.607    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 10:55:45.442    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:55:45.447    ERROR │ ❌ Falha ao executar slot 18
+[DubaiMatrixASI] 10:55:45.448    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:55:45.448    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 10:55:45.449    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 10:55:45.449    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 11:04:53.953    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 11:04:53.976    ERROR │ ❌ Falha ao executar slot 19
+[DubaiMatrixASI] 11:04:53.980    ERROR │ ❌ Ordem rejeitada! code=10019 comment=No money
+[DubaiMatrixASI] 11:04:53.987    ERROR │ ❌ Falha ao executar slot 20
+[DubaiMatrixASI] 12:02:01.258    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'asi_state' is not defined
