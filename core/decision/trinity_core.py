@@ -155,7 +155,7 @@ class TrinityCore:
             # Validação 1: Impacto no Reward Esperado
             if reward > 0:
                 spread_impact = spread_cost_in_price / reward
-                max_impact = OMEGA.get("max_spread_reward_impact", 0.15) # Mais rígido (15%)
+                max_impact = OMEGA.get("max_spread_reward_impact", 0.25)
                 
                 if spread_impact > max_impact:
                     return self._wait(
@@ -166,30 +166,32 @@ class TrinityCore:
             # Validação 2: Impacto na Volatilidade/Liquidez (ATR)
             if atr > 0:
                 spread_atr_impact = spread_cost_in_price / atr
-                max_atr_impact = OMEGA.get("max_spread_atr_impact", 0.10) # Max 10% do ATR
+                max_atr_impact = OMEGA.get("max_spread_atr_impact", 0.25)
                 if spread_atr_impact > max_atr_impact:
                     return self._wait(
                         f"SPREAD_TOO_EXPENSIVE_ATR (Cost={spread_cost_in_price:.2f}, "
                         f"ATR={atr:.2f}, Impact={spread_atr_impact:.1%}>{max_atr_impact:.1%})"
                     )
 
-        # ═══ KINEMATIC EXHAUSTION VETO (Phase 29) ═══
+        # ═══ KINEMATIC EXHAUSTION VETO (Phase 29 + 30) ═══
         # Proteção contra compra de topos (Liquidity Hunts) após esticada irracional
         candles_m1 = snapshot.candles.get("M1")
         if candles_m1 and len(candles_m1["close"]) >= 5:
             closures = np.array(candles_m1["close"], dtype=np.float64)
             last_close = closures[-1]
             
+            kinematic_atr_mult = OMEGA.get("kinematic_exhaustion_atr_mult", 1.8)
+            
             if action == Action.BUY:
                 local_min = np.min(closures[-5:])
                 distance = last_close - local_min
-                if distance > atr * 3.0:  # 3x o ATR numa tacada
-                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > 3xATR={atr*3.0:.1f}) | TOP_HUNT_RISK")
+                if distance > atr * kinematic_atr_mult:  
+                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr*kinematic_atr_mult:.1f}) | TOP_HUNT_RISK")
             elif action == Action.SELL:
                 local_max = np.max(closures[-5:])
                 distance = local_max - last_close
-                if distance > atr * 3.0:
-                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > 3xATR={atr*3.0:.1f}) | BOTTOM_HUNT_RISK")
+                if distance > atr * kinematic_atr_mult:
+                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr*kinematic_atr_mult:.1f}) | BOTTOM_HUNT_RISK")
 
         # ═══ MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade

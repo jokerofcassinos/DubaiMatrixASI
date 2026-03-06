@@ -75,7 +75,7 @@ TRINITY_CONFIDENCE_MIN = 0.80    # Confiança mínima para executar qualquer tra
 # ═══════════════════════════════════════════════════════════════
 #  RISK MANAGEMENT
 # ═══════════════════════════════════════════════════════════════
-RISK_MAX_POSITION_PCT = 0.5      # % máximo do saldo por posição (10% max spread em 20 slots)
+RISK_MAX_POSITION_PCT = 25.0     # % máximo do saldo por posição (Antes 0.5% - Destravado para Overload)
 RISK_MAX_DAILY_LOSS_PCT = 50.0   # % máximo de perda diária antes de circuit breaker
 RISK_MAX_DRAWDOWN_PCT = 50.0     # % máximo de drawdown total
 RISK_KELLY_FRACTION = 0.25       # Fração do Kelly Criterion (quarter-Kelly para segurança)
@@ -107,8 +107,8 @@ EVOLUTION_BOUNDS = {
     "TRINITY_BUY_THRESHOLD":       (0.50, 0.95),
     "TRINITY_SELL_THRESHOLD":      (-0.95, -0.50),
     "TRINITY_CONFIDENCE_MIN":      (0.60, 0.95),
-    "RISK_MAX_POSITION_PCT":       (0.5, 5.0),
-    "RISK_KELLY_FRACTION":         (0.10, 0.50),
+    "RISK_MAX_POSITION_PCT":       (0.5, 50.0),
+    "RISK_KELLY_FRACTION":         (0.10, 1.00),
     "SWARM_CONVERGENCE_THRESHOLD": (0.50, 0.95),
     "QUANTUM_COLLAPSE_THRESHOLD":  (0.60, 0.95),
     "EXECUTION_MAX_SPREAD_POINTS": (30, 200),

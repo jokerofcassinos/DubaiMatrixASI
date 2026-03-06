@@ -66,11 +66,27 @@ class RiskQuantumEngine:
 
         # Risco máximo por posição
         max_risk_pct = OMEGA.get("position_size_pct")
-        if confidence >= 0.80:
-            # Em altíssima convicção, podemos permitir um pouco mais do max_risk_pct global (ex: 7.5% ao invez de 5%)
-            max_risk_pct *= 1.5
+        if confidence >= 0.70:
+            # PHASE 35.1: Em alta convicção, dobramos o teto (ex: 12% * 2.0 = 24%)
+            max_risk_pct *= 2.0
 
         risk_fraction = min(safe_kelly, max_risk_pct / 100.0)
+        
+        # ═══ [OMEGA INJECTION] TOTAL WAR: TIERED AGGRESSION FLOOR (Phase 38) ═══
+        if balance >= 5000.0:
+            if confidence >= 0.85:
+                # ALL-IN TÁTICO: Forçar 95% da margem livre (via MME no executor)
+                risk_fraction = max(risk_fraction, 0.95)
+                log.omega(f"🔱 ALL-IN TÁTICO: Confidence {confidence:.2f} >= 0.85 | Forçando Risk = 95%")
+            elif confidence >= 0.75:
+                # AGRESSÃO EXTREMA: Mínimo 50% de risco
+                risk_fraction = max(risk_fraction, 0.50)
+                log.omega(f"⚔️ AGRESSÃO EXTREMA: Confidence {confidence:.2f} >= 0.75 | Forçando Risk = 50%")
+            elif confidence >= 0.65:
+                # BATTERING RAM: Mínimo 30% de risco
+                risk_fraction = max(risk_fraction, 0.30)
+                log.omega(f"🔥 BATTERING RAM: Confidence {confidence:.2f} >= 0.65 | Forçando Risk = 30%")
+
         risk_fraction = max(0.001, risk_fraction)  # Mínimo 0.1%
 
         # Calcular lot size final usando C++ Core

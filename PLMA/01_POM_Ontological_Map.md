@@ -21,7 +21,7 @@
 - **`core/consciousness/neural_swarm.py (NeuralSwarm)`**: Arquitetura Master. Instancia 52 neurônios interdimensionais (Classic, Omega, Predator, Chaos, Global Macro, Whale, Physics, Kinematics, Behavioral, Game Theory, SMC/ICT, Phase 17: ChartStructure & CandleAnatomy, **Phase 19: Market Dynamics**). Implementa execução concorrente via `ThreadPoolExecutor`, mitigando gargalos sequenciais I/O-bound e NumPy.
 - **`core/consciousness/quantum_thought.py (QuantumThoughtEngine)`**: Aglutinador de multiversos. Colapsa a superposição dos agentes num vetor numérico.
 - **`core/consciousness/regime_detector.py (RegimeDetector)`**: Visão macro-cibernética sobre onde o mercado se encontra (Choppy, Trend, Squeeze, etc).
-- **`core/decision/trinity_core.py (TrinityCore)`**: Veredicto final de Ação (BUY, SELL, WAIT) ouvetando a agressividade dependendo do estado global do sistema. Integra Monte Carlo validation antes de cada trade.
+- **`core/decision/trinity_core.py (TrinityCore)`**: Veredicto final de Ação (BUY, SELL, WAIT) ouvetando a agressividade dependendo do estado global do sistema. Integra Monte Carlo validation e **Adaptive Kinematic/Spread Vetoes** (Phase 30).
 
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
 - **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. Gera 5000 universos paralelos de trajetórias de preço usando Merton Jump-Diffusion. Atualmente offloaded para C++ (Phase 18) com ganho de +100ms no loop cognitivo, calculando Win Probability, Expected Value, CVaR, VaR, e Sharpe ratio.
@@ -48,4 +48,4 @@
 - O sistema subentende latência inferior a "ticks rate" (sub-milissegundo para os cálculos neurais), utilizando o `CONSCIOUSNESS_CYCLE_MS` para não asfixiar o CPU indevidamente se necessário.
 - Paradigma multi-agentes: Cada arquivo sob `core` atua como subsistema dotado de capacidade de auto relato, fornecendo `metrics` unificadas ao Brain.
 
-*(Atualizado: 2026-03-04. Versão: 2.3.0-omega+cpp — Phase 19 Integration)*
+*(Atualizado: 2026-03-06. Versão: 3.2.0-omega+shield — Phase 34 Integration)*

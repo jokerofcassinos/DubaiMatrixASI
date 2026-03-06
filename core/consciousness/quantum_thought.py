@@ -114,25 +114,47 @@ class QuantumThoughtEngine:
                     s.weight *= 2.0  # Boost
                     s.reasoning += " [!INSTITUTIONAL_CLARITY_BOOST!]"
 
+        # ═══ [OMEGA INJECTION] PHASE 30: FREIGHT TRAIN OVERRIDE ═══
+        # Se a velocidade cinética e a agressividade formam um "Trem-Bala",
+        # a barreira do Smart Money e o suporte/resistência viram vidro (Glass Support).
+        freight_train_bull = any(s.agent_name in ["PriceVelocityAgent", "AggressivenessAgent", "MomentumAgent"] and s.signal > 0.85 for s in valid_signals)
+        freight_train_bear = any(s.agent_name in ["PriceVelocityAgent", "AggressivenessAgent", "MomentumAgent"] and s.signal < -0.85 for s in valid_signals)
+        
+        if freight_train_bull:
+            for s in valid_signals:
+                if s.agent_name in ["SRAgent", "PremiumDiscountAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal < -0.3:
+                    s.weight *= 0.1
+                    s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN PIERCING RESISTANCE!]"
+                    
+        if freight_train_bear:
+            for s in valid_signals:
+                if s.agent_name in ["SRAgent", "PremiumDiscountAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal > 0.3:
+                    s.weight *= 0.1
+                    s.reasoning += " [!WEIGHT_CRUSHED: FREIGHT TRAIN SHATTERING SUPPORT!]"
+
+
         # ═══ [OMEGA INJECTION] SMART MONEY TRAP VETO / INVERSION (Phase 27) ═══
         # Retail Vende Suporte. Smart Money Compra Suporte.
         # Se agentes do Smart Money convergirem para forte rejeição (Trap), esmagar inércia de Varejo.
+        # EXCEÇÃO: Se um Trem-Bala (Freight Train) estiver em curso na direção oposta, o Smart Money Trap
+        #          é ignorado pois o suporte NÃO VAI SEGURAR.
         smc_trap_bull = sum(1 for s in valid_signals if s.agent_name in ["OrderBlockAgent", "PremiumDiscountAgent", "LiquidationVacuumAgent", "SRAgent", "LiquidationSweepAgent"] and s.signal > 0.5)
         smc_trap_bear = sum(1 for s in valid_signals if s.agent_name in ["OrderBlockAgent", "PremiumDiscountAgent", "LiquidationVacuumAgent", "SRAgent", "LiquidationSweepAgent"] and s.signal < -0.5)
 
-        if smc_trap_bull >= 2:
+        if smc_trap_bull >= 2 and not freight_train_bear:
             for s in valid_signals:
                 if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "SentimentFearGreedAgent", "ChartStructureAgent", "MicrostructureAgent"]:
                     if s.signal < -0.1:
                         s.weight *= 0.05  # Esmaga em 95% a força (Morte da heurística burra)
                         s.reasoning += " [!TRAP_VETO: SMART MONEY BUYING SUPPORT!]"
                         
-        if smc_trap_bear >= 2:
+        if smc_trap_bear >= 2 and not freight_train_bull:
             for s in valid_signals:
                 if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "SentimentFearGreedAgent", "ChartStructureAgent", "MicrostructureAgent"]:
                     if s.signal > 0.1:
                         s.weight *= 0.05  # Esmaga em 95% a força 
                         s.reasoning += " [!TRAP_VETO: SMART MONEY SELLING RESISTANCE!]"
+
 
         # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29) ═══
         # Se os agentes cinéticos apontam ignição parabólica, MAS a estrutura global diverge ou é neutra.
@@ -155,6 +177,73 @@ class QuantumThoughtEngine:
                     if s.signal < -0.4:
                         s.weight *= 0.1
                         s.reasoning += " [!TRAP: STRUCTURAL DIVERGENCE (Bear Burst vs Flat/Bull Structure)!]"
+
+        # ═══ [OMEGA INJECTION] PHASE 33: ADAPTIVE ELASTIC SNAPBACK VETO (Multi-Agent Strain) ═══
+        # Proteção contra vender no fundo absoluto da corda esticada ou comprar no topo exausto.
+        # Mede a tensão elástica combinada de agentes de anomalia, reversão e estrutura.
+        # Se pelo menos 2 agentes do núcleo de estrutura/reversão acendem o alarme (Mesmo que fraco > 0.3),
+        # a tensão do elástico é massiva e o Momentum será asfixiado.
+        snap_bull_agents = sum(1 for s in valid_signals if s.agent_name in ["StatisticalAgent", "PriceGravityAgent", "CandleAnatomyAgent", "PremiumDiscountAgent"] and s.signal > 0.3)
+        snap_bear_agents = sum(1 for s in valid_signals if s.agent_name in ["StatisticalAgent", "PriceGravityAgent", "CandleAnatomyAgent", "PremiumDiscountAgent"] and s.signal < -0.3)
+
+        if snap_bull_agents >= 2:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "MicrostructureAgent", "OscillationWaveAgent"]:
+                    if s.signal < -0.3:  # Tentativa de vender na inércia com o elástico trincando
+                        s.weight *= 0.1  # Esmagamento de 90% da autoridade do momentum
+                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Multi-Agent Strain Up)!]"
+
+        if snap_bear_agents >= 2:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "MicrostructureAgent", "OscillationWaveAgent"]:
+                    if s.signal > 0.3:   # Tentativa de comprar na inércia com o elástico trincando
+                        s.weight *= 0.1  # Esmagamento de 90% da autoridade do momentum
+                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Multi-Agent Strain Down)!]"
+
+        # ═══ [OMEGA INJECTION] PHASE 32: DEAD CAT BOUNCE / COUNTER-TREND VETO ═══
+        # Impede a ASI de comprar o repique em uma tendência de baixa (Dead Cat Bounce)
+        # ou vender o recuo em uma tendência de alta (Bull Trap Pullback).
+        # A Macro Tendência (Trend + Momentum base) aniquila a excitação microscópica oposta.
+        macro_trend_bear = any(s.agent_name in ["TrendAgent", "MomentumAgent"] and s.signal < -0.3 for s in valid_signals)
+        macro_trend_bull = any(s.agent_name in ["TrendAgent", "MomentumAgent"] and s.signal > 0.3 for s in valid_signals)
+
+        if macro_trend_bear:
+            for s in valid_signals:
+                if s.agent_name in ["ChartStructureAgent", "PriceVelocityAgent", "PriceGravityAgent", "InformationEntropyAgent", "LiquidationVacuumAgent", "OrderBlockAgent"]:
+                    if s.signal > 0.4: # Tentativa de comprar o repique na tendência de baixa
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP_VETO: DEAD CAT BOUNCE (Counter-Trend Peak)!]"
+
+        if macro_trend_bull:
+            for s in valid_signals:
+                if s.agent_name in ["ChartStructureAgent", "PriceVelocityAgent", "PriceGravityAgent", "InformationEntropyAgent", "LiquidationVacuumAgent", "OrderBlockAgent"]:
+                    if s.signal < -0.4: # Tentativa de vender o recuo na tendência de alta
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP_VETO: COUNTER-TREND DIP (Bull Trap Pullback)!]"
+
+        # ═══ [OMEGA INJECTION] PHASE 34: TREND-STRUCTURE ALIGNMENT VETO ═══
+        # Defesa contra Bull Traps (Comprar repique em resistência).
+        # Se a Tendência Macro E a Estrutura (OrderBlocks/SR) estão Alinhadas em Baixa,
+        # qualquer tentativa de compra baseada em impulso local é asfixiada.
+        macro_bear_alignment = any(s.agent_name == "TrendAgent" and s.signal < -0.3 for s in valid_signals) and \
+                               any(s.agent_name in ["ChartStructureAgent", "OrderBlockAgent"] and s.signal < -0.2 for s in valid_signals)
+        
+        macro_bull_alignment = any(s.agent_name == "TrendAgent" and s.signal > 0.3 for s in valid_signals) and \
+                               any(s.agent_name in ["ChartStructureAgent", "OrderBlockAgent"] and s.signal > 0.2 for s in valid_signals)
+
+        if macro_bear_alignment:
+            for s in valid_signals:
+                if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
+                    if s.signal > 0.1:  # Tentativa de comprar contra Trend+Structure
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP_VETO: TREND-STRUCTURE MISALIGNMENT (Pullback at Resistance)!]"
+
+        if macro_bull_alignment:
+            for s in valid_signals:
+                if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
+                    if s.signal < -0.1: # Tentativa de vender contra Trend+Structure
+                        s.weight *= 0.1
+                        s.reasoning += " [!TRAP_VETO: TREND-STRUCTURE MISALIGNMENT (Pullback at Support)!]"
 
         # ═══ 2. CONVICTION-WEIGHTED CONFIDENCE (Phase 19) ═══
         # Ignora agentes neutros (signal=0) para evitar diluição da confiança média.

@@ -21,6 +21,11 @@
 - **Anti-Metralhadora Protocol**: Bloqueio de 3 camadas contra re-entradas irracionais no mesmo preço (Cooldown, Price Distance, Directional Conflict).
 - **Zero-Latency Anti-Slippage**: Veto de fechamento via MQL5 se o lucro do Smart TP for consumido por slippage antes da execução.
 - **Global Risk Cap**: Limite inquebrável de 10% de conta sob 20 posições (0.5% max/pos).
+- **Adaptive Kinematic Veto (Phase 30)**: Bloqueia entradas quando a variação em 5 candles excede o limite elástico (Default 1.8 ATR).
+- **Freight Train Override (Phase 30)**: Detecta momentum parabólico e desarma vetores de "Smart Money Trap" para não lutar contra a avalanche.
+- **Elastic Snapback Veto (Phase 33)**: Sensor de tensão multivariável que asfixia Trend/Momentum no fim do elástico estatístico, evitando bottom-selling.
+- **Dead Cat Bounce Protection (Phase 32)**: Filtro de divergência Macro vs Micro que impede compra de repiques em tendências de baixa dominantes.
+- **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
 
 ### 2B. SIMULAÇÃO QUANTUM MONTE CARLO & PNL PREDICTION (Phase 8 e 25)
 - **Trade Simulation (Merton Jump-Diffusion)**: 5000 universos paralelos de trajetórias de preço com saltos estocásticos. 56ms para simulação completa.
@@ -50,4 +55,4 @@
 - **Self Optimizer**: Monitoramento contínuo com alertas automáticos (low win rate, consecutive losses, max drawdown). Orquestra ciclos de mutação a cada 200 ciclos.
 - **Automatic Reversion**: Se mutações degradam performance, o sistema auto-reverte para o melhor genome conhecido.
 
-*(Atualizado: 2026-03-04. Versão: 2.2.0-omega+phase19 — Phase 19 Integration)*
+*(Atualizado: 2026-03-06. Versão: 2.4.0-omega+shield — Phase 34 Integration)*

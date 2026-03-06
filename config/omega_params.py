@@ -117,9 +117,9 @@ class OmegaParameterSpace:
                         "Win Probability mínima do Monte Carlo")
 
         # ═══ RISK PARAMETERS ═══
-        self._register("position_size_pct", 5.0, 0.5, 10.0,
+        self._register("position_size_pct", 50.0, 0.5, 75.0,
                         "% do saldo por posição")
-        self._register("kelly_fraction", 0.50, 0.10, 1.00,
+        self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
         self._register("stop_loss_atr_mult", 2.0, 1.0, 5.0,
                         "Multiplicador ATR para stop loss")
@@ -147,7 +147,7 @@ class OmegaParameterSpace:
                         "Multiplicador de agressividade em regime caótico")
 
         # ═══ PHASE 22 & 23: CONVICTION & SMART TP PARAMETERS ═══
-        self._register("high_conviction_multiplier", 2.0, 1.0, 5.0,
+        self._register("high_conviction_multiplier", 15.0, 1.0, 30.0,
                         "Multiplicador do Lot Size quando Coerência > 0.8 e Confiança > 0.8")
         self._register("smart_tp_micro_reversal_buffer", 15.0, 5.0, 50.0,
                         "Buffer de lucro ($) onde ignoramos exaustões de baixo impacto (limpa traps)")
@@ -178,10 +178,10 @@ class OmegaParameterSpace:
         # ═══ EXECUTION PARAMETERS ═══
         self._register("max_spread_points", 5000.0, 30.0, 10000.0,
                         "Spread máximo aceito em points brutos")
-        self._register("max_spread_reward_impact", 0.15, 0.05, 0.50,
-                        "Impacto max do spread no lucro (0.15 = max 15% do TP devorado pelo spread)")
-        self._register("max_spread_atr_impact", 0.10, 0.02, 0.30,
-                        "Impacto max do spread na volatilidade (0.10 = max 10% do ATR)")
+        self._register("max_spread_reward_impact", 0.25, 0.05, 0.50,
+                        "Impacto max do spread no lucro (0.25 = max 25% do TP devorado pelo spread)")
+        self._register("max_spread_atr_impact", 0.25, 0.05, 0.50,
+                        "Impacto max do spread na volatilidade (0.25 = max 25% do ATR)")
         self._register("entry_urgency", 0.5, 0.1, 1.0,
                         "Urgência de entrada (1.0 = market order sempre)")
         self._register("startup_cooldown_seconds", 120.0, 10.0, 600.0,
@@ -194,8 +194,10 @@ class OmegaParameterSpace:
                         "Distância mínima da última entrada em múltiplos de ATR")
         self._register("duplicate_position_distance_atr", 1.0, 0.3, 5.0,
                         "Distância mínima de posição existente na mesma direção em ATR")
-        self._register("max_order_splits", 5.0, 1.0, 10.0,
+        self._register("max_order_splits", 20.0, 1.0, 100.0,
                         "Máximo de slots por execução")
+        self._register("kinematic_exhaustion_atr_mult", 1.8, 1.0, 3.5,
+                        "Distância máxima de estiramento em 5 velas antes da reversão")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

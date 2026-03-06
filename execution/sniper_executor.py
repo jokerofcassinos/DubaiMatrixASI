@@ -217,17 +217,29 @@ class SniperExecutor:
             log.debug(f"Pausa tática: Limite de posições ({MAX_OPEN_POSITIONS}) atingiria excesso com +{max_slots} slots.")
             return None
         
-        # Calcular em quantos slots dividir
-        lot_chunks = self._split_lot(final_lot, max_slots)
-        
-        # Verificar margem do lote total
+        # 4.2. Margin Check & Maximum Margin Extraction (Phase 37)
         required_margin = self.bridge.calculate_margin(decision.action.value, final_lot, decision.entry_price)
         free_margin = account.get("free_margin", 0)
         
-        if required_margin is not None:
-            if required_margin > free_margin * 0.9: # 10% de folga
-                log.error(f"❌ MARGEM INSUFICIENTE. Req: ${required_margin:.2f}, Livre: ${free_margin:.2f}")
-                return None
+        if required_margin is not None and free_margin > 0:
+            if required_margin > free_margin * 0.9: # Se usa > 90% da margem livre, faz clawback
+                old_lot = final_lot
+                # Calcula o fator de redução para usar no máximo 95% da margem livre disponível
+                scaling_factor = (free_margin * 0.95) / required_margin
+                final_lot = final_lot * scaling_factor
+                
+                # Arredondar para o step do lote
+                from config.exchange_config import LOT_STEP
+                final_lot = round(final_lot / LOT_STEP) * LOT_STEP
+                final_lot = max(MIN_LOT_SIZE, final_lot)
+                
+                log.omega(
+                    f"⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de {old_lot:.2f} para {final_lot:.2f} "
+                    f"para caber na margem livre (${free_margin:.2f})"
+                )
+        
+        # Calcular em quantos slots dividir o lote final (ajustado ou não)
+        lot_chunks = self._split_lot(final_lot, max_slots)
         
         log.omega(
             f"⚡ EXECUTING {decision.action.value} "

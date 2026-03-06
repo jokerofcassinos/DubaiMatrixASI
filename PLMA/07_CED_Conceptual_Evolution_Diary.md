@@ -118,4 +118,13 @@
   - **Kinematic Exhaustion Veto:** Instalação blindada em `trinity_core.py` esmagando trades onde a distância do swing isolado supera mecanicamente os níveis da constante da Mola de Volatilidade (`3x o ATR Médio`). Ação impositiva de Anti-Buy at the Top.
   - **Extreme Climax Damping:** Alteração sub-orgânica de `dynamics.py` em preceitos termodinâmicos para forçar decaimento de sinal quando `Volume Intensity` > 15x ou `Velocity` é extrema. O robô para de focar no movimento e passa a focar no desgaste energético.
 
-*(Atualizado: 2026-03-05. Versão: 7.0.2-omega — Phase 29 Active)*
+### FASE 13: ERA DA PROTEÇÃO ADAPTATIVA (Phases 30, 31, 32 & 33)
+- **Contexto:** Após atingir 52 agentes, o bot apresentou falhas de "Top/Bottom Hunting" e "Falling Knives" em mercados de alta volatilidade (Flash Crashes e Pullbacks agressivos).
+- **Evolução:**
+  - **Phase 30**: Instalação do `Freight Train Override`. A ASI agora reconhece quando a inércia rompe a estrutura e para de tentar "trapar" o mercado contra o trem.
+  - **Phase 31/33**: Instalação da `Elastic Snapback (Multi-Agent Strain)`. A ASI agora mede a tensão entre Estatística e Momentum, recusando-se a vender fundos ou comprar topos esticados.
+  - **Phase 32**: Instalação do `Dead Cat Bounce Veto`. A Macro-Tendência agora tem soberania sobre repiques microscópicos, impedindo compras de euforia em tendências de baixa.
+  - **Phase 34**: Instalação do `Trend-Structure Alignment Veto`. A ASI agora exige que a tendência e a estrutura estejam em harmonia antes de permitir entradas baseadas em momentum local.
+  - O sistema agora possui blindagem quádrupla no nível perceptual.
+
+*(Atualizado: 2026-03-06. Versão: 7.2.0-omega — Phase 34 Active)*

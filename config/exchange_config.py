@@ -71,7 +71,7 @@ ORDER_TYPE_FILLING_MAP = {
 #  POSITION LIMITS
 # ═══════════════════════════════════════════════════════════════
 MAX_OPEN_POSITIONS = 20         # Aumentado para suportar HFT Multi-slot (antes 3)
-MAX_LOT_SIZE = 10.0            # Lot size máximo por posição ($13k + 1:1000 leverage)
+MAX_LOT_SIZE = 100.0           # Aumentado para OMEGA OVERLOAD (antes 10.0)
 MIN_LOT_SIZE = 0.01            # Lot size mínimo
 LOT_STEP = 0.01                # Incremento de lote
 

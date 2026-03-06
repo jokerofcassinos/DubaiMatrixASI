@@ -24,4 +24,10 @@
 - **Risco:** [RESOLVIDO] Erro sanado em 2026-03-05. A persistência de tipagem flexiva (duck typing) em zonas críticas de colapso quântico cria Single Points of Failure grotescos.
 - **Solução Futura:** Estabelecer decorators de `@validate_return_type(AgentSignal)` explícito na interface da classe base.
 
-*(Atualizado: 2026-03-05. Versão: 7.0.1-omega)*
+### DÍVIDA TÉCNICA 05: Complexidade Lógica no QuantumThought — [EM MONITORAMENTO]
+- **Localização:** `core/consciousness/quantum_thought.py` / `process()`.
+- **Descrição:** A injeção sequencial de múltiplos vetos (Phases 27, 29, 30, 32, 33) aumentou drasticamente o custo cognitivo da função. Existe risco de conflitos entre overrides (ex: Freight Train brigando com Elastic Snapback).
+- **Risco:** [AMARELO] Risco de "Veto Deadlock" onde nenhum trade é disparado.
+- **Solução Futura:** Migrar a lógica de veto para um sistema de `VetoRegistry` ou `Chain of Responsibility` mais limpo.
+
+*(Atualizado: 2026-03-06. Versão: 7.1.0-omega)*
