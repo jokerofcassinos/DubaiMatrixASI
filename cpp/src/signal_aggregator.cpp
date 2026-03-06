@@ -1,140 +1,113 @@
-/*
-╔══════════════════════════════════════════════════════════════════════════════╗
-║         DUBAI MATRIX ASI — SIGNAL AGGREGATOR (C++)                         ║
-║    Fusão de sinais neurais e utilidades de risco em velocidade nativa      ║
-║                                                                              ║
-║  Colapso de quantum state, cálculo de coerência, Kelly Criterion          ║
-║  e sizing ótimo sem overhead de interpretação Python.                       ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-*/
-
 #include "asi_core.h"
 #include <cmath>
 #include <algorithm>
+#include <chrono>
 #include <vector>
+#include <numeric>
+
+ASI_API void asi_converge_signals(const AgentRawSignal* signals, int count, 
+                                 double interference_weight, double decay,
+                                 ConvergenceResult* out) {
+    auto t_start = std::chrono::high_resolution_clock::now();
+
+    if (count <= 0 || !signals || !out) return;
+
+    double weighted_signal_sum = 0.0;
+    double weighted_conf_sum = 0.0;
+    double total_weight = 0.0;
+    
+    int bull = 0, bear = 0, neutral = 0;
+    
+    // Vetor para cálculo de entropia (distribuição de sinais)
+    std::vector<double> signal_values;
+    signal_values.reserve(count);
+
+    for (int i = 0; i < count; i++) {
+        const auto& s = signals[i];
+        double effective_weight = s.weight;
+        
+        weighted_signal_sum += s.signal * effective_weight;
+        weighted_conf_sum += s.confidence * effective_weight;
+        total_weight += effective_weight;
+
+        // Histogramagem rápida
+        if (s.signal > 0.1) bull++;
+        else if (s.signal < -0.1) bear++;
+        else neutral++;
+
+        signal_values.push_back(s.signal);
+    }
+
+    // Médias balanceadas
+    double raw_signal = (total_weight > 0) ? (weighted_signal_sum / total_weight) : 0.0;
+    double raw_conf = (total_weight > 0) ? (weighted_conf_sum / total_weight) : 0.0;
+
+    // Coerência: Desvio padrão inverso dos sinais (quão "alinhados" estão os agentes)
+    double mean_sig = raw_signal;
+    double var_sig = 0.0;
+    for(double val : signal_values) {
+        double diff = val - mean_sig;
+        var_sig += diff * diff;
+    }
+    double std_sig = std::sqrt(var_sig / count);
+    double coherence = 1.0 / (1.0 + std_sig * 2.0); // Normalizado [0, 1]
+
+    // Entropia de Shannon simplificada (binning)
+    double entropy = 0.0;
+    const int bins = 10;
+    int counts[bins] = {0};
+    for(double val : signal_values) {
+        int b = (int)((val + 1.0) / 2.0 * (bins - 1));
+        b = std::max(0, std::min(bins - 1, b));
+        counts[b]++;
+    }
+    for(int b=0; b<bins; b++) {
+        if(counts[b] > 0) {
+            double p = (double)counts[b] / count;
+            entropy -= p * std::log2(p);
+        }
+    }
+    entropy /= 3.32; // Normalizar pela entropia máxima log2(10)
+
+    // Colapso Quântico: Reforço por interferência construtiva
+    // Se coerência é alta, sinal é amplificado. Se baixa (caos), sinal é asfixiado.
+    double interference_factor = 1.0 + (interference_weight * (coherence - 0.5));
+    out->final_signal = std::clamp(raw_signal * interference_factor * decay, -1.0, 1.0);
+    out->final_confidence = std::clamp(raw_conf * (0.5 + 0.5 * coherence), 0.0, 1.0);
+    out->final_coherence = coherence;
+    out->entropy = entropy;
+    out->bull_count = bull;
+    out->bear_count = bear;
+    out->neutral_count = neutral;
+
+    auto t_end = std::chrono::high_resolution_clock::now();
+    out->computation_time_ms = std::chrono::duration<double, std::milli>(t_end - t_start).count();
+}
 
 // ═══════════════════════════════════════════════════════════
-//  SIGNAL AGGREGATION — Fusão de Agentes Neurais
+//  LEGACY WRAPPER (Phase 41 Compatibility)
 // ═══════════════════════════════════════════════════════════
 ASI_API void asi_aggregate_signals(const AgentSignal* signals, int count,
                                     double regime_weight, double signal_threshold,
                                     double coherence_threshold, QuantumState* state) {
-    if (count <= 0 || !state) return;
-    
-    state->raw_signal = 0.0;
-    state->coherence = 0.0;
-    state->weighted_signal = 0.0;
-    state->energy = 0.0;
-    state->should_collapse = 0;
-    
-    if (count == 0) return;
-    
-    double total_weight = 0.0;
-    double weighted_sum = 0.0;
-    double energy_sum = 0.0;
-    
-    // ═══ Pass 1: Weighted average signal ═══
-    for (int i = 0; i < count; i++) {
-        double effective_weight = signals[i].weight * signals[i].confidence;
-        weighted_sum += signals[i].signal * effective_weight;
-        total_weight += effective_weight;
-        energy_sum += std::abs(signals[i].signal) * signals[i].confidence;
-    }
-    
-    if (total_weight > 0.0) {
-        state->raw_signal = weighted_sum / total_weight;
-    }
-    
-    state->energy = energy_sum / count;
-    
-    // ═══ Pass 2: Coherence — agreement between agents ═══
-    // Medida de quão alinhados estão os agentes (apenas agentes com opinião)
-    double direction_agreement = 0.0;
-    int positive_count = 0;
-    int negative_count = 0;
-    int active_agents = 0;
-    
-    for (int i = 0; i < count; i++) {
-        if (signals[i].signal > 0.05) { positive_count++; active_agents++; }
-        else if (signals[i].signal < -0.05) { negative_count++; active_agents++; }
-    }
-    
-    int dominant = std::max(positive_count, negative_count);
-    
-    if (active_agents > 0) {
-        direction_agreement = (double)dominant / (double)active_agents;
-    } else {
-        direction_agreement = 0.5; // Mercado neutro
-    }
-    
-    // Magnitude agreement
-    if (active_agents > 0) {
-        double mean_mag = 0.0;
-        for (int i = 0; i < count; i++) {
-            if (std::abs(signals[i].signal) > 0.05) {
-                mean_mag += std::abs(signals[i].signal);
-            }
-        }
-        mean_mag /= active_agents;
-        
-        double variance = 0.0;
-        for (int i = 0; i < count; i++) {
-            if (std::abs(signals[i].signal) > 0.05) {
-                double diff = std::abs(signals[i].signal) - mean_mag;
-                variance += diff * diff;
-            }
-        }
-        variance /= active_agents;
-        double mag_coherence = 1.0 / (1.0 + std::sqrt(variance));
-        
-        // Coherence final foca mais na direção do que na magnitude exata
-        state->coherence = direction_agreement * 0.8 + mag_coherence * 0.2;
-    } else {
-        state->coherence = 0.5;
-    }
-    
-    // ═══ Weighted signal with regime adjustment ═══
-    state->weighted_signal = state->raw_signal * regime_weight;
-    
-    // ═══ Should Collapse Decision ═══
-    // Colapsar se: coherence alta E signal forte E energia alta
-    bool high_coherence = state->coherence >= coherence_threshold;
-    bool strong_signal = std::abs(state->raw_signal) >= signal_threshold;
-    bool high_energy = state->energy >= (signal_threshold * 0.8); // Escala com o threshold
-    
-    state->should_collapse = (high_coherence && strong_signal && high_energy) ? 1 : 0;
-}
+    if (count <= 0 || !signals || !state) return;
 
-// ═══════════════════════════════════════════════════════════
-//  KELLY CRITERION
-// ═══════════════════════════════════════════════════════════
-ASI_API double asi_kelly_criterion(double win_rate, double avg_win, double avg_loss) {
-    if (win_rate <= 0.0 || win_rate >= 1.0 || avg_win <= 0.0 || avg_loss <= 0.0)
-        return 0.0;
-    
-    // f* = (p * b - q) / b
-    // onde p = win_rate, q = 1-p, b = avg_win/avg_loss
-    double p = win_rate;
-    double q = 1.0 - p;
-    double b = avg_win / avg_loss;
-    
-    double kelly = (p * b - q) / b;
-    
-    // Clamp entre 0 e 0.25 (nunca arriscar mais que 25%)
-    return std::clamp(kelly, 0.0, 0.25);
-}
+    // Converter para o novo formato e chamar a lógica de convergência Phase 41
+    std::vector<AgentRawSignal> raw_signals(count);
+    for (int i = 0; i < count; i++) {
+        raw_signals[i].signal = signals[i].signal;
+        raw_signals[i].confidence = signals[i].confidence;
+        raw_signals[i].weight = signals[i].weight;
+        raw_signals[i].is_hybrid = 0;
+    }
 
-// ═══════════════════════════════════════════════════════════
-//  OPTIMAL LOT SIZE
-// ═══════════════════════════════════════════════════════════
-ASI_API double asi_optimal_lot_size(double balance, double risk_pct, 
-                                     double sl_distance, double point_value) {
-    if (balance <= 0.0 || risk_pct <= 0.0 || sl_distance <= 0.0 || point_value <= 0.0)
-        return 0.01;
-    
-    double risk_amount = balance * risk_pct;
-    double lot = risk_amount / (sl_distance * point_value);
-    
-    // Clamp entre o mínimo (0.01) e máximo razoável
-    return std::clamp(lot, 0.01, 100.0);
+    ConvergenceResult res;
+    asi_converge_signals(raw_signals.data(), count, 0.5, regime_weight, &res);
+
+    // Mapear de volta para o struct QuantumState legado
+    state->raw_signal = res.final_signal;
+    state->coherence = res.final_coherence;
+    state->weighted_signal = res.final_signal; 
+    state->energy = res.entropy;
+    state->should_collapse = (res.final_confidence >= 0.65 && std::abs(res.final_signal) >= signal_threshold) ? 1 : 0;
 }

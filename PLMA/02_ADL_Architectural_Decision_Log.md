@@ -48,4 +48,19 @@
 - **Justificativa:** Proteção tripla contra (1) Comprar facas caindo, (2) Vender fundos esticados, e (3) Comprar topos de pullback.
 - **Data/Status:** ATIVO. (2026-03-06).
 
+### DECISÃO 10: PARALELIZAÇÃO DE EXECUÇÃO HFT (Phase 40)
+- **Decisão:** O `SniperExecutor` passou a utilizar `ThreadPoolExecutor` para disparar ordens simultaneamente ao invés de em loop sequencial.
+- **Justificativa:** O delay de ~4.8s para enviar 10-15 slots era inaceitável para HFT, resultando em slippage catastrófico. Com threads, o tempo de envio caiu para <300ms.
+- **Data/Status:** ATIVO. (2026-03-06).
+
+### DECISÃO 11: CONVERGÊNCIA NATIVA OMEGA-CORE (Phase 41)
+- **Decisão:** A agregação e colapso quântico de 52 agentes foi movida do Python para C++ puro (`asi_converge_signals`).
+- **Justificativa:** O processamento em Python levava ~4.9s para processar os pesos e entropias. Em C++, o tempo foi reduzido para sub-milissegundo (<1ms).
+- **Data/Status:** ATIVO. (2026-03-06).
+
+### DECISÃO 12: SHADOW DLL HOT-SWAP (asi_core_v2.dll)
+- **Decisão:** Implementação de versão versionada da DLL no `asi_bridge.py` para permiti re-compilação e atualização sem parar o bot.
+- **Justificativa:** O Windows bloqueia o arquivo `asi_core.dll` enquanto o `main.py` está rodando. O shadow build permite evolução contínua.
+- **Data/Status:** ATIVO. (2026-03-06).
+
 *(Atualizado: 2026-03-06. Versão: 1.3.0-omega — Phase 33 Integration)*

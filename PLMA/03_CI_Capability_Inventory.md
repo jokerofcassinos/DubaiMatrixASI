@@ -25,6 +25,8 @@
 - **Freight Train Override (Phase 30)**: Detecta momentum parabólico e desarma vetores de "Smart Money Trap" para não lutar contra a avalanche.
 - **Elastic Snapback Veto (Phase 33)**: Sensor de tensão multivariável que asfixia Trend/Momentum no fim do elástico estatístico, evitando bottom-selling.
 - **Dead Cat Bounce Protection (Phase 32)**: Filtro de divergência Macro vs Micro que impede compra de repiques em tendências de baixa dominantes.
+- **Phase 40 Multi-Threaded Strike**: SniperExecutor capaz de disparar 25 slots simultâneos em <500ms através de `ThreadPoolExecutor`.
+- **Phase 41 Omega-Convergence (C++)**: Agregação instantânea de 54 sinais neurais no núcleo nativo com cálculo de entropia Shannon intra-milissegundo.
 - **Maximum Margin Extraction (MME - Phase 37)**: Auto-scaling de lotes para máxima utilização da margem disponível sem rejeição de ordens.
 - **Total War Protocol (Phase 38)**: Escalonamento de risco agressivo (30% / 50% / 95%) baseado em níveis de confiança agressivos (>0.65).
 - **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
@@ -57,4 +59,4 @@
 - **Self Optimizer**: Monitoramento contínuo com alertas automáticos (low win rate, consecutive losses, max drawdown). Orquestra ciclos de mutação a cada 200 ciclos.
 - **Automatic Reversion**: Se mutações degradam performance, o sistema auto-reverte para o melhor genome conhecido.
 
-*(Atualizado: 2026-03-06. Versão: 2.4.0-omega+shield — Phase 34 Integration)*
+*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war — Phase 38 Victory)*

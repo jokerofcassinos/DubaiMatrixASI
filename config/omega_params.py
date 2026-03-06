@@ -121,11 +121,11 @@ class OmegaParameterSpace:
                         "% do saldo por posição")
         self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
-        self._register("stop_loss_atr_mult", 2.0, 1.0, 5.0,
-                        "Multiplicador ATR para stop loss")
-        self._register("take_profit_atr_mult", 3.0, 1.5, 8.0,
-                        "Multiplicador ATR para take profit")
-        self._register("trailing_stop_atr_mult", 1.5, 0.5, 3.0,
+        self._register("stop_loss_atr_mult", 0.5, 0.2, 3.0,
+                        "Multiplicador ATR para stop loss (Recalibrado Phase 46)")
+        self._register("take_profit_atr_mult", 1.0, 0.3, 5.0,
+                        "Multiplicador ATR para take profit (Recalibrado Phase 46)")
+        self._register("trailing_stop_atr_mult", 0.5, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
 
         # ═══ QUANTUM PARAMETERS ═══

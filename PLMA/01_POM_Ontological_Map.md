@@ -8,8 +8,8 @@
 - **`core/asi_brain.py (ASIBrain)`**: O orquestrador supremo. Executa os ciclos cognitivos contínuos (Percepção → Análise → Reflexão → Decisão → Ação) interagindo com DataEngine, NeuralSwarm, QuantumThought, TrinityCore e SniperExecutor. Mantém ciência do `ASIState` e executa auto-diagnósticos da performance (win rate, profit, losses).
 
 ### 2. CAMADA DE EXECUÇÃO E RISCO
-- **`execution/sniper_executor.py (SniperExecutor)`**: Transformador de intelecto em agressão cinética. Envia ordens cirúrgicas via MT5Bridge divididas em múltiplos slots. Implementa **HFT Throttling** (limitador de 5 ordens por candle M1) e sistema **Anti-Metralhadora** (Cooldown, Minimum Price Distance e Directional Conflict Check) para evitar loops de re-entrada suicidas.
-- **`execution/risk_quantum.py (RiskQuantumEngine)`**: O escudo de adamantium do capital. Substitui stops fixos burros por Kelly Criterion dinâmico e bounds de drawdown severos. Configurado para **10% Global Risk Cap**.
+- **`execution/sniper_executor.py (SniperExecutor)`**: Transformador de intelecto em agressão cinética. Envia ordens cirúrgicas via MT5Bridge. **Phase 40**: Implementação de `ThreadPoolExecutor` para disparo simultâneo de múltiplos slots (Latência < 300ms). Implementa **HFT Throttling** e sistema **Anti-Metralhadora**.
+- **`execution/risk_quantum.py (RiskQuantumEngine)`**: O escudo de adamantium do capital. Substitui stops fixos burros por Kelly Criterion dinâmico e bounds de drawdown severos.
 - **`execution/position_manager.py (PositionManager)`**: Gerenciamento de sub-consciente. Rastrea todas as ordens abertas, cruzando dados de orderflow. Deflagra o **Zero-Latency Close** via Socket TCP para a ponte MQ5.
 
 ### 3. CAMADA SENSORIAL (À explorar detalhadamente no ADL/CI)
@@ -18,7 +18,7 @@
 - **`market/orderflow_matrix.py (OrderFlowMatrix)`**: Visão raios-X sobre liquidez, fluxo institucional e clustering do book de ofertas.
 
 ### 4. CAMADA NEURAL / DECISÓRIA (Trinity, Swarm, Quantum, Regime)
-- **`core/consciousness/neural_swarm.py (NeuralSwarm)`**: Arquitetura Master. Instancia 52 neurônios interdimensionais (Classic, Omega, Predator, Chaos, Global Macro, Whale, Physics, Kinematics, Behavioral, Game Theory, SMC/ICT, Phase 17: ChartStructure & CandleAnatomy, **Phase 19: Market Dynamics**). Implementa execução concorrente via `ThreadPoolExecutor`, mitigando gargalos sequenciais I/O-bound e NumPy.
+- **`core/consciousness/neural_swarm.py (NeuralSwarm)`**: Arquitetura Master. Instancia 54 neurônios interdimensionais (Classic, Omega, Predator, Chaos, Global Macro, Whale, Physics, Kinematics, Behavioral, Game Theory, SMC/ICT, ChartStructure, Market Dynamics, **Phase 26: Meta-Swarm**). Implementa execução concorrente via `ThreadPoolExecutor`, mitigando gargalos sequenciais I/O-bound e NumPy.
 - **`core/consciousness/quantum_thought.py (QuantumThoughtEngine)`**: Aglutinador de multiversos. Colapsa a superposição dos agentes num vetor numérico.
 - **`core/consciousness/regime_detector.py (RegimeDetector)`**: Visão macro-cibernética sobre onde o mercado se encontra (Choppy, Trend, Squeeze, etc).
 - **`core/decision/trinity_core.py (TrinityCore)`**: Veredicto final de Ação (BUY, SELL, WAIT) ouvetando a agressividade dependendo do estado global do sistema. Integra Monte Carlo validation e **Adaptive Kinematic/Spread Vetoes** (Phase 30).
@@ -26,9 +26,12 @@
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
 - **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. Gera 5000 universos paralelos de trajetórias de preço usando Merton Jump-Diffusion. Atualmente offloaded para C++ (Phase 18) com ganho de +100ms no loop cognitivo, calculando Win Probability, Expected Value, CVaR, VaR, e Sharpe ratio.
 
-### 5. CAMADA DE ACELERAÇÃO NATIVA (Phase 7 — C++ FFI Core)
-- **`cpp/src/asi_core.h/cpp`**: Núcleo C++ compilado em DLL carregado na memória via ctypes no Python. Fornece speedup de 100x+ para gargalos matemáticos.
-- **`cpp/asi_bridge.py (CppASICore)`**: Instância singleton que auto-descobre a DLL e expõe métodos C++ transparentemente usando numpy arrays (zero-copy overhead reduction).
+### 5. CAMADA DE ACELERAÇÃO NATIVA (Phase 7, 18, 41)
+- **`cpp/src/asi_core.h/cpp`**: Núcleo C++ compilado em `asi_core_v2.dll`. **Phase 41**: Introdução de `asi_converge_signals` (agregação de 52 neurônios em <1ms).
+- **`cpp/asi_bridge.py (CppASICore)`**: Instância singleton que auto-descobre a DLL (prioriza v2 shadow dll) e expõe métodos C++.
+- **`cpp/src/signal_aggregator.cpp`**: Novo módulo de convergência Phase 41.
+- **`cpp/src/risk_engine.cpp`**: Motor C++ nativo para Kelly e Sizing.
+- **`cpp/src/quantum_indicators.cpp` / `orderflow_processor.cpp`**: Processadores monolíticos de alta velocidade.
 
 ### 6. CAMADA DE INTELIGÊNCIA EXTERNA (Phase 5 — Web Scrapers Zero-Cost)
 - **`market/scraper/sentiment_scraper.py (SentimentScraper)`**: Captura Fear & Greed Index (alternative.me) e dados CoinGecko em background (2min). Fornece `sentiment_score` [-1 a +1] consolidado para os agentes neurais.

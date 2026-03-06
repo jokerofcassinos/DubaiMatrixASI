@@ -191,15 +191,18 @@ void ProcessSingleCommand(string cmd)
       return;
      }
      
-   if(action == "BUY" || action == "SELL")
+   if(action == "BUY" || action == "SELL" || action == "OPEN")
      {
-      if(count < 5) return;
-      string symbol = parts[1];
-      double lot = StringToDouble(parts[2]);
-      double sl = StringToDouble(parts[3]);
-      double tp = StringToDouble(parts[4]);
+      int offset = (action == "OPEN") ? 1 : 0;
+      if(count < 5 + offset) return;
       
-      ExecuteTrade(action, symbol, lot, sl, tp);
+      string trade_action = (action == "OPEN") ? parts[1] : action;
+      string symbol = parts[1 + offset];
+      double lot = StringToDouble(parts[2 + offset]);
+      double sl = StringToDouble(parts[3 + offset]);
+      double tp = StringToDouble(parts[4 + offset]);
+      
+      ExecuteTrade(trade_action, symbol, lot, sl, tp);
      }
    else if(action == "CLOSE")
      {
@@ -232,8 +235,10 @@ void ExecuteTrade(string action, string symbol, double lot, double sl, double tp
    request.sl       = sl;
    request.tp       = tp;
    request.deviation= InpSlippage;
-   request.magic    = InpMagicNumber;
-   request.type_filling = ORDER_FILLING_FOK;
+   request.magic    = (InpMagicNumber > 0) ? InpMagicNumber : 88888888;
+   
+   // Tenta IOC/FOK dependendo do broker (IOC é mais flexível)
+   request.type_filling = ORDER_FILLING_IOC;
    request.comment  = "ASI_" + action;
    
    Print("⚡ ASI COMMAND: ", action, " ", DoubleToString(lot, 2), " ", symbol);

@@ -7,7 +7,8 @@
 
 import time
 import numpy as np
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Set
+from concurrent.futures import ThreadPoolExecutor
 
 from market.mt5_bridge import MT5Bridge
 from market.data_engine import MarketSnapshot
@@ -46,8 +47,12 @@ class PositionManager:
     def __init__(self, bridge: MT5Bridge, on_close_callback=None):
         self.bridge = bridge
         self._positions_state = {}
+        self._closing_tickets: Set[int] = set()
         # Callback chamado quando uma posição é fechada: fn(direction: str)
         self._on_close_callback = on_close_callback
+        
+        # Thread pool para disparos paralelos (Phase 44)
+        self._close_pool = ThreadPoolExecutor(max_workers=20, thread_name_prefix="ClosePool")
 
     @catch_and_log(default_return=None)
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
@@ -58,9 +63,35 @@ class PositionManager:
         positions = self.bridge.get_open_positions()
         if not positions:
             self._positions_state.clear()
+            self._closing_tickets.clear()
             return
+        
+        # ═══ Phase 45: Agrupamento Atômico ═══
+        # Agrupa posições por (símbolo, tipo, tempo_abertura_bucket)
+        # O bucket de 2s garante que uma rajada de slots seja tratada como um único Strike
+        groups = {}
+        for pos in positions:
+            ticket = pos['ticket']
+            is_buy = (pos['type'] == "BUY")
+            # Bucket de 2 segundos para agrupar disparos HFT
+            group_key = (pos['symbol'], pos['type'], int(pos['time'] / 2))
+            
+            if group_key not in groups:
+                groups[group_key] = {
+                    "tickets": [],
+                    "total_profit": 0.0,
+                    "max_profit": -999999.0,
+                    "is_buy": is_buy,
+                    "entry_price": pos['open_price'], # Usado como referência
+                    "time": pos['time']
+                }
+            
+            groups[group_key]["tickets"].append(pos)
+            groups[group_key]["total_profit"] += pos['profit']
+            if pos['profit'] > groups[group_key]["max_profit"]:
+                groups[group_key]["max_profit"] = pos['profit']
 
-        current_tickets = []
+        current_tickets = [p['ticket'] for p in positions]
 
         # ═══ EXTRAIR DADOS DO ORDER FLOW ═══
         flow_delta = flow_analysis.get("delta", 0.0)
@@ -71,184 +102,134 @@ class PositionManager:
         climax_score = flow_analysis.get("volume_zscore", 0.0)
         tick_velocity = flow_analysis.get("tick_velocity", 0.0)
 
-        # ═══ OBTER ATR PARA TRAILING ═══
-        atr = 0.0
-        atr_arr = snapshot.indicators.get("M5_atr_14")
-        if atr_arr is not None and len(atr_arr) > 0:
-            atr = float(atr_arr[-1])
-
-        for pos in positions:
-            ticket = pos['ticket']
-            current_tickets.append(ticket)
-            profit = pos['profit']
-            is_buy = (pos['type'] == "BUY")
-            current_price = pos['current_price']
-            entry_price = pos['open_price']
-            sl = pos['sl']
-            tp = pos['tp']
-
-            # ═══ INIT STATE ═══
-            if ticket not in self._positions_state:
-                self._positions_state[ticket] = {
-                    "peak_profit": profit,
-                    "entry_price": entry_price,
-                    "is_buy": is_buy,
-                    "start_time": time.time(),
-                    "last_trail_price": entry_price,
+        # ═══ ANALISAR CADA GRUPO (STRIKE) ═══
+        for g_key, g_data in groups.items():
+            g_tickets = g_data["tickets"]
+            g_is_buy = g_data["is_buy"]
+            avg_profit = g_data["total_profit"] / len(g_tickets)
+            max_p = g_data["max_profit"]
+            
+            # State ID para o grupo (usamos o ticket da primeira posição como âncora)
+            anchor_ticket = g_tickets[0]['ticket']
+            
+            if anchor_ticket not in self._positions_state:
+                self._positions_state[anchor_ticket] = {
+                    "peak_avg_profit": avg_profit,
+                    "start_time": g_data["time"],
                     "trail_activated": False,
+                    "last_price_change_time": time.time(),
+                    "last_cached_price": g_data["entry_price"]
                 }
+            
+            state = self._positions_state[anchor_ticket]
+            
+            # Update peak avg profit & stagnation price tracking
+            if avg_profit > state['peak_avg_profit']:
+                state['peak_avg_profit'] = avg_profit
+            
+            # Usamos o ask/bid atual vindo do Snapshot no Brain para checar o preco do símbolo
+            # Mas como o monitor_positions não recebe o tick bruto, usamos o avg_profit como proxy
+            # Ou melhor, vamos verificar se o profit mudou significativamente
+            if abs(avg_profit - state.get("last_cached_profit", -999)) > 0.01:
+                state["last_cached_profit"] = avg_profit
+                state["last_price_change_time"] = time.time()
 
-            state = self._positions_state[ticket]
-
-            # ═══ UPDATE PEAK PROFIT ═══
-            if profit > state['peak_profit']:
-                state['peak_profit'] = profit
+            should_close = False
+            reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: PROFIT DRAWDOWN LOCK
-            #  Se o lucro caiu X% do pico → fecha para não devolver
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK
             # ═══════════════════════════════════════════════════
-            if profit > 0 and state['peak_profit'] > 5.0:  # Mínimo $5 de pico
-                drawdown_from_peak = state['peak_profit'] - profit
-                drawdown_pct = drawdown_from_peak / state['peak_profit']
+            if avg_profit > 0 and state['peak_avg_profit'] > 1.0: # Pico de $1 avg/slot
+                drawdown_pct = (state['peak_avg_profit'] - avg_profit) / state['peak_avg_profit']
                 
-                # Lock threshold: quanto mais lucro, mais laxo (protege runners)
-                lock_threshold = 0.40  # Fecha se perdeu 40% do pico
-                if state['peak_profit'] > 100:  # Lucro grande: mais conservador
-                    lock_threshold = 0.30
-                if state['peak_profit'] > 500:
-                    lock_threshold = 0.20
+                lock_threshold = 0.40
+                if state['peak_avg_profit'] > 10: lock_threshold = 0.30
+                if state['peak_avg_profit'] > 50: lock_threshold = 0.20
                 
                 if drawdown_pct >= lock_threshold:
-                    log.omega(
-                        f"🔒 PROFIT LOCK: Ticket {ticket} | "
-                        f"Pico=${state['peak_profit']:.2f} → Atual=${profit:.2f} "
-                        f"(perdeu {drawdown_pct:.0%} do pico)"
-                    )
-                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
-                    continue
+                    should_close = True
+                    reason = f"ATOMIC_PROFIT_LOCK: Pico_Avg=${state['peak_avg_profit']:.2f} -> Atual_Avg=${avg_profit:.2f}"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 2: MOMENTUM REVERSAL (Order Flow Delta)
-            #  Se o fluxo inverte fortemente contra a posição
+            #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
             # ═══════════════════════════════════════════════════
-            if profit > 2.0:  # Mínimo $2 de lucro para ativar
-                # ═══ [OMEGA INJECTION] ANTI-FRAGILE SMART TP (Phase 23) ═══
-                # Evita pular fora num pullback raso (micro-trap)
+            if not should_close and avg_profit > 0.5:
                 buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 15.0)
+                req_delta = 50 if avg_profit * len(g_tickets) > buffer_tp else 250
+                req_signal = 0.3 if avg_profit * len(g_tickets) > buffer_tp else 0.85
                 
-                req_delta = 50 if profit > buffer_tp else 250
-                req_signal = 0.3 if profit > buffer_tp else 0.85
-                
-                delta_against = False
-                if is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
-                    delta_against = True
-                elif not is_buy and flow_delta > req_delta and flow_signal > req_signal:
-                    delta_against = True
-
-                if delta_against:
-                    log.omega(
-                        f"🔄 MOMENTUM REVERSAL: Ticket {ticket} | "
-                        f"Profit=${profit:.2f} | Delta={flow_delta:+.0f} | "
-                        f"FlowSignal={flow_signal:+.2f}"
-                    )
-                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
-                    continue
+                if g_is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
+                    should_close = True
+                    reason = "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
+                elif not g_is_buy and flow_delta > req_delta and flow_signal > req_signal:
+                    should_close = True
+                    reason = "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 3: FLOW EXHAUSTION / ABSORPTION
-            #  Exaustão do comprador/vendedor com clímax de volume
+            #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
             # ═══════════════════════════════════════════════════
-            if profit > 1.0:
-                is_exhausted = exhaustion.get("detected", False)
-                is_absorbed = absorption.get("detected", False)
-                
-                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 15.0)
-                
-                # Threshold de clímax adaptativo: mais alto quando há pouco lucro para ignorar ruído
-                if profit > 50:
-                    climax_threshold = 2.0
-                elif profit > buffer_tp:
-                    climax_threshold = 2.5
-                else:
-                    climax_threshold = 3.5  # Precisa de uma exaustão colossal para justificar TP minúsculo
-                
-                early_exit_reason = None
-                if is_buy and (is_exhausted or is_absorbed) and climax_score > climax_threshold:
-                    early_exit_reason = "SMART_TP_BUY_EXHAUSTION"
-                elif not is_buy and (is_exhausted or is_absorbed) and climax_score > climax_threshold:
-                    early_exit_reason = "SMART_TP_SELL_EXHAUSTION"
-
-                if early_exit_reason:
-                    log.omega(
-                        f"👁️ {early_exit_reason}: Ticket {ticket} | "
-                        f"Profit=${profit:.2f} | Climax={climax_score:.1f}"
-                    )
-                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
-                    continue
+            if not should_close and avg_profit > 0.2:
+                is_exh = exhaustion.get("detected", False)
+                is_abs = absorption.get("detected", False)
+                if (is_exh or is_abs) and climax_score > 3.0:
+                    should_close = True
+                    reason = f"ATOMIC_EXHAUSTION (Climax={climax_score:.1f})"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 4: AGGRESSIVE TRAILING STOP
-            #  Move o SL rapidamente para proteger ganhos
+            #  TRIGGER 4: MICRO-STAGNATION EXIT (Phase 46)
+            #  Se o lucro médio parar por 2-3s → nuke
             # ═══════════════════════════════════════════════════
-            if atr > 0 and profit > 0:
-                trail_activation_atr = OMEGA.get("trailing_stop_atr_mult", 1.5)
-                trail_step = atr * 0.3  # Agressivo: step de 30% do ATR
-                
-                price_move = abs(current_price - entry_price)
-                activation_distance = atr * trail_activation_atr
-                
-                if price_move >= activation_distance:
-                    state['trail_activated'] = True
-                
-                if state['trail_activated']:
-                    if is_buy:
-                        new_sl = current_price - atr * 0.8  # Trail apertado: 0.8 ATR
-                        if sl == 0 or new_sl > sl + trail_step:
-                            self.bridge.modify_position(ticket, sl=round(new_sl, 2))
-                            state['last_trail_price'] = current_price
-                    else:
-                        new_sl = current_price + atr * 0.8
-                        if sl == 0 or new_sl < sl - trail_step:
-                            self.bridge.modify_position(ticket, sl=round(new_sl, 2))
-                            state['last_trail_price'] = current_price
+            if not should_close and avg_profit > 1.0:
+                stag_time = time.time() - state.get("last_price_change_time", time.time())
+                if stag_time >= 3.0:
+                    should_close = True
+                    reason = f"MICRO_STAGNATION (Flat for {stag_time:.1f}s)"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 5: TIME DECAY
-            #  Se o trade está estagnado → fecha para liberar capital
+            #  TRIGGER 5: ATOMIC TIME DECAY
             # ═══════════════════════════════════════════════════
-            elapsed_seconds = time.time() - state['start_time']
-            max_hold_time = 300  # 5 minutos max para scalp/HFT
-            
-            if elapsed_seconds > max_hold_time:
-                if profit > 0:
-                    log.omega(
-                        f"⏰ TIME DECAY EXIT: Ticket {ticket} | "
-                        f"Aberto por {elapsed_seconds:.0f}s | Profit=${profit:.2f}"
-                    )
-                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
-                    continue
-                elif profit > -10:  # Perda pequena: fecha para não piorar
-                    log.omega(
-                        f"⏰ TIME DECAY CUT: Ticket {ticket} | "
-                        f"Aberto por {elapsed_seconds:.0f}s | Loss=${profit:.2f}"
-                    )
-                    self._close_with_notify(ticket, "BUY" if is_buy else "SELL")
-                    continue
+            if not should_close:
+                elapsed = time.time() - state['start_time']
+                if elapsed > 120 and avg_profit > 0: # 2min scalp
+                    should_close = True
+                    reason = f"ATOMIC_TIME_DECAY: {elapsed:.0f}s"
+                elif elapsed > 300: # 5min total cut
+                    should_close = True
+                    reason = f"ATOMIC_TIME_CUT: {elapsed:.0f}s"
 
-        # ═══ CLEANUP: Remover tickets fechados do state ═══
-        closed = [t for t in self._positions_state if t not in current_tickets]
+            # ═══════════════════════════════════════════════════
+            #  EJETAR GRUPO INTEIRO
+            # ═══════════════════════════════════════════════════
+            if should_close:
+                log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {g_key[0]}")
+                for p in g_tickets:
+                    self._close_with_notify(p['ticket'], "BUY" if g_is_buy else "SELL")
+
+        # ═══ CLEANUP: Remover tickets fechados do state e da lista de pendentes ═══
+        closed = [t for t in list(self._positions_state.keys()) if t not in current_tickets]
         for t in closed:
             del self._positions_state[t]
+            if t in self._closing_tickets:
+                self._closing_tickets.remove(t)
 
     def _close_with_notify(self, ticket: int, direction: str):
-        """Fecha posição e notifica o executor para ativar post-close cooldown."""
-        self.bridge.close_position(ticket)
-        if self._on_close_callback:
-            try:
-                self._on_close_callback(direction)
-            except Exception:
-                pass  # Nunca bloquear o close por erro de callback
+        """Marca o ticket como fechando e dispara via pool paralela (Phase 44)."""
+        if ticket in self._closing_tickets:
+            return
+            
+        self._closing_tickets.add(ticket)
+        
+        def _exec_close():
+            self.bridge.close_position(ticket)
+            if self._on_close_callback:
+                try:
+                    self._on_close_callback(direction)
+                except Exception:
+                    pass
+
+        # Disparo assíncrono para não travar o loop de monitoramento
+        self._close_pool.submit(_exec_close)
 
     def close_all(self):
         """Emergency Panic Mode — fecha tudo instantaneamente."""

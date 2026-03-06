@@ -15,7 +15,8 @@
     #ifdef ASI_EXPORTS
         #define ASI_API extern "C" __declspec(dllexport)
     #else
-        #define ASI_API extern "C" __declspec(dllimport)
+        // Durante a compilação local da DLL, queremos exportar, não importar.
+        #define ASI_API extern "C" __declspec(dllexport)
     #endif
 #else
     #define ASI_API extern "C" __attribute__((visibility("default")))
@@ -25,6 +26,30 @@
 //  QUANTUM INDICATOR ENGINE
 //  Cálculos de indicadores em velocidade nativa C++
 // ═══════════════════════════════════════════════════════════
+//  OMEGA SIGNAL CONVERGENCE (Phase 41)
+// ═══════════════════════════════════════════════════════════
+
+struct AgentRawSignal {
+    double signal;
+    double confidence;
+    double weight;
+    int is_hybrid;
+};
+
+struct ConvergenceResult {
+    double final_signal;
+    double final_confidence;
+    double final_coherence;
+    double entropy;
+    int bull_count;
+    int bear_count;
+    int neutral_count;
+    double computation_time_ms;
+};
+
+ASI_API void asi_converge_signals(const AgentRawSignal* signals, int count,
+                                     double interference_weight, double decay,
+                                     ConvergenceResult* out);
 
 ASI_API void asi_ema(const double* close, int len, int period, double* out);
 ASI_API void asi_rsi(const double* close, int len, int period, double* out);

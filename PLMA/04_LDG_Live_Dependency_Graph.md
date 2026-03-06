@@ -29,10 +29,11 @@ graph TD;
     SelfOptimizer --> MutationEngine[core.evolution.mutation_engine.py]
     MutationEngine -. mutates .-> OmegaParams[config.omega_params.py]
     
-    CppCore([cpp.asi_bridge.py / asi_core.dll]) -. accelerates .-> DataEngine
+    CppCore([cpp.asi_bridge.py / asi_core_v2.dll]) -. accelerates .-> DataEngine
     CppCore -. accelerates .-> OrderFlowMatrix
     CppCore -. accelerates .-> QuantumThought
     CppCore -. accelerates .-> RiskQuantum
+    CppCore -. accelerates .-> SniperExecutor
     
     MonteCarlo[core.consciousness.monte_carlo_engine.py] -. validates .-> TrinityCore
 

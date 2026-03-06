@@ -6,11 +6,15 @@
 """
 
 from typing import Optional
+import os
+import time
+import concurrent.futures
 from datetime import datetime, timezone
 
 from core.decision.trinity_core import Decision, Action
 from execution.risk_quantum import RiskQuantumEngine
 from market.mt5_bridge import MT5Bridge
+from concurrent.futures import ThreadPoolExecutor
 from config.settings import ASIState
 from config.omega_params import OMEGA
 from config.exchange_config import MIN_LOT_SIZE
@@ -56,6 +60,9 @@ class SniperExecutor:
         self._post_close_direction = None      # Direção da última posição fechada
         self._post_close_candle_count = 0      # Candles passados desde o último close
         self._post_close_candle_time = 0       # Candle timestamp do close
+        
+        # Phase 40 — Ultra-Fast Execution Pool
+        self._order_pool = ThreadPoolExecutor(max_workers=25)
 
     @timed(log_threshold_ms=500)
     @catch_and_log(default_return=None)
@@ -257,23 +264,39 @@ class SniperExecutor:
             f"SL={decision.stop_loss:.2f} TP={decision.take_profit:.2f}"
         )
 
-        results = []
-        for i, chunk_lot in enumerate(lot_chunks):
-            # TP progressivo opcional: se ativado, distribui os TPs dos slots
-            tp_price = decision.take_profit
+        # 4.3. Parallel Order Dispatch (Phase 40/42)
+        # Obter preço uma única vez para o burst
+        current_tick = self.bridge.get_tick()
+        if not current_tick:
+            log.error("❌ Falha crítica: Impossível obter tick para execução HFT")
+            return None
             
-            res = self.bridge.send_market_order(
+        entry_price = current_tick["ask"] if decision.action.value == "BUY" else current_tick["bid"]
+
+        def _send_slot(i, chunk_lot):
+            return self.bridge.send_market_order(
                 action=decision.action.value,
                 lot=chunk_lot,
                 sl=decision.stop_loss,
-                tp=tp_price,
+                tp=decision.take_profit,
                 comment=f"ASI_{decision.regime[:5]}_{i+1}/{len(lot_chunks)}",
+                price=entry_price, # Usar o preço pré-capturado
+                force_check_positions=False # Bypass redundância
             )
-            
-            if res and res.get("success"):
-                results.append(res)
-            else:
-                log.error(f"❌ Falha ao executar slot {i+1}")
+
+        # Mapeamento paralelo via ThreadPool
+        futures = [self._order_pool.submit(_send_slot, i, lot) for i, lot in enumerate(lot_chunks)]
+        
+        results = []
+        for future in concurrent.futures.as_completed(futures):
+            try:
+                res = future.result(timeout=5.0) # Aumentar timeout para suportar rede lenta
+                if res and res.get("success"):
+                    results.append(res)
+                else:
+                    log.error(f"❌ Falha ao executar slot")
+            except Exception as e:
+                log.error(f"❌ Exceção no disparo do slot: {e}")
 
         if not results:
             log.error("❌ Execução falhou: todas as tentativas retornaram erro no MT5")
@@ -296,8 +319,12 @@ class SniperExecutor:
         if balance > asi_state.peak_balance:
             asi_state.peak_balance = balance
 
-        avg_price = sum(r.get("price", 0) * r.get("volume", chunk_lot) for r in results) / sum(r.get("volume", chunk_lot) for r in results)
-        total_executed_lot = sum(r.get("volume", chunk_lot) for r in results)
+        # Cálculo robusto com base nos resultados reais
+        total_executed_lot = sum(r.get("volume", 0) for r in results)
+        if total_executed_lot > 0:
+            avg_price = sum(r.get("price", 0) * r.get("volume", 0) for r in results) / total_executed_lot
+        else:
+            avg_price = decision.entry_price
 
         log.omega(
             f"✅ TRADE EXECUTADO #{self._execution_count} | "

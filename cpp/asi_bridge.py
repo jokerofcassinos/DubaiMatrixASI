@@ -16,6 +16,7 @@ import sys
 from typing import Optional, Tuple
 
 from utils.logger import log
+from utils.decorators import catch_and_log
 
 # ═══ STRUCT DEFINITIONS (espelhando asi_core.h) ═══
 
@@ -92,8 +93,28 @@ class MonteCarloOutputC(ctypes.Structure):
         ("win_prob", ctypes.c_double),
         ("expected_return", ctypes.c_double),
         ("var_95", ctypes.c_double),
-        ("cvar_95", ctypes.c_double),
+        ("cvar_95",  ctypes.c_double),
         ("simulation_time_ms", ctypes.c_double),
+    ]
+
+class AgentRawSignal(ctypes.Structure):
+    _fields_ = [
+        ("signal", ctypes.c_double),
+        ("confidence", ctypes.c_double),
+        ("weight", ctypes.c_double),
+        ("is_hybrid", ctypes.c_int),
+    ]
+
+class ConvergenceResult(ctypes.Structure):
+    _fields_ = [
+        ("final_signal", ctypes.c_double),
+        ("final_confidence", ctypes.c_double),
+        ("final_coherence", ctypes.c_double),
+        ("entropy", ctypes.c_double),
+        ("bull_count", ctypes.c_int),
+        ("bear_count", ctypes.c_int),
+        ("neutral_count", ctypes.c_int),
+        ("computation_time_ms", ctypes.c_double),
     ]
 
 class HyperspaceOutputC(ctypes.Structure):
@@ -113,6 +134,7 @@ class CppASICore:
     def __init__(self):
         self._lib = None
         self._loaded = False
+        self._available = False # Initialize _available
         self._load_library()
 
     def _load_library(self):
@@ -133,12 +155,12 @@ class CppASICore:
                 except (OSError, AttributeError):
                     os.environ["PATH"] = mpath + ";" + os.environ.get("PATH", "")
         
-        # Possíveis locais da DLL
+        # Possíveis locais da DLL (Ordem de preferência: Versões novas para hot-swap)
         search_paths = [
-            os.path.join(os.path.dirname(__file__), "..", dll_name),        # raiz do projeto
+            os.path.join(os.path.dirname(__file__), "..", "asi_core_v2.dll"), # Nova versão (Phase 41)
+            os.path.join(os.path.dirname(__file__), "..", dll_name),           # Versão padrão
             os.path.join(os.path.dirname(__file__), "..", "cpp", "build", "Release", dll_name),
             os.path.join(os.path.dirname(__file__), "..", "cpp", "build", dll_name),
-            os.path.join(os.path.dirname(__file__), "..", "cpp", "build", "Debug", dll_name),
         ]
 
         for path in search_paths:
@@ -147,6 +169,15 @@ class CppASICore:
                 try:
                     self._lib = ctypes.CDLL(abs_path)
                     self._setup_signatures()
+                    # PHASE 41 — Signal Convergence
+                    self._lib.asi_converge_signals.argtypes = [
+                        ctypes.POINTER(AgentRawSignal), ctypes.c_int,
+                        ctypes.c_double, ctypes.c_double,
+                        ctypes.POINTER(ConvergenceResult)
+                    ]
+                    self._lib.asi_converge_signals.restype = None
+                    
+                    self._available = True
                     self._loaded = True
                     log.omega(f"⚡ C++ ASI Core carregado: {abs_path}")
                     return
@@ -497,6 +528,36 @@ class CppASICore:
             "var_95": out.var_95,
             "cvar_95": out.cvar_95,
             "simulation_time_ms": out.simulation_time_ms
+        }
+
+    @catch_and_log(default_return=None)
+    def converge_signals(self, signals_list: list, interference_weight: float, decay: float) -> dict:
+        """Agrega sinais de 50+ agentes em velocidade nativa (Phase 41)."""
+        if not self._loaded: return None
+        
+        count = len(signals_list)
+        if count == 0: return None
+        
+        signal_array = (AgentRawSignal * count)()
+        
+        for i, s in enumerate(signals_list):
+            signal_array[i].signal = float(getattr(s, 'signal', 0.0))
+            signal_array[i].confidence = float(getattr(s, 'confidence', 0.0))
+            signal_array[i].weight = float(getattr(s, 'weight', 1.0))
+            signal_array[i].is_hybrid = 0 
+            
+        result = ConvergenceResult()
+        self._lib.asi_converge_signals(signal_array, count, interference_weight, decay, ctypes.byref(result))
+        
+        return {
+            "signal": result.final_signal,
+            "confidence": result.final_confidence,
+            "coherence": result.final_coherence,
+            "entropy": result.entropy,
+            "bull_count": result.bull_count,
+            "bear_count": result.bear_count,
+            "neutral_count": result.neutral_count,
+            "time_ms": result.computation_time_ms
         }
 
     def simulate_4096_hyperspace(self, closes: np.ndarray, current_volatility: float) -> dict:

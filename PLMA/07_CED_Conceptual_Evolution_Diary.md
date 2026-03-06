@@ -118,16 +118,23 @@
   - **Kinematic Exhaustion Veto:** Instalação blindada em `trinity_core.py` esmagando trades onde a distância do swing isolado supera mecanicamente os níveis da constante da Mola de Volatilidade (`3x o ATR Médio`). Ação impositiva de Anti-Buy at the Top.
   - **Extreme Climax Damping:** Alteração sub-orgânica de `dynamics.py` em preceitos termodinâmicos para forçar decaimento de sinal quando `Volume Intensity` > 15x ou `Velocity` é extrema. O robô para de focar no movimento e passa a focar no desgaste energético.
 
-### FASE 13: ERA DA PROTEÇÃO ADAPTATIVA (Phases 30, 31, 32, 33 & 34)
+### FASE 19: ERA DA PROTEÇÃO ADAPTATIVA (Phases 30, 31, 32, 33 & 34)
 - **Contexto:** Após atingir 52 agentes, o bot apresentou falhas de "Top/Bottom Hunting" e "Falling Knives" em mercados de alta volatilidade (Flash Crashes e Pullbacks agressivos).
 - **Evolução:**
   - **Phase 30**: Instalação do `Freight Train Override`.
   - **Phase 31/33**: Instalação da `Elastic Snapback (Multi-Agent Strain)`.
-  - **Phase 32**: Instalação do `Dead Cat Bounce Veto`.
+  - **Phase 32**: Instalação do `Dead Cat Bounce Veto`. A Macro-Tendência agora tem soberania sobre repiques microscópicos, impedindo compras de euforia em tendências de baixa.
   - **Phase 34**: Instalação do `Trend-Structure Alignment Veto`.
-  - O sistema agora possui blindagem quádrupla no nível perceptual.
+- O sistema agora possui blindagem quádrupla no nível perceptual.
 
-### FASE 14: ERA DO DOMÍNIO DE MARGEM (Phases 35, 36, 37 & 38)
+### FASE 20: ERA DO HFT ABSOLUTO (Latency Neutralization — Phase 40/41)
+- **Contexto**: Identificação de gargalos críticos de 10s no ciclo de execução (4.8s envio + 4.9s processamento), tornando a ASI vulnerável a slippage.
+- **Evolução**:
+    - **Execução Descentralizada**: Transição do loop sequencial para o `Hydra Multi-Threaded Dispatcher`.
+    - **Pensamento Nativo**: Colapso de sinais migrado integralmente para C++. A ASI agora "pensa" e "age" em sub-segundo.
+    - **Darwinismo de DLL**: Implementação de Shadow Hosting para atualizações de núcleo a quente.
+
+### FASE 21: ERA DO DOMÍNIO DE MARGEM (Phases 35, 36, 37 & 38)
 - **Contexto:** Gargalos de lot sizing limitavam os lucros a ~2.77 lotes mesmo com sinais de alta convicção.
 - **Evolução:**
   - **Phase 35/36**: Remoção de tetos de segurança (0.5% -> 25% risk cap).

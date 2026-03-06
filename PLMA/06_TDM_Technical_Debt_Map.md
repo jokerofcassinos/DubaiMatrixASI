@@ -24,10 +24,21 @@
 - **Risco:** [RESOLVIDO] Erro sanado em 2026-03-05. A persistência de tipagem flexiva (duck typing) em zonas críticas de colapso quântico cria Single Points of Failure grotescos.
 - **Solução Futura:** Estabelecer decorators de `@validate_return_type(AgentSignal)` explícito na interface da classe base.
 
-### DÍVIDA TÉCNICA 05: Complexidade Lógica no QuantumThought — [EM MONITORAMENTO]
+### DÍVIDA TÉCNICA 05: Complexidade Lógica no QuantumThought — [RESOLVIDO]
 - **Localização:** `core/consciousness/quantum_thought.py` / `process()`.
 - **Descrição:** A injeção sequencial de múltiplos vetos (Phases 27, 29, 30, 32, 33) aumentou drasticamente o custo cognitivo da função. Existe risco de conflitos entre overrides (ex: Freight Train brigando com Elastic Snapback).
 - **Risco:** [AMARELO] Risco de "Veto Deadlock" onde nenhum trade é disparado.
 - **Solução Futura:** Migrar a lógica de veto para um sistema de `VetoRegistry` ou `Chain of Responsibility` mais limpo.
 
-*(Atualizado: 2026-03-06. Versão: 7.1.0-omega)*
+### DÍVIDA TÉCNICA 06: Monitoramento de Overhead de Threads (SniperExecutor) — [NOVO]
+- **Localização:** `execution/sniper_executor.py` / `order_pool`.
+- **Descrição:** Monitorar se a criação massiva de instâncias de `ThreadPoolExecutor` ou a persistência da `order_pool` causa vazamento de memória ou exaustão de descritores no Windows sob alta frequência.
+- **Risco:** [AMARELO] Risco de instabilidade do terminal MT5 se o socket bridge for asfixiado por concorrência.
+
+### DÍVIDA TÉCNICA 07: Monte Carlo Win Prob Bottleneck — [NOVO]
+- **Localização:** `core/consciousness/monte_carlo_engine.py`.
+- **Descrição:** O threshold fixo de 40% win probability está vetando trades em regimes de alta volatilidade onde a variância é intrinsecamente alta, mas o *Expected Value* é positivo.
+- **Risco:** [AMARELO] Perda de oportunidades lucrativas (Falso Negativo).
+- **Solução Futura:** Implementar `Adaptive MC Threshold` que se ajusta baseado na volatilidade do regime e na meta de PnL remanescente.
+
+*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war)*

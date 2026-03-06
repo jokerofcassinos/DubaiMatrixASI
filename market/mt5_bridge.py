@@ -510,7 +510,8 @@ class MT5Bridge:
     @timed(log_threshold_ms=200)
     def send_market_order(self, action: str, lot: float,
                           sl: float = 0.0, tp: float = 0.0,
-                          comment: str = "ASI", magic: int = None
+                          comment: str = "ASI", magic: int = None,
+                          price: float = None, force_check_positions: bool = True
                           ) -> Optional[dict]:
         """
         Envia ordem a mercado — a arma principal da ASI.
@@ -522,6 +523,8 @@ class MT5Bridge:
             tp: Take Profit (preço)
             comment: Comentário da ordem
             magic: Magic number (default: MAGIC_NUMBER)
+            price: Preço opcional (se None, usa o último tick)
+            force_check_positions: Se True, consulta o MT5 para o limite de posições
         """
         if not self.connected:
             log.error("❌ MT5 não conectado — ordem rejeitada")
@@ -530,28 +533,29 @@ class MT5Bridge:
         # Validar lot size
         lot = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, round(lot, 2)))
 
-        # Obter preço atual
-        tick = mt5.symbol_info_tick(self.symbol)
-        if tick is None:
-            log.error("❌ Sem tick disponível para ordem")
-            return None
-
-        # Determinar tipo e preço
-        if action.upper() == "BUY":
-            order_type = mt5.ORDER_TYPE_BUY
-            price = tick.ask
-        elif action.upper() == "SELL":
-            order_type = mt5.ORDER_TYPE_SELL
-            price = tick.bid
+        # Determinar preço (prioridade para cache HFT Socket)
+        if price is None:
+            tick = self._last_socket_tick or mt5.symbol_info_tick(self.symbol)
+            if tick is None:
+                log.error("❌ Sem tick disponível para ordem")
+                return None
+            
+            # Formato do tick muda se vier do socket ou API
+            if isinstance(tick, dict):
+                current_price = tick["ask"] if action.upper() == "BUY" else tick["bid"]
+            else:
+                current_price = tick.ask if action.upper() == "BUY" else tick.bid
         else:
-            log.error(f"❌ Ação inválida: {action}")
-            return None
+            current_price = price
 
-        # Verificar posições abertas
-        positions = mt5.positions_get(symbol=self.symbol)
-        if positions and len(positions) >= MAX_OPEN_POSITIONS:
-            log.warning(f"⚠️ Máximo de posições atingido ({MAX_OPEN_POSITIONS})")
-            return None
+        order_type = mt5.ORDER_TYPE_BUY if action.upper() == "BUY" else mt5.ORDER_TYPE_SELL
+
+        # Verificar posições abertas (Opcional para HFT burst)
+        if force_check_positions:
+            positions = mt5.positions_get(symbol=self.symbol)
+            if positions and len(positions) >= MAX_OPEN_POSITIONS:
+                log.warning(f"⚠️ Máximo de posições atingido ({MAX_OPEN_POSITIONS})")
+                return None
 
         # Construir request
         request = {
@@ -559,7 +563,7 @@ class MT5Bridge:
             "symbol": self.symbol,
             "volume": lot,
             "type": order_type,
-            "price": price,
+            "price": current_price,
             "deviation": ORDER_DEVIATION,
             "magic": magic or MAGIC_NUMBER,
             "comment": comment,
@@ -572,7 +576,25 @@ class MT5Bridge:
         if tp > 0:
             request["tp"] = tp
 
-        # EXECUTAR!
+        # ═══ Phase 43: HFT Socket Open (Priority) ═══
+        # Formato: "ACTION|SYMBOL|LOT|SL|TP" (O MQL5 espera exatamente isso em ProcessSingleCommand)
+        # Notas: sl e tp podem ser 0.
+        cmd = f"{action.upper()}|{self.symbol}|{lot:.2f}|{sl:.2f}|{tp:.2f}"
+        if self.send_socket_command(cmd):
+            # No HFT, não esperamos o ticket/preço real aqui para não travar o loop de disparo
+            # O resultado real será processado pelo _handle_socket_data assincronamente
+            return {
+                "success": True,
+                "ticket": 0, # Pending async
+                "deal": 0,
+                "price": current_price, # Preço estimado (para logs imediatos)
+                "volume": lot,
+                "action": action,
+                "status": "OPEN_SIGNALED"
+            }
+
+        # ═══ Fallback: MT5 Native API (Slow) ═══
+        log.warning(f"⚠️ Socket falhou para abertura. Usando fallback API Python (Lento).")
         result = mt5.order_send(request)
 
         if result is None:

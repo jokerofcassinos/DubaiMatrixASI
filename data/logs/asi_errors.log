@@ -71,3 +71,507 @@
 [DubaiMatrixASI] 13:19:24.074    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined
 [DubaiMatrixASI] 13:19:24.352    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined
 [DubaiMatrixASI] 13:19:25.141    ERROR │ 💀 EXCEPTION in [calculate_lot_size]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 14:38:26.992    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:49:22.113    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 15:08:27.240    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'chunk_lot' is not defined
+[DubaiMatrixASI] 15:12:37.755    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:37.975    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:38.278    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:38.485    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:38.915    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:39.429    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:39.695    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:39.980    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:40.335    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:40.598    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:40.789    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:41.007    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:41.335    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:41.614    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:42.091    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:42.260    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:42.513    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:42.758    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:43.000    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:43.300    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:43.508    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:43.791    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:44.012    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:44.312    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:44.555    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:44.812    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:45.061    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:45.398    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:45.566    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:45.847    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:46.102    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:46.353    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:46.675    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:46.893    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:47.125    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:47.399    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:47.641    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:47.984    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:48.209    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:48.516    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:48.725    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:48.982    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:49.180    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:49.412    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:49.694    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:50.004    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:50.238    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:50.472    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:50.741    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:50.954    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:12:55.322    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:04.981    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:05.292    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:05.523    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:05.776    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:06.027    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:06.287    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:06.514    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:06.797    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:07.039    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:07.299    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:07.522    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:07.782    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:08.071    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:08.275    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:08.559    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:08.781    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:09.077    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:09.308    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:09.534    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:09.844    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:10.097    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:10.346    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:10.569    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:10.846    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:11.093    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:11.363    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:11.591    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:11.832    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:12.112    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:13:13.663    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'concurrent' is not defined
+[DubaiMatrixASI] 15:15:54.628    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.628    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.629    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.629    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.630    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.630    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.631    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.631    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.632    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.632    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.633    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.633    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.634    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.634    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.635    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.635    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.636    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.636    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.637    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.637    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.637    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:54.860    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.861    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.861    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.862    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.862    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.863    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.863    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.864    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.864    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.865    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.865    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.866    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.866    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.867    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.867    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.867    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.868    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.868    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.869    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.869    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:54.870    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:55.154    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.155    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.155    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.156    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.156    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.157    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.157    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.158    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.158    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.159    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.159    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.160    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.161    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.161    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.162    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.163    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.163    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.164    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.165    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.165    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.165    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:55.367    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.368    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.368    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.369    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.369    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.370    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.370    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.371    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.371    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.372    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.372    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.373    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.373    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.374    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.374    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.374    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.375    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.375    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.376    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.376    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.377    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:55.655    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.664    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.670    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.670    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.671    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.671    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.672    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.672    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.672    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.673    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.673    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.674    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.674    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.674    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.675    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.675    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.676    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.676    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.677    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.677    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.677    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:55.890    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.890    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.891    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.891    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.891    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.892    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.892    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.893    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.893    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.894    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.894    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.894    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.895    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.895    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.896    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.896    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.897    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.897    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.898    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.898    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:55.899    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:56.162    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.163    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.173    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.178    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.179    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.179    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.180    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.180    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.181    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.181    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.182    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.182    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.183    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.183    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.184    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.184    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.185    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.185    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.186    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.186    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.186    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:56.412    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.412    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.413    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.413    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.413    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.414    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.414    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.415    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.415    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.416    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.416    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.416    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.417    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.417    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.418    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.418    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.419    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.419    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.420    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.420    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.420    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:56.668    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.677    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.683    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.683    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.684    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.684    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.685    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.685    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.686    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.686    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.686    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.687    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.687    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.688    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.688    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.689    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.689    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.690    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.690    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.691    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.691    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:56.850    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.850    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.850    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.851    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.851    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.852    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.852    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.853    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.853    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.854    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.854    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.854    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.855    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.855    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.856    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.856    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.867    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.878    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.878    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.896    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:56.905    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:57.122    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.122    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.123    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.123    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.123    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.124    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.124    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.125    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.125    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.126    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.126    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.126    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.127    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.127    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.128    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.128    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.129    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.129    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.129    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.130    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.131    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:57.453    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.454    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.454    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.454    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.455    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.455    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.456    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.457    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.457    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.458    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.458    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.459    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.459    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.459    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.460    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.461    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.462    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.462    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.463    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.463    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.464    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:57.668    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.669    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.669    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.670    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.670    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.670    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.671    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.671    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.672    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.672    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.673    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.673    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.674    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.680    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.697    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.699    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.716    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.726    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.727    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.732    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:57.733    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:58.166    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.167    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.167    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.167    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.168    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.168    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.169    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.169    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.170    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.170    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.171    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.171    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.172    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.172    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.173    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.173    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.174    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.174    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.174    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.175    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.175    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:58.487    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.487    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.488    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.488    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.489    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.489    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.489    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.490    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.490    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.491    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.491    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.492    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.492    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.493    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.493    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.494    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.494    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.495    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.495    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.496    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.497    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:58.695    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.695    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.696    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.696    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.697    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.697    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.697    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.698    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.698    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.699    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.700    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.701    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.701    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.702    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.702    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.703    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.703    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.703    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.704    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.704    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.705    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:58.942    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.962    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.963    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.980    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.990    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.995    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.996    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.996    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.996    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.997    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.997    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.998    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.998    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.998    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.999    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:58.999    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.000    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.000    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.001    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.001    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.002    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:59.194    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.199    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.199    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.200    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.200    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.201    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.201    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.202    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.202    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.203    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.203    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.203    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.204    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.204    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.205    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.205    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.206    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.206    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.206    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.207    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.207    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:59.413    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.414    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.414    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.415    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.415    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.415    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.416    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.417    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.417    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.418    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.418    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.419    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.419    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.419    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.420    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.420    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.421    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.421    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.422    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.422    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.422    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:15:59.704    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.710    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.710    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.711    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.711    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.712    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.712    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.713    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.713    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.713    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.714    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.714    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.715    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.715    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.716    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.716    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.717    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.717    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.718    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.718    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
+[DubaiMatrixASI] 15:15:59.719    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5

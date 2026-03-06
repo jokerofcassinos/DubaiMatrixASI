@@ -297,21 +297,26 @@ class QuantumThoughtEngine:
             # Se ninguém tem convicção, a confiança é o piso dos neutros (geralmente baixa)
             avg_confidence = float(np.mean([s.confidence for s in valid_signals])) * 0.5
             
-        # ═══ 3. AGREGANDO VIA C++ (BLAZING FAST) ═══
-        cpp_signals = [{"signal": s.signal, "confidence": s.confidence, "weight": s.weight} for s in valid_signals]
+        # ═══ 3. AGREGANDO VIA C++ (BLAZING FAST — Phase 41) ═══
+        # Coletamos os parâmetros dinâmicos do OMEGA
         buy_threshold = OMEGA.get("buy_threshold", 0.7)
         convergence_threshold = OMEGA.get("convergence_threshold", 0.75)
+        interference_weight = OMEGA.get("quantum_interference_weight", 0.5)
+        decay_factor = OMEGA.get("quantum_decay_factor", 1.0)
         
-        cpp_result = CPP_CORE.aggregate_signals(
-            cpp_signals, regime_weight, 
-            signal_threshold=buy_threshold,
-            coherence_threshold=convergence_threshold
+        cpp_result = CPP_CORE.converge_signals(
+            valid_signals, 
+            interference_weight=interference_weight,
+            decay=decay_factor
         )
         
-        raw_signal = cpp_result["raw_signal"]
+        if not cpp_result:
+            return self._empty_state("CPP_CONVERGENCE_FAILED")
+
+        raw_signal = cpp_result["signal"]
         coherence = cpp_result["coherence"]
-        system_entropy = cpp_result["energy"]  # Energy no C++ funciona como proxy de entropia/força
-        should_collapse = cpp_result["should_collapse"]
+        system_entropy = cpp_result["entropy"]
+        comp_time_cpp = cpp_result["time_ms"]
         
         # ═══ 5. COHERENCE BOOST & COLLAPSE POLICY ═══
         # Se a coerência é alta (>0.7), damos um boost na confiança (Efeito Enxame)
@@ -326,8 +331,7 @@ class QuantumThoughtEngine:
         if coherence > 0.85:
             confidence_min_val *= 0.9
             
-        if avg_confidence < confidence_min_val:
-            should_collapse = False
+        should_collapse = (avg_confidence >= confidence_min_val) and (abs(raw_signal) >= buy_threshold)
 
         if should_collapse:
             collapsed_signal = raw_signal
@@ -360,10 +364,9 @@ class QuantumThoughtEngine:
             f"COHERENCE={coherence:.2f} "
             f"CONFIDENCE={avg_confidence:.2f} "
             f"ENTROPY={system_entropy:.2f} "
+            f"CPP={comp_time_cpp:.3f}ms "
             f"{'COLLAPSED' if not superposition else 'SUPERPOSITION'} | "
-            f"BULL[{','.join(bull_agents)}] "
-            f"BEAR[{','.join(bear_agents)}] "
-            f"NEUTRAL[{','.join(neutral_agents)}]"
+            f"BULL[{cpp_result['bull_count']}] BEAR[{cpp_result['bear_count']}] NEUT[{cpp_result['neutral_count']}]"
         )
 
         state = QuantumState(
