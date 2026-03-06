@@ -58,9 +58,14 @@
 - **Justificativa:** O processamento em Python levava ~4.9s para processar os pesos e entropias. Em C++, o tempo foi reduzido para sub-milissegundo (<1ms).
 - **Data/Status:** ATIVO. (2026-03-06).
 
-### DECISÃO 12: SHADOW DLL HOT-SWAP (asi_core_v2.dll)
-- **Decisão:** Implementação de versão versionada da DLL no `asi_bridge.py` para permiti re-compilação e atualização sem parar o bot.
-- **Justificativa:** O Windows bloqueia o arquivo `asi_core.dll` enquanto o `main.py` está rodando. O shadow build permite evolução contínua.
+### DECISÃO 13: NEURAL SWARM RESILIENCE SCALING (Phase 42)
+- **Decisão:** Aumento do timeout do `ThreadPoolExecutor.map` de **0.6s para 1.2s** e implementação de logging de diagnóstico para timeouts.
+- **Justificativa:** A expansão para 54 agentes gerou contenção de recursos, causando `TimeoutError` intermitentes que cegavam o `QuantumThoughtEngine`.
 - **Data/Status:** ATIVO. (2026-03-06).
 
-*(Atualizado: 2026-03-06. Versão: 1.3.0-omega — Phase 33 Integration)*
+### DECISÃO 14: ARQUITETURA HOLOGRÁFICA PLMA (Project Fragmentation)
+- **Decisão:** Criação do script `utils/plma_sync.py` para comprimir e dividir dinamicamente as 7 camadas da PLMA em múltiplos arquivos `projectmap.md`.
+- **Justificativa:** A carga cognitiva de um único arquivo monolítico de memória estava atingindo o teto de tokens de contexto; a fragmentação holográfica permite que a ASI acesse sub-redes de memória de forma mais eficiente.
+- **Data/Status:** ATIVO. (2026-03-06).
+
+*(Atualizado: 2026-03-06. Versão: 1.4.0-omega — Phase 42 Monitoring)*

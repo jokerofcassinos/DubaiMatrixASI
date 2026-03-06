@@ -41,4 +41,10 @@
 - **Risco:** [AMARELO] Perda de oportunidades lucrativas (Falso Negativo).
 - **Solução Futura:** Implementar `Adaptive MC Threshold` que se ajusta baseado na volatilidade do regime e na meta de PnL remanescente.
 
+### DÍVIDA TÉCNICA 08: Neural Swarm Latency Bottleneck — [NOVO]
+- **Localização:** `core/consciousness/neural_swarm.py`.
+- **Descrição:** O aumento do timeout de 0.6s para 1.2s é um ajuste paliativo. A causa raiz é o overhead do `ThreadPoolExecutor` e do GIL do Python ao gerenciar 54 agentes simultâneos.
+- **Risco:** [AMARELO] Spikes de latência podem afetar o timing do Sniper HFT em condições de alta volatilidade.
+- **Solução Futura:** Migrar a orquestração do enxame para C++ Nativo (Phase 43) ou utilizar `multiprocessing` com Shared Memory para bypassar o GIL.
+
 *(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war)*

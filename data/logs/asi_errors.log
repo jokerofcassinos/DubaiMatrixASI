@@ -575,3 +575,61 @@
 [DubaiMatrixASI] 15:15:59.718    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
 [DubaiMatrixASI] 15:15:59.718    ERROR │ ❌ Exceção no disparo do slot: MT5Bridge.send_market_order() got an unexpected keyword argument 'price'
 [DubaiMatrixASI] 15:15:59.719    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 15:57:57.535    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 15:58:20.857    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 15:58:22.124    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 15:59:54.972    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:00:31.238    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:00:41.280    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:00:55.286    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:00:57.651    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:01:04.255    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:01:08.500    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:01:33.535    ERROR │ 💀 EXCEPTION in [think]: TimeoutError: 
+[DubaiMatrixASI] 16:03:07.444    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.445    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.445    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.446    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.448    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.448    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.449    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.452    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 16:03:07.454    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'symbol_info'
+[DubaiMatrixASI] 16:03:07.456    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 16:03:07.456    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 16:03:07.458    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 16:03:07.458    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 16:03:07.460    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 16:03:07.461    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.461    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 16:03:07.462    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 16:03:07.462    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.463    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.463    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.463    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.464    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.466    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.467    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'metadata'
+[DubaiMatrixASI] 16:03:07.467    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 16:03:07.469    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.470    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.470    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.471    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm1_closes'
+[DubaiMatrixASI] 16:03:07.473    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'recent_ticks'
+[DubaiMatrixASI] 16:03:07.473    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'm5_closes'
+[DubaiMatrixASI] 16:03:07.473    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.474    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.475    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.476    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.476    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.477    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.477    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.479    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.481    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'indicators'
+[DubaiMatrixASI] 16:03:07.482    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.483    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.486    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.489    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.493    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.494    ERROR │ 💀 EXCEPTION in [analyze]: AttributeError: 'dict' object has no attribute 'candles'
+[DubaiMatrixASI] 16:03:07.497    ERROR │ Agent ConfidenceAggregator falhou: 'dict' object has no attribute 'indicators'

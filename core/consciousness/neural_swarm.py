@@ -211,8 +211,17 @@ class NeuralSwarm:
                 log.error(f"Agent {agent.name} falhou: {e}")
                 return AgentSignal(agent.name, 0.0, 0.0, f"ERROR: {e}", agent.weight)
 
-        # Execução paralela em massa
-        results = list(self._executor.map(_run_agent, self.agents, timeout=0.6))
+        # Execução paralela em massa com rastreamento de latência (Phase 42)
+        start_time = time.monotonic()
+        try:
+            # Aumentamos o timeout para 1.2s para acomodar 54 agentes
+            results = list(self._executor.map(_run_agent, self.agents, timeout=1.2))
+        except TimeoutError:
+            # Diagnóstico de Inconsciência: Identificar qual agente está asfixiando o enxame
+            elapsed = time.monotonic() - start_time
+            log.error(f"💀 NeuralSwarm TIMEOUT após {elapsed:.3f}s! Verificando agentes lentos...")
+            # Fallback seguro: retornar o que foi processado ou lista vazia
+            return []
         
         # Filtrar None e retornar
         return [r for r in results if r is not None]

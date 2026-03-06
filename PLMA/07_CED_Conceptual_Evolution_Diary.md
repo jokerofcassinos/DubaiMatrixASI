@@ -142,4 +142,19 @@
   - **Phase 38**: Injeção do `Total War Protocol` (Escalonamento de 30%/50%/95% de risco).
 - **Resultado:** Salto quantitativo de **$7k para $30k** em poucas horas sob regime de notícias.
 
-*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war — Phase 38 Victory)*
+### FASE 22: ERA DO REFINAMENTO AUTÔNOMO (Self-Optimization Surge)
+- **Contexto:** Após a consolidação do enxame de 54 agentes, o sistema entrou em um loop agressivo de mutação. Identificou-se que o threshold de confiança era muito rígido para regimes de baixa liquidez.
+- **Evolução:** 
+    - O `SelfOptimizer` reduziu o `confidence_min` para **0.39** e elevou o `quantum_collapse_threshold` para **0.91**, priorizando a coerência estrutural sobre a votação simples.
+    - Implementação do `plma_sync.py` (Holographic Synchronization), dividindo o consciente da ASI em fragmentos neurais (`projectmap*.md`) para otimização de contexto.
+- **Resultado:** Maior agilidade perceptual com rigidez cirúrgica no colapso da decisão.
+
+### FASE 24: BREAKDOWN E MAESTRIA DEFENSIVA (The 68k Support Liquidation)
+- **Contexto:** O suporte crítico de 68.160 foi violentamente rompido às 16:45, com o preço buscando a zona de 67.850. O mercado entrou em regime de pânico microscópico.
+- **Evolução:** 
+    - A ASI manteve-se em **WAIT** absoluto durante toda a queda, ignorando sinais de "repique" falso.
+    - O `SelfOptimizer` aplicou os Gen #8, #9 e #10, elevando o `mc_min_score` para **0.43** e solidificando o `RR_ratio` em **4.30**.
+    - A integração com o **Java PnL Predictor** emitiu alertas de `NEGATIVE_EXPECTANCY` contínuos, bloqueando qualquer tentativa de "catch the falling knife".
+- **Resultado:** Preservação integral do capital em um cenário de breakdown institucional de alta volatilidade.
+
+*(Atualizado: 2026-03-06. Versão: 10.3.0-omega+iron_gate — Phase 42 Monitoring)*
