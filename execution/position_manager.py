@@ -131,65 +131,60 @@ class PositionManager:
         for g_key, g_data in groups.items():
             g_tickets = g_data["tickets"]
             g_is_buy = g_data["is_buy"]
-            avg_profit = g_data["total_profit"] / len(g_tickets)
-            max_p = g_data["max_profit"]
+            total_profit = g_data["total_profit"]
             
             # State ID para o grupo (usamos o ticket da primeira posição como âncora)
             anchor_ticket = g_tickets[0]['ticket']
             
             if anchor_ticket not in self._positions_state:
                 self._positions_state[anchor_ticket] = {
-                    "peak_avg_profit": avg_profit,
+                    "peak_profit": total_profit,
                     "start_time": g_data["time"],
                     "trail_activated": False,
                     "last_price_change_time": time.time(),
-                    "last_cached_price": g_data["entry_price"]
+                    "last_cached_profit": total_profit
                 }
             
             state = self._positions_state[anchor_ticket]
             
-            # Update peak avg profit & stagnation price tracking
-            if avg_profit > state['peak_avg_profit']:
-                state['peak_avg_profit'] = avg_profit
+            # Update peak profit & stagnation tracking
+            if total_profit > state['peak_profit']:
+                state['peak_profit'] = total_profit
             
-            # Usamos o ask/bid atual vindo do Snapshot no Brain para checar o preco do símbolo
-            # Mas como o monitor_positions não recebe o tick bruto, usamos o avg_profit como proxy
-            # Ou melhor, vamos verificar se o profit mudou significativamente
-            if abs(avg_profit - state.get("last_cached_profit", -999)) > 0.01:
-                state["last_cached_profit"] = avg_profit
+            if abs(total_profit - state.get("last_cached_profit", -999)) > 0.01:
+                state["last_cached_profit"] = total_profit
                 state["last_price_change_time"] = time.time()
 
             should_close = False
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Refined Phase Ω-Transcendence)
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Total Dollar Based)
             # ═══════════════════════════════════════════════════
-            # OMEGA: Monitoramos a perda de terreno do lucro.
-            if state['peak_avg_profit'] > 1.5: # Ativa lock após $1.5 de lucro médio acumulado
+            peak = state['peak_profit']
+            if peak > 2.0: # Ativa lock após $2.0 de lucro total do Strike
                 drawdown_pct = 0.0
-                if avg_profit > 0:
-                    drawdown_pct = (state['peak_avg_profit'] - avg_profit) / state['peak_avg_profit']
-                else: # Lucro evaporou totalmente ou ficou negativo
+                if total_profit > 0:
+                    drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
+                else: 
                     drawdown_pct = 1.0 
 
-                # OMEGA: Thresholds agressivos p/ garantir lucro
                 lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25)
-                if state['peak_avg_profit'] > 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
-                if state['peak_avg_profit'] > 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
+                if peak > 20: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
+                if peak > 100: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
                 
-                # Nuke imediato se o lucro cair abaixo do aceitável ou se evaporar > 80% independente do threshold
-                if drawdown_pct >= lock_threshold or (state['peak_avg_profit'] > 5.0 and avg_profit < 1.0):
+                # Nuke se evaporar > threshold OU se caiu de $10+ para < $2.0
+                if drawdown_pct >= lock_threshold or (peak > 10.0 and total_profit < 2.0):
                     should_close = True
-                    reason = f"ATOMIC_PROFIT_LOCK: Evaporação Detectada (Peak=${state['peak_avg_profit']:.2f} -> Curr=${avg_profit:.2f}, Drawdown={drawdown_pct*100:.1f}%)"
+                    reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
             # ═══════════════════════════════════════════════════
-            if not should_close and avg_profit > 0.5:
-                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 15.0)
-                req_delta = 50 if avg_profit * len(g_tickets) > buffer_tp else 250
-                req_signal = 0.3 if avg_profit * len(g_tickets) > buffer_tp else 0.85
+            if not should_close and total_profit > 1.0:
+                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 20.0)
+                req_delta = 50 if total_profit > buffer_tp else 300
+                req_signal = 0.3 if total_profit > buffer_tp else 0.85
                 
                 if g_is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
                     should_close = True
@@ -201,7 +196,7 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
             # ═══════════════════════════════════════════════════
-            if not should_close and avg_profit > 0.2:
+            if not should_close and total_profit > 0.5:
                 is_exh = exhaustion.get("detected", False)
                 is_abs = absorption.get("detected", False)
                 if (is_exh or is_abs) and climax_score > 3.0:
@@ -210,11 +205,10 @@ class PositionManager:
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 4: MICRO-STAGNATION EXIT (Phase 46)
-            #  Se o lucro médio parar por 2-3s → nuke
             # ═══════════════════════════════════════════════════
-            if not should_close and avg_profit > 1.0:
+            if not should_close and total_profit > 5.0:
                 stag_time = time.time() - state.get("last_price_change_time", time.time())
-                if stag_time >= 3.0:
+                if stag_time >= 4.0:
                     should_close = True
                     reason = f"MICRO_STAGNATION (Flat for {stag_time:.1f}s)"
 
@@ -223,10 +217,10 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             if not should_close:
                 elapsed = time.time() - state['start_time']
-                if elapsed > 120 and avg_profit > 0: # 2min scalp
+                if elapsed > 120 and total_profit > 2.0: # 2min scalp profit target
                     should_close = True
                     reason = f"ATOMIC_TIME_DECAY: {elapsed:.0f}s"
-                elif elapsed > 300: # 5min total cut
+                elif elapsed > 360: # 6min total cut
                     should_close = True
                     reason = f"ATOMIC_TIME_CUT: {elapsed:.0f}s"
 

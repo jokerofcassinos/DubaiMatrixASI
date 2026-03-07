@@ -827,6 +827,7 @@ class MT5Bridge:
         return [
             {
                 "ticket": pos.ticket,
+                "symbol": pos.symbol,
                 "type": "BUY" if pos.type == mt5.ORDER_TYPE_BUY else "SELL",
                 "volume": pos.volume,
                 "open_price": pos.price_open,

@@ -224,8 +224,8 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.15, 0.10, 1.0,
-                        "Threshold mínimo de Φ para permitir execução (Elevado Post-Mortem para 0.15)")
+        self._register("phi_min_threshold", 0.15, 0.01, 1.0,
+                        "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,

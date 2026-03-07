@@ -205,6 +205,8 @@ class TrinityCore:
         dynamic_phi_min = max(0.05, min(phi_min, dynamic_phi_min))
 
         if quantum_state.phi < dynamic_phi_min:
+            # OMEGA: Log de Transparência Sensorial
+            log.debug(f"🔍 [PERCEPTION] PHI={quantum_state.phi:.2f} < REQ={dynamic_phi_min:.2f} (Veto por Incoerência Sistêmica)")
             return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {dynamic_phi_min:.2f})")
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
