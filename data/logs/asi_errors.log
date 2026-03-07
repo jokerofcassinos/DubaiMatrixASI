@@ -4380,3 +4380,4 @@
 [DubaiMatrixASI] 18:19:59.647    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
 [DubaiMatrixASI] 18:19:59.666    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 18:19:59.685    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 18:52:09.053    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))

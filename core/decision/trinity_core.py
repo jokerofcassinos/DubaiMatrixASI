@@ -124,9 +124,9 @@ class TrinityCore:
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
-        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY"]:
-            # [REVERTED] Na compressão/baixa liquidez, os sinais são ruidosos. 
-            # Elevamos a malha em 1.5x para evitar falsos rompimentos (Chaos Shield).
+        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL"]:
+            # [PHASE Ω-ANTI-FRAGILITY] Drifting/Compression regimes are noisy.
+            # We require a significantly stronger signal (1.5x) to avoid being trapped in range rotations.
             dynamic_buy_thresh *= 1.5
             dynamic_sell_thresh *= 1.5
             dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
@@ -248,10 +248,12 @@ class TrinityCore:
         tp_mult = OMEGA.get("take_profit_atr_mult")
         
         # [PHASE Ω-ANTI-FRAGILITY] Adaptive SL Scaling
-        # Em regimes de ruído, dobramos o range para evitar stop-hunting.
+        # Em regimes de ruído ou queda lenta (Drifting), alargamos o range para evitar stop-hunting.
         dynamic_sl_mult = sl_mult
-        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS"]:
-            dynamic_sl_mult *= 2.5 # SL Wider para aguentar o noise
+        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS", "DRIFTING_BEAR", "DRIFTING_BULL"]:
+            # Em DRIFTING ou Ruído, o preço faz muitos pullbacks de 1 ATR.
+            # O multiplicador de 2.5x garante que o trade tenha espaço para respirar.
+            dynamic_sl_mult *= 2.5 
             log.omega(f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.")
  
         if action == Action.BUY:
