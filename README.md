@@ -1,8 +1,3 @@
-Aqui está o `README.md` extremamente detalhado, moderno e estruturado, adaptado para o ecossistema do seu projeto, escrito em Português (Portugal).
-
-Pode copiar o bloco de código abaixo e guardá-lo diretamente como o seu ficheiro `README.md`.
-
-```markdown
 # 🌌 DubaiMatrix ASI (Artificial Super Intelligence)
 
 <div align="center">
