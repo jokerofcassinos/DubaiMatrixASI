@@ -225,3 +225,43 @@ def catch_and_log(default_return=None, critical: bool = False):
                 return default_return
         return wrapper
     return decorator
+
+
+def ast_self_heal(func):
+    """
+    Sistema Imunológico AST (Phase Ω-Ascension):
+    Captura AttributeError em runtime. Ao invés de abortar o ciclo, 
+    infere a classe e injeta um mock dinâmico no objeto afetado para que a ASI
+    continue rodando sem intervenção humana.
+    """
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except AttributeError as e:
+            try:
+                import re
+                from utils.logger import log
+                
+                # Extrai do erro padrão: "'BookInfo' object has no attribute 'volume_real'"
+                match = re.search(r"'([^']+)' object has no attribute '([^']+)'", str(e))
+                if match:
+                    obj_type, attr_name = match.groups()
+                    log.omega(f"🧬 [AST SELF-HEAL] Falha de atributo '{attr_name}' no objeto '{obj_type}'. Autocicatrizando...")
+                    
+                    healed = False
+                    # Procura o objeto corrompido nos argumentos para curá-lo
+                    for arg in args:
+                        if type(arg).__name__ == obj_type:
+                            # Injeta property fantasma
+                            setattr(arg, attr_name, 0.0) 
+                            log.omega(f"🧬 Atributo {attr_name} = 0.0 injetado dinamicamente em {obj_type}!")
+                            healed = True
+                            
+                    if healed:
+                        # Roda a função novamente com a matriz cicatrizada
+                        return func(*args, **kwargs)
+            except Exception:
+                pass
+            raise e # Se não conseguiu curar, devolve o erro pro catch_and_log
+    return wrapper

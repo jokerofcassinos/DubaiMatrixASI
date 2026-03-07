@@ -394,7 +394,7 @@ class MT5Bridge:
             item = {
                 "price": entry.price,
                 "volume": entry.volume,
-                "volume_real": entry.volume_real,
+                "volume_real": getattr(entry, 'volume_dbl', entry.volume), # MT5 BookInfo uses volume_dbl or volume
             }
             if entry.type == mt5.BOOK_TYPE_SELL:
                 asks.append(item)

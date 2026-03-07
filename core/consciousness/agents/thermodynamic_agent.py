@@ -25,8 +25,11 @@ class ThermodynamicAgent(BaseAgent):
         if not book or not book.get('bids') or not book.get('asks'):
             return None
 
-        bids = np.array(book['bids'])
-        asks = np.array(book['asks'])
+        bids = np.array([[b['price'], b['volume']] for b in book['bids']]) if book['bids'] else np.empty((0, 2))
+        asks = np.array([[a['price'], a['volume']] for a in book['asks']]) if book['asks'] else np.empty((0, 2))
+
+        if len(bids) == 0 or len(asks) == 0:
+            return None
         
         # 1. Chamar motor C++
         thermo = CPP_CORE.calculate_thermodynamics(

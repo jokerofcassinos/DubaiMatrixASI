@@ -15,6 +15,7 @@ ASI_API void asi_converge_signals(const AgentRawSignal* signals, int count,
     double weighted_signal_sum = 0.0;
     double weighted_conf_sum = 0.0;
     double total_weight = 0.0;
+    double active_weight = 0.0;
     
     int bull = 0, bear = 0, neutral = 0;
     
@@ -29,6 +30,10 @@ ASI_API void asi_converge_signals(const AgentRawSignal* signals, int count,
         weighted_signal_sum += s.signal * effective_weight;
         weighted_conf_sum += s.confidence * effective_weight;
         total_weight += effective_weight;
+        
+        if (std::abs(s.signal) > 0.01) {
+            active_weight += effective_weight;
+        }
 
         // Histogramagem rápida
         if (s.signal > 0.1) bull++;
@@ -38,9 +43,19 @@ ASI_API void asi_converge_signals(const AgentRawSignal* signals, int count,
         signal_values.push_back(s.signal);
     }
 
-    // Médias balanceadas
-    double raw_signal = (total_weight > 0) ? (weighted_signal_sum / total_weight) : 0.0;
-    double raw_conf = (total_weight > 0) ? (weighted_conf_sum / total_weight) : 0.0;
+    // Médias balanceadas: Evita diluição massiva por agentes passivos (SIGNAL_WEAK fix)
+    double focused_signal = (active_weight > 0) ? (weighted_signal_sum / active_weight) : 0.0;
+    double focused_conf = (active_weight > 0) ? (weighted_conf_sum / active_weight) : 0.0;
+    
+    // Calcula participação apenas contando AGENTES ATIVOS e ignorando pesos fixos para o ratio.
+    int active_agents = bull + bear;
+    double agent_ratio = (double)active_agents / count;
+
+    // Redução da Punição (Se 10% do enxame agir com firmeza, já é sinal de oportunidade)
+    double participation_penalty = std::min(1.0, agent_ratio * 6.0); // Só penaliza se < 16% falarem
+    
+    double raw_signal = focused_signal * participation_penalty;
+    double raw_conf = focused_conf * std::min(1.0, agent_ratio * 3.0);
 
     // Coerência: Desvio padrão inverso dos sinais (quão "alinhados" estão os agentes)
     double mean_sig = raw_signal;

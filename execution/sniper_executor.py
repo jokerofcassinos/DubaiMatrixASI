@@ -283,13 +283,47 @@ class SniperExecutor:
                     if causal['confidence'] > 0.7:
                         return None # Veto absoluto se a confiança no DAG for alta
         
-        # Iniciar execução de slots
-        # Calcular em quantos slots dividir o lote final (ajustado ou não)
-        lot_chunks = self._split_lot(final_lot, max_slots)
-        
+        # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
+        # Ao invés de blocos lineares rápidos, criamos uma rede fractal estendida (Brane)
+        num_nodes = len(self._split_lot(final_lot, max_slots))
+        # Se for um único node, apenas envia. Se for múltiplos, gera a Brane
+        if num_nodes <= 1:
+            lot_chunks = [final_lot]
+            delays = [0.0]
+        else:
+            # Distribuição P-Brane Estigmérgica: Combina Gaussiana com Feromônios Institucionais
+            offsets = np.linspace(-2, 2, num_nodes)
+            weights = np.exp(-(offsets**2) / 2.0)
+            
+            # [PHASE Ω-ASCENSION] Pheromone Routing (Stigmergy)
+            # Lê o campo de atração do C++ no nível de preço atual
+            if hasattr(CPP_CORE, 'read_pheromones'):
+                try:
+                    ph_field = CPP_CORE.read_pheromones(decision.entry_price, num_nodes)
+                    if ph_field is not None and len(ph_field) == num_nodes:
+                        # Modula o peso gaussiano com a densidade do feromônio institucional
+                        ph_weights = np.array(ph_field)
+                        if np.sum(ph_weights) > 0:
+                            ph_weights /= np.sum(ph_weights)
+                            # Mistura 60% Gaussiana natural, 40% Foco de Atração Institucional
+                            weights = (weights * 0.6) + (ph_weights * 0.4)
+                except Exception as e:
+                    log.debug(f"Pheromone read error: {e}")
+            
+            weights /= np.sum(weights)
+            
+            lot_chunks = [max(0.01, round(final_lot * w, 2)) for w in weights]
+            # Ajuste de erro de arredondamento do float
+            diff = final_lot - sum(lot_chunks)
+            if diff > 0.01 or diff < -0.01:
+                lot_chunks[len(lot_chunks)//2] = max(0.01, lot_chunks[len(lot_chunks)//2] + diff)
+            
+            # Adicionar micro-delays (Jitter camaleônico) para evadir detecção HFT
+            delays = [0.0] + [abs(np.random.normal(0.05, 0.02)) for _ in range(num_nodes - 1)]
+            
         log.omega(
-            f"⚡ EXECUTING {decision.action.value} "
-            f"lot={final_lot:.2f} (em {len(lot_chunks)} slots) "
+            f"⚡ EXECUTING P-BRANE {decision.action.value} "
+            f"lot={final_lot:.2f} (em {num_nodes} nodes) "
             f"price={decision.entry_price:.2f} "
             f"SL={decision.stop_loss:.2f} TP={decision.take_profit:.2f}"
         )
@@ -303,19 +337,21 @@ class SniperExecutor:
             
         entry_price = current_tick["ask"] if decision.action.value == "BUY" else current_tick["bid"]
 
-        def _send_slot(i, chunk_lot):
+        def _send_slot(i, chunk_lot, delay_sec):
+            if delay_sec > 0:
+                time.sleep(delay_sec)
             return self.bridge.send_market_order(
                 action=decision.action.value,
                 lot=chunk_lot,
                 sl=decision.stop_loss,
                 tp=decision.take_profit,
-                comment=f"ASI_{decision.regime[:5]}_{i+1}/{len(lot_chunks)}",
+                comment=f"ASI_BRANE_{i+1}/{num_nodes}",
                 price=entry_price, # Usar o preço pré-capturado
                 force_check_positions=False # Bypass redundância
             )
 
-        # Mapeamento paralelo via ThreadPool
-        futures = [self._order_pool.submit(_send_slot, i, lot) for i, lot in enumerate(lot_chunks)]
+        # Mapeamento paralelo via ThreadPool com delays P-Brane
+        futures = [self._order_pool.submit(_send_slot, i, lot, delays[i]) for i, lot in enumerate(lot_chunks)]
         
         results = []
         for future in concurrent.futures.as_completed(futures):

@@ -67,6 +67,6 @@ class ShadowPredatorEngine:
 
     def _calculate_book_delta(self, old_levels, new_levels) -> float:
         """Calcula a variação líquida de volume no book."""
-        old_vol = sum([l[1] for l in old_levels])
-        new_vol = sum([l[1] for l in new_levels])
+        old_vol = sum([l['volume'] if isinstance(l, dict) else l[1] for l in old_levels])
+        new_vol = sum([l['volume'] if isinstance(l, dict) else l[1] for l in new_levels])
         return new_vol - old_vol

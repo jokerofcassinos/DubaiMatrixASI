@@ -33,7 +33,9 @@ ASI_API void asi_calculate_fisher_metric(const double* prev_p, const double* cur
     
     // Natural Gradient Step: Proporcional à inversa da Informação de Fisher
     // g_nat = F^-1 * grad
-    out->natural_gradient_x = 1.0 / (fisher_info + 1e-6);
+    // Se fisher_info for gigante, 1.0/fisher vira 0. Então usamos log scale invertida e re-escalada
+    double fisher_damped = std::log10(fisher_info + 2.0);
+    out->natural_gradient_x = 1.0 / fisher_damped;
     
     // Optimal Step Size: Se a distância KL é alta, a mudança de regime é drástica.
     // Reduzimos o step para evitar overshooting no novo manifold.

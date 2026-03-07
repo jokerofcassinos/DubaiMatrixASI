@@ -23,8 +23,8 @@ class QCAAgent(BaseAgent):
         if not snapshot.book:
             return None
             
-        bids = np.array([p[0] for p in snapshot.book.get('bids', [])], dtype=np.float64)
-        asks = np.array([p[0] for p in snapshot.book.get('asks', [])], dtype=np.float64)
+        bids = np.array([p['price'] for p in snapshot.book.get('bids', []) if isinstance(p, dict)], dtype=np.float64)
+        asks = np.array([p['price'] for p in snapshot.book.get('asks', []) if isinstance(p, dict)], dtype=np.float64)
         
         if len(bids) < 5 or len(asks) < 5:
             return None

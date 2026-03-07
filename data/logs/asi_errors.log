@@ -3951,3 +3951,345 @@
 [DubaiMatrixASI] 10:10:54.062    ERROR │ Agent BlackSwanEVT falhou: 'MarketSnapshot' object has no attribute 'get_recent_prices'
 [DubaiMatrixASI] 10:10:54.267    ERROR │ 💀 EXCEPTION in [calculate_phi]: AttributeError: 'AgentSignal' object has no attribute 'get'
 [DubaiMatrixASI] 10:10:54.296    ERROR │ ❌ Erro no loop de consciência: name 'OMEGA' is not defined
+[DubaiMatrixASI] 11:30:09.652    ERROR │ ❌ MT5 initialize falhou: (-10003, "IPC initialize failed, Process create failed 'C:\\Program Files\\FTMO Global Markets MT5 Terminal\terminal64.exe'")
+[DubaiMatrixASI] 11:30:09.653 CRITICAL │ ❌ FALHA NA CONEXÃO MT5 — Verifique credenciais e terminal MT5
+[DubaiMatrixASI] 12:02:24.225    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:24.475    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:24.731    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:24.987    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:25.232    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:25.493    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:25.746    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:02:25.996    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:04:20.317    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:20.318    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:20.358    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:20.706    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:20.707    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:20.707    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:20.739    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:21.182    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:21.183    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:21.184    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:21.185    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:21.521    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:21.537    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:21.564    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:21.571    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.000    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:22.000    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:22.000    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.010    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.325    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:22.325    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:22.325    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.335    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.524    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:04:22.527    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:04:22.544    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:04:22.546    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:32:23.997    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:24.248    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:24.498    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:24.760    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:25.010    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:25.263    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:25.509    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:25.770    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:26.015    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:26.266    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:26.519    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:26.770    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:27.023    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:27.279    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:27.525    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:27.781    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:28.030    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:28.291    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:28.536    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:28.798    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:32:29.042    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'BookInfo' object has no attribute 'volume_real'
+[DubaiMatrixASI] 12:35:27.637    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:27.637    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:27.639    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:27.875    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:27.875    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:27.886    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:27.888    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.146    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:28.146    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:28.152    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.153    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.398    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:28.399    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:28.399    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.399    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.633    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:28.633    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:28.633    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.634    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.880    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:28.880    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:28.880    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:28.891    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:29.174    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:29.175    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:29.175    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:29.197    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:29.357    ERROR │ Agent ShadowPredator falhou: 1
+[DubaiMatrixASI] 12:35:29.367    ERROR │ Agent QCA falhou: 0
+[DubaiMatrixASI] 12:35:29.368    ERROR │ Agent GraphTopology falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:35:29.369    ERROR │ Agent Thermodynamic falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
+[DubaiMatrixASI] 12:53:44.572    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:44.740    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:45.053    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:45.268    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:45.551    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:45.809    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:46.061    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:46.294    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:46.603    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:46.870    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:47.227    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:47.473    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:53:47.689    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:21.367    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:21.692    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:21.912    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:22.123    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:22.442    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:22.701    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:22.901    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:23.180    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:23.390    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:23.667    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:23.969    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:24.130    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:24.442    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:24.759    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:25.051    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:25.325    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:25.597    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:25.818    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:28.426    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:28.697    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:28.974    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:29.177    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:29.439    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:29.731    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:29.946    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:30.168    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:30.434    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:30.702    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:30.944    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:31.168    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:31.434    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:31.733    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:31.941    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:32.212    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:32.481    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:32.724    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:33.076    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:33.356    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:33.573    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:33.872    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:34.190    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:34.470    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:34.683    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:34.890    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:35.170    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:35.440    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:35.647    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:36.038    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:36.199    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:36.512    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:36.820    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:37.035    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:37.202    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:37.522    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:37.797    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:38.073    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:38.344    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:38.488    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:38.840    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:39.259    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:39.541    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:39.761    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:40.039    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:40.264    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:40.495    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:40.767    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:40.999    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:41.209    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:41.544    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:41.731    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:42.028    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:42.304    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:42.520    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:42.785    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:43.032    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:43.351    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:43.530    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:43.850    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:44.083    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:44.320    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:44.567    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:44.846    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:45.068    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:45.325    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:45.560    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:45.862    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:46.102    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:46.358    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:46.569    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:46.876    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:47.130    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:47.386    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:47.605    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:47.933    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:54.566    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:54.768    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:55.142    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:55.336    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:55.507    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:55.853    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:56.106    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:56.315    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:56.582    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:56.852    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:57.097    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:57.319    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:57.542    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:57.878    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:58.114    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:58.423    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:58.621    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:58.812    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:59.122    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:59.379    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:59.659    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:54:59.920    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:00.207    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:00.426    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:00.641    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:00.918    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:01.119    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:01.343    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:01.745    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:01.947    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:02.213    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:02.477    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:02.728    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:02.983    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:03.298    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:03.485    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:03.714    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:04.026    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:04.292    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:04.503    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:04.779    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:05.025    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:05.244    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:05.556    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:05.879    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:06.164    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:06.442    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:06.629    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:06.982    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:07.258    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:07.474    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:07.765    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:07.993    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:08.220    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:08.496    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:08.694    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:08.987    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:09.205    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:09.458    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:09.722    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:09.942    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:10.246    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:10.428    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:10.751    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:10.942    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:11.275    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:11.514    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:11.707    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:12.012    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:12.215    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:12.529    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:12.726    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:12.999    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:13.259    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:13.461    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:13.749    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:14.064    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:14.277    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:14.498    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:14.790    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:15.044    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:15.292    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:15.542    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:15.800    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:16.070    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:16.270    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:16.565    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:16.785    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:17.072    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:17.292    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:17.593    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:17.777    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:18.118    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:18.386    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:18.529    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:18.876    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:19.056    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:19.309    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:19.614    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:19.787    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:20.105    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:20.329    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:20.630    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:20.801    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:21.056    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:21.358    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:21.636    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:21.955    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:22.180    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:22.380    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:22.631    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:22.925    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:23.240    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:23.459    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:23.638    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:23.933    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:24.193    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:24.464    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:24.805    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:25.079    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:25.238    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:25.571    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:25.793    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:26.010    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:26.274    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:26.549    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:26.772    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:26.975    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:27.385    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:27.657    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:27.841    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:28.290    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:28.590    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:28.896    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:29.056    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:29.382    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:29.630    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 12:55:29.853    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'RegimeState' object has no attribute 'name'
+[DubaiMatrixASI] 14:28:54.618    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:45:49.651    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:46:01.875    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_market]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:48:51.032    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:48:57.064    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:50:06.589    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_market]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:51:52.907    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 15:02:55.870    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))

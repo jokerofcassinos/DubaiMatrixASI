@@ -15,7 +15,7 @@ from market.data_engine import MarketSnapshot
 from config.omega_params import OMEGA
 from utils.logger import log
 from utils.decorators import catch_and_log
-
+from execution.wormhole_router import WormholeRouter
 
 class PositionManager:
     """
@@ -50,10 +50,11 @@ class PositionManager:
         self._closing_tickets: Set[int] = set()
         # Callback chamado quando uma posição é fechada: fn(direction: str)
         self._on_close_callback = on_close_callback
-        
+
+        self.wormhole_router = WormholeRouter(self.bridge)
+
         # Thread pool para disparos paralelos (Phase 44)
         self._close_pool = ThreadPoolExecutor(max_workers=20, thread_name_prefix="ClosePool")
-
     @catch_and_log(default_return=None)
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
         """
@@ -89,6 +90,9 @@ class PositionManager:
             is_buy = (p_type == "BUY")
             # Bucket de 2 segundos para agrupar disparos HFT
             group_key = (p_symbol, p_type, int(p_time / 2))
+            
+            # Chama a monitoração topológica de perdas em background (Wormhole Risk Router)
+            self.wormhole_router.monitor_event_horizon(pos)
             
             if group_key not in groups:
                 groups[group_key] = {

@@ -159,11 +159,15 @@ class QuantumMonteCarloEngine:
         # Volatilidade ajustada pelo regime
         sigma = volatility * vol_mult
         
-        # Drift base estimado pela direção do trade e regime
+        # O Drift no Merton Jump Diffusion precisa ser adaptado porque em HFT o tempo "dt" é minúsculo
+        # Se usarmos um drift normalizado, ele não vai superar a volatilidade Brownian Motion e a maioria 
+        # dos trades esbarrarão no SL se ele estiver mais curto que o TP.
+        # Amplificamos o 'mu' artificialmente pela razão Direcional
         if direction == "BUY":
-            mu = sigma * 0.5 * drift_mult  # Drift proporcional à vol e regime
+            # Dá mais peso para o lado da compra se a decisão dos agentes é compra
+            mu = sigma * 2.0 * drift_mult 
         else:
-            mu = -sigma * 0.5 * drift_mult
+            mu = -sigma * 2.0 * drift_mult
 
         # ═══ 2. SIMULAÇÃO VIA C++ (BLAZING FAST) ═══
         # Merton Jump Diffusion offload
@@ -211,11 +215,12 @@ class QuantumMonteCarloEngine:
         hyper_out = CPP_CORE.simulate_4096_hyperspace(synthetic_closes, volatility)
         
         # ═══ MONTE CARLO SCORE ═══
-        ev_score = np.tanh(expected_return / max(current_price * 0.001, 1e-10))
-        wp_score = (win_prob - 0.5) * 2.0
-        tail_penalty = min(0, cvar_95 / max(current_price * 0.01, 1e-10))
+        # Reduzindo a dependência agressiva em tanh que pode gerar scores destrutivos
+        ev_score = np.tanh(expected_return / max(current_price * 0.0005, 1e-10))
+        wp_score = (win_prob - 0.4) * 2.5 # Se WP for 50%, gera +0.25 (Puxa a favor)
+        tail_penalty = min(0, cvar_95 / max(current_price * 0.02, 1e-10))
 
-        mc_score = float(np.clip(0.4 * wp_score + 0.4 * ev_score + 0.2 * tail_penalty, -1.0, 1.0))
+        mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty, -1.0, 1.0))
         
         # Adiciona o boost do Hyperspace ao score final
         mc_score = float(np.clip(mc_score + hyper_out["confidence_boost"], -1.0, 1.0))
@@ -411,12 +416,12 @@ class QuantumMonteCarloEngine:
         # ═══ MONTE CARLO SCORE ═══
         # Combina win probability, expected return normalizado, e tail risk
         # Score > 0 = trade favorável, Score < 0 = trade desfavorável
-        ev_score = np.tanh(expected_return / max(current_price * 0.001, 1e-10))
-        wp_score = (win_prob - 0.5) * 2.0  # [-1, +1]
-        tail_penalty = min(0, cvar_95 / max(current_price * 0.01, 1e-10))
+        ev_score = np.tanh(expected_return / max(current_price * 0.0005, 1e-10))
+        wp_score = (win_prob - 0.4) * 2.5  # [-1, +1]
+        tail_penalty = min(0, cvar_95 / max(current_price * 0.02, 1e-10))
 
         mc_score = float(np.clip(
-            0.4 * wp_score + 0.4 * ev_score + 0.2 * tail_penalty,
+            0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty,
             -1.0, 1.0
         ))
 

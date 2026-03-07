@@ -174,29 +174,50 @@ class RiskQuantumEngine:
 
         return True
 
-    def check_circuit_breaker(self, asi_state) -> bool:
-        """Verifica se o circuit breaker deve ativar."""
-        # Verificar timeout do circuit breaker
+    def check_circuit_breaker(self, asi_state, snapshot=None) -> bool:
+        """Verifica se o circuit breaker deve ativar ou se manter ativo via Entropia Quântica."""
+        # Se a trava foi ativada, ela só é solta se a entropia ceder e o caos estabilizar
         if self._circuit_breaker_until:
-            if datetime.now(timezone.utc) < self._circuit_breaker_until:
-                return False  # Ainda em pausa
+            # Em vez de olhar para o relógio, olhamos para a estrutura causal do mercado
+            is_locked = True
+            
+            if snapshot and snapshot.indicators:
+                entropy = snapshot.indicators.get("M5_entropy")
+                chaos_lyapunov = snapshot.indicators.get("M5_lyapunov")
+                
+                ent_val = entropy[-1] if isinstance(entropy, (list, np.ndarray)) and len(entropy) > 0 else 3.0
+                lya_val = chaos_lyapunov[-1] if isinstance(chaos_lyapunov, (list, np.ndarray)) and len(chaos_lyapunov) > 0 else 0.5
+                
+                # Se a entropia (desordem direcional) caiu abaixo de 1.8 e o lyapunov (previsibilidade) é < 0 (determinístico)
+                if ent_val < 1.8 and lya_val < 0.0:
+                    is_locked = False
+                    log.omega(f"🟢 [ENTROPY LOCK RELEASED] Caos dissipado (Ent={ent_val:.2f}, Lya={lya_val:.2f}). Resumindo operações.")
+                else:
+                    # Trava mecânica de segurança de tempo infinito, apenas notifica a cada ciclo longo
+                    if int(datetime.now(timezone.utc).timestamp()) % 60 == 0:
+                        log.debug(f"🔒 [ENTROPY LOCK ACTIVE] Aguardando estabilização. Ent={ent_val:.2f} (Alvo <1.8), Lya={lya_val:.2f} (Alvo <0.0)")
+
+            if is_locked:
+                return False  # Continua em pausa termodinâmica
             else:
                 self._circuit_breaker_until = None
                 asi_state.circuit_breaker_active = False
-                log.omega("🟢 Circuit breaker DESATIVADO — resumindo operações")
 
-        # Ativar se losses consecutivos
+        # Ativar se losses consecutivos (a ignição continua baseada no balanço destrutivo)
         if asi_state.consecutive_losses >= RISK_MAX_CONSECUTIVE_LOSSES:
-            from datetime import timedelta
-            self._circuit_breaker_until = (
-                datetime.now(timezone.utc) +
-                timedelta(minutes=RISK_CIRCUIT_BREAKER_PAUSE_MIN)
-            )
+            self._circuit_breaker_until = True # Flag booleana de estado de trava termodinâmica
             asi_state.circuit_breaker_active = True
+            
+            ent_val = 3.0
+            if snapshot and snapshot.indicators:
+                entropy = snapshot.indicators.get("M5_entropy")
+                ent_val = entropy[-1] if isinstance(entropy, (list, np.ndarray)) and len(entropy) > 0 else 3.0
+
             log.omega(
-                f"🔴 CIRCUIT BREAKER ATIVADO! "
+                f"🔴 [QUANTUM CIRCUIT BREAKER ATIVADO] "
                 f"{asi_state.consecutive_losses} losses consecutivos. "
-                f"Pausa de {RISK_CIRCUIT_BREAKER_PAUSE_MIN} minutos."
+                f"Trava ativada na Entropia={ent_val:.2f}. "
+                f"Só religará quando o mercado resfriar termodinamicamente."
             )
             return False
 
@@ -218,14 +239,14 @@ class RiskQuantumEngine:
         return True
 
     def validate_trade(self, balance: float, asi_state,
-                       lot_size: float) -> tuple:
+                       lot_size: float, snapshot=None) -> tuple:
         """
         Validação completa de risco antes de executar trade.
         Returns: (approved: bool, final_lot_size: float, reason: str)
         """
-        # 1. Circuit breaker
-        if not self.check_circuit_breaker(asi_state):
-            return False, 0.0, "CIRCUIT_BREAKER"
+        # 1. Circuit breaker (Entropy-Locked)
+        if not self.check_circuit_breaker(asi_state, snapshot=snapshot):
+            return False, 0.0, "ENTROPY_CIRCUIT_BREAKER_ACTIVE"
 
         # 2. Daily limits
         if not self.check_daily_limits(balance):

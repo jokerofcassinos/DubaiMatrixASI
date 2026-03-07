@@ -35,7 +35,7 @@ from execution.shadow_predator import ShadowPredatorEngine
 from config.settings import ASIState, CONSCIOUSNESS_CYCLE_MS
 from config.omega_params import OMEGA
 from utils.logger import log
-from utils.decorators import timed, catch_and_log
+from utils.decorators import timed, catch_and_log, ast_self_heal
 
 
 class ASIBrain:
@@ -106,6 +106,7 @@ class ASIBrain:
         # Contadores
         self._cycle_count = 0
         self._last_snapshot = None
+        self._last_pnl_prediction = None
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -127,6 +128,7 @@ class ASIBrain:
         log.omega("🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados")
 
     @timed(log_threshold_ms=1000)
+    @ast_self_heal
     @catch_and_log(default_return=None)
     def think(self) -> Optional[dict]:
         """
@@ -161,6 +163,7 @@ class ASIBrain:
         snapshot.metadata["sentiment_score"] = self.sentiment_scraper.sentiment_score
         snapshot.metadata["network_pressure"] = self.onchain_scraper.network_pressure
         snapshot.metadata["macro_bias"] = self.macro_scraper.macro_bias
+        snapshot.metadata["pnl_prediction"] = self._last_pnl_prediction
 
         # ═══ 5. ANÁLISE NEURAL — Enxame de agentes ═══
         agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis, regime_state=regime_state)
@@ -227,8 +230,17 @@ class ASIBrain:
                     s.connect(('127.0.0.1', 5556))
                     
                     win_rate = self.state.win_rate if self.state.total_trades > 10 else 0.5
-                    avg_win = max(1.0, self.state.total_profit / max(1, self.state.total_wins))
-                    avg_loss = max(1.0, abs(self.state.total_profit) / max(1, self.state.total_losses))
+                    
+                    # Se não temos histórico suficiente, assumimos um R:R base promissor para não enviesar em 0
+                    if self.state.total_wins > 0:
+                        avg_win = max(0.01, self.state.gross_profit / self.state.total_wins)
+                    else:
+                        avg_win = max(0.01, snapshot.price * 0.002) # Ex: 0.2% de move como estimativa
+
+                    if self.state.total_losses > 0:
+                        avg_loss = max(0.01, self.state.gross_loss / self.state.total_losses)
+                    else:
+                        avg_loss = max(0.01, snapshot.price * 0.001) # Ex: 0.1% de move como estimativa
                     
                     account_balance = snapshot.account.get("balance", 0.0) if snapshot.account else 0.0
                     msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}\n"
@@ -237,6 +249,7 @@ class ASIBrain:
                     resp = s.recv(1024).decode('utf-8').strip()
                     if resp.startswith("ACK:"):
                         prediction = resp.split("ACK:")[1]
+                        self._last_pnl_prediction = prediction
                         log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
             except Exception as e:
                 log.debug(f"Pausa tática: Java PnL Predictor indisponível - {e}")

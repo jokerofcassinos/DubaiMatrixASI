@@ -99,12 +99,14 @@ from core.consciousness.agents.market_intuition_agent import MarketIntuitionAgen
 
 # Phase Ω-Next — Shadow Predator
 from core.consciousness.agents.shadow_predator_agent import ShadowPredatorAgent
+from core.consciousness.agents.leech_agent import LiquidityLeechAgent
 
 # Phase Ω-Next — Black Swan
 from core.consciousness.agents.black_swan_agent import BlackSwanAgent
 
 # Phase Ω-Next — Tensor
 from core.consciousness.agents.tensor_agent import TensorAgent
+from core.consciousness.agents.supernova_capacitor import SupernovaCapacitorAgent
 
 # Phase 43 — Advanced Structural & Institutional Agents (4)
 from core.consciousness.agents.wyckoff import WyckoffStructuralAgent
@@ -123,6 +125,7 @@ from core.consciousness.agents.chaos_regime_agent import ChaosRegimeAgent
 
 # Phase Ω-Class — Omega Omniscience (1)
 from core.consciousness.agents.holographic_manifold_agent import HolographicManifoldAgent
+from core.consciousness.agents.dark_mass_agent import DarkMassAgent
 
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
@@ -251,13 +254,15 @@ class NeuralSwarm:
             # ═══ MARKET INTUITION (Phase Ω-Next) ═══
             MarketIntuitionAgent(memory) if memory else None,
             
-            # ═══ SHADOW PREDATOR (Phase Ω-Next) ═══
+            # ═══ SHADOW PREDATOR & LEECH (Phase Ω-Next / Transcendence) ═══
             ShadowPredatorAgent(predator_engine) if predator_engine else None,
+            LiquidityLeechAgent(predator_engine, weight=2.3) if predator_engine else None,
 
             # ═══ Ω-EXTREME (Phase Ω-Extreme) ═══
             QCAAgent(weight=1.6),
             PredatorPreyAgent(weight=1.5),
             EVTBlackSwanAgent(weight=2.2),
+            SupernovaCapacitorAgent(weight=2.5),
             
             # BlackSwanAgent(weight=2.0), # Substituído pelo EVTBlackSwan
             TensorAgent(weight=1.9),
@@ -274,6 +279,7 @@ class NeuralSwarm:
 
             # ═══ OMEGA-CLASS OMNISCIENCE ═══
             HolographicManifoldAgent(),
+            DarkMassAgent(weight=2.4),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

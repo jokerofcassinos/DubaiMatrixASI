@@ -98,30 +98,111 @@ class TrinityCore:
         coherence = quantum_state.coherence
 
         # ═══ THRESHOLDS ═══
-        buy_threshold = OMEGA.get("buy_threshold")
-        sell_threshold = OMEGA.get("sell_threshold")
-        confidence_min = OMEGA.get("confidence_min")
+        base_buy_threshold = OMEGA.get("buy_threshold")
+        base_sell_threshold = OMEGA.get("sell_threshold")
+        base_confidence_min = OMEGA.get("confidence_min")
+        
+        # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
+        # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
+        dynamic_buy_thresh = base_buy_threshold
+        dynamic_sell_thresh = base_sell_threshold
+        dynamic_conf_min = base_confidence_min
+
+        # 1. Ajuste pelo PnL Predictor
+        pnl_pred = snapshot.metadata.get("pnl_prediction")
+        if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
+            # Facilita entradas promissoras
+            dynamic_buy_thresh *= 0.6
+            dynamic_sell_thresh *= 0.6
+            dynamic_conf_min *= 0.8
+        
+        # 2. Ajuste por Regime
+        if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+            # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
+            dynamic_conf_min *= 0.85
+        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY"]:
+            # Na compressão/baixa liquidez, sinais são menores por natureza, precisamos alargar a malha
+            dynamic_buy_thresh *= 0.7
+            dynamic_sell_thresh *= 0.7
+            dynamic_conf_min *= 0.90
+        elif regime_state.current.value in ["HIGH_VOL_CHAOS", "CHOPPY"]:
+            # Em caos e chop, a exigência de sinal é muito mais estrita
+            dynamic_buy_thresh *= 1.3
+            dynamic_sell_thresh *= 1.3
+            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
+
+        # ═══ 3.5 DECOERÊNCIA SUPREMA (GOD-MODE REVERSAL) ═══
+        # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e 
+        # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade"
+        is_god_mode = False
+        if quantum_state.entropy > 0.85 and regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE"]:
+            # Vamos absorver a liquidez com uma reversão tática.
+            candles_m1 = snapshot.candles.get("M1")
+            if candles_m1 and len(candles_m1.get("close", [])) >= 5:
+                closes = np.array(candles_m1["close"], dtype=np.float64)
+                delta_price = closes[-1] - closes[-5]
+                atr_local = self._get_current_atr(snapshot)
+                
+                # Se o preço moveu mais que 2.5x o ATR local em 5 min e a entropia é máxima:
+                if abs(delta_price) > atr_local * 2.5 and atr_local > 0:
+                    log.omega(f"🌌 [GOD-MODE REVERSAL] Entropia Máxima ({quantum_state.entropy:.2f}) + Cascade. Absorvendo impacto topológico.")
+                    action = Action.BUY if delta_price < 0 else Action.SELL
+                    confidence = 0.99  # Certeza absoluta do rebote elástico
+                    signal = 1.0 if action == Action.BUY else -1.0
+                    is_god_mode = True
 
         # ═══ DECISÃO ═══
-        if signal >= buy_threshold and confidence >= confidence_min:
-            action = Action.BUY
-        elif signal <= sell_threshold and confidence >= confidence_min:
-            action = Action.SELL
-        else:
-            reasons = []
-            if abs(signal) < abs(buy_threshold):
-                reasons.append(f"SIGNAL_WEAK({signal:+.3f})")
-            if confidence < confidence_min:
-                reasons.append(f"LOW_CONFIDENCE({confidence:.2f})")
-            return self._wait(" | ".join(reasons))
+        if not is_god_mode:
+            if signal >= dynamic_buy_thresh and confidence >= dynamic_conf_min:
+                action = Action.BUY
+            elif signal <= dynamic_sell_thresh and confidence >= dynamic_conf_min:
+                action = Action.SELL
+            else:
+                reasons = []
+                if abs(signal) < abs(dynamic_buy_thresh):
+                    reasons.append(f"SIGNAL_WEAK({signal:+.3f} < req {abs(dynamic_buy_thresh):.3f})")
+                if confidence < dynamic_conf_min:
+                    reasons.append(f"LOW_CONFIDENCE({confidence:.2f} < req {dynamic_conf_min:.2f})")
+                return self._wait(" | ".join(reasons))
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
         phi_min = OMEGA.get("phi_min_threshold", 0.4)
         phi_hydra = OMEGA.get("phi_hydra_threshold", 4.5)
-        
-        if quantum_state.phi < phi_min:
-            return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {phi_min})")
+
+        # Calibração Dinâmica de Consciência (Dynamic Incoherence)
+        # O valor de Φ natural varia com a energia do mercado. 
+        # Exigir Φ=0.4 em mercados "Drifting" causa paralisia infinita.
+        dynamic_phi_min = phi_min
+
+        # 1. Ajuste por Regime
+        if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CHOPPY", "UNKNOWN", "LOW_LIQUIDITY"]:
+            dynamic_phi_min *= 0.35  # Baixa volatilidade = menor necessidade de integração complexa
+        elif regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+            dynamic_phi_min *= 0.8   # Tendências claras são mais fáceis de ler
+
+        # 2. Ajuste por Coerência do Enxame
+        if quantum_state.coherence > 0.85:
+            dynamic_phi_min *= 0.5   # Se há unanimidade entre agentes, toleramos menor Φ sistêmico
+
+        # 3. Ajuste por Confiança Extrema
+        if quantum_state.confidence > 0.90:
+            dynamic_phi_min *= 0.7
+
+        # 4. Ajuste por Previsão Java PnL Predictor
+        pnl_pred = snapshot.metadata.get("pnl_prediction")
+        if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
+            dynamic_phi_min *= 0.5  # Expectância positiva atestada, facilita entrada
+
+        dynamic_phi_min = max(0.05, min(phi_min, dynamic_phi_min))
+
+        if quantum_state.phi < dynamic_phi_min:
+            return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {dynamic_phi_min:.2f})")
             
+        # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
+        if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
+            if quantum_state.confidence < 0.95:  # Só ignora o veto se a certeza do enxame for quase absoluta
+                return self._wait("JAVA_PNL_VETO (Negative Expectancy Detected)")
+
         is_hydra_mode = False
         if quantum_state.phi >= phi_hydra:
             log.omega(f"🔥 [HYDRA RESONANCE DETECTED] — Φ={quantum_state.phi:.2f}. Destravando agressão máxima.")

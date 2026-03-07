@@ -26,9 +26,12 @@ class GraphTopologyAgent(BaseAgent):
         if not book or not book.get('bids') or not book.get('asks'):
             return None
 
-        # Concatenar bids e asks para o grafo
-        bids = np.array(book['bids'])
-        asks = np.array(book['asks'])
+        # Concatenar bids e asks para o grafo (extrair price e volume)
+        bids = np.array([[b['price'], b['volume']] for b in book['bids']]) if book['bids'] else np.empty((0, 2))
+        asks = np.array([[a['price'], a['volume']] for a in book['asks']]) if book['asks'] else np.empty((0, 2))
+        
+        if len(bids) == 0 or len(asks) == 0:
+            return None
         
         # O C++ espera ticks brutos para calcular arestas de velocidade
         # Para fins de snapshot, usamos os últimos 50 ticks se disponíveis

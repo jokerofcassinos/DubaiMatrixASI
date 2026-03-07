@@ -37,6 +37,15 @@
 - **Maximum Margin Extraction (MME - Phase 37)**: Auto-scaling de lotes para máxima utilização da margem disponível sem rejeição de ordens.
 - **Total War Protocol (Phase 38)**: Escalonamento de risco agressivo (30% / 50% / 95%) baseado em níveis de confiança agressivos (>0.65).
 - **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
+- **Phase Ω-Transcendence: P-Brane Execution**: Execução de ordens não-lineares distribuídas em Membranas com Jittering aleatório estocástico.
+- **Phase Ω-Ascension: Pheromone Ghost Routing**: P-Branes que são distorcidas por feromônios deixados por micro-agressões no C++, roteando ordens fora do alcance de Market Makers.
+- **Phase Ω-Transcendence: Wormhole Risk Recovery**: Em drawdowns perto do Stop Loss, abre grid de Gamma Scalping de polaridade reversa (dobra o espaço).
+- **Phase Ω-Transcendence: Symbiotic Leeching**: Agente que vira o vetor predador e orbita walls de Spoofing Institucional.
+- **Phase Ω-Transcendence: God-Mode Reversal**: Capacidade de transmutar um colapso total do Neural Swarm (Incoerência e Entropia Máxima) em sinal de Liquidation Cascade, assumindo a outra ponta.
+- **Phase Ω-Ascension: Dark Mass Inference**: Detecção de ordens de L3 (OTC / Dark Pools) com base no delta gravitacional inercial (Volume L2 x Deslocamento).
+- **Phase Ω-Ascension: Entropy-Locked Circuit Breaker**: O bot reverte a trava de perdas não por "Tempo", mas pelo decaimento matemático do Lyapunov e da Entropia da Matrix.
+- **Phase Ω-Eternity: AST Self-Healing System**: O bot não sofre crash. Erros de código como `AttributeError` por falhas de integração são cicatrizados pela injeção da propriedade vazia usando Metaprogramação (*Reflection*) no fluxo de RAM.
+- **Phase Ω-Eternity: Supernova Capacitor**: Predição da explosão da panela de pressão. A ASI ignora o ATR e prevê spikes se o spread L2 estagnar mas a taxa HFT de ticks na corretora (velocidade) ultrapassar 40 T/s apontando em uma direção.
 - **Non-Ergodic Sizing (Ito Engine)**: Sizing dinâmico que ignora valor esperado espacial e otimiza crescimento temporal logarítmico.
 - **Dark Forest Sonar Probing**: Detecção de liquidez oculta via injeção de ordens "ghost" de 50ms.
 - **Liquid State Memory**: Reconhecimento de padrões temporais voadas via Reservoir Computing de alta velocidade.

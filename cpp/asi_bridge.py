@@ -510,6 +510,10 @@ class CppASICore:
         lib.asi_update_pheromone_field.argtypes = [ctypes.c_double]
         lib.asi_update_pheromone_field.restype = None
 
+        lib.asi_calculate_fisher_metric.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), 
+            ctypes.c_int, ctypes.POINTER(FisherResultC)
+        ]
         lib.asi_calculate_fisher_metric.restype = None
 
         # PHASE Ω-ONE: SNN
