@@ -170,18 +170,30 @@ class RiskQuantumEngine:
         return lot_size
 
     def check_daily_limits(self, balance: float) -> bool:
-        """Verifica se os limites diários foram atingidos."""
-        if self._daily_start_balance == 0:
+        """
+        Verifica se os limites diários da FTMO foram atingidos.
+        [PHASE Ω-ACCOUNT-SAFETY] Monitoramento em Dólar Absoluto.
+        """
+        if self._daily_start_balance <= 0:
             self._daily_start_balance = balance
+            log.info(f"🏦 EQUITY_GUARD: Start Balance do dia definido em ${balance:.2f}")
+            return True
 
-        daily_loss_pct = (
-            (self._daily_start_balance - balance) / self._daily_start_balance * 100
-            if self._daily_start_balance > 0 else 0
-        )
-
-        if daily_loss_pct >= RISK_MAX_DAILY_LOSS_PCT:
-            log.omega(f"🔴 DAILY LOSS LIMIT HIT: {daily_loss_pct:.2f}% >= {RISK_MAX_DAILY_LOSS_PCT}%")
+        # P&L flutuante do dia (Equity - Start Balance)
+        daily_pnl = balance - self._daily_start_balance
+        
+        # Limite Hard da FTMO: -$300.00
+        # Nosso Circuit Breaker de Segurança (Hibernação): -$280.00
+        ftmo_limit = -300.00
+        safety_limit = -280.00
+        
+        if daily_pnl <= safety_limit:
+            log.omega(f"🚨 [EMERGENCY HIBERNATION] P&L do dia ({daily_pnl:+.2f}) atingiu o limite de segurança de ${safety_limit:.2f}!")
+            log.omega(f"🚨 [RISK] Faltam apenas ${abs(daily_pnl - ftmo_limit):.2f} para a eliminação da conta pela FTMO.")
             return False
+
+        if daily_pnl < -100.00:
+             log.warning(f"⚠️ [DANGER] Drawdown diário atingiu {daily_pnl:+.2f}. Restam ${abs(daily_pnl - safety_limit):.2f} para hibernação.")
 
         return True
 
