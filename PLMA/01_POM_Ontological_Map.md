@@ -24,6 +24,7 @@
 - **`core/consciousness/agents/feynman_path_agent.py`**: [NEW] Agente Feynman.
 - **`core/consciousness/agents/chaos_regime_agent.py`**: [NEW] Agente Chaos.
 - **`core/consciousness/agents/holographic_manifold_agent.py`**: [NEW] Agente Holográfico (AdS/CFT).
+- **`core/consciousness/agents/liquidity_leech_agent.py`**: [NEW] Agente Symbiotic Leech (Predador Institucional).
 - **`core/consciousness/quantum_thought.py`**: Aglutinador de multiversos.
 - **`core/consciousness/regime_detector.py`**: Visão macro-cibernética.
 - **`core/decision/trinity_core.py`**: Veredicto final de Ação.

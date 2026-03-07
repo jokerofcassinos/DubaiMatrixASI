@@ -508,6 +508,79 @@ class MT5Bridge:
     # ═══════════════════════════════════════════════════════════
 
     @timed(log_threshold_ms=200)
+    def send_limit_order(self, action: str, lot: float,
+                          sl: float = 0.0, tp: float = 0.0,
+                          comment: str = "ASI_LIMIT", magic: int = None,
+                          price: float = None) -> Optional[dict]:
+        """
+        [Phase Ω-Eternity] Envia ordem Limit para Market Making Quântico.
+        Pega a liquidez do spread e evita slippage cobrando do Varejo.
+        """
+        if not self.connected or price is None:
+            log.error("❌ MT5 não conectado ou Preço não fornecido para LIMIT")
+            return None
+
+        # Validar lot size
+        lot = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, round(lot, 2)))
+
+        order_type = mt5.ORDER_TYPE_BUY_LIMIT if action.upper() == "BUY" else mt5.ORDER_TYPE_SELL_LIMIT
+
+        request = {
+            "action": mt5.TRADE_ACTION_PENDING,
+            "symbol": self.symbol,
+            "volume": lot,
+            "type": order_type,
+            "price": price,
+            "deviation": ORDER_DEVIATION,
+            "magic": magic or MAGIC_NUMBER,
+            "comment": comment,
+            "type_time": mt5.ORDER_TIME_GTC,
+            "type_filling": mt5.ORDER_FILLING_RETURN,
+        }
+
+        if sl > 0:
+            request["sl"] = sl
+        if tp > 0:
+            request["tp"] = tp
+
+        # Para Ordens Limites de Precisão, não utilizamos o Fallback do Socket "MQL5"
+        # que foi desenhado apenas para Market Execute de P-Branes agressivas
+        result = mt5.order_send(request)
+
+        if result is None:
+            log.error(f"❌ Falha ao enviar limit order (None): {mt5.last_error()}")
+            return None
+
+        if result.retcode != mt5.TRADE_RETCODE_DONE:
+            log.error(f"❌ Falha ao executar limit order: {result.comment} (Code: {result.retcode})")
+            return None
+
+        return {
+            "success": True,
+            "ticket": result.order,
+            "price": result.price,
+            "volume": result.volume,
+            "action": action,
+            "status": "PENDING_LIMIT"
+        }
+
+    @timed(log_threshold_ms=200)
+    def cancel_pending_order(self, ticket: int) -> bool:
+        """Cancela uma Limit/Stop order pendente."""
+        if not self.connected:
+            return False
+
+        request = {
+            "action": mt5.TRADE_ACTION_REMOVE,
+            "order": ticket
+        }
+        
+        result = mt5.order_send(request)
+        if result and result.retcode == mt5.TRADE_RETCODE_DONE:
+            return True
+        return False
+
+    @timed(log_threshold_ms=200)
     def send_market_order(self, action: str, lot: float,
                           sl: float = 0.0, tp: float = 0.0,
                           comment: str = "ASI", magic: int = None,
@@ -733,14 +806,23 @@ class MT5Bridge:
     #  POSIÇÕES & HISTÓRICO
     # ═══════════════════════════════════════════════════════════
 
-    def get_open_positions(self) -> List[dict]:
-        """Lista de posições abertas."""
+    def get_open_positions(self) -> Optional[List[dict]]:
+        """
+        Lista de posições abertas. 
+        Retorna None se houver erro de conexão/API, ou [] se não houver posições.
+        """
         if not self.connected:
-            return []
+            return None
 
         positions = mt5.positions_get(symbol=self.symbol)
+        
+        # OMEGA: Diferenciar erro total de lista vazia
         if positions is None:
-            return []
+            err = mt5.last_error()
+            if err[0] == mt5.RES_S_OK:
+                return [] # Sucesso, mas zero ordens
+            log.debug(f"⚠️ MT5 positions_get returned None (Code: {err[0]}: {err[1]})")
+            return None # Erro real (socket timeout, etc)
 
         return [
             {

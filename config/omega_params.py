@@ -113,8 +113,8 @@ class OmegaParameterSpace:
                         "RR Ratio mínimo no TrinityCore")
         self._register("mc_min_score", -0.35, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
-        self._register("mc_min_win_prob", 0.40, 0.25, 0.70,
-                        "Win Probability mínima do Monte Carlo")
+        self._register("mc_min_win_prob", 0.38, 0.25, 0.55,
+                        "Win Probability mínima do Monte Carlo (Restaurado Phase Ω-Transcendence)")
 
         # ═══ RISK PARAMETERS ═══
         self._register("position_size_pct", 50.0, 0.5, 75.0,
@@ -149,8 +149,14 @@ class OmegaParameterSpace:
         # ═══ PHASE 22 & 23: CONVICTION & SMART TP PARAMETERS ═══
         self._register("high_conviction_multiplier", 15.0, 1.0, 30.0,
                         "Multiplicador do Lot Size quando Coerência > 0.8 e Confiança > 0.8")
-        self._register("smart_tp_micro_reversal_buffer", 15.0, 5.0, 50.0,
-                        "Buffer de lucro ($) onde ignoramos exaustões de baixo impacto (limpa traps)")
+        self._register("smart_tp_micro_reversal_buffer", 20.0, 5.0, 100.0,
+                        "Buffer de lucro ($) para ativar saída agressiva por reversão de delta (Reduzido p/ Agilidade)")
+        self._register("smart_tp_lock_threshold_low", 0.25, 0.05, 0.50,
+                        "Drawdown de lucro permitido p/ gains < $10 (0.25 = 25% max evaporação)")
+        self._register("smart_tp_lock_threshold_mid", 0.15, 0.05, 0.40,
+                        "Drawdown de lucro permitido p/ gains < $50 (0.15 = 15% max evaporação)")
+        self._register("smart_tp_lock_threshold_high", 0.10, 0.01, 0.30,
+                        "Drawdown de lucro permitido p/ gains > $50 (0.10 = 10% max evaporação)")
 
 
         # ═══ AGENT WEIGHT DEFAULTS ═══
@@ -194,8 +200,8 @@ class OmegaParameterSpace:
                         "Distância mínima da última entrada em múltiplos de ATR")
         self._register("duplicate_position_distance_atr", 1.0, 0.3, 5.0,
                         "Distância mínima de posição existente na mesma direção em ATR")
-        self._register("max_order_splits", 20.0, 1.0, 100.0,
-                        "Máximo de slots por execução")
+        self._register("max_order_splits", 5.0, 1.0, 100.0,
+                        "Máximo de slots por execução (Reduzido para prevenir congestionamento de socket)")
         self._register("kinematic_exhaustion_atr_mult", 1.8, 1.0, 3.5,
                         "Distância máxima de estiramento em 5 velas antes da reversão")
 
@@ -218,8 +224,8 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.40, 0.10, 1.0,
-                        "Threshold mínimo de Φ para permitir execução (Integração Sistêmica)")
+        self._register("phi_min_threshold", 0.15, 0.10, 1.0,
+                        "Threshold mínimo de Φ para permitir execução (Elevado Post-Mortem para 0.15)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,

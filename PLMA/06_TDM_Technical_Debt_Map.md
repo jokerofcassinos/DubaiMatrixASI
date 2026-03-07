@@ -61,4 +61,19 @@
 - **Risco:** [VERDE] Sub-otimização da velocidade no HJB.
 - **Solução Futura:** Integrar `OrderFlowMatrix` diretamente no vetor de `rewards` do MFG.
 
-*(Atualizado: 2026-03-07. Versão: 10.1.0-omega+phase_one)*
+### DÍVIDA TÉCNICA 11: Scope Inconsistency in SniperExecutor — [RESOLVIDO]
+- **Localização:** `execution/sniper_executor.py`.
+- **Descrição:** `UnboundLocalError` ao tentar acessar `current_atr` dentro do loop P-Brane sem inicialização prévia no escopo local.
+- **Resolução:** [2026-03-07] Refatorada a extração sensorial no início do método `execute`.
+
+### DÍVIDA TÉCNICA 12: Risk Engine Cold Start Blindness — [RESOLVIDO]
+- **Localização:** `execution/risk_quantum.py`.
+- **Descrição:** Motor matemático travando em $1.0 de Lucro Médio quando o banco de dados de trades é novo, causando "Non-Ergodic Ruin".
+- **Resolução:** [2026-03-07] Implementado `Bayesian Priors` baseados em % de ATR na inicialização.
+
+### DÍVIDA TÉCNICA 13: Smart TP Profit Evaporation Blindness — [RESOLVIDO]
+- **Localização:** `execution/position_manager.py`.
+- **Descrição:** O Profit Lock ignorava drawdowns se o lucro caísse para zero ou negativo instantaneamente devido ao gate `avg_profit > 0`.
+- **Resolução:** [2026-03-07] Refatorada a lógica para tratar evaporação total como drawdown de 100% e adicionado nuke se lucro > $5 cair para < $1.
+
+*(Atualizado: 2026-03-07. Versão: 10.3.0-omega+transcendence)*

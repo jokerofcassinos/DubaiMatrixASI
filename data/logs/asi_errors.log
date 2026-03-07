@@ -4293,3 +4293,78 @@
 [DubaiMatrixASI] 14:50:06.589    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_market]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
 [DubaiMatrixASI] 14:51:52.907    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
 [DubaiMatrixASI] 15:02:55.870    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:22:31.987    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'NoneType' object has no attribute 'simulate_trade'
+[DubaiMatrixASI] 16:41:35.616    ERROR │ 💀 EXCEPTION in [execute]: UnboundLocalError: cannot access local variable 'current_atr' where it is not associated with a value
+[DubaiMatrixASI] 16:41:42.870    ERROR │ 💀 EXCEPTION in [execute]: UnboundLocalError: cannot access local variable 'current_atr' where it is not associated with a value
+[DubaiMatrixASI] 16:41:57.799    ERROR │ 💀 EXCEPTION in [execute]: UnboundLocalError: cannot access local variable 'current_atr' where it is not associated with a value
+[DubaiMatrixASI] 16:41:59.792    ERROR │ 💀 EXCEPTION in [execute]: UnboundLocalError: cannot access local variable 'current_atr' where it is not associated with a value
+[DubaiMatrixASI] 16:42:19.726    ERROR │ 💀 EXCEPTION in [execute]: UnboundLocalError: cannot access local variable 'current_atr' where it is not associated with a value
+[DubaiMatrixASI] 16:49:31.406    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.406    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.407    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.407    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.408    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.418    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.425    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.427    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.429    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.430    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.430    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.430    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.431    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.431    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.443    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.443    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.449    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.449    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.449    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.450    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.450    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.450    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.456    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.456    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.456    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.456    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.459    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.465    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.471    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.477    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 16:49:31.498    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.500    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.500    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.501    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.501    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.502    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.502    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.503    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.503    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.504    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.505    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.505    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.506    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 16:49:31.506    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.786    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.786    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.786    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.797    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.799    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.800    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.800    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.800    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.800    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.801    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:04:58.801    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.832    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.837    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.838    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.838    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.841    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.841    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.842    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.842    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.843    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:04:58.843    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 17:08:06.097    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:08:06.097    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 17:08:07.164    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 17:08:07.174    ERROR │ ❌ Falha ao executar slot

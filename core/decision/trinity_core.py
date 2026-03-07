@@ -135,7 +135,14 @@ class TrinityCore:
         # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e 
         # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade"
         is_god_mode = False
-        if quantum_state.entropy > 0.85 and regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE"]:
+        
+        # [PHASE Ω-EXTREME] Velocity Divergence Detection
+        # Se o spread está congelado mas a velocidade de ticks (T/s) dispara, 
+        # estamos prestes a ter um snapback elástico.
+        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+        is_velocity_burst = tick_velocity > 40.0 # Threshold de HFT puro
+        
+        if (quantum_state.entropy > 0.85 or is_velocity_burst) and regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE", "DRIFTING_BEAR"]:
             # Vamos absorver a liquidez com uma reversão tática.
             candles_m1 = snapshot.candles.get("M1")
             if candles_m1 and len(candles_m1.get("close", [])) >= 5:
@@ -143,9 +150,9 @@ class TrinityCore:
                 delta_price = closes[-1] - closes[-5]
                 atr_local = self._get_current_atr(snapshot)
                 
-                # Se o preço moveu mais que 2.5x o ATR local em 5 min e a entropia é máxima:
-                if abs(delta_price) > atr_local * 2.5 and atr_local > 0:
-                    log.omega(f"🌌 [GOD-MODE REVERSAL] Entropia Máxima ({quantum_state.entropy:.2f}) + Cascade. Absorvendo impacto topológico.")
+                # Se o preço moveu mais que 2.5x o ATR local em 5 min e a entropia é máxima (ou Burst detectado):
+                if (abs(delta_price) > atr_local * 2.5 or is_velocity_burst) and atr_local > 0:
+                    log.omega(f"🌌 [GOD-MODE REVERSAL] {'Velocity Burst' if is_velocity_burst else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.")
                     action = Action.BUY if delta_price < 0 else Action.SELL
                     confidence = 0.99  # Certeza absoluta do rebote elástico
                     signal = 1.0 if action == Action.BUY else -1.0
@@ -175,7 +182,9 @@ class TrinityCore:
         dynamic_phi_min = phi_min
 
         # 1. Ajuste por Regime
-        if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CHOPPY", "UNKNOWN", "LOW_LIQUIDITY"]:
+        if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
+            dynamic_phi_min *= 0.25  # Mais permissivo em drifting regimes para capturar reversões lentas
+        elif regime_state.current.value in ["CHOPPY", "UNKNOWN", "LOW_LIQUIDITY"]:
             dynamic_phi_min *= 0.35  # Baixa volatilidade = menor necessidade de integração complexa
         elif regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             dynamic_phi_min *= 0.8   # Tendências claras são mais fáceis de ler

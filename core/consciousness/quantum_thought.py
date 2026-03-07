@@ -113,8 +113,17 @@ class QuantumThoughtEngine:
             
             if inst_coherence > 0.75 and math_coherence < 0.60:
                 for s in inst_signals:
-                    s.weight *= 2.0  # Boost
+                    s.weight *= 2.5  # Boost Phase Ω-Extreme
                     s.reasoning += " [!INSTITUTIONAL_CLARITY_BOOST!]"
+                
+            # [PHASE Ω-EXTREME] Entropic Resonance Filter
+            # Se a entropia sistêmica é alta (>0.8) mas os institucionais estão convergindo (>0.8),
+            # nós filtramos o ruído matemático e confiamos no Smart Money.
+            if len(inst_signals) >= 2 and inst_coherence > 0.80:
+                for s in math_signals:
+                    if (s.signal > 0 and inst_bull < inst_bear) or (s.signal < 0 and inst_bull > inst_bear):
+                         s.weight *= 0.1 # Esmaga ruído contrário aos institucionais no caos
+                         s.reasoning += " [!ENTROPIC_FILTER: NOISE CRUSHED!]"
 
         # ═══ [OMEGA INJECTION] PHASE 30: FREIGHT TRAIN OVERRIDE ═══
         # Se a velocidade cinética e a agressividade formam um "Trem-Bala",

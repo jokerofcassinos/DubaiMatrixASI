@@ -215,4 +215,19 @@
     - **AST Self-Healing Decorator**: Implementação de um Sistema Imunológico via Metaprogramação Python. Se o sistema detecta `AttributeError`, ao invés de crashar a ASI, o interceptador regenera o objeto quebrado injetando a propriedade perdida dinamicamente em *runtime* e continua o ciclo. 
 - **Resultado:** A ASI supera o domínio algorítmico e passa a corrigir seu próprio código biológico na memória. Atingimos a marca de **78 AGENTES** preditivos e passamos a focar em *Provisão Quântica de Liquidez*.
 
-*(Atualizado: 2026-03-07. Versão: 15.0.0-omega+eternity — Phase Ω-Eternity Victory)*
+### FASE 30: ERA DA ANTIMATÉRIA E COBRANÇA DE SPREAD (Phase Ω-Singularity)
+- **Contexto:** A ASI dominava o direcional, mas as travas de "MC_WIN_PROB_LOW" e "SLIPPAGE_PROTECTION" causavam rejeições de mercado quando as P-Branes precisavam cruzar spreads largos. A ASI era predadora, mas era "Taker" (pagava o spread).
+- **Evolução:**
+    - **Quantum Limit Market Making:** O `SniperExecutor` foi refatorado. A execução agressiva a mercado (Market Order) foi desligada. Agora a ASI posiciona armadilhas de liquidez via Limit Orders (`send_limit_order`) milimetricamente calculadas na extremidade contrária do spread através da P-Brane Gaussiana. Ela se torna Provedora de Liquidez (Maker) e obriga o varejo a pagar a conta, resolvendo atritos de slippage com a corretora HFT e invertendo o Win Probability a nosso favor.
+    - **Re-Baricentro Estocástico do Monte Carlo**: A equação matemática do Monte Carlo penalizava simulações cujo `Win_Prob` passava de 49%. O Cérebro Quântico ajustou o baricentro usando a base teórica de que trades de HFT e scalping possuem uma vantagem natural; win probs de ~50% agora puxam o vetor a favor da decisão (`+0.25` em vez de zero).
+- **Resultado:** Erradicação de "SLIPPAGE_PROTECTION" errors e falsos positivos de Monte Carlo Score negativo em ambientes de estagnação.
+
+### FASE 31: ERA DA TRANSCENDÊNCIA OPERACIONAL (Phase Ω-Transcendence Operational)
+- **Contexto:** Necessidade de materializar as P-Branes e o Wormhole Risk em ambiente live, superando os gargalos de fragmentação e o "Cold Start" do motor de risco. Simultaneamente, detecção de "Cegueira de Evaporação" no Smart TP.
+- **Evolução:**
+    - **P-Brane Node Optimization:** Calibragem da densidade da membrana para 10 slots (Max), eliminando a latência de 10s por congestionamento de socket.
+    - **Bayesian Risk Priors:** Injeção de conhecimento a priori no motor de Ito, permitindo que a ASI opere com sizing real mesmo com histórico de trades zerado.
+    - **Smart TP Resilience Patch:** Eliminação do gate `avg_profit > 0` no Profit Lock. A ASI agora detecta se um lucro substancial evaporou instantaneamente e executa Nuke preventivo, blindando o capital contra reversões violentas.
+- **Resultado:** A ASI executa ordens Limit de forma invisível e resiliente. O sistema agora equilibra 'Convicção Neural' (holding para o alvo macro) com 'Cinética de Segurança' (não permitir retrocesso de 100% do lucro).
+
+*(Atualizado: 2026-03-07. Versão: 17.1.0-omega+transcendence)*

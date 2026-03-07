@@ -87,6 +87,11 @@ class SniperExecutor:
         # Usar timestamp ms nativo do snapshot ou datetime local se ausente
         ts_ms = getattr(snapshot, "raw_timestamp", int(datetime.now(timezone.utc).timestamp() * 1000))
         current_minute = int(ts_ms / 60000) * 60000  # Arredonda ms para o minuto atual
+        
+        # OMEGA-CLASS: Acuidade sensorial - obter ATR uma única vez
+        atr_values = snapshot.indicators.get("M5_atr_14")
+        current_atr = float(atr_values[-1]) if atr_values is not None and len(atr_values) > 0 else 0
+        
         if current_minute != self._current_candle_time:
             self._current_candle_time = current_minute
             self._orders_in_candle = 0
@@ -138,18 +143,15 @@ class SniperExecutor:
             self._last_entry_direction = None
         
         min_dist_atr = OMEGA.get("min_entry_distance_atr")
-        if self._last_entry_price > 0:
-            atr_values = snapshot.indicators.get("M5_atr_14")
-            current_atr = float(atr_values[-1]) if atr_values is not None and len(atr_values) > 0 else 0
-            if current_atr > 0:
-                price_distance = abs(decision.entry_price - self._last_entry_price)
-                min_distance = current_atr * min_dist_atr
-                if price_distance < min_distance:
-                    log.debug(
-                        f"📏 Anti-metralhadora: preço muito próximo do último entry "
-                        f"(dist={price_distance:.2f} < min={min_distance:.2f} [{min_dist_atr}×ATR])"
-                    )
-                    return None
+        if self._last_entry_price > 0 and current_atr > 0:
+            price_distance = abs(decision.entry_price - self._last_entry_price)
+            min_distance = current_atr * min_dist_atr
+            if price_distance < min_distance:
+                log.debug(
+                    f"📏 Anti-metralhadora: preço muito próximo do último entry "
+                    f"(dist={price_distance:.2f} < min={min_distance:.2f} [{min_dist_atr}×ATR])"
+                )
+                return None
 
         # ═══ ANTI-METRALHADORA PHASE 3: CONFLITO DIRECIONAL ═══
         # Impede abrir BUY se já tem BUY aberto no mesmo nível, e vice-versa
@@ -162,17 +164,14 @@ class SniperExecutor:
                 pos_dir = "BUY" if pos_type == 0 else "SELL"
                 
                 # Se já temos posição na MESMA direção perto do mesmo preço → BLOQUEIA
-                if pos_dir == decision.action.value and pos_price > 0:
-                    atr_values = snapshot.indicators.get("M5_atr_14")
-                    current_atr = float(atr_values[-1]) if atr_values is not None and len(atr_values) > 0 else 0
-                    if current_atr > 0:
-                        dist = abs(decision.entry_price - pos_price)
-                        if dist < current_atr * dup_dist_atr:
-                            log.debug(
-                                f"🚫 Anti-metralhadora: já existe {pos_dir} aberto @ {pos_price:.2f} "
-                                f"(dist={dist:.2f} < {dup_dist_atr}×ATR={current_atr * dup_dist_atr:.2f})"
-                            )
-                            return None
+                if pos_dir == decision.action.value and pos_price > 0 and current_atr > 0:
+                    dist = abs(decision.entry_price - pos_price)
+                    if dist < current_atr * dup_dist_atr:
+                        log.debug(
+                            f"🚫 Anti-metralhadora: já existe {pos_dir} aberto @ {pos_price:.2f} "
+                            f"(dist={dist:.2f} < {dup_dist_atr}×ATR={current_atr * dup_dist_atr:.2f})"
+                        )
+                        return None
 
 
         # 1. Obter dados para sizing
@@ -285,7 +284,9 @@ class SniperExecutor:
         
         # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
         # Ao invés de blocos lineares rápidos, criamos uma rede fractal estendida (Brane)
-        num_nodes = len(self._split_lot(final_lot, max_slots))
+        # OMEGA-CLASS OPTIMIZATION: Limitar densidade para evitar spam de tickets no MT5 (Max 10 nodes)
+        target_nodes = min(10, max_slots)
+        num_nodes = len(self._split_lot(final_lot, target_nodes))
         # Se for um único node, apenas envia. Se for múltiplos, gera a Brane
         if num_nodes <= 1:
             lot_chunks = [final_lot]
@@ -310,16 +311,22 @@ class SniperExecutor:
                 except Exception as e:
                     log.debug(f"Pheromone read error: {e}")
             
-            weights /= np.sum(weights)
+            # [PHASE Ω-TRANSCENDENCE] P-Brane Execution (Gaussian Cloud)
+            # Ao invés de um ponto fixo, distribuímos em uma 'Brane' topológica
+            jitter_atr = current_atr * 0.05 if current_atr > 0 else 2.0 # 5% do ATR ou 2 points BTC
+            offsets = np.random.normal(0, jitter_atr, num_nodes)
             
-            lot_chunks = [max(0.01, round(final_lot * w, 2)) for w in weights]
-            # Ajuste de erro de arredondamento do float
+            # Ordenar offsets para evitar overlaps de ordens limites se possível
+            offsets = np.sort(offsets)
+            
+            lot_chunks = [max(MIN_LOT_SIZE, round(final_lot / num_nodes, 2)) for _ in range(num_nodes)]
+            # Ajuste de resíduo
             diff = final_lot - sum(lot_chunks)
-            if diff > 0.01 or diff < -0.01:
-                lot_chunks[len(lot_chunks)//2] = max(0.01, lot_chunks[len(lot_chunks)//2] + diff)
+            if abs(diff) > 0.01:
+                lot_chunks[0] = max(MIN_LOT_SIZE, round(lot_chunks[0] + diff, 2))
             
-            # Adicionar micro-delays (Jitter camaleônico) para evadir detecção HFT
-            delays = [0.0] + [abs(np.random.normal(0.05, 0.02)) for _ in range(num_nodes - 1)]
+            # Micro-delays camaleônicos (Anti-HFT Footprint)
+            delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]
             
         log.omega(
             f"⚡ EXECUTING P-BRANE {decision.action.value} "
@@ -340,14 +347,32 @@ class SniperExecutor:
         def _send_slot(i, chunk_lot, delay_sec):
             if delay_sec > 0:
                 time.sleep(delay_sec)
-            return self.bridge.send_market_order(
+                
+            # [Phase Ω-Eternity] Quantum Limit Market Making
+            # Em vez de agredir, posicionamos limites baseados no spread para sermos Makers
+            # Isso corta o custo e cobra o spread de volta
+            is_buy = decision.action.value == "BUY"
+            # O preço do tick capturado (entry_price) é o Ask pra Buy e Bid pra Sell. 
+            # Para LIMIT, o Buy Limit deve ser colocado no Bid ou levemente abaixo.
+            tick_bid = current_tick["bid"]
+            tick_ask = current_tick["ask"]
+            spread = tick_ask - tick_bid
+            
+            # Se for buy, eu coloco Limit no Bid ou mais abaixo baseado na posição da membrana (offset)
+            # Como a Brane usa entry_price, a gente força a conversão pra Limit compensando o spread.
+            limit_price = tick_bid if is_buy else tick_ask
+            
+            # Offset adicional do Jitter da gaussiana (P-Brane)
+            offset_points = np.linspace(-0.5, 0.5, num_nodes)[i] * spread
+            limit_price += offset_points if is_buy else -offset_points
+
+            return self.bridge.send_limit_order(
                 action=decision.action.value,
                 lot=chunk_lot,
                 sl=decision.stop_loss,
                 tp=decision.take_profit,
-                comment=f"ASI_BRANE_{i+1}/{num_nodes}",
-                price=entry_price, # Usar o preço pré-capturado
-                force_check_positions=False # Bypass redundância
+                comment=f"ASI_P_BRANE_{i+1}/{num_nodes}", # Phase Ω-Transcendence
+                price=limit_price
             )
 
         # Mapeamento paralelo via ThreadPool com delays P-Brane

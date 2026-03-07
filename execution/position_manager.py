@@ -62,6 +62,12 @@ class PositionManager:
         Analisa cada posição aberta em paralelo contra 5 triggers de saída.
         """
         positions = self.bridge.get_open_positions()
+        
+        # OMEGA: Se for None, houve erro na ponte. Mantemos o estado para evitar amnésia.
+        if positions is None:
+            return
+            
+        # OMEGA: Se for [], as posições foram realmente fechadas.
         if not positions:
             self._positions_state.clear()
             self._closing_tickets.clear()
@@ -157,18 +163,25 @@ class PositionManager:
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Refined Phase Ω-Transcendence)
             # ═══════════════════════════════════════════════════
-            if avg_profit > 0 and state['peak_avg_profit'] > 1.0: # Pico de $1 avg/slot
-                drawdown_pct = (state['peak_avg_profit'] - avg_profit) / state['peak_avg_profit']
+            # OMEGA: Monitoramos a perda de terreno do lucro.
+            if state['peak_avg_profit'] > 1.5: # Ativa lock após $1.5 de lucro médio acumulado
+                drawdown_pct = 0.0
+                if avg_profit > 0:
+                    drawdown_pct = (state['peak_avg_profit'] - avg_profit) / state['peak_avg_profit']
+                else: # Lucro evaporou totalmente ou ficou negativo
+                    drawdown_pct = 1.0 
+
+                # OMEGA: Thresholds agressivos p/ garantir lucro
+                lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25)
+                if state['peak_avg_profit'] > 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
+                if state['peak_avg_profit'] > 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
                 
-                lock_threshold = 0.40
-                if state['peak_avg_profit'] > 10: lock_threshold = 0.30
-                if state['peak_avg_profit'] > 50: lock_threshold = 0.20
-                
-                if drawdown_pct >= lock_threshold:
+                # Nuke imediato se o lucro cair abaixo do aceitável ou se evaporar > 80% independente do threshold
+                if drawdown_pct >= lock_threshold or (state['peak_avg_profit'] > 5.0 and avg_profit < 1.0):
                     should_close = True
-                    reason = f"ATOMIC_PROFIT_LOCK: Pico_Avg=${state['peak_avg_profit']:.2f} -> Atual_Avg=${avg_profit:.2f}"
+                    reason = f"ATOMIC_PROFIT_LOCK: Evaporação Detectada (Peak=${state['peak_avg_profit']:.2f} -> Curr=${avg_profit:.2f}, Drawdown={drawdown_pct*100:.1f}%)"
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL

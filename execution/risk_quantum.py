@@ -51,8 +51,17 @@ class RiskQuantumEngine:
 
         # 1. Obter métricas de performance base (Normalization)
         wr = max(0.3, min(0.9, win_rate))
-        aw = max(1.0, avg_win)
-        al = max(1.0, avg_loss)
+        
+        # OMEGA-CLASS: Bayesian Priors for Cold Start
+        # Se avg_win/avg_loss vierem zerados ou muito pequenos ($1.0), 
+        # usamos um prior estatístico de 0.2% do ATR ou do Preço.
+        price = snapshot.price if snapshot else 67000.0
+        atr = snapshot.indicators.get("M1_atr_14", [price * 0.001])[0]
+        
+        baseline_move = max(50.0, atr * 0.5) # No mínimo $50 de move ou 0.5 ATR
+        
+        aw = max(baseline_move, avg_win)
+        al = max(baseline_move, avg_loss)
         rr = aw / al
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══
@@ -91,12 +100,14 @@ class RiskQuantumEngine:
             sigma_pct = (np.mean(atr_m1[-14:]) * np.sqrt(1440)) / price # Vol diaria estimada
             mu_pct = (wr * avg_win_price_pct - (1-wr) * avg_loss_price_pct)
             
+            log.debug(f"📐 RISK_MATH: wr={wr:.4f} mu_pct={mu_pct:.6f} sigma_pct={sigma_pct:.6f} aw_pct={avg_win_price_pct:.6f} al_pct={avg_loss_price_pct:.6f}")
+            
             ito_sizing = CPP_CORE.ito_lot_sizing(balance, wr, mu_pct, sigma_pct, 1.0/1440.0)
             ito_fraction = ito_sizing / balance if balance > 0 else 0.01
             
             # Conservadorismo Quântico: Mínimo entre o crescimento não-ergódico e o limite de Ito
             risk_fraction = min(risk_fraction, ito_fraction)
-            log.omega(f"📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = {ito_fraction:.4f}")
+            log.omega(f"📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = {ito_fraction:.4f} (Ito_Sizing=${ito_sizing:.2f})")
 
         # 4. Conviction Sizing (Phase 22)
         kelly_fraction = OMEGA.get("kelly_fraction", 0.25)
@@ -275,6 +286,34 @@ class RiskQuantumEngine:
             asi_state.consecutive_losses += 1
 
         asi_state.total_trades += 1
+
+    def evaluate_wormhole_trigger(self, position: dict, snapshot) -> Optional[dict]:
+        """
+        [PHASE Ω-TRANSCENDENCE] Wormhole Risk Recovery.
+        Se uma posição atinge o 'Event Horizon' (-85% do SL), 
+        abrimos um Gamma Hedge para congelar a perda.
+        """
+        p_profit = position.get("profit", 0.0)
+        p_type = position.get("type", "")
+        p_symbol = position.get("symbol") or position.get("symbol_name")
+        
+        # Só ativa se o prejuízo for significativo (> $50) e estiver perto do SL
+        if p_profit < -50.0:
+            # Pegar SL original ou delta do ATR
+            # Simplificação: se o profit atual é 85% do ATR médio do SL
+            atr = snapshot.indicators.get("M1_atr_14", [0.0])[0]
+            sl_dist = OMEGA.get("stop_loss_atr_mult") * atr
+            
+            # Se o prejuízo em points ultrapassar 80% do SL esperado
+            if abs(p_profit) > (sl_dist * 0.85 * 10): # Ajuste p/ valor do tick
+                log.omega(f"🕳️ WORMHOLE TRIGGERED: Position {position['ticket']} near Event Horizon. Initiating Gamma Scalp.")
+                return {
+                    "action": "SELL" if p_type == "BUY" else "BUY",
+                    "lot": position.get("volume", 0.01) * 1.5, # Hedge agressivo
+                    "tp_points": 50, # Saída rápida
+                    "reason": "Wormhole Recovery"
+                }
+        return None
 
     def reset_daily(self, balance: float):
         """Reset diário dos contadores."""

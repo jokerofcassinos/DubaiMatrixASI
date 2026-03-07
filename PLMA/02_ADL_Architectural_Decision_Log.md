@@ -116,4 +116,20 @@
 - **Justificativa:** Capturar reversões em flash-crashes que modelos normais ignoram.
 - **Data/Status:** ATIVO. (2026-03-07).
 
-*(Atualizado: 2026-03-07. Versão: 3.0.0-omega — Phase Ω-Extreme Victory)*
+### DECISÃO 26: P-BRANE NODE CAPPING (Phase Ω-Transcendence)
+- **Decisão:** Limitação da fragmentação de ordens P-Brane em no máximo 10 slots simultâneos.
+- **Justificativa:** A fragmentação excessiva (47 nodes detectados) causou congestionamento no socket MT5, resultando em latência catastrófica (10s). 10 slots mantêm a ofuscação gaussiana sem saturar o IO.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 27: BAYESIAN PRIORS FOR COLD START (Risk Engine)
+- **Decisão:** Injeção de lucros/prejuízos médios baseados em volatilidade (ATR) quando o histórico de trades está vazio.
+- **Justificativa:** Sem histórico, o motor de Ito/Non-Ergodic assumia lucros de $1 prestando a conta de Ruina Matemática ("Ruin Detected"). Os priors garantem exposição funcional desde o trade #1.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 28: EXECUTION KILL-SWITCH & NODE SHRINKING (Post-Mortem SELL SL)
+- **Decisão:** Redução da densidade P-Brane para 5 nodes e implementação de aborto compulsório se a latência percepção-execução superar 500ms.
+- **Justificativa:** A latência de 2.1s no BTCUSD invalidou o sinal dos 79 agentes. No HFT, entrar com sinal "vencido" é garantia de Stop Loss.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+*(Atualizado: 2026-03-07. Versão: 3.2.0-omega)*
+ — Phase Ω-Transcendence Consolidation)*

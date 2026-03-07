@@ -253,6 +253,25 @@ class ASIBrain:
                         log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
             except Exception as e:
                 log.debug(f"Pausa tática: Java PnL Predictor indisponível - {e}")
+            # ═══ [PHASE Ω-TRANSCENDENCE] WORMHOLE RECOVERY ═══
+            # Se posições existentes estão em perigo, tentamos o Gamma Hedge
+            positions = self.bridge.get_open_positions() or []
+            for pos in positions:
+                recovery_strike = self.risk_engine.evaluate_wormhole_trigger(pos, snapshot)
+                if recovery_strike:
+                    # Executar hedge via Sniper
+                    rec_decision = Decision(
+                        action=Action.BUY if recovery_strike["action"] == "BUY" else Action.SELL,
+                        entry_price=snapshot.price,
+                        stop_loss=0, # Hedge não usa SL convencional
+                        take_profit=snapshot.price + (recovery_strike["tp_points"] * snapshot.symbol_info.get("point", 0.01)) 
+                                    if recovery_strike["action"] == "BUY" else 
+                                    snapshot.price - (recovery_strike["tp_points"] * snapshot.symbol_info.get("point", 0.01)),
+                        confidence=0.99,
+                        regime=regime_state.current.value,
+                        reasoning=recovery_strike["reason"]
+                    )
+                    self.executor.execute(rec_decision, self.state, snapshot)
 
         # Log periódico (a cada 50 ciclos)
         if self._cycle_count % 50 == 0:
