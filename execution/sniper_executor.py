@@ -71,7 +71,7 @@ class SniperExecutor:
         self._last_sonar_time = 0
         self._sonar_cooldown_ms = 5000 # 5 segundos entre sondagens
 
-    @timed(log_threshold_ms=500)
+    @timed(log_threshold_ms=400) # Phase 50: Elevado de 200ms para reduzir spam
     @catch_and_log(default_return=None)
     def execute(self, decision: Decision, asi_state: ASIState,
                 snapshot) -> Optional[dict]:
@@ -360,12 +360,14 @@ class SniperExecutor:
             
             # Se for buy, eu coloco Limit no Bid ou mais abaixo baseado na posição da membrana (offset)
             # Como a Brane usa entry_price, a gente força a conversão pra Limit compensando o spread.
-            limit_price = tick_bid if is_buy else tick_ask
-            
-            # Offset adicional do Jitter da gaussiana (P-Brane)
-            offset_points = np.linspace(-0.5, 0.5, num_nodes)[i] * spread
-            limit_price += offset_points if is_buy else -offset_points
-
+            # [PHASE Ω-ANTI-FRAGILITY] Maker Price Guard (Fix: Code 10015)
+            # Uma ordem de BUY LIMIT deve obrigatoriamente ser <= BID.
+            # Uma ordem de SELL LIMIT deve obrigatoriamente ser >= ASK.
+            if is_buy:
+                limit_price = min(tick_bid, tick_bid + (np.linspace(-1.5, -0.1, num_nodes)[i] * spread))
+            else:
+                limit_price = max(tick_ask, tick_ask + (np.linspace(0.1, 1.5, num_nodes)[i] * spread))
+ 
             return self.bridge.send_limit_order(
                 action=decision.action.value,
                 lot=chunk_lot,

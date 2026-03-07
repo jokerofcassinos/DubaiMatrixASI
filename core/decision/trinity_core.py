@@ -71,6 +71,10 @@ class TrinityCore:
         self._execute_count = 0
         self.monte_carlo = QuantumMonteCarloEngine()
         self._creation_time = time.time()
+        
+        # [PHASE Ω-ANTI-FRAGILITY] Ping-Pong State
+        self._last_loss_time = 0.0
+        self._last_loss_direction = None
 
     @catch_and_log(default_return=None)
     def decide(self, quantum_state: QuantumState,
@@ -121,15 +125,16 @@ class TrinityCore:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
         elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY"]:
-            # Na compressão/baixa liquidez, sinais são menores por natureza, precisamos alargar a malha
-            dynamic_buy_thresh *= 0.7
-            dynamic_sell_thresh *= 0.7
-            dynamic_conf_min *= 0.90
+            # [REVERTED] Na compressão/baixa liquidez, os sinais são ruidosos. 
+            # Elevamos a malha em 1.5x para evitar falsos rompimentos (Chaos Shield).
+            dynamic_buy_thresh *= 1.5
+            dynamic_sell_thresh *= 1.5
+            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
         elif regime_state.current.value in ["HIGH_VOL_CHAOS", "CHOPPY"]:
             # Em caos e chop, a exigência de sinal é muito mais estrita
-            dynamic_buy_thresh *= 1.3
-            dynamic_sell_thresh *= 1.3
-            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
+            dynamic_buy_thresh *= 1.5
+            dynamic_sell_thresh *= 1.5
+            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.2)
 
         # ═══ 3.5 DECOERÊNCIA SUPREMA (GOD-MODE REVERSAL) ═══
         # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e 
@@ -232,21 +237,28 @@ class TrinityCore:
         tick = snapshot.tick
         if tick is None:
             return self._wait("NO_TICK_DATA")
-
+ 
         price = tick["ask"] if action == Action.BUY else tick["bid"]
         atr = self._get_current_atr(snapshot)
-
+ 
         if atr <= 0:
             return self._wait("ATR_ZERO")
-
+ 
         sl_mult = OMEGA.get("stop_loss_atr_mult")
         tp_mult = OMEGA.get("take_profit_atr_mult")
-
+        
+        # [PHASE Ω-ANTI-FRAGILITY] Adaptive SL Scaling
+        # Em regimes de ruído, dobramos o range para evitar stop-hunting.
+        dynamic_sl_mult = sl_mult
+        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS"]:
+            dynamic_sl_mult *= 2.5 # SL Wider para aguentar o noise
+            log.omega(f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.")
+ 
         if action == Action.BUY:
-            stop_loss = price - atr * sl_mult
+            stop_loss = price - atr * dynamic_sl_mult
             take_profit = price + atr * tp_mult
         else:
-            stop_loss = price + atr * sl_mult
+            stop_loss = price + atr * dynamic_sl_mult
             take_profit = price - atr * tp_mult
 
         # ═══ RISK/REWARD CHECK ═══
@@ -449,7 +461,16 @@ class TrinityCore:
         session = TimeEngine.session_info()
         if session.get("is_weekend") and session.get("trading_favorability", 0) < 0.3:
             return "WEEKEND_LOW_LIQUIDITY"
-
+            
+        # 6. [PHASE Ω-ANTI-FRAGILITY] Ping-Pong Veto
+        # Impede inversão de mão imediata em regimes instáveis após loss
+        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY"]:
+            # Verificar se houve loss recente (via asi_state ou tracking interno)
+            # Como asi_state.consecutive_losses reseta em win, usamos nosso log interno
+            now = time.time()
+            if self._last_loss_time > 0 and (now - self._last_loss_time) < 300: # 5 minutos de trava
+                return f"ANTI_PING_PONG ({300 - (now - self._last_loss_time):.0f}s rem)"
+ 
         return None  # Sem veto
 
     def _get_current_atr(self, snapshot) -> float:

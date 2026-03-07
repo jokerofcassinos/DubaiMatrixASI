@@ -36362,3 +36362,113 @@ ject has no attribute 'action'
 [DubaiMatrixASI] 18:13:50.351    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
 [DubaiMatrixASI] 18:13:50.351    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
 [DubaiMatrixASI] 18:13:50.352    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-07T21:13:50.352074+00:00
+[DubaiMatrixASI] 18:13:51.445    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 18:13:53.012    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 18:13:53.012    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 18:13:53.013    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 18:13:53.013    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 18:13:53.013    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 18:13:53.014    OMEGA │ ⚡ 📅 2026-03-07T21:13:53.014097+00:00
+[DubaiMatrixASI] 18:13:53.014    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 18:13:53.014    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 18:13:53.018    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 18:13:53.021    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 18:13:53.021    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67412.33, Bid=67410.49
+[DubaiMatrixASI] 18:13:53.029    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 18:13:53.030    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 18:13:53.031    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 18:13:53.060    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 18:13:53.077    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 18:13:53.086    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 18:13:53.091    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 18:13:53.092    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 18:13:53.092    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 18:13:53.094    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 18:13:53.095    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 18:14:43.498    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1094)
+[DubaiMatrixASI] 18:14:43.506    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006480
+[DubaiMatrixASI] 18:14:56.141    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:14:58.291    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 18:15:33.973    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0351)
+[DubaiMatrixASI] 18:15:33.982    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006978
+[DubaiMatrixASI] 18:15:54.947  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 18:15:54.948    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 18:15:54.948    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 19.68 para 0.46 para caber na margem livre ($9840.25)
+[DubaiMatrixASI] 18:15:54.949    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=0.46 (em 5 nodes) price=67408.28 SL=67360.23 TP=67504.38
+[DubaiMatrixASI] 18:15:55.596  WARNING │ ⏱️ LATENCY [send_limit_order] 619.3ms (threshold: 200ms)
+[DubaiMatrixASI] 18:15:55.807  WARNING │ ⏱️ LATENCY [send_limit_order] 624.4ms (threshold: 200ms)
+[DubaiMatrixASI] 18:15:56.016  WARNING │ ⏱️ LATENCY [send_limit_order] 628.3ms (threshold: 200ms)
+[DubaiMatrixASI] 18:15:56.016  WARNING │ ⏱️ LATENCY [send_limit_order] 415.1ms (threshold: 200ms)
+[DubaiMatrixASI] 18:15:56.017  WARNING │ ⏱️ LATENCY [send_limit_order] 209.8ms (threshold: 200ms)
+[DubaiMatrixASI] 18:15:56.027    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=0.46 @ 0.00 | 5 tickets gerados | BUY signal=+0.498 conf=0.80 coherence=0.43 regime=LOW_LIQUIDITY ATR=96.10 RR=2.0
+[DubaiMatrixASI] 18:15:56.038  WARNING │ ⏱️ LATENCY [execute] 1091.0ms (threshold: 500ms)
+[DubaiMatrixASI] 18:15:56.047  WARNING │ ⏱️ LATENCY [think] 1218.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:15:56.332    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 18:16:00.230    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:16:25.481    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 18:16:25.492    OMEGA │ ⚡ 🧬 Gen #1: 4 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:16:41.885    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: MICRO_STAGNATION (Flat for 4.0s) | Closing 5 slots para BTCUSD
+[DubaiMatrixASI] 18:16:41.886  WARNING │ ⚠️ Socket falhou para 397908404. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:16:41.886  WARNING │ ⚠️ Socket falhou para 397908405. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:16:42.234    TRADE │ #1 CLOSE BTCUSD lot=0.09 price=0.00 SL=0.00 TP=0.00 P&L=+1.04 | ticket=397908404 closed via API
+[DubaiMatrixASI] 18:16:42.234  WARNING │ ⚠️ Socket falhou para 397908406. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:16:42.245  WARNING │ ⚠️ Socket falhou para 397908407. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:16:42.595    TRADE │ #2 CLOSE BTCUSD lot=0.09 price=0.00 SL=0.00 TP=0.00 P&L=+1.04 | ticket=397908405 closed via API
+[DubaiMatrixASI] 18:16:42.596  WARNING │ ⚠️ Socket falhou para 397908408. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:16:42.971    TRADE │ #3 CLOSE BTCUSD lot=0.10 price=0.00 SL=0.00 TP=0.00 P&L=+1.16 | ticket=397908406 closed via API
+[DubaiMatrixASI] 18:16:43.330    TRADE │ #4 CLOSE BTCUSD lot=0.09 price=0.00 SL=0.00 TP=0.00 P&L=+1.04 | ticket=397908407 closed via API
+[DubaiMatrixASI] 18:16:43.708    TRADE │ #5 CLOSE BTCUSD lot=0.09 price=0.00 SL=0.00 TP=0.00 P&L=+1.04 | ticket=397908408 closed via API
+[DubaiMatrixASI] 18:16:43.817  WARNING │ ⏱️ LATENCY [think] 1220.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:17:04.992    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:17:17.603    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.2390)
+[DubaiMatrixASI] 18:17:17.604    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006393
+[DubaiMatrixASI] 18:18:08.282    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7070)
+[DubaiMatrixASI] 18:18:08.283    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006901
+[DubaiMatrixASI] 18:18:08.289    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:18:34.564  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 18:18:34.565    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 18:18:34.566    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 19.65 para 0.46 para caber na margem livre ($9825.45)
+[DubaiMatrixASI] 18:18:34.566    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=0.46 (em 5 nodes) price=67442.47 SL=67393.09 TP=67541.24
+[DubaiMatrixASI] 18:18:35.206  WARNING │ ⏱️ LATENCY [send_limit_order] 412.3ms (threshold: 200ms)
+[DubaiMatrixASI] 18:18:35.421  WARNING │ ⏱️ LATENCY [send_limit_order] 421.6ms (threshold: 200ms)
+[DubaiMatrixASI] 18:18:35.422  WARNING │ ⏱️ LATENCY [send_limit_order] 839.7ms (threshold: 200ms)
+[DubaiMatrixASI] 18:18:35.427    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 18:18:35.429    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 18:18:35.430  WARNING │ ⏱️ LATENCY [send_limit_order] 214.4ms (threshold: 200ms)
+[DubaiMatrixASI] 18:18:35.430    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 18:18:35.455    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 18:18:35.460    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=0.27 @ 0.00 | 3 tickets gerados | BUY signal=+0.504 conf=0.80 coherence=0.43 regime=UNKNOWN ATR=98.77 RR=2.00 | Qu
+[DubaiMatrixASI] 18:18:35.461  WARNING │ ⏱️ LATENCY [execute] 896.6ms (threshold: 500ms)
+[DubaiMatrixASI] 18:18:35.462  WARNING │ ⏱️ LATENCY [think] 1042.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:18:59.624    OMEGA │ ⚡ 🧬 Gen #2: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:18:59.655    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.4053)
+[DubaiMatrixASI] 18:18:59.655    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.252407
+[DubaiMatrixASI] 18:19:12.321    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:19:50.170    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0909)
+[DubaiMatrixASI] 18:19:50.170    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.234814
+[DubaiMatrixASI] 18:19:57.909    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 18:19:58.790  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 18:19:58.790    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 18:19:58.791    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 19.60 para 0.46 para caber na margem livre ($9797.94)
+[DubaiMatrixASI] 18:19:58.791    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=0.46 (em 5 nodes) price=67359.22 SL=67405.61 TP=67266.45
+[DubaiMatrixASI] 18:19:59.436  WARNING │ ⏱️ LATENCY [send_limit_order] 617.1ms (threshold: 200ms)
+[DubaiMatrixASI] 18:19:59.436  WARNING │ ⏱️ LATENCY [send_limit_order] 411.2ms (threshold: 200ms)
+[DubaiMatrixASI] 18:19:59.641    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 18:19:59.647    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 18:19:59.658  WARNING │ ⏱️ LATENCY [send_limit_order] 427.5ms (threshold: 200ms)
+[DubaiMatrixASI] 18:19:59.666  WARNING │ ⏱️ LATENCY [send_limit_order] 229.9ms (threshold: 200ms)
+[DubaiMatrixASI] 18:19:59.666    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 18:19:59.685    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 18:19:59.691    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | SELL lot=0.28 @ 0.00 | 3 tickets gerados | SELL signal=-0.506 conf=0.78 coherence=0.46 regime=LOW_LIQUIDITY ATR=92.77 RR=2.
+[DubaiMatrixASI] 18:19:59.695  WARNING │ ⏱️ LATENCY [execute] 906.1ms (threshold: 500ms)
+[DubaiMatrixASI] 18:19:59.702  WARNING │ ⏱️ LATENCY [think] 1061.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:20:16.242    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:20:41.502    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.7604)
+[DubaiMatrixASI] 18:20:41.502    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007021
+[DubaiMatrixASI] 18:20:50.003    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 18:20:50.232    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 18:20:50.233    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 18:20:50.237    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 18:20:50.238    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 18:20:50.238    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 18:20:50.238    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-07T21:20:50.238968+00:00
