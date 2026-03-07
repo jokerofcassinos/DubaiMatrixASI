@@ -200,8 +200,8 @@ class OmegaParameterSpace:
                         "Distância mínima da última entrada em múltiplos de ATR")
         self._register("duplicate_position_distance_atr", 1.0, 0.3, 5.0,
                         "Distância mínima de posição existente na mesma direção em ATR")
-        self._register("max_order_splits", 5.0, 1.0, 100.0,
-                        "Máximo de slots por execução (Reduzido para prevenir congestionamento de socket)")
+        self._register("max_order_splits", 5.0, 1.0, 15.0,
+                        "Número máximo de fragmentações de ordem (Nós P-Brane). Capped p/ HFT.")
         self._register("kinematic_exhaustion_atr_mult", 1.8, 1.0, 3.5,
                         "Distância máxima de estiramento em 5 velas antes da reversão")
 

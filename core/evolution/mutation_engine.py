@@ -105,9 +105,9 @@ class MutationEngine:
             old_value = param.value
             
             # OMEGA: Shield para parâmetros críticos
-            # thresholds e confidence NÃO podem usar uniform (exploração cega)
-            # pois causam paralisia sensorial.
-            is_critical = any(k in name.lower() for k in ["threshold", "confidence", "phi_min"])
+            # thresholds, confidence e limites de execução NÃO podem usar uniform (exploração cega)
+            # pois causam paralisia sensorial ou gargalos de hardware.
+            is_critical = any(k in name.lower() for k in ["threshold", "confidence", "phi_min", "splits", "position_size"])
             effective_strategy = "gaussian" if (is_critical and mutation_type == "uniform") else mutation_type
 
             if effective_strategy == "gaussian":
@@ -122,6 +122,14 @@ class MutationEngine:
             # Sanity Clamp para Φ (Não deixar mutação automática pedir > 0.35 base)
             if name == "phi_min_threshold":
                 new_value = min(0.35, new_value)
+            
+            # Sanity Clamp para Fragmentação (Evitar asfixia do MT5)
+            if name == "max_order_splits":
+                new_value = min(15.0, new_value)
+                
+            # Sanity Clamp para Risco (Evitar exposição suicida > 75%)
+            if name == "position_size_pct":
+                new_value = min(75.0, new_value)
 
             # Aplicar mutação
             OMEGA.set(name, new_value)

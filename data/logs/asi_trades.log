@@ -36225,3 +36225,140 @@ ject has no attribute 'action'
 [DubaiMatrixASI] 18:03:19.227    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
 [DubaiMatrixASI] 18:03:19.228    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
 [DubaiMatrixASI] 18:03:19.228    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-07T21:03:19.228528+00:00
+[DubaiMatrixASI] 18:03:20.493    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 18:03:22.206    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 18:03:22.206    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 18:03:22.206    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 18:03:22.207    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 18:03:22.207    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 18:03:22.208    OMEGA │ ⚡ 📅 2026-03-07T21:03:22.207990+00:00
+[DubaiMatrixASI] 18:03:22.208    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 18:03:22.209    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 18:03:22.213    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 18:03:22.217    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 18:03:22.217    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67326.29, Bid=67325.29
+[DubaiMatrixASI] 18:03:22.225    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 18:03:22.226    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 18:03:22.227    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 18:03:22.261    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 18:03:22.273    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 18:03:22.277    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 18:03:22.287    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 18:03:22.288    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 18:03:22.288    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 18:03:22.290    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 18:03:22.291    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 18:04:08.678    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: MICRO_STAGNATION (Flat for 4.0s) | Closing 10 slots para BTCUSD
+[DubaiMatrixASI] 18:04:08.679  WARNING │ ⚠️ Socket falhou para 397907341. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:08.680  WARNING │ ⚠️ Socket falhou para 397907343. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:09.052  WARNING │ ⚠️ Socket falhou para 397907344. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:09.052    TRADE │ #1 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.73 | ticket=397907341 closed via API
+[DubaiMatrixASI] 18:04:09.064  WARNING │ ⚠️ Socket falhou para 397907345. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:09.405    TRADE │ #2 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.73 | ticket=397907343 closed via API
+[DubaiMatrixASI] 18:04:09.765  WARNING │ ⚠️ Socket falhou para 397907346. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:09.765  WARNING │ ⚠️ Socket falhou para 397907347. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:09.766    TRADE │ #3 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907344 closed via API
+[DubaiMatrixASI] 18:04:09.766  WARNING │ ⚠️ Socket falhou para 397907348. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:10.112    TRADE │ #4 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907345 closed via API
+[DubaiMatrixASI] 18:04:10.113  WARNING │ ⚠️ Socket falhou para 397907349. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:10.113  WARNING │ ⚠️ Socket falhou para 397907351. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:10.473  WARNING │ ⏱️ LATENCY [think] 1903.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:04:10.473  WARNING │ ⚠️ Socket falhou para 397907352. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:04:10.473    TRADE │ #5 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907346 closed via API
+[DubaiMatrixASI] 18:04:10.825    TRADE │ #6 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907347 closed via API
+[DubaiMatrixASI] 18:04:11.165    TRADE │ #7 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907348 closed via API
+[DubaiMatrixASI] 18:04:11.527    TRADE │ #8 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.74 | ticket=397907349 closed via API
+[DubaiMatrixASI] 18:04:11.885    TRADE │ #9 CLOSE BTCUSD lot=0.01 price=0.00 SL=0.00 TP=0.00 P&L=+0.18 | ticket=397907351 closed via API
+[DubaiMatrixASI] 18:04:12.275    TRADE │ #10 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.73 | ticket=397907352 closed via API
+[DubaiMatrixASI] 18:04:16.019    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8083)
+[DubaiMatrixASI] 18:04:16.020    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005938
+[DubaiMatrixASI] 18:04:28.668    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:04:58.174    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 18:05:06.622    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0687)
+[DubaiMatrixASI] 18:05:06.623    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006309
+[DubaiMatrixASI] 18:05:31.935    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:05:32.346    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 18:05:57.246    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 18:05:57.247    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:05:57.286    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.4917)
+[DubaiMatrixASI] 18:05:57.295    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007269
+[DubaiMatrixASI] 18:06:32.631  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 18:06:32.632    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 18:06:32.632    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 15.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 18:06:32.633    OMEGA │ ⚡ 🐉 HYDRA MODE ACTIVATED! Confidence 0.87 > 0.85 | Max Slots: 15 | Max Orders/Candle: 15
+[DubaiMatrixASI] 18:06:32.633    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 19.71 para 0.46 para caber na margem livre ($9852.84)
+[DubaiMatrixASI] 18:06:32.634    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=0.46 (em 10 nodes) price=67377.70 SL=67327.40 TP=67478.29
+[DubaiMatrixASI] 18:06:33.269  WARNING │ ⏱️ LATENCY [send_limit_order] 617.2ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:33.270  WARNING │ ⏱️ LATENCY [send_limit_order] 412.0ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:33.476  WARNING │ ⏱️ LATENCY [send_limit_order] 412.3ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.092  WARNING │ ⏱️ LATENCY [send_limit_order] 410.9ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.503  WARNING │ ⏱️ LATENCY [send_limit_order] 1233.7ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.716  WARNING │ ⏱️ LATENCY [send_limit_order] 829.4ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.717  WARNING │ ⏱️ LATENCY [send_limit_order] 212.8ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.727  WARNING │ ⏱️ LATENCY [send_limit_order] 429.6ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.735  WARNING │ ⏱️ LATENCY [send_limit_order] 642.1ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.735  WARNING │ ⏱️ LATENCY [send_limit_order] 1258.4ms (threshold: 200ms)
+[DubaiMatrixASI] 18:06:34.766    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=0.46 @ 0.00 | 10 tickets gerados | BUY signal=+1.000 conf=0.87 coherence=0.52 regime=UNKNOWN ATR=100.59 RR=2.00 | Q
+[DubaiMatrixASI] 18:06:34.771  WARNING │ ⏱️ LATENCY [execute] 2140.2ms (threshold: 500ms)
+[DubaiMatrixASI] 18:06:34.772  WARNING │ ⏱️ LATENCY [think] 2281.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:06:37.223    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:06:49.830    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5003)
+[DubaiMatrixASI] 18:06:49.830    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006362
+[DubaiMatrixASI] 18:07:40.436    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5691)
+[DubaiMatrixASI] 18:07:40.436    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006782
+[DubaiMatrixASI] 18:07:40.442    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:07:56.362    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: ATOMIC_PROFIT_LOCK: Evaporação ($4.09->$2.05, DD=49.9%) | Closing 7 slots para BTCUSD
+[DubaiMatrixASI] 18:07:56.363  WARNING │ ⚠️ Socket falhou para 397907684. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907686. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907696. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907688. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907698. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907700. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.364  WARNING │ ⚠️ Socket falhou para 397907690. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:07:56.744    TRADE │ #11 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907684 closed via API
+[DubaiMatrixASI] 18:07:57.089  WARNING │ ⏱️ LATENCY [update] 344.9ms (threshold: 20ms)
+[DubaiMatrixASI] 18:07:57.089    TRADE │ #12 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907686 closed via API
+[DubaiMatrixASI] 18:07:57.442    TRADE │ #13 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907696 closed via API
+[DubaiMatrixASI] 18:07:57.801    TRADE │ #14 CLOSE BTCUSD lot=0.01 price=0.00 SL=0.00 TP=0.00 P&L=+0.07 | ticket=397907688 closed via API
+[DubaiMatrixASI] 18:07:58.500    TRADE │ #15 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907698 closed via API
+[DubaiMatrixASI] 18:07:58.500    TRADE │ #16 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907700 closed via API
+[DubaiMatrixASI] 18:07:58.846    TRADE │ #17 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+0.33 | ticket=397907690 closed via API
+[DubaiMatrixASI] 18:07:59.013  WARNING │ ⏱️ LATENCY [think] 2268.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 18:08:33.242    OMEGA │ ⚡ 🧬 Gen #2: 3 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:08:33.266    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4966)
+[DubaiMatrixASI] 18:08:33.269    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006410
+[DubaiMatrixASI] 18:08:45.904    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:09:23.798    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5859)
+[DubaiMatrixASI] 18:09:23.798    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006968
+[DubaiMatrixASI] 18:09:49.097    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:09:55.251    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: MICRO_STAGNATION (Flat for 4.1s) | Closing 3 slots para BTCUSD
+[DubaiMatrixASI] 18:09:55.252  WARNING │ ⚠️ Socket falhou para 397907683. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:09:55.252  WARNING │ ⚠️ Socket falhou para 397907695. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:09:55.252  WARNING │ ⚠️ Socket falhou para 397907692. Tentando fechamento pela API Python MT5.
+[DubaiMatrixASI] 18:09:55.608    TRADE │ #18 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+1.79 | ticket=397907683 closed via API
+[DubaiMatrixASI] 18:09:55.998    TRADE │ #19 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+1.79 | ticket=397907695 closed via API
+[DubaiMatrixASI] 18:09:56.362    TRADE │ #20 CLOSE BTCUSD lot=0.05 price=0.00 SL=0.00 TP=0.00 P&L=+1.79 | ticket=397907692 closed via API
+[DubaiMatrixASI] 18:09:58.299    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 18:10:15.385    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9570)
+[DubaiMatrixASI] 18:10:15.394    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006973
+[DubaiMatrixASI] 18:10:37.722    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 18:10:53.283    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:11:05.920    OMEGA │ ⚡ 🧬 Gen #3: 9 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:11:05.949    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8176)
+[DubaiMatrixASI] 18:11:05.954    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007384
+[DubaiMatrixASI] 18:11:56.438    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5502)
+[DubaiMatrixASI] 18:11:56.439    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.204904
+[DubaiMatrixASI] 18:11:56.445    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:12:47.054    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3312)
+[DubaiMatrixASI] 18:12:47.063    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007467
+[DubaiMatrixASI] 18:12:59.709    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:151
+[DubaiMatrixASI] 18:13:37.785    OMEGA │ ⚡ 🧬 Gen #4: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 18:13:37.812    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.1665)
+[DubaiMatrixASI] 18:13:37.817    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.239734
+[DubaiMatrixASI] 18:13:50.164    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 18:13:50.303    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 18:13:50.316    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 18:13:50.345    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 18:13:50.351    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 18:13:50.351    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 18:13:50.352    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-07T21:13:50.352074+00:00
