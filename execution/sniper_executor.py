@@ -15,7 +15,10 @@ from core.decision.trinity_core import Decision, Action
 from execution.risk_quantum import RiskQuantumEngine
 from market.mt5_bridge import MT5Bridge
 from concurrent.futures import ThreadPoolExecutor
-from config.settings import ASIState
+from config.settings import ASIState, MAX_SLOTS_PER_CANDLE, EXECUTION_COOLDOWN_MS
+from cpp.asi_bridge import CPP_CORE
+import numpy as np
+
 from config.omega_params import OMEGA
 from config.exchange_config import MIN_LOT_SIZE
 from utils.logger import log
@@ -63,6 +66,10 @@ class SniperExecutor:
         
         # Phase 40 — Ultra-Fast Execution Pool
         self._order_pool = ThreadPoolExecutor(max_workers=25)
+        
+        # OMEGA-CLASS: Sonar State
+        self._last_sonar_time = 0
+        self._sonar_cooldown_ms = 5000 # 5 segundos entre sondagens
 
     @timed(log_threshold_ms=500)
     @catch_and_log(default_return=None)
@@ -72,6 +79,8 @@ class SniperExecutor:
         Executa uma decisão de trading no MT5.
         """
         if decision.action == Action.WAIT:
+            # Ativar Sonar se estivermos em WAIT mas com volatilidade interessante
+            self._maybe_sonar_probe(snapshot)
             return None
 
         # 0. Throttle de Ordens por Candle (Impede metralhadora no mesmo candle)
@@ -254,6 +263,27 @@ class SniperExecutor:
                     f"para caber na margem livre (${free_margin:.2f})"
                 )
         
+        # ═══════════════════════════════════════════════════════════
+        #  PHASE Ω-ZERO: DO-CALCULUS CAUSAL GATEKEEPER
+        # ═══════════════════════════════════════════════════════════
+        if hasattr(CPP_CORE, 'calculate_causal_impact'):
+            # Geramos uma matriz de features simplificada para o motor causal
+            # Col 0: Volume, Col 1: Volatilidade, Col 2: Preço
+            prices = snapshot.m1_closes
+            if len(prices) > 20:
+                feat_mat = np.column_stack([
+                    snapshot.candles.get('M1', {}).get('tick_volume', np.zeros_like(prices))[-50:],
+                    np.full(min(50, len(prices)), snapshot.indicators.get('M1_atr_14', [0.0])[-1]),
+                    prices[-50:]
+                ])
+                
+                causal = CPP_CORE.calculate_causal_impact(feat_mat, final_lot, target_index=2)
+                if causal and causal['do_impact'] > 0.05: # Se nosso trade distorce > 5% do movimento
+                    log.warning(f"⚠️ CAUSAL VETO: High Market Impact Projected ({causal['do_impact']:.2%})")
+                    if causal['confidence'] > 0.7:
+                        return None # Veto absoluto se a confiança no DAG for alta
+        
+        # Iniciar execução de slots
         # Calcular em quantos slots dividir o lote final (ajustado ou não)
         lot_chunks = self._split_lot(final_lot, max_slots)
         
@@ -344,6 +374,34 @@ class SniperExecutor:
             "tp": decision.take_profit,
             "reasoning": decision.reasoning,
         }
+
+    def _maybe_sonar_probe(self, snapshot):
+        """
+        Executa uma 'Sonda Sonar' se as condições de mercado permitirem.
+        O objetivo é perturbar o book para detectar liquidez oculta.
+        """
+        now_ms = int(time.time() * 1000)
+        if now_ms - self._last_sonar_time < self._sonar_cooldown_ms:
+            return
+
+        # Condição: Volatilidade alta mas sem sinal claro
+        atr = snapshot.indicators.get("M1_atr_14", [0])[0]
+        if atr <= 0: return
+        
+        # O Sonar é uma ordem limite MIN_LOT a 1 tick de distância do preço real
+        # que é cancelada em 50ms (pelo EA).
+        self._last_sonar_time = now_ms
+        
+        # Usar paridade do tempo ou waves do reservatório para decidir o lado
+        waves = snapshot.metadata.get("reservoir_waves", [0.5])
+        side = "BUY" if waves[0] > 0 else "SELL"
+        
+        # Preço: 1 ponto de distância do bid/ask
+        point = snapshot.symbol_info.get("point", 0.0001) if snapshot.symbol_info else 0.0001
+        price = (snapshot.tick["ask"] + point) if side == "BUY" else (snapshot.tick["bid"] - point)
+        
+        log.omega(f"📡 QUANTUM SONAR: Probing {side} liquidity @ {price:.2f}")
+        self.bridge.send_sonar_probe(side=side, lot=MIN_LOT_SIZE, price=price, duration_ms=50)
 
     def _split_lot(self, total_lot: float, max_splits: int) -> list:
         """Divide o lote total em N chunks para permitir parciais."""

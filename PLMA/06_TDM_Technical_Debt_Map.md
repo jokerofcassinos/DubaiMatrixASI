@@ -18,7 +18,10 @@
 - **Risco:** [VERDE] Maior parte absorvida pelas correções correntes. Todavia, atesta falta da adoção de tipagens sólidas e TDD nessas raízes experimentais.
 - **Solução Proposta:** Impor rotinas de Type Checking (Mypy) nos commits automáticos da ASI.
 
-### DÍVIDA TÉCNICA 04: Falta de Tipagem Estrita nos Sinais de Agentes (Dict vs AgentSignal) — [RESOLVIDO]
+### DÍVIDA TÉCNICA 04: Falta de Tipagem Estrita e **kwargs nos Sinais de Agentes — [RESOLVIDO]
+- **Localização:** `core/consciousness/agents/*.py`.
+- **Descrição:** A introdução de metadados dinâmicos (`regime_state`) no loop do `NeuralSwarm` quebrou agentes que não aceitavam `**kwargs`.
+- **Status:** [RESOLVIDO] 2026-03-07. Todas as assinaturas de novas camadas (Phase 42/43) e Meta-Swarm foram padronizadas.
 - **Localização:** `core/consciousness/agents/meta_swarm.py` e interação com `quantum_thought.py`.
 - **Descrição:** Agentes de segunda ordem (`ConfidenceAggregatorAgent` e `ExecutionScalerAgent`) estavam retornando dicionários crus (`{"signal": 0.0, ...}`) ao invés de instâncias instanciadas e tipadas de `AgentSignal`, causando o crash letal `AttributeError: 'dict' object has no attribute 'confidence'` no motor Quântico que tentava iterar pelas propriedades dos objetos.
 - **Risco:** [RESOLVIDO] Erro sanado em 2026-03-05. A persistência de tipagem flexiva (duck typing) em zonas críticas de colapso quântico cria Single Points of Failure grotescos.
@@ -47,4 +50,15 @@
 - **Risco:** [AMARELO] Spikes de latência podem afetar o timing do Sniper HFT em condições de alta volatilidade.
 - **Solução Futura:** Migrar a orquestração do enxame para C++ Nativo (Phase 43) ou utilizar `multiprocessing` com Shared Memory para bypassar o GIL.
 
-*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war)*
+### DÍVIDA TÉCNICA 09: MarketSnapshot Attribute Fragmentation — [RESOLVIDO]
+- **Localização:** `market/data_engine.py`.
+- **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus.
+- **Resolução:** [2026-03-07] Implementado `MarketSnapshot` com properties `@property` para `close`, `atr`, `high`, `low`, unificando a percepção neural.
+
+### DÍVIDA TÉCNICA 10: MFG Reward Linearization — [NOVO]
+- **Localização:** `core/consciousness/agents/mean_field_game_agent.py`.
+- **Descrição:** A função de recompensa do MFG é linearmente mapeada para o regime bias. Pode ignorar zonas de liquidez não-lineares.
+- **Risco:** [VERDE] Sub-otimização da velocidade no HJB.
+- **Solução Futura:** Integrar `OrderFlowMatrix` diretamente no vetor de `rewards` do MFG.
+
+*(Atualizado: 2026-03-07. Versão: 10.1.0-omega+phase_one)*

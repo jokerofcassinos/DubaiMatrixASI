@@ -199,11 +199,33 @@ class OmegaParameterSpace:
         self._register("kinematic_exhaustion_atr_mult", 1.8, 1.0, 3.5,
                         "Distância máxima de estiramento em 5 velas antes da reversão")
 
+        # ═══ PHASE 46: SUPERPOSITION RESOLUTION PARAMETERS ═══
+        self._register("superposition_resolution_enabled", 1.0, 0.0, 1.0,
+                        "Habilita a resolução ativa de superposição (agentes não convergentes)")
+        self._register("resolution_confidence_multiplier", 1.2, 1.0, 2.0,
+                        "Multiplicador de confiança durante a resolução de superposição")
+        self._register("institutional_superiority_threshold", 0.75, 0.50, 0.95,
+                        "Threshold de coerência institucional para ISO (Institutional Superiority Override)")
+        self._register("temporal_tunneling_cycles", 5.0, 3.0, 20.0,
+                        "Número de ciclos para validar bias direcional persistente")
+        self._register("max_resolution_entropy", 0.65, 0.30, 0.90,
+                        "Máxima entropia permitida para tentar resolução (EPA)")
+
         # ═══ PHASE 40: ZERO-DRAWDOWN CITADEL ═══
         self._register("exposure_ceiling_balance_ratio", 500.0, 100.0, 5000.0,
                         "Ratio de balanço por lote (ex: 500 = 1 lot a cada $500).")
         self._register("v_reversal_atr_multiplier", 3.0, 2.0, 6.0,
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
+
+        # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
+        self._register("phi_min_threshold", 0.40, 0.10, 1.0,
+                        "Threshold mínimo de Φ para permitir execução (Integração Sistêmica)")
+        self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
+                        "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
+        self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,
+                        "Habilita a dilatação temporal relativística do loop de consciência")
+        self._register("evt_tail_threshold", 2.50, 2.0, 5.0,
+                        "Threshold de cauda (EVT) para detecção de Black Swan")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

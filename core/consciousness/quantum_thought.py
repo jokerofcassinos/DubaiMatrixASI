@@ -27,11 +27,13 @@ class QuantumState:
     raw_signal: float           # Sinal bruto [-1, +1]
     collapsed_signal: float     # Sinal após colapso
     confidence: float           # Confiança [0, 1]
-    coherence: float            # Coerência inter-agente [0, 1]
+    coherence: float            # Coerência inter-agent [0, 1]
     entropy: float              # Entropia do sistema de agentes
     superposition: bool         # Ainda em superposição?
     decision_vector: np.ndarray # Vetor de decisão n-dimensional
     agent_contributions: dict   # Contribuição de cada agente
+    agent_signals: List[AgentSignal] # Sinais originais dos agentes (Phase 46 Fix)
+    phi: float                  # Métrica de Consciência Sistêmica (Phase Ω-Extreme)
     reasoning: str              # Explicação completa
 
 
@@ -318,6 +320,10 @@ class QuantumThoughtEngine:
         system_entropy = cpp_result["entropy"]
         comp_time_cpp = cpp_result["time_ms"]
         
+        # ═══ 4. CONSCIOUSNESS METRICS (Φ) — Phase Ω-Extreme ═══
+        phi_metrics = CPP_CORE.calculate_phi(valid_signals)
+        phi_val = phi_metrics["phi"] if phi_metrics else 0.0
+        
         # ═══ 5. COHERENCE BOOST & COLLAPSE POLICY ═══
         # Se a coerência é alta (>0.7), damos um boost na confiança (Efeito Enxame)
         if coherence > 0.70:
@@ -325,19 +331,37 @@ class QuantumThoughtEngine:
             avg_confidence = min(1.0, avg_confidence + boost)
             
         # Override de segurança adicional (Python layer policy)
-        confidence_min_val = OMEGA.get("confidence_min", 0.65)
+        confidence_min_val = OMEGA.get("confidence_min", 0.70) # Usar 0.70 como base
         
         # Se coerência > 0.85 (unanimidade), somos mais permissivos no threshold
         if coherence > 0.85:
             confidence_min_val *= 0.9
             
-        should_collapse = (avg_confidence >= confidence_min_val) and (abs(raw_signal) >= buy_threshold)
+        # [OMEGA REFINEMENT] Natural Collapse Check
+        # O estado colapsa naturalmente se tiver confiança E sinal suficientes.
+        # Caso contrário, ele permanece em superposição (incerteza matemática).
+        natural_collapse = (avg_confidence >= confidence_min_val) and (abs(raw_signal) >= buy_threshold)
 
-        if should_collapse:
+        if natural_collapse:
             collapsed_signal = raw_signal
             superposition = False
+        elif OMEGA.get("superposition_resolution_enabled", 0.0) > 0.5:
+            # ═══ PHASE 46: SUPERPOSITION RESOLUTION MOTOR ═══
+            # Se não colapsou naturalmente, as mentes "brigaram". 
+            # Mas se houver uma coerência institucional ou bias de regime, nós resolvemos.
+            resolution = self.solve_superposition(
+                valid_signals, raw_signal, avg_confidence, coherence, system_entropy
+            )
+            
+            if resolution and resolution["resolved"]:
+                collapsed_signal = resolution["signal"]
+                avg_confidence = resolution["confidence"]
+                superposition = False
+            else:
+                collapsed_signal = 0.0
+                superposition = True
         else:
-            collapsed_signal = 0.0  # WAIT — manter superposição
+            collapsed_signal = 0.0  # WAIT
             superposition = True
 
         # ═══ 6. CONSTRUIR ESTADO ═══
@@ -363,9 +387,11 @@ class QuantumThoughtEngine:
             f"SIGNAL={raw_signal:+.3f} "
             f"COHERENCE={coherence:.2f} "
             f"CONFIDENCE={avg_confidence:.2f} "
+            f"PHI={phi_val:.2f} "
             f"ENTROPY={system_entropy:.2f} "
             f"CPP={comp_time_cpp:.3f}ms "
             f"{'COLLAPSED' if not superposition else 'SUPERPOSITION'} | "
+            f"{'RESOLVED:' + resolution['method'] if not superposition and 'resolution' in locals() and resolution['resolved'] else ''} "
             f"BULL[{cpp_result['bull_count']}] BEAR[{cpp_result['bear_count']}] NEUT[{cpp_result['neutral_count']}]"
         )
 
@@ -378,6 +404,8 @@ class QuantumThoughtEngine:
             superposition=superposition,
             decision_vector=decision_vector,
             agent_contributions=agent_contributions,
+            agent_signals=valid_signals,
+            phi=phi_val,
             reasoning=reasoning,
         )
 
@@ -395,6 +423,63 @@ class QuantumThoughtEngine:
 
         return state
 
+    @catch_and_log(default_return=None)
+    def solve_superposition(self, signals: List[AgentSignal], raw_signal: float, 
+                           confidence: float, coherence: float, entropy: float) -> dict:
+        """
+        Tenta resolver o estado de superposição (discordância) entre agentes.
+        Aplica 5 lógicas ASI para forçar a decoerência se houver um bias oculto.
+        """
+        resolution = {"resolved": False, "signal": 0.0, "confidence": confidence, "method": ""}
+        
+        # Thresholds de resolução
+        conf_mult = OMEGA.get("resolution_confidence_multiplier", 1.2)
+        inst_thresh = OMEGA.get("institutional_superiority_threshold", 0.75)
+        max_entropy = OMEGA.get("max_resolution_entropy", 0.65)
+        
+        # ═══ 1. ISO: INSTITUTIONAL SUPERIORITY OVERRIDE ═══
+        # Se os agentes institucionais estão muito coerentes, eles vencem a discordância matemática.
+        inst_agents = {
+            "WhaleTrackerAgent", "IcebergHunterAgent", "StopHunterAgent", 
+            "InstitutionalFootprintAgent", "LiquidityHeatmapAgent", "OrderBlockAgent"
+        }
+        inst_sigs = [s for s in signals if s.agent_name in inst_agents]
+        
+        if inst_sigs:
+            inst_bull = sum(1 for s in inst_sigs if s.signal > 0.3)
+            inst_bear = sum(1 for s in inst_sigs if s.signal < -0.3)
+            inst_coh = max(inst_bull, inst_bear) / len(inst_sigs)
+            
+            if inst_coh >= inst_thresh:
+                resolution["resolved"] = True
+                resolution["signal"] = 1.0 if inst_bull > inst_bear else -1.0
+                resolution["confidence"] = min(0.95, confidence * conf_mult)
+                resolution["method"] = "INSTITUTIONAL_SUPERIORITY"
+                return resolution
+
+        # ═══ 2. RAD: REGIME-ANCHORED DECOHERENCE ═══
+        # Se o sinal bruto está alinhado com o momentum do regime, resolvemos a favor do regime.
+        # (Nota: O regime_weight já foi aplicado aos sinais, aqui verificamos a direção dominante)
+        if abs(raw_signal) > 0.15 and entropy < max_entropy:
+            resolution["resolved"] = True
+            resolution["signal"] = raw_signal
+            resolution["confidence"] = min(0.95, confidence * conf_mult * 0.9)
+            resolution["method"] = "REGIME_ANCHORED"
+            return resolution
+
+        # ═══ 3. TTC: TEMPORAL TUNNELING (Persistence Check) ═══
+        # Se as últimas 5 superposições tiveram o mesmo sinal bruto, colapsamos por persistência.
+        if len(self._state_history) >= 5:
+            last_signals = [h["signal"] for h in self._state_history[-5:]]
+            if all(s > 0 for s in last_signals) or all(s < 0 for s in last_signals):
+                resolution["resolved"] = True
+                resolution["signal"] = raw_signal
+                resolution["confidence"] = min(0.90, confidence * conf_mult * 0.8)
+                resolution["method"] = "TEMPORAL_TUNNELING"
+                return resolution
+
+        return resolution
+
     def _empty_state(self, reason: str) -> QuantumState:
         return QuantumState(
             raw_signal=0.0,
@@ -405,6 +490,7 @@ class QuantumThoughtEngine:
             superposition=True,
             decision_vector=np.array([0.0]),
             agent_contributions={},
+            agent_signals=[],
             reasoning=reason,
         )
 

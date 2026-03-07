@@ -23,7 +23,7 @@ class ConfidenceAggregatorAgent(BaseAgent):
     def __init__(self):
         super().__init__(name="ConfidenceAggregator", weight=2.5) # Peso Massivo
         
-    def analyze(self, snapshot, asi_state=None) -> AgentSignal:
+    def analyze(self, snapshot, asi_state=None, **kwargs) -> AgentSignal:
         # Recupera o estado atual dos agentes (que roda no QuantumThoughtEngine)
         # Como o Quantum processa este agente junto com os outros, usamos os 
         # últimos vetores disponíveis (se injetados via asi_state).
@@ -63,5 +63,5 @@ class ExecutionScalerAgent(BaseAgent):
     def __init__(self):
         super().__init__(name="ExecutionScaler", weight=1.0)
         
-    def analyze(self, snapshot, asi_state=None) -> AgentSignal:
+    def analyze(self, snapshot, asi_state=None, **kwargs) -> AgentSignal:
         return AgentSignal(agent_name=self.name, signal=0.0, confidence=0.0, reasoning="Placeholder para futuro", weight=0.0)

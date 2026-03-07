@@ -9,6 +9,8 @@
 - **Deep Absorption Detection**: Capta eventos onde Player A enche a mão agredindo enquanto Player B absorve o soco (preço em estado inercial), validando o timing exato para entrar a favor de Player B.
 - **Regime Detection**: Identifica se estamos rodando num regime Trending, Choppy, Liquidation Cascade, Squeeze. E baseia a agressão do bot nestes status. (Phase 24: SQUEEZE_BUILDUP, CREEPING_BULL, DRIFTING_BEAR, LIQUIDITY_HUNT, MEAN_REVERTING eliminando pontos cegos do tipo UNKNOWN).
 - **Phase 17 Structural Filtering**: Agentes dedicados a detectar topos e fundos macro (`ChartStructure`) e micro (`CandleAnatomy`) via fractais e body/wick ratios, vetando compras em "highs" e vendas em "lows".
+- **Hyperbolic Power Clusters**: Detecção de centros de gravidade institucional via Geometria Hiperbólica (Poincaré Ball).
+- **Holographic Bulk Inference**: Projeção da profundidade do book (Bulk) a partir do fluxo de ticks (Boundary) via AdS/CFT.
 
 ### 2. EXECUÇÃO AVANÇADA (Phase 9 e 26)
 - **Margin Pre-flight check**: O executor não "tenta", ele recalcula via order_calc_margin assegurando fundo na corretora antes da batida do Sniper evitando colapso em logs.
@@ -26,10 +28,18 @@
 - **Elastic Snapback Veto (Phase 33)**: Sensor de tensão multivariável que asfixia Trend/Momentum no fim do elástico estatístico, evitando bottom-selling.
 - **Dead Cat Bounce Protection (Phase 32)**: Filtro de divergência Macro vs Micro que impede compra de repiques em tendências de baixa dominantes.
 - **Phase 40 Multi-Threaded Strike**: SniperExecutor capaz de disparar 25 slots simultâneos em <500ms através de `ThreadPoolExecutor`.
-- **Phase 41 Omega-Convergence (C++)**: Agregação instantânea de 54 sinais neurais no núcleo nativo com cálculo de entropia Shannon intra-milissegundo.
+- **Phase 41 Omega-Convergence (C++)**: Agregação instantânea de 52 sinais neurais.
+- **Phase Ω-One: Spiking Neural Networks**: Cognição assíncrona baseada em eventos (ticks) via neurônios LIF nativos.
+- **Phase Ω-One: Mean Field Games (MFG)**: Modelagem de densidade de traders e geodésicas ótimas de saída via HJB/FP em C++.
+- **Phase Ω-One: Feynman Path Propagator**: Previsão de interferência quântica de preço baseada em trajetórias integrais.
+- **Phase Ω-One: Lucid Dreaming (Java Shadow)**: Simulação paralela massiva de orderflow para evolução rápida de parâmetros.
+- **Phase Ω-One: Lyapunov Horizon**: Detecção de caos determinístico e limites de previsibilidade temporal.
 - **Maximum Margin Extraction (MME - Phase 37)**: Auto-scaling de lotes para máxima utilização da margem disponível sem rejeição de ordens.
 - **Total War Protocol (Phase 38)**: Escalonamento de risco agressivo (30% / 50% / 95%) baseado em níveis de confiança agressivos (>0.65).
 - **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
+- **Non-Ergodic Sizing (Ito Engine)**: Sizing dinâmico que ignora valor esperado espacial e otimiza crescimento temporal logarítmico.
+- **Dark Forest Sonar Probing**: Detecção de liquidez oculta via injeção de ordens "ghost" de 50ms.
+- **Liquid State Memory**: Reconhecimento de padrões temporais voadas via Reservoir Computing de alta velocidade.
 
 ### 2B. SIMULAÇÃO QUANTUM MONTE CARLO & PNL PREDICTION (Phase 8 e 25)
 - **Trade Simulation (Merton Jump-Diffusion)**: 5000 universos paralelos de trajetórias de preço com saltos estocásticos. 56ms para simulação completa.
@@ -59,4 +69,10 @@
 - **Self Optimizer**: Monitoramento contínuo com alertas automáticos (low win rate, consecutive losses, max drawdown). Orquestra ciclos de mutação a cada 200 ciclos.
 - **Automatic Reversion**: Se mutações degradam performance, o sistema auto-reverte para o melhor genome conhecido.
 
-*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war — Phase 38 Victory)*
+- [x] **Lorentz Clock (Relativistic Pacing)**: Adaptação do loop de consciência à energia cinética do mercado.
+- [x] **Integrated Information (Φ)**: Gate de consciência sistêmica para evitar disparos incoerentes.
+- [x] **QCA Grid Mapping**: Detecção de suporte/resistência via autômatos celulares de sub-tick.
+- [x] **Lotka-Volterra Predator-Prey**: Modelagem de tensão comprador/vendedor como ecossistema.
+- [x] **EVT Black Swan Harvester**: Captura de reversões extremas via Distribuição de Pareto Generalizada.
+
+*(Atualizado: 2026-03-07. Versão: 12.0.0-omega+extreme — Phase Ω-Extreme Victory)*

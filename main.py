@@ -47,6 +47,7 @@ from config.settings import (
 from config.exchange_config import MT5_LOGIN, MT5_PASSWORD, MT5_SERVER, MT5_PATH
 from market.mt5_bridge import MT5Bridge
 from core.asi_brain import ASIBrain
+from config.omega_params import OMEGA
 from utils.logger import log
 
 
@@ -159,7 +160,17 @@ class DubaiMatrixASI:
 
                 # ═══ TIMING — Respeitar o intervalo ═══
                 elapsed = time.perf_counter() - cycle_start
-                sleep_time = max(0, cycle_interval - elapsed)
+                
+                # PHASE Ω-EXTREME: Lorentz Dilation
+                # Se dilation > 1, o mercado está "quente" (alta energia).
+                # A ASI dilata o próprio tempo externo para processar mais (dorme menos).
+                dilation = 1.0
+                if OMEGA.get("lorentz_dilation_enabled", 1.0) > 0.5:
+                    dilation = getattr(self.brain.data_engine, 'lorentz_dilation', 1.0)
+                
+                effective_cycle = cycle_interval / max(1.0, dilation)
+                
+                sleep_time = max(0, effective_cycle - elapsed)
                 if sleep_time > 0:
                     time.sleep(sleep_time)
 

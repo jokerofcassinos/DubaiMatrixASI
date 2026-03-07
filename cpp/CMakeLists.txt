@@ -18,6 +18,15 @@ add_library(asi_core SHARED
     src/orderflow_processor.cpp
     src/signal_aggregator.cpp
     src/agent_cluster.cpp
+    src/liquidity_graph.cpp
+    src/entropy_processor.cpp
+    src/vector_storage.cpp
+    src/risk_engine.cpp
+    src/causal_engine.cpp
+    src/topology_core.cpp
+    src/tensor_networks.cpp
+    src/pheromone_field.cpp
+    src/info_geometry.cpp
     src/hyperspace_core.cpp
 )
 

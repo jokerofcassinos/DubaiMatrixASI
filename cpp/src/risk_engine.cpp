@@ -34,6 +34,43 @@ ASI_API double asi_optimal_lot_size(double balance, double risk_pct, double sl_d
     return std::max(0.0, lot);
 }
 
+// ═══════════════════════════════════════════════════════════
+//  ERGODICITY & ITO CALCULUS (Omega-Class)
+// ═══════════════════════════════════════════════════════════
+
+ASI_API double asi_non_ergodic_growth_rate(double win_rate, double avg_win_pct, double avg_loss_pct, double leverage) {
+    if (leverage <= 0.0) return 0.0;
+    
+    // g(f) = E[log(1+r)] -> Taxa de crescimento logarítmica (Geometric Growth)
+    // r_win = avg_win_pct * leverage
+    // r_loss = avg_loss_pct * leverage
+    
+    double r_win = avg_win_pct * leverage;
+    double r_loss = avg_loss_pct * leverage;
+    
+    // Evitar log de valores <= 0 (ruína)
+    if (1.0 - r_loss <= 0.00001) return -999.0; 
+    
+    double growth_rate = win_rate * std::log(1.0 + r_win) + (1.0 - win_rate) * std::log(1.0 - r_loss);
+    
+    return growth_rate;
+}
+
+ASI_API double asi_ito_lot_sizing(double balance, double win_rate, double mu, double sigma, double dt) {
+    if (balance <= 0.0 || sigma <= 0.0) return 0.0;
+    
+    // f* = mu / sigma^2 (Kelly clássico para tempo contínuo)
+    // mu = win_rate * avg_win + (1-win_rate) * avg_loss
+    // Ajustado pela Transformada de Ito (volatilidade como "imposto" de crescimento)
+    
+    double optimal_f = mu / (sigma * sigma);
+    
+    // Limitar a 1.0 para evitar alavancagem suicida em regimes não-ergódicos
+    double final_f = std::max(0.0, std::min(1.0, optimal_f));
+    
+    return balance * final_f;
+}
+
 ASI_API void asi_process_raw_ticks(const TickData* ticks, int len, 
                                   double* out_cumulative_delta, double* out_vpin, double* out_entropy) {
     // Implementação utilitária para agregação rápida de contexto (Phase 41)

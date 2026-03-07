@@ -15,4 +15,10 @@
 - **Data do Óbito:** 2026-03-03.
 - **Condição para Retorno:** A ASI agora implementa uma arquitetura onde apenas o `TrinityCore` consolida a permissão. Os vetos são focados em Perigos Estruturais (Spread Alto, Chaos, Circuit Breaker). Módulos periféricos foram destituídos de poder de veto bruto em favor de "Sovereign Immunity" ("Insta-Strike").
 
+### SEPULTAMENTO 03: UTF-8 Decoration in Java Daemons
+- **Conceito Original:** Uso de caracteres ASCII estendidos/coloridos em logs de Daemons Java.
+- **Motivo da Rejeição:** Erros de codificação (unmappable character) durante compilação em ambientes restritos.
+- **Data do Óbito:** 2026-03-07.
+- **Condição para Retorno:** **NENHUMA**. Código Java deve ser purista ASCII-7 para garantir portabilidade em compiladores legados ou ambientes Windows/UTF-8 conflitantes.
+
 *(Atualizado: 2026-03-04. Versão: 1.0.0-omega)*

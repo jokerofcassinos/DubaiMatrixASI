@@ -17,24 +17,36 @@
 - **`market/data_engine.py (DataEngine)`**: O córtex visual da ASI. Agrega `MarketSnapshot`.
 - **`market/orderflow_matrix.py (OrderFlowMatrix)`**: Visão raios-X sobre liquidez, fluxo institucional e clustering do book de ofertas.
 
-### 4. CAMADA NEURAL / DECISÓRIA (Trinity, Swarm, Quantum, Regime)
-- **`core/consciousness/neural_swarm.py (NeuralSwarm)`**: Arquitetura Master. Instancia 54 neurônios interdimensionais (Classic, Omega, Predator, Chaos, Global Macro, Whale, Physics, Kinematics, Behavioral, Game Theory, SMC/ICT, ChartStructure, Market Dynamics, **Phase 26: Meta-Swarm**). Implementa execução concorrente via `ThreadPoolExecutor`, mitigando gargalos sequenciais I/O-bound e NumPy.
-- **`core/consciousness/quantum_thought.py (QuantumThoughtEngine)`**: Aglutinador de multiversos. Colapsa a superposição dos agentes num vetor numérico.
-- **`core/consciousness/regime_detector.py (RegimeDetector)`**: Visão macro-cibernética sobre onde o mercado se encontra (Choppy, Trend, Squeeze, etc).
-- **`core/decision/trinity_core.py (TrinityCore)`**: Veredicto final de Ação (BUY, SELL, WAIT) ouvetando a agressividade dependendo do estado global do sistema. Integra Monte Carlo validation e **Adaptive Kinematic/Spread Vetoes** (Phase 30).
+### 4. CAMADA NEURAL / DECISÓRIA (Trinity, Swarm, Quantum, Regime, Ω-One)
+- **`core/consciousness/neural_swarm.py (NeuralSwarm)`**: Orquestrador Master. Agora com 72 agentes (Alpha-Swarm).
+- **`core/consciousness/agents/asynchronous_pulse_agent.py`**: [NEW] Agente SNN.
+- **`core/consciousness/agents/mean_field_game_agent.py`**: [NEW] Agente MFG.
+- **`core/consciousness/agents/feynman_path_agent.py`**: [NEW] Agente Feynman.
+- **`core/consciousness/agents/chaos_regime_agent.py`**: [NEW] Agente Chaos.
+- **`core/consciousness/agents/holographic_manifold_agent.py`**: [NEW] Agente Holográfico (AdS/CFT).
+- **`core/consciousness/quantum_thought.py`**: Aglutinador de multiversos.
+- **`core/consciousness/regime_detector.py`**: Visão macro-cibernética.
+- **`core/decision/trinity_core.py`**: Veredicto final de Ação.
 
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
 - **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. Gera 5000 universos paralelos de trajetórias de preço usando Merton Jump-Diffusion. Atualmente offloaded para C++ (Phase 18) com ganho de +100ms no loop cognitivo, calculando Win Probability, Expected Value, CVaR, VaR, e Sharpe ratio.
 
-### 5. CAMADA DE ACELERAÇÃO NATIVA (Phase 7, 18, 41)
-- **`cpp/src/asi_core.h/cpp`**: Núcleo C++ compilado em `asi_core_v2.dll`. **Phase 41**: Introdução de `asi_converge_signals` (agregação de 52 neurônios em <1ms).
-- **`cpp/asi_bridge.py (CppASICore)`**: Instância singleton que auto-descobre a DLL (prioriza v2 shadow dll) e expõe métodos C++.
+### 5. CAMADA DE ACELERAÇÃO NATIVA (Phase 7, 18, 41, Ω-One)
+- **`cpp/src/asi_core.h/cpp`**: Núcleo C++ compilado em `asi_core_v2.dll`.
+- **`cpp/src/spiking_neuron.cpp`**: [NEW] Implementação nativa de neurônios LIF.
+- **`cpp/src/mean_field_games.cpp`**: [NEW] Solucionador nativo de equações HJB e Fokker-Planck.
+- **`cpp/src/feynman_path.cpp`**: [NEW] Propagador quântico de trajetórias de preço.
+- **`cpp/src/chaos_detector.cpp`**: [NEW] Calculador nativo de Expoente de Lyapunov.
+- **`cpp/src/liquid_state_engine.cpp`**: [NEW] Reservatório de Reservoir Computing.
+- **`cpp/src/holographic_matrix.cpp`**: [NEW] Motor de Inferência AdS/CFT.
+- **`cpp/asi_bridge.py (CppASICore)`**: Instância singleton que expõe métodos C++.
 - **`cpp/src/signal_aggregator.cpp`**: Novo módulo de convergência Phase 41.
 - **`cpp/src/risk_engine.cpp`**: Motor C++ nativo para Kelly e Sizing.
-- **`cpp/src/quantum_indicators.cpp` / `orderflow_processor.cpp`**: Processadores monolíticos de alta velocidade.
+- **`cpp/src/quantum_indicators.cpp` / `orderflow_processor.cpp`**: HFT Processors.
 
-### 6. CAMADA DE INTELIGÊNCIA EXTERNA (Phase 5 — Web Scrapers Zero-Cost)
-- **`market/scraper/sentiment_scraper.py (SentimentScraper)`**: Captura Fear & Greed Index (alternative.me) e dados CoinGecko em background (2min). Fornece `sentiment_score` [-1 a +1] consolidado para os agentes neurais.
+### 6. CAMADA DE INTELIGÊNCIA EXTERNA & SIMULAÇÃO
+- **`java/src/com/dubaimatrix/LucidDreamingDaemon.java`**: [NEW] Motor de simulação 10.000x para auto-play.
+- **`market/scraper/sentiment_scraper.py (SentimentScraper)`**: Captura Fear & Greed Index.
 - **`market/scraper/onchain_scraper.py (OnChainScraper)`**: Rastreia mempool.space e blockchain.com para métricas on-chain: mempool size, fees, hashrate. Fornece `network_pressure` [-1 a +1] que indica pressão vendedora/compradora.
 - **`market/scraper/macro_scraper.py (MacroScraper)`**: Coleta dados macro multi-asset: ETH price, BTC/ETH ratio, Gold proxy (PAXG), volumes globais. Fornece `macro_bias` [-1 a +1] indicando ambiente macro favorável/desfavorável ao BTC.
 
@@ -46,9 +58,14 @@
 ### 8. PLMA Sync
 - **`utils/plma_sync.py (PLMASync)`**: Atualiza o dicionário neural com as últimas alterações dos PLMAs enviando para consciencia neural IA.
 
+### 9. CAMADA Ω-EXTREME (Deep Physics & Tail Risk)
+- **`LorentzClock`**: Relatividade Especial aplicada ao ciclo de consciência (`DataEngine` + `main.py`).
+- **`ConsciousnessMetrics (Φ)`**: Integração de Informação (Tononi) no colapso de sinais (`QuantumThought`).
+- **`core/consciousness/agents/omega_extreme.py`**: [NEW] Contém `QCAAgent`, `PredatorPreyAgent` e `EVTBlackSwanAgent`.
+
 ### FRONTEIRAS E PREMISSAS
 - Deslocamento de gargalos (Hot Paths): Funções de indicadores (EMA, RSI, Hurst, Entropy), Signal Convergence, e OrderFlow agora são computadas em C++ puro.
 - O sistema subentende latência inferior a "ticks rate" (sub-milissegundo para os cálculos neurais), utilizando o `CONSCIOUSNESS_CYCLE_MS` para não asfixiar o CPU indevidamente se necessário.
 - Paradigma multi-agentes: Cada arquivo sob `core` atua como subsistema dotado de capacidade de auto relato, fornecendo `metrics` unificadas ao Brain.
 
-*(Atualizado: 2026-03-06. Versão: 10.0.0-omega+total_war — Phase 38 Victory)*
+*(Atualizado: 2026-03-07. Versão: 12.0.0-omega+extreme — Phase Ω-Extreme Victory)*

@@ -85,3 +85,58 @@ ASI_API void asi_simulate_4096_hyperspace(const double* closes, int len, double 
     output->probability_density = prob_density;
     output->hyperspace_time_ms = time_ms;
 }
+
+// ═══════════════════════════════════════════════════════════
+//  FEYNMAN PATH INTEGRALS (Phase Ω-One)
+// ═══════════════════════════════════════════════════════════
+
+#include <complex>
+
+ASI_API void asi_calculate_feynman_path(const double* history, int len, 
+                                        double target_price, double time_horizon,
+                                        double liquidity_friction, PathIntegralResult* out) {
+    if (!history || len < 2 || !out) return;
+
+    double x_start = history[len - 1];
+    double x_end = target_price;
+    
+    // Configurações quânticas (escala de Planck do mercado normalizada)
+    const double h_bar_market = 1.0; 
+    const int N_PATHS = 2048;        
+    const int N_STEPS = 20;          
+    double dt = (time_horizon > 0) ? (time_horizon / N_STEPS) : 1.0;
+    
+    std::complex<double> total_amplitude(0, 0);
+    
+    std::mt19937 generator(std::random_device{}());
+    std::normal_distribution<double> noise(0.0, sqrt(dt));
+
+    for (int p = 0; p < N_PATHS; ++p) {
+        double current_x = x_start;
+        double action = 0.0;
+        
+        for (int s = 0; s < N_STEPS; ++s) {
+            double prev_x = current_x;
+            // Bridge quântica em direção ao alvo
+            double drift = (x_end - current_x) / (N_STEPS - s);
+            current_x += drift + noise(generator);
+            
+            // Lagrangiana L = K - V
+            double velocity = (current_x - prev_x) / dt;
+            double kinetic = 0.5 * liquidity_friction * velocity * velocity;
+            double potential = 0.0; // Futura integração com Grid de Liquidez
+            
+            action += (kinetic - potential) * dt;
+        }
+        
+        double phase = action / h_bar_market;
+        total_amplitude += std::complex<double>(cos(phase), sin(phase));
+    }
+    
+    total_amplitude /= static_cast<double>(N_PATHS);
+    
+    out->probability_amplitude_real = total_amplitude.real();
+    out->probability_amplitude_imag = total_amplitude.imag();
+    out->stationary_phase_price = x_end; 
+    out->quantum_interference_score = std::abs(total_amplitude);
+}

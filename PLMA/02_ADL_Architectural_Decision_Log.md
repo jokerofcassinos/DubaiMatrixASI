@@ -63,9 +63,57 @@
 - **Justificativa:** A expansão para 54 agentes gerou contenção de recursos, causando `TimeoutError` intermitentes que cegavam o `QuantumThoughtEngine`.
 - **Data/Status:** ATIVO. (2026-03-06).
 
-### DECISÃO 14: ARQUITETURA HOLOGRÁFICA PLMA (Project Fragmentation)
-- **Decisão:** Criação do script `utils/plma_sync.py` para comprimir e dividir dinamicamente as 7 camadas da PLMA em múltiplos arquivos `projectmap.md`.
-- **Justificativa:** A carga cognitiva de um único arquivo monolítico de memória estava atingindo o teto de tokens de contexto; a fragmentação holográfica permite que a ASI acesse sub-redes de memória de forma mais eficiente.
-- **Data/Status:** ATIVO. (2026-03-06).
+### DECISÃO 15: ADOÇÃO DE COMPUTAÇÃO ASSÍNCRONA VIA SNN (Ω-One)
+- **Decisão:** Implementação de neurônios LIF no núcleo C++ para filtrar ruído de tick.
+- **Justificativa:** Ciclos fixos de tempo ignoram a microestrutura orientada a eventos. O spike neural captura a 'alma' do orderflow.
+- **Data/Status:** ATIVO. (2026-03-07).
+### DECISÃO 16: EXTERNALIZAÇÃO DE SIMULAÇÃO (Lucid Dreaming Engine)
+- **Decisão:** Criação de um Daemon Java externo para simulações HFT massivas.
+- **Justificativa:** O Python Global Interpreter Lock (GIL) inviabiliza simulações 10.000x em tempo real. Java virtual threads resolvem a concorrência brutal necessária.
+- **Data/Status:** ATIVO. (2026-03-07).
+### DECISÃO 17: EXPANSÃO DA INTERFACE MARKETSNAPSHOT (Ω-Omega Purity)
+- **Decisão:** Adição de propriedades explícitas (`close`, `atr`, `volume`) ao `MarketSnapshot`.
+- **Justificativa:** Resolver `AttributeError` recorrentes em novos agentes e unificar o padrão de percepção sensorial da ASI.
+- **Data/Status:** ATIVO. (2026-03-07).
 
-*(Atualizado: 2026-03-06. Versão: 1.4.0-omega — Phase 42 Monitoring)*
+### DECISÃO 18: TRANSIÇÃO PARA RISCO NÃO-ERGÓDICO
+- **Decisão:** Substituição do Critério de Kelly clássico por Otimização da Taxa de Crescimento Temporal (Cálculo de Ito).
+- **Justificativa:** O mercado real quebra a ergodicidade; otimizar para média espacial leva à ruína em séries temporais únicas.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 19: MAPEAMENTO EM MANIFOLD DE POINCARÉ
+- **Decisão:** Uso de Geometria Hiperbólica para calcular geodésicas de liquidez.
+- **Justificativa:** Espaço euclidiano falha em representar a hierarquia fractal de clusters institucionais.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 20: ADOÇÃO DE RESERVOIR COMPUTING (LSM)
+- **Decisão:** Implementação de 500 neurônios em estado líquido para memória de curto prazo (Ticks).
+- **Justificativa:** Capturar assinaturas temporais sem o overhead de treinamento de RNNs/LSTMs.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 21: IMPLEMENTAÇÃO DO DARK FOREST SONAR
+- **Decisão:** Injeção de "sondas" (ordens limite instantâneas) para detectar reação algorítmica.
+- **Justificativa:** A única forma de ver Icebergs em tempo real é interagindo com eles (Probing).
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 22: ELEVAÇÃO DO THRESHOLD DE LATÊNCIA
+- **Decisão:** Aumento do limite de warning de 5ms para 10ms.
+- **Justificativa:** A complexidade de 73 agentes gera ruído de latência aceitável; focar apenas em spikes reais > 10ms.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 23: DILATAÇÃO TEMPORAL RELATIVÍSTICA (LorentzClock)
+- **Decisão:** Implementação de um relógio interno que dilata o tempo de processamento baseado na Energia Cinética do mercado ($Vol \times Volatilidade^2$).
+- **Justificativa:** Em alta volatilidade, o loop de consciência dorme menos milissegundos para manter acuidade HFT.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 24: GATING POR INTEGRAÇÃO DE INFORMAÇÃO (Φ)
+- **Decisão:** Trades só são permitidos se o Swarm atingir um nível mínimo de integração (Phi).
+- **Justificativa:** Evitar sinais que são apenas ruído estatístico sem convergência sistêmica.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 25: BLACK SWAN HARVESTING (EVT)
+- **Decisão:** Uso de distribuição GPD para capturar anomalias de cauda longa.
+- **Justificativa:** Capturar reversões em flash-crashes que modelos normais ignoram.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+*(Atualizado: 2026-03-07. Versão: 3.0.0-omega — Phase Ω-Extreme Victory)*

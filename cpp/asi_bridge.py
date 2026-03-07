@@ -125,6 +125,147 @@ class HyperspaceOutputC(ctypes.Structure):
         ("hyperspace_time_ms", ctypes.c_double),
     ]
 
+class GraphNodeC(ctypes.Structure):
+    _fields_ = [
+        ("price", ctypes.c_double),
+        ("liquidity", ctypes.c_double),
+        ("centrality", ctypes.c_double),
+        ("velocity", ctypes.c_double),
+    ]
+
+class GraphResultC(ctypes.Structure):
+    _fields_ = [
+        ("clusters", GraphNodeC * 50),
+        ("cluster_count", ctypes.c_int),
+        ("avalanche_risk", ctypes.c_double),
+        ("global_centrality", ctypes.c_double),
+    ]
+
+class ThermodynamicResultC(ctypes.Structure):
+    _fields_ = [
+        ("shannon_entropy", ctypes.c_double),
+        ("temperature", ctypes.c_double),
+        ("pressure", ctypes.c_double),
+        ("compression_ratio", ctypes.c_double),
+        ("is_critical_state", ctypes.c_int),
+    ]
+
+class CausalResultC(ctypes.Structure):
+    _fields_ = [
+        ("causal_effect", ctypes.c_double),
+        ("counterfactual_loss", ctypes.c_double),
+        ("do_impact_score", ctypes.c_double),
+        ("confidence", ctypes.c_double)
+    ]
+
+class TopologyResultC(ctypes.Structure):
+    _fields_ = [
+        ("betti_0", ctypes.c_double),
+        ("betti_1", ctypes.c_double),
+        ("persistence_entropy", ctypes.c_double),
+        ("critical_hole_size", ctypes.c_double),
+        ("is_geometrically_unstable", ctypes.c_int)
+    ]
+
+class TensorResultC(ctypes.Structure):
+    _fields_ = [
+        ("entanglement_entropy", ctypes.c_double),
+        ("compression_loss", ctypes.c_double),
+        ("stability_index", ctypes.c_double),
+        ("dominant_mode", ctypes.c_int)
+    ]
+
+class FisherResultC(ctypes.Structure):
+    _fields_ = [
+        ("fisher_information", ctypes.c_double),
+        ("natural_gradient_x", ctypes.c_double),
+        ("information_distance", ctypes.c_double),
+        ("optimal_step_size", ctypes.c_double)
+    ]
+
+# PHASE Ω-ONE: SNN
+class SpikeResultC(ctypes.Structure):
+    _fields_ = [
+        ("potential", ctypes.c_double),
+        ("fired", ctypes.c_int),
+        ("last_spike_time", ctypes.c_double),
+    ]
+
+# PHASE Ω-ONE: MFG
+class MFGResultC(ctypes.Structure):
+    _fields_ = [
+        ("optimal_velocity", ctypes.c_double),
+        ("crowd_density", ctypes.c_double),
+        ("expected_drift", ctypes.c_double),
+        ("stability_score", ctypes.c_double),
+    ]
+
+# PHASE Ω-ONE: FEYNMAN
+class PathIntegralResultC(ctypes.Structure):
+    _fields_ = [
+        ("probability_amplitude_real", ctypes.c_double),
+        ("probability_amplitude_imag", ctypes.c_double),
+        ("stationary_phase_price", ctypes.c_double),
+        ("quantum_interference_score", ctypes.c_double),
+    ]
+
+# PHASE Ω-ONE: CHAOS
+class ChaosResultC(ctypes.Structure):
+    _fields_ = [
+        ("lyapunov_exponent", ctypes.c_double),
+        ("predictability_limit", ctypes.c_double),
+        ("entropy", ctypes.c_double),
+        ("is_chaotic", ctypes.c_int),
+    ]
+
+# PHASE Ω-CLASS
+class HolographicResultC(ctypes.Structure):
+    _fields_ = [
+        ("bulk_pressure", ctypes.c_double),
+        ("entanglement_entropy", ctypes.c_double),
+        ("geodesic_distance", ctypes.c_double),
+        ("holographic_coherence", ctypes.c_double),
+        ("is_manifold_stable", ctypes.c_int),
+    ]
+
+# PHASE Ω-EXTREME
+class LorentzClockResultC(ctypes.Structure):
+    _fields_ = [
+        ("internal_time_passed", ctypes.c_double),
+        ("dilation_factor", ctypes.c_double),
+        ("kinetic_energy", ctypes.c_double),
+    ]
+
+class ConsciousnessResultC(ctypes.Structure):
+    _fields_ = [
+        ("phi_value", ctypes.c_double),
+        ("coherence_score", ctypes.c_double),
+        ("integration_entropy", ctypes.c_double),
+    ]
+
+class QCAResultC(ctypes.Structure):
+    _fields_ = [
+        ("grid_entropy", ctypes.c_double),
+        ("transition_speed", ctypes.c_double),
+        ("is_critical", ctypes.c_int),
+    ]
+
+class PredatorPreyResultC(ctypes.Structure):
+    _fields_ = [
+        ("predator_biomass", ctypes.c_double),
+        ("prey_biomass", ctypes.c_double),
+        ("extinction_risk", ctypes.c_double),
+        ("hunt_efficiency", ctypes.c_double),
+    ]
+
+class ExtremeValueResultC(ctypes.Structure):
+    _fields_ = [
+        ("threshold_exceedance", ctypes.c_double),
+        ("tail_risk", ctypes.c_double),
+        ("copula_correlation", ctypes.c_double),
+        ("is_black_swan", ctypes.c_int),
+    ]
+
 class CppASICore:
     """
     Interface Python para o módulo C++ de alta performance.
@@ -157,6 +298,7 @@ class CppASICore:
         
         # Possíveis locais da DLL (Ordem de preferência: Versões novas para hot-swap)
         search_paths = [
+            os.path.join(os.path.dirname(__file__), "..", "asi_core_v3.dll"), # Versão Ω-Extreme
             os.path.join(os.path.dirname(__file__), "..", "asi_core_v2.dll"), # Nova versão (Phase 41)
             os.path.join(os.path.dirname(__file__), "..", dll_name),           # Versão padrão
             os.path.join(os.path.dirname(__file__), "..", "cpp", "build", "Release", dll_name),
@@ -249,6 +391,13 @@ class CppASICore:
         lib.asi_optimal_lot_size.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
         lib.asi_optimal_lot_size.restype = ctypes.c_double
 
+        # Ergodicity (Phase Ω-Class)
+        lib.asi_non_ergodic_growth_rate.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+        lib.asi_non_ergodic_growth_rate.restype = ctypes.c_double
+
+        lib.asi_ito_lot_sizing.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+        lib.asi_ito_lot_sizing.restype = ctypes.c_double
+
         # ═══ AGENT CLUSTER ENGINE ═══
         lib.asi_fractal_dimension.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_int]
         lib.asi_fractal_dimension.restype = ctypes.c_double
@@ -291,6 +440,126 @@ class CppASICore:
 
         lib.asi_simulate_4096_hyperspace.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(HyperspaceOutputC)]
         lib.asi_simulate_4096_hyperspace.restype = None
+
+        # Phase Ω-Next: LGNN & Thermodynamics
+        lib.asi_calculate_lgnn.argtypes = [
+            ctypes.POINTER(TickData), ctypes.c_int,
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.c_int, ctypes.POINTER(GraphResultC)
+        ]
+        lib.asi_calculate_lgnn.restype = None
+
+        lib.asi_calculate_thermodynamics.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.c_int, ctypes.POINTER(ThermodynamicResultC)
+        ]
+        lib.asi_calculate_thermodynamics.restype = None
+
+        lib.asi_vector_search.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.c_int, ctypes.c_int,
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_int),
+            ctypes.c_int
+        ]
+        lib.asi_vector_search.restype = ctypes.c_int
+
+        lib.asi_calculate_causal_impact.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_int,
+            ctypes.c_double, ctypes.c_int,
+            ctypes.POINTER(CausalResultC)
+        ]
+        lib.asi_calculate_causal_impact.restype = None
+
+        lib.asi_calculate_topology.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.c_int, ctypes.POINTER(TopologyResultC)
+        ]
+        lib.asi_calculate_topology.restype = None
+
+        lib.asi_calculate_tensor_swarm.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double),
+            ctypes.c_int, ctypes.c_int, ctypes.POINTER(TensorResultC)
+        ]
+        lib.asi_calculate_tensor_swarm.restype = None
+
+        lib.asi_map_poincare_dist.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+        lib.asi_map_poincare_dist.restype = ctypes.c_double
+
+        # PHASE Ω-CLASS: Reservoir
+        lib.asi_init_reservoir.argtypes = [ctypes.c_int, ctypes.c_double, ctypes.c_double]
+        lib.asi_init_reservoir.restype = None
+        lib.asi_perturb_reservoir.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.asi_perturb_reservoir.restype = None
+        lib.asi_read_reservoir_output.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.asi_read_reservoir_output.restype = None
+
+        lib.asi_infer_holographic_pressure.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int,
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int,
+            ctypes.POINTER(HolographicResultC)
+        ]
+        lib.asi_infer_holographic_pressure.restype = None
+
+        lib.asi_deposit_pheromone.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double]
+        lib.asi_deposit_pheromone.restype = None
+
+        lib.asi_sense_pheromone.argtypes = [ctypes.c_double]
+        lib.asi_sense_pheromone.restype = ctypes.c_double
+
+        lib.asi_update_pheromone_field.argtypes = [ctypes.c_double]
+        lib.asi_update_pheromone_field.restype = None
+
+        lib.asi_calculate_fisher_metric.restype = None
+
+        # PHASE Ω-ONE: SNN
+        lib.asi_update_lif_neuron.argtypes = [
+            ctypes.c_double, ctypes.c_double, ctypes.c_double,
+            ctypes.c_double, ctypes.c_double, ctypes.c_double,
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_int)
+        ]
+        lib.asi_update_lif_neuron.restype = None
+
+        # PHASE Ω-ONE: MFG
+        lib.asi_solve_mfg.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int,
+            ctypes.c_double, ctypes.c_double,
+            ctypes.c_double, ctypes.c_double,
+            ctypes.POINTER(ctypes.c_double), ctypes.POINTER(MFGResultC)
+        ]
+        lib.asi_solve_mfg.restype = None
+
+        # PHASE Ω-ONE: FEYNMAN
+        lib.asi_calculate_feynman_path.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int,
+            ctypes.c_double, ctypes.c_double,
+            ctypes.c_double, ctypes.POINTER(PathIntegralResultC)
+        ]
+        lib.asi_calculate_feynman_path.restype = None
+
+        # PHASE Ω-ONE: CHAOS
+        lib.asi_calculate_chaos.argtypes = [
+            ctypes.POINTER(ctypes.c_double), ctypes.c_int,
+            ctypes.c_double, ctypes.POINTER(ChaosResultC)
+        ]
+        lib.asi_calculate_chaos.restype = None
+
+        # PHASE Ω-EXTREME
+        lib.asi_lorentz_clock_update.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.POINTER(LorentzClockResultC)]
+        lib.asi_lorentz_clock_update.restype = None
+
+        lib.asi_calculate_phi.argtypes = [ctypes.POINTER(AgentSignal), ctypes.c_int, ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ConsciousnessResultC)]
+        lib.asi_calculate_phi.restype = None
+
+        lib.asi_process_qca_grid.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(QCAResultC)]
+        lib.asi_process_qca_grid.restype = None
+
+        lib.asi_solve_lotka_volterra.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double, 
+                                                 ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.POINTER(PredatorPreyResultC)]
+        lib.asi_solve_lotka_volterra.restype = None
+
+        lib.asi_harvest_black_swan.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(ExtremeValueResultC)]
+        lib.asi_harvest_black_swan.restype = None
 
     # ═══ HELPER: numpy array → C pointer ═══
     @staticmethod
@@ -437,6 +706,12 @@ class CppASICore:
                           sl_distance: float, point_value: float) -> float:
         return self._lib.asi_optimal_lot_size(balance, risk_pct, sl_distance, point_value)
 
+    def non_ergodic_growth_rate(self, win_rate: float, avg_win_pct: float, avg_loss_pct: float, leverage: float) -> float:
+        return self._lib.asi_non_ergodic_growth_rate(win_rate, avg_win_pct, avg_loss_pct, leverage)
+
+    def ito_lot_sizing(self, balance: float, win_rate: float, mu: float, sigma: float, dt: float) -> float:
+        return self._lib.asi_ito_lot_sizing(balance, win_rate, mu, sigma, dt)
+
     # ═══════════════════════════════════════════════════════════
     #  AGENT CLUSTER ENGINE (C++ Accelerated)
     # ═══════════════════════════════════════════════════════════
@@ -569,6 +844,364 @@ class CppASICore:
             "expected_max_excursion": out.expected_max_excursion,
             "probability_density": out.probability_density,
             "hyperspace_time_ms": out.hyperspace_time_ms
+        }
+
+    # ═══════════════════════════════════════════════════════════
+    #  LGNN & THERMODYNAMICS (Phase Ω-Next)
+    # ═══════════════════════════════════════════════════════════
+
+    @catch_and_log(default_return=None)
+    def calculate_lgnn(self, ticks: list, book_prices: np.ndarray, book_vols: np.ndarray) -> dict:
+        if not self._loaded: return None
+        count = len(ticks)
+        tick_array = (TickData * count)()
+        for i, t in enumerate(ticks):
+            tick_array[i].bid = t.get("bid", 0.0)
+            tick_array[i].ask = t.get("ask", 0.0)
+            tick_array[i].last = t.get("last", 0.0)
+            tick_array[i].volume = t.get("volume", 0.0)
+            tick_array[i].time_msc = t.get("time_msc", 0)
+
+        book_prices = self._ensure_f64(book_prices)
+        book_vols = self._ensure_f64(book_vols)
+        
+        result = GraphResultC()
+        self._lib.asi_calculate_lgnn(tick_array, count, self._ptr(book_prices), self._ptr(book_vols), len(book_prices), ctypes.byref(result))
+        
+        clusters = []
+        for i in range(result.cluster_count):
+            clusters.append({
+                "price": result.clusters[i].price,
+                "liquidity": result.clusters[i].liquidity,
+                "centrality": result.clusters[i].centrality,
+                "velocity": result.clusters[i].velocity
+            })
+            
+        return {
+            "clusters": clusters,
+            "avalanche_risk": result.avalanche_risk,
+            "global_centrality": result.global_centrality
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_thermodynamics(self, bid_p: np.ndarray, bid_v: np.ndarray, ask_p: np.ndarray, ask_v: np.ndarray) -> dict:
+        if not self._loaded: return None
+        bid_p, bid_v = self._ensure_f64(bid_p), self._ensure_f64(bid_v)
+        ask_p, ask_v = self._ensure_f64(ask_p), self._ensure_f64(ask_v)
+        
+        result = ThermodynamicResultC()
+        self._lib.asi_calculate_thermodynamics(self._ptr(bid_p), self._ptr(bid_v), self._ptr(ask_p), self._ptr(ask_v), len(bid_p), ctypes.byref(result))
+        
+        return {
+            "entropy": result.shannon_entropy,
+            "temperature": result.temperature,
+            "pressure": result.pressure,
+            "compression": result.compression_ratio,
+            "is_critical": bool(result.is_critical_state)
+        }
+
+    @catch_and_log(default_return=(None, None))
+    def vector_search(self, query: np.ndarray, database: np.ndarray, top_k: int = 5) -> Tuple[np.ndarray, np.ndarray]:
+        if not self._loaded: return None, None
+        query = self._ensure_f64(query)
+        database = self._ensure_f64(database)
+        
+        query_dim = len(query)
+        db_size = len(database) // query_dim
+        
+        out_similarities = np.zeros(top_k, dtype=np.float64)
+        out_indices = np.zeros(top_k, dtype=np.int32)
+        
+        actual_k = self._lib.asi_vector_search(
+            self._ptr(query), self._ptr(database),
+            query_dim, db_size,
+            self._ptr(out_similarities), 
+            out_indices.ctypes.data_as(ctypes.POINTER(ctypes.c_int)),
+            top_k
+        )
+        
+        return out_similarities[:actual_k], out_indices[:actual_k]
+
+    @catch_and_log(default_return=None)
+    def calculate_causal_impact(self, feature_matrix: np.ndarray, our_order_size: float, target_index: int = -1) -> dict:
+        if not self._loaded: return None
+        mat = self._ensure_f64(feature_matrix)
+        rows, cols = mat.shape
+        if target_index == -1: target_index = cols - 1
+        
+        result = CausalResultC()
+        self._lib.asi_calculate_causal_impact(self._ptr(mat), rows, cols, our_order_size, target_index, ctypes.byref(result))
+        
+        return {
+            "causal_effect": result.causal_effect,
+            "counterfactual_loss": result.counterfactual_loss,
+            "do_impact": result.do_impact_score,
+            "confidence": result.confidence
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_topology(self, prices: np.ndarray, volumes: np.ndarray) -> dict:
+        if not self._loaded: return None
+        prices = self._ensure_f64(prices)
+        volumes = self._ensure_f64(volumes)
+        levels = len(prices)
+        
+        result = TopologyResultC()
+        self._lib.asi_calculate_topology(self._ptr(prices), self._ptr(volumes), levels, ctypes.byref(result))
+        
+        return {
+            "betti_0": result.betti_0,
+            "betti_1": result.betti_1,
+            "entropy": result.persistence_entropy,
+            "max_hole": result.critical_hole_size,
+            "unstable": bool(result.is_geometrically_unstable)
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_tensor_swarm(self, spot_data: np.ndarray, deriv_data: np.ndarray, bond_dim: int = 16) -> dict:
+        if not self._loaded: return None
+        spot = self._ensure_f64(spot_data)
+        deriv = self._ensure_f64(deriv_data)
+        length = len(spot)
+        
+        result = TensorResultC()
+        self._lib.asi_calculate_tensor_swarm(self._ptr(spot), self._ptr(deriv), length, bond_dim, ctypes.byref(result))
+        
+        return {
+            "entanglement": result.entanglement_entropy,
+            "loss": result.compression_loss,
+            "stability": result.stability_index,
+            "mode": result.dominant_mode
+        }
+
+    # ═══ STIGMERGY ═══
+    def deposit_pheromone(self, price: float, intensity: float, decay: float = 0.05):
+        if not self._loaded: return
+        self._lib.asi_deposit_pheromone(price, intensity, decay)
+
+    def sense_pheromone(self, price: float) -> float:
+        if not self._loaded: return 0.0
+        return self._lib.asi_lib.asi_sense_pheromone(price)
+
+    def update_pheromones(self, dt: float = 1.0):
+        if not self._loaded: return
+        self._lib.asi_update_pheromone_field(dt)
+
+    @catch_and_log(default_return=None)
+    def calculate_fisher_metric(self, prev_dist: np.ndarray, curr_dist: np.ndarray) -> dict:
+        if not self._loaded: return None
+        p = self._ensure_f64(prev_dist)
+        q = self._ensure_f64(curr_dist)
+        n = len(p)
+        
+        result = FisherResultC()
+        self._lib.asi_calculate_fisher_metric(self._ptr(p), self._ptr(q), n, ctypes.byref(result))
+        
+        return {
+            "fisher": result.fisher_information,
+            "nat_grad": result.natural_gradient_x,
+            "kl_div": result.information_distance,
+            "step": result.optimal_step_size
+        }
+
+    # ═══════════════════════════════════════════════════════════
+    #  PHASE Ω-ONE: SNN
+    # ═══════════════════════════════════════════════════════════
+
+    @catch_and_log(default_return=(0.0, 0))
+    def update_lif_neuron(self, current: float, dt: float, v_rest: float, v_threshold: float,
+                          r: float, c: float, potential: float) -> Tuple[float, int]:
+        """Atualiza um neurônio LIF e retorna novo potencial e se disparou."""
+        if not self._loaded: return potential, 0
+        
+        v_ptr = ctypes.c_double(potential)
+        fired_ptr = ctypes.c_int(0)
+        self._lib.asi_update_lif_neuron(
+            ctypes.c_double(current), ctypes.c_double(dt), 
+            ctypes.c_double(v_rest), ctypes.c_double(v_threshold), 
+            ctypes.c_double(r), ctypes.c_double(c),
+            ctypes.byref(v_ptr), ctypes.byref(fired_ptr)
+        )
+        return float(v_ptr.value), int(fired_ptr.value)
+
+    @catch_and_log(default_return=None)
+    def solve_mfg(self, density_profile: np.ndarray, price_min: float, price_step: float,
+                   current_price: float, volatility: float, reward_function: np.ndarray) -> dict:
+        """Resolve Mean Field Games (HJB + Fokker-Planck) para trajetória ótima."""
+        if not self._loaded: return None
+        
+        density = self._ensure_f64(density_profile)
+        rewards = self._ensure_f64(reward_function)
+        
+        result = MFGResultC()
+        self._lib.asi_solve_mfg(
+            self._ptr(density), len(density), price_min, price_step,
+            current_price, volatility, self._ptr(rewards), ctypes.byref(result)
+        )
+        
+        return {
+            "optimal_velocity": result.optimal_velocity,
+            "crowd_density": result.crowd_density,
+            "expected_drift": result.expected_drift,
+            "stability": result.stability_score
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_feynman_path(self, history: np.ndarray, target_price: float, 
+                                time_horizon: float, liquidity_friction: float) -> dict:
+        """Calcula o Propagador Quântico via Integrais de Trajetória de Feynman."""
+        if not self._loaded: return None
+        
+        hist = self._ensure_f64(history)
+        result = PathIntegralResultC()
+        self._lib.asi_calculate_feynman_path(
+            self._ptr(hist), len(hist), target_price,
+            time_horizon, liquidity_friction, ctypes.byref(result)
+        )
+        
+        return {
+            "amplitude_real": result.probability_amplitude_real,
+            "amplitude_imag": result.probability_amplitude_imag,
+            "stationary_price": result.stationary_phase_price,
+            "interference": result.quantum_interference_score
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_chaos(self, ticks: np.ndarray, sample_rate: float) -> dict:
+        """Calcula o Expoente de Lyapunov e Horizonte de Previsibilidade."""
+        if not self._loaded: return None
+        
+        data = self._ensure_f64(ticks)
+        result = ChaosResultC()
+        self._lib.asi_calculate_chaos(self._ptr(data), len(data), sample_rate, ctypes.byref(result))
+        
+        return {
+            "lyapunov": result.lyapunov_exponent,
+            "horizon": result.predictability_limit,
+            "entropy": result.entropy,
+            "chaotic": bool(result.is_chaotic)
+        }
+
+    # ═══ OMEGA-CLASS PHASE ════
+    
+    def map_poincare_dist(self, r1: float, theta1: float, r2: float, theta2: float) -> float:
+        if not self._loaded: return 0.0
+        return self._lib.asi_map_poincare_dist(r1, theta1, r2, theta2)
+
+    def init_reservoir(self, n_neurons: int, spectral_radius: float, connectivity: float):
+        if not self._loaded: return
+        self._lib.asi_init_reservoir(n_neurons, spectral_radius, connectivity)
+
+    def perturb_reservoir(self, inputs: np.ndarray):
+        if not self._loaded: return
+        inputs = self._ensure_f64(inputs)
+        self._lib.asi_perturb_reservoir(self._ptr(inputs), len(inputs))
+
+    def read_reservoir_output(self, n_outputs: int) -> np.ndarray:
+        if not self._loaded: return np.array([])
+        out = np.zeros(n_outputs, dtype=np.float64)
+        self._lib.asi_read_reservoir_output(self._ptr(out), n_outputs)
+        return out
+
+    @catch_and_log(default_return=None)
+    def infer_holographic_pressure(self, ticks: np.ndarray, imbalance: np.ndarray) -> dict:
+        if not self._loaded: return None
+        ticks = self._ensure_f64(ticks)
+        imbalance = self._ensure_f64(imbalance)
+        
+        result = HolographicResultC()
+        self._lib.asi_infer_holographic_pressure(
+            self._ptr(ticks), len(ticks),
+            self._ptr(imbalance), len(imbalance),
+            ctypes.byref(result)
+        )
+        
+        return {
+            "pressure": result.bulk_pressure,
+            "entropy": result.entanglement_entropy,
+            "geodesic": result.geodesic_distance,
+            "coherence": result.holographic_coherence,
+            "stable": bool(result.is_manifold_stable)
+        }
+
+    # ═══════════════════════════════════════════════════════════
+    #  PHASE Ω-EXTREME
+    # ═══════════════════════════════════════════════════════════
+
+    @catch_and_log(default_return=None)
+    def lorentz_clock_update(self, volatility: float, volume: float, physical_dt: float) -> dict:
+        if not self._loaded: return None
+        result = LorentzClockResultC()
+        self._lib.asi_lorentz_clock_update(volatility, volume, physical_dt, ctypes.byref(result))
+        return {
+            "internal_dt": result.internal_time_passed,
+            "dilation": result.dilation_factor,
+            "energy": result.kinetic_energy
+        }
+
+    @catch_and_log(default_return=None)
+    def calculate_phi(self, signals: list, weights: Optional[np.ndarray] = None) -> dict:
+        if not self._loaded: return None
+        count = len(signals)
+        sig_array = (AgentSignal * count)()
+        for i, s in enumerate(signals):
+            # AgentSignal é uma dataclass (Python side), acessar atributos diretamente
+            sig_array[i].signal = float(s.signal)
+            sig_array[i].confidence = float(s.confidence)
+            sig_array[i].weight = float(s.weight)
+        
+        w_ptr = None
+        if weights is not None:
+            weights = self._ensure_f64(weights)
+            w_ptr = self._ptr(weights)
+            
+        result = ConsciousnessResultC()
+        self._lib.asi_calculate_phi(sig_array, count, w_ptr, ctypes.byref(result))
+        return {
+            "phi": result.phi_value,
+            "coherence": result.coherence_score,
+            "entropy": result.integration_entropy
+        }
+
+    @catch_and_log(default_return=None)
+    def process_qca_grid(self, bids: np.ndarray, asks: np.ndarray, alpha: float) -> dict:
+        if not self._loaded: return None
+        bids, asks = self._ensure_f64(bids), self._ensure_f64(asks)
+        result = QCAResultC()
+        self._lib.asi_process_qca_grid(self._ptr(bids), self._ptr(asks), len(bids), alpha, ctypes.byref(result))
+        return {
+            "entropy": result.grid_entropy,
+            "speed": result.transition_speed,
+            "critical": bool(result.is_critical)
+        }
+
+    @catch_and_log(default_return=None)
+    def solve_lotka_volterra(self, dt: float, params: dict, prey: float, predator: float) -> Tuple[float, float, dict]:
+        if not self._loaded: return prey, predator, None
+        p_ptr = ctypes.c_double(prey)
+        d_ptr = ctypes.c_double(predator)
+        result = PredatorPreyResultC()
+        self._lib.asi_solve_lotka_volterra(
+            dt, params["alpha"], params["beta"], params["delta"], params["gamma"],
+            ctypes.byref(p_ptr), ctypes.byref(d_ptr), ctypes.byref(result)
+        )
+        return p_ptr.value, d_ptr.value, {
+            "prey": result.prey_biomass,
+            "predator": result.predator_biomass,
+            "risk": result.extinction_risk,
+            "efficiency": result.hunt_efficiency
+        }
+
+    @catch_and_log(default_return=None)
+    def harvest_black_swan(self, extreme_ticks: np.ndarray, threshold: float) -> dict:
+        if not self._loaded: return None
+        ticks = self._ensure_f64(extreme_ticks)
+        result = ExtremeValueResultC()
+        self._lib.asi_harvest_black_swan(self._ptr(ticks), len(ticks), threshold, ctypes.byref(result))
+        return {
+            "exceedance": result.threshold_exceedance,
+            "tail_risk": result.tail_risk,
+            "is_black_swan": bool(result.is_black_swan)
         }
 
 

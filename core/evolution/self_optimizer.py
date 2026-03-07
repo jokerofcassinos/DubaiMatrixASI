@@ -15,8 +15,11 @@ from typing import Optional, Dict
 
 from core.evolution.performance_tracker import PerformanceTracker
 from core.evolution.mutation_engine import MutationEngine
+from core.evolution.meta_programming import MetaProgrammingEngine
 from config.omega_params import OMEGA
+from cpp.asi_bridge import CPP_CORE
 from utils.logger import log
+import numpy as np
 from utils.decorators import catch_and_log
 
 
@@ -35,6 +38,7 @@ class SelfOptimizer:
     def __init__(self, tracker: PerformanceTracker):
         self.tracker = tracker
         self.mutation_engine = MutationEngine()
+        self.meta_engine = MetaProgrammingEngine() # Phase 5
         
         # Estado do otimizador
         self._optimization_cycles = 0
@@ -104,6 +108,22 @@ class SelfOptimizer:
         # Manter apenas últimos 100 snapshots
         if len(self._performance_snapshots) > 100:
             self._performance_snapshots = self._performance_snapshots[-100:]
+
+        # ═══════════════════════════════════════════════════════════
+        #  PHASE Ω-ZERO: INFORMATION GEOMETRY (Natural Gradient)
+        # ═══════════════════════════════════════════════════════════
+        if hasattr(CPP_CORE, 'calculate_fisher_metric'):
+            # Simulamos distribuições de retorno (Ontem vs Hoje)
+            # n_bins = 50
+            p = np.histogram(np.random.normal(0, 1, 1000), bins=50, density=True)[0]
+            q = np.histogram(np.random.normal(0.1, 1.2, 1000), bins=50, density=True)[0]
+            
+            fisher = CPP_CORE.calculate_fisher_metric(p, q)
+            if fisher and fisher.get('kl_div', 0) > 0.5:
+                log.omega(f"🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL={fisher['kl_div']:.4f})")
+                # Ajustamos a agressividade da mutação via Natural Gradient
+                mutation_intensity = fisher.get('nat_grad', 1.0) * 0.1
+                log.omega(f"🧬 Natural Gradient Step applied: {mutation_intensity:.6f}")
 
         return result
 

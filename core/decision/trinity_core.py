@@ -46,6 +46,7 @@ class Decision:
     reasoning: str             # Explicação completa
     veto_reason: str = ""      # Se vetado, razão
     risk_reward_ratio: float = 0.0
+    metadata: dict = None      # Metadados extras (Phase Ω-Extreme)
 
 
 class TrinityCore:
@@ -113,6 +114,27 @@ class TrinityCore:
             if confidence < confidence_min:
                 reasons.append(f"LOW_CONFIDENCE({confidence:.2f})")
             return self._wait(" | ".join(reasons))
+
+        # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
+        phi_min = OMEGA.get("phi_min_threshold", 0.4)
+        phi_hydra = OMEGA.get("phi_hydra_threshold", 4.5)
+        
+        if quantum_state.phi < phi_min:
+            return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {phi_min})")
+            
+        is_hydra_mode = False
+        if quantum_state.phi >= phi_hydra:
+            log.omega(f"🔥 [HYDRA RESONANCE DETECTED] — Φ={quantum_state.phi:.2f}. Destravando agressão máxima.")
+            is_hydra_mode = True
+
+        # ═══ 4. PHASE 4: PREDATOR MODE OVERRIDE ═══
+        # Se o agente ShadowPredator detectou manipulação institucional, entramos em modo de contra-ataque.
+        shadow_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "ShadowPredator"), None)
+        if shadow_signal and shadow_signal.confidence > 0.85:
+            log.omega("💀 [PREDATOR MODE ACTIVATED] — Detecção de manipulação institucional. Override direcional.")
+            # No modo predador, seguimos estritamente o sinal do ShadowPredator ignorando o ruído
+            action = Action.BUY if shadow_signal.signal > 0 else Action.SELL
+            confidence = shadow_signal.confidence
 
         # ═══ CALCULAR SL/TP ═══
         tick = snapshot.tick
@@ -250,7 +272,10 @@ class TrinityCore:
                 return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
 
         # ═══ LOT SIZE (será refinado pelo Risk Quantum Engine) ═══
-        lot_size = 0.01  # Placeholder — risk_quantum calcula o real
+        lot_size = 0.01  # Placeholder
+        if is_hydra_mode:
+            # Sinalizamos para o risk_engine que estamos em Hydra
+            lot_size = 0.02 # Apenas um sinal, risk_quantum aplicará mme
 
         # ═══ CONSTRUIR DECISÃO ═══
         reasoning = (
@@ -272,7 +297,15 @@ class TrinityCore:
             regime=regime_state.current.value,
             reasoning=reasoning,
             risk_reward_ratio=rr_ratio,
+            metadata={}
         )
+        
+        if is_hydra_mode:
+            decision.metadata["hydra_mode"] = True
+        
+        if is_hydra_mode:
+            decision.metadata = decision.metadata if hasattr(decision, 'metadata') else {}
+            decision.metadata["hydra_mode"] = True
 
         self._execute_count += 1
         self._decision_history.append({

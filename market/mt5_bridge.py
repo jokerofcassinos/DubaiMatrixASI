@@ -630,6 +630,15 @@ class MT5Bridge:
             "tp": tp,
         }
 
+    def send_sonar_probe(self, side: str, lot: float, price: float, duration_ms: int = 50) -> bool:
+        """
+        Envia uma 'Sonda Sonar' — Ordem limite ultra-curta para detectar liquidez oculta.
+        """
+        if not self.connected: return False
+        
+        cmd = f"SONAR|{self.symbol}|{side.upper()}|{lot:.2f}|{price:.2f}|{duration_ms}"
+        return self.send_socket_command(cmd)
+
     def close_position(self, ticket: int) -> Optional[dict]:
         """Fecha uma posição pelo ticket."""
         if not self.connected:

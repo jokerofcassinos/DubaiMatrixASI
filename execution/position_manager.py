@@ -70,11 +70,25 @@ class PositionManager:
         # Agrupa posições por (símbolo, tipo, tempo_abertura_bucket)
         # O bucket de 2s garante que uma rajada de slots seja tratada como um único Strike
         groups = {}
+        # Agrupa posições por (símbolo, tipo, tempo_abertura_bucket)
+        # O bucket de 2s garante que uma rajada de slots seja tratada como um único Strike
+        groups = {}
         for pos in positions:
-            ticket = pos['ticket']
-            is_buy = (pos['type'] == "BUY")
+            # Robustez OMEGA: O MT5 às vezes retorna 'symbol' e às vezes 'symbol_name' 
+            # dependendo da versão da bridge ou do wrapper
+            ticket = pos.get('ticket')
+            p_type = pos.get('type')
+            p_symbol = pos.get('symbol') or pos.get('symbol_name')
+            p_time = pos.get('time')
+            p_open = pos.get('open_price')
+            p_profit = pos.get('profit', 0.0)
+
+            if not all([ticket, p_type, p_symbol, p_time]):
+                continue
+
+            is_buy = (p_type == "BUY")
             # Bucket de 2 segundos para agrupar disparos HFT
-            group_key = (pos['symbol'], pos['type'], int(pos['time'] / 2))
+            group_key = (p_symbol, p_type, int(p_time / 2))
             
             if group_key not in groups:
                 groups[group_key] = {
@@ -82,14 +96,15 @@ class PositionManager:
                     "total_profit": 0.0,
                     "max_profit": -999999.0,
                     "is_buy": is_buy,
-                    "entry_price": pos['open_price'], # Usado como referência
-                    "time": pos['time']
+                    "entry_price": p_open,
+                    "time": p_time,
+                    "symbol": p_symbol # Guardar o simbolo nominal
                 }
             
             groups[group_key]["tickets"].append(pos)
-            groups[group_key]["total_profit"] += pos['profit']
-            if pos['profit'] > groups[group_key]["max_profit"]:
-                groups[group_key]["max_profit"] = pos['profit']
+            groups[group_key]["total_profit"] += p_profit
+            if p_profit > groups[group_key]["max_profit"]:
+                groups[group_key]["max_profit"] = p_profit
 
         current_tickets = [p['ticket'] for p in positions]
 
@@ -198,13 +213,15 @@ class PositionManager:
                     should_close = True
                     reason = f"ATOMIC_TIME_CUT: {elapsed:.0f}s"
 
-            # ═══════════════════════════════════════════════════
             #  EJETAR GRUPO INTEIRO
             # ═══════════════════════════════════════════════════
             if should_close:
-                log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {g_key[0]}")
+                symbol = g_data.get('symbol', 'UNKNOWN')
+                log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {symbol}")
                 for p in g_tickets:
-                    self._close_with_notify(p['ticket'], "BUY" if g_is_buy else "SELL")
+                    ticket = p.get('ticket')
+                    if ticket:
+                        self._close_with_notify(ticket, "BUY" if g_is_buy else "SELL")
 
         # ═══ CLEANUP: Remover tickets fechados do state e da lista de pendentes ═══
         closed = [t for t in list(self._positions_state.keys()) if t not in current_tickets]

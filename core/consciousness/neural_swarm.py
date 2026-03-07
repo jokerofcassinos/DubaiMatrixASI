@@ -88,6 +88,50 @@ from core.consciousness.agents.meta_swarm import (
     ConfidenceAggregatorAgent, ExecutionScalerAgent,
 )
 
+# Phase 42 — High-Fidelity Pressure & Transition Agents (6)
+from core.consciousness.agents.pressure_matrix import PressureMatrixAgent
+from core.consciousness.agents.market_transition import MarketTransitionAgent
+from core.consciousness.agents.session_dynamics import SessionDynamicsAgent, TemporalTrendAgent
+from core.consciousness.agents.hex_matrix import HexMatrixAgent
+
+# Phase Ω-Next — Market Intuition
+from core.consciousness.agents.market_intuition_agent import MarketIntuitionAgent
+
+# Phase Ω-Next — Shadow Predator
+from core.consciousness.agents.shadow_predator_agent import ShadowPredatorAgent
+
+# Phase Ω-Next — Black Swan
+from core.consciousness.agents.black_swan_agent import BlackSwanAgent
+
+# Phase Ω-Next — Tensor
+from core.consciousness.agents.tensor_agent import TensorAgent
+
+# Phase 43 — Advanced Structural & Institutional Agents (4)
+from core.consciousness.agents.wyckoff import WyckoffStructuralAgent
+from core.consciousness.agents.structural_premium import CRTAgent, TBSAgent
+from core.consciousness.agents.smc import ICTAdvancedAgent
+
+# Phase Ω-Next — LGNN & Thermodynamics (2)
+from core.consciousness.agents.graph_topology_agent import GraphTopologyAgent
+from core.consciousness.agents.thermodynamic_agent import ThermodynamicAgent
+
+# Phase Ω-One — SNN, MFG, Feynman & Chaos (4)
+from core.consciousness.agents.asynchronous_pulse_agent import AsynchronousPulseAgent
+from core.consciousness.agents.mean_field_game_agent import MeanFieldGameAgent
+from core.consciousness.agents.feynman_path_agent import FeynmanPathAgent
+from core.consciousness.agents.chaos_regime_agent import ChaosRegimeAgent
+
+# Phase Ω-Class — Omega Omniscience (1)
+from core.consciousness.agents.holographic_manifold_agent import HolographicManifoldAgent
+
+# Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
+from core.consciousness.agents.omega_extreme import (
+    QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
+)
+
+# C++ Bridge
+from cpp.asi_bridge import CPP_CORE
+
 
 # ═══════════════════════════════════════════════════════════════
 #  NEURAL SWARM — O ENXAME COMPLETO
@@ -105,9 +149,9 @@ class NeuralSwarm:
     3. Adicionar instância na lista _initialize_agents() abaixo
     """
 
-    def __init__(self):
+    def __init__(self, memory=None, predator_engine=None):
         self.agents: List[BaseAgent] = []
-        self._initialize_agents()
+        self._initialize_agents(memory, predator_engine)
         # Thread pool para execução paralela (max_workers calibrado para o hardware e número de agentes)
         self._executor = ThreadPoolExecutor(max_workers=32)
         log.omega(f"🧠 Neural Swarm inicializado: {len(self.agents)} agentes ativos (Parallel Execution Enabled)")
@@ -116,7 +160,7 @@ class NeuralSwarm:
         """Finaliza o executor."""
         self._executor.shutdown(wait=False)
 
-    def _initialize_agents(self):
+    def _initialize_agents(self, memory=None, predator_engine=None):
         """Spawna todos os agentes neurais de todos os setores."""
         self.agents = [
             # ═══ CLASSIC (Phase 3) ═══
@@ -135,7 +179,7 @@ class NeuralSwarm:
             TimeWarpAgent(weight=1.1),
             HarmonicResonanceAgent(weight=0.8),
             ReflexivityAgent(weight=1.3),
-            BlackSwanAgent(weight=2.0),
+            # BlackSwanAgent(weight=2.0), -- Moved to its own section
 
             # ═══ PREDATOR (Phase 11) ═══
             IcebergHunterAgent(weight=1.4),
@@ -191,12 +235,52 @@ class NeuralSwarm:
             PriceVelocityAgent(weight=1.8),
             OscillationWaveAgent(weight=1.5),
 
+            # ═══ HIGH-FIDELITY & SESSION (Phase 42) ═══
+            PressureMatrixAgent(weight=1.8),
+            MarketTransitionAgent(weight=1.5),
+            SessionDynamicsAgent(weight=1.2),
+            TemporalTrendAgent(weight=1.3),
+            HexMatrixAgent(weight=0.8),
+
+            # ═══ STRUCTURAL & INSTITUTIONAL (Phase 43) ═══
+            WyckoffStructuralAgent(weight=1.8),
+            CRTAgent(weight=1.5),
+            TBSAgent(weight=1.7),
+            ICTAdvancedAgent(weight=2.2),
+            
+            # ═══ MARKET INTUITION (Phase Ω-Next) ═══
+            MarketIntuitionAgent(memory) if memory else None,
+            
+            # ═══ SHADOW PREDATOR (Phase Ω-Next) ═══
+            ShadowPredatorAgent(predator_engine) if predator_engine else None,
+
+            # ═══ Ω-EXTREME (Phase Ω-Extreme) ═══
+            QCAAgent(weight=1.6),
+            PredatorPreyAgent(weight=1.5),
+            EVTBlackSwanAgent(weight=2.2),
+            
+            # BlackSwanAgent(weight=2.0), # Substituído pelo EVTBlackSwan
+            TensorAgent(weight=1.9),
+
+            # ═══ LGNN & THERMODYNAMICS (Phase Ω-Next) ═══
+            GraphTopologyAgent(),
+            ThermodynamicAgent(),
+
+            # ═══ SNN, MFG, FEYNMAN & CHAOS (Phase Ω-One) ═══
+            AsynchronousPulseAgent(weight=2.2),
+            MeanFieldGameAgent(weight=2.5),
+            FeynmanPathAgent(weight=2.8),
+            ChaosRegimeAgent(weight=1.5),
+
+            # ═══ OMEGA-CLASS OMNISCIENCE ═══
+            HolographicManifoldAgent(),
+
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
             ExecutionScalerAgent(),
         ]
 
-    def analyze(self, snapshot, orderflow_analysis: dict = None) -> List[AgentSignal]:
+    def analyze(self, snapshot, orderflow_analysis: dict = None, **kwargs) -> List[AgentSignal]:
         """
         Executa TODOS os agentes EM PARALELO e coleta seus sinais.
         Retorna lista de AgentSignals para o Quantum Thought Engine.
@@ -204,9 +288,10 @@ class NeuralSwarm:
         # Usar map para reduzir overhead de criação de dict de futuros
         def _run_agent(agent):
             try:
+                # Agentes podem opcionalmente aceitar kwargs específicos
                 if agent.needs_orderflow:
-                    return agent.analyze(snapshot, orderflow_analysis=orderflow_analysis)
-                return agent.analyze(snapshot)
+                    return agent.analyze(snapshot, orderflow_analysis=orderflow_analysis, **kwargs)
+                return agent.analyze(snapshot, **kwargs)
             except Exception as e:
                 log.error(f"Agent {agent.name} falhou: {e}")
                 return AgentSignal(agent.name, 0.0, 0.0, f"ERROR: {e}", agent.weight)
@@ -224,7 +309,17 @@ class NeuralSwarm:
             return []
         
         # Filtrar None e retornar
-        return [r for r in results if r is not None]
+        signals = [r for r in results if r is not None]
+
+        # [STIGMERGY] Depositamos feromônio de agressão no nível de preço
+        for result in signals:
+            if result and result.signal != 0.0:
+                CPP_CORE.deposit_pheromone(snapshot.price, abs(result.signal), decay=0.05)
+
+        # [STIGMERGY] Update global field decay
+        CPP_CORE.update_pheromones(dt=1.0)
+
+        return signals
 
     def get_agent_by_name(self, name: str) -> Optional[BaseAgent]:
         """Busca agente pelo nome."""

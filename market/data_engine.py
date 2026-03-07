@@ -40,6 +40,16 @@ class MarketSnapshot:
         self.symbol_info = None          # Info do símbolo
         self.metadata = {}               # Metadados extras
         self.raw_timestamp = int(self.timestamp.timestamp() * 1000) # MS timestamp para executor
+        self._price_history_ref = []     # Referência para histórico de preços (Phase Ω-Extreme)
+
+    def get_recent_prices(self, count: int = 100) -> np.ndarray:
+        """Retorna os últimos N preços do histórico fixado no snapshot."""
+        if not self._price_history_ref:
+            return np.array([], dtype=np.float64)
+        prices = list(self._price_history_ref)
+        if len(prices) < count:
+            return np.array(prices, dtype=np.float64)
+        return np.array(prices[-count:], dtype=np.float64)
 
     @property
     def price(self) -> float:
@@ -81,6 +91,31 @@ class MarketSnapshot:
         """Atalho para closes de M5."""
         return self.candles.get("M5", {}).get("close", np.array([]))
 
+    @property
+    def close(self) -> np.ndarray:
+        return self.candles.get("M1", {}).get("close", np.array([]))
+
+    @property
+    def high(self) -> np.ndarray:
+        return self.candles.get("M1", {}).get("high", np.array([]))
+
+    @property
+    def low(self) -> np.ndarray:
+        return self.candles.get("M1", {}).get("low", np.array([]))
+
+    @property
+    def open(self) -> np.ndarray:
+        return self.candles.get("M1", {}).get("open", np.array([]))
+
+    @property
+    def volume(self) -> np.ndarray:
+        return self.candles.get("M1", {}).get("tick_volume", np.array([]))
+
+    @property
+    def atr(self) -> float:
+        atr_arr = self.indicators.get("M1_atr_14", np.array([0.0]))
+        return float(atr_arr[-1]) if len(atr_arr) > 0 else 0.0
+
 
 class DataEngine:
     """
@@ -107,10 +142,20 @@ class DataEngine:
         # Timestamps de última atualização
         self._last_update = {}
         self._snapshot_count = 0
+
+        # PHASE Ω-EXTREME: Lorentz Clock & Relativistic Dilation
+        self.lorentz_dilation = 1.0
+        self.internal_clock_total = 0.0
+        self.market_kinetic_energy = 0.0
         
         # ═══ BACKGROUND WORKER (Zero-Latency Architecture) ═══
         self._worker_running = True
         self._worker_thread = threading.Thread(target=self._background_worker, daemon=True)
+        
+        # OMEGA-CLASS: Initialize Liquid State Reservoir
+        CPP_CORE.init_reservoir(n_neurons=500, spectral_radius=0.95, connectivity=0.1)
+        log.omega("🌊 Liquid State Reservoir (500 neurons) INITIALIZED")
+        
         self._worker_thread.start()
 
     def shutdown(self):
@@ -121,7 +166,7 @@ class DataEngine:
     #  COLETA DE DADOS (LATÊNCIA ZERO MÁXIMA)
     # ═══════════════════════════════════════════════════════════
 
-    @timed(log_threshold_ms=5)  # Threshold ultra-baixo: 5ms
+    @timed(log_threshold_ms=10)  # Threshold ultra-baixo: 10ms
     def update(self) -> Optional[MarketSnapshot]:
         """
         Ciclo de atualização principal (Instântaneo).
@@ -138,6 +183,43 @@ class DataEngine:
         if snapshot.tick:
             self._tick_history.append(snapshot.tick)
             self._price_history.append(snapshot.tick["mid"])
+            
+            # OMEGA-CLASS: Perturb Liquid State Reservoir with raw tick
+            # Inputs: [bid, ask, last, volume, spread, velocity, ...]
+            v_sum = list(self._price_history)[-5:] if len(self._price_history) >= 5 else [snapshot.tick["mid"]] * 5
+            velocity = np.diff(v_sum).mean() if len(v_sum) > 1 else 0.0
+            
+            inputs = np.array([
+                snapshot.tick["bid"], snapshot.tick["ask"], 
+                snapshot.tick["last"], snapshot.tick["volume"],
+                snapshot.tick["ask"] - snapshot.tick["bid"], # spread
+                velocity,
+                np.log(snapshot.tick["volume"] + 1.0)
+            ], dtype=np.float64)
+            
+            CPP_CORE.perturb_reservoir(inputs)
+            # Retira ondas residuais como indicadores sintéticos
+            snapshot.metadata["reservoir_waves"] = CPP_CORE.read_reservoir_output(10)
+
+            # PHASE Ω-EXTREME: Lorentz Clock Update
+            # Usamos a volatilidade GK recente e o volume do tick
+            gk_vol = 0.0
+            if "M1_gk_vol" in self._indicator_cache:
+                gk_vol = self._indicator_cache["M1_gk_vol"][-1]
+            
+            lorentz = CPP_CORE.lorentz_clock_update(
+                volatility=gk_vol,
+                volume=snapshot.tick["volume"],
+                physical_dt=MAIN_LOOP_INTERVAL_MS / 1000.0
+            )
+            
+            if lorentz:
+                self.lorentz_dilation = lorentz["dilation"]
+                self.internal_clock_total += lorentz["internal_dt"]
+                self.market_kinetic_energy = lorentz["energy"]
+                
+                snapshot.metadata["lorentz_dilation"] = self.lorentz_dilation
+                snapshot.metadata["internal_clock"] = self.internal_clock_total
 
         # 2. Book de ofertas (Rápido)
         snapshot.book = self.bridge.get_book()
@@ -159,6 +241,7 @@ class DataEngine:
 
         # Metadata
         self._snapshot_count += 1
+        snapshot._price_history_ref = list(self._price_history) # Fixar histórico para o snapshot
         snapshot.metadata = {
             "snapshot_id": self._snapshot_count,
             "tick_buffer_size": len(self._tick_history),

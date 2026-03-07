@@ -23,12 +23,15 @@ from market.scraper.macro_scraper import MacroScraper
 from core.consciousness.neural_swarm import NeuralSwarm
 from core.consciousness.quantum_thought import QuantumThoughtEngine
 from core.consciousness.regime_detector import RegimeDetector
+from market.memory.episodic_memory import EpisodicMemory
+from market.scraper.narrative_distiller import EdgeLLMDistiller
 from core.decision.trinity_core import TrinityCore, Action
 from core.evolution.performance_tracker import PerformanceTracker
 from core.evolution.self_optimizer import SelfOptimizer
 from execution.risk_quantum import RiskQuantumEngine
 from execution.sniper_executor import SniperExecutor
 from execution.position_manager import PositionManager
+from execution.shadow_predator import ShadowPredatorEngine
 from config.settings import ASIState, CONSCIOUSNESS_CYCLE_MS
 from config.omega_params import OMEGA
 from utils.logger import log
@@ -54,11 +57,30 @@ class ASIBrain:
         # ═══ SETORES DE CONSCIÊNCIA ═══
         self.data_engine = DataEngine(bridge)
         self.orderflow = OrderFlowMatrix()
-        self.neural_swarm = NeuralSwarm()
+        
+        # ═══ PHASE 3: EPISODIC MEMORY (Market Intuition) ═══
+        self.memory = EpisodicMemory(vector_dim=64)
+        
+        # ═══ PHASE 4: SHADOW PREDATOR ═══
+        self.predator_engine = ShadowPredatorEngine()
+        
+        self.neural_swarm = NeuralSwarm(memory=self.memory, predator_engine=self.predator_engine)
         self.quantum_thought = QuantumThoughtEngine()
         self.regime_detector = RegimeDetector()
+        
+        # ═══ PHASE 3: EPISODIC MEMORY (Market Intuition) ═══
+        self.memory = EpisodicMemory(vector_dim=64)
+        
         self.trinity_core = TrinityCore()
+        
+        # ═══ PHASE 4: ADVERSARIAL COUNTER-AI ═══
+        self.predator_engine = ShadowPredatorEngine()
+        
         self.risk_engine = RiskQuantumEngine()
+        
+        # ═══ PHASE 5: EDGE LLM DISTILLATION ═══
+        self.llm_distiller = EdgeLLMDistiller()
+        
         self.executor = SniperExecutor(bridge, self.risk_engine)
         
         # Callback para Anti-Metralhadora Pós-Close
@@ -141,7 +163,7 @@ class ASIBrain:
         snapshot.metadata["macro_bias"] = self.macro_scraper.macro_bias
 
         # ═══ 5. ANÁLISE NEURAL — Enxame de agentes ═══
-        agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis)
+        agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis, regime_state=regime_state)
 
         # ═══ 6. PENSAMENTO QUÂNTICO — Convergência ═══
         regime_aggression = regime_state.aggression_multiplier if regime_state else 1.0
@@ -177,6 +199,16 @@ class ASIBrain:
 
         # ═══ 8. MONITORAR POSIÇÕES ABERTAS (POSITION MANAGER / SMART TP) ═══
         self.position_manager.monitor_positions(snapshot, flow_analysis)
+
+        # ═══ 8B. GRAVAR MEMÓRIA EPISÓDICA (a cada 60 ciclos) ═══
+        if self._cycle_count % 60 == 0:
+            # Geramos o embedding usando o agente de intuição
+            intuition_agent = self.neural_swarm.get_agent_by_name("MarketIntuition")
+            if intuition_agent:
+                embedding = intuition_agent._generate_embedding(snapshot, flow_analysis)
+                # O outcome será preenchido pelo PerformanceTracker futuramente, 
+                # aqui gravamos o estado com o preço atual.
+                self.memory.add_episode(embedding, {"price": snapshot.price, "time": snapshot.timestamp})
 
         # ═══ 9. AUTO-EVOLUÇÃO (a cada 200 ciclos) ═══
         if self._cycle_count % 200 == 0:
