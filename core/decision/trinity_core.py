@@ -243,7 +243,10 @@ class TrinityCore:
         reward = abs(take_profit - price)
         rr_ratio = reward / risk if risk > 0 else 0
 
-        min_rr = OMEGA.get("trinity_min_rr_ratio", 1.5)
+        min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
+        if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP"]:
+             min_rr = 1.0  # Em mercados curtos o spread corrói o R:R inicial e precisamos abaixar o piso
+             
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
 

@@ -166,7 +166,7 @@ class DataEngine:
     #  COLETA DE DADOS (LATÊNCIA ZERO MÁXIMA)
     # ═══════════════════════════════════════════════════════════
 
-    @timed(log_threshold_ms=10)  # Threshold ultra-baixo: 10ms
+    @timed(log_threshold_ms=20)  # Threshold ultra-baixo: 20ms
     def update(self) -> Optional[MarketSnapshot]:
         """
         Ciclo de atualização principal (Instântaneo).
