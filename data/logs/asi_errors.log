@@ -6,3 +6,24 @@
 [DubaiMatrixASI] 14:51:17.663    ERROR │ Erro ao carregar histórico: list index out of range
 [DubaiMatrixASI] 14:51:31.539    ERROR │ Erro ao carregar histórico: list index out of range
 [DubaiMatrixASI] 15:54:40.911    ERROR │ Erro ao carregar histórico: Expecting property name enclosed in double quotes: line 1954 column 5 (char 47209)
+[DubaiMatrixASI] 16:15:27.474    ERROR │ Erro ao carregar histórico: Expecting property name enclosed in double quotes: line 1954 column 5 (char 47209)
+[DubaiMatrixASI] 16:31:09.202    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:38:22.103    ERROR │ Erro ao carregar histórico: Expecting value: line 1 column 1 (char 0)
+[DubaiMatrixASI] 17:44:17.367    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'PerformanceTracker' object has no attribute 'record_trade'
+[DubaiMatrixASI] 18:09:28.176    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 18:21:07.061    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:07.328    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:07.603    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:07.825    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:08.067    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:08.350    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:08.575    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:08.861    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:09.082    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:09.829    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:10.126    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:10.383    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:10.641    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:10.883    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:11.128    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 18:21:11.382    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value

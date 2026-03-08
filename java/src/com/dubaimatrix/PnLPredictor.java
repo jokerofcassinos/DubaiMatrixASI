@@ -9,13 +9,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * ╔══════════════════════════════════════════════════════════════════════════════╗
- * ║ DUBAI MATRIX ASI — JAVA ENTERPRISE PnL ║
- * ║ Microserviço Distribúido de Predição de Equity Curve ║
- * ╚══════════════════════════════════════════════════════════════════════════════╝
+ * DUBAI MATRIX ASI - JAVA ENTERPRISE PnL
+ * Microservico Distribuido de Predicao de Equity Curve
  * 
- * Este daemon roda em background e aceita conexões socket do Python
- * para computar projeções complexas de PnL rumo à meta de US$ 1M.
+ * Este daemon roda em background e aceita conexoes socket do Python
+ * para computar projecoes complexas de PnL rumo a meta de US$ 1M.
  */
 public class PnLPredictor {
 
@@ -24,7 +22,7 @@ public class PnLPredictor {
     private static final AtomicReference<Double> winRate = new AtomicReference<>(0.5);
 
     public static void main(String[] args) {
-        System.out.println("⚡ [Java Enterprise] DubaiMatrixASI PnL Predictor Iniciado na porta " + PORT);
+        System.out.println("[Java Enterprise] DubaiMatrixASI PnL Predictor Iniciado na porta " + PORT);
 
         try (ServerSocket serverSocket = new ServerSocket(PORT)) {
             var executor = Executors.newCachedThreadPool();
@@ -33,7 +31,7 @@ public class PnLPredictor {
                 executor.submit(() -> handleClient(clientSocket));
             }
         } catch (Exception e) {
-            System.err.println("❌ Falha crítica no Kernel Java: " + e.getMessage());
+            System.err.println("Falha critica no Kernel Java: " + e.getMessage());
         }
     }
 
@@ -67,41 +65,52 @@ public class PnLPredictor {
                 }
             }
         } catch (Exception e) {
-            System.err.println("Erro na conexão com client: " + e.getMessage());
+            System.err.println("Erro na conexao com client: " + e.getMessage());
         }
     }
 
-    private static String predictPath(double balance, double wr, double avgWin, double avgLoss) {
-        // Simulação estocástica leve para meta de 1M
-        double target = 1_000_000.0;
-        int maxTrades = 5000;
+    private static String predictPath(double equity, double winRate, double avgWin, double avgLoss) {
+        // [PHASE OMEGA-FIX] Remove hardcoded bottlenecks. 
+        if (equity < 10.0) return "IMPOSSIBLE:INSUFFICIENT_FUNDS";
 
-        double current = balance;
-        int tradesNeeded = 0;
+        double totalProfitNeeded = 1000000.0 - equity;
+        if (totalProfitNeeded <= 0) return "GOAL_REACHED:1M_MASTERY";
 
-        // Simulação rápida de pior caso
-        if (wr < 0.1 || (wr * avgWin - (1 - wr) * avgLoss) <= 0) {
-            return "IMPOSSIBLE:NEGATIVE_EXPECTANCY";
+        // Simulation parameters
+        int numSimulations = 10000;
+        int maxTrades = 1000;
+        int successCount = 0;
+
+        // Dynamic RR calculation
+        double rr = Math.abs(avgLoss) > 0.001 ? avgWin / Math.abs(avgLoss) : 1.0;
+        
+        for (int i = 0; i < numSimulations; i++) {
+            double currentEquity = equity;
+            for (int t = 0; t < maxTrades; t++) {
+                if (currentEquity >= 1000000.0) {
+                    successCount++;
+                    break;
+                }
+                if (currentEquity <= 5.0) break; // Ruin threshold
+
+                // Basic compounding sizing (5% risk)
+                double riskAmount = currentEquity * 0.05; 
+                if (Math.random() < winRate) {
+                    currentEquity += riskAmount * rr;
+                } else {
+                    currentEquity -= riskAmount;
+                }
+            }
         }
 
-        while (current < target && tradesNeeded < maxTrades) {
-            // Em média, o expectancy linear
-            double expectedValuePerTrade = (wr * avgWin) - ((1 - wr) * avgLoss);
+        double successRate = (double) successCount / numSimulations;
+        double ev = (avgWin * winRate) - (Math.abs(avgLoss) * (1 - winRate));
 
-            // Reinvestimento composto básico kelly (aqui muito simplificado para PnL)
-            double kelly = (wr - ((1 - wr) / (avgWin / Math.max(0.1, avgLoss))));
-            if (kelly < 0)
-                kelly = 0.01;
-
-            // Juros compostos baseados na expectativa
-            current += (current * kelly * 0.5) * (expectedValuePerTrade / Math.max(1, avgWin));
-            tradesNeeded++;
+        if (successRate < 0.01 && ev <= 0) {
+           return "IMPOSSIBLE:NEGATIVE_EXPECTANCY";
         }
 
-        if (tradesNeeded >= maxTrades) {
-            return "THOUSANDS_TRADES:" + tradesNeeded;
-        }
-
-        return "PROJECTED_TRADES_TO_1M:" + tradesNeeded;
+        int tradesLeft = (int) (totalProfitNeeded / (ev > 0 ? ev : 0.01));
+        return String.format("SUCCESS_PROB:%.2f|TRADES_LEFT:%d|EXPECTED_VALUE:%.2f", successRate, tradesLeft, ev);
     }
 }

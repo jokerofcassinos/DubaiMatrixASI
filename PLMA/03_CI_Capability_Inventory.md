@@ -35,19 +35,6 @@
 - **Phase Ω-One: Lucid Dreaming (Java Shadow)**: Simulação paralela massiva de orderflow para evolução rápida de parâmetros.
 - **Phase Ω-One: Lyapunov Horizon**: Detecção de caos determinístico e limites de previsibilidade temporal.
 - **Maximum Margin Extraction (MME - Phase 37)**: Auto-scaling de lotes para máxima utilização da margem disponível sem rejeição de ordens.
-- **Total War Protocol (Phase 38)**: Escalonamento de risco agressivo (30% / 50% / 95%) baseado em níveis de confiança agressivos (>0.65).
-- **Trend-Structure Alignment Veto (Phase 34)**: Impõe alinhamento entre a tendência primária e a estrutura de mercado, impedindo a compra de pullbacks que colidem com resistências confirmadas.
-- **Phase Ω-Transcendence: P-Brane Execution**: Execução de ordens não-lineares distribuídas em Membranas com Jittering aleatório estocástico.
-- **Phase Ω-Ascension: Pheromone Ghost Routing**: P-Branes que são distorcidas por feromônios deixados por micro-agressões no C++, roteando ordens fora do alcance de Market Makers.
-- **Phase Ω-Transcendence: Wormhole Risk Recovery**: Em drawdowns perto do Stop Loss, abre grid de Gamma Scalping de polaridade reversa (dobra o espaço).
-- **Phase Ω-Transcendence: Symbiotic Leeching**: Agente que vira o vetor predador e orbita walls de Spoofing Institucional.
-- **Phase Ω-Transcendence: God-Mode Reversal**: Capacidade de transmutar um colapso total do Neural Swarm (Incoerência e Entropia Máxima) em sinal de Liquidation Cascade, assumindo a outra ponta.
-- **Phase Ω-Ascension: Dark Mass Inference**: Detecção de ordens de L3 (OTC / Dark Pools) com base no delta gravitacional inercial (Volume L2 x Deslocamento).
-- **4096D Hyperspace Engine (Phase 25)**: Motor nativo em C++ que simula a densidade probabilística vetorial em 4096 dimensões para extrair expected_excursion_max, injetando *confidence_boost* massivo no sinal.
-- **Java PnL Predictor Daemon (Phase 25)**: Servidor assíncrono Enterprise Java rodando em background recebendo inputs (balance, win_rate, wins/losses) via socket TCP, prevendo caminhos até a meta de 1M através de simulação Kelly-Risk.
-- **Path-Dependent SL/TP Analysis**: Cada path verifica hit de stop loss ou take profit tick-a-tick.
-- **CVaR/VaR Tail Risk**: Mede risco de cauda nos piores 5% dos cenários.
-- **Optimal SL/TP Grid Search**: Busca o par SL/TP ótimo sobre os paths já simulados.
 - **Equity Curve Simulator**: Simula equity curves de 200+ trades para estimar drawdown máximo e probabilidade de atingir meta.
 - **Stress Test Multi-Cenário**: Flash Crash, Squeeze, Dead Market, Black Swan testados em cada trade.
 - **Resultado**: O bot agora mantém posições em pullbacks saudáveis, permitindo a captura de breakouts macro no BTCUSD. ### FASE 36: ERA DA CALIBRAÇÃO DARWINIANA (Paradox of Profit Fix) - **Contexto:** Identificação do 'Paradoxo do Lucro' (Vitórias brutas ocultando perdas líquidas por comissões de ~$7/lote) e 'Amnésia de Histórico' no Brain. - **Evolução:** - **Consciousness Feedback Loop**: Implementação de auditoria periódica (60s) via `history_deals_get` que sincroniza o Brain com o terminal real. - **Speed Optimization**: Portabilidade de `send_limit_order` para Socket Bridge, eliminando o lag de 780ms do Python nativo. - **Commission-Aware Fitness**: Injeção mandatória de deduções de taxas no `PerformanceTracker`, realinhando a auto-evolução darwiniana para a riqueza líquida. - **Resultado**: O sistema agora evolui focado no **Alpha Líquido**, matando mutações 'Fake Fitness' e otimizando o preenchimento de ordens via HFT Socket. ### FASE 48: ERA DA SIMETRIA E IGNIÇÃO (V-Pulse & God-Mode) - **Contexto:** Detecção de inversão de sinal em V-reversals e lag de percepção em breakouts. - **Evolução:** - **Supernova Capacitor v2**: Rastreio sub-segundo de densidade de ticks bruta. - **Ignition Sovereignty**: O motor quântico agora silencia o ruído contrário durante o V-Pulse. - **God-Mode Reversal**: TrinityCore calibrado para absorver reversões violentas via decoerência forçada. - **Resultado**: A ASI atinge um novo patamar de acuidade cinemática, blindando o capital contra armadilhas de "falsa exaustão".
@@ -78,5 +65,6 @@
 - [x] **P-Brane Maker Execution (Phase Ω-Singularity)**: Transição automática para Limit Orders em regimes de baixa liquidez/drift, capturando spread.
 - [x] **Consciousness Feedback Loop (Phase Ω-Darwin)**: Auditoria periódica de deals reais no MT5 para sincronização do P&L líquido na consciência da ASI.
 - [x] **Net-Wealth Mutation Alignment**: Garantia de que a auto-evolução darwiniana opera estritamente sobre Alpha Líquido, expurgando 'Fake Fitness'.
+- [x] **Anti-Amnesia Intent Persistence**: Persistência de contexto perceptual (Regime, Sinais, PHI) no momento da entrada via `TradeRegistry`, erradicando a dissociação informativa no fechamento de posições.
 
-*(Atualizado: 2026-03-08. Versão: 12.0.0-omega+extreme)*
+*(Atualizado: 2026-03-08. Versão: 13.0.0-omega+integrity)*

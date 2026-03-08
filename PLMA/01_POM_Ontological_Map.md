@@ -11,6 +11,7 @@
 - **`execution/sniper_executor.py (SniperExecutor)`**: Transformador de intelecto em agressão cinética. Envia ordens cirúrgicas via MT5Bridge. **Phase 40**: Multi-threading. **Phase 47**: Implementação de **Intelligent Log Pacing** (Suppressor de spam) e desacoplamento de logs de decisão (Decision realizations).
 - **`execution/risk_quantum.py (RiskQuantumEngine)`**: O escudo de adamantium do capital. Substitui stops fixos burros por Kelly Criterion dinâmico e bounds de drawdown severos.
 - **`execution/position_manager.py (PositionManager)`**: Gerenciamento de sub-consciente. Rastrea todas as ordens abertas, cruzando dados de orderflow. Deflagra o **Zero-Latency Close** via Socket TCP. **Phase 47**: Consolidação de logs de 'Nuclear Strike' (Anti-Spam).
+- **`execution/trade_registry.py (TradeRegistry)`**: [NEW] Banco de dados de intenções de trade. Erradica a 'Amnesia Financeira' persistindo o contexto (regime, sinal, PHI) no momento da entrada para correta reflexão e evolução.
 
 ### 3. CAMADA SENSORIAL (À explorar detalhadamente no ADL/CI)
 - **`market/mt5_bridge.py (MT5Bridge)`**: Interface FFI com o terminal MetaTrader 5. Provê latência zero e gerencia ordens.

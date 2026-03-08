@@ -439,6 +439,12 @@ class QuantumThoughtEngine:
             + (f" | BEAR: {', '.join(top_bears)}" if raw_signal < -0.1 else "")
         )
 
+        # ═══ [PHASE 50] GOD-MODE SANCTUARY SYNC ═══
+        # Se detectamos um vácuo de liquidação com alta confiança e a entropia é alta,
+        # sinalizamos para o TrinityCore que este é um candidato a God-Mode Reversal.
+        is_vacuum_gate = any(s.agent_name == "LiquidationVacuumAgent" and s.confidence > 0.85 for s in valid_signals)
+        is_god_candidate = (system_entropy > 0.80 or v_pulse_detected) and is_vacuum_gate
+
         state = QuantumState(
             raw_signal=raw_signal,
             collapsed_signal=collapsed_signal,
@@ -457,7 +463,8 @@ class QuantumThoughtEngine:
                 "top_bears": top_bears,
                 "phi": phi_val,
                 "coherence": coherence,
-                "entropy": system_entropy
+                "entropy": system_entropy,
+                "is_god_candidate": is_god_candidate
             },
             reasoning=reasoning,
         )

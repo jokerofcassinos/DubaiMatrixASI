@@ -28,6 +28,7 @@ from config.exchange_config import (
     MAX_OPEN_POSITIONS, MAX_LOT_SIZE, MIN_LOT_SIZE
 )
 from utils.logger import log
+from execution.trade_registry import registry as trade_registry
 from utils.decorators import retry, timed, CircuitBreaker, catch_and_log
 
 
@@ -254,11 +255,13 @@ class MT5Bridge:
             action = parts[1]
             status = parts[2]
             log.info(f"📩 Resposta EA Socket: {action} -> {status} | Data: {line}")
-            
             if action == "LIMIT" and status == "SUCCESS":
-                ticket = parts[3]
-                price = parts[4]
+                ticket = int(parts[3])
+                price = float(parts[4])
                 log.omega(f"🎯 LIMIT EXECUTADO: Ticket {ticket} @ {price}")
+                
+                # [PHASE Ω-EVOLVE] Sync socket ticket with intent
+                trade_registry.update_ticket(0, ticket)
             elif action == "CLOSE": # [Phase 50] Explicit close confirmation
                 log.omega(f"💀 SOCKET CLOSE CONFIRMED: {status}")
 
@@ -307,6 +310,48 @@ class MT5Bridge:
     # ═══════════════════════════════════════════════════════════
     #  DADOS DE MERCADO
     # ═══════════════════════════════════════════════════════════
+
+    def detect_broker_commission(self, symbol: str) -> float:
+        """
+        [Phase 49] Detecta a comissão real cobrada pela corretora.
+        Analisa os últimos 50 deals para extrair a média por lote.
+        """
+        if not mt5.initialize():
+            return OMEGA.get("commission_per_lot", 15.0)
+
+        now = time.time()
+        from_date = now - (86400 * 3) # Últimos 3 dias
+        
+        deals = mt5.history_deals_get(from_date, now)
+        if deals is None or len(deals) == 0:
+            return OMEGA.get("commission_per_lot", 15.0)
+
+        commissions = []
+        for d in deals:
+            if d.symbol == symbol and d.commission != 0:
+                # Comissão absoluta por volume unitário
+                comm_per_unit = abs(d.commission) / d.volume
+                commissions.append(comm_per_unit)
+
+        if not commissions:
+            return OMEGA.get("commission_per_lot", 15.0)
+
+        # Usar a mediana para evitar outliers (ex: correções manuais ou bônus)
+        commissions.sort()
+        detected_val = commissions[len(commissions) // 2]
+        
+        # O valor no OMEGA deve ser Round Turn (entrada + saída)
+        # Se detectamos $7.50 e a corretora cobra na entrada e saída (2 deals por pos),
+        # precisamos garantir que o valor no OMEGA reflita o custo TOTAL por lote.
+        # Major brokers HFT costumam cobrar metade na abertura e metade no fechamento.
+        # Então dobramos o valor detectado se ele parecer ser 'per leg'.
+        
+        # Heurística: se o valor for < 10, provavelmente é 'per leg'. 
+        # (Standard BTC comm is often $10-$20 round turn).
+        if detected_val < 10.0:
+            detected_val *= 2
+            
+        return round(float(detected_val), 2)
 
     def get_tick(self) -> Optional[dict]:
         """Obtém o tick mais recente (preferência para HFT Socket)."""

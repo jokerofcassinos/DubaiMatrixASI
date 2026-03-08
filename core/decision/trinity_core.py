@@ -183,34 +183,39 @@ class TrinityCore:
             self._log_cooldown("maker_advantage", f"📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: {dynamic_conf_min:.2f})", 120)
 
 
-
-        # ═══ 3.5 DECOERÊNCIA SUPREMA (GOD-MODE REVERSAL) ═══
-        # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e 
-        # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade"
+        # ═══ 3.5 DECOERÊRENCE SUPREMA (GOD-MODE REVERSAL — Phase 50) ═══
+        # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e/ou
+        # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade".
         is_god_mode = False
         
-        # Se o spread está congelado mas a velocidade de ticks (T/s) dispara, 
-        # estamos prestes a ter um snapback elástico.
         tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
         has_v_pulse = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
-        is_velocity_burst = tick_velocity > 40.0 or has_v_pulse # Threshold de HFT puro
+        is_velocity_burst = tick_velocity > 40.0 or has_v_pulse
         
-        if (quantum_state.entropy > 0.85 or is_velocity_burst) and regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE", "DRIFTING_BEAR"]:
-            # Vamos absorver a liquidez com uma reversão tática.
+        is_god_candidate = quantum_state.metadata.get("is_god_candidate", False)
+        
+        if (quantum_state.entropy > 0.85 or is_velocity_burst or is_god_candidate) and \
+           regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE", "DRIFTING_BEAR"]:
+            
             candles_m1 = snapshot.candles.get("M1")
             if candles_m1 and len(candles_m1.get("close", [])) >= 5:
                 closes = np.array(candles_m1["close"], dtype=np.float64)
                 delta_price = closes[-1] - closes[-5]
                 atr_local = self._get_current_atr(snapshot)
                 
-                # From 2.5x to 3.5x ATR to avoid firing during regular drift/mini-pullbacks
-                if (abs(delta_price) > atr_local * 3.5 or is_velocity_burst or has_v_pulse) and atr_local > 0:
-                    self._log_cooldown("GOD_MODE_REVERSAL", f"🌌 [GOD-MODE REVERSAL] {'V-Pulse/Velocity Burst' if (is_velocity_burst or has_v_pulse) else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.", 60)
-                    action = Action.BUY if delta_price < 0 else Action.SELL
-                    confidence = 0.99  # Certeza absoluta do rebote elástico
-                    signal = 1.0 if action == Action.BUY else -1.0
+                # REVERSAL SYNC: Se o preço caiu forte (>3x ATR) ou v-pulse Bear, o God-Mode COMPRA.
+                if (abs(delta_price) > atr_local * 3.0 or is_velocity_burst or has_v_pulse) and atr_local > 0:
                     is_god_mode = True
-
+                    # Inversão cinemática
+                    god_signal = -1.0 if delta_price > 0 else 1.0
+                    
+                    self._log_cooldown("GOD_MODE_REVERSAL", f"🌌 [GOD-MODE REVERSAL PHASE 50] Ent:{quantum_state.entropy:.2f} Pulse:{has_v_pulse} Delta:{delta_price:+.2f}. Absorção Ativada.", 30)
+                    
+                    action = Action.BUY if god_signal > 0 else Action.SELL
+                    confidence = 0.99
+                    signal = god_signal
+                    # reasoning and other variables will be populated below as the function continues
+        
         # ═══ DECISÃO ═══
         if not is_god_mode:
             if signal >= dynamic_buy_thresh and confidence >= dynamic_conf_min:
@@ -226,6 +231,12 @@ class TrinityCore:
                 if confidence < (dynamic_conf_min - 1e-6):
                     reasons.append(f"LOW_CONFIDENCE({confidence:.2f} < req {dynamic_conf_min:.2f})")
                 return self._wait(" | ".join(reasons))
+        
+        # If we reach here, we have an Action (either from God-Mode or Normal)
+        reasoning += f" | [PHASE_50_STRIKE: {action.name}]"
+        
+        # The rest of the function (calculating SL/TP, RR, MC) will continue using the 'action', 'signal', 'confidence'.
+        # Since is_god_mode is True, some later VETOs (like MC expected return < 0) will be bypassed.
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
         phi_min = OMEGA.get("phi_min_threshold", 0.4)
@@ -356,7 +367,7 @@ class TrinityCore:
         # We don't have direct access to bridge here, but we can use the value from OMEGA or assume a default
         # Ideally, we should have the dynamic_comm in snapshot metadata.
         comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
-        min_net_profit = OMEGA.get("min_profit_per_ticket", 30.0)
+        min_net_profit = OMEGA.get("min_profit_per_ticket", 60.0)
         
         # Profit in points needed to cover commission + target (assuming 1 lot for ratio check)
         min_points_needed = (comm_per_lot + min_net_profit) / (contract_size if contract_size > 0 else 1.0)
@@ -365,12 +376,12 @@ class TrinityCore:
             # If the ATR-based TP is too small to cover fees, we must expand it or veto
             # We choose to expansion first if the regime allows, otherwise veto.
             if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
-                take_profit = price + (min_points_needed * 1.2) if action == Action.BUY else price - (min_points_needed * 1.2)
+                take_profit = price + (min_points_needed * 1.1) if action == Action.BUY else price - (min_points_needed * 1.1)
                 reward = abs(take_profit - price)
                 rr_ratio = reward / risk if risk > 0 else 0
-                log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.2f} to cover commissions.")
+                log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.4f} to cover commissions + target profit.")
             else:
-                return self._wait(f"REWARD_TOO_SMALL_FOR_FEES (Reward {reward:.2f} < Min {min_points_needed:.2f})")
+                return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
@@ -381,6 +392,17 @@ class TrinityCore:
              
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
+
+        # [Phase 48] Alpha Integrity: Commission Reward Ratio Gate
+        # Reward in $ / Estimated Commission must be > threshold
+        if comm_per_lot > 0:
+            # Actual reward in $ (for 1 lot)
+            reward_in_dollars = reward * contract_size
+            comm_reward_ratio = reward_in_dollars / comm_per_lot
+            min_comm_ratio = OMEGA.get("min_commission_reward_ratio", 1.5)
+            
+            if comm_reward_ratio < min_comm_ratio:
+                return self._wait(f"COMM_REWARD_RATIO_LOW({comm_reward_ratio:.2f} < {min_comm_ratio})")
 
         # ═══ ADAPTIVE SPREAD/FEE VALIDATION (Phase 28) ═══
         # A taxa real do trade (spread) não pode corroer o potencial de lucro nem dominar o ATR.

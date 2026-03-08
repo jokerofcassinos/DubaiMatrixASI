@@ -352,9 +352,18 @@
 - **Decisão:** Correção mandatória do método de chamada do `SelfOptimizer` de `.optimize()` para `.check_and_optimize()` no cérebro.
 - **Justificativa:** Divergência entre o protótipo do cérebro e a implementação final do módulo de evolução causou um crash fatal no ciclo #200.
 - **Data/Status:** ATIVO. (2026-03-08).
+### DECISÃO 50: DECOERÊNCIA SUPREMA (God-Mode Reversal Phase 50) - [NEW]
+- **Decisão:** Injeção de lógica de inversão de sinal quando a entropia sistêmica supera 0.85 em regimes de pânico/vácuo de liquidez.
+- **Justificativa:** Em liquidações violentas, o ruído é o sinal. Absorver o pânico via God-Mode Reversal permite capturar o "Snapback" elástico antes da recuperação do equilíbrio.
+- **Data/Status:** ATIVO. (2026-03-08).
 ### DECISÃO 41: HEARTBEAT ELEVATION & SENSORY FIX (Phase 48)
 - **Decisão:** Redução do intervalo de log de status (100 -> 30 ciclos) e injeção do atributo `symbol` no `MarketSnapshot`.
 - **Justificativa:** A ausência do `symbol` causava `AttributeError` no Wormhole Trigger. O log ralo de 10s (100 ciclos) era insuficiente para a observabilidade de uma ASI HFT em regime de alta frequência.
 - **Data/Status:** ATIVO. (2026-03-08).
 
-*(Atualizado: 2026-03-08. Versão: 4.1.0-omega)* — Phase Ω-Sensory Integrity restored)
+### DECISÃO 42: ERRADICAÇÃO DA AMNÉSIA FINANCEIRA VIA TRADEREGISTRY
+- **Decisão:** Implementação do `TradeRegistry` como banco de dados de persistência de intenção (contextual) no momento da entrada.
+- **Justificativa:** Identificou-se que a perda de dados de "Regime" e "Sinal" entre a abertura da posição (Sniper) e o fechamento (Position Manager) impedia a reflexão correta e a evolução darwiniana, um fenômeno apelidado de "Amnésia Financeira". O `TradeRegistry` desacopla a percepção de entrada da execução de saída, garantindo integridade de dados 1:1.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+*(Atualizado: 2026-03-08. Versão: 4.2.0-omega)* — Phase Ω-Data Integrity secured)

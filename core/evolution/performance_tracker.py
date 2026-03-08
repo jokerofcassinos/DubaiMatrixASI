@@ -75,6 +75,10 @@ class PerformanceTracker:
         self._max_consecutive_losses: int = 0
         self._ticket_index: set = set()  # [Phase Ω-Darwin] Deduplication index
         
+        # [Phase Ω-Resilience] Daily Metrics
+        self._daily_trades: List[TradeRecord] = []
+        self._last_reset_day: int = datetime.now(timezone.utc).day
+
         # Caminhos de persistência
         self._trades_file = os.path.join(DATA_DIR, "trade_history.json")
         self._load_history()
@@ -82,39 +86,58 @@ class PerformanceTracker:
     def set_initial_balance(self, balance: float):
         """
         Ajusta o ponto de partida da curva de equidade. 
-        Se a curva só tem o valor inicial default, nós a corrigimos.
+        Se a curva só tem o valor inicial default, ou se há uma discrepância massiva, nós a corrigimos.
         """
-        if len(self._equity_curve) == 1 and abs(self._equity_curve[0] - balance) > 1.0:
-            old_val = self._equity_curve[0]
+        # Se houve mudança de magnitude (ex: 100k para 1M), forçamos o re-ancoramento
+        discrepancy = abs(self._initial_balance - balance)
+        
+        if discrepancy > 1.0:
+            old_val = self._initial_balance
             self._initial_balance = balance
-            self._equity_curve = [balance]
-            self._peak_equity = max(self._peak_equity, balance)
-            log.debug(f"📊 Balance Reset: {old_val} -> {balance}")
+            
+            # Reconstruir curva com o novo âncora
+            self._rebuild_equity_curve()
+            log.omega(f"📊 BALANCE ANCHOR SYNCHRONIZED: ${old_val:,.2f} -> ${balance:,.2f}")
 
-    def record_trade(self, trade: TradeRecord) -> bool:
-        """Registra um novo trade completado ou atualiza existente. Retorna True se for novo."""
+    def record_trade(self, trade: TradeRecord):
+        """
+        Adiciona ou atualiza um trade no histórico e recalcula métricas.
+        [Phase Ω-Darwin] Sincronização de Fidelidade Extrema.
+        Retorna True se for um trade NOVO.
+        """
+        if not trade or trade.ticket == 0:
+            return False
+
+        # Reset diário se necessário
+        current_day = datetime.now(timezone.utc).day
+        if current_day != self._last_reset_day:
+            self._daily_trades = []
+            self._last_reset_day = current_day
+
+        # [Phase 36] Commission Deduction (Fiscal Sovereignty)
+        # Se o MT5 não reportou comissão ainda, usamos o prior do OMEGA
+        if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
+            comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+            trade.commission = -(trade.lot_size * comm_per_lot)
+            trade.profit += trade.commission 
+
         # [CRITICAL FIX] Win status must be based on net profit
         trade.is_winner = trade.profit > 0
 
         # [Phase Ω-Darwin] Deduplication & Update Check
         for i, existing in enumerate(self._trades):
             if existing.ticket == trade.ticket:
-                # Se o profit mudou, precisamos recalcular a curva (raro mas possível em atualizações de swap)
+                # Se o profit mudou (ajuste de swap/comissão real do MT5), recalcular
                 profit_diff = trade.profit - existing.profit
-                self._trades[i] = trade
-                if abs(profit_diff) > 0.01:
+                if abs(profit_diff) > 0.001:
+                    log.debug(f"🔄 TRADE UPDATE [{trade.ticket}]: PnL Diff ${profit_diff:+.4f}")
+                    self._trades[i] = trade
                     self._rebuild_equity_curve()
-                self._save_history()
+                    self._save_history()
                 return False
 
-        # [Phase 36] Commission Deduction
-        if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
-            comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
-            trade.commission = -(trade.lot_size * comm_per_lot)
-            trade.profit += trade.commission 
-            trade.is_winner = trade.profit > 0
-
         self._trades.append(trade)
+        self._daily_trades.append(trade)
         self._ticket_index.add(trade.ticket)
 
         # Atualizar equity curve (Saldo Absoluto)
@@ -169,8 +192,10 @@ class PerformanceTracker:
             if current > self._peak_equity:
                 self._peak_equity = current
             dd = self._peak_equity - current
-            self._max_drawdown = max(self._max_drawdown, dd)
+            if dd > self._max_drawdown:
+                self._max_drawdown = dd
             if self._peak_equity > 0:
+                # [Phase Ω-Resilience] Fixed: Fraction 0-1
                 self._max_drawdown_pct = max(self._max_drawdown_pct, (dd / self._peak_equity))
 
     def _load_history(self):
@@ -194,6 +219,14 @@ class PerformanceTracker:
                         continue
                     self._trades.append(trade)
                     self._ticket_index.add(trade.ticket)
+                    
+                    # Carregar no diário se for de hoje
+                    try:
+                        trade_dt = datetime.fromisoformat(trade.entry_time)
+                        if trade_dt.date() == datetime.now(timezone.utc).date():
+                            self._daily_trades.append(trade)
+                    except ValueError:
+                        pass
 
                 self._rebuild_equity_curve()
 
@@ -299,16 +332,45 @@ class PerformanceTracker:
         }
 
     @property
+    def recent_stats(self) -> dict:
+        """Métricas dos últimos 50 trades para adaptação rápida."""
+        recent = self._trades[-50:]
+        if not recent:
+            return {"win_rate": 0.0, "avg_win": 0.0, "avg_loss": 0.0, "expectancy": 0.0}
+        
+        wins = [t.profit for t in recent if t.is_winner]
+        losses = [t.profit for t in recent if not t.is_winner]
+        
+        wr = len(wins) / len(recent)
+        aw = np.mean(wins) if wins else 0.0
+        al = abs(np.mean(losses)) if losses else 0.0
+        exp = (wr * aw) - ((1 - wr) * al)
+        
+        return {
+            "win_rate": wr,
+            "avg_win": aw,
+            "avg_loss": al,
+            "expectancy": exp,
+            "count": len(recent)
+        }
+
+    @property
     def full_report(self) -> dict:
         """Relatório completo de performance."""
+        recent = self.recent_stats
         return {
             "total_trades": self.total_trades,
             "total_wins": sum(1 for t in self._trades if t.is_winner),
             "total_losses": sum(1 for t in self._trades if not t.is_winner),
             "win_rate": self.win_rate,
+            "recent_win_rate": recent["win_rate"],
+            "recent_expectancy": recent["expectancy"],
             "total_profit": self.total_profit,
             "gross_profit": sum(t.profit for t in self._trades if t.is_winner),
             "gross_loss": abs(sum(t.profit for t in self._trades if not t.is_winner)),
+            "daily_profit": sum(t.profit for t in self._daily_trades if t.is_winner),
+            "daily_loss": abs(sum(t.profit for t in self._daily_trades if not t.is_winner)),
+            "daily_net": sum(t.profit for t in self._daily_trades),
             "profit_factor": self.profit_factor,
             "expectancy": self.expectancy,
             "sharpe_ratio": self.sharpe_ratio,

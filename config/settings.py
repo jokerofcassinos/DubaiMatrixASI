@@ -133,6 +133,8 @@ class ASIState:
         self.total_profit = 0.0
         self.gross_profit = 0.0
         self.gross_loss = 0.0
+        self.daily_gross_profit = 0.0
+        self.daily_gross_loss = 0.0
         self.max_drawdown = 0.0
         self.max_drawdown_pct = 0.0
         self.peak_balance = 0.0
@@ -152,6 +154,8 @@ class ASIState:
         self.total_losses = report.get("total_losses", 0)
         self.gross_profit = report.get("gross_profit", 0.0)
         self.gross_loss = report.get("gross_loss", 0.0)
+        self.daily_gross_profit = report.get("daily_profit", 0.0)
+        self.daily_gross_loss = report.get("daily_loss", 0.0)
         self.max_drawdown = report.get("max_drawdown", 0.0)
         self.max_drawdown_pct = report.get("max_drawdown_pct", 0.0)
         self.peak_balance = report.get("peak_equity", 0.0)
@@ -167,6 +171,8 @@ class ASIState:
             "total_profit": self.total_profit,
             "gross_profit": self.gross_profit,
             "gross_loss": self.gross_loss,
+            "daily_gross_profit": self.daily_gross_profit,
+            "daily_gross_loss": self.daily_gross_loss,
             "max_drawdown": self.max_drawdown,
             "max_drawdown_pct": self.max_drawdown_pct,
             "peak_balance": self.peak_balance,
@@ -190,6 +196,8 @@ class ASIState:
                 self.total_profit = data.get("total_profit", 0.0)
                 self.gross_profit = data.get("gross_profit", 0.0)
                 self.gross_loss = data.get("gross_loss", 0.0)
+                self.daily_gross_profit = data.get("daily_gross_profit", 0.0)
+                self.daily_gross_loss = data.get("daily_gross_loss", 0.0)
                 self.max_drawdown = data.get("max_drawdown", 0.0)
                 self.max_drawdown_pct = data.get("max_drawdown_pct", 0.0)
                 self.peak_balance = data.get("peak_balance", 0.0)

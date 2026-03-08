@@ -86,4 +86,9 @@
 - **Descrição:** O detector de regime utiliza médias M5/M15 que possuem inércia física. Em reversões violentas de <60s, o regime permanece "Bearish" enquanto o preço já explodiu em "Ignition Bullish".
 - **Resolução:** [2026-03-08] Implementada transição instantânea de regime via `_detect_v_pulse` que monitora `tick_velocity` e inversão de candle M1.
 
-*(Atualizado: 2026-03-08. Versão: 10.4.0-omega+phase47)*
+### DÍVIDA TÉCNICA 16: Amnésia Financeira em Regimes HFT — [RESOLVIDO]
+- **Localização:** `execution/trade_registry.py`.
+- **Descrição:** Dissociação entre a 'intenção' capturada e o 'histórico' auditado. Sinais neurais e regimes morriam no envio da ordem, impossibilitando análise post-mortem correta de trades HFT.
+- **Resolução:** [2026-03-08] Implementada persistência síncrona de metadados de entrada no momento do strike, garantindo rastreabilidade total.
+
+*(Atualizado: 2026-03-08. Versão: 11.0.0-omega+data_integrity)*

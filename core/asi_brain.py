@@ -28,6 +28,7 @@ from market.scraper.narrative_distiller import EdgeLLMDistiller
 from core.decision.trinity_core import TrinityCore, Action, Decision
 from core.evolution.performance_tracker import PerformanceTracker
 from core.evolution.self_optimizer import SelfOptimizer
+from execution.trade_registry import registry as trade_registry
 from execution.risk_quantum import RiskQuantumEngine
 from execution.sniper_executor import SniperExecutor
 from execution.position_manager import PositionManager
@@ -103,6 +104,12 @@ class ASIBrain:
         self._last_pnl_prediction = None
         self._last_log_times = {} # key -> float
         self._history_synced = False # [Phase Ω-Darwin]
+        self._reflection_interval = 5      # [Phase Ω-Darwin] 5s p/ Sincronização de Histórico
+        self._last_reflection_time = time.time()
+        
+        # [Phase 40] Self-Optimizer Patch
+        self._evolution_cycle_count = 0
+        self._evolution_check_interval = 200 # Ciclos p/ rodar otimizador
         # [Phase Ω-Darwin] Sincronização inicial: auditar os últimos 7 dias para garantir histórico completo
         self._last_history_poll = time.time() - (86400 * 7) 
 
@@ -115,7 +122,7 @@ class ASIBrain:
         self.java_daemon = None
         try:
             self.java_daemon = subprocess.Popen(
-                ["java", "-cp", "d:\\DubaiMatrixASI\\java\\src", "com.dubaimatrix.PnLPredictor"],
+                ["java", "-cp", "d:\\DubaiMatrixASI\\java\\bin", "com.dubaimatrix.PnLPredictor"],
                 stdout=subprocess.PIPE, stderr=subprocess.PIPE
             )
             log.omega("☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)")
@@ -209,13 +216,28 @@ class ASIBrain:
                     log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
                     self._last_log_times["ign_bypass"] = now
             elif now - last_ign < 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
-                pass
-            else:
-                execution_result = self.executor.execute(
-                    decision, self.state, snapshot
-                )
+                # 5. EXECUÇÃO (Sniper Strike)
+                # [PHASE 48] EXECUTION ATTRIBUTE FIX
+                # O executor é instanciado como self.executor, mas o loop chamava self.sniper
+                execution_result = None
+                if hasattr(self, "executor") and snapshot and decision:
+                    execution_result = self.executor.execute(decision, self.state, snapshot)
+                elif hasattr(self, "sniper") and snapshot and decision:
+                    execution_result = self.sniper.execute(decision, self.state, snapshot)
                 
                 if execution_result and execution_result.get("success"):
+                    # [Phase 48] Dubai-Grade Ignition Observability
+                    phi_val = decision.metadata.get("phi", 0.0)
+                    ignite_badge = "🚀 [V-PULSE IGNITION]" if snapshot.metadata.get("v_pulse_detected") else "🎯 [SNIPER STRIKE]"
+                    
+                    log.omega(
+                        f"{ignite_badge} SUCCESS: {decision.action.value} {snapshot.symbol} | "
+                        f"lots={execution_result.get('lot'):.2f} @ {execution_result.get('price'):.2f} | "
+                        f"Φ={phi_val:.2f} | CONF={decision.confidence:.2f} | "
+                        f"REGIME={decision.regime}"
+                    )
+                    
+                    self.state.last_trade_time = datetime.now(timezone.utc)
                     self._last_log_times[f"ign_{decision.action.value}"] = now
                     result["executed"] = True
                     result["ticket"] = execution_result.get("ticket")
@@ -311,7 +333,7 @@ class ASIBrain:
                         regime=regime_state.current.value,
                         reasoning=recovery_strike["reason"]
                     )
-                    self.executor.execute(rec_decision, self.state, snapshot)
+                    self.sniper.execute(rec_decision, self.state, snapshot)
 
         # ═══ 12. REFLEXÃO (CONSCIOUSNESS FEEDBACK) ═══
         # No primeiro ciclo e a cada 300 ciclos (~30 segundos), audita o histórico real do MT5
@@ -331,9 +353,21 @@ class ASIBrain:
         """
         from core.evolution.performance_tracker import TradeRecord
         
+        # [Phase 49] Auto-detect Commission
+        detected_comm = self.bridge.detect_broker_commission(snapshot.symbol)
+        if detected_comm != OMEGA.get("commission_per_lot"):
+            log.omega(f"📈 [COMMISSION ADAPTATION] Ajustando comissão: ${OMEGA.get('commission_per_lot')} -> ${detected_comm}")
+            OMEGA.set("commission_per_lot", detected_comm, "Phase 49 Auto-Detection")
+            OMEGA.save()
+        
         # [Phase Ω-Resilience] Sincronizar saldo inicial para Drawdown real
         if snapshot and snapshot.account:
-            self.performance_tracker.set_initial_balance(snapshot.account.get('balance', 100000.0))
+            current_balance = snapshot.account.get('balance', 100000.0)
+            # O saldo inicial real = Saldo Atual - Lucro Total Registrado
+            # Isso garante que a curva de equidade termine exatamente no saldo atual.
+            total_hist_profit = self.performance_tracker.total_profit
+            inferred_initial = current_balance - total_hist_profit
+            self.performance_tracker.set_initial_balance(inferred_initial)
         
         # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
         # Na primeira vez, forçamos um scan profundo de 30 dias se o histórico estiver muito curto
@@ -362,46 +396,75 @@ class ASIBrain:
                 continue
             
             processed_count += 1
-            # Recuperar P&L líquido real (Soma dos deals da posição)
+            # Recuperar P&L líquido real consolidando TODOS os deals da posição
             pos_id = deal.get("position_id")
             pos_deals = self.bridge.get_deals_by_position(pos_id)
             
             if not pos_deals:
-                continue
+                pos_deals = [deal] # Fallback caso a API falhe em agrupar
                 
             # Deal de entrada (IN)
             entry_deal = next((d for d in pos_deals if d.get('entry') == 0), None)
             if not entry_deal:
-                continue
+                # Se não achou o IN, foi uma posição aberta antes da janela de scan
+                # Precisamos registrar o P&L mesmo assim para não corromper o Gross Profit/Loss
+                entry_price = 0.0
+                entry_time_val = deal['time']
+                
+                # Tipo do Deal OUT inverte o lado. Se deal = SELL(1), a posicao era BUY.
+                # No MT5, mt5.DEAL_TYPE_BUY é 0, mt5.DEAL_TYPE_SELL é 1.
+                is_buy_position = (deal.get('type') == "SELL" or deal.get('type') == 1)
+                action_str = "BUY" if is_buy_position else "SELL"
+            else:
+                entry_price = entry_deal['price']
+                entry_time_val = entry_deal['time']
+                # Entry deal action é a direção da posição.
+                is_buy_position = (entry_deal.get('type') == "BUY" or entry_deal.get('type') == 0)
+                action_str = "BUY" if is_buy_position else "SELL"
             
-            # Consolidar custos (comissão, swap, fees de TODOS os deals da posição)
-            total_comm = sum(d.get('commission', 0) for d in pos_deals)
-            total_swap = sum(d.get('swap', 0) for d in pos_deals)
-            total_fee = sum(d.get('fee', 0) for d in pos_deals)
-            total_profit = sum(d.get('profit', 0) for d in pos_deals)
+            # Soma total de TUDO daquela posição (Profit + Comm + Swap + Fee)
+            total_comm = sum(d.get('commission', 0.0) for d in pos_deals)
+            total_swap = sum(d.get('swap', 0.0) for d in pos_deals)
+            total_fee = sum(d.get('fee', 0.0) for d in pos_deals)
+            total_profit = sum(d.get('profit', 0.0) for d in pos_deals)
             
-            # [Ω-Class] Alpha Líquido Real
             net_profit = total_profit + total_comm + total_swap + total_fee
             
-            action_str = "BUY" if entry_deal['type'] == 0 else "SELL"
+            # [PHASE Ω-EVOLVE] Recuperar contexto original da intenção (Resolvendo Amnésia Financeira)
+            intent = trade_registry.get_intent(pos_id, ticket=deal['ticket'])
             
+            if intent:
+                regime_label = intent.get("regime", "UNKNOWN")
+                coherence = intent.get("coherence", 0.0)
+                signal_str = intent.get("signal_strength", 0.0)
+                log.info(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
+            else:
+                # Fallback para o snapshot atual (Legado - Indesejado mas necessário para trades órfãos)
+                regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")
+                coherence = 0.0
+                signal_str = 0.0
+                if pos_id > 0:
+                    log.warning(f"⚠️ [AMNESIA] Intent não encontrada para Position #{pos_id}. Usando fallback.")
+
             record = TradeRecord(
                 ticket=deal['ticket'],
                 position_id=pos_id,
                 symbol=deal['symbol'],
                 action=action_str,
-                lot_size=entry_deal['volume'],
-                entry_price=entry_deal['price'],
+                lot_size=deal['volume'],
+                entry_price=entry_price,
                 exit_price=deal['price'],
                 profit=net_profit,
                 commission=total_comm,
                 swap=total_swap,
                 fee=total_fee,
-                entry_time=datetime.fromtimestamp(entry_deal['time'], tz=timezone.utc).isoformat(),
+                entry_time=datetime.fromtimestamp(entry_time_val, tz=timezone.utc).isoformat(),
                 exit_time=datetime.fromtimestamp(deal['time'], tz=timezone.utc).isoformat(),
-                regime_at_entry=snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN"),
-                session=self._get_session_name(entry_deal['time']),
-                duration_seconds=float(deal['time'] - entry_deal['time'])
+                regime_at_entry=regime_label,
+                coherence_at_entry=coherence,
+                signal_strength=signal_str,
+                session=self._get_session_name(entry_time_val),
+                duration_seconds=float(deal['time'] - entry_time_val)
             )
             
             # Registrar na consciência permanente
@@ -419,9 +482,9 @@ class ASIBrain:
         # Atualizar relatório e estado da ASI
         report = self.performance_tracker.full_report
         self.state.update_from_report(report)
-        
-        # 4. Auto-Otimização Darwiniana (Phase 5)
-        self.self_optimizer.check_and_optimize(self.performance_tracker)
+        # [Phase Ω-Evolve] Darwinian Self-Optimization
+        if hasattr(self, 'self_optimizer'):
+            self.self_optimizer.check_and_optimize(300) # Force optimization every reflection window
 
         log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals na fita, {processed_count} fechamentos analisados, {new_count} novos registros. P&L Líquido: ${self.state.total_profit:+.2f}")
 

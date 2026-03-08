@@ -22,6 +22,7 @@ import numpy as np
 from config.omega_params import OMEGA
 from config.exchange_config import MIN_LOT_SIZE
 from utils.logger import log
+from execution.trade_registry import registry as trade_registry
 from utils.decorators import retry, timed, catch_and_log
 
 
@@ -281,19 +282,23 @@ class SniperExecutor:
                 log.warning("❌ Limite de posições EXAURIDO. Não é possível abrir novas ordens.")
                 return None
         
-        # 4.2. Margin Check & Maximum Margin Extraction (Phase 37)
+        # 4.2. Margin Check & Maximum Margin Extraction (Phase 37 + Phase 48 Alpha Integrity)
         required_margin = self.bridge.calculate_margin(decision.action.value, final_lot, decision.entry_price)
-        free_margin = account.get("free_margin", 0)
+        free_margin = snapshot.account.get("margin_free", 0) # Use margin_free for more accuracy
+        
+        # [Phase 48] Commission-Aware Margin: Subtract expected commissions from usable fund
+        comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+        expected_commission = final_lot * comm_per_lot
         
         # [Phase 37] Margin Safety Buffer: Previne rejeição por milésimos ou volatilidade
         safety_buffer = OMEGA.get("margin_safety_buffer", 0.10)
-        usable_margin = free_margin * (1.0 - safety_buffer)
+        usable_margin = (free_margin - expected_commission) * (1.0 - safety_buffer)
 
         if required_margin is not None and free_margin > 0:
             if required_margin > usable_margin: # Se precisar de mais do que a margem segura
                 old_lot = final_lot
                 # Calcula o fator de redução para usar no máximo usable_margin
-                scaling_factor = usable_margin / required_margin
+                scaling_factor = max(0.01, usable_margin / required_margin)
                 final_lot = final_lot * scaling_factor
                 
                 # Arredondar para o step do lote
@@ -305,8 +310,8 @@ class SniperExecutor:
                 now = time.time()
                 if now - self._last_log_times.get("margin_clawback", 0) > 60.0:
                     log.omega(
-                        f"⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de {old_lot:.2f} para {final_lot:.2f} "
-                        f"para caber na margem livre (${free_margin:.2f})"
+                        f"⚡ MARGIN-COMMISSION CLAWBACK (Phase 48): Escalonando lote de {old_lot:.2f} para {final_lot:.2f} "
+                        f"pós-taxas (${expected_commission:.2f}) e margem (${free_margin:.2f})"
                     )
                     self._last_log_times["margin_clawback"] = now
         
@@ -402,7 +407,7 @@ class SniperExecutor:
             delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]
             
         log.omega(
-            f"🎯 DECISION REALIZED: {decision.action.value} "
+            f"🎯 DECISION: {decision.action.value} "
             f"lot={final_lot:.2f} (em {num_nodes} nodes) "
             f"price={decision.entry_price:.2f} "
             f"SL={decision.stop_loss:.2f} TP={decision.take_profit:.2f} "
@@ -485,6 +490,15 @@ class SniperExecutor:
         if not results:
             log.error("❌ Execução falhou: todas as tentativas retornaram erro no MT5")
             return None
+
+        # [PHASE Ω-EVOLVE] Register Intents for Amnesia Prevention
+        for res in results:
+            ticket = res.get("ticket", 0)
+            trade_registry.register_intent(
+                ticket=ticket,
+                intent=decision,
+                snapshot=snapshot
+            )
 
         # 5. Sucesso!
         self._execution_count += 1

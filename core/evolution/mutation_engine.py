@@ -165,20 +165,45 @@ class MutationEngine:
         log.omega("🧬 Mutações revertidas para melhor genome conhecido")
 
     def _compute_fitness(self, perf: dict) -> float:
-        """Calcula fitness score baseado em performance."""
+        """
+        Calcula fitness score baseado em performance líquida (Net Alpha).
+        [Phase 36] Commission-Aware Evolutionary Fitness.
+        """
         wr = perf.get("win_rate", 0)
         pf = perf.get("profit_factor", 0)
-        total_profit = perf.get("total_profit", 0)
+        total_profit = perf.get("total_profit", 0) # Já deve ser NET
         max_dd = perf.get("max_drawdown", 0)
         trades = perf.get("total_trades", 0)
+        avg_commission = perf.get("avg_commission", 15.0)
 
-        # Fitness: combinação ponderada de métricas
+        # Fitness: Foco absoluto em crescimento Real (Líquido)
         fitness = 0.0
-        fitness += wr * 40                              # Win rate (40 pontos max)
-        fitness += min(pf, 5) * 10                      # Profit factor (50 pontos max)
-        fitness += min(total_profit / 100, 20)           # Profit total (20 pontos max)
-        fitness -= max_dd * 0.5                          # Penalidade por drawdown
-        fitness += min(trades, 100) * 0.1                # Bônus por volume de trades
+        
+        # Win Rate (30 pts) - Reduzido peso para favorecer Net Profit
+        fitness += wr * 30                              
+        
+        # Profit Factor (40 pts) - Medida de eficiência
+        fitness += min(pf, 4) * 10                      
+        
+        # Alpha Líquido (50 pts) - O motor real de riqueza
+        # Penaliza se o lucro não cobrir as comissões de forma saudável
+        fitness += min(total_profit / 100, 50)           
+        
+        # Penalidade por Drawdown (Agravada)
+        fitness -= max_dd * 0.75                         
+        
+        # Bônus por Volume (Apenas se PF > 1.1)
+        if pf > 1.1:
+            fitness += min(trades, 200) * 0.05
+        
+        # PENALIDADE DE COMISSÃO (Anti-Churn)
+        # Se comissão devora +50% do lucro bruto, fitness cai drasticamente
+        if total_profit > 0:
+            gross = total_profit + abs(perf.get("total_commission", 0))
+            if gross > 0:
+                comm_ratio = abs(perf.get("total_commission", 0)) / gross
+                if comm_ratio > 0.5:
+                    fitness *= (1.0 - comm_ratio)
 
         return fitness
 
