@@ -134,6 +134,7 @@ class ASIState:
         self.gross_profit = 0.0
         self.gross_loss = 0.0
         self.max_drawdown = 0.0
+        self.max_drawdown_pct = 0.0
         self.peak_balance = 0.0
         self.agent_weights = {}          # Pesos dinâmicos de cada agente neural
         self.regime_history = []         # Histórico de regimes detectados
@@ -152,6 +153,7 @@ class ASIState:
         self.gross_profit = report.get("gross_profit", 0.0)
         self.gross_loss = report.get("gross_loss", 0.0)
         self.max_drawdown = report.get("max_drawdown", 0.0)
+        self.max_drawdown_pct = report.get("max_drawdown_pct", 0.0)
         self.peak_balance = report.get("peak_equity", 0.0)
 
     def save(self):

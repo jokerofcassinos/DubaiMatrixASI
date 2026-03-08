@@ -64,9 +64,9 @@ class PerformanceTracker:
 
     def __init__(self):
         self._trades: List[TradeRecord] = []
-        self._initial_balance: float = 100000.0 # Default fallback
-        self._equity_curve: List[float] = [] # Will be initialized on first trade or load
-        self._peak_equity: float = 0.0
+        self._initial_balance: float = OMEGA.get("initial_balance_safety", 100000.0)
+        self._equity_curve: List[float] = [self._initial_balance]
+        self._peak_equity: float = self._initial_balance
         self._max_drawdown: float = 0.0
         self._max_drawdown_pct: float = 0.0
         self._consecutive_wins: int = 0
@@ -80,39 +80,42 @@ class PerformanceTracker:
         self._load_history()
 
     def set_initial_balance(self, balance: float):
-        """Define o saldo inicial para cálculos de drawdown real."""
-        if not self._equity_curve:
+        """
+        Ajusta o ponto de partida da curva de equidade. 
+        Se a curva só tem o valor inicial default, nós a corrigimos.
+        """
+        if len(self._equity_curve) == 1 and abs(self._equity_curve[0] - balance) > 1.0:
+            old_val = self._equity_curve[0]
             self._initial_balance = balance
             self._equity_curve = [balance]
-            self._peak_equity = balance
+            self._peak_equity = max(self._peak_equity, balance)
+            log.debug(f"📊 Balance Reset: {old_val} -> {balance}")
 
     def record_trade(self, trade: TradeRecord) -> bool:
         """Registra um novo trade completado ou atualiza existente. Retorna True se for novo."""
-        # [CRITICAL FIX] Always validate win status based on final net profit
-        # Do this BEFORE any returns to ensure updates carry the correct status
+        # [CRITICAL FIX] Win status must be based on net profit
         trade.is_winner = trade.profit > 0
 
         # [Phase Ω-Darwin] Deduplication & Update Check
         for i, existing in enumerate(self._trades):
             if existing.ticket == trade.ticket:
-                # Atualização: Se o lucro ou dados mudaram, sobrescrevemos
+                # Se o profit mudou, precisamos recalcular a curva (raro mas possível em atualizações de swap)
+                profit_diff = trade.profit - existing.profit
                 self._trades[i] = trade
+                if abs(profit_diff) > 0.01:
+                    self._rebuild_equity_curve()
                 self._save_history()
                 return False
 
-        # [Phase 36] Commission Deduction (Skip if already calculated by Brain)
+        # [Phase 36] Commission Deduction
         if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
             comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
             trade.commission = -(trade.lot_size * comm_per_lot)
             trade.profit += trade.commission 
-            trade.is_winner = trade.profit > 0 # Re-check after commission
+            trade.is_winner = trade.profit > 0
 
         self._trades.append(trade)
         self._ticket_index.add(trade.ticket)
-
-        # Inicializar curva se vazia
-        if not self._equity_curve:
-            self._equity_curve = [self._initial_balance]
 
         # Atualizar equity curve (Saldo Absoluto)
         current_equity = self._equity_curve[-1] + trade.profit
@@ -127,7 +130,8 @@ class PerformanceTracker:
             self._max_drawdown = dd
         
         if self._peak_equity > 0:
-            dd_pct = (dd / self._peak_equity) * 100.0
+            # [Phase Ω-Resilience] Drawdown % real sobre o capital (Fração 0.0 - 1.0)
+            dd_pct = (dd / self._peak_equity)
             if dd_pct > self._max_drawdown_pct:
                 self._max_drawdown_pct = dd_pct
 
@@ -135,24 +139,68 @@ class PerformanceTracker:
         if trade.is_winner:
             self._consecutive_wins += 1
             self._consecutive_losses = 0
-            if self._consecutive_wins > self._max_consecutive_wins:
-                self._max_consecutive_wins = self._consecutive_wins
+            self._max_consecutive_wins = max(self._max_consecutive_wins, self._consecutive_wins)
         else:
             self._consecutive_losses += 1
             self._consecutive_wins = 0
-            if self._consecutive_losses > self._max_consecutive_losses:
-                self._max_consecutive_losses = self._consecutive_losses
+            self._max_consecutive_losses = max(self._max_consecutive_losses, self._consecutive_losses)
 
         # Persistir
         self._save_history()
 
         log.info(
             f"📊 Trade Recorded: {trade.action} #{trade.ticket} | "
-            f"P&L=${trade.profit:+.2f} | Pips={trade.pips:+.1f} | "
+            f"P&L=${trade.profit:+.2f} | "
             f"{'✅ WIN' if trade.is_winner else '❌ LOSS'} | "
             f"Regime={trade.regime_at_entry}"
         )
         return True
+
+    def _rebuild_equity_curve(self):
+        """Recalcula toda a curva de equidade e drawdown do zero."""
+        self._equity_curve = [self._initial_balance]
+        self._peak_equity = self._initial_balance
+        self._max_drawdown = 0.0
+        self._max_drawdown_pct = 0.0
+        
+        for t in self._trades:
+            current = self._equity_curve[-1] + t.profit
+            self._equity_curve.append(current)
+            if current > self._peak_equity:
+                self._peak_equity = current
+            dd = self._peak_equity - current
+            self._max_drawdown = max(self._max_drawdown, dd)
+            if self._peak_equity > 0:
+                self._max_drawdown_pct = max(self._max_drawdown_pct, (dd / self._peak_equity))
+
+    def _load_history(self):
+        """Carrega histórico de trades persistido."""
+        try:
+            if os.path.exists(self._trades_file):
+                with open(self._trades_file, "r") as f:
+                    data = json.load(f)
+                
+                temp_trades = []
+                for item in data:
+                    t = TradeRecord(**item)
+                    t.is_winner = t.profit > 0
+                    temp_trades.append(t)
+                
+                # Sort trades by time
+                temp_trades.sort(key=lambda x: x.entry_time)
+
+                for trade in temp_trades:
+                    if trade.ticket in self._ticket_index:
+                        continue
+                    self._trades.append(trade)
+                    self._ticket_index.add(trade.ticket)
+
+                self._rebuild_equity_curve()
+
+                if self._trades:
+                    log.info(f"📂 Carregados {len(self._trades)} trades do histórico. WR={self.win_rate:.1%}")
+        except Exception as e:
+            log.error(f"Erro ao carregar histórico: {e}")
 
     @property
     def total_trades(self) -> int:
@@ -277,6 +325,7 @@ class PerformanceTracker:
             "by_regime": self.win_rate_by_regime(),
             "by_session": self.win_rate_by_session(),
             "by_direction": self.win_rate_by_direction(),
+            "peak_equity": self._peak_equity,
         }
 
     def _save_history(self):
@@ -288,30 +337,3 @@ class PerformanceTracker:
                 json.dump(data, f, indent=2)
         except Exception as e:
             log.error(f"Erro ao salvar histórico de trades: {e}")
-
-    def _load_history(self):
-        """Carrega histórico de trades persistido."""
-        try:
-            if os.path.exists(self._trades_file):
-                with open(self._trades_file, "r") as f:
-                    data = json.load(f)
-                for item in data:
-                    trade = TradeRecord(**item)
-                    if trade.ticket in self._ticket_index:
-                        continue
-                    
-                    # [CRITICAL FIX] Recalculate win status on load
-                    trade.is_winner = trade.profit > 0
-
-                    self._trades.append(trade)
-                    self._ticket_index.add(trade.ticket)
-
-                    equity = self._equity_curve[-1] + trade.profit
-                    self._equity_curve.append(equity)
-                    if equity > self._peak_equity:
-                        self._peak_equity = equity
-
-                if self._trades:
-                    log.info(f"📂 Carregados {len(self._trades)} trades do histórico")
-        except Exception as e:
-            log.error(f"Erro ao carregar histórico: {e}")
