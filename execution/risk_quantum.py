@@ -62,10 +62,15 @@ class RiskQuantumEngine:
         
         # [Phase Ω-Resilience] Commission-Aware Math:
         # Deduct estimated cost from avg_win to optimize for NET alpha.
-        # Fixed cost per lot scaled to the price displacement equivalent.
-        aw_net = max(1.0, avg_win - (OMEGA.get("commission_per_lot", 7.0) * max(1.0, lot_size_guess if 'lot_size_guess' in locals() else 1.0)))
+        comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+        min_target = OMEGA.get("min_profit_per_ticket", 30.0)
+        
+        # OMEGA-CLASS: Baseline Move deve ser pelo menos a comissão + o lucro alvo do CEO
+        baseline_move = max(min_target + comm_per_lot, atr * 0.5) 
+        
+        aw_net = max(1.0, avg_win - (comm_per_lot * max(1.0, lot_size_guess if 'lot_size_guess' in locals() else 1.0)))
         aw = max(baseline_move, aw_net)
-        al = max(baseline_move, avg_loss + OMEGA.get("commission_per_lot", 7.0)) # Loss is even worse with comms
+        al = max(baseline_move, avg_loss + comm_per_lot) # Loss is even worse with comms
         rr = aw / al
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══

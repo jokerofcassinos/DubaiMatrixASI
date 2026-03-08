@@ -127,8 +127,10 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para take profit (Recalibrado Phase 46)")
         self._register("trailing_stop_atr_mult", 0.5, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
-        self._register("commission_per_lot", 7.0, 0.0, 50.0,
+        self._register("commission_per_lot", 15.0, 0.0, 50.0,
                         "Comissão estimada por lote (Round Turn, $)")
+        self._register("min_profit_per_ticket", 30.0, 0.0, 500.0,
+                        "Lucro líquido mínimo exigido por ordem/ticket ($)")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
                         "Multiplicador de cobertura de comissão para Smart TP")
         self._register("margin_safety_buffer", 0.10, 0.01, 0.50,

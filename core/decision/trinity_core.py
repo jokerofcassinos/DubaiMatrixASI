@@ -136,16 +136,18 @@ class TrinityCore:
             dynamic_conf_min *= 0.85
         elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL"]:
             # [PHASE Ω-ANTI-FRAGILITY] Drifting/Compression regimes are noisy.
-            # Normal logic: 1.5x signal mult.
-            # [EPA - Entropy Phase-Attractor]: If entropy is low, we relax even in drifting.
-            if quantum_state.entropy < 0.6 and limit_mode:
-                mult = 1.1 # EPA Attraction: Low noise + Maker execution = High Alpha
+            # [EPA - Entropy Phase-Attractor]: If entropy is low and we have v-pulse/ignition, we relax thresholds.
+            # In Phase 48, we reduce the 'mult' from 1.5x to 1.1x if ignition is confirmed.
+            has_ignition = snapshot.metadata.get("v_pulse_detected", False)
+            
+            if quantum_state.entropy < 0.6 and (limit_mode or has_ignition):
+                mult = 1.05 if has_ignition else 1.1  # EPA Attraction: Ignition sovereign
             else:
-                mult = 1.25 if quantum_state.phi > 0.3 else 1.5
+                mult = 1.15 if quantum_state.phi > 0.3 else 1.25 # Relaxed from 1.5
                 
             dynamic_buy_thresh *= mult
             dynamic_sell_thresh *= mult
-            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
+            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05) # Relaxed from 1.1
 
         elif regime_state.current.value in ["HIGH_VOL_CHAOS", "CHOPPY"]:
             # Em caos e chop, a exigência de sinal é muito mais estrita

@@ -160,6 +160,13 @@ class RegimeDetector:
         transition_prob = self._estimate_transition_probability(regime, features)
         predicted_next = self._predict_next_regime(regime, features)
 
+        # ═══ [PHASE 48] V-PULSE OVERRIDE ═══
+        v_pulse = self._detect_v_pulse(snapshot)
+        if v_pulse:
+            regime = v_pulse
+            confidence = max(confidence, 0.85)
+            reasoning = f"[PHASE 48: V-PULSE] {reasoning}"
+
         # Atualizar duração
         if regime == self._current_regime:
             self._regime_duration += 1
@@ -184,6 +191,46 @@ class RegimeDetector:
             reasoning=reasoning,
             duration_bars=self._regime_duration,
         )
+
+    def _detect_v_pulse(self, snapshot) -> Optional[MarketRegime]:
+        """
+        Detecta pulsações de alta velocidade (V-Pulse) via M1.
+        Evita a inércia do M5 em reversões violentas.
+        """
+        candles_m1 = snapshot.candles.get("M1")
+        if not candles_m1 or len(candles_m1.get("close", [])) < 5:
+            return None
+
+        closes = np.array(candles_m1["close"], dtype=np.float64)
+        
+        # 1. Delta Instantâneo (V-Shape)
+        # Se os últimos 2 candles M1 anularam a queda dos 3 anteriores
+        if len(closes) >= 5:
+            d3 = closes[-3] - closes[-5] # Queda anterior
+            d2 = closes[-1] - closes[-3] # Recuperação atual
+            
+            # Se caiu X e subiu > X * 0.8 (V-Recovery)
+            atr_m5 = snapshot.indicators.get("M5_atr_14")
+            current_atr = atr_m5[-1] if atr_m5 is not None and len(atr_m5) > 0 else 0
+            
+            if d3 < 0 and d2 > abs(d3) * 0.8 and abs(d3) > current_atr * 1.5 and current_atr > 0:
+                return MarketRegime.BREAKOUT_UP
+
+            # Se subiu X e caiu > X * 0.8 (V-Reversal Top)
+            if d3 > 0 and d2 < -d3 * 0.8 and d3 > current_atr * 1.5 and current_atr > 0:
+                return MarketRegime.BREAKOUT_DOWN
+
+        # 2. HFT Explosion (Supernova Ignition)
+        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+        if tick_velocity > 35.0:
+            # Se o preço está se movendo na direção oposta ao regime atual
+            price_delta_m1 = closes[-1] - closes[-2]
+            if price_delta_m1 > 0 and self._current_regime == MarketRegime.TRENDING_BEAR:
+                return MarketRegime.BREAKOUT_UP
+            if price_delta_m1 < 0 and self._current_regime == MarketRegime.TRENDING_BULL:
+                return MarketRegime.BREAKOUT_DOWN
+
+        return None
 
     def _classify_regime(self, f: dict) -> Tuple[MarketRegime, float, str]:
         """Classifica o regime baseado em features."""

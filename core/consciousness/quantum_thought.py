@@ -206,8 +206,12 @@ class QuantumThoughtEngine:
                         s.reasoning += " [!TRAP_VETO: SMART MONEY SELLING RESISTANCE!]"
 
 
-        # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29) ═══
-        # Se os agentes cinéticos apontam ignição parabólica, MAS a estrutura global diverge ou é neutra.
+        # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29/48) ═══
+        # [PHASE 48 REFINEMENT]: Soberania de Ignição. 
+        # Se houver uma explosão real confirmada por V-Pulse no regime, 
+        # o dampening estrutural é relaxado para permitir breakouts.
+        ignition_sovereign = any(s.agent_name in ["ExplosionDetectorAgent", "PriceVelocityAgent"] and abs(s.signal) > 0.9 for s in valid_signals)
+        
         aggr_bull = any(s.agent_name in ["AggressivenessAgent", "PriceVelocityAgent", "ExplosionDetectorAgent"] and s.signal > 0.8 for s in valid_signals)
         aggr_bear = any(s.agent_name in ["AggressivenessAgent", "PriceVelocityAgent", "ExplosionDetectorAgent"] and s.signal < -0.8 for s in valid_signals)
         
@@ -215,18 +219,20 @@ class QuantumThoughtEngine:
         struct_bull = any(s.agent_name in ["ChartStructureAgent", "MarketStructureShiftAgent", "OrderBlockAgent", "LiquidityHeatmapAgent"] and s.signal > 0.3 for s in valid_signals)
         
         if aggr_bull and not struct_bull:
+            damp_factor = 0.5 if ignition_sovereign else 0.1 # Suavizado se houver ignição
             for s in valid_signals:
                 if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
                     if s.signal > 0.4:
-                        s.weight *= 0.1
-                        s.reasoning += " [!TRAP: STRUCTURAL DIVERGENCE (Bull Burst vs Flat/Bear Structure)!]"
+                        s.weight *= damp_factor
+                        s.reasoning += f" [!STRUCTURAL DIVERGENCE DAMPENED ({damp_factor})!]"
                         
         if aggr_bear and not struct_bear:
+            damp_factor = 0.5 if ignition_sovereign else 0.1
             for s in valid_signals:
                 if s.agent_name in ["MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "ExplosionDetectorAgent"]:
                     if s.signal < -0.4:
-                        s.weight *= 0.1
-                        s.reasoning += " [!TRAP: STRUCTURAL DIVERGENCE (Bear Burst vs Flat/Bull Structure)!]"
+                        s.weight *= damp_factor
+                        s.reasoning += f" [!STRUCTURAL DIVERGENCE DAMPENED ({damp_factor})!]"
 
         # ═══ [OMEGA INJECTION] PHASE 33: ADAPTIVE ELASTIC SNAPBACK VETO (Multi-Agent Strain) ═══
         # Proteção contra vender no fundo absoluto da corda esticada ou comprar no topo exausto.

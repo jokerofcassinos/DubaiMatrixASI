@@ -332,7 +332,7 @@ class ASIBrain:
                 exit_price=deal.get("price", 0.0),
                 profit=net_profit,
                 is_winner=(net_profit > 0),
-                regime_at_entry=snapshot.regime.value if snapshot.regime else "UNKNOWN",
+                regime_at_entry=getattr(snapshot.regime, "value", "UNKNOWN") if snapshot.regime else "UNKNOWN",
                 exit_time=deal.get("time", "")
             )
             

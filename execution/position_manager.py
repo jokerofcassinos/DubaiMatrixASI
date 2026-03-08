@@ -173,14 +173,19 @@ class PositionManager:
             lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
             
             # FTMO/ECN Commission cost estimate
-            commission_cost = lot_scale * OMEGA.get("commission_per_lot", 7.0)
+            commission_cost = lot_scale * OMEGA.get("commission_per_lot", 15.0)
             
+            # [Phase 36.1] CEO Hard Floor: Min profit per ticket
+            min_profit_per_ticket = OMEGA.get("min_profit_per_ticket", 30.0)
+            total_min_profit_target = len(g_tickets) * min_profit_per_ticket
+
             # Floor = Commission * Multiplier + (10% of 1 ATR scaled by volume)
             comm_mult = OMEGA.get("commission_protection_mult", 1.5)
-            dynamic_peak_floor = max(commission_cost * comm_mult, atr_val * 0.1 * lot_scale) 
+            # The peak floor must be at least the total minimum profit target
+            dynamic_peak_floor = max(total_min_profit_target, commission_cost * comm_mult, atr_val * 0.1 * lot_scale) 
 
-            # [Phase 36] Alpha-Net Guard: Prevent Smart TP from locking in a net loss
-            is_net_positive = (total_profit > commission_cost * 1.1)
+            # [Phase 36.1] Alpha-Net Guard: Absolute Floor Enforcement
+            is_net_positive = (total_profit >= total_min_profit_target)
 
             if peak > dynamic_peak_floor:
                 drawdown_pct = 0.0
@@ -194,68 +199,47 @@ class PositionManager:
                 if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
                 
                 # Nuke se evaporar > threshold OU se caiu de lucro alto para < floor
-                # Apenas se estiver em lucro líquido (Alpha-Net Guard)
+                # Apenas se estiver em lucro líquido real (Alpha-Net Guard)
                 if is_net_positive:
                     if drawdown_pct >= lock_threshold or (peak > dynamic_peak_floor * 2.0 and total_profit < dynamic_peak_floor):
                         should_close = True
                         reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL (with Hysteresis)
+            #  SECONDARY TRIGGERS: Only fire if Net Positive floor is met (Alpha-Net Guard)
             # ═══════════════════════════════════════════════════
-            if not should_close and total_profit > 1.0:
+            if not should_close and is_net_positive:
+                #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL (with Hysteresis)
                 buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 20.0)
                 
-                # [Phase Ω-Resilience] Hysteresis Logic:
-                # In low profit states, we need a MASSIVE reversal to exit. 
-                # Don't let noise kill a potential home run.
                 if total_profit < buffer_tp * 0.5:
-                    req_delta = 600   # Needs double the standard pressure
-                    req_signal = 0.95 # Needs near unanimity
+                    req_delta, req_signal = 600, 0.95
                 elif total_profit > buffer_tp:
-                    req_delta = 50    # High profit = protect immediately
-                    req_signal = 0.3
+                    req_delta, req_signal = 50, 0.3
                 else:
-                    req_delta = 300
-                    req_signal = 0.85
+                    req_delta, req_signal = 300, 0.85
                 
                 if g_is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
-                    should_close = True
-                    reason = "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
+                    should_close, reason = True, "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
                 elif not g_is_buy and flow_delta > req_delta and flow_signal > req_signal:
-                    should_close = True
-                    reason = "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
+                    should_close, reason = True, "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
 
-            # ═══════════════════════════════════════════════════
-            #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
-            # ═══════════════════════════════════════════════════
-            if not should_close and total_profit > 0.5:
-                is_exh = exhaustion.get("detected", False)
-                is_abs = absorption.get("detected", False)
-                if (is_exh or is_abs) and climax_score > 3.0:
-                    should_close = True
-                    reason = f"ATOMIC_EXHAUSTION (Climax={climax_score:.1f})"
+                #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
+                if not should_close:
+                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 3.0:
+                        should_close, reason = True, f"ATOMIC_EXHAUSTION (Climax={climax_score:.1f})"
 
-            # ═══════════════════════════════════════════════════
-            #  TRIGGER 4: MICRO-STAGNATION EXIT (Phase 46)
-            # ═══════════════════════════════════════════════════
-            if not should_close and total_profit > 5.0:
-                stag_time = time.time() - state.get("last_price_change_time", time.time())
-                if stag_time >= 4.0:
-                    should_close = True
-                    reason = f"MICRO_STAGNATION (Flat for {stag_time:.1f}s)"
+                #  TRIGGER 4: MICRO-STAGNATION EXIT
+                if not should_close and total_profit > dynamic_peak_floor:
+                    stag_time = time.time() - state.get("last_price_change_time", time.time())
+                    if stag_time >= 4.0:
+                        should_close, reason = True, f"ATOMIC_STAGNATION ({stag_time:.1f}s)"
 
-            # ═══════════════════════════════════════════════════
-            #  TRIGGER 5: ATOMIC TIME DECAY
-            # ═══════════════════════════════════════════════════
-            if not should_close:
-                elapsed = time.time() - state['start_time']
-                if elapsed > 120 and total_profit > 2.0: # 2min scalp profit target
-                    should_close = True
-                    reason = f"ATOMIC_TIME_DECAY: {elapsed:.0f}s"
-                elif elapsed > 360: # 6min total cut
-                    should_close = True
-                    reason = f"ATOMIC_TIME_CUT: {elapsed:.0f}s"
+                #  TRIGGER 5: ATOMIC TIME DECAY
+                if not should_close:
+                    elapsed = time.time() - state['start_time']
+                    if elapsed > 120: 
+                        should_close, reason = True, f"ATOMIC_TIME_DECAY: {elapsed:.0f}s"
 
             #  EJETAR GRUPO INTEIRO
             # ═══════════════════════════════════════════════════

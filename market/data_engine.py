@@ -38,6 +38,7 @@ class MarketSnapshot:
         self.indicators = {}             # Indicadores calculados
         self.account = None              # Info da conta
         self.symbol_info = None          # Info do símbolo
+        self.regime = None               # [PHASE 37+] Regime de mercado (ENUM)
         self.metadata = {}               # Metadados extras
         self.raw_timestamp = int(self.timestamp.timestamp() * 1000) # MS timestamp para executor
         self._price_history_ref = []     # Referência para histórico de preços (Phase Ω-Extreme)

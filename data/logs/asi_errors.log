@@ -4510,3 +4510,4 @@
 [DubaiMatrixASI] 23:59:55.632    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
 [DubaiMatrixASI] 23:59:55.806    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
 [DubaiMatrixASI] 23:59:56.051    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 00:57:19.387    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'MarketSnapshot' object has no attribute 'regime'

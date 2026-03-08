@@ -52,8 +52,8 @@
 
 ### DÍVIDA TÉCNICA 09: MarketSnapshot Attribute Fragmentation — [RESOLVIDO]
 - **Localização:** `market/data_engine.py`.
-- **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus.
-- **Resolução:** [2026-03-07] Implementado `MarketSnapshot` com properties `@property` para `close`, `atr`, `high`, `low`, unificando a percepção neural.
+- **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus. Adicionado atributo `regime` para evitar crashes em fases de reflexão.
+- **Resolução:** [2026-03-08] Unificação final do schema do Snapshot.
 
 ### DÍVIDA TÉCNICA 10: MFG Reward Linearization — [NOVO]
 - **Localização:** `core/consciousness/agents/mean_field_game_agent.py`.
