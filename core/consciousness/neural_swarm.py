@@ -286,6 +286,8 @@ class NeuralSwarm:
             ConfidenceAggregatorAgent(),
             ExecutionScalerAgent(),
         ]
+        # Remover agentes que não foram inicializados (None)
+        self.agents = [a for a in self.agents if a is not None]
 
     @ast_self_heal
     def analyze(self, snapshot, orderflow_analysis: dict = None, **kwargs) -> List[AgentSignal]:

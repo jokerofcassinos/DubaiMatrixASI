@@ -172,8 +172,9 @@ class PositionManager:
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
             lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
             
-            # FTMO/ECN Commission cost estimate
-            commission_cost = lot_scale * OMEGA.get("commission_per_lot", 15.0)
+            # [Phase Ω-Resilience] Dynamic Commission Extraction
+            comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
+            commission_cost = lot_scale * comm_per_lot
             
             # [Phase 36.1] CEO Hard Floor: Min profit per ticket
             min_profit_per_ticket = OMEGA.get("min_profit_per_ticket", 30.0)

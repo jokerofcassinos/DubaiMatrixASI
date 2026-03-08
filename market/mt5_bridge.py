@@ -12,7 +12,7 @@ import time
 import socket
 import threading
 import numpy as np
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Optional, Dict, List, Tuple
 from collections import deque
 
@@ -538,6 +538,7 @@ class MT5Bridge:
             "spread": info.spread,
             "point": info.point,
             "digits": info.digits,
+            "stops_level": info.trade_stops_level,
             "volume_min": info.volume_min,
             "volume_max": info.volume_max,
             "volume_step": info.volume_step,
@@ -945,6 +946,108 @@ class MT5Bridge:
                     closed += 1
         log.omega(f"🔴 EMERGENCY: {closed}/{len(positions)} posições fechadas")
         return closed
+
+    # ═══════════════════════════════════════════════════════════
+    #  HISTÓRICO & AUDITORIA
+    # ═══════════════════════════════════════════════════════════
+
+    def get_closed_deals(self, from_date: datetime, to_date: datetime) -> List[dict]:
+        """Recupera deals do histórico no período solicitado."""
+        if not self.connected:
+            return []
+        
+        deals = mt5.history_deals_get(from_date, to_date, group=f"*{self.symbol}*")
+        if deals is None:
+            return []
+        
+        # Mapear objetos MT5 para dicionários limpos
+        result = []
+        for d in deals:
+            # Pegar apenas DEALS de saída (entry out / entry out by)
+            # Mas para auditoria de comissão/swap, precisamos de todos
+            result.append({
+                "ticket": d.ticket,
+                "order": d.order,
+                "time": d.time,
+                "time_msc": d.time_msc,
+                "type": "BUY" if d.type == mt5.DEAL_TYPE_BUY else "SELL",
+                "entry": d.entry, # 0=IN, 1=OUT, 2=INOUT, 3=OUT_BY
+                "magic": d.magic,
+                "position_id": d.position_id,
+                "volume": d.volume,
+                "price": d.price,
+                "commission": d.commission,
+                "swap": d.swap,
+                "profit": d.profit,
+                "fee": d.fee,
+                "symbol": d.symbol,
+                "comment": d.comment
+            })
+        return result
+
+    def get_deals_by_position(self, position_id: int) -> List[dict]:
+        """Recupera todos os deals associados a uma posição específica."""
+        if not self.connected:
+            return []
+        
+        deals = mt5.history_deals_get(position=position_id)
+        if deals is None:
+            return []
+            
+        result = []
+        for d in deals:
+            result.append({
+                "ticket": d.ticket,
+                "order": d.order,
+                "time": d.time,
+                "type": "BUY" if d.type == mt5.DEAL_TYPE_BUY else "SELL",
+                "entry": d.entry,
+                "magic": d.magic,
+                "position_id": d.position_id,
+                "volume": d.volume,
+                "price": d.price,
+                "commission": d.commission,
+                "swap": d.swap,
+                "profit": d.profit,
+                "comment": d.comment
+            })
+        return result
+
+    @catch_and_log(default_return=7.0)
+    def get_dynamic_commission_per_lot(self) -> float:
+        """
+        [Phase Ω-Resilience] Calcula a comissão média por lote baseada no histórico real.
+        Evita valores hardcoded e se adapta a diferentes corretoras/contas.
+        """
+        if not self.connected:
+            return 7.0 # Default FTMO/Standard safety
+
+        # Pegar deals das últimas 24h
+        to_date = datetime.now()
+        from_date = to_date - timedelta(days=1)
+        
+        deals = mt5.history_deals_get(from_date, to_date, group=f"*{self.symbol}*")
+        if deals is None or len(deals) == 0:
+            # Se não houver trades nas últimas 24h, tenta os últimos 100 deals
+            deals = mt5.history_deals_get(to_date - timedelta(days=30), to_date, group=f"*{self.symbol}*")
+            if deals is None or len(deals) == 0:
+                return 7.0
+
+        total_commission = 0.0
+        total_volume = 0.0
+        
+        for d in deals:
+            # Comissões costumam ser negativas no MT5
+            if abs(d.commission) > 0:
+                total_commission += abs(d.commission)
+                total_volume += d.volume
+        
+        if total_volume > 0:
+            comm_per_lot = total_commission / total_volume
+            # Sanity check: comissões raramente passam de $20 ou são menores que $1
+            return max(1.0, min(20.0, comm_per_lot))
+            
+        return 7.0 # Fallback
 
     # ═══════════════════════════════════════════════════════════
     #  HEALTH CHECK

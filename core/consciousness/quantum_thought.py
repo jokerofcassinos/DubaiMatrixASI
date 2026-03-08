@@ -415,30 +415,30 @@ class QuantumThoughtEngine:
         # Decision vector (para análise multidimensional)
         decision_vector = np.array([s.weighted_signal for s in valid_signals])
 
-        # Reasoning completo
-        bull_agents = [s.agent_name for s in valid_signals if s.signal > 0.1]
-        bear_agents = [s.agent_name for s in valid_signals if s.signal < -0.1]
-        neutral_agents = [s.agent_name for s in valid_signals if abs(s.signal) <= 0.1]
-
-        # [Phase 52] Expansão Visual de Elite: Exposição Total de Agentes para o CEO
-        bull_list = ", ".join(bull_agents[:15]) + ("..." if len(bull_agents) > 15 else "")
-        bear_list = ", ".join(bear_agents[:15]) + ("..." if len(bear_agents) > 15 else "")
-        dominance = len(bear_agents) / (len(bull_agents) + 1e-6) if raw_signal < 0 else len(bull_agents) / (len(bear_agents) + 1e-6)
-
-        reasoning = (
-            f"SIGNAL={raw_signal:+.3f} "
-            f"COHERENCE={coherence:.2f} "
-            f"PHI={phi_val:.2f} "
-            f"DOMINANCE={dominance:.1f}x "
-            f"CPP={comp_time_cpp:.2f}ms "
-            f"{'COLLAPSED' if not superposition else 'SUPERPOSITION'} | "
-            f"BULL[{len(bull_agents)}]: {bull_list} | "
-            f"BEAR[{len(bear_agents)}]: {bear_list}"
+        # ═══ [PHASE 52] METADATA COLLECTION ═══
+        # Capturamos os contribuidores de elite (peso * sinal)
+        sorted_bull = sorted(
+            [s for s in valid_signals if s.signal > 0], 
+            key=lambda x: x.weight * x.signal, 
+            reverse=True
+        )
+        sorted_bear = sorted(
+            [s for s in valid_signals if s.signal < 0], 
+            key=lambda x: x.weight * abs(x.signal), 
+            reverse=True
         )
 
-        # ═══ [PHASE 51] METADATA COLLECTION ═══
-        # bull_agents and bear_agents are already defined above for reasoning string
-        
+        top_bulls = [s.agent_name for s in sorted_bull[:3]]
+        top_bears = [s.agent_name for s in sorted_bear[:3]]
+
+        # Reasoning compacto e cirúrgico
+        reasoning = (
+            f"SIGNAL={raw_signal:+.3f} | CONF={avg_confidence:.2f} | Φ={phi_val:.2f} | "
+            f"COH={coherence:.2%}"
+            + (f" | BULL: {', '.join(top_bulls)}" if raw_signal > 0 else "")
+            + (f" | BEAR: {', '.join(top_bears)}" if raw_signal < -0.1 else "")
+        )
+
         state = QuantumState(
             raw_signal=raw_signal,
             collapsed_signal=collapsed_signal,
@@ -451,8 +451,13 @@ class QuantumThoughtEngine:
             agent_signals=valid_signals,
             phi=phi_val,
             metadata={
-                "bull_agents": bull_agents,
-                "bear_agents": bear_agents
+                "bull_agents": [s.agent_name for s in sorted_bull],
+                "bear_agents": [s.agent_name for s in sorted_bear],
+                "top_bulls": top_bulls,
+                "top_bears": top_bears,
+                "phi": phi_val,
+                "coherence": coherence,
+                "entropy": system_entropy
             },
             reasoning=reasoning,
         )

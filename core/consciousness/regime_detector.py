@@ -231,13 +231,27 @@ class RegimeDetector:
                 return MarketRegime.BREAKOUT_DOWN
 
         # 2. HFT Explosion (Supernova Ignition)
-        if tick_velocity > 35.0:
-            # Se o preço está se movendo na direção oposta ao regime atual
+        if tick_velocity > 30.0: # Reduzido de 35 para 30 para maior sensibilidade
+            # Se o preço está se movendo na direção oposta ao regime atual ou em regimes de "Drift"
             price_delta_m1 = closes[-1] - closes[-2]
-            if price_delta_m1 > 0 and self._current_regime == MarketRegime.TRENDING_BEAR:
-                return MarketRegime.BREAKOUT_UP
-            if price_delta_m1 < 0 and self._current_regime == MarketRegime.TRENDING_BULL:
-                return MarketRegime.BREAKOUT_DOWN
+            
+            # Alvos de reversão em regimes lentos
+            slow_regimes = [MarketRegime.DRIFTING_BEAR, MarketRegime.CREEPING_BULL, MarketRegime.RANGING, MarketRegime.MEAN_REVERTING]
+            
+            if price_delta_m1 > 0:
+                if self._current_regime == MarketRegime.TRENDING_BEAR or self._current_regime == MarketRegime.DRIFTING_BEAR:
+                    return MarketRegime.BREAKOUT_UP
+            
+            if price_delta_m1 < 0:
+                if self._current_regime == MarketRegime.TRENDING_BULL or self._current_regime == MarketRegime.CREEPING_BULL:
+                    return MarketRegime.BREAKOUT_DOWN
+            
+            # Se for regime de Drift e o pulso for na mesma direção, mas muito forte, confirma ignição
+            if tick_velocity > 45.0:
+                if price_delta_m1 > 0 and self._current_regime == MarketRegime.CREEPING_BULL:
+                    return MarketRegime.BREAKOUT_UP
+                if price_delta_m1 < 0 and self._current_regime == MarketRegime.DRIFTING_BEAR:
+                    return MarketRegime.BREAKOUT_DOWN
 
         return None
 

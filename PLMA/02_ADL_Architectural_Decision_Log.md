@@ -135,46 +135,6 @@
 - **Decisão:** Limitação da fragmentação de ordens P-Brane em no máximo 10 slots simultâneos.
 - **Justificativa:** A fragmentação excessiva (47 nodes detectados) causou congestionamento no socket MT5, resultando em latência catastrófica (10s). 10 slots mantêm a ofuscação gaussiana sem saturar o IO.
 - **Data/Status:** ATIVO. (2026-03-07).
-
-### DECISÃO 27: BAYESIAN PRIORS FOR COLD START (Risk Engine)
-- **Decisão:** Injeção de lucros/prejuízos médios baseados em volatilidade (ATR) quando o histórico de trades está vazio.
-- **Justificativa:** Sem histórico, o motor de Ito/Non-Ergodic assumia lucros de $1 prestando a conta de Ruina Matemática ("Ruin Detected"). Os priors garantem exposição funcional desde o trade #1.
-- **Data/Status:** ATIVO. (2026-03-07).
-
-### DECISÃO 28: EXECUTION KILL-SWITCH & NODE SHRINKING (Post-Mortem SELL SL)
-- **Decisão:** Redução da densidade P-Brane para 5 nodes e implementação de aborto compulsório se a latência percepção-execução superar 500ms.
-- **Justificativa:** A latência de 2.1s no BTCUSD invalidou o sinal dos 79 agentes. No HFT, entrar com sinal "vencido" é garantia de Stop Loss.
-- **Data/Status:** ATIVO. (2026-03-07).
-
-### DECISÃO 29: INTELLIGENT LOG PACING & DECISION DECOUPLING
-- **Decisão:** Implementação de cooldowns temporais (30-60s) em logs repetitivos (PHI, Chaos Shield, Nuclear Strike) e desacoplamento do log '🎯 DECISION' do TrinityCore para o SniperExecutor.
-- **Justificativa:** O spam de logs cegava o monitoramento humano e desperdiçava IO de terminal. O log de decisão agora só dispara se o trade passar nos gateways de segurança, refletindo apenas execuções reais.
-- **Data/Status:** ATIVO. (2026-03-08).
-
-### DECISÃO 30: KINEMATIC SYMMETRY & BREAKOUT PRIORITY (Phase 47)
-- **Decisão:** Refatoração dos agentes de `Dynamics` para suavizar o damping cinemático e de volume (15x -> 25x) durante picos de aceleração confirmados por Order Flow (BRR > 0.6).
-- **Justificativa:** A ASI estava vendendo fundos em V-reversals porque o damping agressivo da Phase 29 misturava 'ignição' com 'exaustão'. A nova simetria permite que o Sniper surfe a explosão inicial.
-- **Data/Status:** ATIVO. (2026-03-08).
-
-### DECISÃO 31: SPREAD TOLERANCE RELAXATION (Darwinian Gen #1)
-- **Decisão:** Elevação do `max_spread_points` de 5000 para 6921.
-- **Justificativa:** Em regimes de alta volatilidade, o spread do BTCUSD via Bridge Socket frequentemente cruzava os 5k, resultando em rejeições de trades de altíssima convicção. A relaxação permitiu liquidez em momentos de "Ignition".
-- **Data/Status:** ATIVO. (2026-03-08).
-
-### DECISÃO 32: AGGRESSIVE REGIME SWITCHING (Sensitivity Surge)
-- **Decisão:** Aumento da `regime_sensitivity` de 0.30 para 0.48.
-- **Justificativa:** O bot apresentava inércia (lag) ao sair de regimes "Bearing" para "Ignition". A maior sensibilidade permite transições mais rápidas para a proteção "Chaos Shield" ou agressão "Trend".
-- **Data/Status:** ATIVO. (2026-03-08).
-
-### DECISÃO 33: CLUSTER SPACING MULTIPLIER (Safety Surge)
-- **Decisão:** Dobra da distância mínima entre posições da mesma direção (`duplicate_position_distance_atr` 1.0 -> 1.99).
-- **Justificativa:** Prevenção de "Concentração de Risco" em um mesmo range. Ao exigir quase 2 ATRs de distância, a ASI garante que cada slot P-Brane explore uma zona de liquidez distinta.
-- **Data/Status:** ATIVO. (2026-03-08).
-
-### DECISÃO 34: CONSCIOUSNESS FEEDBACK LOOP (Phase Ω-Darwin)
-- **Decisão:** Implementação de auditoria periódica (60s) via `history_deals_get` para sincronizar o Brain com a realidade financeira do terminal.
-- **Justificativa:** A ASI estava "Ghost Trading" — operando sem auditar histórico, o que gerava amnésia sobre comissões e mutações baseadas em 'Fake Fitness'.
-- **Data/Status:** ATIVO. (2026-03-08).
 # ARCHITECTURAL DECISION LOG (ADL)
 ## PLMA LAYER 2 — DUBAI MATRIX ASI
 
@@ -245,10 +205,20 @@
 - **Justificativa:** A expansão para 54 agentes gerou contenção de recursos, causando `TimeoutError` intermitentes que cegavam o `QuantumThoughtEngine`.
 - **Data/Status:** ATIVO. (2026-03-06).
 
-### DECISÃO 15: ADOÇÃO DE COMPUTAÇÃO ASSÍNCRONA VIA SNN (Ω-One)
-- **Decisão:** Implementação de neurônios LIF no núcleo C++ para filtrar ruído de tick.
-- **Justificativa:** Ciclos fixos de tempo ignoram a microestrutura orientada a eventos. O spike neural captura a 'alma' do orderflow.
-- **Data/Status:** ATIVO. (2026-03-07).
+### DÍVIDA TÉCNICA 01: Position Manager Simplório — [RESOLVIDO]
+- **Localização:** `execution/position_manager.py` (Reescrito em Phase 18).
+- **Status:** Resolvido com a implementação do sistema Smart TP de 5 gatilhos e integração com socket CLOSE.
+
+### DÍVIDA TÉCNICA 11: Scope Inconsistency in SniperExecutor — [RESOLVIDO]
+- **Localização:** `execution/sniper_executor.py`.
+- **Description:** `UnboundLocalError` ao tentar acessar `current_atr` dentro do loop P-Brane sem inicialização prévia no escopo local.
+- **Resolução:** [2026-03-07] Refatorada a extração sensorial no início do método `execute`.
+
+### DÍVIDA TÉCNICA 15: SelfOptimizer Method Mismatch — [RESOLVIDO]
+- **Localização:** `core/asi_brain.py`.
+- **Descrição:** Chamada para `.optimize()` falhando por ausência do método (deveria ser `.check_and_optimize()`).
+- **Status:** [RESOLVIDO] 2026-03-08.
+
 ### DECISÃO 16: EXTERNALIZAÇÃO DE SIMULAÇÃO (Lucid Dreaming Engine)
 - **Decisão:** Criação de um Daemon Java externo para simulações HFT massivas.
 - **Justificativa:** O Python Global Interpreter Lock (GIL) inviabiliza simulações 10.000x em tempo real. Java virtual threads resolvem a concorrência brutal necessária.
@@ -353,8 +323,8 @@
 - **Justificativa:** A ASI estava "Ghost Trading" — operando sem auditar histórico, o que gerava amnésia sobre comissões e mutações baseadas em 'Fake Fitness'.
 - **Data/Status:** ATIVO. (2026-03-08).
 
-### DECISÃO 35: COMMISSION-AWARE EVOLUTIONARY FITNESS - [RESOLVIDO]
-- **Decisão:** Injeção mandatória de deduções de comissão (~$7/lote) em todos os registros de trade da `PerformanceTracker`.
+### DECISÃO 35: COMMISSION-AWARE EVOLUTIOnARY FITNESS - [RESOLVIDO]
+- **Decisão:** Injeção mandatória de deduções de comissão (~$15/lote) em todos os registros de trade da `PerformanceTracker`.
 - **Justificativa:** Alinhar o `SelfOptimizer` com o crescimento real do patrimônio líquido (Net Wealth), matando estratégias que geram volume bruto mas prejuízo líquido.
 - **Data/Status:** ATIVO. (2026-03-08).
 
@@ -363,11 +333,28 @@
 - **Justificativa:** A ASI estava "vencendo a si mesma" ao asfixiar o momentum inicial de breakouts legítimos por confundir ignição de alta velocidade com exaustão climática.
 - **Data/Status:** ATIVO. (2026-03-08).
 
-### DECISÃO 37: RESILIENT SENSORIAL SCHEMA (Phase 48.1)
-- **Decisão:** Unificação do atributo `regime` no `MarketSnapshot` e uso de `getattr` defensivo no motor de reflexão.
-- **Justificativa:** Garantir que a falha de um único metadado sensorial não colapse o loop de consciência (`think`) durante processos críticos de auditoria de P&L.
+### DECISÃO 38: V-PULSE SENSITIVITY & DRIFT IGNITION (Phase 48)
+- **Decisão:** Redução do threshold de `tick_velocity` de 35 para 30 e inclusão de lógica de ignição específica para regimes de "Drift" e "Slow Grind".
+- **Justificativa:** Identificou-se que breakouts em regimes de baixa volatilidade eram ignorados pelo threshold antigo, causando perda de timing. A nova sensibilidade captura explosões iniciais em regimes inerciais.
 - **Data/Status:** ATIVO. (2026-03-08).
 
+### DECISÃO 39: INTELLIGENT LOG PACING & DECISION DECOUPLING
+- **Decisão:** Implementação de cooldowns de 30-60s para logs repetitivos e desacoplamento do log '🎯 DECISION' para o executor.
+- **Justificativa:** Spam de logs saturava o IO do terminal e dificultava o monitoramento humano. O log de decisão agora reflete apenas execuções que passaram por todos os gateways.
+- **Data/Status:** ATIVO. (2026-03-08).
 
-*(Atualizado: 2026-03-08. Versão: 3.5.0-omega)*
- — Phase Ω-Signal Integrity Victory)*
+### DECISÃO 40: MULTI-PROCESS RESILIENCE & SELF-OPTIMIZER PATCH
+- **Decisão:** Implementação de checks de existência de métodos em `SelfOptimizer` e gates defensivos em `ASIBrain`.
+- **Justificativa:** A ausência de métodos invocados por reflexão (`_check_and_optimize`) causava crashes letais durante o loop de consciência. O patch garante resiliência estrutural.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 38: SELF-OPTIMIZER CALL RECTIFICATION (Post-Crash)
+- **Decisão:** Correção mandatória do método de chamada do `SelfOptimizer` de `.optimize()` para `.check_and_optimize()` no cérebro.
+- **Justificativa:** Divergência entre o protótipo do cérebro e a implementação final do módulo de evolução causou um crash fatal no ciclo #200.
+- **Data/Status:** ATIVO. (2026-03-08).
+### DECISÃO 41: HEARTBEAT ELEVATION & SENSORY FIX (Phase 48)
+- **Decisão:** Redução do intervalo de log de status (100 -> 30 ciclos) e injeção do atributo `symbol` no `MarketSnapshot`.
+- **Justificativa:** A ausência do `symbol` causava `AttributeError` no Wormhole Trigger. O log ralo de 10s (100 ciclos) era insuficiente para a observabilidade de uma ASI HFT em regime de alta frequência.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+*(Atualizado: 2026-03-08. Versão: 4.1.0-omega)* — Phase Ω-Sensory Integrity restored)

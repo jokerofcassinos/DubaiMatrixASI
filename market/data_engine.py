@@ -38,6 +38,7 @@ class MarketSnapshot:
         self.indicators = {}             # Indicadores calculados
         self.account = None              # Info da conta
         self.symbol_info = None          # Info do símbolo
+        self.symbol = None               # [PHASE 48] Símbolo do snapshot
         self.regime = None               # [PHASE 37+] Regime de mercado (ENUM)
         self.metadata = {}               # Metadados extras
         self.raw_timestamp = int(self.timestamp.timestamp() * 1000) # MS timestamp para executor
@@ -245,6 +246,10 @@ class DataEngine:
         # 3. Account & Symbol info (Cache na bridge)
         snapshot.account = self.bridge.get_account_info()
         snapshot.symbol_info = self.bridge.get_symbol_info()
+        snapshot.symbol = self.bridge.symbol  # [PHASE 48] Sensory Fix
+        
+        # [Phase Ω-Resilience] Dynamic Commission Injection
+        snapshot.metadata["dynamic_commission_per_lot"] = self.bridge.get_dynamic_commission_per_lot()
 
         # [CRITICAL SYNCHRONIZATION OMEGA]
         # Aguardar que o background worker tenha calculado o primeiro frame.
@@ -260,12 +265,14 @@ class DataEngine:
         # Metadata
         self._snapshot_count += 1
         snapshot._price_history_ref = list(self._price_history) # Fixar histórico para o snapshot
-        snapshot.metadata = {
+        
+        # [Phase Ω-Resilience] Preserve existing metadata (like dynamic_commission_per_lot)
+        snapshot.metadata.update({
             "snapshot_id": self._snapshot_count,
             "tick_buffer_size": len(self._tick_history),
             "price_buffer_size": len(self._price_history),
             "recent_ticks": list(self._tick_history)[-200:] if self._tick_history else []
-        }
+        })
 
         return snapshot
 

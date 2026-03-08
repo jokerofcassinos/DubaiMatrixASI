@@ -8,7 +8,7 @@
 """
 
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from typing import Optional
 import subprocess
 import socket
@@ -61,20 +61,14 @@ class ASIBrain:
         # ═══ PHASE 3: EPISODIC MEMORY (Market Intuition) ═══
         self.memory = EpisodicMemory(vector_dim=64)
         
-        # ═══ PHASE 4: SHADOW PREDATOR ═══
-        self.predator_engine = ShadowPredatorEngine()
-        
-        self.neural_swarm = NeuralSwarm(memory=self.memory, predator_engine=self.predator_engine)
-        self.quantum_thought = QuantumThoughtEngine()
-        self.regime_detector = RegimeDetector()
-        
-        # ═══ PHASE 3: EPISODIC MEMORY (Market Intuition) ═══
-        self.memory = EpisodicMemory(vector_dim=64)
-        
-        self.trinity_core = TrinityCore()
-        
         # ═══ PHASE 4: ADVERSARIAL COUNTER-AI ═══
         self.predator_engine = ShadowPredatorEngine()
+        
+        self.regime_detector = RegimeDetector()
+        self.neural_swarm = NeuralSwarm(memory=self.memory, predator_engine=self.predator_engine)
+        self.quantum_thought = QuantumThoughtEngine()
+        
+        self.trinity_core = TrinityCore()
         
         self.risk_engine = RiskQuantumEngine()
         
@@ -108,7 +102,8 @@ class ASIBrain:
         self._last_snapshot = None
         self._last_pnl_prediction = None
         self._last_log_times = {} # key -> float
-        self._last_history_poll = time.time() # Começar buscando a partir de AGORA (Perdão Neural)
+        # [Phase Ω-Darwin] Sincronização inicial: auditar as últimas 24h ou desde a última corrida
+        self._last_history_poll = time.time() - 86400 
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -196,6 +191,13 @@ class ASIBrain:
             execution_result = self.executor.execute(
                 decision, self.state, snapshot
             )
+            
+            # [PHASE 48] 🎯 IMMEDIATE IGNITION PULSE
+            log.omega(
+                f"🎯 IGNITION: {decision.action.value} {snapshot.symbol} | "
+                f"S={quantum_state.raw_signal:+.3f} PHI={quantum_state.phi:.2f} "
+                f"R={regime_state.current.value if regime_state else 'UNK'}"
+            )
 
             if execution_result and execution_result.get("success"):
                 result["executed"] = True
@@ -217,7 +219,7 @@ class ASIBrain:
 
         # ═══ 9. AUTO-EVOLUÇÃO (a cada 200 ciclos) ═══
         if self._cycle_count % 200 == 0:
-            self.self_optimizer.optimize(self._cycle_count)
+            self.self_optimizer.check_and_optimize(self._cycle_count)
 
         # ═══ 10. PERSISTIR ESTADO (a cada 100 ciclos) ═══
         if self._cycle_count % 100 == 0:
@@ -285,8 +287,8 @@ class ASIBrain:
         if self._cycle_count % 600 == 0:
             self._reflection_phase(snapshot)
 
-        # Log periódico (a cada 100 ciclos - redução de ruído)
-        if self._cycle_count % 100 == 0:
+        # Log periódico (a cada 30 ciclos - [PHASE 48] ELEVATED HEARTBEAT)
+        if self._cycle_count % 30 == 0:
             self._log_status(result, quantum_state, regime_state)
 
         return result
@@ -297,60 +299,93 @@ class ASIBrain:
         Deduz comissões e atualiza a evolução darwiniana.
         """
         from core.evolution.performance_tracker import TradeRecord
-        # [Phase Ω-Darwin] Commission-Aware history audit
-        comm_per_lot = OMEGA.get("commission_per_lot", 7.0)
-
+        
+        # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
+        now = datetime.now()
+        # Buscamos deals desde o último poll + um buffer de segurança de 30s
         last_poll_dt = datetime.fromtimestamp(self._last_history_poll, tz=timezone.utc)
-        deals = self.bridge.get_closed_deals(last_poll_dt)
+        
+        deals = self.bridge.get_closed_deals(last_poll_dt, now)
         self._last_history_poll = time.time()
 
         if not deals:
             return
 
         for deal in deals:
-            # 1. Calcular Lucro Líquido Real (Dedução Explícita de Comissão)
-            # Nota: Deals no MT5 já podem vir com comissão preenchida pela corretora.
-            # Se vier zero (comum em algos que não sincronizam rápido), usamos nossa estimativa.
-            gross_profit = deal.get("profit", 0.0)
-            comm_mt5 = deal.get("commission", 0.0)
+            # Entry Out (1) ou Out By (3) indica fechamento de posição
+            if deal.get("entry") not in [1, 3]:
+                continue
+                
+            # Recuperar P&L líquido real (Soma dos deals da posição)
+            pos_id = deal.get("position_id")
+            pos_deals = self.bridge.get_deals_by_position(pos_id)
             
-            # Se a corretora não reportou comissão no deal ainda, estimamos
-            if comm_mt5 == 0:
-                comm_est = -abs(deal.get("volume", 0) * comm_per_lot)
-            else:
-                comm_est = comm_mt5
-
-            net_profit = gross_profit + comm_est + deal.get("swap", 0.0)
+            if not pos_deals:
+                continue
+                
+            # Deal de entrada (IN)
+            entry_deal = next((d for d in pos_deals if d.get('entry') == 0), None)
+            if not entry_deal:
+                continue
             
-            # 2. Registrar no Performance Tracker (Darwinian Input)
-            trade_rec = TradeRecord(
-                ticket=deal.get("ticket", 0),
-                symbol=deal.get("symbol", ""),
-                action=deal.get("direction", ""),
-                lot_size=deal.get("volume", 0.0),
-                entry_price=0, # MT5 deals 'entry out' não tem o entry price original fácil aqui
-                exit_price=deal.get("price", 0.0),
+            # Consolidar custos (comissão, swap, fees de TODOS os deals da posição)
+            total_comm = sum(d.get('commission', 0) for d in pos_deals)
+            total_swap = sum(d.get('swap', 0) for d in pos_deals)
+            total_fee = sum(d.get('fee', 0) for d in pos_deals)
+            total_profit = sum(d.get('profit', 0) for d in pos_deals)
+            
+            # [Ω-Class] Alpha Líquido Real
+            net_profit = total_profit + total_comm + total_swap + total_fee
+            
+            action_str = "BUY" if entry_deal['type'] == 0 else "SELL"
+            
+            record = TradeRecord(
+                ticket=deal['ticket'],
+                position_id=pos_id,
+                symbol=deal['symbol'],
+                action=action_str,
+                lot_size=entry_deal['volume'],
+                entry_price=entry_deal['price'],
+                exit_price=deal['price'],
                 profit=net_profit,
-                is_winner=(net_profit > 0),
-                regime_at_entry=getattr(snapshot.regime, "value", "UNKNOWN") if snapshot.regime else "UNKNOWN",
-                exit_time=deal.get("time", "")
+                commission=total_comm,
+                swap=total_swap,
+                fee=total_fee,
+                entry_time=datetime.fromtimestamp(entry_deal['time'], tz=timezone.utc).isoformat(),
+                exit_time=datetime.fromtimestamp(deal['time'], tz=timezone.utc).isoformat(),
+                regime_at_entry=snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN"),
+                session=self._get_session_name(entry_deal['time']),
+                duration_seconds=float(deal['time'] - entry_deal['time'])
             )
             
-            self.performance_tracker.record_trade(trade_rec)
+            # Registrar na consciência permanente
+            is_new = self.performance_tracker.record_trade(record)
             
-            # 3. Sincronizar ASIState (Memória de Nível Superior)
-            self.state.total_trades += 1
-            self.state.total_profit += net_profit
-            if net_profit > 0:
-                self.state.total_wins += 1
-                self.state.gross_profit += net_profit
-                self.state.consecutive_losses = 0
-            else:
-                self.state.total_losses += 1
-                self.state.gross_loss += abs(net_profit)
-                self.state.consecutive_losses += 1
+            # [PHASE Ω-ANTI-FRAGILITY] Notificar TrinityCore sobre perdas para o gate ANTI-PING-PONG
+            # Apenas se for um trade NOVO e RECENTE (últimos 5 minutos)
+            if is_new and net_profit < 0:
+                trade_age = time.time() - deal.get('time', 0)
+                if trade_age < 300: # 5 minutos
+                    self.trinity_core.update_loss_event()
 
-        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} novos trades auditados e sincronizados na consciência.")
+        # Atualizar relatório e estado da ASI
+        report = self.performance_tracker.full_report
+        self.state.update_from_report(report)
+        
+        # 4. Auto-Otimização Darwiniana (Phase 5)
+        self.self_optimizer.check_and_optimize(self.performance_tracker)
+
+        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals analisados. P&L Líquido: ${self.state.total_profit:+.2f}")
+
+    def _get_session_name(self, timestamp: float) -> str:
+        """Determina a sessão de mercado baseada na hora (UTC)."""
+        dt = datetime.fromtimestamp(timestamp, tz=timezone.utc)
+        hour = dt.hour
+        
+        if 0 <= hour < 8: return "ASIA"
+        if 8 <= hour < 14: return "EUROPE"
+        if 14 <= hour < 21: return "US"
+        return "LATE_US"
 
     def _log_status(self, result, quantum_state, regime_state):
         """Log periódico de status com visibilidade total do sinal."""

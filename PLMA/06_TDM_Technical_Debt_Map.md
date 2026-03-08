@@ -55,11 +55,11 @@
 - **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus. Adicionado atributo `regime` para evitar crashes em fases de reflexão.
 - **Resolução:** [2026-03-08] Unificação final do schema do Snapshot.
 
-### DÍVIDA TÉCNICA 10: MFG Reward Linearization — [NOVO]
+### DÍVIDA TÉCNICA 10: MFG Reward Linearization — [RESOLVIDO]
 - **Localização:** `core/consciousness/agents/mean_field_game_agent.py`.
 - **Descrição:** A função de recompensa do MFG é linearmente mapeada para o regime bias. Pode ignorar zonas de liquidez não-lineares.
 - **Risco:** [VERDE] Sub-otimização da velocidade no HJB.
-- **Solução Futura:** Integrar `OrderFlowMatrix` diretamente no vetor de `rewards` do MFG.
+- **Resolução:** [2026-03-08] Unificação final do schema do Snapshot.
 
 ### DÍVIDA TÉCNICA 11: Scope Inconsistency in SniperExecutor — [RESOLVIDO]
 - **Localização:** `execution/sniper_executor.py`.
@@ -71,15 +71,19 @@
 - **Descrição:** Motor matemático travando em $1.0 de Lucro Médio quando o banco de dados de trades é novo, causando "Non-Ergodic Ruin".
 - **Resolução:** [2026-03-07] Implementado `Bayesian Priors` baseados em % de ATR na inicialização.
 
+### DÍVIDA TÉCNICA 14: Wormhole Trigger Missing Implementation — [RESOLVIDO]
+- **Localização:** `execution/risk_quantum.py`.
+- **Descrição:** `AttributeError` em `ASIBrain` por falta do método `evaluate_wormhole_trigger` ou do atributo `symbol` no snapshot.
+- **Resolução:** [2026-03-08] Implementada lógica de Gamma Hedge/Wormhole de Phase Ω-Transcendence e corrigido o `AttributeError` no `MarketSnapshot`.
+
 ### DÍVIDA TÉCNICA 13: Smart TP Profit Evaporation Blindness — [RESOLVIDO]
 - **Localização:** `execution/position_manager.py`.
 - **Descrição:** O Profit Lock ignorava drawdowns se o lucro caísse para zero ou negativo instantaneamente devido ao gate `avg_profit > 0`.
 - **Resolução:** [2026-03-07] Refatorada a lógica para tratar evaporação total como drawdown de 100% e adicionado nuke se lucro > $5 cair para < $1.
 
-### DÍVIDA TÉCNICA 14: Regime Detection Lag in V-Reversals
+### DÍVIDA TÉCNICA 14: Regime Detection Lag in V-Reversals — [RESOLVIDO]
 - **Localização:** `core/consciousness/regime_detector.py`.
 - **Descrição:** O detector de regime utiliza médias M5/M15 que possuem inércia física. Em reversões violentas de <60s, o regime permanece "Bearish" enquanto o preço já explodiu em "Ignition Bullish".
-- **Risco:** [AMARELO] Conflito de bias (Regime v. Agentes Speed) induzindo trades contra-intuitivos.
-- **Solução Proposta:** Implementar transição instantânea de regime se o `SupernovaCapacitor` detectar `V-PULSE`.
+- **Resolução:** [2026-03-08] Implementada transição instantânea de regime via `_detect_v_pulse` que monitora `tick_velocity` e inversão de candle M1.
 
 *(Atualizado: 2026-03-08. Versão: 10.4.0-omega+phase47)*

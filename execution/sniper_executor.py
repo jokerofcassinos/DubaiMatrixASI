@@ -214,6 +214,8 @@ class SniperExecutor:
 
         # 2. Calcular lot size via Risk Engine
         sl_distance = abs(decision.entry_price - decision.stop_loss)
+        dynamic_comm = self.bridge.get_dynamic_commission_per_lot()
+        
         lot_size = self.risk.calculate_lot_size(
             balance=balance,
             stop_loss_distance=sl_distance,
@@ -224,6 +226,7 @@ class SniperExecutor:
             confidence=decision.confidence, # OMEGA Phase 22
             asi_state=asi_state,
             snapshot=snapshot,
+            commission_per_lot=dynamic_comm
         )
 
         # 3. Validação de risco
@@ -327,14 +330,36 @@ class SniperExecutor:
                     if causal['confidence'] > 0.7:
                         return None # Veto absoluto se a confiança no DAG for alta
         
-        # ═══ PASSED ALL FILTERS: Log the actual realization of the decision ═══
-        log.signal(f"🎯 DECISION: {decision.action.value} | {decision.reasoning}")
+        # ═══ [PHASE 52] PREMIUM SIGNATURE LOGGING ═══
+        phi_val = decision.metadata.get("phi", 0.0)
+        q_meta = decision.metadata.get("quantum_metadata", {})
+        
+        # Determine badges
+        is_hydra = decision.metadata.get("hydra_mode", False)
+        is_limit = decision.metadata.get("limit_execution", False)
+        badge = "🐉 [HYDRA]" if is_hydra else ("⚡ [LIMIT]" if is_limit else "🎯 [TAKER]")
+        
+        # Support agents string
+        bull_list = q_meta.get("bull_agents", [])
+        bear_list = q_meta.get("bear_agents", [])
+        bull_str = ", ".join(bull_list) if bull_list else "None"
+        bear_str = ", ".join(bear_list) if bear_list else "None"
+
+        # Multi-line Matrix signature (RESTORED FULL DETAIL)
+        decision_sig = (
+            f"\n╔══ {badge} {decision.action.value} PREVIEW ══╗\n"
+            f"║ SIGNAL: {decision.signal_strength:+.3f} | CONF: {decision.confidence:.2f} | Φ: {phi_val:.2f}\n"
+            f"║ BULL[{len(bull_list)}]: {bull_str}\n"
+            f"║ BEAR[{len(bear_list)}]: {bear_str}\n"
+            f"║ REGIME: {decision.regime} | ADAPTIVE_LOT: {final_lot:.2f} | ATR: {current_atr:.2f}\n"
+            f"║ REASONING: {decision.reasoning}\n"
+            f"╚══════════════════════════════════╝"
+        )
+        log.signal(decision_sig)
 
         # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
         # Ao invés de blocos lineares rápidos, criamos uma rede fractal estendida (Brane)
         # [Phase Ω-Singularity] Automated Node Selection
-        # Scale nodes based on total lot size to ensure each chunk is tradable and statistically significant.
-        # $30k account / HFT context: each slot should ideally be > 0.05 lot.
         if final_lot < 0.1:
             target_nodes = 1
         elif final_lot < 0.5:
@@ -344,97 +369,86 @@ class SniperExecutor:
         else:
             target_nodes = min(10, max_slots)
             
-        num_nodes = target_nodes # Use absolute count
-        # Se for um único node, apenas envia. Se for múltiplos, gera a Brane
+        num_nodes = target_nodes 
         if num_nodes <= 1:
             lot_chunks = [final_lot]
             delays = [0.0]
         else:
-            # Distribuição P-Brane Estigmérgica: Combina Gaussiana com Feromônios Institucionais
+            # Distribuição P-Brane Estigmérgica
             offsets = np.linspace(-2, 2, num_nodes)
             weights = np.exp(-(offsets**2) / 2.0)
             
-            # [PHASE Ω-ASCENSION] Pheromone Routing (Stigmergy)
-            # Lê o campo de atração do C++ no nível de preço atual
             if hasattr(CPP_CORE, 'read_pheromones'):
                 try:
                     ph_field = CPP_CORE.read_pheromones(decision.entry_price, num_nodes)
                     if ph_field is not None and len(ph_field) == num_nodes:
-                        # Modula o peso gaussiano com a densidade do feromônio institucional
                         ph_weights = np.array(ph_field)
                         if np.sum(ph_weights) > 0:
                             ph_weights /= np.sum(ph_weights)
-                            # Mistura 60% Gaussiana natural, 40% Foco de Atração Institucional
                             weights = (weights * 0.6) + (ph_weights * 0.4)
                 except Exception as e:
                     log.debug(f"Pheromone read error: {e}")
             
-            # [PHASE Ω-TRANSCENDENCE] P-Brane Execution (Gaussian Cloud)
-            # Ao invés de um ponto fixo, distribuímos em uma 'Brane' topológica
-            jitter_atr = current_atr * 0.05 if current_atr > 0 else 2.0 # 5% do ATR ou 2 points BTC
+            # [Phase Ω-TRANSCENDENCE] Jitter
+            jitter_atr = current_atr * 0.05 if current_atr > 0 else 2.0
             offsets = np.random.normal(0, jitter_atr, num_nodes)
-            
-            # Ordenar offsets para evitar overlaps de ordens limites se possível
             offsets = np.sort(offsets)
             
             lot_chunks = [max(MIN_LOT_SIZE, round(final_lot / num_nodes, 2)) for _ in range(num_nodes)]
-            # Ajuste de resíduo
             diff = final_lot - sum(lot_chunks)
             if abs(diff) > 0.01:
                 lot_chunks[0] = max(MIN_LOT_SIZE, round(lot_chunks[0] + diff, 2))
             
-            # Micro-delays camaleônicos (Anti-HFT Footprint)
             delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]
             
         log.omega(
-            f"⚡ EXECUTING P-BRANE {decision.action.value} "
+            f"🎯 DECISION REALIZED: {decision.action.value} "
             f"lot={final_lot:.2f} (em {num_nodes} nodes) "
             f"price={decision.entry_price:.2f} "
-            f"SL={decision.stop_loss:.2f} TP={decision.take_profit:.2f}"
+            f"SL={decision.stop_loss:.2f} TP={decision.take_profit:.2f} "
+            f"| Φ: {phi_val:.2f} | CONF: {decision.confidence:.2f}"
         )
 
         # 4.3. Parallel Order Dispatch (Phase 40/42)
-        # Obter preço uma única vez para o burst
         current_tick = self.bridge.get_tick()
         if not current_tick:
             log.error("❌ Falha crítica: Impossível obter tick para execução HFT")
             return None
             
         has_ignition = snapshot.metadata.get("v_pulse_detected", False)
-        entry_price = current_tick["ask"] if decision.action.value == "BUY" else current_tick["bid"]
         
         if has_ignition:
             self._log_cooldown("v_pulse_ignite", f"🚀 [V-PULSE IGNITION] Bypassing ATR/Entropy constraints for immediate strike.", 30)
+
+        # Fetch Stops Level to avoid 10015
+        sym_info = self.bridge.get_symbol_info()
+        stops_level = sym_info.get("stops_level", 0) if sym_info else 0
+        point = sym_info.get("point", 0.01) if sym_info else 0.01
+        min_dist = (stops_level + 5) * point # Buffer safety of 5 points
 
         def _send_slot(i, chunk_lot, delay_sec):
             if delay_sec > 0:
                 time.sleep(delay_sec)
                 
-            # [Phase Ω-Singularity] P-Brane Execution Logic
-            # Switches between Maker (Limit) and Taker (Market) based on metadata
             use_limit = decision.metadata.get("limit_execution", False)
             
             if use_limit:
-                # Maker Logic: Position orders at/near the spread boundaries
                 tick_bid = current_tick["bid"]
                 tick_ask = current_tick["ask"]
                 spread = tick_ask - tick_bid
                 
-                # [QUANTUM JITTER] Adaptive Noise Injection
-                # Using p_brane_jitter_offset_points from metadata (calibrated by Trinity EPA)
                 jitter_points = decision.metadata.get("jitter_offset", 0.0)
-                # Random factor: +/- 50% of the jitter setting
                 random_jitter = jitter_points * (0.5 + np.random.random())
-                jitter_price = random_jitter * snapshot.symbol_info.get("point", 0.0001)
+                jitter_price = random_jitter * point
                 
                 if decision.action.value == "BUY":
-                    # Buy Limit must be <= Bid
-                    limit_price = min(tick_bid, tick_bid + (np.linspace(-1.5, -0.1, num_nodes)[i] * spread))
-                    limit_price -= jitter_price # Push slightly deeper into the book
+                    # Buy Limit must be <= Bid - min_dist
+                    limit_price = tick_bid - min_dist - (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread)
+                    limit_price -= jitter_price
                 else:
-                    # Sell Limit must be >= Ask
-                    limit_price = max(tick_ask, tick_ask + (np.linspace(0.1, 1.5, num_nodes)[i] * spread))
-                    limit_price += jitter_price # Push slightly higher
+                    # Sell Limit must be >= Ask + min_dist
+                    limit_price = tick_ask + min_dist + (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread)
+                    limit_price += jitter_price
 
                 return self.bridge.send_limit_order(
                     action=decision.action.value,
@@ -445,7 +459,6 @@ class SniperExecutor:
                     price=limit_price
                 )
             else:
-                # Taker Logic: Aggressive Market Order (Phase 40 priority)
                 return self.bridge.send_market_order(
                     action=decision.action.value,
                     lot=chunk_lot,
@@ -574,6 +587,22 @@ class SniperExecutor:
             chunks[-1] += last_chunk
             
         return [round(c, 2) for c in chunks]
+
+    def _log_cooldown(self, key: str, message: str, cooldown_s: float = 60.0, level: str = "info"):
+        """Helper to log messages with a cooldown period."""
+        now = time.time()
+        if now - self._last_log_times.get(key, 0) > cooldown_s:
+            if level == "omega":
+                log.omega(message)
+            elif level == "signal":
+                log.signal(message)
+            elif level == "warning":
+                log.warning(message)
+            elif level == "error":
+                log.error(message)
+            else:
+                log.info(message)
+            self._last_log_times[key] = now
 
     @property
     def stats(self) -> dict:

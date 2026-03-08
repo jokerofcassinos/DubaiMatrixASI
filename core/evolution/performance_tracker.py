@@ -26,6 +26,7 @@ from config.omega_params import OMEGA
 class TradeRecord:
     """Registro completo de um trade."""
     ticket: int = 0
+    position_id: int = 0             # ID da posição no MT5
     symbol: str = ""
     action: str = ""                 # BUY / SELL
     lot_size: float = 0.0
@@ -33,8 +34,11 @@ class TradeRecord:
     exit_price: float = 0.0
     sl: float = 0.0
     tp: float = 0.0
-    profit: float = 0.0
+    profit: float = 0.0              # Lucro líquido (PnL + Comm + Swap)
     pips: float = 0.0
+    commission: float = 0.0
+    swap: float = 0.0
+    fee: float = 0.0
     duration_seconds: float = 0.0
     regime_at_entry: str = ""
     coherence_at_entry: float = 0.0
@@ -43,6 +47,7 @@ class TradeRecord:
     exit_time: str = ""
     session: str = ""                # LONDON / NY / ASIA / OVERLAP
     is_winner: bool = False
+    comment: str = ""                # Comentário persistido
 
 
 class PerformanceTracker:
@@ -67,20 +72,35 @@ class PerformanceTracker:
         self._consecutive_losses: int = 0
         self._max_consecutive_wins: int = 0
         self._max_consecutive_losses: int = 0
+        self._ticket_index: set = set()  # [Phase Ω-Darwin] Deduplication index
         
         # Caminhos de persistência
         self._trades_file = os.path.join(DATA_DIR, "trade_history.json")
         self._load_history()
 
-    def record_trade(self, trade: TradeRecord):
-        """Registra um novo trade completado."""
-        # [Phase 36] Commission Deduction for Net-Wealth Mutation Alignment
-        comm_per_lot = OMEGA.get("commission_per_lot", 7.0)
-        net_profit = trade.profit - (trade.lot_size * comm_per_lot)
-        trade.profit = net_profit
-        trade.is_winner = net_profit > 0
+    def record_trade(self, trade: TradeRecord) -> bool:
+        """Registra um novo trade completado ou atualiza existente. Retorna True se for novo."""
+        # [Phase Ω-Darwin] Deduplication & Update Check
+        for i, existing in enumerate(self._trades):
+            if existing.ticket == trade.ticket:
+                # Atualização: Se o lucro ou dados mudaram, sobrescrevemos
+                self._trades[i] = trade
+                self._save_history()
+                return False
+
+        # [Phase 36] Commission Deduction (Skip if already calculated by Brain)
+        # Se profit estiver vindo zerado ou sem comissão real, aplicamos a estimativa
+        if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
+            # Fallback conservative estimate (FTMO is ~7, some brokers ~15)
+            comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+            trade.commission = -(trade.lot_size * comm_per_lot)
+            trade.profit += trade.commission # Ajustar profit líquido se não tinha comissão
+        
+        # [CRITICAL FIX] Always validate win status based on final net profit
+        trade.is_winner = trade.profit > 0
 
         self._trades.append(trade)
+        self._ticket_index.add(trade.ticket)
 
         # Atualizar equity curve
         current_equity = self._equity_curve[-1] + trade.profit
@@ -222,8 +242,12 @@ class PerformanceTracker:
         """Relatório completo de performance."""
         return {
             "total_trades": self.total_trades,
+            "total_wins": sum(1 for t in self._trades if t.is_winner),
+            "total_losses": sum(1 for t in self._trades if not t.is_winner),
             "win_rate": self.win_rate,
             "total_profit": self.total_profit,
+            "gross_profit": sum(t.profit for t in self._trades if t.is_winner),
+            "gross_loss": abs(sum(t.profit for t in self._trades if not t.is_winner)),
             "profit_factor": self.profit_factor,
             "expectancy": self.expectancy,
             "sharpe_ratio": self.sharpe_ratio,
@@ -260,7 +284,12 @@ class PerformanceTracker:
                     data = json.load(f)
                 for item in data:
                     trade = TradeRecord(**item)
+                    if trade.ticket in self._ticket_index:
+                        continue
+
                     self._trades.append(trade)
+                    self._ticket_index.add(trade.ticket)
+
                     equity = self._equity_curve[-1] + trade.profit
                     self._equity_curve.append(equity)
                     if equity > self._peak_equity:

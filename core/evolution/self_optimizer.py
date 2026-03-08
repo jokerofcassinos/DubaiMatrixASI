@@ -58,11 +58,17 @@ class SelfOptimizer:
         self._post_mutation_cycles = 0
 
     @catch_and_log(default_return=None)
-    def optimize(self, cycle: int) -> Optional[dict]:
+    def check_and_optimize(self, cycle_or_tracker=None) -> Optional[dict]:
         """
         Ciclo de otimização principal.
-        Chamado periodicamente pelo ASI Brain.
+        Pode ser chamado passando o ciclo (int) ou o tracker.
+        Como o tracker já está no self, ignoramos se for o tracker.
         """
+        if isinstance(cycle_or_tracker, int):
+            cycle = cycle_or_tracker
+        else:
+            cycle = self._optimization_cycles # Fallback
+            
         self._optimization_cycles += 1
         result = {"action": "none", "mutations": [], "alerts": []}
 

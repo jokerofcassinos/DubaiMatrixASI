@@ -25,9 +25,6 @@ from cpp.asi_bridge import CPP_CORE
 class RiskQuantumEngine:
     """
     Motor de risco quântico — protege o capital com precisão cirúrgica.
-
-    NÃO usa stop loss fixo estúpido.
-    Usa: Kelly Criterion + ATR dinâmico + drawdown monitors + circuit breakers.
     """
 
     def __init__(self):
@@ -41,7 +38,8 @@ class RiskQuantumEngine:
     def calculate_lot_size(self, balance: float, stop_loss_distance: float,
                            win_rate: float, avg_win: float, avg_loss: float,
                            symbol_info: dict = None, confidence: float = 0.5,
-                           asi_state: ASIState = None, snapshot = None) -> float:
+                           asi_state: ASIState = None, snapshot = None,
+                           commission_per_lot: float = 15.0) -> float:
         """
         Calcula lot size ótimo usando Kelly Criterion modificado via C++.
         Transição OMEGA-CLASS: Otimização da Taxa de Crescimento Temporal (Non-Ergodic Growth).
@@ -49,38 +47,39 @@ class RiskQuantumEngine:
         if balance <= 0 or stop_loss_distance <= 0:
             return MIN_LOT_SIZE
 
-        # 1. Obter métricas de performance base (Normalization)
-        wr = max(0.3, min(0.9, win_rate))
+        # Use metrics from asi_state if they are more reliable/recent
+        wr = win_rate
+        aw = avg_win
+        al = avg_loss
+
+        if asi_state and asi_state.total_trades > 0:
+            # We trust the synchronized state
+            wr = max(0.3, min(0.9, asi_state.total_wins / asi_state.total_trades))
+            aw = asi_state.avg_win
+            al = asi_state.avg_loss
         
         # OMEGA-CLASS: Bayesian Priors for Cold Start
-        # Se avg_win/avg_loss vierem zerados ou muito pequenos ($1.0), 
-        # usamos um prior estatístico de 0.2% do ATR ou do Preço.
         price = snapshot.price if snapshot else 67000.0
         atr = snapshot.indicators.get("M1_atr_14", [price * 0.001])[0]
         
-        baseline_move = max(50.0, atr * 0.5) # No mínimo $50 de move ou 0.5 ATR
-        
         # [Phase Ω-Resilience] Commission-Aware Math:
-        # Deduct estimated cost from avg_win to optimize for NET alpha.
-        comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+        comm_per_lot = commission_per_lot
         min_target = OMEGA.get("min_profit_per_ticket", 30.0)
         
-        # OMEGA-CLASS: Baseline Move deve ser pelo menos a comissão + o lucro alvo do CEO
         baseline_move = max(min_target + comm_per_lot, atr * 0.5) 
         
-        aw_net = max(1.0, avg_win - (comm_per_lot * max(1.0, lot_size_guess if 'lot_size_guess' in locals() else 1.0)))
-        aw = max(baseline_move, aw_net)
-        al = max(baseline_move, avg_loss + comm_per_lot) # Loss is even worse with comms
-        rr = aw / al
+        aw = max(baseline_move, aw)
+        al = max(baseline_move, al + comm_per_lot) 
+        
+        # Limit aw to something reasonable to avoid absurd Kelly sizes
+        aw = min(aw, balance * 0.1) 
+        
+        rr = aw / al if al > 0 else 1.0
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══
-        # Em vez de Kelly estático, buscamos a alavancagem que maximiza g(f).
-        # Simulamos 5 níveis de leverage para encontrar o pico da curva de crescimento.
         best_leverage = 0.0
         max_growth = -999.0
         
-        # r_win_pct e r_loss_pct em termos de variação do preço
-        price = snapshot.price if snapshot else 1.0
         avg_win_price_pct = aw / price if price > 0 else 0.01
         avg_loss_price_pct = al / price if price > 0 else 0.01
 
@@ -90,61 +89,40 @@ class RiskQuantumEngine:
                 max_growth = growth
                 best_leverage = leverage
 
-        # Se o crescimento máximo for negativo (Ruína Probabilística), reduzimos drasticamente.
         if max_growth < 0:
-            log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f} for best leverage {best_leverage}. Reducing exposure.")
+            log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f}. Reducing exposure.")
             risk_fraction = 0.001 
         else:
-            # f* ótimo baseado em crescimento temporal
-            # Mapeamos a leverage ótima para uma fração de risco do balanço
-            # Sizing = (Best Leverage * Distância do SL em %)
             sl_pct = stop_loss_distance / price if price > 0 else 0.01
             risk_fraction = best_leverage * sl_pct
             log.omega(f"📊 NON-ERGODIC OPTIMIZATION: Max Growth {max_growth:.6f} @ {best_leverage}x Leverage. Risk Fraction: {risk_fraction:.4f}")
 
         # 3. ═══ [OMEGA-CLASS] ITO CALCULUS REFINEMENT (Volatility Tax) ═══
-        # Se tivermos volatilidade (ATR), ajustamos pela taxa de "imposto" estocástico.
-        atr_m1 = snapshot.indicators.get("M1_atr_14") if hasattr(snapshot, 'indicators') else None
-        if atr_m1 is not None and len(atr_m1) > 0:
-            sigma_pct = (np.mean(atr_m1[-14:]) * np.sqrt(1440)) / price # Vol diaria estimada
-            mu_pct = (wr * avg_win_price_pct - (1-wr) * avg_loss_price_pct)
-            
-            log.debug(f"📐 RISK_MATH: wr={wr:.4f} mu_pct={mu_pct:.6f} sigma_pct={sigma_pct:.6f} aw_pct={avg_win_price_pct:.6f} al_pct={avg_loss_price_pct:.6f}")
-            
-            ito_sizing = CPP_CORE.ito_lot_sizing(balance, wr, mu_pct, sigma_pct, 1.0/1440.0)
-            ito_fraction = ito_sizing / balance if balance > 0 else 0.01
-            
-            # Conservadorismo Quântico: Mínimo entre o crescimento não-ergódico e o limite de Ito
-            risk_fraction = min(risk_fraction, ito_fraction)
-            log.omega(f"📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = {ito_fraction:.4f} (Ito_Sizing=${ito_sizing:.2f})")
+        if snapshot and hasattr(snapshot, 'indicators'):
+            atr_m1 = snapshot.indicators.get("M1_atr_14")
+            if atr_m1 is not None and len(atr_m1) > 0:
+                sigma_pct = (np.mean(atr_m1[-14:]) * np.sqrt(1440)) / price 
+                mu_pct = (wr * avg_win_price_pct - (1-wr) * avg_loss_price_pct)
+                
+                ito_sizing = CPP_CORE.ito_lot_sizing(balance, wr, mu_pct, sigma_pct, 1.0/1440.0)
+                ito_fraction = ito_sizing / balance if balance > 0 else 0.01
+                risk_fraction = min(risk_fraction, ito_fraction)
 
-        # 4. Conviction Sizing (Phase 22)
+        # 4. Conviction Sizing
         kelly_fraction = OMEGA.get("kelly_fraction", 0.25)
-        risk_fraction *= (kelly_fraction * 4.0) # Normaliza pelo multiplicador de agressividade do CEO
+        risk_fraction *= (kelly_fraction * 4.0) 
 
         if confidence >= 0.80:
             mult = OMEGA.get("high_conviction_multiplier", 2.0)
             risk_fraction *= mult
-            log.omega(f"🔥 HIGH CONVICTION: Multiplier {mult}x applied. Final Risk: {risk_fraction:.4f}")
 
-        # 5. Tiers de Agressão floor (Phase 38) e Circuit Breakers
+        # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0
         if confidence >= 0.70:
             max_risk_pct *= 2.0
 
         risk_fraction = min(risk_fraction, max_risk_pct)
-        
-        # [Phase 49] Drift Compensator: Aumenta a tolerância em regimes de baixa tendência mas alta entropia
-        drift_compensator = 1.35 if hasattr(snapshot, 'regime') and snapshot.regime == "DRIFTING_BEAR" else 1.0
-        risk_fraction *= drift_compensator
-
-        # [Phase 51] Ito Resilience & Cold Start Protection
-        # Se wr/avg_win/avg_loss são novos, Ito pode dar 0.00.
-        # Travamos um floor de segurança baseado na convicção.
-        if confidence >= 0.75:
-            min_floor_fraction = 0.05  # Arriscar pelo menos 5% do capital em trades de elite
-            risk_fraction = max(risk_fraction, min_floor_fraction)
-            log.omega(f"🛡️ ITO RESILIENCE: Floor applied due to High Confidence ({confidence:.2f}). Fraction: {risk_fraction:.4f}")
+        risk_fraction = max(0.001, risk_fraction)
 
         # 6. Converter para Lote
         point_value = 1.0
@@ -156,31 +134,41 @@ class RiskQuantumEngine:
 
         lot_size = balance * risk_fraction / (stop_loss_distance * point_value) if stop_loss_distance > 0 else MIN_LOT_SIZE
 
-        # Ceiling de Exposição (Phase 40)
-        exposure_ratio = OMEGA.get("exposure_ceiling_balance_ratio", 2000.0)
-        max_safe_lots = balance / max(500.0, exposure_ratio) 
-        if lot_size > max_safe_lots:
-            lot_size = max_safe_lots
-
-        lot_size = round(lot_size / LOT_STEP) * LOT_STEP
-        lot_size = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, lot_size))
-
-        return lot_size
-
-        # 3. PHASE 40: Hard Exposure Ceiling
-        # $30k account -> Max 15.0 lots (Safety ratio: 2000 units of balance per lot)
-        # Isso garante que mesmo em Total War, não batemos 100 lotes que liquidam com 0.4% de variação.
+        # Hard Exposure Ceiling
         exposure_ratio = OMEGA.get("exposure_ceiling_balance_ratio", 2000.0)
         max_safe_lots = balance / max(500.0, exposure_ratio) 
         if lot_size > max_safe_lots:
             log.omega(f"🛡️ EXPOSURE CEILING: Lote {lot_size:.2f} excedeu teto de segurança {max_safe_lots:.2f}. Limitando.")
             lot_size = max_safe_lots
 
-        # Arredondar para step e clamp (segurança extra local)
         lot_size = round(lot_size / LOT_STEP) * LOT_STEP
         lot_size = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, lot_size))
 
         return lot_size
+
+    def validate_trade(self, balance: float, asi_state: ASIState, lot_size: float) -> tuple[bool, float, str]:
+        """
+        Executa validações finais de segurança antes do disparo.
+        Retorna (approved, final_lot, reason).
+        """
+        try:
+            # 1. Check Daily Limits (FTMO Safety)
+            if not self.check_daily_limits(balance):
+                return False, lot_size, "Limite diário atingido ou Hibernação ativa."
+
+            # 2. Maximum Risk Concentration
+            # [Phase 37] Previne exposição excessiva em um único trade
+            risk_pct = (lot_size * 100.0) / (balance / 100.0) if balance > 0 else 0
+            max_pos_pct = OMEGA.get("position_size_pct", 10.0)
+            
+            if risk_pct > max_pos_pct:
+                adjusted_lot = (max_pos_pct * balance) / 10000.0
+                return True, adjusted_lot, f"Lote reduzido de {lot_size} para {adjusted_lot} (Risk Cap {max_pos_pct}%)"
+            
+            return True, lot_size, "Aprovado"
+        except Exception as e:
+            log.error(f"❌ [RiskQuantum] Erro em validate_trade: {e}")
+            return False, lot_size, f"Erro interno: {str(e)}"
 
     def check_daily_limits(self, balance: float) -> bool:
         """
@@ -198,151 +186,79 @@ class RiskQuantumEngine:
         # Limite Hard da FTMO: -$5000.00
         # Nosso Circuit Breaker de Segurança (Hibernação): -$4800.00
         ftmo_limit = -5000.00
-        safety_limit = -4800.00
+        safety_stop_loss_abs = -4800.00
+
+        if daily_pnl <= safety_stop_loss_abs:
+            log.critical(f"🛑 CIRCUIT BREAKER TRIPPED! Daily Loss ${daily_pnl:.2f} atingiu limite FTMO/Safety. Hibernando.")
+            return False
+
+        # Max Drawdown de Conta (ex: 10% do start balance histórico)
+        # Implementar se necessário o histórico de balance inicial.
         
-        if daily_pnl <= safety_limit:
-            log.omega(f"🚨 [EMERGENCY HIBERNATION] P&L do dia ({daily_pnl:+.2f}) atingiu o limite de segurança de ${safety_limit:.2f}!")
-            log.omega(f"🚨 [RISK] Faltam apenas ${abs(daily_pnl - ftmo_limit):.2f} para a eliminação da conta pela FTMO.")
-            return False
-
-        if daily_pnl < -500.00:
-             log.warning(f"⚠️ [DANGER] Drawdown diário atingiu {daily_pnl:+.2f}. Restam ${abs(daily_pnl - safety_limit):.2f} para hibernação.")
-
         return True
 
-    def check_circuit_breaker(self, asi_state, snapshot=None) -> bool:
-        """Verifica se o circuit breaker deve ativar ou se manter ativo via Entropia Quântica."""
-        # Se a trava foi ativada, ela só é solta se a entropia ceder e o caos estabilizar
-        if self._circuit_breaker_until:
-            # Em vez de olhar para o relógio, olhamos para a estrutura causal do mercado
-            is_locked = True
-            
-            if snapshot and snapshot.indicators:
-                entropy = snapshot.indicators.get("M5_entropy")
-                chaos_lyapunov = snapshot.indicators.get("M5_lyapunov")
-                
-                ent_val = entropy[-1] if isinstance(entropy, (list, np.ndarray)) and len(entropy) > 0 else 3.0
-                lya_val = chaos_lyapunov[-1] if isinstance(chaos_lyapunov, (list, np.ndarray)) and len(chaos_lyapunov) > 0 else 0.5
-                
-                # Se a entropia (desordem direcional) caiu abaixo de 1.8 e o lyapunov (previsibilidade) é < 0 (determinístico)
-                if ent_val < 1.8 and lya_val < 0.0:
-                    is_locked = False
-                    log.omega(f"🟢 [ENTROPY LOCK RELEASED] Caos dissipado (Ent={ent_val:.2f}, Lya={lya_val:.2f}). Resumindo operações.")
-                else:
-                    # Trava mecânica de segurança de tempo infinito, apenas notifica a cada ciclo longo
-                    if int(datetime.now(timezone.utc).timestamp()) % 60 == 0:
-                        log.debug(f"🔒 [ENTROPY LOCK ACTIVE] Aguardando estabilização. Ent={ent_val:.2f} (Alvo <1.8), Lya={lya_val:.2f} (Alvo <0.0)")
+    def update_pnl(self, balance: float):
+        """Atualiza estado interno do P&L."""
+        if self._daily_start_balance > 0:
+            self._daily_pnl = balance - self._daily_start_balance
 
-            if is_locked:
-                return False  # Continua em pausa termodinâmica
-            else:
-                self._circuit_breaker_until = None
-                asi_state.circuit_breaker_active = False
-
-        # Ativar se losses consecutivos (a ignição continua baseada no balanço destrutivo)
-        if asi_state.consecutive_losses >= RISK_MAX_CONSECUTIVE_LOSSES:
-            self._circuit_breaker_until = True # Flag booleana de estado de trava termodinâmica
-            asi_state.circuit_breaker_active = True
-            
-            ent_val = 3.0
-            if snapshot and snapshot.indicators:
-                entropy = snapshot.indicators.get("M5_entropy")
-                ent_val = entropy[-1] if isinstance(entropy, (list, np.ndarray)) and len(entropy) > 0 else 3.0
-
-            log.omega(
-                f"🔴 [QUANTUM CIRCUIT BREAKER ATIVADO] "
-                f"{asi_state.consecutive_losses} losses consecutivos. "
-                f"Trava ativada na Entropia={ent_val:.2f}. "
-                f"Só religará quando o mercado resfriar termodinamicamente."
-            )
-            return False
-
-        return True
-
-    def check_drawdown(self, balance: float, peak_balance: float) -> bool:
-        """Verifica drawdown máximo."""
-        if peak_balance <= 0:
-            return True
-
-        drawdown_pct = (peak_balance - balance) / peak_balance * 100
-
-        if drawdown_pct >= RISK_MAX_DRAWDOWN_PCT:
-            log.omega(
-                f"🔴 MAX DRAWDOWN HIT: {drawdown_pct:.2f}% >= {RISK_MAX_DRAWDOWN_PCT}%"
-            )
-            return False
-
-        return True
-
-    def validate_trade(self, balance: float, asi_state,
-                       lot_size: float, snapshot=None) -> tuple:
+    @catch_and_log(default_return=None)
+    def evaluate_wormhole_trigger(self, pos: dict, snapshot) -> Optional[dict]:
         """
-        Validação completa de risco antes de executar trade.
-        Returns: (approved: bool, final_lot_size: float, reason: str)
+        [PHASE Ω-TRANSCENDENCE] Detecta se a posição está colapsando e ativa o Wormhole.
+        O Wormhole abre um hedge gravitacional para neutralizar a perda do SL.
         """
-        # 1. Circuit breaker (Entropy-Locked)
-        if not self.check_circuit_breaker(asi_state, snapshot=snapshot):
-            return False, 0.0, "ENTROPY_CIRCUIT_BREAKER_ACTIVE"
+        if not pos or not snapshot:
+            return None
 
-        # 2. Daily limits
-        if not self.check_daily_limits(balance):
-            return False, 0.0, "DAILY_LOSS_LIMIT"
+        # Filtro de símbolo
+        symbol = pos.get("symbol", "")
+        if symbol != snapshot.symbol:
+            return None
 
-        # 3. Drawdown
-        if not self.check_drawdown(balance, asi_state.peak_balance):
-            return False, 0.0, "MAX_DRAWDOWN"
+        # Dados da posição
+        pos_type = pos.get("type_name", pos.get("type", "")) 
+        open_price = pos.get("price_open", pos.get("open_price", 0.0))
+        sl_price = pos.get("sl", 0.0)
+        current_price = snapshot.price
+        ticket = pos.get("ticket", 0)
 
-        # 4. Lot size sanity
-        final_lot = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, lot_size))
+        if sl_price == 0:
+            return None # Sem SL, sem Wormhole
 
-        return True, final_lot, "APPROVED"
+        # Distância total até o SL
+        total_sl_dist = abs(open_price - sl_price)
+        if total_sl_dist <= 0:
+            return None
 
-    def record_trade_result(self, profit: float, asi_state):
-        """Registra resultado do trade para atualização de risco."""
-        self._daily_pnl += profit
-        self._daily_trades += 1
-        asi_state.total_profit += profit
-
-        if profit > 0:
-            asi_state.total_wins += 1
-            asi_state.consecutive_losses = 0
-        else:
-            asi_state.total_losses += 1
-            asi_state.consecutive_losses += 1
-
-        asi_state.total_trades += 1
-
-    def evaluate_wormhole_trigger(self, position: dict, snapshot) -> Optional[dict]:
-        """
-        [PHASE Ω-TRANSCENDENCE] Wormhole Risk Recovery.
-        Se uma posição atinge o 'Event Horizon' (-85% do SL), 
-        abrimos um Gamma Hedge para congelar a perda.
-        """
-        p_profit = position.get("profit", 0.0)
-        p_type = position.get("type", "")
-        p_symbol = position.get("symbol") or position.get("symbol_name")
+        # Distância atual percorrida em direção ao SL
+        # Se BUY, preço caindo = prejuízo
+        # Se SELL, preço subindo = prejuízo
+        if "BUY" in str(pos_type).upper():
+            current_drawdown = open_price - current_price
+        else: # SELL
+            current_drawdown = current_price - open_price
         
-        # Só ativa se o prejuízo for significativo (> $50) e estiver perto do SL
-        if p_profit < -50.0:
-            # Pegar SL original ou delta do ATR
-            # Simplificação: se o profit atual é 85% do ATR médio do SL
-            atr = snapshot.indicators.get("M1_atr_14", [0.0])[0]
-            sl_dist = OMEGA.get("stop_loss_atr_mult") * atr
+        # Ratio de perigo (0.0 a 1.0+)
+        danger_ratio = current_drawdown / total_sl_dist if total_sl_dist > 0 else 0
+        
+        # Gateway de ativação: 80% do caminho para o SL (Configurável via Omega)
+        threshold = OMEGA.get("wormhole_trigger_threshold", 0.80)
+        
+        if danger_ratio >= threshold:
+            # 🌀 WORMHOLE COLLAPSE DETECTED!
+            action = "SELL" if "BUY" in str(pos_type).upper() else "BUY"
             
-            # Se o prejuízo em points ultrapassar 80% do SL esperado
-            if abs(p_profit) > (sl_dist * 0.85 * 10): # Ajuste p/ valor do tick
-                log.omega(f"🕳️ WORMHOLE TRIGGERED: Position {position['ticket']} near Event Horizon. Initiating Gamma Scalp.")
-                return {
-                    "action": "SELL" if p_type == "BUY" else "BUY",
-                    "lot": position.get("volume", 0.01) * 1.5, # Hedge agressivo
-                    "tp_points": 50, # Saída rápida
-                    "reason": "Wormhole Recovery"
-                }
+            # TP dinâmico para o micro-hedge (buscando neutralizar 50% do strike do SL)
+            point = snapshot.symbol_info.get("point", 0.01)
+            tp_points = int((total_sl_dist * 0.45) / point) if point > 0 else 1000
+            
+            log.critical(f"🌀 [WORMHOLE TRIGGER] Pos #{ticket} {pos_type} em colapso ({danger_ratio:.2%}). Iniciando Gamma Hedge {action}.")
+            
+            return {
+                "action": action,
+                "tp_points": tp_points,
+                "reason": f"WORMHOLE_RECOVERY: Danger Ratio {danger_ratio:.2%}"
+            }
+            
         return None
-
-    def reset_daily(self, balance: float):
-        """Reset diário dos contadores."""
-        self._daily_pnl = 0.0
-        self._daily_start_balance = balance
-        self._daily_trades = 0
-        log.info(f"📊 Risk daily reset. Balance: ${balance:.2f}")

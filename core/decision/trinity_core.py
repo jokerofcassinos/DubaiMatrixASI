@@ -81,6 +81,7 @@ class TrinityCore:
         self._last_phi_val = 0.0
         self._last_sl_mult = 0.0
         self._last_regime = ""
+        self._last_loss_time = 0.0  # [PHASE Ω-ANTI-FRAGILITY] Initialization
 
     @ast_self_heal
     @catch_and_log(default_return=None)
@@ -330,6 +331,10 @@ class TrinityCore:
                 self._last_sl_mult = dynamic_sl_mult
                 self._last_regime = regime_state.current.value
  
+        # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
+        limit_mode_param = OMEGA.get("limit_execution_mode", 0.0)
+        limit_mode = limit_mode_param > 0.5 and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]
+
         if action == Action.BUY:
             stop_loss = price - atr * dynamic_sl_mult
             take_profit = price + atr * tp_mult
@@ -341,6 +346,32 @@ class TrinityCore:
         risk = abs(price - stop_loss)
         reward = abs(take_profit - price)
         rr_ratio = reward / risk if risk > 0 else 0
+
+        # [Phase Ω-Resilience] Commission-Aware RR:
+        # Check if reward covers commission + min profit target
+        sym_info = snapshot.symbol_info
+        point_val = sym_info.get("point", 1.0) if sym_info else 1.0
+        contract_size = sym_info.get("trade_contract_size", 1.0) if sym_info else 1.0
+        
+        # Estimate dynamic commission per lot from bridge
+        # We don't have direct access to bridge here, but we can use the value from OMEGA or assume a default
+        # Ideally, we should have the dynamic_comm in snapshot metadata.
+        comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
+        min_net_profit = OMEGA.get("min_profit_per_ticket", 30.0)
+        
+        # Profit in points needed to cover commission + target (assuming 1 lot for ratio check)
+        min_points_needed = (comm_per_lot + min_net_profit) / (contract_size if contract_size > 0 else 1.0)
+        
+        if reward < min_points_needed:
+            # If the ATR-based TP is too small to cover fees, we must expand it or veto
+            # We choose to expansion first if the regime allows, otherwise veto.
+            if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+                take_profit = price + (min_points_needed * 1.2) if action == Action.BUY else price - (min_points_needed * 1.2)
+                reward = abs(take_profit - price)
+                rr_ratio = reward / risk if risk > 0 else 0
+                log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.2f} to cover commissions.")
+            else:
+                return self._wait(f"REWARD_TOO_SMALL_FOR_FEES (Reward {reward:.2f} < Min {min_points_needed:.2f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
@@ -499,7 +530,10 @@ class TrinityCore:
             regime=regime_state.current.value,
             reasoning=reasoning,
             risk_reward_ratio=rr_ratio,
-            metadata={}
+            metadata={
+                "phi": quantum_state.phi if quantum_state else 0.0,
+                "quantum_metadata": quantum_state.metadata if quantum_state else {}
+            }
         )
         
         # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
@@ -510,10 +544,6 @@ class TrinityCore:
 
         
         if is_hydra_mode:
-            decision.metadata["hydra_mode"] = True
-        
-        if is_hydra_mode:
-            decision.metadata = decision.metadata if hasattr(decision, 'metadata') else {}
             decision.metadata["hydra_mode"] = True
 
         self._execute_count += 1
@@ -602,11 +632,16 @@ class TrinityCore:
             return float(atr[-1])
         return 0.0
 
-    def _log_cooldown(self, key: str, message: str, cooldown_sec: int = 30):
+    def _log_cooldown(self, key: str, message: str, cooldown_sec: int = 30, level: str = "info"):
         """Evita spam de logs repetitivos no terminal."""
         now = time.time()
         if now - self._log_cache.get(key, 0) > cooldown_sec:
-            log.info(message)
+            if level == "warning":
+                log.warning(message)
+            elif level == "omega":
+                log.omega(message)
+            else:
+                log.info(message)
             self._log_cache[key] = now
 
     def _wait(self, reason: str) -> Decision:
@@ -624,6 +659,12 @@ class TrinityCore:
             regime="",
             reasoning=f"WAIT: {reason}",
         )
+
+    def update_loss_event(self):
+        """Notifica o TrinityCore de um evento de loss recente."""
+        self._last_loss_time = time.time()
+        # [PHASE Ω-RESILIENCE] Log Cooldown para evitar flood no terminal
+        self._log_cooldown("LOSS_EVENT", "🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.", 30, level="warning")
 
     @property
     def stats(self) -> dict:

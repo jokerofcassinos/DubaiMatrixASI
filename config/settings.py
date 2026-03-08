@@ -11,6 +11,7 @@
 import json
 import os
 from datetime import datetime
+from typing import Dict
 
 # ═══════════════════════════════════════════════════════════════
 #  DIRETÓRIOS BASE
@@ -142,6 +143,17 @@ class ASIState:
         self.circuit_breaker_active = False
         self.consecutive_losses = 0
 
+    def update_from_report(self, report: Dict):
+        """Atualiza métricas de P&L a partir do relatório do PerformanceTracker."""
+        self.total_trades = report.get("total_trades", 0)
+        self.total_profit = report.get("total_profit", 0.0)
+        self.total_wins = report.get("total_wins", 0)
+        self.total_losses = report.get("total_losses", 0)
+        self.gross_profit = report.get("gross_profit", 0.0)
+        self.gross_loss = report.get("gross_loss", 0.0)
+        self.max_drawdown = report.get("max_drawdown", 0.0)
+        self.peak_balance = report.get("peak_equity", 0.0)
+
     def save(self):
         """Persiste estado da ASI no disco."""
         state_data = {
@@ -194,7 +206,19 @@ class ASIState:
         return self.total_wins / self.total_trades
 
     @property
-    def profit_factor(self):
+    def avg_win(self):
+        if self.total_wins == 0:
+            return 0.0
+        return self.gross_profit / self.total_wins
+
+    @property
+    def avg_loss(self):
         if self.total_losses == 0:
-            return float("inf") if self.total_wins > 0 else 0.0
-        return self.total_wins / self.total_losses
+            return 0.0
+        return self.gross_loss / self.total_losses
+
+    @property
+    def profit_factor(self):
+        if self.gross_loss == 0:
+            return float("inf") if self.gross_profit > 0 else 0.0
+        return self.gross_profit / self.gross_loss
