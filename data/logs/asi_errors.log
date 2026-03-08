@@ -4511,3 +4511,24 @@
 [DubaiMatrixASI] 23:59:55.806    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
 [DubaiMatrixASI] 23:59:56.051    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
 [DubaiMatrixASI] 00:57:19.387    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'MarketSnapshot' object has no attribute 'regime'
+[DubaiMatrixASI] 01:02:21.808    ERROR │ 💀 EXCEPTION in [think]: NameError: name 'Decision' is not defined
+[DubaiMatrixASI] 01:16:11.167    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.455    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.663    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.933    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.184    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.439    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.715    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.942    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.188    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.463    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.703    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.955    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.202    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.481    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.805    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.997    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:15.199    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:15.480    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:20:47.867    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 01:20:48.356    ERROR │ ❌ Falha ao executar slot

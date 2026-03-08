@@ -134,6 +134,10 @@ class RiskQuantumEngine:
 
         risk_fraction = min(risk_fraction, max_risk_pct)
         
+        # [Phase 49] Drift Compensator: Aumenta a tolerância em regimes de baixa tendência mas alta entropia
+        drift_compensator = 1.35 if hasattr(snapshot, 'regime') and snapshot.regime == "DRIFTING_BEAR" else 1.0
+        risk_fraction *= drift_compensator
+
         # [TOTAL WAR OVERRIDES]
         if balance >= 5000.0:
             if asi_state and balance < asi_state.peak_balance * 0.70:

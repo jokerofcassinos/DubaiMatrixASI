@@ -400,7 +400,11 @@ class SniperExecutor:
             log.error("❌ Falha crítica: Impossível obter tick para execução HFT")
             return None
             
+        has_ignition = snapshot.metadata.get("v_pulse_detected", False)
         entry_price = current_tick["ask"] if decision.action.value == "BUY" else current_tick["bid"]
+        
+        if has_ignition:
+            self._log_cooldown("v_pulse_ignite", f"🚀 [V-PULSE IGNITION] Bypassing ATR/Entropy constraints for immediate strike.", 30)
 
         def _send_slot(i, chunk_lot, delay_sec):
             if delay_sec > 0:

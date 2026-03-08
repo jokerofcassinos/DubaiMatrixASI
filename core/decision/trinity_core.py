@@ -138,12 +138,12 @@ class TrinityCore:
             # [PHASE Ω-ANTI-FRAGILITY] Drifting/Compression regimes are noisy.
             # [EPA - Entropy Phase-Attractor]: If entropy is low and we have v-pulse/ignition, we relax thresholds.
             # In Phase 48, we reduce the 'mult' from 1.5x to 1.1x if ignition is confirmed.
-            has_ignition = snapshot.metadata.get("v_pulse_detected", False)
+            has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
             
             if quantum_state.entropy < 0.6 and (limit_mode or has_ignition):
-                mult = 1.05 if has_ignition else 1.1  # EPA Attraction: Ignition sovereign
+                mult = 1.02 if has_ignition else 1.05  # Omega Attraction: Ignition sovereign
             else:
-                mult = 1.15 if quantum_state.phi > 0.3 else 1.25 # Relaxed from 1.5
+                mult = 1.10 if quantum_state.phi > 0.3 else 1.15 # Reduced from 1.25
                 
             dynamic_buy_thresh *= mult
             dynamic_sell_thresh *= mult
@@ -167,11 +167,11 @@ class TrinityCore:
         # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade"
         is_god_mode = False
         
-        # [PHASE Ω-EXTREME] Velocity Divergence Detection
         # Se o spread está congelado mas a velocidade de ticks (T/s) dispara, 
         # estamos prestes a ter um snapback elástico.
         tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
-        is_velocity_burst = tick_velocity > 40.0 # Threshold de HFT puro
+        has_v_pulse = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        is_velocity_burst = tick_velocity > 40.0 or has_v_pulse # Threshold de HFT puro
         
         if (quantum_state.entropy > 0.85 or is_velocity_burst) and regime_state.current.value in ["HIGH_VOL_CHAOS", "SQUEEZE_BUILDUP", "SQUEEZE", "DRIFTING_BEAR"]:
             # Vamos absorver a liquidez com uma reversão tática.
@@ -181,10 +181,9 @@ class TrinityCore:
                 delta_price = closes[-1] - closes[-5]
                 atr_local = self._get_current_atr(snapshot)
                 
-                # [Phase Ω-Resilience] Increased price displacement requirement for God-Mode
                 # From 2.5x to 3.5x ATR to avoid firing during regular drift/mini-pullbacks
-                if (abs(delta_price) > atr_local * 3.5 or is_velocity_burst) and atr_local > 0:
-                    self._log_cooldown("GOD_MODE_REVERSAL", f"🌌 [GOD-MODE REVERSAL] {'Velocity Burst' if is_velocity_burst else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.", 60)
+                if (abs(delta_price) > atr_local * 3.5 or is_velocity_burst or has_v_pulse) and atr_local > 0:
+                    self._log_cooldown("GOD_MODE_REVERSAL", f"🌌 [GOD-MODE REVERSAL] {'V-Pulse/Velocity Burst' if (is_velocity_burst or has_v_pulse) else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.", 60)
                     action = Action.BUY if delta_price < 0 else Action.SELL
                     confidence = 0.99  # Certeza absoluta do rebote elástico
                     signal = 1.0 if action == Action.BUY else -1.0
@@ -384,6 +383,17 @@ class TrinityCore:
         # ═══ MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
         volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar
+        # [Phase 47] Drift Decoupling: Se houve ignição ou explosão de ticks, 
+        # forçamos um drift agressivo para o Monte Carlo não ser pessimista.
+        forced_drift = None
+        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+        has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        
+        if has_ignition or tick_velocity > 35.0:
+            # Mu = sigma * 5.0 (Ito Acceleration)
+            forced_drift = (atr / max(price, 1)) * 5.0 * (1.0 if action == Action.BUY else -1.0)
+            self._log_cooldown("forced_drift", f"🚀 [IGNITION DRIFT] Applying forced drift of {forced_drift:+.4f} due to {'V-Pulse' if has_ignition else 'Velocity Burst'}", 60)
+
         mc_result = self.monte_carlo.simulate_trade(
             current_price=price,
             direction=action.value,
@@ -393,6 +403,7 @@ class TrinityCore:
             regime=regime_state.current.value,
             n_simulations=5000,
             n_steps=100,
+            force_drift=forced_drift
         )
 
         mc_score = 0.0

@@ -48,6 +48,7 @@ class RegimeState:
     aggression_multiplier: float  # Multiplicador de agressividade para o regime
     reasoning: str
     duration_bars: int          # Há quantas barras estamos neste regime
+    v_pulse_detected: bool = False # [PHASE 48] Flag de ignição instantânea
 
 
 class RegimeDetector:
@@ -162,10 +163,12 @@ class RegimeDetector:
 
         # ═══ [PHASE 48] V-PULSE OVERRIDE ═══
         v_pulse = self._detect_v_pulse(snapshot)
+        v_pulse_detected = False
         if v_pulse:
             regime = v_pulse
-            confidence = max(confidence, 0.85)
+            confidence = max(confidence, 0.90)
             reasoning = f"[PHASE 48: V-PULSE] {reasoning}"
+            v_pulse_detected = True
 
         # Atualizar duração
         if regime == self._current_regime:
@@ -190,6 +193,7 @@ class RegimeDetector:
             aggression_multiplier=aggression,
             reasoning=reasoning,
             duration_bars=self._regime_duration,
+            v_pulse_detected=v_pulse_detected
         )
 
     def _detect_v_pulse(self, snapshot) -> Optional[MarketRegime]:
@@ -202,6 +206,7 @@ class RegimeDetector:
             return None
 
         closes = np.array(candles_m1["close"], dtype=np.float64)
+        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
         
         # 1. Delta Instantâneo (V-Shape)
         # Se os últimos 2 candles M1 anularam a queda dos 3 anteriores
@@ -209,19 +214,23 @@ class RegimeDetector:
             d3 = closes[-3] - closes[-5] # Queda anterior
             d2 = closes[-1] - closes[-3] # Recuperação atual
             
-            # Se caiu X e subiu > X * 0.8 (V-Recovery)
-            atr_m5 = snapshot.indicators.get("M5_atr_14")
-            current_atr = atr_m5[-1] if atr_m5 is not None and len(atr_m5) > 0 else 0
+            atr_m5_list = snapshot.indicators.get("M5_atr_14")
+            current_atr = atr_m5_list[-1] if atr_m5_list is not None and len(atr_m5_list) > 0 else 0
             
-            if d3 < 0 and d2 > abs(d3) * 0.8 and abs(d3) > current_atr * 1.5 and current_atr > 0:
+            # [Liquidity Hole Detection] Spread widening + Tick Velocity > 40
+            # Se o spread pontos disparou e a velocidade é HFT, ignoramos ATR e focamos no pulso
+            max_spread = snapshot.symbol_info.get("spread", 0) if snapshot.symbol_info else 0
+            is_liquidity_hole = max_spread > 5000 and tick_velocity > 40.0
+            
+            # Se caiu X e subiu > X * 0.8 (V-Recovery)
+            if d3 < 0 and d2 > abs(d3) * 0.8 and (abs(d3) > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
                 return MarketRegime.BREAKOUT_UP
 
             # Se subiu X e caiu > X * 0.8 (V-Reversal Top)
-            if d3 > 0 and d2 < -d3 * 0.8 and d3 > current_atr * 1.5 and current_atr > 0:
+            if d3 > 0 and d2 < -d3 * 0.8 and (d3 > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
                 return MarketRegime.BREAKOUT_DOWN
 
         # 2. HFT Explosion (Supernova Ignition)
-        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
         if tick_velocity > 35.0:
             # Se o preço está se movendo na direção oposta ao regime atual
             price_delta_m1 = closes[-1] - closes[-2]

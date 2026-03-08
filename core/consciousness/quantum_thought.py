@@ -57,13 +57,15 @@ class QuantumThoughtEngine:
 
     @catch_and_log(default_return=None)
     def process(self, signals: List[AgentSignal],
-                regime_weight: float = 1.0) -> Optional[QuantumState]:
+                regime_weight: float = 1.0,
+                v_pulse_detected: bool = False) -> Optional[QuantumState]:
         """
         Processa sinais de todos os agentes e colapsa o estado quântico.
 
         Args:
             signals: Lista de AgentSignals do NeuralSwarm
             regime_weight: Multiplicador do regime (agressividade)
+            v_pulse_detected: [PHASE 48] V-Pulse detectado pelo RegimeDetector
 
         Returns:
             QuantumState com a decisão emergente
@@ -204,6 +206,22 @@ class QuantumThoughtEngine:
                     if s.signal > 0.1:
                         s.weight *= 0.05  # Esmaga em 95% a força 
                         s.reasoning += " [!TRAP_VETO: SMART MONEY SELLING RESISTANCE!]"
+
+
+        # ═══ [OMEGA INJECTION] PHASE 48: V-PULSE_LOCK / IGNITION SOVEREIGNTY ═══
+        # Se o RegimeDetector detectou um V-Pulse (Ignition), o ruído é proscrito.
+        # Os agentes de ignição (Explosion, Velocity, Aggressiveness) ganham soberania absoluta.
+        if v_pulse_detected:
+            ignition_agents = ["ExplosionDetectorAgent", "PriceVelocityAgent", "AggressivenessAgent", "LiquidationVacuumAgent"]
+            dominant_dir = 1.0 if any(s.agent_name in ignition_agents and s.signal > 0.7 for s in valid_signals) else -1.0
+            
+            for s in valid_signals:
+                if s.agent_name in ignition_agents and s.signal * dominant_dir > 0.5:
+                    s.weight *= 5.0 # Boost massivo de autoridade
+                    s.reasoning += " [!V-PULSE_LOCK: IGNITION SOVEREIGNTY!]"
+                elif s.signal * dominant_dir < -0.1:
+                    s.weight *= 0.001 # Aniquilação total de sinal contrário
+                    s.reasoning += " [!V-PULSE_LOCK: CONTRARY NOISE ANNIHILATED!]"
 
 
         # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29/48) ═══
@@ -354,12 +372,15 @@ class QuantumThoughtEngine:
             
         # [OMEGA REFINEMENT] Natural Collapse Check
         # O estado colapsa naturalmente se tiver confiança E sinal suficientes.
-        # Caso contrário, ele permanece em superposição (incerteza matemática).
-        natural_collapse = (avg_confidence >= confidence_min_val) and (abs(raw_signal) >= buy_threshold)
+        # [PHASE 48]: Se v_pulse_detected, o colapso é forçado com thresholds relaxados.
+        natural_collapse = (avg_confidence >= (confidence_min_val * 0.8 if v_pulse_detected else confidence_min_val)) and \
+                           (abs(raw_signal) >= (buy_threshold * 0.7 if v_pulse_detected else buy_threshold))
 
         if natural_collapse:
             collapsed_signal = raw_signal
             superposition = False
+            if v_pulse_detected:
+                reasoning += " [V-PULSE FORCED COLLAPSE]"
         elif OMEGA.get("superposition_resolution_enabled", 0.0) > 0.5:
             # ═══ PHASE 46: SUPERPOSITION RESOLUTION MOTOR ═══
             # Se não colapsou naturalmente, as mentes "brigaram". 
@@ -398,16 +419,20 @@ class QuantumThoughtEngine:
         bear_agents = [s.agent_name for s in valid_signals if s.signal < -0.1]
         neutral_agents = [s.agent_name for s in valid_signals if abs(s.signal) <= 0.1]
 
+        # [Phase 49] Desabreviação de sinais para Transparência de Elite
+        bull_list = ", ".join(bull_agents[:5]) + ("..." if len(bull_agents) > 5 else "")
+        bear_list = ", ".join(bear_agents[:5]) + ("..." if len(bear_agents) > 5 else "")
+        dominance = len(bear_agents) / (len(bull_agents) + 1e-6) if raw_signal < 0 else len(bull_agents) / (len(bear_agents) + 1e-6)
+
         reasoning = (
             f"SIGNAL={raw_signal:+.3f} "
             f"COHERENCE={coherence:.2f} "
-            f"CONFIDENCE={avg_confidence:.2f} "
             f"PHI={phi_val:.2f} "
-            f"ENTROPY={system_entropy:.2f} "
-            f"CPP={comp_time_cpp:.3f}ms "
+            f"DOMINANCE={dominance:.1f}x "
+            f"CPP={comp_time_cpp:.2f}ms "
             f"{'COLLAPSED' if not superposition else 'SUPERPOSITION'} | "
-            f"{'RESOLVED:' + resolution['method'] if not superposition and 'resolution' in locals() and resolution['resolved'] else ''} "
-            f"BULL[{cpp_result['bull_count']}] BEAR[{cpp_result['bear_count']}] NEUT[{cpp_result['neutral_count']}]"
+            f"BULL[{len(bull_agents)}]: {bull_list} | "
+            f"BEAR[{len(bear_agents)}]: {bear_list}"
         )
 
         state = QuantumState(

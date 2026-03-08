@@ -129,6 +129,7 @@ class QuantumMonteCarloEngine:
         n_simulations: int = 5000,
         n_steps: int = 100,       # Steps por simulação (~ ticks)
         dt: float = 1.0 / 252.0 / 24.0,  # ~1 hora em anos
+        force_drift: Optional[float] = None, # [NEW] Phase 47: Manual drift override for ignition
     ) -> Optional[MonteCarloResult]:
         """
         Executa N simulações Monte Carlo para avaliar um trade proposto.
@@ -159,11 +160,9 @@ class QuantumMonteCarloEngine:
         # Volatilidade ajustada pelo regime
         sigma = volatility * vol_mult
         
-        # O Drift no Merton Jump Diffusion precisa ser adaptado porque em HFT o tempo "dt" é minúsculo
-        # Se usarmos um drift normalizado, ele não vai superar a volatilidade Brownian Motion e a maioria 
-        # dos trades esbarrarão no SL se ele estiver mais curto que o TP.
-        # Amplificamos o 'mu' artificialmente pela razão Direcional
-        if direction == "BUY":
+        if force_drift is not None:
+            mu = force_drift
+        elif direction == "BUY":
             # Dá mais peso para o lado da compra se a decisão dos agentes é compra
             mu = sigma * 2.0 * drift_mult 
         else:
@@ -214,13 +213,22 @@ class QuantumMonteCarloEngine:
         synthetic_closes = self._generate_paths_merton(current_price, mu, sigma, jump_intensity, jump_mean, 1, 100, dt)[0]
         hyper_out = CPP_CORE.simulate_4096_hyperspace(synthetic_closes, volatility)
         
-        # ═══ MONTE CARLO SCORE ═══
-        # Reduzindo a dependência agressiva em tanh que pode gerar scores destrutivos
-        ev_score = np.tanh(expected_return / max(current_price * 0.0005, 1e-10))
-        wp_score = (win_prob - 0.4) * 2.5 # Se WP for 50%, gera +0.25 (Puxa a favor)
-        tail_penalty = min(0, cvar_95 / max(current_price * 0.02, 1e-10))
+        # ═══ 3.5 NORMALIZAÇÃO DE SCORES (Phase 26) ═══
+        # wp_score: Win Probability mapeado de [0, 1] para [-1, 1]
+        wp_score = float((win_prob - 0.5) * 2.0)
+        
+        # ev_score: Expected Return normalizado pela distância do Stop Loss
+        ev_score = float(np.clip(expected_return / max(abs(sl_dist), 1e-10), -1.0, 1.0))
+        
+        # tail_penalty: Risco de cauda (CVaR) - quanto mais negativo, maior a penalidade
+        tail_penalty = float(np.clip(cvar_95 / max(abs(sl_dist), 1e-10), -1.0, 1.0))
 
-        mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty, -1.0, 1.0))
+        # Bônus de Baricentro Estocástico: HFT Edge (45-55% Win Prob é Gold no BTCUSD)
+        balance_bonus = 0.0
+        if 0.45 <= win_prob <= 0.55:
+            balance_bonus = 0.25 # [NEW] Re-baricentro: evita rejeição de trades de alta frequência
+            
+        mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
         
         # Adiciona o boost do Hyperspace ao score final
         mc_score = float(np.clip(mc_score + hyper_out["confidence_boost"], -1.0, 1.0))

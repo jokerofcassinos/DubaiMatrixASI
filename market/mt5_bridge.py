@@ -201,8 +201,11 @@ class MT5Bridge:
                         self._handle_socket_data(line)
                 
             except socket.timeout:
-                # Timeout normal de leitura, significa que nenhum tick chegou no último segundo
                 continue
+            except ConnectionResetError:
+                log.warning("⚠️ Socket resetado pela contraparte (MT5/EA).")
+                self._ea_connected = False
+                self.client_socket = None
             except Exception as e:
                 if self._socket_running:
                     log.error(f"❌ Erro no streaming do socket: {e}")
@@ -210,7 +213,8 @@ class MT5Bridge:
                         self.client_socket.close()
                     self.client_socket = None
                     self._ea_connected = False
-                time.sleep(1)
+                # [Phase 49] Backoff reduzido para HFT Reconnect
+                time.sleep(0.5) 
 
     def _handle_socket_data(self, data: str):
         """Processa ticks e resultados vindos do EA via socket. Assume 'data' como uma linha única sem '\n'."""

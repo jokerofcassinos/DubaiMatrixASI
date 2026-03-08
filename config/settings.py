@@ -130,6 +130,8 @@ class ASIState:
         self.total_wins = 0
         self.total_losses = 0
         self.total_profit = 0.0
+        self.gross_profit = 0.0
+        self.gross_loss = 0.0
         self.max_drawdown = 0.0
         self.peak_balance = 0.0
         self.agent_weights = {}          # Pesos dinâmicos de cada agente neural
@@ -149,6 +151,8 @@ class ASIState:
             "total_wins": self.total_wins,
             "total_losses": self.total_losses,
             "total_profit": self.total_profit,
+            "gross_profit": self.gross_profit,
+            "gross_loss": self.gross_loss,
             "max_drawdown": self.max_drawdown,
             "peak_balance": self.peak_balance,
             "agent_weights": self.agent_weights,
@@ -169,6 +173,8 @@ class ASIState:
                 self.total_wins = data.get("total_wins", 0)
                 self.total_losses = data.get("total_losses", 0)
                 self.total_profit = data.get("total_profit", 0.0)
+                self.gross_profit = data.get("gross_profit", 0.0)
+                self.gross_loss = data.get("gross_loss", 0.0)
                 self.max_drawdown = data.get("max_drawdown", 0.0)
                 self.peak_balance = data.get("peak_balance", 0.0)
                 self.agent_weights = data.get("agent_weights", {})

@@ -4287,3 +4287,1368 @@ AttributeError: 'MarketSnapshot' object has no attribute 'regime'
 [DubaiMatrixASI] 00:58:27.849     INFO │ 📈 Trades: 0
 [DubaiMatrixASI] 00:58:27.850     INFO │ 📈 Win Rate: 0.0%
 [DubaiMatrixASI] 00:58:27.850     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 00:59:10.433    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 00:59:12.123     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 00:59:12.124     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 00:59:12.124     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 00:59:12.124    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 00:59:12.125    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 00:59:12.125    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 00:59:12.125    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 00:59:12.126    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 00:59:12.126    OMEGA │ ⚡ 📅 2026-03-08T03:59:12.126547+00:00
+[DubaiMatrixASI] 00:59:12.126    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 00:59:12.127    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 00:59:12.127     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 00:59:12.130     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 00:59:12.130    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 00:59:12.131     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 00:59:12.131     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 00:59:12.131     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 00:59:12.132     INFO │    Saldo: $98841.93
+[DubaiMatrixASI] 00:59:12.132     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 00:59:12.132     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 00:59:12.133     INFO │    Spread: 100 points
+[DubaiMatrixASI] 00:59:12.133    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 00:59:12.134     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 00:59:12.134    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67034.92, Bid=67033.92
+[DubaiMatrixASI] 00:59:12.134     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 00:59:12.146    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 00:59:12.147    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 00:59:12.148    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 00:59:12.172    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 00:59:12.199    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 00:59:12.205    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 00:59:12.206    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 00:59:12.214    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 00:59:12.215    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 00:59:12.215    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 00:59:12.216     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98841.93, 'equity': 98896.27, 'tick_buffer_size': 1, 'last_tick_ms': 1772949552288}
+[DubaiMatrixASI] 00:59:12.217    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 00:59:12.217    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 00:59:12.269    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 00:59:13.978     INFO │ 🌍 Macro Update: ETH=$1948.68 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$59.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 00:59:14.712    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 57850)
+[DubaiMatrixASI] 00:59:14.994     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.58% | Score=-0.640 | Sources=2
+[DubaiMatrixASI] 00:59:15.289     INFO │ ⛓️ On-Chain Update: Mempool=21,157 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 00:59:37.486     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.154 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:00:02.741    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1500)
+[DubaiMatrixASI] 01:00:02.746    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007382
+[DubaiMatrixASI] 01:00:02.750     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.245 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:00:15.420    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:00:28.041     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.465 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:00:53.341    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1797)
+[DubaiMatrixASI] 01:00:53.341    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.187862
+[DubaiMatrixASI] 01:00:53.345     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.349 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:01:12.313     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:01:16.534     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.57% | Score=-0.639 | Sources=2
+[DubaiMatrixASI] 01:01:18.619    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:01:18.620     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=-0.140 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.140 < req 0.250)
+[DubaiMatrixASI] 01:01:19.094     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0194 < 0.0250)
+[DubaiMatrixASI] 01:01:21.137     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 01:01:21.163  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:01:21.185    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.020203 aw_pct=0.000672 al_pct=0.000672
+[DubaiMatrixASI] 01:01:21.185    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:01:21.185    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:01:21.201     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $98841.93
+[DubaiMatrixASI] 01:01:21.202    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 0.44 para caber na margem livre ($9770.15)
+[DubaiMatrixASI] 01:01:21.210   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.531 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=97.39 RR=0.53 | Quantum: SIGNAL=+0.531 COHERENCE=0.41 CONFIDENCE=0.82 PHI=0.03 ENTROPY=0.75 CPP=0.003ms COLLAPSED |  BULL[11] BEAR[10] NEUT[22] | MC[score=+0.134 WP=54.1% EV=-1.58 CVaR=-182.60 sim=22.7ms]
+[DubaiMatrixASI] 01:01:21.215    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=0.44 (em 3 nodes) price=66983.00 SL=66800.40 TP=67080.39
+[DubaiMatrixASI] 01:01:21.256    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.15 @ 66982.00 (via socket)
+[DubaiMatrixASI] 01:01:21.257    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.15 @ 66981.30 (via socket)
+[DubaiMatrixASI] 01:01:21.263    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.15 @ 66980.60 (via socket)
+[DubaiMatrixASI] 01:01:21.280    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=0.45 @ 66981.30 | 3 tickets gerados | BUY signal=+0.531 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=97.39 RR=0.5
+[DubaiMatrixASI] 01:01:21.417     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935264|66982.00
+[DubaiMatrixASI] 01:01:21.427    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935264 @ 66982.00
+[DubaiMatrixASI] 01:01:21.568     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935265|66981.30
+[DubaiMatrixASI] 01:01:21.569    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935265 @ 66981.30
+[DubaiMatrixASI] 01:01:21.715     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935266|66980.60
+[DubaiMatrixASI] 01:01:21.716    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935266 @ 66980.60
+[DubaiMatrixASI] 01:01:22.186    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:01:39.093    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (18s/60s)
+[DubaiMatrixASI] 01:01:43.909    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 01:01:43.918    OMEGA │ ⚡ 🧬 Gen #1: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:01:43.932    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.9349)
+[DubaiMatrixASI] 01:01:43.932    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.222129
+[DubaiMatrixASI] 01:01:43.937     INFO │ 📊 Trade Recorded: SELL #397924557 | P&L=$-33.97 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.938     INFO │ 📊 Trade Recorded: SELL #397924558 | P&L=$-34.03 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.940     INFO │ 📊 Trade Recorded: SELL #397924559 | P&L=$-34.09 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.942     INFO │ 📊 Trade Recorded: SELL #397924560 | P&L=$-34.56 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.943     INFO │ 📊 Trade Recorded: SELL #397924561 | P&L=$-37.30 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.945     INFO │ 📊 Trade Recorded: SELL #397924956 | P&L=$-30.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.947     INFO │ 📊 Trade Recorded: SELL #397924957 | P&L=$-30.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.949     INFO │ 📊 Trade Recorded: SELL #397924958 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.950     INFO │ 📊 Trade Recorded: SELL #397924959 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.952     INFO │ 📊 Trade Recorded: SELL #397924960 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.954     INFO │ 📊 Trade Recorded: BUY #397925295 | P&L=$-15.50 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.956     INFO │ 📊 Trade Recorded: BUY #397925296 | P&L=$-15.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.958     INFO │ 📊 Trade Recorded: BUY #397925297 | P&L=$-15.10 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.960     INFO │ 📊 Trade Recorded: BUY #397925299 | P&L=$-14.76 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.962     INFO │ 📊 Trade Recorded: BUY #397925300 | P&L=$-15.07 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:01:43.962    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 15 novos trades auditados e sincronizados na consciência.
+[DubaiMatrixASI] 01:01:43.963     INFO │ 💫 Cycle #600 | Action=SELL | Signal=-0.337 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=SELL signal=-0.337 conf=0.72 coherence=0.51 regime=DRIFTING_BEAR ATR=97.39 RR=0.53 | Quantum: SIGNAL=-0.337 COHERENCE=0.51 CONFIDENCE=0.72 PHI=0.11 ENTROPY=0.65 CPP=0.003ms COLLAPSED |  BULL[6] BEAR[12] NEUT[24] | MC[score=+0.122 WP=53.5% EV=-2.20 CVaR=-182.60 sim=23.3ms]
+[DubaiMatrixASI] 01:02:09.142     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.362 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:02:14.672     INFO │ 🌍 Macro Update: ETH=$1947.72 | BTC/ETH=34.4 | Gold=$5178 | Vol24h=$59.8B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:02:21.799    DEBUG │ Pausa tática: Java PnL Predictor indisponível - 'ASIState' object has no attribute 'gross_loss'
+[DubaiMatrixASI] 01:02:21.807    OMEGA │ ⚡ 🕳️ WORMHOLE TRIGGERED: Position 397935123 near Event Horizon. Initiating Gamma Scalp.
+[DubaiMatrixASI] 01:02:21.808    ERROR │ 💀 EXCEPTION in [think]: NameError: name 'Decision' is not defined
+[DubaiMatrixASI] 01:02:21.815    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\asi_brain.py", line 270, in think
+    rec_decision = Decision(
+                   ^^^^^^^^
+NameError: name 'Decision' is not defined. Did you mean: 'decision'?
+
+[DubaiMatrixASI] 01:02:34.412  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:02:34.413  WARNING │ 🚨 ALERT [CRITICAL]: 15 losses consecutivos!
+[DubaiMatrixASI] 01:02:34.428    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.2895)
+[DubaiMatrixASI] 01:02:34.428    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007365
+[DubaiMatrixASI] 01:02:34.433     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=-0.499 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:02:59.695     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=-0.465 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:03:18.312     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.65% | Score=-0.641 | Sources=2
+[DubaiMatrixASI] 01:03:25.001  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:03:25.002  WARNING │ 🚨 ALERT [CRITICAL]: 15 losses consecutivos!
+[DubaiMatrixASI] 01:03:25.003    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.4281)
+[DubaiMatrixASI] 01:03:25.003    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.253236
+[DubaiMatrixASI] 01:03:25.007    DEBUG │ Pausa tática: Java PnL Predictor indisponível - 'ASIState' object has no attribute 'gross_loss'
+[DubaiMatrixASI] 01:03:25.007     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=-0.480 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:03:45.407    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:03:45.613    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:03:45.613    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:03:45.618    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:03:45.619    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:03:45.619    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:03:45.620    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:03:45.620255+00:00
+[DubaiMatrixASI] 01:03:45.620     INFO │ 📈 Trades: 15
+[DubaiMatrixASI] 01:03:45.621     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:03:45.621     INFO │ 📈 P&L: $-189.92
+[DubaiMatrixASI] 01:07:52.809    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:07:54.492     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:07:54.493     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:07:54.493     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:07:54.493    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:07:54.494    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:07:54.494    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:07:54.494    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:07:54.495    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:07:54.495    OMEGA │ ⚡ 📅 2026-03-08T04:07:54.495439+00:00
+[DubaiMatrixASI] 01:07:54.495    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:07:54.496    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:07:54.496     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:07:54.499     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:07:54.500    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:07:54.500     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:07:54.501     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:07:54.501     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:07:54.501     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:07:54.502     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:07:54.502     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:07:54.502     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:07:54.503    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:07:54.503     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:07:54.504    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67025.49, Bid=67024.49
+[DubaiMatrixASI] 01:07:54.504     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:07:54.511    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:07:54.512    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:07:54.513    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:07:54.530    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:07:54.539     INFO │ 📂 Carregados 15 trades do histórico
+[DubaiMatrixASI] 01:07:54.572    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:07:54.578    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:07:54.580    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:07:54.587    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:07:54.588    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:07:54.589    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:07:54.589     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950076208}
+[DubaiMatrixASI] 01:07:54.590    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:07:54.591    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:07:54.640    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58156)
+[DubaiMatrixASI] 01:07:54.646    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:07:55.969     INFO │ 🌍 Macro Update: ETH=$1949.71 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$59.8B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:07:57.049     INFO │ ⛓️ On-Chain Update: Mempool=20,125 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:07:57.356     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.35% | Score=-0.635 | Sources=2
+[DubaiMatrixASI] 01:08:19.747     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=+0.537 | Coherence=0.41 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:08:45.021  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:08:45.022    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8876)
+[DubaiMatrixASI] 01:08:45.022    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006810
+[DubaiMatrixASI] 01:08:45.026     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=+0.535 | Coherence=0.40 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: STARTUP_COOLDOWN(50s/120.0s)
+[DubaiMatrixASI] 01:08:57.674    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 01:09:10.297     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.272 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:09:35.598  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:09:35.599    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8048)
+[DubaiMatrixASI] 01:09:35.599    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.232628
+[DubaiMatrixASI] 01:09:35.603     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.193 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:09:58.907     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.26% | Score=-0.633 | Sources=2
+[DubaiMatrixASI] 01:10:00.876    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 01:10:00.877     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=-0.278 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=15 | WinRate=0.0% | P&L=$-189.92 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:10:26.151  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:10:26.168    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-2.5157 Gen=1
+[DubaiMatrixASI] 01:10:26.169    OMEGA │ ⚡ 🧬 Gen #1: 5 mutações aplicadas | Tipo=uniform | Fitness=-2.5157
+[DubaiMatrixASI] 01:10:26.184    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9642)
+[DubaiMatrixASI] 01:10:26.184    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006443
+[DubaiMatrixASI] 01:10:26.191     INFO │ 📊 Trade Recorded: SELL #397924557 | P&L=$-33.97 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.194     INFO │ 📊 Trade Recorded: SELL #397924558 | P&L=$-34.03 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.197     INFO │ 📊 Trade Recorded: SELL #397924559 | P&L=$-34.09 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.201     INFO │ 📊 Trade Recorded: SELL #397924560 | P&L=$-34.56 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.204     INFO │ 📊 Trade Recorded: SELL #397924561 | P&L=$-37.30 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.207     INFO │ 📊 Trade Recorded: SELL #397924956 | P&L=$-30.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.210     INFO │ 📊 Trade Recorded: SELL #397924957 | P&L=$-30.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.214     INFO │ 📊 Trade Recorded: SELL #397924958 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.217     INFO │ 📊 Trade Recorded: SELL #397924959 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.222     INFO │ 📊 Trade Recorded: SELL #397924960 | P&L=$-30.36 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.243     INFO │ 📊 Trade Recorded: BUY #397925295 | P&L=$-15.50 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.272     INFO │ 📊 Trade Recorded: BUY #397925296 | P&L=$-15.37 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.288     INFO │ 📊 Trade Recorded: BUY #397925297 | P&L=$-15.10 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.292     INFO │ 📊 Trade Recorded: BUY #397925299 | P&L=$-14.76 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.296     INFO │ 📊 Trade Recorded: BUY #397925300 | P&L=$-15.07 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 01:10:26.296    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 15 novos trades auditados e sincronizados na consciência.
+[DubaiMatrixASI] 01:10:26.297     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.213 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(15)
+[DubaiMatrixASI] 01:10:51.504     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.361 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(30)
+[DubaiMatrixASI] 01:10:56.595     INFO │ 🌍 Macro Update: ETH=$1951.07 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$59.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:11:04.091    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 01:11:17.028  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:11:17.028  WARNING │ 🚨 ALERT [CRITICAL]: 15 losses consecutivos!
+[DubaiMatrixASI] 01:11:17.029    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5449)
+[DubaiMatrixASI] 01:11:17.029    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007342
+[DubaiMatrixASI] 01:11:17.034     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=+0.507 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: CONSECUTIVE_LOSSES(30)
+[DubaiMatrixASI] 01:11:29.375    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:11:30.916     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:11:30.917     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:11:30.917     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:11:30.918    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:11:30.918    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:11:30.918    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:11:30.919    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:11:30.919    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:11:30.920    OMEGA │ ⚡ 📅 2026-03-08T04:11:30.920201+00:00
+[DubaiMatrixASI] 01:11:30.920    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:11:30.920    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:11:30.921     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:11:30.924     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:11:30.924    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:11:30.925     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:11:30.925     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:11:30.925     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:11:30.926     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:11:30.926     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:11:30.926     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:11:30.927     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:11:30.928    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:11:30.928     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:11:30.929    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67001.37, Bid=67000.37
+[DubaiMatrixASI] 01:11:30.929     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:11:30.938    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:11:30.939    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:11:30.940    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:11:30.962    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:11:30.966     INFO │ 📂 Carregados 30 trades do histórico
+[DubaiMatrixASI] 01:11:30.998    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:11:31.000    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:11:31.009    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:11:31.017    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:11:31.018    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:11:31.019    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:11:31.020     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950292668}
+[DubaiMatrixASI] 01:11:31.021    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:11:31.022    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:11:31.097    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:11:31.197    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58215)
+[DubaiMatrixASI] 01:11:31.231    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:11:32.691     INFO │ 🌍 Macro Update: ETH=$1950.68 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$59.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:11:33.489     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:11:33.490     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:11:33.491     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:11:33.493    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:11:33.494    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:11:33.495    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:11:33.496    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:11:33.497    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:11:33.498    OMEGA │ ⚡ 📅 2026-03-08T04:11:33.498654+00:00
+[DubaiMatrixASI] 01:11:33.500    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:11:33.501    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:11:33.501     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:11:33.505     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:11:33.506    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:11:33.507     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:11:33.507     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:11:33.508     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:11:33.508     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:11:33.509     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:11:33.509     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:11:33.510     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:11:33.511    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:11:33.512     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:11:33.513    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67001.29, Bid=67000.29
+[DubaiMatrixASI] 01:11:33.514     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:11:33.526    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:11:33.528    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:11:33.529    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:11:33.551    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:11:33.567     INFO │ 📂 Carregados 30 trades do histórico
+[DubaiMatrixASI] 01:11:33.605    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:11:33.612    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:11:33.617    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:11:33.626    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:11:33.627    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:11:33.628    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:11:33.629     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950295407}
+[DubaiMatrixASI] 01:11:33.647    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:11:33.667    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:11:33.680     INFO │ ⛓️ On-Chain Update: Mempool=20,829 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:11:33.681     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:11:33.741    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:11:34.717     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:11:35.928     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:11:36.000     INFO │ ⛓️ On-Chain Update: Mempool=20,857 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:11:40.855    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:11:40.931    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:11:40.942    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:11:40.961    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:11:40.962    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:11:40.963    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:11:40.963    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:11:40.963623+00:00
+[DubaiMatrixASI] 01:11:40.964     INFO │ 📈 Trades: 30
+[DubaiMatrixASI] 01:11:40.964     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:11:40.965     INFO │ 📈 P&L: $-379.84
+[DubaiMatrixASI] 01:11:41.618    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58226)
+[DubaiMatrixASI] 01:11:58.975     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.123 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:12:01.266    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:12:02.791     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:12:02.791     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:12:02.792     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:12:02.792    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:12:02.792    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:12:02.793    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:12:02.793    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:12:02.793    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:12:02.794    OMEGA │ ⚡ 📅 2026-03-08T04:12:02.794221+00:00
+[DubaiMatrixASI] 01:12:02.794    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:12:02.794    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:12:02.795     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:12:02.797     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:12:02.798    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:12:02.798     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:12:02.799     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:12:02.799     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:12:02.799     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:12:02.800     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:12:02.800     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:12:02.801     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:12:02.802    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:12:02.802     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:12:02.802    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66997.48, Bid=66996.48
+[DubaiMatrixASI] 01:12:02.803     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:12:02.810    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:12:02.812    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:12:02.812    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:12:02.829    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:12:02.856    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:12:02.866    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:12:02.872    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:12:02.880    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:12:02.880    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:12:02.882    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:12:02.883     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950323875}
+[DubaiMatrixASI] 01:12:02.884    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:12:02.884    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:12:02.948    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:12:03.870     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:12:05.183     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:12:05.276     INFO │ ⛓️ On-Chain Update: Mempool=20,927 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:12:24.262  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:12:24.263    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3376)
+[DubaiMatrixASI] 01:12:24.263    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006992
+[DubaiMatrixASI] 01:12:24.268     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.156 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:12:28.172     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.034 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:12:36.921    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 01:12:49.654     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.488 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:12:53.532    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2488)
+[DubaiMatrixASI] 01:12:53.532    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005937
+[DubaiMatrixASI] 01:12:53.536     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.482 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:13:06.236    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 01:13:14.991  WARNING │ 🚨 ALERT [HIGH]: Win rate em 0.0% (threshold: 45.0%)
+[DubaiMatrixASI] 01:13:15.027    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3776)
+[DubaiMatrixASI] 01:13:15.037    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006536
+[DubaiMatrixASI] 01:13:15.054     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.280 | Coherence=0.54 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:13:18.945     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.472 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=30 | WinRate=0.0% | P&L=$-379.84 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:13:29.255    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:13:30.983     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:13:30.983     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:13:30.984     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:13:30.984    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:13:30.985    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:13:30.985    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:13:30.986    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:13:30.986    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:13:30.987    OMEGA │ ⚡ 📅 2026-03-08T04:13:30.987079+00:00
+[DubaiMatrixASI] 01:13:30.987    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:13:30.988    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:13:30.988     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:13:30.991     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:13:30.992    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:13:30.993     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:13:30.993     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:13:30.993     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:13:30.994     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:13:30.994     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:13:30.995     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:13:30.995     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:13:30.996    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:13:30.997     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:13:30.997    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66916.75, Bid=66915.75
+[DubaiMatrixASI] 01:13:30.998     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:13:31.006    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:13:31.007    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:13:31.007    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:13:31.030    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:13:31.049    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:13:31.065    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:13:31.072    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:13:31.082    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:13:31.083    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:13:31.084    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:13:31.085     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 116, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950413006}
+[DubaiMatrixASI] 01:13:31.086    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:13:31.087    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:13:31.141    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:13:31.584    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:13:31.610    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:13:31.632    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:13:31.653    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:13:31.654    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:13:31.655    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:13:31.656    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:13:31.656473+00:00
+[DubaiMatrixASI] 01:13:31.657     INFO │ 📈 Trades: 30
+[DubaiMatrixASI] 01:13:31.657     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:13:31.658     INFO │ 📈 P&L: $-379.84
+[DubaiMatrixASI] 01:13:46.699    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:13:48.299     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:13:48.299     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:13:48.300     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:13:48.300    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:13:48.300    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:13:48.301    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:13:48.301    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:13:48.301    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:13:48.302    OMEGA │ ⚡ 📅 2026-03-08T04:13:48.302184+00:00
+[DubaiMatrixASI] 01:13:48.302    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:13:48.302    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:13:48.303     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:13:48.306     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:13:48.306    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:13:48.307     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:13:48.307     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:13:48.308     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:13:48.308     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:13:48.308     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:13:48.309     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:13:48.309     INFO │    Spread: 176 points
+[DubaiMatrixASI] 01:13:48.310    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:13:48.310     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:13:48.311    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66918.84, Bid=66917.08
+[DubaiMatrixASI] 01:13:48.311     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:13:48.319    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:13:48.320    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:13:48.320    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:13:48.345    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:13:48.363    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:13:48.370    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:13:48.380    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:13:48.387    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:13:48.388    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:13:48.389    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:13:48.389     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 176, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950429648}
+[DubaiMatrixASI] 01:13:48.390    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:13:48.391    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:13:48.421    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:13:48.937    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58294)
+[DubaiMatrixASI] 01:13:49.924     INFO │ 🌍 Macro Update: ETH=$1950.58 | BTC/ETH=34.4 | Gold=$5178 | Vol24h=$59.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:13:50.957     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.32% | Score=-0.634 | Sources=2
+[DubaiMatrixASI] 01:13:51.141     INFO │ ⛓️ On-Chain Update: Mempool=22,023 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:13:58.971    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:13:59.012    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:13:59.013    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:13:59.016    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:13:59.017    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:13:59.018    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:13:59.018    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:13:59.018477+00:00
+[DubaiMatrixASI] 01:13:59.019     INFO │ 📈 Trades: 30
+[DubaiMatrixASI] 01:13:59.019     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:13:59.019     INFO │ 📈 P&L: $-379.84
+[DubaiMatrixASI] 01:14:09.402    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:14:10.909     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:14:10.909     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:14:10.910     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:14:10.910    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:14:10.911    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:14:10.911    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:14:10.912    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:14:10.912    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:14:10.913    OMEGA │ ⚡ 📅 2026-03-08T04:14:10.913013+00:00
+[DubaiMatrixASI] 01:14:10.913    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:14:10.913    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:14:10.914     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:14:10.917     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:14:10.917    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:14:10.917     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:14:10.918     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:14:10.918     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:14:10.918     INFO │    Saldo: $98154.29
+[DubaiMatrixASI] 01:14:10.919     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:14:10.919     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:14:10.919     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:14:10.920    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:14:10.921     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:14:10.921    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66922.87, Bid=66921.87
+[DubaiMatrixASI] 01:14:10.922     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:14:10.929    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:14:10.931    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:14:10.931    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:14:10.953    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:14:10.957    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:14:10.976    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:14:10.989    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:14:11.006    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:14:11.007    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:14:11.009    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:14:11.011     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98154.29, 'equity': 98154.29, 'tick_buffer_size': 1, 'last_tick_ms': 1772950452872}
+[DubaiMatrixASI] 01:14:11.012    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:14:11.013    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:14:11.078    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:14:11.934    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58325)
+[DubaiMatrixASI] 01:14:12.131     INFO │ 🌍 Macro Update: ETH=$1950.58 | BTC/ETH=34.4 | Gold=$0 | Vol24h=$59.4B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 01:14:13.025     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:14:13.121     INFO │ ⛓️ On-Chain Update: Mempool=22,073 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:14:36.244     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.051 | Coherence=0.54 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:15:01.590    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.2985)
+[DubaiMatrixASI] 01:15:01.599    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.247779
+[DubaiMatrixASI] 01:15:01.609     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.055 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:15:14.266    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:15:26.847     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.235 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:15:52.125    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.5729)
+[DubaiMatrixASI] 01:15:52.125    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005867
+[DubaiMatrixASI] 01:15:52.129     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.525 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:16:11.139     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:16:11.139     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 01:16:11.167    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.181    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:11.193  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:16:11.194    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.021721 aw_pct=0.000672 al_pct=0.000672
+[DubaiMatrixASI] 01:16:11.211    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:16:11.212     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $98154.29
+[DubaiMatrixASI] 01:16:11.213    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.40 para caber na margem livre ($98154.29)
+[DubaiMatrixASI] 01:16:11.222   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.474 conf=0.79 coherence=0.47 regime=DRIFTING_BEAR ATR=97.90 RR=0.53 | Quantum: SIGNAL=-0.474 COHERENCE=0.47 CONFIDENCE=0.79 PHI=0.18 ENTROPY=0.67 CPP=0.002ms COLLAPSED |  BULL[7] BEAR[14] NEUT[22] | 
+[DubaiMatrixASI] 01:16:11.228    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.40 (em 5 nodes) price=66938.85 SL=67122.41 TP=66840.95
+[DubaiMatrixASI] 01:16:11.242    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.88 @ 66939.61 (via socket)
+[DubaiMatrixASI] 01:16:11.244    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.88 @ 66940.31 (via socket)
+[DubaiMatrixASI] 01:16:11.248    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.88 @ 66939.96 (via socket)
+[DubaiMatrixASI] 01:16:11.259    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.88 @ 66941.01 (via socket)
+[DubaiMatrixASI] 01:16:11.268    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.88 @ 66940.66 (via socket)
+[DubaiMatrixASI] 01:16:11.269    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.40 @ 66940.31 | 5 tickets gerados | SELL signal=-0.474 conf=0.79 coherence=0.47 regime=DRIFTING_BEAR ATR=97.90 RR=0.
+[DubaiMatrixASI] 01:16:11.415     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935958|66940.31
+[DubaiMatrixASI] 01:16:11.416    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935958 @ 66940.31
+[DubaiMatrixASI] 01:16:11.455    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.457    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:11.457    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:16:11.570     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935959|66939.96
+[DubaiMatrixASI] 01:16:11.575    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935959 @ 66939.96
+[DubaiMatrixASI] 01:16:11.663    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.664    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:11.724     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935960|66941.01
+[DubaiMatrixASI] 01:16:11.725    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935960 @ 66941.01
+[DubaiMatrixASI] 01:16:11.865     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397935961|66940.66
+[DubaiMatrixASI] 01:16:11.872    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397935961 @ 66940.66
+[DubaiMatrixASI] 01:16:11.933    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:11.952    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:12.184    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.186    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:12.439    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.457    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:12.715    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.717    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:12.942    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:12.954    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:13.188    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.199    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:13.463    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.464    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:13.703    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.714    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:13.955    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:13.956    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:14.202    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.219    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:14.481    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.482    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:14.634     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.40% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:16:14.805    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.807    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:14.997    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:14.998    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:15.199    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:15.200    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:15.319    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:16:15.480    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
+[DubaiMatrixASI] 01:16:15.492    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\consciousness\monte_carlo_engine.py", line 221, in simulate_trade
+    mc_score = float(np.clip(0.5 * wp_score + 0.3 * ev_score + 0.2 * tail_penalty + balance_bonus, -1.0, 1.0))
+                                   ^^^^^^^^
+NameError: name 'wp_score' is not defined
+
+[DubaiMatrixASI] 01:16:15.570    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:16:15.572    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:16:15.602    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:16:15.608    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:16:15.609    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:16:15.609    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:16:15.609531+00:00
+[DubaiMatrixASI] 01:16:15.610     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 01:16:15.610     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:16:15.610     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 01:17:02.625    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:17:04.208     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:17:04.209     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:17:04.209     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:17:04.210    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:17:04.210    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:17:04.211    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:17:04.211    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:17:04.212    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:17:04.212    OMEGA │ ⚡ 📅 2026-03-08T04:17:04.212733+00:00
+[DubaiMatrixASI] 01:17:04.213    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:17:04.214    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:17:04.214     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:17:04.218     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:17:04.218    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:17:04.219     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:17:04.219     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:17:04.220     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:17:04.220     INFO │    Saldo: $98077.69
+[DubaiMatrixASI] 01:17:04.220     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:17:04.221     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:17:04.221     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:17:04.222    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:17:04.223     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:17:04.223    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66965.85, Bid=66964.85
+[DubaiMatrixASI] 01:17:04.224     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:17:04.231    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:17:04.233    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:17:04.233    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:17:04.255    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:17:04.274    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:17:04.277    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:17:04.292    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:17:04.300    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:17:04.301    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:17:04.302    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:17:04.303     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98077.69, 'equity': 98008.17, 'tick_buffer_size': 1, 'last_tick_ms': 1772950626206}
+[DubaiMatrixASI] 01:17:04.304    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:17:04.305    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:17:04.333    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:17:05.721    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58400)
+[DubaiMatrixASI] 01:17:05.836     INFO │ 🌍 Macro Update: ETH=$1949.66 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$59.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:17:06.686     INFO │ ⛓️ On-Chain Update: Mempool=20,804 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:17:06.724     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.00% | Score=-0.760 | Sources=2
+[DubaiMatrixASI] 01:17:13.008    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:17:14.624     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:17:14.624     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:17:14.624     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:17:14.625    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:17:14.625    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:17:14.626    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:17:14.626    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:17:14.626    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:17:14.627    OMEGA │ ⚡ 📅 2026-03-08T04:17:14.627261+00:00
+[DubaiMatrixASI] 01:17:14.627    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:17:14.628    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:17:14.628     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:17:14.632     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:17:14.633    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:17:14.633     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:17:14.633     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:17:14.634     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:17:14.634     INFO │    Saldo: $98077.69
+[DubaiMatrixASI] 01:17:14.635     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:17:14.635     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:17:14.635     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:17:14.636    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:17:14.637     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:17:14.637    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66972.2, Bid=66971.2
+[DubaiMatrixASI] 01:17:14.637     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:17:14.645    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:17:14.646    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:17:14.647    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:17:14.664    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:17:14.671    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:17:14.690    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:17:14.707    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:17:14.715    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:17:14.715    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:17:14.716    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:17:14.717     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98077.69, 'equity': 97985.81, 'tick_buffer_size': 1, 'last_tick_ms': 1772950636645}
+[DubaiMatrixASI] 01:17:14.718    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:17:14.718    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:17:14.763    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:17:15.903     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:17:17.133     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:17:17.597     INFO │ ⛓️ On-Chain Update: Mempool=20,804 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:17:29.565     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.054 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:17:39.957     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=+0.503 | Coherence=0.41 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:17:54.834    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1514)
+[DubaiMatrixASI] 01:17:54.835    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005979
+[DubaiMatrixASI] 01:17:54.839     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.070 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:18:05.208    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2938)
+[DubaiMatrixASI] 01:18:05.209    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.240526
+[DubaiMatrixASI] 01:18:05.229     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.090 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:18:07.511    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:18:17.860    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:18:20.183     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.505 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:18:30.539     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.502 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:18:45.483    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8797)
+[DubaiMatrixASI] 01:18:45.484    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006300
+[DubaiMatrixASI] 01:18:45.488     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=+0.496 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:18:55.863     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=+0.495 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:19:04.435     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:19:04.452     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 01:19:04.480  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:19:04.481    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.021957 aw_pct=0.000671 al_pct=0.000671
+[DubaiMatrixASI] 01:19:04.481    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:19:04.482    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:19:04.482     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $98077.69
+[DubaiMatrixASI] 01:19:04.483    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 1.23 para caber na margem livre ($27382.61)
+[DubaiMatrixASI] 01:19:04.483   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.526 conf=0.84 coherence=0.43 regime=DRIFTING_BEAR ATR=100.79 RR=0.53 | Quantum: SIGNAL=+0.526 COHERENCE=0.43 CONFIDENCE=0.84 PHI=0.08 ENTROPY=0.75 CPP=0.003ms COLLAPSED |  BULL[13] BEAR[8] NEUT[22] | MC[score=+0.096 WP=54.7% EV=-0.43 CVaR=-188.97 sim=24.1ms]
+[DubaiMatrixASI] 01:19:04.484    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=1.23 (em 5 nodes) price=67027.68 SL=66838.71 TP=67128.47
+[DubaiMatrixASI] 01:19:04.519    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.25 @ 67025.53 (via socket)
+[DubaiMatrixASI] 01:19:04.519    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.25 @ 67026.23 (via socket)
+[DubaiMatrixASI] 01:19:04.519    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.25 @ 67025.88 (via socket)
+[DubaiMatrixASI] 01:19:04.537    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.25 @ 67026.58 (via socket)
+[DubaiMatrixASI] 01:19:04.537    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.23 @ 67025.18 (via socket)
+[DubaiMatrixASI] 01:19:04.547    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=1.23 @ 67025.89 | 5 tickets gerados | BUY signal=+0.526 conf=0.84 coherence=0.43 regime=DRIFTING_BEAR ATR=100.79 RR=0.
+[DubaiMatrixASI] 01:19:04.676     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936199|67026.23
+[DubaiMatrixASI] 01:19:04.677    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936199 @ 67026.23
+[DubaiMatrixASI] 01:19:04.726    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:19:04.831     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936200|67025.53
+[DubaiMatrixASI] 01:19:04.842    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936200 @ 67025.53
+[DubaiMatrixASI] 01:19:04.986     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936201|67025.88
+[DubaiMatrixASI] 01:19:04.987    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936201 @ 67025.88
+[DubaiMatrixASI] 01:19:05.133     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936202|67026.58
+[DubaiMatrixASI] 01:19:05.134    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936202 @ 67026.58
+[DubaiMatrixASI] 01:19:05.284     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936203|67025.18
+[DubaiMatrixASI] 01:19:05.293    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936203 @ 67025.18
+[DubaiMatrixASI] 01:19:07.474     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0125 < 0.0250)
+[DubaiMatrixASI] 01:19:08.456     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.39% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:19:10.817    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:19:10.820     INFO │ 💫 Cycle #500 | Action=BUY | Signal=+0.477 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.477 conf=0.83 coherence=0.44 regime=DRIFTING_BEAR ATR=100.79 RR=0.53 | Quantum: SIGNAL=+0.477 COHERENCE=0.44 CONFIDENCE=0.83 PHI=0.08 ENTROPY=0.75 CPP=0.003ms COLLAPSED |  BULL[13] BEAR[8] NEUT[22] | MC[score=+0.089 WP=54.3% EV=-2.07 CVaR=-188.97 sim=23.5ms]
+[DubaiMatrixASI] 01:19:14.827     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:19:14.827     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 01:19:14.881  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:19:14.886    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.021960 aw_pct=0.000671 al_pct=0.000671
+[DubaiMatrixASI] 01:19:14.886    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:19:14.895    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:19:14.900     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $98050.88
+[DubaiMatrixASI] 01:19:14.901    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 0.12 para caber na margem livre ($2638.43)
+[DubaiMatrixASI] 01:19:14.902   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.484 conf=0.84 coherence=0.44 regime=DRIFTING_BEAR ATR=100.79 RR=0.53 | Quantum: SIGNAL=+0.484 COHERENCE=0.44 CONFIDENCE=0.84 PHI=0.08 ENTROPY=0.73 CPP=0.002ms COLLAPSED |  BULL[12] BEAR[8] NEUT[23] | MC[score=+0.081 WP=53.4% EV=-2.11 CVaR=-188.97 sim=23.7ms]
+[DubaiMatrixASI] 01:19:14.902    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=0.12 (em 3 nodes) price=67018.36 SL=66829.39 TP=67119.15
+[DubaiMatrixASI] 01:19:14.923  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:19:15.076  WARNING │ ⏱️ LATENCY [get_candles] 150.0ms (threshold: 100ms)
+[DubaiMatrixASI] 01:19:15.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:19:15.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:19:15.279  WARNING │ ⏱️ LATENCY [get_candles] 183.1ms (threshold: 100ms)
+[DubaiMatrixASI] 01:19:15.279  WARNING │ ⏱️ LATENCY [send_limit_order] 202.9ms (threshold: 200ms)
+[DubaiMatrixASI] 01:19:15.438  WARNING │ ⏱️ LATENCY [send_limit_order] 362.5ms (threshold: 200ms)
+[DubaiMatrixASI] 01:19:15.443  WARNING │ ⏱️ LATENCY [get_candles] 142.3ms (threshold: 100ms)
+[DubaiMatrixASI] 01:19:15.440    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=0.12 @ 0.00 | 3 tickets gerados | BUY signal=+0.484 conf=0.84 coherence=0.44 regime=DRIFTING_BEAR ATR=100.79 RR=0.
+[DubaiMatrixASI] 01:19:15.459  WARNING │ ⏱️ LATENCY [execute] 583.0ms (threshold: 400ms)
+[DubaiMatrixASI] 01:19:15.650    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:19:18.635     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.39% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:19:21.743    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:19:21.744     INFO │ 💫 Cycle #500 | Action=BUY | Signal=+0.456 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.456 conf=0.84 coherence=0.45 regime=DRIFTING_BEAR ATR=100.79 RR=0.53 | Quantum: SIGNAL=+0.456 COHERENCE=0.45 CONFIDENCE=0.84 PHI=0.08 ENTROPY=0.73 CPP=0.005ms COLLAPSED |  BULL[12] BEAR[8] NEUT[23] | MC[score=+0.093 WP=54.7% EV=-2.44 CVaR=-188.97 sim=23.7ms]
+[DubaiMatrixASI] 01:19:34.727    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:19:36.749    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 01:19:36.750    OMEGA │ ⚡ 🧬 Gen #1: 4 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:19:36.751    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.4264)
+[DubaiMatrixASI] 01:19:36.752    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006471
+[DubaiMatrixASI] 01:19:36.772     INFO │ 💫 Cycle #600 | Action=BUY | Signal=+0.527 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.527 conf=0.83 coherence=0.42 regime=DRIFTING_BEAR ATR=100.79 RR=0.53 | Quantum: SIGNAL=+0.527 COHERENCE=0.42 CONFIDENCE=0.83 PHI=0.08 ENTROPY=0.75 CPP=0.002ms COLLAPSED |  BULL[13] BEAR[8] NEUT[22] | MC[score=+0.087 WP=54.1% EV=-1.98 CVaR=-188.97 sim=23.8ms]
+[DubaiMatrixASI] 01:19:45.929    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:19:47.157    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 01:19:47.159    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:19:47.180    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3137)
+[DubaiMatrixASI] 01:19:47.189    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007487
+[DubaiMatrixASI] 01:19:47.200     INFO │ 💫 Cycle #600 | Action=BUY | Signal=+0.525 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.525 conf=0.81 coherence=0.44 regime=DRIFTING_BEAR ATR=101.37 RR=0.53 | Quantum: SIGNAL=+0.525 COHERENCE=0.44 CONFIDENCE=0.81 PHI=0.10 ENTROPY=0.75 CPP=0.003ms COLLAPSED |  BULL[14] BEAR[7] NEUT[22] | MC[score=-0.142 WP=55.4% EV=+2.10 CVaR=-190.06 sim=25.6ms]
+[DubaiMatrixASI] 01:20:00.404    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (45s/60s)
+[DubaiMatrixASI] 01:20:00.432    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (56s/60s)
+[DubaiMatrixASI] 01:20:02.226     INFO │ 💫 Cycle #700 | Action=BUY | Signal=+0.488 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.488 conf=0.83 coherence=0.44 regime=DRIFTING_BEAR ATR=94.73 RR=0.53 | Quantum: SIGNAL=+0.488 COHERENCE=0.44 CONFIDENCE=0.83 PHI=0.09 ENTROPY=0.79 CPP=0.003ms COLLAPSED |  BULL[13] BEAR[9] NEUT[20] | MC[score=+0.084 WP=53.8% EV=-2.30 CVaR=-177.61 sim=26.1ms]
+[DubaiMatrixASI] 01:20:04.743    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=17.63 < min=66.31 [0.7×ATR])
+[DubaiMatrixASI] 01:20:06.292     INFO │ 🌍 Macro Update: ETH=$1951.10 | BTC/ETH=34.4 | Gold=$0 | Vol24h=$61.3B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 01:20:12.616     INFO │ 💫 Cycle #700 | Action=BUY | Signal=+0.505 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.505 conf=0.83 coherence=0.43 regime=DRIFTING_BEAR ATR=94.73 RR=1.38 | Quantum: SIGNAL=+0.505 COHERENCE=0.43 CONFIDENCE=0.83 PHI=0.08 ENTROPY=0.78 CPP=0.002ms COLLAPSED |  BULL[13] BEAR[9] NEUT[21] | MC[score=+0.045 WP=49.4% EV=+0.45 CVaR=-177.61 sim=31.5ms]
+[DubaiMatrixASI] 01:20:14.920    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:20:15.649    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=24.87 < min=66.31 [0.7×ATR])
+[DubaiMatrixASI] 01:20:16.080     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:20:25.269    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:20:27.605    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7059)
+[DubaiMatrixASI] 01:20:27.606    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.234486
+[DubaiMatrixASI] 01:20:27.610     INFO │ 💫 Cycle #800 | Action=BUY | Signal=+0.519 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.519 conf=0.83 coherence=0.42 regime=DRIFTING_BEAR ATR=94.73 RR=0.53 | Quantum: SIGNAL=+0.519 COHERENCE=0.42 CONFIDENCE=0.83 PHI=0.07 ENTROPY=0.79 CPP=0.003ms COLLAPSED |  BULL[13] BEAR[10] NEUT[20] | MC[score=+0.074 WP=53.1% EV=-3.76 CVaR=-177.61 sim=30.8ms]
+[DubaiMatrixASI] 01:20:34.879    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=18.98 < min=66.33 [0.7×ATR])
+[DubaiMatrixASI] 01:20:37.974    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1044)
+[DubaiMatrixASI] 01:20:37.992    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006046
+[DubaiMatrixASI] 01:20:38.014     INFO │ 💫 Cycle #800 | Action=BUY | Signal=+0.506 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.506 conf=0.86 coherence=0.42 regime=DRIFTING_BEAR ATR=95.70 RR=1.38 | Quantum: SIGNAL=+0.506 COHERENCE=0.42 CONFIDENCE=0.86 PHI=0.05 ENTROPY=0.82 CPP=0.002ms COLLAPSED |  BULL[12] BEAR[12] NEUT[19] | MC[score=+0.041 WP=49.1% EV=+0.17 CVaR=-179.44 sim=29.8ms]
+[DubaiMatrixASI] 01:20:45.864    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=35.75 < min=67.02 [0.7×ATR])
+[DubaiMatrixASI] 01:20:46.786  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:20:46.787    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.022028 aw_pct=0.000666 al_pct=0.000666
+[DubaiMatrixASI] 01:20:46.788    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:20:46.788    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:20:46.789    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 3.26 para caber na margem livre ($72921.12)
+[DubaiMatrixASI] 01:20:46.789   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.517 conf=0.85 coherence=0.42 regime=DRIFTING_BEAR ATR=95.74 RR=0.53 | Quantum: SIGNAL=+0.517 COHERENCE=0.42 CONFIDENCE=0.85 PHI=0.06 ENTROPY=0.80 CPP=0.004ms COLLAPSED |  BULL[13] BEAR[10] NEUT[20] | MC[score=+0.100 WP=54.9% EV=+0.78 CVaR=-179.51 sim=24.1ms]
+[DubaiMatrixASI] 01:20:46.791    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=3.26 (em 5 nodes) price=67054.13 SL=66874.62 TP=67149.87
+[DubaiMatrixASI] 01:20:46.841    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.66 @ 67051.63 (via socket)
+[DubaiMatrixASI] 01:20:46.841    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.65 @ 67053.03 (via socket)
+[DubaiMatrixASI] 01:20:46.841    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.65 @ 67051.98 (via socket)
+[DubaiMatrixASI] 01:20:46.841    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.65 @ 67052.68 (via socket)
+[DubaiMatrixASI] 01:20:46.865    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.65 @ 67052.33 (via socket)
+[DubaiMatrixASI] 01:20:46.865    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=3.26 @ 67052.33 | 5 tickets gerados | BUY signal=+0.517 conf=0.85 coherence=0.42 regime=DRIFTING_BEAR ATR=95.74 RR=0.5
+[DubaiMatrixASI] 01:20:46.872  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:20:46.876    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.022028 aw_pct=0.000671 al_pct=0.000671
+[DubaiMatrixASI] 01:20:46.885    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:20:46.891    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:20:46.891    OMEGA │ ⚡ 🐉 HYDRA MODE ACTIVATED! Confidence 0.86 > 0.85 | Max Slots: 15 | Max Orders/Candle: 15
+[DubaiMatrixASI] 01:20:46.892    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 3.26 para caber na margem livre ($72921.12)
+[DubaiMatrixASI] 01:20:46.893   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.522 conf=0.86 coherence=0.42 regime=DRIFTING_BEAR ATR=95.74 RR=1.38 | Quantum: SIGNAL=+0.522 COHERENCE=0.42 CONFIDENCE=0.86 PHI=0.06 ENTROPY=0.78 CPP=0.003ms COLLAPSED |  BULL[12] BEAR[10] NEUT[21] | MC[score=+0.046 WP=49.6% EV=-0.09 CVaR=-179.51 sim=29.1ms]
+[DubaiMatrixASI] 01:20:46.893    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=3.26 (em 10 nodes) price=67054.13 SL=66874.62 TP=67302.72
+[DubaiMatrixASI] 01:20:46.905  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.064  WARNING │ ⏱️ LATENCY [get_candles] 152.8ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.064     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936307|67051.63
+[DubaiMatrixASI] 01:20:47.077    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936307 @ 67051.63
+[DubaiMatrixASI] 01:20:47.065  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.389     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936309|67053.03
+[DubaiMatrixASI] 01:20:47.390  WARNING │ ⏱️ LATENCY [get_candles] 148.9ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.398    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936309 @ 67053.03
+[DubaiMatrixASI] 01:20:47.076  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.557  WARNING │ ⏱️ LATENCY [get_candles] 140.1ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.558     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936311|67051.98
+[DubaiMatrixASI] 01:20:47.565    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936311 @ 67051.98
+[DubaiMatrixASI] 01:20:47.709  WARNING │ ⏱️ LATENCY [get_candles] 141.7ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.077  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.709     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936313|67052.68
+[DubaiMatrixASI] 01:20:47.861    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:20:47.861  WARNING │ ⏱️ LATENCY [get_candles] 148.5ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.085  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.861    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936313 @ 67052.68
+[DubaiMatrixASI] 01:20:47.898     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397936315|67052.33
+[DubaiMatrixASI] 01:20:47.912    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397936315 @ 67052.33
+[DubaiMatrixASI] 01:20:47.085  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.086  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:20:47.389  WARNING │ ⏱️ LATENCY [send_limit_order] 313.6ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:48.186  WARNING │ ⏱️ LATENCY [get_candles] 141.9ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:47.557  WARNING │ ⏱️ LATENCY [send_limit_order] 481.2ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:47.709  WARNING │ ⏱️ LATENCY [send_limit_order] 632.6ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:47.861  WARNING │ ⏱️ LATENCY [send_limit_order] 784.3ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:47.867    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 01:20:48.034  WARNING │ ⏱️ LATENCY [send_limit_order] 948.4ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:48.186  WARNING │ ⏱️ LATENCY [send_limit_order] 1100.0ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:48.339  WARNING │ ⏱️ LATENCY [get_candles] 147.5ms (threshold: 100ms)
+[DubaiMatrixASI] 01:20:48.338  WARNING │ ⏱️ LATENCY [send_limit_order] 1251.8ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:48.349  WARNING │ ⏱️ LATENCY [send_limit_order] 1272.8ms (threshold: 200ms)
+[DubaiMatrixASI] 01:20:48.356    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 01:20:48.356    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=2.93 @ 0.00 | 9 tickets gerados | BUY signal=+0.522 conf=0.86 coherence=0.42 regime=DRIFTING_BEAR ATR=95.74 RR=1.3
+[DubaiMatrixASI] 01:20:48.357  WARNING │ ⏱️ LATENCY [execute] 1490.5ms (threshold: 400ms)
+[DubaiMatrixASI] 01:20:48.358  WARNING │ ⏱️ LATENCY [think] 1659.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 01:20:48.579    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:20:53.827     INFO │ 💫 Cycle #900 | Action=BUY | Signal=+0.506 | Coherence=0.42 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.506 conf=0.85 coherence=0.42 regime=DRIFTING_BEAR ATR=95.74 RR=0.53 | Quantum: SIGNAL=+0.506 COHERENCE=0.42 CONFIDENCE=0.85 PHI=0.05 ENTROPY=0.80 CPP=0.002ms COLLAPSED |  BULL[13] BEAR[10] NEUT[20] | MC[score=+0.085 WP=53.8% EV=-2.04 CVaR=-179.51 sim=24.0ms]
+[DubaiMatrixASI] 01:21:00.178    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (12s/60s)
+[DubaiMatrixASI] 01:21:04.711     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:21:04.734     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=-0.194 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.194 < req 0.230)
+[DubaiMatrixASI] 01:21:09.942     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.00% | Score=-0.760 | Sources=2
+[DubaiMatrixASI] 01:21:15.126     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:21:19.123    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5517)
+[DubaiMatrixASI] 01:21:19.124    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006936
+[DubaiMatrixASI] 01:21:19.131    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:21:19.132     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=-0.205 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.205 < req 0.230)
+[DubaiMatrixASI] 01:21:20.362     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.39% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:21:30.065    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2658)
+[DubaiMatrixASI] 01:21:30.074    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006601
+[DubaiMatrixASI] 01:21:30.086    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:21:30.087     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=-0.178 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.178 < req 0.230)
+[DubaiMatrixASI] 01:21:44.515     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=-0.195 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.195 < req 0.230)
+[DubaiMatrixASI] 01:21:55.361     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=-0.198 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.198 < req 0.230)
+[DubaiMatrixASI] 01:22:08.588     INFO │ ⛓️ On-Chain Update: Mempool=20,329 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:22:09.795    OMEGA │ ⚡ 🧬 Gen #2: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:22:09.797    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7084)
+[DubaiMatrixASI] 01:22:09.808    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.131273
+[DubaiMatrixASI] 01:22:09.840     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=-0.129 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.129 < req 0.230)
+[DubaiMatrixASI] 01:22:19.197     INFO │ ⛓️ On-Chain Update: Mempool=20,354 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:22:20.678    OMEGA │ ⚡ 🧬 Gen #2: 5 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:22:20.679    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6657)
+[DubaiMatrixASI] 01:22:20.679    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006346
+[DubaiMatrixASI] 01:22:20.684     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=+0.017 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 01:22:22.512    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:22:33.345    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:22:35.153     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=+0.031 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(+0.031 < req 0.230)
+[DubaiMatrixASI] 01:22:46.058     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=+0.024 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(+0.024 < req 0.230)
+[DubaiMatrixASI] 01:23:00.537    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.9183)
+[DubaiMatrixASI] 01:23:00.538    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.251976
+[DubaiMatrixASI] 01:23:00.543     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=-0.095 | Coherence=0.54 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.095 < req 0.230)
+[DubaiMatrixASI] 01:23:04.898     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:23:06.972     INFO │ 🌍 Macro Update: ETH=$1952.33 | BTC/ETH=34.4 | Gold=$5178 | Vol24h=$61.3B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:23:11.394    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3525)
+[DubaiMatrixASI] 01:23:11.395    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006523
+[DubaiMatrixASI] 01:23:11.399     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=-0.133 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.133 < req 0.230)
+[DubaiMatrixASI] 01:23:11.732     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.40% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:23:15.414     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.65)
+[DubaiMatrixASI] 01:23:16.162     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:23:21.710     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:23:25.915    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:23:25.916     INFO │ 💫 Cycle #1500 | Action=WAIT | Signal=-0.099 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.099 < req 0.230) | LOW_CONFIDENCE(0.65 < req 0.66)
+[DubaiMatrixASI] 01:23:27.637    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=18.74 < min=67.86 [0.7×ATR])
+[DubaiMatrixASI] 01:23:36.859    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:23:36.860     INFO │ 💫 Cycle #1500 | Action=BUY | Signal=+0.372 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.372 conf=0.74 coherence=0.47 regime=DRIFTING_BEAR ATR=96.94 RR=1.38 | Quantum: SIGNAL=+0.372 COHERENCE=0.47 CONFIDENCE=0.74 PHI=0.05 ENTROPY=0.71 CPP=0.003ms COLLAPSED |  BULL[11] BEAR[9] NEUT[22] | MC[score=+0.051 WP=49.9% EV=+1.28 CVaR=-181.76 sim=33.0ms]
+[DubaiMatrixASI] 01:23:51.343    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3735)
+[DubaiMatrixASI] 01:23:51.344    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006725
+[DubaiMatrixASI] 01:23:51.348     INFO │ 💫 Cycle #1600 | Action=WAIT | Signal=+0.410 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.093<0.4837128321774802) MC[score=+0.093 WP=54.3% EV=-0.33 CVaR=-181.76 sim=23.9ms]
+[DubaiMatrixASI] 01:23:57.840    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=20.17 < min=67.86 [0.7×ATR])
+[DubaiMatrixASI] 01:24:02.131    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.6758)
+[DubaiMatrixASI] 01:24:02.132    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006329
+[DubaiMatrixASI] 01:24:02.137     INFO │ 💫 Cycle #1600 | Action=WAIT | Signal=-0.003 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 01:24:16.655     INFO │ 💫 Cycle #1700 | Action=WAIT | Signal=-0.143 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.143 < req 0.230)
+[DubaiMatrixASI] 01:24:27.487     INFO │ 💫 Cycle #1700 | Action=WAIT | Signal=-0.153 | Coherence=0.54 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.153 < req 0.210)
+[DubaiMatrixASI] 01:24:29.433    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:24:39.494  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:24:39.495    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.021514 aw_pct=0.000672 al_pct=0.000672
+[DubaiMatrixASI] 01:24:39.495    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:24:39.496  WARNING │ ⚠️ [DANGER] Drawdown diário atingiu -800.22. Restam $3999.78 para hibernação.
+[DubaiMatrixASI] 01:24:39.496    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.22 para caber na margem livre ($97250.66)
+[DubaiMatrixASI] 01:24:39.497   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.257 conf=0.69 coherence=0.51 regime=DRIFTING_BEAR ATR=98.42 RR=1.38 | Quantum: SIGNAL=-0.257 COHERENCE=0.51 CONFIDENCE=0.69 PHI=0.06 ENTROPY=0.67 CPP=0.002ms COLLAPSED |  BULL[6] BEAR[10] NEUT[22] | MC[score=+0.050 WP=50.1% EV=-0.46 CVaR=-184.54 sim=30.6ms]
+[DubaiMatrixASI] 01:24:39.497    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.22 (em 5 nodes) price=67008.36 SL=67192.90 TP=66752.81
+[DubaiMatrixASI] 01:24:39.499  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:24:39.651  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:24:39.651  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:24:39.657  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:24:39.657  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:24:39.983  WARNING │ ⏱️ LATENCY [send_limit_order] 331.8ms (threshold: 200ms)
+[DubaiMatrixASI] 01:24:40.135  WARNING │ ⏱️ LATENCY [update] 302.3ms (threshold: 20ms)
+[DubaiMatrixASI] 01:24:40.135  WARNING │ ⏱️ LATENCY [get_candles] 142.3ms (threshold: 100ms)
+[DubaiMatrixASI] 01:24:39.983  WARNING │ ⏱️ LATENCY [send_limit_order] 332.3ms (threshold: 200ms)
+[DubaiMatrixASI] 01:24:40.135  WARNING │ ⏱️ LATENCY [send_limit_order] 478.2ms (threshold: 200ms)
+[DubaiMatrixASI] 01:24:40.287  WARNING │ ⏱️ LATENCY [send_limit_order] 630.3ms (threshold: 200ms)
+[DubaiMatrixASI] 01:24:40.308    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | SELL lot=4.22 @ 0.00 | 5 tickets gerados | SELL signal=-0.257 conf=0.69 coherence=0.51 regime=DRIFTING_BEAR ATR=98.42 RR=1.
+[DubaiMatrixASI] 01:24:40.318  WARNING │ ⏱️ LATENCY [execute] 823.9ms (threshold: 400ms)
+[DubaiMatrixASI] 01:24:40.326  WARNING │ ⏱️ LATENCY [think] 1015.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 01:24:41.001    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:24:42.649    OMEGA │ ⚡ 🧬 Gen #3: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:24:42.650    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7787)
+[DubaiMatrixASI] 01:24:42.651    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005951
+[DubaiMatrixASI] 01:24:42.657     INFO │ 💫 Cycle #1800 | Action=WAIT | Signal=-0.073 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.073 < req 0.230)
+[DubaiMatrixASI] 01:24:44.790    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:24:44.879    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:24:44.880    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:24:44.886    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:24:44.886    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:24:44.887    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:24:44.887    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:24:44.887695+00:00
+[DubaiMatrixASI] 01:24:44.888     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 01:24:44.888     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:24:44.889     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 01:25:04.926     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:25:07.995     INFO │ 💫 Cycle #1900 | Action=WAIT | Signal=-0.137 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.137 < req 0.296) | LOW_CONFIDENCE(0.66 < req 0.66)
+[DubaiMatrixASI] 01:25:13.303     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.40% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 01:25:33.313    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0438)
+[DubaiMatrixASI] 01:25:33.314    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006232
+[DubaiMatrixASI] 01:25:33.329    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:25:33.330     INFO │ 💫 Cycle #2000 | Action=WAIT | Signal=-0.326 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.091<0.4837128321774802) MC[score=+0.091 WP=54.1% EV=-0.09 CVaR=-175.88 sim=24.1ms]
+[DubaiMatrixASI] 01:25:58.650     INFO │ 💫 Cycle #2100 | Action=WAIT | Signal=-0.028 | Coherence=0.54 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.028 < req 0.296) | LOW_CONFIDENCE(0.66 < req 0.66)
+[DubaiMatrixASI] 01:26:07.569     INFO │ 🌍 Macro Update: ETH=$1952.00 | BTC/ETH=34.4 | Gold=$5178 | Vol24h=$61.3B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:26:23.932    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.4715)
+[DubaiMatrixASI] 01:26:23.932    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007080
+[DubaiMatrixASI] 01:26:23.936     INFO │ 💫 Cycle #2200 | Action=WAIT | Signal=-0.106 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.106 < req 0.270)
+[DubaiMatrixASI] 01:26:36.576    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:26:49.281     INFO │ 💫 Cycle #2300 | Action=WAIT | Signal=+0.313 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.068<0.4837128321774802) MC[score=+0.068 WP=52.5% EV=-3.91 CVaR=-175.88 sim=24.1ms]
+[DubaiMatrixASI] 01:27:04.944     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:27:08.347    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 01:27:10.125     INFO │ ⛓️ On-Chain Update: Mempool=20,857 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:27:10.188     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 01:27:10.189     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 01:27:10.189     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 01:27:10.190    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 01:27:10.190    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 01:27:10.191    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 01:27:10.191    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 01:27:10.191    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 01:27:10.192    OMEGA │ ⚡ 📅 2026-03-08T04:27:10.192449+00:00
+[DubaiMatrixASI] 01:27:10.192    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 01:27:10.193    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 01:27:10.193     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 01:27:10.197     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 01:27:10.197    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 01:27:10.198     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 01:27:10.198     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 01:27:10.198     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 01:27:10.199     INFO │    Saldo: $97250.66
+[DubaiMatrixASI] 01:27:10.199     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 01:27:10.199     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 01:27:10.200     INFO │    Spread: 100 points
+[DubaiMatrixASI] 01:27:10.201    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 01:27:10.201     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 01:27:10.202    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67013.82, Bid=67012.82
+[DubaiMatrixASI] 01:27:10.202     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 01:27:10.209    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 01:27:10.210    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 01:27:10.211    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 01:27:10.228    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 01:27:10.243    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 01:27:10.266    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 01:27:10.272    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 01:27:10.280    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 01:27:10.281    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 01:27:10.282    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 01:27:10.283     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 97250.66, 'equity': 97250.66, 'tick_buffer_size': 1, 'last_tick_ms': 1772951231204}
+[DubaiMatrixASI] 01:27:10.283    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 01:27:10.284    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 01:27:10.328    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 01:27:11.896     INFO │ 🌍 Macro Update: ETH=$1951.89 | BTC/ETH=34.3 | Gold=$5178 | Vol24h=$61.3B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:27:12.673     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:27:12.776     INFO │ ⛓️ On-Chain Update: Mempool=20,857 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:27:14.587     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:27:14.604    OMEGA │ ⚡ 🧬 Gen #4: 11 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:27:14.605    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9599)
+[DubaiMatrixASI] 01:27:14.606    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006961
+[DubaiMatrixASI] 01:27:14.632     INFO │ 💫 Cycle #2400 | Action=WAIT | Signal=-0.262 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.083<0.4837128321774802) MC[score=+0.083 WP=53.6% EV=-1.95 CVaR=-175.88 sim=24.1ms]
+[DubaiMatrixASI] 01:27:35.587     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.193 | Coherence=0.55 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 01:27:39.989    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:27:39.990     INFO │ 💫 Cycle #2500 | Action=WAIT | Signal=-0.291 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.092<0.4837128321774802) MC[score=+0.092 WP=54.3% EV=-0.62 CVaR=-175.88 sim=29.0ms]
+[DubaiMatrixASI] 01:28:00.929    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.5520)
+[DubaiMatrixASI] 01:28:00.930    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006982
+[DubaiMatrixASI] 01:28:00.934     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.258 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 01:28:05.331    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2935)
+[DubaiMatrixASI] 01:28:05.331    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006243
+[DubaiMatrixASI] 01:28:05.337     INFO │ 💫 Cycle #2600 | Action=WAIT | Signal=-0.153 | Coherence=0.55 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.153 < req 0.304)
+[DubaiMatrixASI] 01:28:13.510    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:28:26.201     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.481 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 01:28:30.716     INFO │ 💫 Cycle #2700 | Action=WAIT | Signal=-0.453 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.067<0.4837128321774802) MC[score=+0.067 WP=52.3% EV=-3.94 CVaR=-178.73 sim=24.2ms]
+[DubaiMatrixASI] 01:28:43.357    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:28:51.559    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7294)
+[DubaiMatrixASI] 01:28:51.560    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006388
+[DubaiMatrixASI] 01:28:51.564     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.450 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 01:28:56.025    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7280)
+[DubaiMatrixASI] 01:28:56.042    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006437
+[DubaiMatrixASI] 01:28:56.061     INFO │ 💫 Cycle #2800 | Action=WAIT | Signal=-0.470 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.089<0.4837128321774802) MC[score=+0.089 WP=54.0% EV=-0.76 CVaR=-178.82 sim=24.7ms]
+[DubaiMatrixASI] 01:29:05.138     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:29:08.167     INFO │ 🌍 Macro Update: ETH=$1952.16 | BTC/ETH=34.3 | Gold=$5178 | Vol24h=$61.3B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:29:10.290     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:29:10.290     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 01:29:10.318  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:29:10.319    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.019827 aw_pct=0.000672 al_pct=0.000672
+[DubaiMatrixASI] 01:29:10.320    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:29:10.320     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $97250.66
+[DubaiMatrixASI] 01:29:10.321    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.36 para caber na margem livre ($97250.66)
+[DubaiMatrixASI] 01:29:10.327   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.258 conf=0.74 coherence=0.52 regime=DRIFTING_BEAR ATR=95.37 RR=0.53 | Quantum: SIGNAL=-0.258 COHERENCE=0.52 CONFIDENCE=0.74 PHI=0.04 ENTROPY=0.61 CPP=0.003ms COLLAPSED | RESOLVED:REGIME_ANCHORED BULL[6] BEAR[9] NEUT[24] | MC[score=+0.087 WP=54.0% EV=-2.08 CVaR=-178.82 sim=24.1ms]
+[DubaiMatrixASI] 01:29:10.345    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.36 (em 5 nodes) price=66988.11 SL=67166.93 TP=66892.74
+[DubaiMatrixASI] 01:29:10.370  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:29:10.534  WARNING │ ⏱️ LATENCY [get_candles] 149.2ms (threshold: 100ms)
+[DubaiMatrixASI] 01:29:10.533  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:29:10.539  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:29:10.539  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:29:10.556  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:29:10.863  WARNING │ ⏱️ LATENCY [send_limit_order] 324.3ms (threshold: 200ms)
+[DubaiMatrixASI] 01:29:11.015  WARNING │ ⏱️ LATENCY [get_candles] 294.1ms (threshold: 100ms)
+[DubaiMatrixASI] 01:29:11.015  WARNING │ ⏱️ LATENCY [send_limit_order] 475.9ms (threshold: 200ms)
+[DubaiMatrixASI] 01:29:11.167  WARNING │ ⏱️ LATENCY [send_limit_order] 610.5ms (threshold: 200ms)
+[DubaiMatrixASI] 01:29:11.168    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.36 @ 0.00 | 5 tickets gerados | SELL signal=-0.258 conf=0.74 coherence=0.52 regime=DRIFTING_BEAR ATR=95.37 RR=0.
+[DubaiMatrixASI] 01:29:11.172  WARNING │ ⏱️ LATENCY [get_book] 155.9ms (threshold: 100ms)
+[DubaiMatrixASI] 01:29:11.185  WARNING │ ⏱️ LATENCY [update] 320.8ms (threshold: 20ms)
+[DubaiMatrixASI] 01:29:11.188  WARNING │ ⏱️ LATENCY [execute] 869.9ms (threshold: 400ms)
+[DubaiMatrixASI] 01:29:11.189  WARNING │ ⏱️ LATENCY [think] 1060.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 01:29:12.130    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:29:14.317     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.47% | Score=-0.637 | Sources=2
+[DubaiMatrixASI] 01:29:15.911     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:29:17.671    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:29:17.672     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=-0.159 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.159 < req 0.230)
+[DubaiMatrixASI] 01:29:21.991     INFO │ 💫 Cycle #2900 | Action=WAIT | Signal=-0.109 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.109 < req 0.333) | LOW_CONFIDENCE(0.63 < req 0.66)
+[DubaiMatrixASI] 01:29:42.987    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 01:29:42.987    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:29:42.988    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7594)
+[DubaiMatrixASI] 01:29:42.989    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007329
+[DubaiMatrixASI] 01:29:42.992     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.038 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.038 < req 0.230)
+[DubaiMatrixASI] 01:29:47.298    OMEGA │ ⚡ 🧬 Gen #5: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:29:47.299    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6849)
+[DubaiMatrixASI] 01:29:47.300    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006341
+[DubaiMatrixASI] 01:29:47.308    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:29:47.309     INFO │ 💫 Cycle #3000 | Action=WAIT | Signal=-0.054 | Coherence=0.53 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.054 < req 0.333) | LOW_CONFIDENCE(0.65 < req 0.66)
+[DubaiMatrixASI] 01:29:52.665    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:30:00.210    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (49s/60s)
+[DubaiMatrixASI] 01:30:08.310     INFO │ 💫 Cycle #700 | Action=SELL | Signal=-0.436 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.436 conf=0.77 coherence=0.52 regime=DRIFTING_BEAR ATR=89.83 RR=0.53 | Quantum: SIGNAL=-0.436 COHERENCE=0.52 CONFIDENCE=0.77 PHI=0.20 ENTROPY=0.56 CPP=0.002ms COLLAPSED |  BULL[2] BEAR[15] NEUT[25] | MC[score=+0.085 WP=53.9% EV=-1.98 CVaR=-168.44 sim=23.1ms]
+[DubaiMatrixASI] 01:30:11.352    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=34.75 < min=63.32 [0.7×ATR])
+[DubaiMatrixASI] 01:30:12.078     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 01:30:12.655     INFO │ 💫 Cycle #3100 | Action=WAIT | Signal=-0.388 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(-0.145<0.4837128321774802) MC[score=-0.145 WP=55.3% EV=+1.03 CVaR=-170.06 sim=24.1ms]
+[DubaiMatrixASI] 01:30:21.055    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:30:33.681    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8615)
+[DubaiMatrixASI] 01:30:33.686    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006355
+[DubaiMatrixASI] 01:30:33.692     INFO │ 💫 Cycle #800 | Action=SELL | Signal=-0.327 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.327 conf=0.75 coherence=0.52 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.327 COHERENCE=0.52 CONFIDENCE=0.75 PHI=0.12 ENTROPY=0.58 CPP=0.003ms COLLAPSED |  BULL[4] BEAR[11] NEUT[25] | MC[score=+0.089 WP=54.1% EV=-0.89 CVaR=-171.13 sim=23.2ms]
+[DubaiMatrixASI] 01:30:37.973    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8483)
+[DubaiMatrixASI] 01:30:37.978    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007434
+[DubaiMatrixASI] 01:30:37.986     INFO │ 💫 Cycle #3200 | Action=WAIT | Signal=-0.268 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.088<0.4837128321774802) MC[score=+0.088 WP=54.1% EV=-1.54 CVaR=-171.13 sim=24.0ms]
+[DubaiMatrixASI] 01:30:41.534    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=19.62 < min=63.89 [0.7×ATR])
+[DubaiMatrixASI] 01:30:50.640    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:30:59.028     INFO │ 💫 Cycle #900 | Action=SELL | Signal=-0.287 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.287 conf=0.76 coherence=0.51 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.287 COHERENCE=0.51 CONFIDENCE=0.76 PHI=0.08 ENTROPY=0.61 CPP=0.002ms COLLAPSED |  BULL[5] BEAR[11] NEUT[25] | MC[score=+0.089 WP=54.2% EV=-1.73 CVaR=-171.13 sim=23.7ms]
+[DubaiMatrixASI] 01:31:03.365     INFO │ 💫 Cycle #3300 | Action=WAIT | Signal=-0.395 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.092<0.4837128321774802) MC[score=+0.092 WP=54.4% EV=-1.13 CVaR=-171.13 sim=24.3ms]
+[DubaiMatrixASI] 01:31:05.336     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:31:10.391     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:31:11.718    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=31.93 < min=63.89 [0.7×ATR])
+[DubaiMatrixASI] 01:31:15.877     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.48% | Score=-0.638 | Sources=2
+[DubaiMatrixASI] 01:31:17.350     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.48% | Score=-0.638 | Sources=2
+[DubaiMatrixASI] 01:31:24.375    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7217)
+[DubaiMatrixASI] 01:31:24.375    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.221631
+[DubaiMatrixASI] 01:31:24.381    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:31:24.381     INFO │ 💫 Cycle #1000 | Action=SELL | Signal=-0.535 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.535 conf=0.83 coherence=0.47 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.535 COHERENCE=0.47 CONFIDENCE=0.83 PHI=0.21 ENTROPY=0.65 CPP=0.003ms COLLAPSED |  BULL[5] BEAR[14] NEUT[23] | MC[score=+0.084 WP=53.6% EV=-1.15 CVaR=-171.13 sim=23.4ms]
+[DubaiMatrixASI] 01:31:28.624    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.1842)
+[DubaiMatrixASI] 01:31:28.624    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006567
+[DubaiMatrixASI] 01:31:28.630     INFO │ 💫 Cycle #3400 | Action=WAIT | Signal=-0.517 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.102<0.4837128321774802) MC[score=+0.102 WP=55.0% EV=+1.32 CVaR=-171.13 sim=24.0ms]
+[DubaiMatrixASI] 01:31:36.018  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000006 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:31:36.035    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.019174 aw_pct=0.007044 al_pct=0.007044
+[DubaiMatrixASI] 01:31:36.036    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:31:36.045    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 01:31:36.046    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 0.43 para caber na margem livre ($9532.44)
+[DubaiMatrixASI] 01:31:36.051   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.522 conf=0.80 coherence=0.47 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.522 COHERENCE=0.47 CONFIDENCE=0.80 PHI=0.20 ENTROPY=0.68 CPP=0.003ms COLLAPSED |  BULL[5] BEAR[14] NEUT[22] | MC[score=+0.079 WP=53.5% EV=-3.36 CVaR=-171.13 sim=23.2ms]
+[DubaiMatrixASI] 01:31:36.052    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=0.43 (em 3 nodes) price=66947.38 SL=67118.51 TP=66856.11
+[DubaiMatrixASI] 01:31:36.075  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:31:36.232  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:31:36.232  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:31:36.559  WARNING │ ⏱️ LATENCY [send_limit_order] 326.4ms (threshold: 200ms)
+[DubaiMatrixASI] 01:31:36.559  WARNING │ ⏱️ LATENCY [get_candles] 144.3ms (threshold: 100ms)
+[DubaiMatrixASI] 01:31:36.560    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=0.42 @ 0.00 | 3 tickets gerados | SELL signal=-0.522 conf=0.80 coherence=0.47 regime=DRIFTING_BEAR ATR=91.27 RR=0.
+[DubaiMatrixASI] 01:31:36.581  WARNING │ ⏱️ LATENCY [execute] 563.1ms (threshold: 400ms)
+[DubaiMatrixASI] 01:31:36.836    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:31:50.286     INFO │ 💫 Cycle #1100 | Action=SELL | Signal=-0.533 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.533 conf=0.80 coherence=0.48 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.533 COHERENCE=0.48 CONFIDENCE=0.80 PHI=0.22 ENTROPY=0.67 CPP=0.003ms COLLAPSED |  BULL[4] BEAR[16] NEUT[22] | MC[score=+0.094 WP=54.5% EV=-0.79 CVaR=-171.13 sim=23.2ms]
+[DubaiMatrixASI] 01:31:54.289    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:31:54.290     INFO │ 💫 Cycle #3500 | Action=WAIT | Signal=-0.526 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.092<0.4837128321774802) MC[score=+0.092 WP=54.4% EV=-1.02 CVaR=-171.13 sim=24.9ms]
+[DubaiMatrixASI] 01:32:00.377    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (24s/60s)
+[DubaiMatrixASI] 01:32:08.610     INFO │ 🌍 Macro Update: ETH=$1950.52 | BTC/ETH=34.4 | Gold=$0 | Vol24h=$61.4B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 01:32:11.987     INFO │ ⛓️ On-Chain Update: Mempool=19,177 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:32:14.131     INFO │ ⛓️ On-Chain Update: Mempool=19,177 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 01:32:15.602    OMEGA │ ⚡ 🧬 Gen #2: 5 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:32:15.632    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1523)
+[DubaiMatrixASI] 01:32:15.633    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006689
+[DubaiMatrixASI] 01:32:15.638     INFO │ 💫 Cycle #1200 | Action=SELL | Signal=-0.353 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.353 conf=0.75 coherence=0.51 regime=DRIFTING_BEAR ATR=91.27 RR=0.53 | Quantum: SIGNAL=-0.353 COHERENCE=0.51 CONFIDENCE=0.75 PHI=0.14 ENTROPY=0.67 CPP=0.003ms COLLAPSED |  BULL[5] BEAR[13] NEUT[23] | MC[score=+0.088 WP=54.1% EV=-1.50 CVaR=-171.13 sim=23.3ms]
+[DubaiMatrixASI] 01:32:19.618    OMEGA │ ⚡ 🧬 Gen #6: 3 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:32:19.644    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3500)
+[DubaiMatrixASI] 01:32:19.657    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006994
+[DubaiMatrixASI] 01:32:19.676     INFO │ 💫 Cycle #3600 | Action=WAIT | Signal=-0.323 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(-0.146<0.4837128321774802) MC[score=-0.146 WP=55.3% EV=+0.46 CVaR=-171.13 sim=24.0ms]
+[DubaiMatrixASI] 01:32:28.238    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:32:40.889     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=-0.175 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.175 < req 0.230)
+[DubaiMatrixASI] 01:32:44.891     INFO │ 💫 Cycle #3700 | Action=WAIT | Signal=-0.192 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.192 < req 0.333)
+[DubaiMatrixASI] 01:32:57.582    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:32:57.888    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=20.36 < min=63.89 [0.7×ATR])
+[DubaiMatrixASI] 01:33:05.909     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.65)
+[DubaiMatrixASI] 01:33:06.201    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.7203)
+[DubaiMatrixASI] 01:33:06.202    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006270
+[DubaiMatrixASI] 01:33:06.216     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=+0.022 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 01:33:10.191    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0390)
+[DubaiMatrixASI] 01:33:10.191    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006981
+[DubaiMatrixASI] 01:33:10.198     INFO │ 💫 Cycle #3800 | Action=WAIT | Signal=+0.007 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 01:33:12.655     INFO │ 🌍 Macro Update: ETH=$1950.19 | BTC/ETH=34.4 | Gold=$5179 | Vol24h=$61.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:33:13.322     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:33:17.331     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.00% | Score=-0.760 | Sources=2
+[DubaiMatrixASI] 01:33:18.617     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:33:31.571    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:33:31.582     INFO │ 💫 Cycle #1500 | Action=WAIT | Signal=-0.040 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.040 < req 0.230)
+[DubaiMatrixASI] 01:33:35.539     INFO │ 💫 Cycle #3900 | Action=WAIT | Signal=-0.042 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.042 < req 0.333)
+[DubaiMatrixASI] 01:33:56.932    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5612)
+[DubaiMatrixASI] 01:33:56.932    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006932
+[DubaiMatrixASI] 01:33:56.937     INFO │ 💫 Cycle #1600 | Action=WAIT | Signal=-0.004 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.004 < req 0.230)
+[DubaiMatrixASI] 01:34:00.845    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7495)
+[DubaiMatrixASI] 01:34:00.857    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006956
+[DubaiMatrixASI] 01:34:00.873    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:34:00.874     INFO │ 💫 Cycle #4000 | Action=WAIT | Signal=+0.008 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SUPERPOSITION (agentes não convergiram)
+[DubaiMatrixASI] 01:34:22.244     INFO │ 💫 Cycle #1700 | Action=WAIT | Signal=-0.044 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.044 < req 0.230)
+[DubaiMatrixASI] 01:34:24.070     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0200 < 0.0250)
+[DubaiMatrixASI] 01:34:24.183     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0216 < 0.0250)
+[DubaiMatrixASI] 01:34:26.214     INFO │ 💫 Cycle #4100 | Action=WAIT | Signal=+0.425 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: INCOHERENCE_VETO
+[DubaiMatrixASI] 01:34:34.976    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:34:47.622    OMEGA │ ⚡ 🧬 Gen #3: 4 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:34:47.640    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0806)
+[DubaiMatrixASI] 01:34:47.640    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006196
+[DubaiMatrixASI] 01:34:47.645     INFO │ 💫 Cycle #1800 | Action=WAIT | Signal=+0.445 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: INCOHERENCE_VETO
+[DubaiMatrixASI] 01:34:51.558    OMEGA │ ⚡ 🧬 Gen #7: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 01:34:51.587    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.9918)
+[DubaiMatrixASI] 01:34:51.593    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005936
+[DubaiMatrixASI] 01:34:51.600     INFO │ 💫 Cycle #4200 | Action=WAIT | Signal=-0.072 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.072 < req 0.333)
+[DubaiMatrixASI] 01:34:53.042    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=27.27 < min=40.39 [0.4422999411956403×ATR])
+[DubaiMatrixASI] 01:35:04.279    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:35:05.969     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.65)
+[DubaiMatrixASI] 01:35:09.214     INFO │ 🌍 Macro Update: ETH=$1950.03 | BTC/ETH=34.4 | Gold=$5178 | Vol24h=$61.4B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 01:35:13.056     INFO │ 💫 Cycle #1900 | Action=SELL | Signal=-0.522 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.522 conf=0.79 coherence=0.47 regime=DRIFTING_BEAR ATR=86.04 RR=0.53 | Quantum: SIGNAL=-0.522 COHERENCE=0.47 CONFIDENCE=0.79 PHI=0.20 ENTROPY=0.71 CPP=0.002ms COLLAPSED |  BULL[6] BEAR[16] NEUT[21] | MC[score=-0.139 WP=55.8% EV=+1.64 CVaR=-161.33 sim=23.2ms]
+[DubaiMatrixASI] 01:35:13.536     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 01:35:16.969     INFO │ 💫 Cycle #4300 | Action=WAIT | Signal=-0.497 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: MC_SCORE_LOW(+0.060<0.4837128321774802) MC[score=+0.060 WP=50.7% EV=+1.78 CVaR=-162.17 sim=30.2ms]
+[DubaiMatrixASI] 01:35:19.048     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.48% | Score=-0.638 | Sources=2
+[DubaiMatrixASI] 01:35:20.088     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 01:35:23.241    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=15.87 < min=38.47 [0.4422999411956403×ATR])
+[DubaiMatrixASI] 01:35:32.095  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000007 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 01:35:32.095    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.017578 aw_pct=0.007508 al_pct=0.007508
+[DubaiMatrixASI] 01:35:32.096    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 01:35:32.096    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.36 para caber na margem livre ($97232.59)
+[DubaiMatrixASI] 01:35:32.096   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.493 conf=0.78 coherence=0.47 regime=DRIFTING_BEAR ATR=86.99 RR=0.53 | Quantum: SIGNAL=-0.493 COHERENCE=0.47 CONFIDENCE=0.78 PHI=0.19 ENTROPY=0.71 CPP=0.003ms COLLAPSED |  BULL[6] BEAR[16] NEUT[22] | MC[score=+0.076 WP=53.2% EV=-2.90 CVaR=-163.10 sim=23.8ms]
+[DubaiMatrixASI] 01:35:32.097    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.36 (em 5 nodes) price=66931.68 SL=67094.78 TP=66844.69
+[DubaiMatrixASI] 01:35:32.111  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:35:32.263  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:35:32.264  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:35:32.440  WARNING │ ⏱️ LATENCY [get_candles] 154.3ms (threshold: 100ms)
+[DubaiMatrixASI] 01:35:32.264  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:35:32.601  WARNING │ ⏱️ LATENCY [get_candles] 143.7ms (threshold: 100ms)
+[DubaiMatrixASI] 01:35:32.264  WARNING │ ⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).
+[DubaiMatrixASI] 01:35:32.751  WARNING │ ⏱️ LATENCY [get_candles] 128.6ms (threshold: 100ms)
+[DubaiMatrixASI] 01:35:32.597  WARNING │ ⏱️ LATENCY [send_limit_order] 333.6ms (threshold: 200ms)
+[DubaiMatrixASI] 01:35:32.942  WARNING │ ⏱️ LATENCY [get_candles] 188.2ms (threshold: 100ms)
+[DubaiMatrixASI] 01:35:32.597  WARNING │ ⏱️ LATENCY [send_limit_order] 333.5ms (threshold: 200ms)
+[DubaiMatrixASI] 01:35:32.749  WARNING │ ⏱️ LATENCY [send_limit_order] 485.4ms (threshold: 200ms)
+[DubaiMatrixASI] 01:35:32.942  WARNING │ ⏱️ LATENCY [send_limit_order] 678.3ms (threshold: 200ms)
+[DubaiMatrixASI] 01:35:32.983    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | SELL lot=4.36 @ 0.00 | 5 tickets gerados | SELL signal=-0.493 conf=0.78 coherence=0.47 regime=DRIFTING_BEAR ATR=86.99 RR=0.
+[DubaiMatrixASI] 01:35:32.990  WARNING │ ⏱️ LATENCY [execute] 895.9ms (threshold: 400ms)
+[DubaiMatrixASI] 01:35:32.992  WARNING │ ⏱️ LATENCY [think] 1048.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 01:35:33.204    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 01:35:39.267    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 01:35:39.293    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7716)
+[DubaiMatrixASI] 01:35:39.298    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.221216
+[DubaiMatrixASI] 01:35:39.304    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:35:39.305     INFO │ 💫 Cycle #2000 | Action=SELL | Signal=-0.485 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.485 conf=0.78 coherence=0.48 regime=DRIFTING_BEAR ATR=88.08 RR=0.53 | Quantum: SIGNAL=-0.485 COHERENCE=0.48 CONFIDENCE=0.78 PHI=0.21 ENTROPY=0.67 CPP=0.003ms COLLAPSED |  BULL[6] BEAR[17] NEUT[21] | MC[score=+0.074 WP=52.9% EV=-2.96 CVaR=-165.15 sim=27.2ms]
+[DubaiMatrixASI] 01:35:39.332    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 01:35:39.332    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 01:35:39.337    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 01:35:39.338    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 01:35:39.338    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 01:35:39.339    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T04:35:39.338993+00:00
+[DubaiMatrixASI] 01:35:39.339     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 01:35:39.339     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 01:35:39.340     INFO │ 📈 P&L: $+0.00

@@ -49,7 +49,9 @@
 - **Non-Ergodic Sizing (Ito Engine)**: Sizing dinâmico que ignora valor esperado espacial e otimiza crescimento temporal logarítmico.
 - **Dark Forest Sonar Probing**: Detecção de liquidez oculta via injeção de ordens "ghost" de 50ms.
 - **Liquid State Memory**: Reconhecimento de padrões temporais voadas via Reservoir Computing de alta velocidade.
-- **V-Pulse Ignition Detection**: Detecção de micro-explosões de HFT (>30 ticks/s) via Supernova Capacitor refinado. (Phase 47).
+- **V-Pulse Ignition Detection (Phase 48)**: Detecção de micro-explosões de HFT (>30 ticks/s) via Supernova Capacitor vinculada ao Regime de Ignição.
+- **Ignition Sovereignty (Phase 48)**: Bloqueio de ruído contrário e colapso forçado em breakouts de alta velocidade.
+- **God-Mode Reversal (Phase 48)**: Absorção de liquidações em cascata via detecção de desequilíbrio entropia/velocidade.
 - **Intelligent Log Pacing**: Sistema de asfixia de logs redundantes via cooldowns dinâmicos no Trinity e Executor.
 
 ### 2B. SIMULAÇÃO QUANTUM MONTE CARLO & PNL PREDICTION (Phase 8 e 25)
@@ -61,6 +63,7 @@
 - **Optimal SL/TP Grid Search**: Busca o par SL/TP ótimo sobre os paths já simulados.
 - **Equity Curve Simulator**: Simula equity curves de 200+ trades para estimar drawdown máximo e probabilidade de atingir meta.
 - **Stress Test Multi-Cenário**: Flash Crash, Squeeze, Dead Market, Black Swan testados em cada trade.
+- **Resultado**: O bot agora mantém posições em pullbacks saudáveis, permitindo a captura de breakouts macro no BTCUSD. ### FASE 36: ERA DA CALIBRAÇÃO DARWINIANA (Paradox of Profit Fix) - **Contexto:** Identificação do 'Paradoxo do Lucro' (Vitórias brutas ocultando perdas líquidas por comissões de ~$7/lote) e 'Amnésia de Histórico' no Brain. - **Evolução:** - **Consciousness Feedback Loop**: Implementação de auditoria periódica (60s) via `history_deals_get` que sincroniza o Brain com o terminal real. - **Speed Optimization**: Portabilidade de `send_limit_order` para Socket Bridge, eliminando o lag de 780ms do Python nativo. - **Commission-Aware Fitness**: Injeção mandatória de deduções de taxas no `PerformanceTracker`, realinhando a auto-evolução darwiniana para a riqueza líquida. - **Resultado**: O sistema agora evolui focado no **Alpha Líquido**, matando mutações 'Fake Fitness' e otimizando o preenchimento de ordens via HFT Socket. ### FASE 48: ERA DA SIMETRIA E IGNIÇÃO (V-Pulse & God-Mode) - **Contexto:** Detecção de inversão de sinal em V-reversals e lag de percepção em breakouts. - **Evolução:** - **Supernova Capacitor v2**: Rastreio sub-segundo de densidade de ticks bruta. - **Ignition Sovereignty**: O motor quântico agora silencia o ruído contrário durante o V-Pulse. - **God-Mode Reversal**: TrinityCore calibrado para absorver reversões violentas via decoerência forçada. - **Resultado**: A ASI atinge um novo patamar de acuidade cinemática, blindando o capital contra armadilhas de "falsa exaustão".
 
 ### 3. COGNITIVE SYNTHESIS
 - **Consciousness Heartbeat**: Função multi-thread que roda e recomeça a verificação de toda a matrix `MAIN_LOOP_INTERVAL_MS`.

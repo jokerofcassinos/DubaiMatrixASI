@@ -25,7 +25,7 @@ from core.consciousness.quantum_thought import QuantumThoughtEngine
 from core.consciousness.regime_detector import RegimeDetector
 from market.memory.episodic_memory import EpisodicMemory
 from market.scraper.narrative_distiller import EdgeLLMDistiller
-from core.decision.trinity_core import TrinityCore, Action
+from core.decision.trinity_core import TrinityCore, Action, Decision
 from core.evolution.performance_tracker import PerformanceTracker
 from core.evolution.self_optimizer import SelfOptimizer
 from execution.risk_quantum import RiskQuantumEngine
@@ -108,7 +108,7 @@ class ASIBrain:
         self._last_snapshot = None
         self._last_pnl_prediction = None
         self._last_log_times = {} # key -> float
-        self._last_history_poll = time.time() - 3600 # Começar buscando a última 1 hora
+        self._last_history_poll = time.time() # Começar buscando a partir de AGORA (Perdão Neural)
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -343,9 +343,11 @@ class ASIBrain:
             self.state.total_profit += net_profit
             if net_profit > 0:
                 self.state.total_wins += 1
+                self.state.gross_profit += net_profit
                 self.state.consecutive_losses = 0
             else:
                 self.state.total_losses += 1
+                self.state.gross_loss += abs(net_profit)
                 self.state.consecutive_losses += 1
 
         log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} novos trades auditados e sincronizados na consciência.")

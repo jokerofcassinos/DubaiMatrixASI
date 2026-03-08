@@ -189,6 +189,23 @@ class DataEngine:
             # Inputs: [bid, ask, last, volume, spread, velocity, ...]
             v_sum = list(self._price_history)[-5:] if len(self._price_history) >= 5 else [snapshot.tick["mid"]] * 5
             velocity = np.diff(v_sum).mean() if len(v_sum) > 1 else 0.0
+            # ═══ [PHASE 47] HFT SENSORY EXPANSION ═══
+            last_ticks = list(self._tick_history)[-50:] if self._tick_history else []
+            tick_velocity = 0.0
+            if len(last_ticks) > 10:
+                t_delta = last_ticks[-1]["time_msc"] - last_ticks[0]["time_msc"]
+                if t_delta > 0:
+                    tick_velocity = (len(last_ticks) / t_delta) * 1000.0 # Ticks por segundo
+            
+            snapshot.metadata["tick_velocity"] = tick_velocity
+            
+            # V-Pulse Detection (Pre-emptive)
+            regime_state = snapshot.metadata.get("regime_state")
+            if regime_state and hasattr(self, 'regime_detector'):
+                v_pulse = self.regime_detector._detect_v_pulse(snapshot)
+                snapshot.metadata["v_pulse_detected"] = v_pulse is not None
+            else:
+                snapshot.metadata["v_pulse_detected"] = False
             
             inputs = np.array([
                 snapshot.tick["bid"], snapshot.tick["ask"], 
