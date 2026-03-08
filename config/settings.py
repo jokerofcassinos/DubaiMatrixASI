@@ -168,6 +168,7 @@ class ASIState:
             "gross_profit": self.gross_profit,
             "gross_loss": self.gross_loss,
             "max_drawdown": self.max_drawdown,
+            "max_drawdown_pct": self.max_drawdown_pct,
             "peak_balance": self.peak_balance,
             "agent_weights": self.agent_weights,
             "regime_history": self.regime_history[-100:],  # Últimos 100 regimes
@@ -190,6 +191,7 @@ class ASIState:
                 self.gross_profit = data.get("gross_profit", 0.0)
                 self.gross_loss = data.get("gross_loss", 0.0)
                 self.max_drawdown = data.get("max_drawdown", 0.0)
+                self.max_drawdown_pct = data.get("max_drawdown_pct", 0.0)
                 self.peak_balance = data.get("peak_balance", 0.0)
                 self.agent_weights = data.get("agent_weights", {})
                 self.regime_history = data.get("regime_history", [])

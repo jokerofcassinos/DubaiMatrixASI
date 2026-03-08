@@ -6108,3 +6108,733 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 [DubaiMatrixASI] 15:10:06.772     INFO │ 📈 Trades: 163
 [DubaiMatrixASI] 15:10:06.772     INFO │ 📈 Win Rate: 40.5%
 [DubaiMatrixASI] 15:10:06.772     INFO │ 📈 P&L: $+482.30
+[DubaiMatrixASI] 15:22:09.405    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 15:22:11.531     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 15:22:11.531     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 15:22:11.531     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 15:22:11.532    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 15:22:11.532    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 15:22:11.532    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 15:22:11.532    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 15:22:11.532    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 15:22:11.533    OMEGA │ ⚡ 📅 2026-03-08T18:22:11.533165+00:00
+[DubaiMatrixASI] 15:22:11.533    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 15:22:11.533    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 15:22:11.533     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 15:22:11.596     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 15:22:11.597    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 15:22:11.597     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 15:22:11.597     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 15:22:11.597     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 15:22:11.598     INFO │    Saldo: $100482.30
+[DubaiMatrixASI] 15:22:11.598     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 15:22:11.598     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 15:22:11.598     INFO │    Spread: 100 points
+[DubaiMatrixASI] 15:22:11.599    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 15:22:11.599     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 15:22:11.600    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66892.38, Bid=66891.38
+[DubaiMatrixASI] 15:22:11.600     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 15:22:11.609    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 15:22:11.613    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 15:22:11.614    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 15:22:11.639    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 15:22:11.663     INFO │ 📂 Carregados 163 trades do histórico. WR=40.5%
+[DubaiMatrixASI] 15:22:11.679    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 15:22:11.680    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 15:22:11.681    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 15:22:11.688    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 15:22:11.689    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 15:22:11.690    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 15:22:11.691     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100482.3, 'equity': 100482.3, 'tick_buffer_size': 1, 'last_tick_ms': 1773004933221}
+[DubaiMatrixASI] 15:22:11.692    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 15:22:11.693    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 15:22:11.742    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 15:22:12.109     INFO │ 🌍 Macro Update: ETH=$1934.29 | BTC/ETH=34.6 | Gold=$5166 | Vol24h=$70.0B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 15:22:12.305     INFO │ ⛓️ On-Chain Update: Mempool=32,563 txs | Fee=1.1 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:22:12.480    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 53766)
+[DubaiMatrixASI] 15:22:12.568     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.6% | 24h=-1.14% | Score=-0.631 | Sources=2
+[DubaiMatrixASI] 15:22:18.488  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:22:18.489    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0929)
+[DubaiMatrixASI] 15:22:18.490    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006668
+[DubaiMatrixASI] 15:22:18.490    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 327 deals na fita, 163 fechamentos analisados, 0 novos registros. P&L Líquido: $+482.30
+[DubaiMatrixASI] 15:22:18.491  WARNING │ ⏱️ LATENCY [think] 6797.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:22:25.706     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.245 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(14s/120.0s)
+  🧬 Quantum: SIGNAL=-0.245 COHERENCE=0.53 PHI=0.13
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, MacroBiasAgent, FeynmanPath, TemporalTrend, PriceGravityAgent, AggressivenessAgent, ChartStructureAgent
+  🐻 BEAR[16]: TBSAgent, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, PriceVelocityAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:22:33.290     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.160 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(22s/120.0s)
+  🧬 Quantum: SIGNAL=-0.160 COHERENCE=0.54 PHI=0.09
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, ChartStructureAgent
+  🐻 BEAR[16]: LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, FeynmanPath, SentimentFearGreedAgent, PriceVelocityAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:22:40.934     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.274 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(29s/120.0s)
+  🧬 Quantum: SIGNAL=-0.274 COHERENCE=0.53 PHI=0.12
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix, ChartStructureAgent, AggressivenessAgent
+  🐻 BEAR[16]: TBSAgent, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, PriceVelocityAgent, SentimentFearGreedAgent, MomentumAgent, FeynmanPath, OnChainPressureAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:22:48.497     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.263 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(37s/120.0s)
+  🧬 Quantum: SIGNAL=-0.263 COHERENCE=0.53 PHI=0.14
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, MacroBiasAgent, FeynmanPath, TemporalTrend, PriceGravityAgent, ChartStructureAgent
+  🐻 BEAR[18]: CppTickEntropyAgent, TBSAgent, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, AggressivenessAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:22:56.071     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=-0.291 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(44s/120.0s)
+  🧬 Quantum: SIGNAL=-0.291 COHERENCE=0.52 PHI=0.15
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, PriceGravityAgent, ChartStructureAgent
+  🐻 BEAR[19]: CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:03.685     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=-0.203 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(52s/120.0s)
+  🧬 Quantum: SIGNAL=-0.203 COHERENCE=0.52 PHI=0.15
+  🐂 BULL[9]: StopHunterAgent, ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, AggressivenessAgent, PriceGravityAgent, MacroBiasAgent, TemporalTrend, ChartStructureAgent
+  🐻 BEAR[19]: CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, FeynmanPath, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:08.784  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:23:08.785    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9325)
+[DubaiMatrixASI] 15:23:08.786    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.241410
+[DubaiMatrixASI] 15:23:11.325     INFO │ 💫 Cycle #210 | Action=WAIT | Signal=-0.244 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(60s/120.0s)
+  🧬 Quantum: SIGNAL=-0.244 COHERENCE=0.50 PHI=0.15
+  🐂 BULL[10]: ChaosRegime, DarkMass, PremiumDiscountAgent, FeynmanPath, AggressivenessAgent, MacroBiasAgent, TemporalTrend, CandleAnatomyAgent, PriceGravityAgent, ChartStructureAgent
+  🐻 BEAR[18]: CppTickEntropyAgent, TBSAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:23:18.878     INFO │ 💫 Cycle #240 | Action=WAIT | Signal=-0.246 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(67s/120.0s)
+  🧬 Quantum: SIGNAL=-0.246 COHERENCE=0.50 PHI=0.14
+  🐂 BULL[10]: ChaosRegime, DarkMass, PremiumDiscountAgent, AggressivenessAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix, ChartStructureAgent
+  🐻 BEAR[18]: CppTickEntropyAgent, TBSAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:21.451    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:2522
+[DubaiMatrixASI] 15:23:26.491     INFO │ 💫 Cycle #270 | Action=WAIT | Signal=-0.199 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(75s/120.0s)
+  🧬 Quantum: SIGNAL=-0.199 COHERENCE=0.50 PHI=0.10
+  🐂 BULL[11]: ChaosRegime, DarkMass, PremiumDiscountAgent, AggressivenessAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, ChartStructureAgent
+  🐻 BEAR[17]: CppTickEntropyAgent, TBSAgent, PressureMatrix, LiquidationVacuumAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:36.447  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:23:36.453    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.8937)
+[DubaiMatrixASI] 15:23:36.454    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.235358
+[DubaiMatrixASI] 15:23:36.454    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 106 deals na fita, 53 fechamentos analisados, 0 novos registros. P&L Líquido: $+482.30
+[DubaiMatrixASI] 15:23:36.455     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.112 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(82s/120.0s)
+  🧬 Quantum: SIGNAL=-0.112 COHERENCE=0.51 PHI=0.04
+  🐂 BULL[10]: CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, ChartStructureAgent, LiquidationVacuumAgent
+  🐻 BEAR[17]: TBSAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, FeynmanPath, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:36.456  WARNING │ ⏱️ LATENCY [think] 2513.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:23:43.914     INFO │ 💫 Cycle #330 | Action=WAIT | Signal=+0.378 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(92s/120.0s)
+  🧬 Quantum: SIGNAL=+0.378 COHERENCE=0.44 PHI=0.00
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, ChartStructureAgent, LiquidationVacuumAgent
+  🐻 BEAR[15]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, FeynmanPath, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:51.510     INFO │ 💫 Cycle #360 | Action=WAIT | Signal=+0.375 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(100s/120.0s)
+  🧬 Quantum: SIGNAL=+0.375 COHERENCE=0.44 PHI=0.01
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, ChartStructureAgent, LiquidationVacuumAgent
+  🐻 BEAR[16]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, HexMatrix, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, FeynmanPath, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:23:59.131     INFO │ 💫 Cycle #390 | Action=WAIT | Signal=+0.351 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(107s/120.0s)
+  🧬 Quantum: SIGNAL=+0.351 COHERENCE=0.44 PHI=0.00
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, ChartStructureAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[16]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, FeynmanPath, HexMatrix, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:01.683  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:24:01.684    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7341)
+[DubaiMatrixASI] 15:24:01.684    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007441
+[DubaiMatrixASI] 15:24:06.731     INFO │ 💫 Cycle #420 | Action=WAIT | Signal=+0.494 | Coherence=0.42 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(115s/120.0s)
+  🧬 Quantum: SIGNAL=+0.494 COHERENCE=0.42 PHI=0.05
+  🐂 BULL[16]: CrossScaleConvergenceAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppTickEntropyAgent, FVGAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, FeynmanPath, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[13]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:11.778     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 15:24:13.447     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.6% | 24h=-1.13% | Score=-0.631 | Sources=2
+[DubaiMatrixASI] 15:24:14.306     INFO │ 💫 Cycle #450 | Action=WAIT | Signal=+0.187 | Coherence=0.49 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.187 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.187 COHERENCE=0.49 PHI=0.03
+  🐂 BULL[15]: CrossScaleConvergenceAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppTickEntropyAgent, FVGAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, FeynmanPath, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[15]: StopHunterAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OscillationWaveAgent, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:21.938     INFO │ 💫 Cycle #480 | Action=WAIT | Signal=+0.191 | Coherence=0.49 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.191 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.191 COHERENCE=0.49 PHI=0.04
+  🐂 BULL[15]: CrossScaleConvergenceAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppTickEntropyAgent, FVGAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, FeynmanPath, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[15]: StopHunterAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OscillationWaveAgent, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:23.663     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.35 ATR.
+[DubaiMatrixASI] 15:24:23.704  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000067. Reducing exposure.
+[DubaiMatrixASI] 15:24:23.704     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $100482.30
+[DubaiMatrixASI] 15:24:23.716    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 63.61 para 4.51 para caber na margem livre ($100482.30)
+[DubaiMatrixASI] 15:24:23.722   SIGNAL │ 
+╔══ ⚡ [LIMIT] BUY PREVIEW ══╗
+║ SIGNAL: +0.436 | CONF: 0.79 | Φ: 0.03
+║ BULL[13]: CrossScaleConvergenceAgent, CppTickEntropyAgent, FVGAgent, AggressivenessAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+║ BEAR[16]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, HexMatrix, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, CandleAnatomyAgent, FeynmanPath, SentimentFearGreedAgent, MomentumAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 4.51 | ATR: 117.01
+║ REASONING: BUY signal=+0.436 conf=0.79 coherence=0.43 regime=DRIFTING_BEAR ATR=117.01 RR=0.74 | Quantum: SIGNAL=+0.436 | CONF=0.79 | Φ=0.03 | COH=43.11% | BULL: CrossScaleConvergenceAgent, CppTickEntropyAgent, FVGAgent | MC[score=+0.099 WP=54.4% EV=+2.29 CVaR=-157.97 sim=20.7ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 15:24:23.731    OMEGA │ ⚡ 🎯 DECISION REALIZED: BUY lot=4.51 (em 5 nodes) price=66909.84 SL=66751.87 TP=67026.85 | Φ: 0.03 | CONF: 0.79
+[DubaiMatrixASI] 15:24:23.755    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.9 @ 66907.99 (via socket)
+[DubaiMatrixASI] 15:24:23.763    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.9 @ 66907.64 (via socket)
+[DubaiMatrixASI] 15:24:23.769    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.9 @ 66908.34 (via socket)
+[DubaiMatrixASI] 15:24:23.769    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.9 @ 66907.29 (via socket)
+[DubaiMatrixASI] 15:24:23.776    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.9 @ 66908.69 (via socket)
+[DubaiMatrixASI] 15:24:23.777    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=4.50 @ 66907.99 | 5 tickets gerados | BUY signal=+0.436 conf=0.79 coherence=0.43 regime=DRIFTING_BEAR ATR=117.01 RR=0.
+[DubaiMatrixASI] 15:24:23.777    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.436 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:23.917     INFO │ 📩 Resposta EA Socket: LIMIT -> ERROR | Data: RESULT|LIMIT|ERROR|10015
+[DubaiMatrixASI] 15:24:23.950     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0145 < 0.0250)
+[DubaiMatrixASI] 15:24:24.066     INFO │ 📩 Resposta EA Socket: LIMIT -> ERROR | Data: RESULT|LIMIT|ERROR|10015
+[DubaiMatrixASI] 15:24:24.076     INFO │ 📩 Resposta EA Socket: LIMIT -> ERROR | Data: RESULT|LIMIT|ERROR|10015
+[DubaiMatrixASI] 15:24:24.216     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005445|66907.29
+[DubaiMatrixASI] 15:24:24.219    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005445 @ 66907.29
+[DubaiMatrixASI] 15:24:24.225     INFO │ 📩 Resposta EA Socket: LIMIT -> ERROR | Data: RESULT|LIMIT|ERROR|10015
+[DubaiMatrixASI] 15:24:26.968    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:2523
+[DubaiMatrixASI] 15:24:28.027    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 15:24:28.028    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.420 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:28.301    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.488 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:28.526    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.475 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:28.792    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.418 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:29.050    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.476 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:29.255    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.421 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:29.578    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.486 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:29.594     INFO │ 💫 Cycle #510 | Action=BUY | Signal=+0.486 | Coherence=0.41 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: BUY signal=+0.486 conf=0.78 coherence=0.41 regime=DRIFTING_BEAR ATR=117.01 RR=0.74 | Quantum: SIGNAL=+0.486 | CONF=0.78 | Φ=0.03 | COH=41.39% | BULL: CrossScaleConvergenceAgent, AggressivenessAgent, CppTickEntropyAgent | MC[score=+0.092 WP=53.8% EV=+1.77 CVaR=-157.97 sim=21.7ms]
+  🧬 Quantum: SIGNAL=+0.486 COHERENCE=0.41 PHI=0.03
+  🐂 BULL[14]: CrossScaleConvergenceAgent, AggressivenessAgent, CppTickEntropyAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, VolumeAgent, FeynmanPath, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[15]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, HexMatrix, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:29.778    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.419 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:30.045    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.428 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:30.284    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.425 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:30.556    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.488 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:30.796    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.426 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:31.058    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.411 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:31.305    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.485 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:31.539    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.398 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:31.808    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.419 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:32.045    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.480 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:32.311    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.474 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:32.582    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.407 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:32.821    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.425 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:33.058    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.429 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:33.330    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.490 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:33.572    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.420 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:33.833    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.416 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:34.076    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.400 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:34.342    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.397 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:34.620    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.419 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:34.853    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.400 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:35.101    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.418 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:35.354    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.492 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:35.599    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.402 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:35.868    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.431 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:36.112    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.410 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:36.348    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.500 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:36.619    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.497 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:36.855    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.430 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:37.165    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.428 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:37.170     INFO │ 💫 Cycle #540 | Action=BUY | Signal=+0.428 | Coherence=0.43 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: BUY signal=+0.428 conf=0.78 coherence=0.43 regime=DRIFTING_BEAR ATR=117.01 RR=0.74 | Quantum: SIGNAL=+0.428 | CONF=0.78 | Φ=0.04 | COH=42.68% | BULL: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime | MC[score=+0.056 WP=51.4% EV=-4.68 CVaR=-157.97 sim=32.4ms]
+  🧬 Quantum: SIGNAL=+0.428 COHERENCE=0.43 PHI=0.04
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, AggressivenessAgent, VolumeAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[15]: PressureMatrix, OnChainPressureAgent, GameTheoryNashAgent, Thermodynamic, FeynmanPath, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, CandleAnatomyAgent, SentimentFearGreedAgent, MomentumAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:37.396    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.429 PHI=0.04 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:44.755     INFO │ 💫 Cycle #570 | Action=WAIT | Signal=+0.427 | Coherence=0.42 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: INCOHERENCE_VETO
+  🧬 Quantum: SIGNAL=+0.427 COHERENCE=0.42 PHI=0.00
+  🐂 BULL[13]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, AggressivenessAgent, FeynmanPath, VolumeAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[16]: PressureMatrix, OnChainPressureAgent, InformationEntropyAgent, GameTheoryNashAgent, Thermodynamic, HexMatrix, CppFractalAgent, HarmonicResonanceAgent, OscillationWaveAgent, CandleAnatomyAgent, SentimentFearGreedAgent, MomentumAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:24:51.313    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.390 PHI=0.03 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:52.291  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:24:52.291    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1341.5069 Gen=1
+[DubaiMatrixASI] 15:24:52.293    OMEGA │ ⚡ 🧬 Gen #1: 3 mutações aplicadas | Tipo=gaussian | Fitness=-1341.5069
+[DubaiMatrixASI] 15:24:52.295    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7269)
+[DubaiMatrixASI] 15:24:52.295    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007139
+[DubaiMatrixASI] 15:24:54.650  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:24:54.675    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4780)
+[DubaiMatrixASI] 15:24:54.679    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006180
+[DubaiMatrixASI] 15:24:54.679    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 107 deals na fita, 53 fechamentos analisados, 0 novos registros. P&L Líquido: $+482.30
+[DubaiMatrixASI] 15:24:54.685     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.218 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.218 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.218 COHERENCE=0.52 PHI=0.14
+  🐂 BULL[9]: AggressivenessAgent, ChaosRegime, PremiumDiscountAgent, VolumeAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix
+  🐻 BEAR[18]: CppTickEntropyAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, HarmonicResonanceAgent, CandleAnatomyAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, FeynmanPath, MeanFieldGame
+[DubaiMatrixASI] 15:24:54.686  WARNING │ ⏱️ LATENCY [think] 2524.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:24:58.145    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 15:24:58.146    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.321 PHI=0.10 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:58.398    OMEGA │ ⚡ 🎯 IGNITION: BUY BTCUSD | S=+0.321 PHI=0.10 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:58.660    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (35s/60s)
+[DubaiMatrixASI] 15:24:58.661    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.262 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:58.920    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.283 PHI=0.14 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:24:59.165    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.239 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:02.200     INFO │ 💫 Cycle #630 | Action=WAIT | Signal=-0.034 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.034 COHERENCE=0.51 PHI=0.03
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, AggressivenessAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[15]: PressureMatrix, InformationEntropyAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, FeynmanPath, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:09.746     INFO │ 💫 Cycle #660 | Action=WAIT | Signal=+0.124 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.124 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.124 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[15]: CrossScaleConvergenceAgent, LiquidityHeatmapAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, FeynmanPath, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[12]: StopHunterAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:12.568     INFO │ 🌍 Macro Update: ETH=$1934.38 | BTC/ETH=34.6 | Gold=$5166 | Vol24h=$70.0B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 15:25:17.358     INFO │ 💫 Cycle #690 | Action=WAIT | Signal=+0.052 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.052 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.052 COHERENCE=0.52 PHI=0.02
+  🐂 BULL[13]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[14]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, FeynmanPath, OnChainPressureAgent, MomentumAgent, HexMatrix, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:25.034     INFO │ 💫 Cycle #720 | Action=WAIT | Signal=+0.061 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.061 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.061 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, AggressivenessAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:32.627    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:2523
+[DubaiMatrixASI] 15:25:32.628     INFO │ 💫 Cycle #750 | Action=WAIT | Signal=+0.045 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.045 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.045 COHERENCE=0.52 PHI=0.01
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, AggressivenessAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, FeynmanPath, CandleAnatomyAgent, OnChainPressureAgent, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:40.215     INFO │ 💫 Cycle #780 | Action=WAIT | Signal=+0.054 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.054 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.054 COHERENCE=0.52 PHI=0.01
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, AggressivenessAgent, HexMatrix, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, FeynmanPath, OnChainPressureAgent, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:45.233  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:25:45.273    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6043)
+[DubaiMatrixASI] 15:25:45.277    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006630
+[DubaiMatrixASI] 15:25:47.789     INFO │ 💫 Cycle #810 | Action=WAIT | Signal=-0.019 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.019 COHERENCE=0.51 PHI=0.04
+  🐂 BULL[13]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, AggressivenessAgent, TemporalTrend, FeynmanPath, PriceGravityAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[14]: PressureMatrix, InformationEntropyAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:51.427    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=7.21 < min=77.19 [0.7×ATR])
+[DubaiMatrixASI] 15:25:51.429    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.242 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:51.643    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.232 PHI=0.12 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:52.934    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.230 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:53.423    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.235 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:54.725    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.241 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:54.929    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.238 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:55.448     INFO │ 💫 Cycle #840 | Action=WAIT | Signal=-0.206 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.206 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.206 COHERENCE=0.53 PHI=0.13
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix
+  🐻 BEAR[17]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, OscillationWaveAgent, SentimentFearGreedAgent, PriceVelocityAgent, CandleAnatomyAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, AggressivenessAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:25:55.768    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.229 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:55.994    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.237 PHI=0.13 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:56.259    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.258 PHI=0.14 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:56.473    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.249 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:57.015    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.231 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:57.235    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.276 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:57.556    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.237 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:25:57.778    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.254 PHI=0.15 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:26:02.850    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.232 PHI=0.11 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:26:03.026     INFO │ 💫 Cycle #870 | Action=WAIT | Signal=-0.212 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.212 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.212 COHERENCE=0.52 PHI=0.10
+  🐂 BULL[10]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, PriceVelocityAgent
+  🐻 BEAR[16]: CppTickEntropyAgent, PressureMatrix, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, TrendAgent, MomentumAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:26:13.314  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:26:13.321    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9186)
+[DubaiMatrixASI] 15:26:13.322    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006551
+[DubaiMatrixASI] 15:26:13.322    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 107 deals na fita, 53 fechamentos analisados, 0 novos registros. P&L Líquido: $+482.30
+[DubaiMatrixASI] 15:26:13.322     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=+0.116 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.116 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.116 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[14]: CrossScaleConvergenceAgent, LiquidityHeatmapAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, OscillationWaveAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: StopHunterAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OnChainPressureAgent, MomentumAgent, HexMatrix, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:13.323  WARNING │ ⏱️ LATENCY [think] 2831.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:26:13.486     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 15:26:14.360     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.6% | 24h=-0.97% | Score=-0.627 | Sources=2
+[DubaiMatrixASI] 15:26:20.904     INFO │ 💫 Cycle #930 | Action=WAIT | Signal=+0.039 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.039 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.039 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[13]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, AggressivenessAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[14]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, FeynmanPath, CandleAnatomyAgent, OnChainPressureAgent, MomentumAgent, HexMatrix, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:28.470     INFO │ 💫 Cycle #960 | Action=WAIT | Signal=+0.055 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.055 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.055 COHERENCE=0.51 PHI=0.02
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, AggressivenessAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, FeynmanPath, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:30.484    OMEGA │ ⚡ 💀 LETHAL CLOSE: MOMENTUM_REVERSAL (Bearish Spike) | P&L Total: $+33.88
+[DubaiMatrixASI] 15:26:30.704    OMEGA │ ⚡ 💀 LETHAL CLOSE: MOMENTUM_REVERSAL (Bearish Spike) | P&L Total: $+33.84
+[DubaiMatrixASI] 15:26:30.801     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 15:26:30.802    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
+[DubaiMatrixASI] 15:26:36.026     INFO │ 💫 Cycle #990 | Action=WAIT | Signal=+0.025 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.025 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.025 COHERENCE=0.51 PHI=0.00
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, FeynmanPath, HexMatrix, AggressivenessAgent, LiquidationVacuumAgent, PriceVelocityAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, OnChainPressureAgent, MomentumAgent, ChartStructureAgent, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:38.549  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:26:38.550    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.6805)
+[DubaiMatrixASI] 15:26:38.550    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007076
+[DubaiMatrixASI] 15:26:38.555    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:2523
+[DubaiMatrixASI] 15:26:43.631     INFO │ 💫 Cycle #1020 | Action=WAIT | Signal=+0.071 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.071 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.071 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[14]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, OscillationWaveAgent, PriceVelocityAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, FeynmanPath, LiquidationVacuumAgent
+  🐻 BEAR[11]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:51.251     INFO │ 💫 Cycle #1050 | Action=WAIT | Signal=+0.046 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(+0.046 < req 0.230)
+  🧬 Quantum: SIGNAL=+0.046 COHERENCE=0.51 PHI=0.01
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, OscillationWaveAgent, PriceVelocityAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, FeynmanPath, OnChainPressureAgent, MomentumAgent, HexMatrix, SentimentFearGreedAgent, TrendAgent, MicrostructureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:26:58.811     INFO │ 💫 Cycle #1080 | Action=WAIT | Signal=-0.046 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.046 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.046 COHERENCE=0.54 PHI=0.00
+  🐂 BULL[12]: CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, AggressivenessAgent, PriceVelocityAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[13]: GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, FeynmanPath, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:06.405     INFO │ 💫 Cycle #1110 | Action=WAIT | Signal=-0.026 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.026 COHERENCE=0.54 PHI=0.00
+  🐂 BULL[13]: CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, AggressivenessAgent, PriceVelocityAgent, MacroBiasAgent, TemporalTrend, InformationEntropyAgent, PriceGravityAgent, FeynmanPath, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[12]: GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:12.987     INFO │ ⛓️ On-Chain Update: Mempool=33,300 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:27:14.004     INFO │ 💫 Cycle #1140 | Action=WAIT | Signal=-0.045 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.045 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.045 COHERENCE=0.54 PHI=0.02
+  🐂 BULL[13]: CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, FeynmanPath, HexMatrix, PriceVelocityAgent, AggressivenessAgent, LiquidationVacuumAgent
+  🐻 BEAR[12]: InformationEntropyAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, OnChainPressureAgent, MomentumAgent, SentimentFearGreedAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:21.583     INFO │ 💫 Cycle #1170 | Action=WAIT | Signal=-0.201 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+482.30
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.201 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.201 COHERENCE=0.54 PHI=0.10
+  🐂 BULL[10]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, CandleAnatomyAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix, PriceVelocityAgent
+  🐻 BEAR[16]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, AggressivenessAgent, MomentumAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:28.211  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000067. Reducing exposure.
+[DubaiMatrixASI] 15:27:28.212    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 66.29 para 4.50 para caber na margem livre ($100477.01)
+[DubaiMatrixASI] 15:27:28.212   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.215 | CONF: 0.74 | Φ: 0.11
+║ BULL[8]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, CandleAnatomyAgent
+║ BEAR[18]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, AggressivenessAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MicrostructureAgent, HexMatrix, FeynmanPath, TrendAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 4.50 | ATR: 112.28
+║ REASONING: SELL signal=-0.215 conf=0.74 coherence=0.55 regime=DRIFTING_BEAR ATR=112.28 RR=0.74 | Quantum: SIGNAL=-0.215 | CONF=0.74 | Φ=0.11 | COH=54.53% | BEAR: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent | MC[score=+0.073 WP=52.6% EV=-1.32 CVaR=-151.58 sim=21.3ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 15:27:28.229    OMEGA │ ⚡ 🎯 DECISION REALIZED: SELL lot=4.50 (em 5 nodes) price=66929.46 SL=67081.04 TP=66817.18 | Φ: 0.11 | CONF: 0.74
+[DubaiMatrixASI] 15:27:28.248    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.9 @ 66931.30 (via socket)
+[DubaiMatrixASI] 15:27:28.249    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.9 @ 66931.65 (via socket)
+[DubaiMatrixASI] 15:27:28.252    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.9 @ 66932.00 (via socket)
+[DubaiMatrixASI] 15:27:28.256    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.9 @ 66930.60 (via socket)
+[DubaiMatrixASI] 15:27:28.256    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.9 @ 66930.95 (via socket)
+[DubaiMatrixASI] 15:27:28.256    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=4.50 @ 66931.30 | 5 tickets gerados | SELL signal=-0.215 conf=0.74 coherence=0.55 regime=DRIFTING_BEAR ATR=112.28 RR=0
+[DubaiMatrixASI] 15:27:28.257    OMEGA │ ⚡ 🎯 IGNITION: SELL BTCUSD | S=-0.215 PHI=0.11 R=DRIFTING_BEAR
+[DubaiMatrixASI] 15:27:28.412     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005673|66931.30
+[DubaiMatrixASI] 15:27:28.421    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005673 @ 66931.30
+[DubaiMatrixASI] 15:27:28.568     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005676|66931.65
+[DubaiMatrixASI] 15:27:28.580    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005676 @ 66931.65
+[DubaiMatrixASI] 15:27:28.720     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005677|66932.00
+[DubaiMatrixASI] 15:27:28.721    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005677 @ 66932.00
+[DubaiMatrixASI] 15:27:28.861     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005678|66930.60
+[DubaiMatrixASI] 15:27:28.863    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005678 @ 66930.60
+[DubaiMatrixASI] 15:27:29.009     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|398005679|66930.95
+[DubaiMatrixASI] 15:27:29.009    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 398005679 @ 66930.95
+[DubaiMatrixASI] 15:27:29.216  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.5% (threshold: 45.0%)
+[DubaiMatrixASI] 15:27:29.238    OMEGA │ ⚡ 🧬 Gen #2: 8 mutações aplicadas | Tipo=gaussian | Fitness=-1341.5069
+[DubaiMatrixASI] 15:27:29.259    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1317)
+[DubaiMatrixASI] 15:27:29.260    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005923
+[DubaiMatrixASI] 15:27:31.935     INFO │ 📊 Trade Recorded: SELL #381455248 | P&L=$-5.29 | ❌ LOSS | Regime=None
+[DubaiMatrixASI] 15:27:31.935  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 15:27:31.954  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.2% (threshold: 45.0%)
+[DubaiMatrixASI] 15:27:31.971    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7471)
+[DubaiMatrixASI] 15:27:31.971    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006694
+[DubaiMatrixASI] 15:27:31.972    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 108 deals na fita, 54 fechamentos analisados, 1 novos registros. P&L Líquido: $+477.01
+[DubaiMatrixASI] 15:27:31.972     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=-0.208 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.208 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.208 COHERENCE=0.54 PHI=0.11
+  🐂 BULL[9]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, PriceGravityAgent, CandleAnatomyAgent
+  🐻 BEAR[17]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, AggressivenessAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MicrostructureAgent, HexMatrix, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:31.973  WARNING │ ⏱️ LATENCY [think] 2910.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:27:32.679    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:33.423    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:33.652    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:35.422    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:35.697    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:37.199    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:37.708    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:38.957    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:39.512    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:39.523     INFO │ 💫 Cycle #1230 | Action=SELL | Signal=-0.230 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: SELL signal=-0.230 conf=0.72 coherence=0.54 regime=DRIFTING_BEAR ATR=112.28 RR=0.70 | Quantum: SIGNAL=-0.230 | CONF=0.72 | Φ=0.11 | COH=54.30% | BEAR: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent | MC[score=+0.098 WP=54.5% EV=+1.40 CVaR=-151.58 sim=20.8ms]
+  🧬 Quantum: SIGNAL=-0.230 COHERENCE=0.54 PHI=0.11
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, CandleAnatomyAgent
+  🐻 BEAR[18]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, FeynmanPath, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MicrostructureAgent, HexMatrix, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:27:41.018    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:41.258    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:41.543    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:42.075    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:42.277    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:43.250    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:43.871    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:44.149    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:44.201    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 15:27:44.661    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:2610
+[DubaiMatrixASI] 15:27:46.327     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 15:27:46.327     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 15:27:46.328     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 15:27:46.328    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 15:27:46.328    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 15:27:46.328    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 15:27:46.329    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 15:27:46.329    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 15:27:46.329    OMEGA │ ⚡ 📅 2026-03-08T18:27:46.329633+00:00
+[DubaiMatrixASI] 15:27:46.329    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 15:27:46.330    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 15:27:46.330     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 15:27:46.333     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 15:27:46.333    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 15:27:46.333     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 15:27:46.333     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 15:27:46.334     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 15:27:46.334     INFO │    Saldo: $100477.01
+[DubaiMatrixASI] 15:27:46.334     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 15:27:46.334     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 15:27:46.334     INFO │    Spread: 100 points
+[DubaiMatrixASI] 15:27:46.335    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 15:27:46.336     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 15:27:46.338    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66922.27, Bid=66921.27
+[DubaiMatrixASI] 15:27:46.338     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 15:27:46.346    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 15:27:46.348    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 15:27:46.349    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 15:27:46.360    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 15:27:46.378     INFO │ 📂 Carregados 164 trades do histórico. WR=40.2%
+[DubaiMatrixASI] 15:27:46.408    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 15:27:46.414    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 15:27:46.415    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 15:27:46.421    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 15:27:46.422    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 15:27:46.422    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 15:27:46.423     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100477.01, 'equity': 100477.01, 'tick_buffer_size': 1, 'last_tick_ms': 1773005268057}
+[DubaiMatrixASI] 15:27:46.424    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 15:27:46.425    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 15:27:46.483    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 15:27:46.880     INFO │ 🌍 Macro Update: ETH=$1935.07 | BTC/ETH=34.6 | Gold=$5166 | Vol24h=$70.0B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 15:27:47.120     INFO │ 💫 Cycle #1260 | Action=WAIT | Signal=-0.211 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.211 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.211 COHERENCE=0.52 PHI=0.11
+  🐂 BULL[8]: ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent
+  🐻 BEAR[19]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, CppFractalAgent, FeynmanPath, SentimentFearGreedAgent, PriceVelocityAgent, MomentumAgent, OnChainPressureAgent, CandleAnatomyAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:27:47.255     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.6% | 24h=-0.94% | Score=-0.627 | Sources=2
+[DubaiMatrixASI] 15:27:47.521     INFO │ ⛓️ On-Chain Update: Mempool=33,374 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:27:54.269  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.2% (threshold: 45.0%)
+[DubaiMatrixASI] 15:27:54.285    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7015)
+[DubaiMatrixASI] 15:27:54.286    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006477
+[DubaiMatrixASI] 15:27:54.286    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 329 deals na fita, 164 fechamentos analisados, 0 novos registros. P&L Líquido: $+477.01
+[DubaiMatrixASI] 15:27:54.287  WARNING │ ⏱️ LATENCY [think] 7860.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:27:54.731     INFO │ 💫 Cycle #1290 | Action=WAIT | Signal=-0.204 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.204 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.204 COHERENCE=0.52 PHI=0.11
+  🐂 BULL[8]: ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent
+  🐻 BEAR[19]: CppTickEntropyAgent, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, CppFractalAgent, SentimentFearGreedAgent, PriceVelocityAgent, MomentumAgent, FeynmanPath, OnChainPressureAgent, CandleAnatomyAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:27:58.743    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:27:59.057    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:28:00.288    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:28:01.589     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=+0.047 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(15s/120.0s)
+  🧬 Quantum: SIGNAL=+0.047 COHERENCE=0.52 PHI=0.00
+  🐂 BULL[13]: CrossScaleConvergenceAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, FeynmanPath, OscillationWaveAgent, PriceGravityAgent, MacroBiasAgent, TemporalTrend, AggressivenessAgent, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[13]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OnChainPressureAgent, MicrostructureAgent, TrendAgent, SentimentFearGreedAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 15:28:02.309     INFO │ 💫 Cycle #1320 | Action=WAIT | Signal=-0.209 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.209 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.209 COHERENCE=0.53 PHI=0.11
+  🐂 BULL[11]: ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, PriceGravityAgent, FeynmanPath, MacroBiasAgent, AggressivenessAgent, TemporalTrend, HexMatrix
+  🐻 BEAR[16]: CppTickEntropyAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, MicrostructureAgent, CppFractalAgent, TrendAgent, SentimentFearGreedAgent, PriceVelocityAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 15:28:03.078    DEBUG │ ⏳ IGNITION Bypassed: Ordem SELL já pendente no book.
+[DubaiMatrixASI] 15:28:22.843    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 15:28:29.692     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 15:28:29.693     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 15:28:29.693     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 15:28:29.694    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 15:28:29.694    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 15:28:29.694    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 15:28:29.695    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 15:28:29.695    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 15:28:29.695    OMEGA │ ⚡ 📅 2026-03-08T18:28:29.695747+00:00
+[DubaiMatrixASI] 15:28:29.696    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 15:28:29.696    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 15:28:29.696     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 15:28:29.699     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 15:28:29.699    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 15:28:29.700     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 15:28:29.700     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 15:28:29.700     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 15:28:29.701     INFO │    Saldo: $100477.01
+[DubaiMatrixASI] 15:28:29.701     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 15:28:29.701     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 15:28:29.702     INFO │    Spread: 100 points
+[DubaiMatrixASI] 15:28:29.703    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 15:28:29.703     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 15:28:29.703    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66914.14, Bid=66913.14
+[DubaiMatrixASI] 15:28:29.704     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 15:28:29.711    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 15:28:29.712    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 15:28:29.713    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 15:28:29.733    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 15:28:29.748     INFO │ 📂 Carregados 164 trades do histórico. WR=40.2%
+[DubaiMatrixASI] 15:28:29.763    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 15:28:29.769    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 15:28:29.770    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 15:28:29.777    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 15:28:29.778    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 15:28:29.778    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 15:28:29.780     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100477.01, 'equity': 100477.01, 'tick_buffer_size': 1, 'last_tick_ms': 1773005311405}
+[DubaiMatrixASI] 15:28:29.781    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 15:28:29.782    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 15:28:29.811    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 15:28:31.018    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 53918)
+[DubaiMatrixASI] 15:28:31.034     INFO │ 🌍 Macro Update: ETH=$1935.70 | BTC/ETH=34.6 | Gold=$5166 | Vol24h=$70.0B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 15:28:31.937     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 15:28:31.975     INFO │ ⛓️ On-Chain Update: Mempool=33,475 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:28:37.626  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.2% (threshold: 45.0%)
+[DubaiMatrixASI] 15:28:37.652    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8537)
+[DubaiMatrixASI] 15:28:37.658    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006333
+[DubaiMatrixASI] 15:28:37.658    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 329 deals na fita, 164 fechamentos analisados, 0 novos registros. P&L Líquido: $+477.01
+[DubaiMatrixASI] 15:28:37.659  WARNING │ ⏱️ LATENCY [think] 7876.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:28:44.906     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.057 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(15s/120.0s)
+  🧬 Quantum: SIGNAL=-0.057 COHERENCE=0.53 PHI=0.02
+  🐂 BULL[10]: ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, OscillationWaveAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix, LiquidationVacuumAgent
+  🐻 BEAR[16]: GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, DivergenceAgent, CandleAnatomyAgent, OnChainPressureAgent, FeynmanPath, AggressivenessAgent, PriceVelocityAgent, SentimentFearGreedAgent, MomentumAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:28:52.505     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.167 | Coherence=0.55 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(23s/120.0s)
+  🧬 Quantum: SIGNAL=-0.167 COHERENCE=0.55 PHI=0.10
+  🐂 BULL[7]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, MacroBiasAgent, CandleAnatomyAgent, TemporalTrend, PriceGravityAgent
+  🐻 BEAR[16]: LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, PriceVelocityAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, FeynmanPath, MeanFieldGame
+[DubaiMatrixASI] 15:29:00.078     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.209 | Coherence=0.55 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(30s/120.0s)
+  🧬 Quantum: SIGNAL=-0.209 COHERENCE=0.55 PHI=0.09
+  🐂 BULL[6]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, MacroBiasAgent, TemporalTrend, PriceGravityAgent
+  🐻 BEAR[18]: PressureMatrix, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, OscillationWaveAgent, CandleAnatomyAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, TrendAgent, FeynmanPath, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:07.697     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.244 | Coherence=0.54 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(38s/120.0s)
+  🧬 Quantum: SIGNAL=-0.244 COHERENCE=0.54 PHI=0.11
+  🐂 BULL[9]: ChaosRegime, PremiumDiscountAgent, LiquidityHeatmapAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, PriceGravityAgent, HexMatrix, AggressivenessAgent
+  🐻 BEAR[16]: CppTickEntropyAgent, PressureMatrix, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:15.254     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=-0.288 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(46s/120.0s)
+  🧬 Quantum: SIGNAL=-0.288 COHERENCE=0.53 PHI=0.16
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, FeynmanPath, PriceGravityAgent, HexMatrix
+  🐻 BEAR[18]: CppTickEntropyAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, CandleAnatomyAgent, OnChainPressureAgent, AggressivenessAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:22.826     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=-0.293 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(53s/120.0s)
+  🧬 Quantum: SIGNAL=-0.293 COHERENCE=0.53 PHI=0.16
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, TemporalTrend, FeynmanPath, PriceGravityAgent, AggressivenessAgent
+  🐻 BEAR[18]: CppTickEntropyAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, OscillationWaveAgent, CandleAnatomyAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:27.601    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 15:29:29.648     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 15:29:29.648     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 15:29:29.648     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 15:29:29.648    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 15:29:29.649    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 15:29:29.649    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 15:29:29.649    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 15:29:29.650    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 15:29:29.650    OMEGA │ ⚡ 📅 2026-03-08T18:29:29.650416+00:00
+[DubaiMatrixASI] 15:29:29.650    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 15:29:29.651    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 15:29:29.651     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 15:29:29.654     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 15:29:29.654    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 15:29:29.655     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 15:29:29.655     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 15:29:29.655     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 15:29:29.655     INFO │    Saldo: $100477.01
+[DubaiMatrixASI] 15:29:29.656     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 15:29:29.656     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 15:29:29.656     INFO │    Spread: 100 points
+[DubaiMatrixASI] 15:29:29.659    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 15:29:29.659     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 15:29:29.659    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66904.23, Bid=66903.23
+[DubaiMatrixASI] 15:29:29.660     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 15:29:29.669    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 15:29:29.670    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 15:29:29.670    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 15:29:29.693    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 15:29:29.710     INFO │ 📂 Carregados 164 trades do histórico. WR=40.2%
+[DubaiMatrixASI] 15:29:29.734    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 15:29:29.750    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 15:29:29.751    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 15:29:29.758    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 15:29:29.758    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 15:29:29.759    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 15:29:29.760     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100477.01, 'equity': 100477.01, 'tick_buffer_size': 1, 'last_tick_ms': 1773005370605}
+[DubaiMatrixASI] 15:29:29.760    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 15:29:29.761    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 15:29:29.817    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 15:29:29.887     INFO │ 🌍 Macro Update: ETH=$0.00 | BTC/ETH=0.0 | Gold=$0 | Vol24h=$0.0B | Bias=-0.100 | Sources=0
+[DubaiMatrixASI] 15:29:30.297    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 53944)
+[DubaiMatrixASI] 15:29:30.324     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 15:29:30.386     INFO │ ⛓️ On-Chain Update: Mempool=33,600 txs | Fee=1.5 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:29:36.761  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.2% (threshold: 45.0%)
+[DubaiMatrixASI] 15:29:36.789    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2037)
+[DubaiMatrixASI] 15:29:36.794    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006981
+[DubaiMatrixASI] 15:29:36.795    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 329 deals na fita, 164 fechamentos analisados, 0 novos registros. P&L Líquido: $+477.01
+[DubaiMatrixASI] 15:29:36.796  WARNING │ ⏱️ LATENCY [think] 7033.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:29:43.761    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 15:29:44.054     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.359 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(14s/120.0s)
+  🧬 Quantum: SIGNAL=-0.359 COHERENCE=0.52 PHI=0.13
+  🐂 BULL[6]: TemporalTrend, ChaosRegime, PremiumDiscountAgent, FeynmanPath, ChartStructureAgent, PriceGravityAgent
+  🐻 BEAR[18]: LiquidationVacuumAgent, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, CppFractalAgent, OscillationWaveAgent, SentimentFearGreedAgent, AggressivenessAgent, MomentumAgent, MacroBiasAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, HexMatrix, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:45.777     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 15:29:45.778     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 15:29:45.778     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 15:29:45.778    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 15:29:45.778    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 15:29:45.778    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 15:29:45.779    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 15:29:45.779    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 15:29:45.779    OMEGA │ ⚡ 📅 2026-03-08T18:29:45.779647+00:00
+[DubaiMatrixASI] 15:29:45.779    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 15:29:45.780    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 15:29:45.780     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 15:29:45.782     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 15:29:45.783    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 15:29:45.783     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 15:29:45.783     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 15:29:45.783     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 15:29:45.783     INFO │    Saldo: $100477.01
+[DubaiMatrixASI] 15:29:45.783     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 15:29:45.784     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 15:29:45.784     INFO │    Spread: 100 points
+[DubaiMatrixASI] 15:29:45.784    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 15:29:45.785     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 15:29:45.785    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66900.43, Bid=66899.43
+[DubaiMatrixASI] 15:29:45.785     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 15:29:45.793    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 15:29:45.794    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 15:29:45.794    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 15:29:45.805    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 15:29:45.823     INFO │ 📂 Carregados 164 trades do histórico. WR=40.2%
+[DubaiMatrixASI] 15:29:45.842    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 15:29:45.849    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 15:29:45.862    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 15:29:45.869    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 15:29:45.869    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 15:29:45.870    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 15:29:45.871     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100477.01, 'equity': 100477.01, 'tick_buffer_size': 1, 'last_tick_ms': 1773005386438}
+[DubaiMatrixASI] 15:29:45.871    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 15:29:45.871    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 15:29:45.898    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 15:29:46.329     INFO │ 🌍 Macro Update: ETH=$1935.47 | BTC/ETH=34.6 | Gold=$5166 | Vol24h=$70.0B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 15:29:46.481     INFO │ ⛓️ On-Chain Update: Mempool=33,626 txs | Fee=1.5 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 15:29:46.723     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.6% | 24h=-0.96% | Score=-0.627 | Sources=2
+[DubaiMatrixASI] 15:29:51.629     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.174 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(22s/120.0s)
+  🧬 Quantum: SIGNAL=-0.174 COHERENCE=0.53 PHI=0.09
+  🐂 BULL[7]: ChaosRegime, PremiumDiscountAgent, FeynmanPath, ChartStructureAgent, TemporalTrend, PriceGravityAgent, LiquidationVacuumAgent
+  🐻 BEAR[17]: PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CppFractalAgent, CandleAnatomyAgent, OscillationWaveAgent, MacroBiasAgent, OnChainPressureAgent, AggressivenessAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:29:53.360  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.2% (threshold: 45.0%)
+[DubaiMatrixASI] 15:29:53.380    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.9268)
+[DubaiMatrixASI] 15:29:53.390    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.242044
+[DubaiMatrixASI] 15:29:53.391    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 329 deals na fita, 164 fechamentos analisados, 0 novos registros. P&L Líquido: $+477.01
+[DubaiMatrixASI] 15:29:53.397  WARNING │ ⏱️ LATENCY [think] 7523.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 15:29:59.213     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.305 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(30s/120.0s)
+  🧬 Quantum: SIGNAL=-0.305 COHERENCE=0.51 PHI=0.16
+  🐂 BULL[9]: ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, ChartStructureAgent, TemporalTrend, PriceGravityAgent, PriceVelocityAgent, AggressivenessAgent, FeynmanPath
+  🐻 BEAR[17]: CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, SentimentFearGreedAgent, MomentumAgent, MacroBiasAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 15:30:00.613     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.237 | Coherence=0.53 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(15s/120.0s)
+  🧬 Quantum: SIGNAL=-0.237 COHERENCE=0.53 PHI=0.17
+  🐂 BULL[8]: ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, OscillationWaveAgent, ChartStructureAgent, PriceGravityAgent, MacroBiasAgent, TemporalTrend
+  🐻 BEAR[18]: CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FeynmanPath, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, AggressivenessAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 15:30:07.032     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.088 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+477.01
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(37s/120.0s)
+  🧬 Quantum: SIGNAL=-0.088 COHERENCE=0.51 PHI=0.05
+  🐂 BULL[12]: CrossScaleConvergenceAgent, CppTickEntropyAgent, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, ChartStructureAgent, AggressivenessAgent, TemporalTrend, PriceGravityAgent, LiquidationVacuumAgent, PriceVelocityAgent, FeynmanPath
+  🐻 BEAR[16]: TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, CandleAnatomyAgent, CppFractalAgent, MacroBiasAgent, OnChainPressureAgent, HexMatrix, SentimentFearGreedAgent, MomentumAgent, TrendAgent, MicrostructureAgent, MeanFieldGame

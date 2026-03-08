@@ -95,8 +95,9 @@ class PositionManager:
                 continue
 
             is_buy = (p_type == "BUY")
-            # Bucket de 2 segundos para agrupar disparos HFT
-            group_key = (p_symbol, p_type, int(p_time / 2))
+            # [Phase Ω-Resilience] Bucket de 5 segundos para agrupar disparos HFT
+            # Evita que slots de um mesmo strike fiquem órfãos por lag do broker
+            group_key = (p_symbol, p_type, int(p_time / 5))
             
             # Chama a monitoração topológica de perdas em background (Wormhole Risk Router)
             self.wormhole_router.monitor_event_horizon(pos)
@@ -119,6 +120,16 @@ class PositionManager:
 
         current_tickets = [p['ticket'] for p in positions]
 
+        # ═══ [PHASE Ω-RESILIENCE] ANTI-STUCK CLOSE GUARD ═══
+        # Se um ticket está em _closing_tickets há mais de 5s e ainda consta como aberto,
+        # removemos do set para permitir que o loop de monitoramento tente fechar novamente.
+        now = time.time()
+        for t in list(self._closing_tickets):
+            if t in current_tickets:
+                if now - self._close_attempt_time.get(t, now) > 5.0:
+                    log.warning(f"♻️ RETRY_CLOSE: Ticket {t} travado em fechamento. Resetando lock.")
+                    self._closing_tickets.remove(t)
+
         # ═══ EXTRAIR DADOS DO ORDER FLOW ═══
         flow_delta = flow_analysis.get("delta", 0.0)
         flow_signal = flow_analysis.get("signal", 0.0)
@@ -131,6 +142,7 @@ class PositionManager:
             g_tickets = g_data["tickets"]
             g_is_buy = g_data["is_buy"]
             total_profit = g_data["total_profit"]
+            num_slots = len(g_tickets)
             
             anchor_ticket = g_tickets[0]['ticket']
             if anchor_ticket not in self._positions_state:
@@ -162,7 +174,7 @@ class PositionManager:
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
             commission_cost = lot_scale * comm_per_lot
             min_profit_per_ticket = OMEGA.get("min_profit_per_ticket", 30.0)
-            total_min_profit_target = len(g_tickets) * min_profit_per_ticket
+            total_min_profit_target = num_slots * min_profit_per_ticket
 
             # Floor dinâmico para garantir lucro líquido
             comm_mult = OMEGA.get("commission_protection_mult", 1.5)
@@ -175,13 +187,13 @@ class PositionManager:
                 
                 # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
                 # Se cada slot já deu > $35 de lucro, o drawdown lock vira 5% (não aceita reversão)
-                avg_profit_per_slot = total_profit / len(g_tickets)
-                if avg_profit_per_slot > 35.0:
-                    lock_threshold = 0.05 # 5% de tolerância apenas
+                avg_profit_per_slot = total_profit / num_slots
+                if avg_profit_per_slot > 30.0: # Reduzido de 35 -> 30 para ser mais letal
+                    lock_threshold = 0.03 # 3% de tolerância apenas (Ultra-Aggressive)
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
-                    if peak > dynamic_peak_floor * 5: lock_threshold = 0.15 * vol_mult
+                    if peak > dynamic_peak_floor * 3: lock_threshold = 0.10 * vol_mult # Reduzido thresholds
                 
                 if is_net_positive:
                     if drawdown_pct >= lock_threshold:
@@ -193,22 +205,29 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             if not should_close and is_net_positive:
                 #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
-                # Se estamos com lucro e o fluxo inverte, não esperamos bater no TP
-                if g_is_buy and flow_signal < -0.5:
-                    should_close, reason = True, "MOMENTUM_REVERSAL (Bearish Spike)"
-                elif not g_is_buy and flow_signal > 0.5:
-                    should_close, reason = True, "MOMENTUM_REVERSAL (Bullish Spike)"
+                # [Phase Ω-Resilience] Bailing faster if momentum stalls
+                if g_is_buy and flow_signal < -0.3: # Reduzido de -0.5 -> -0.3
+                    should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bearish)"
+                elif not g_is_buy and flow_signal > 0.3:
+                    should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bullish)"
 
                 #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
                 if not should_close:
-                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.5:
+                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.0:
                         should_close, reason = True, f"FLOW_EXHAUSTION (Z={climax_score:.1f})"
 
                 #  TRIGGER 4: STAGNATION EXIT
                 if not should_close:
                     stag_time = time.time() - state.get("last_price_change_time", time.time())
-                    if stag_time >= 5.0: # 5 segundos parado com lucro = fecha
+                    if stag_time >= 3.0: # Reduzido de 5s -> 3s para HFT
                         should_close, reason = True, f"STAGNATION ({stag_time:.1f}s)"
+
+            #  EJETAR GRUPO INTEIRO
+            if should_close:
+                symbol = g_data.get('symbol', 'UNKNOWN')
+                log.omega(f"💀 LETHAL CLOSE: {reason} | P&L Total: ${total_profit:+.2f}")
+                for p in g_tickets:
+                    self._close_with_notify(p.get('ticket'), "BUY" if g_is_buy else "SELL")
 
             #  EJETAR GRUPO INTEIRO
             if should_close:
