@@ -173,10 +173,14 @@ class PositionManager:
             lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
             
             # FTMO/ECN Commission cost estimate
-            commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+            commission_cost = lot_scale * OMEGA.get("commission_per_lot", 7.0)
             
-            # Floor = Commission + (10% of 1 ATR scaled by volume)
-            dynamic_peak_floor = max(commission_cost * 1.5, atr_val * 0.1 * lot_scale) 
+            # Floor = Commission * Multiplier + (10% of 1 ATR scaled by volume)
+            comm_mult = OMEGA.get("commission_protection_mult", 1.5)
+            dynamic_peak_floor = max(commission_cost * comm_mult, atr_val * 0.1 * lot_scale) 
+
+            # [Phase 36] Alpha-Net Guard: Prevent Smart TP from locking in a net loss
+            is_net_positive = (total_profit > commission_cost * 1.1)
 
             if peak > dynamic_peak_floor:
                 drawdown_pct = 0.0
@@ -190,9 +194,11 @@ class PositionManager:
                 if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
                 
                 # Nuke se evaporar > threshold OU se caiu de lucro alto para < floor
-                if drawdown_pct >= lock_threshold or (peak > 10.0 and total_profit < dynamic_peak_floor):
-                    should_close = True
-                    reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
+                # Apenas se estiver em lucro líquido (Alpha-Net Guard)
+                if is_net_positive:
+                    if drawdown_pct >= lock_threshold or (peak > dynamic_peak_floor * 2.0 and total_profit < dynamic_peak_floor):
+                        should_close = True
+                        reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL (with Hysteresis)

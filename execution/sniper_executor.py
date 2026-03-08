@@ -282,11 +282,15 @@ class SniperExecutor:
         required_margin = self.bridge.calculate_margin(decision.action.value, final_lot, decision.entry_price)
         free_margin = account.get("free_margin", 0)
         
+        # [Phase 37] Margin Safety Buffer: Previne rejeição por milésimos ou volatilidade
+        safety_buffer = OMEGA.get("margin_safety_buffer", 0.10)
+        usable_margin = free_margin * (1.0 - safety_buffer)
+
         if required_margin is not None and free_margin > 0:
-            if required_margin > free_margin * 0.9: # Se usa > 90% da margem livre, faz clawback
+            if required_margin > usable_margin: # Se precisar de mais do que a margem segura
                 old_lot = final_lot
-                # Calcula o fator de redução para usar no máximo 95% da margem livre disponível
-                scaling_factor = (free_margin * 0.95) / required_margin
+                # Calcula o fator de redução para usar no máximo usable_margin
+                scaling_factor = usable_margin / required_margin
                 final_lot = final_lot * scaling_factor
                 
                 # Arredondar para o step do lote

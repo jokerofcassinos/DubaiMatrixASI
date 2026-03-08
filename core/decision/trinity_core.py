@@ -73,11 +73,11 @@ class TrinityCore:
         self._creation_time = time.time()
         
         # [PHASE Ω-ANTI-FRAGILITY] Ping-Pong State
-        self._last_loss_time = 0.0
-        self._last_loss_direction = None
+        self.last_decision = None
+        self._log_cache = {}  # {key: timestamp}
+        log.omega("🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED")
         
         # [PHASE Ω-RESILIENCE] Log Cooldowns (Avoid spam)
-        self._last_log_times = {} # key -> timestamp
         self._last_phi_val = 0.0
         self._last_sl_mult = 0.0
         self._last_regime = ""
@@ -156,10 +156,7 @@ class TrinityCore:
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
         if limit_mode:
             dynamic_conf_min *= 0.90
-            now = time.time()
-            if now - self._last_log_times.get("maker_advantage", 0) > 120:
-                log.omega(f"📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: {dynamic_conf_min:.2f})")
-                self._last_log_times["maker_advantage"] = now
+            self._log_cooldown("maker_advantage", f"📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: {dynamic_conf_min:.2f})", 120)
 
 
 
@@ -185,7 +182,7 @@ class TrinityCore:
                 # [Phase Ω-Resilience] Increased price displacement requirement for God-Mode
                 # From 2.5x to 3.5x ATR to avoid firing during regular drift/mini-pullbacks
                 if (abs(delta_price) > atr_local * 3.5 or is_velocity_burst) and atr_local > 0:
-                    log.omega(f"🌌 [GOD-MODE REVERSAL] {'Velocity Burst' if is_velocity_burst else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.")
+                    self._log_cooldown("GOD_MODE_REVERSAL", f"🌌 [GOD-MODE REVERSAL] {'Velocity Burst' if is_velocity_burst else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.", 60)
                     action = Action.BUY if delta_price < 0 else Action.SELL
                     confidence = 0.99  # Certeza absoluta do rebote elástico
                     signal = 1.0 if action == Action.BUY else -1.0
@@ -241,15 +238,26 @@ class TrinityCore:
         # We lower the floor to 0.01 to avoid "SYSTEM_INCOHERENCE" paralysis.
         dynamic_phi_min = max(0.01, min(phi_min, dynamic_phi_min))
 
-        if quantum_state.phi < dynamic_phi_min:
-            # OMEGA: Log de Transparência Sensorial com Cooldown Inteligente
-            now = time.time()
-            phi_delta = abs(quantum_state.phi - self._last_phi_val)
-            if now - self._last_log_times.get("perception", 0) > 30.0 or phi_delta > 0.05:
-                log.debug(f"🔍 [PERCEPTION] PHI={quantum_state.phi:.2f} < REQ={dynamic_phi_min:.2f} (Veto por Incoerência Sistêmica)")
-                self._last_log_times["perception"] = now
-                self._last_phi_val = quantum_state.phi
-            return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {dynamic_phi_min:.2f})")
+        # ═══ VETO 02: WEEKEND STAGNANT MARKET ═══
+        session = TimeEngine.session_info()
+        if session.get("is_weekend", False):
+            # BTC opera 24/7, mas fds com ATR < 15 ou favorabilidade < 0.20 é perigoso (Phase 47 Refinement)
+            if self._get_current_atr(snapshot) < 15.0 or session.get("trading_favorability", 0.5) < 0.20:
+                self._log_cooldown("WEEKEND_VETO", "⚠️ VETO: WEEKEND_STAGNANT_MARKET", 60)
+                return self._wait("WEEKEND_VETO")
+
+        # ═══ VETO 03: SYSTEM INCOHERENCE (PHI) ═══
+        phi = quantum_state.phi
+        phi_threshold = dynamic_phi_min # Use the dynamically calculated phi_min
+        if phi < phi_threshold:
+            self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f})", 60)
+            return self._wait("INCOHERENCE_VETO")
+
+        # ═══ VETO 04: CHAOS SHIELD ═══
+        chaos_regime = regime_state.current.value == "HIGH_VOL_CHAOS"
+        if chaos_regime:
+            self._log_cooldown("CHAOS_VETO", "🛡️ VETO: CHAOS_SHIELD (Market dynamics is too unstable)", 30)
+            return self._wait("CHAOS_VETO")
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
@@ -258,14 +266,14 @@ class TrinityCore:
 
         is_hydra_mode = False
         if quantum_state.phi >= phi_hydra:
-            log.omega(f"🔥 [HYDRA RESONANCE DETECTED] — Φ={quantum_state.phi:.2f}. Destravando agressão máxima.")
+            self._log_cooldown("HYDRA_RESONANCE", f"🔥 [HYDRA RESONANCE DETECTED] — Φ={quantum_state.phi:.2f}. Destravando agressão máxima.", 60)
             is_hydra_mode = True
 
         # ═══ 4. PHASE 4: PREDATOR MODE OVERRIDE ═══
         # Se o agente ShadowPredator detectou manipulação institucional, entramos em modo de contra-ataque.
         shadow_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "ShadowPredator"), None)
         if shadow_signal and shadow_signal.confidence > 0.85:
-            log.omega("💀 [PREDATOR MODE ACTIVATED] — Detecção de manipulação institucional. Override direcional.")
+            self._log_cooldown("PREDATOR_MODE", "💀 [PREDATOR MODE ACTIVATED] — Detecção de manipulação institucional. Override direcional.", 60)
             # No modo predador, seguimos estritamente o sinal do ShadowPredator ignorando o ruído
             action = Action.BUY if shadow_signal.signal > 0 else Action.SELL
             confidence = shadow_signal.confidence
@@ -293,13 +301,10 @@ class TrinityCore:
             dynamic_sl_mult *= 2.5 
             
             # [PHASE Ω-RESILIENCE] Log Cooldown (Avoid spam on every cycle)
-            now = time.time()
             mult_delta = abs(dynamic_sl_mult - self._last_sl_mult)
-            if now - self._last_log_times.get("chaos_shield", 0) > 60.0 or \
-               regime_state.current.value != self._last_regime or \
+            if regime_state.current.value != self._last_regime or \
                mult_delta > 0.1:
-                log.omega(f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.")
-                self._last_log_times["chaos_shield"] = now
+                self._log_cooldown("chaos_shield", f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.", 60)
                 self._last_sl_mult = dynamic_sl_mult
                 self._last_regime = regime_state.current.value
  
@@ -425,8 +430,12 @@ class TrinityCore:
             if mc_score < mc_min_score:
                 return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
 
-            # VETO se win probability é muito baixa
+            # [Phase Ω-Singularity] Relax win probability for Maker trades
+            # Maker trades benefit from spread capture, allowing for ~40% Win Prob.
             mc_min_wp = OMEGA.get("mc_min_win_prob", 0.45)
+            if limit_mode:
+                mc_min_wp = 0.40
+                
             if mc_win_prob < mc_min_wp:
                 return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
 
@@ -482,7 +491,9 @@ class TrinityCore:
             "mc_win_prob": mc_win_prob,
         })
 
-        # OMEGA: Log.signal removido daqui. O SniperExecutor logará apenas se passar nos filtros de segurança.
+        # 🎯 DECISION REALIZATION
+        # (Log movido para SniperExecutor para evitar falsos positivos de 'ghost trading')
+        self.last_decision = decision
         return decision
 
     def _check_vetos(self, snapshot, asi_state, regime_state) -> Optional[str]:
@@ -527,8 +538,8 @@ class TrinityCore:
             
             # Traduz spread de pontos para preço se necessário (simplificado: spread_rel)
             # Mas aqui usamos os thresholds de favorabilidade
-            if session.get("trading_favorability", 0) < 0.25:
-                 # Se a liquidez for nula, bloqueio total
+            if session.get("trading_favorability", 0) < 0.20:
+                 # Se a liquidez for nula (Phase 47 Floor: 0.20), bloqueio total
                  return "WEEKEND_ZERO_LIQUIDITY"
                  
             # Se estivermos tentando operar com sinal fraco no fds, bloqueia
@@ -536,7 +547,7 @@ class TrinityCore:
             # Como não temos o 'signal' aqui no _check_vetos, usamos a favorabilidade
             if session.get("trading_favorability", 0) < 0.35:
                 # Permitir apenas se a volatilidade (ATR) for saudável
-                if atr < 50: # BTC muito parado
+                if atr < 15.0: # BTC relaxado para 15 (Phase 32)
                     return "WEEKEND_STAGNANT_MARKET"
             
         # 6. [PHASE Ω-ANTI-FRAGILITY] Ping-Pong Veto
@@ -556,6 +567,13 @@ class TrinityCore:
         if atr is not None and len(atr) > 0:
             return float(atr[-1])
         return 0.0
+
+    def _log_cooldown(self, key: str, message: str, cooldown_sec: int = 30):
+        """Evita spam de logs repetitivos no terminal."""
+        now = time.time()
+        if now - self._log_cache.get(key, 0) > cooldown_sec:
+            log.info(message)
+            self._log_cache[key] = now
 
     def _wait(self, reason: str) -> Decision:
         """Retorna decisão WAIT com log inteligente para evitar spam."""

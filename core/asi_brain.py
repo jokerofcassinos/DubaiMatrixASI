@@ -297,7 +297,8 @@ class ASIBrain:
         Deduz comissões e atualiza a evolução darwiniana.
         """
         from core.evolution.performance_tracker import TradeRecord
-        from config.settings import COMMISSION_ROUND_TURN_PER_LOT
+        # [Phase Ω-Darwin] Commission-Aware history audit
+        comm_per_lot = OMEGA.get("commission_per_lot", 7.0)
 
         last_poll_dt = datetime.fromtimestamp(self._last_history_poll, tz=timezone.utc)
         deals = self.bridge.get_closed_deals(last_poll_dt)
@@ -315,7 +316,7 @@ class ASIBrain:
             
             # Se a corretora não reportou comissão no deal ainda, estimamos
             if comm_mt5 == 0:
-                comm_est = -abs(deal.get("volume", 0) * COMMISSION_ROUND_TURN_PER_LOT)
+                comm_est = -abs(deal.get("volume", 0) * comm_per_lot)
             else:
                 comm_est = comm_mt5
 

@@ -13,7 +13,7 @@ from config.omega_params import OMEGA
 from config.settings import (
     RISK_MAX_DAILY_LOSS_PCT, RISK_MAX_DRAWDOWN_PCT,
     RISK_CIRCUIT_BREAKER_PAUSE_MIN, RISK_MAX_CONSECUTIVE_LOSSES,
-    RISK_MAX_POSITION_PCT, COMMISSION_ROUND_TURN_PER_LOT, ASIState
+    RISK_MAX_POSITION_PCT, ASIState
 )
 from config.exchange_config import MIN_LOT_SIZE, MAX_LOT_SIZE, LOT_STEP
 from utils.math_tools import MathEngine
@@ -63,9 +63,9 @@ class RiskQuantumEngine:
         # [Phase Ω-Resilience] Commission-Aware Math:
         # Deduct estimated cost from avg_win to optimize for NET alpha.
         # Fixed cost per lot scaled to the price displacement equivalent.
-        aw_net = max(1.0, avg_win - (COMMISSION_ROUND_TURN_PER_LOT * max(1.0, lot_size_guess if 'lot_size_guess' in locals() else 1.0)))
+        aw_net = max(1.0, avg_win - (OMEGA.get("commission_per_lot", 7.0) * max(1.0, lot_size_guess if 'lot_size_guess' in locals() else 1.0)))
         aw = max(baseline_move, aw_net)
-        al = max(baseline_move, avg_loss + COMMISSION_ROUND_TURN_PER_LOT) # Loss is even worse with comms
+        al = max(baseline_move, avg_loss + OMEGA.get("commission_per_lot", 7.0)) # Loss is even worse with comms
         rr = aw / al
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══

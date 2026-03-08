@@ -2134,3 +2134,1505 @@ AttributeError: 'MT5Bridge' object has no attribute '_initialized'
 [DubaiMatrixASI] 23:30:40.976     INFO │ 📈 Trades: 0
 [DubaiMatrixASI] 23:30:40.977     INFO │ 📈 Win Rate: 0.0%
 [DubaiMatrixASI] 23:30:40.977     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:30:42.034    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:30:43.754     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:30:43.754     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:30:43.754     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:30:43.755    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:30:43.755    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:30:43.756    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:30:43.756    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:30:43.757    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:30:43.757    OMEGA │ ⚡ 📅 2026-03-08T02:30:43.757538+00:00
+[DubaiMatrixASI] 23:30:43.757    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:30:43.758    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:30:43.758     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:30:43.761     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:30:43.762    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:30:43.762     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:30:43.762     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:30:43.763     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:30:43.763     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:30:43.763     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:30:43.764     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:30:43.764     INFO │    Spread: 100 points
+[DubaiMatrixASI] 23:30:43.765    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:30:43.765     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:30:43.766    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67162.69, Bid=67161.69
+[DubaiMatrixASI] 23:30:43.766     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:30:43.774    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:30:43.775    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:30:43.775    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:30:43.823    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:30:43.829    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:30:43.831    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:30:43.838    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:30:43.839    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:30:43.841    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:30:43.841     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772944244447}
+[DubaiMatrixASI] 23:30:43.842    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:30:43.843    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:30:43.872    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:30:44.331    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55517)
+[DubaiMatrixASI] 23:30:45.215     INFO │ 🌍 Macro Update: ETH=$1965.37 | BTC/ETH=34.2 | Gold=$0 | Vol24h=$57.6B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 23:30:46.097     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 23:30:46.247     INFO │ ⛓️ On-Chain Update: Mempool=17,849 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:31:09.002     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.475 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:31:34.312    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8744)
+[DubaiMatrixASI] 23:31:34.312    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006659
+[DubaiMatrixASI] 23:31:34.315     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.519 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 23:31:46.960    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:31:59.544     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.256 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:32:24.768    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=12.1307)
+[DubaiMatrixASI] 23:32:24.769    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006330
+[DubaiMatrixASI] 23:32:24.772     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.125 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:32:47.666     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.42% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 23:32:50.047    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:32:50.048     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=-0.184 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:33:15.307    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:33:15.308    OMEGA │ ⚡ 🧬 Gen #1: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:33:15.309    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5013)
+[DubaiMatrixASI] 23:33:15.309    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005993
+[DubaiMatrixASI] 23:33:15.314     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.099 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:33:40.597     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=+0.339 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:33:45.799     INFO │ 🌍 Macro Update: ETH=$1962.39 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.6B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:33:53.280    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:34:05.822    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4565)
+[DubaiMatrixASI] 23:34:05.823    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006511
+[DubaiMatrixASI] 23:34:05.827     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=-0.046 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:34:31.149     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=+0.280 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:34:49.250     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.41% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 23:34:56.411    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3317)
+[DubaiMatrixASI] 23:34:56.411    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007078
+[DubaiMatrixASI] 23:34:56.428    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:34:56.438     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=+0.268 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:35:21.712     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=+0.261 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:35:46.945    OMEGA │ ⚡ 🧬 Gen #2: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:35:46.975    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3667)
+[DubaiMatrixASI] 23:35:46.976    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006190
+[DubaiMatrixASI] 23:35:46.981     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=+0.384 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:35:47.716     INFO │ ⛓️ On-Chain Update: Mempool=21,901 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:35:59.591    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:36:12.258     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=+0.331 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:36:37.546    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3900)
+[DubaiMatrixASI] 23:36:37.547    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006483
+[DubaiMatrixASI] 23:36:37.551     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=-0.375 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:36:46.297     INFO │ 🌍 Macro Update: ETH=$1962.92 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.6B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:36:50.864     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.36% | Score=-0.635 | Sources=2
+[DubaiMatrixASI] 23:37:02.815    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:37:02.816     INFO │ 💫 Cycle #1500 | Action=WAIT | Signal=-0.471 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:37:28.194    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.0855)
+[DubaiMatrixASI] 23:37:28.194    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.211482
+[DubaiMatrixASI] 23:37:28.199     INFO │ 💫 Cycle #1600 | Action=WAIT | Signal=-0.482 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:37:53.513     INFO │ 💫 Cycle #1700 | Action=WAIT | Signal=-0.485 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:38:06.121    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:38:18.783    OMEGA │ ⚡ 🧬 Gen #3: 3 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:38:18.784    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8285)
+[DubaiMatrixASI] 23:38:18.785    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.239517
+[DubaiMatrixASI] 23:38:18.789     INFO │ 💫 Cycle #1800 | Action=WAIT | Signal=-0.018 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:38:21.097    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:38:21.194    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:38:21.195    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:38:21.199    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:38:21.200    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:38:21.200    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:38:21.201    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:38:21.201353+00:00
+[DubaiMatrixASI] 23:38:21.202     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:38:21.202     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:38:21.202     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:38:22.395    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:38:24.055     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:38:24.055     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:38:24.055     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:38:24.056    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:38:24.056    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:38:24.056    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:38:24.057    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:38:24.057    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:38:24.057    OMEGA │ ⚡ 📅 2026-03-08T02:38:24.057869+00:00
+[DubaiMatrixASI] 23:38:24.058    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:38:24.058    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:38:24.058     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:38:24.062     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:38:24.062    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:38:24.062     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:38:24.063     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:38:24.063     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:38:24.063     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:38:24.064     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:38:24.064     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:38:24.064     INFO │    Spread: 100 points
+[DubaiMatrixASI] 23:38:24.065    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:38:24.066     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:38:24.066    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67158.21, Bid=67157.21
+[DubaiMatrixASI] 23:38:24.067     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:38:24.078    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:38:24.079    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:38:24.080    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:38:24.102    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:38:24.133    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:38:24.139    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:38:24.140    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:38:24.148    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:38:24.149    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:38:24.150    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:38:24.151     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772944705203}
+[DubaiMatrixASI] 23:38:24.151    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:38:24.152    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:38:24.189    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:38:24.557    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55642)
+[DubaiMatrixASI] 23:38:25.726     INFO │ 🌍 Macro Update: ETH=$1962.82 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.6B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:38:26.767     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.38% | Score=-0.636 | Sources=2
+[DubaiMatrixASI] 23:38:27.000     INFO │ ⛓️ On-Chain Update: Mempool=22,160 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:38:49.328     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.430 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:39:14.588    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2354)
+[DubaiMatrixASI] 23:39:14.589    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007257
+[DubaiMatrixASI] 23:39:14.593     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=+0.287 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(50s/120.0s)
+[DubaiMatrixASI] 23:39:27.266    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:39:39.861     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.129 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:40:05.122    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=12.2337)
+[DubaiMatrixASI] 23:40:05.123    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.242618
+[DubaiMatrixASI] 23:40:05.126     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.237 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:40:28.277     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.35% | Score=-0.635 | Sources=2
+[DubaiMatrixASI] 23:40:30.437    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:40:30.437     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=+0.403 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:40:55.668    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:40:55.669    OMEGA │ ⚡ 🧬 Gen #1: 8 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:40:55.670    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7568)
+[DubaiMatrixASI] 23:40:55.670    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006444
+[DubaiMatrixASI] 23:40:55.675     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=+0.408 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:41:20.963     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.200 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:41:26.364     INFO │ 🌍 Macro Update: ETH=$1964.37 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:41:33.645    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:41:46.256    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2143)
+[DubaiMatrixASI] 23:41:46.273    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006523
+[DubaiMatrixASI] 23:41:46.290     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=-0.198 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:42:11.514     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=-0.237 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: WEEKEND_STAGNANT_MARKET
+[DubaiMatrixASI] 23:42:15.488    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:42:17.090     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:42:17.090     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:42:17.091     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:42:17.091    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:42:17.092    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:42:17.092    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:42:17.093    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:42:17.093    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:42:17.094    OMEGA │ ⚡ 📅 2026-03-08T02:42:17.094310+00:00
+[DubaiMatrixASI] 23:42:17.094    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:42:17.095    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:42:17.095     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:42:17.099     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:42:17.100    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:42:17.100     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:42:17.101     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:42:17.101     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:42:17.102     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:42:17.102     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:42:17.103     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:42:17.103     INFO │    Spread: 100 points
+[DubaiMatrixASI] 23:42:17.104    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:42:17.105     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:42:17.106    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67178.53, Bid=67177.53
+[DubaiMatrixASI] 23:42:17.107     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:42:17.114    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:42:17.115    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:42:17.116    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:42:17.144    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:42:17.175    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:42:17.177    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:42:17.184    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:42:17.185    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:42:17.194    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:42:17.195    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:42:17.195    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:42:17.196     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772944938406}
+[DubaiMatrixASI] 23:42:17.197    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:42:17.198    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:42:17.222    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:42:17.229    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:42:17.256    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:42:17.278    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:42:17.307    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:42:17.313    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:42:17.322    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:42:17.322596+00:00
+[DubaiMatrixASI] 23:42:17.323     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:42:17.323     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:42:17.324     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:42:18.202    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55722)
+[DubaiMatrixASI] 23:42:18.843     INFO │ 🌍 Macro Update: ETH=$1964.87 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:42:19.821     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.00% | Score=-0.760 | Sources=2
+[DubaiMatrixASI] 23:42:20.160     INFO │ ⛓️ On-Chain Update: Mempool=20,579 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:42:42.422     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=+0.327 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:43:07.688    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0591)
+[DubaiMatrixASI] 23:43:07.689    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006616
+[DubaiMatrixASI] 23:43:07.692     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=+0.508 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 23:43:20.337    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:43:32.977     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.558 | Coherence=0.41 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:43:41.980    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 23:43:58.267    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8227)
+[DubaiMatrixASI] 23:43:58.272    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006984
+[DubaiMatrixASI] 23:43:58.276     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=+0.514 | Coherence=0.40 | Regime=UNKNOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:44:03.981    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:44:17.241     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 23:44:17.242    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:17.245    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:17.473    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:17.480    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:17.972    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:17.974    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:18.243    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.245    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:18.478    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.480    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:18.787    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.805    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:19.258    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:19.260    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:19.531    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:19.533    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:20.008    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:20.025    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:20.276    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:20.277    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:21.434     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.22% | Score=-0.632 | Sources=2
+[DubaiMatrixASI] 23:44:21.802    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:21.804    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:22.090    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.092    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:22.312    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.314    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:22.566    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.584    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 242, in decide
+    if snapshot.time_info.get("is_weekend", False):
+       ^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+
+[DubaiMatrixASI] 23:44:22.674    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:44:22.699    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:44:22.699    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:44:22.704    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:44:22.704    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:44:22.705    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:44:22.705    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:44:22.705589+00:00
+[DubaiMatrixASI] 23:44:22.706     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:44:22.706     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:44:22.706     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:45:09.370    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:45:10.945     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:45:10.946     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:45:10.946     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:45:10.947    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:45:10.947    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:45:10.947    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:45:10.948    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:45:10.948    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:45:10.948    OMEGA │ ⚡ 📅 2026-03-08T02:45:10.948840+00:00
+[DubaiMatrixASI] 23:45:10.949    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:45:10.949    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:45:10.949     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:45:10.952     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:45:10.953    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:45:10.953     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:45:10.954     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:45:10.954     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:45:10.955     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:45:10.955     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:45:10.955     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:45:10.956     INFO │    Spread: 158 points
+[DubaiMatrixASI] 23:45:10.957    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:45:10.957     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:45:10.958    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=67329.66, Bid=67328.08
+[DubaiMatrixASI] 23:45:10.958     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:45:10.966    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:45:10.966    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:45:10.967    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:45:10.989    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:45:11.016    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:45:11.022    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:45:11.024    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:45:11.030    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:45:11.031    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:45:11.032    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:45:11.033     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 158, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772945112291}
+[DubaiMatrixASI] 23:45:11.033    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:45:11.034    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:45:11.067    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 23:45:11.386    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55789)
+[DubaiMatrixASI] 23:45:12.538     INFO │ 🌍 Macro Update: ETH=$1966.21 | BTC/ETH=34.2 | Gold=$5177 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:45:13.435     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.00% | Score=-0.760 | Sources=2
+[DubaiMatrixASI] 23:45:13.457     INFO │ ⛓️ On-Chain Update: Mempool=20,449 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:45:19.419    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 23:45:36.246     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.452 | Coherence=0.44 | Regime=UNKNOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:46:01.498    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3901)
+[DubaiMatrixASI] 23:46:01.498    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.243919
+[DubaiMatrixASI] 23:46:01.523     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.443 | Coherence=0.45 | Regime=UNKNOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 23:46:14.176    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:46:26.797     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.063 | Coherence=0.52 | Regime=UNKNOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:46:52.102     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.008 | Coherence=0.53 | Regime=UNKNOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:47:07.656    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:47:11.061     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 23:47:12.300     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 23:47:12.332  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 23:47:12.346    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.021064 aw_pct=0.000744 al_pct=0.000744
+[DubaiMatrixASI] 23:47:12.347    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 23:47:12.347     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $99501.52
+[DubaiMatrixASI] 23:47:12.359    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.69 para caber na margem livre ($99501.52)
+[DubaiMatrixASI] 23:47:12.364   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.276 conf=0.72 coherence=0.53 regime=DRIFTING_BEAR ATR=100.05 RR=0.53 | Quantum: SIGNAL=-0.276 COHERENCE=0.53 CONFIDENCE=0.72 PHI=0.13 ENTROPY=0.59 CPP=0.003ms COLLAPSED |  BULL[5] BEAR[13] NEUT[24] | MC[score=+0.132 WP=54.3% EV=-2.13 CVaR=-187.59 sim=23.3ms]
+[DubaiMatrixASI] 23:47:12.373    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.69 (em 5 nodes) price=67212.63 SL=67400.22 TP=67112.58
+[DubaiMatrixASI] 23:47:12.400    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 67213.17 (via socket)
+[DubaiMatrixASI] 23:47:12.409    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 67214.33 (via socket)
+[DubaiMatrixASI] 23:47:12.412    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 67213.95 (via socket)
+[DubaiMatrixASI] 23:47:12.416    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 67213.56 (via socket)
+[DubaiMatrixASI] 23:47:12.421    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 67212.78 (via socket)
+[DubaiMatrixASI] 23:47:12.421    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.70 @ 67213.56 | 5 tickets gerados | SELL signal=-0.276 conf=0.72 coherence=0.53 regime=DRIFTING_BEAR ATR=100.05 RR=0
+[DubaiMatrixASI] 23:47:12.838    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 23:47:14.990     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.28% | Score=-0.634 | Sources=2
+[DubaiMatrixASI] 23:47:17.360    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:47:17.360     INFO │ 💫 Cycle #500 | Action=WAIT | Signal=-0.213 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.213 < req 0.300)
+[DubaiMatrixASI] 23:47:42.619    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:47:42.635    OMEGA │ ⚡ 🧬 Gen #1: 5 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:47:42.652    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0572)
+[DubaiMatrixASI] 23:47:42.653    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007450
+[DubaiMatrixASI] 23:47:42.658     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.418 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: KINEMATIC_EXHAUSTION_SELL (Spike=202.1 > 1.8xATR=186.0) | BOTTOM_HUNT_RISK
+[DubaiMatrixASI] 23:48:07.890     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.255 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: LOW_CONFIDENCE(0.63 < req 0.69)
+[DubaiMatrixASI] 23:48:13.123     INFO │ 🌍 Macro Update: ETH=$1963.90 | BTC/ETH=34.3 | Gold=$5177 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:48:20.552    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:48:33.162    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.8360)
+[DubaiMatrixASI] 23:48:33.163    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.232571
+[DubaiMatrixASI] 23:48:33.167     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=-0.247 | Coherence=0.52 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: LOW_CONFIDENCE(0.64 < req 0.69)
+[DubaiMatrixASI] 23:48:53.441     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0192 < 0.0250)
+[DubaiMatrixASI] 23:48:58.546     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=-0.271 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: 
+[DubaiMatrixASI] 23:49:11.134     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 23:49:16.724     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.43% | Score=-0.637 | Sources=2
+[DubaiMatrixASI] 23:49:23.852    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4746)
+[DubaiMatrixASI] 23:49:23.853    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007340
+[DubaiMatrixASI] 23:49:23.867    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:49:23.868     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=-0.219 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.219 < req 0.234) | LOW_CONFIDENCE(0.67 < req 0.69)
+[DubaiMatrixASI] 23:49:49.143     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=-0.424 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: KINEMATIC_EXHAUSTION_SELL (Spike=227.4 > 1.8xATR=203.2) | BOTTOM_HUNT_RISK
+[DubaiMatrixASI] 23:49:57.918    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:49:58.118    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:49:58.119    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:49:58.149    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:49:58.155    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:49:58.155    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:49:58.156    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:49:58.156116+00:00
+[DubaiMatrixASI] 23:49:58.156     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:49:58.157     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:49:58.157     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:51:13.607    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:51:15.210     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:51:15.211     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:51:15.211     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:51:15.211    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:51:15.212    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:51:15.212    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:51:15.213    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:51:15.213    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:51:15.213    OMEGA │ ⚡ 📅 2026-03-08T02:51:15.213766+00:00
+[DubaiMatrixASI] 23:51:15.214    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:51:15.214    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:51:15.214     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:51:15.217     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:51:15.218    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:51:15.218     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:51:15.218     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:51:15.219     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:51:15.219     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:51:15.219     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:51:15.219     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:51:15.220     INFO │    Spread: 261 points
+[DubaiMatrixASI] 23:51:15.221    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:51:15.221     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:51:15.222    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66851.03, Bid=66848.42
+[DubaiMatrixASI] 23:51:15.222     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:51:15.234    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:51:15.235    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:51:15.236    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:51:15.264    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:51:15.277    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:51:15.294    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:51:15.301    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:51:15.309    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:51:15.310    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:51:15.310    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:51:15.312     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 235, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772945476491}
+[DubaiMatrixASI] 23:51:15.313    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:51:15.313    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:51:15.374    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:51:15.635    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55934)
+[DubaiMatrixASI] 23:51:16.684     INFO │ 🌍 Macro Update: ETH=$1955.69 | BTC/ETH=34.4 | Gold=$5176 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:51:17.653     INFO │ ⛓️ On-Chain Update: Mempool=21,724 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:51:17.930     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.62% | Score=-0.640 | Sources=2
+[DubaiMatrixASI] 23:51:40.499     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.318 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:52:05.786    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8663)
+[DubaiMatrixASI] 23:52:05.786    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006951
+[DubaiMatrixASI] 23:52:05.790     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.338 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 23:52:18.428    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:52:31.058     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.319 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:52:56.348    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.9138)
+[DubaiMatrixASI] 23:52:56.348    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.221418
+[DubaiMatrixASI] 23:52:56.352     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.338 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:53:15.363     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 23:53:19.370     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 23:53:19.396  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 23:53:19.397    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.030552 aw_pct=0.000747 al_pct=0.000747
+[DubaiMatrixASI] 23:53:19.398    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 23:53:19.398     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $99501.52
+[DubaiMatrixASI] 23:53:19.399    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.71 para caber na margem livre ($99501.52)
+[DubaiMatrixASI] 23:53:19.399   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.472 conf=0.75 coherence=0.47 regime=DRIFTING_BEAR ATR=127.73 RR=0.53 | Quantum: SIGNAL=-0.472 COHERENCE=0.47 CONFIDENCE=0.75 PHI=0.22 ENTROPY=0.80 CPP=0.003ms COLLAPSED |  BULL[9] BEAR[19] NEUT[16] | MC[score=+0.140 WP=54.3% EV=-0.39 CVaR=-239.49 sim=23.2ms]
+[DubaiMatrixASI] 23:53:19.400    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.71 (em 5 nodes) price=66919.91 SL=67159.40 TP=66792.18
+[DubaiMatrixASI] 23:53:19.430    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66922.41 (via socket)
+[DubaiMatrixASI] 23:53:19.430    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66922.06 (via socket)
+[DubaiMatrixASI] 23:53:19.430    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.95 @ 66921.01 (via socket)
+[DubaiMatrixASI] 23:53:19.447    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66921.36 (via socket)
+[DubaiMatrixASI] 23:53:19.448    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66921.71 (via socket)
+[DubaiMatrixASI] 23:53:19.457    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.71 @ 66921.71 | 5 tickets gerados | SELL signal=-0.472 conf=0.75 coherence=0.47 regime=DRIFTING_BEAR ATR=127.73 RR=0
+[DubaiMatrixASI] 23:53:19.470     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.82% | Score=-0.644 | Sources=2
+[DubaiMatrixASI] 23:53:19.678    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 23:53:21.700    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:53:21.705     INFO │ 💫 Cycle #500 | Action=SELL | Signal=-0.489 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.489 conf=0.76 coherence=0.47 regime=DRIFTING_BEAR ATR=127.73 RR=0.53 | Quantum: SIGNAL=-0.489 COHERENCE=0.47 CONFIDENCE=0.76 PHI=0.24 ENTROPY=0.77 CPP=0.002ms COLLAPSED |  BULL[8] BEAR[19] NEUT[17] | MC[score=+0.082 WP=52.6% EV=-4.42 CVaR=-239.49 sim=23.5ms]
+[DubaiMatrixASI] 23:53:46.993    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 23:53:46.994    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:53:46.995    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8940)
+[DubaiMatrixASI] 23:53:46.996    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006945
+[DubaiMatrixASI] 23:53:46.999     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.051 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.051 < req 0.300) | LOW_CONFIDENCE(0.67 < req 0.69)
+[DubaiMatrixASI] 23:54:12.242     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.085 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.085 < req 0.300) | LOW_CONFIDENCE(0.64 < req 0.77)
+[DubaiMatrixASI] 23:54:17.238     INFO │ 🌍 Macro Update: ETH=$1943.54 | BTC/ETH=34.5 | Gold=$5176 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:54:24.882    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:54:37.585    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2798)
+[DubaiMatrixASI] 23:54:37.586    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007436
+[DubaiMatrixASI] 23:54:37.590     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=-0.084 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.084 < req 0.300) | LOW_CONFIDENCE(0.65 < req 0.77)
+[DubaiMatrixASI] 23:55:02.793     INFO │ 💫 Cycle #900 | Action=WAIT | Signal=-0.370 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: LOW_CONFIDENCE(0.72 < req 0.77)
+[DubaiMatrixASI] 23:55:20.970     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.77% | Score=-0.643 | Sources=2
+[DubaiMatrixASI] 23:55:28.117    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5613)
+[DubaiMatrixASI] 23:55:28.118    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007529
+[DubaiMatrixASI] 23:55:28.132    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:55:28.133     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=-0.411 | Coherence=0.47 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: LOW_CONFIDENCE(0.74 < req 0.77)
+[DubaiMatrixASI] 23:55:53.440     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=-0.494 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: RR_RATIO_LOW(0.53 < 0.8)
+[DubaiMatrixASI] 23:56:18.752    OMEGA │ ⚡ 🧬 Gen #2: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 23:56:18.784    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5376)
+[DubaiMatrixASI] 23:56:18.785    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005633
+[DubaiMatrixASI] 23:56:18.789     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=-0.007 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.007 < req 0.300) | LOW_CONFIDENCE(0.57 < req 0.77)
+[DubaiMatrixASI] 23:56:18.947     INFO │ ⛓️ On-Chain Update: Mempool=20,302 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:56:31.440    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:56:42.023     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 3.03 ATR.
+[DubaiMatrixASI] 23:56:44.049     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=-0.558 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: RR_RATIO_LOW(0.33 < 0.8)
+[DubaiMatrixASI] 23:57:09.404    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3891)
+[DubaiMatrixASI] 23:57:09.405    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006046
+[DubaiMatrixASI] 23:57:09.409     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=-0.372 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: LOW_CONFIDENCE(0.67 < req 0.74)
+[DubaiMatrixASI] 23:57:14.883  WARNING │ ⚠️ Socket EA desconectado (Graceful Close).
+[DubaiMatrixASI] 23:57:15.004    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56048)
+[DubaiMatrixASI] 23:57:17.863     INFO │ 🌍 Macro Update: ETH=$1944.75 | BTC/ETH=34.4 | Gold=$5176 | Vol24h=$57.7B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 23:57:19.121    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:57:19.345    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:57:19.346    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:57:19.351    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:57:19.351    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:57:19.352    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:57:19.352    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:57:19.352614+00:00
+[DubaiMatrixASI] 23:57:19.353     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:57:19.353     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:57:19.354     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 23:57:25.405    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 23:57:27.069     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 23:57:27.070     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 23:57:27.070     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 23:57:27.071    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:57:27.071    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:57:27.072    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:57:27.072    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:57:27.072    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:57:27.073    OMEGA │ ⚡ 📅 2026-03-08T02:57:27.073090+00:00
+[DubaiMatrixASI] 23:57:27.073    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:57:27.073    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:57:27.074     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 23:57:27.076     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 23:57:27.077    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:57:27.077     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 23:57:27.078     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 23:57:27.078     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 23:57:27.078     INFO │    Saldo: $99501.52
+[DubaiMatrixASI] 23:57:27.078     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 23:57:27.079     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 23:57:27.079     INFO │    Spread: 100 points
+[DubaiMatrixASI] 23:57:27.080    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:57:27.080     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 23:57:27.081    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66928.05, Bid=66927.05
+[DubaiMatrixASI] 23:57:27.081     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 23:57:27.089    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 23:57:27.090    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:57:27.090    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:57:27.107    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:57:27.141    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:57:27.147    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:57:27.151    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56058)
+[DubaiMatrixASI] 23:57:27.151    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:57:27.158    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:57:27.159    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 23:57:27.159    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:57:27.160     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99501.52, 'equity': 99501.52, 'tick_buffer_size': 1, 'last_tick_ms': 1772945848419}
+[DubaiMatrixASI] 23:57:27.161    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:57:27.161    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:57:27.205    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:57:28.606     INFO │ 🌍 Macro Update: ETH=$1946.00 | BTC/ETH=34.4 | Gold=$0 | Vol24h=$57.7B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 23:57:29.491     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 23:57:30.098     INFO │ ⛓️ On-Chain Update: Mempool=20,461 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 23:57:52.411     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=-0.009 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 23:58:17.608    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1358)
+[DubaiMatrixASI] 23:58:17.609    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006818
+[DubaiMatrixASI] 23:58:17.612     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=-0.369 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(51s/120.0s)
+[DubaiMatrixASI] 23:58:30.287    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:58:42.927     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.012 | Coherence=0.48 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 23:59:08.161    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7922)
+[DubaiMatrixASI] 23:59:08.162    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006593
+[DubaiMatrixASI] 23:59:08.165     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.481 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 23:59:27.390     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 23:59:27.395     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 23:59:27.423  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 23:59:27.424    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.039644 aw_pct=0.000748 al_pct=0.000748
+[DubaiMatrixASI] 23:59:27.424    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 23:59:27.425     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $99501.52
+[DubaiMatrixASI] 23:59:27.425    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.71 para caber na margem livre ($99501.52)
+[DubaiMatrixASI] 23:59:27.446   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.505 conf=0.78 coherence=0.45 regime=DRIFTING_BEAR ATR=127.52 RR=0.53 | Quantum: SIGNAL=-0.505 COHERENCE=0.45 CONFIDENCE=0.78 PHI=0.20 ENTROPY=0.78 CPP=0.002ms COLLAPSED |  BULL[10] BEAR[18] NEUT[18] | MC[score=+0.127 WP=54.2% EV=-1.68 CVaR=-239.10 sim=23.4ms]
+[DubaiMatrixASI] 23:59:27.447    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.71 (em 5 nodes) price=66883.33 SL=67122.43 TP=66755.81
+[DubaiMatrixASI] 23:59:27.482    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66888.85 (via socket)
+[DubaiMatrixASI] 23:59:27.489    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.95 @ 66888.07 (via socket)
+[DubaiMatrixASI] 23:59:27.499    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66890.41 (via socket)
+[DubaiMatrixASI] 23:59:27.508    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66891.20 (via socket)
+[DubaiMatrixASI] 23:59:27.508    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.94 @ 66889.63 (via socket)
+[DubaiMatrixASI] 23:59:27.509    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.71 @ 66889.63 | 5 tickets gerados | SELL signal=-0.505 conf=0.78 coherence=0.45 regime=DRIFTING_BEAR ATR=127.52 RR=0
+[DubaiMatrixASI] 23:59:27.653     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397931567|66888.85
+[DubaiMatrixASI] 23:59:27.653    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 23:59:27.654    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397931567 @ 66888.85
+[DubaiMatrixASI] 23:59:27.798     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397931569|66888.07
+[DubaiMatrixASI] 23:59:27.813    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397931569 @ 66888.07
+[DubaiMatrixASI] 23:59:27.953     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397931570|66890.41
+[DubaiMatrixASI] 23:59:27.954    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397931570 @ 66890.41
+[DubaiMatrixASI] 23:59:28.102     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397931572|66891.20
+[DubaiMatrixASI] 23:59:28.108    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397931572 @ 66891.20
+[DubaiMatrixASI] 23:59:28.261     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397931573|66889.63
+[DubaiMatrixASI] 23:59:28.265    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397931573 @ 66889.63
+[DubaiMatrixASI] 23:59:31.009     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-1.86% | Score=-0.645 | Sources=2
+[DubaiMatrixASI] 23:59:33.520    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:75
+[DubaiMatrixASI] 23:59:33.520     INFO │ 💫 Cycle #500 | Action=SELL | Signal=-0.499 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.499 conf=0.77 coherence=0.46 regime=DRIFTING_BEAR ATR=127.52 RR=0.53 | Quantum: SIGNAL=-0.499 COHERENCE=0.46 CONFIDENCE=0.77 PHI=0.20 ENTROPY=0.79 CPP=0.002ms COLLAPSED |  BULL[9] BEAR[19] NEUT[18] | MC[score=+0.102 WP=53.5% EV=-3.42 CVaR=-239.10 sim=23.4ms]
+[DubaiMatrixASI] 23:59:38.554    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:38.642    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:38.872    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:38.889    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:39.065    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.067    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:39.339    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.341    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:39.573    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.575    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:39.815    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.826    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:40.054    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.055    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:40.284    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.286    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:40.586    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.588    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:40.791    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.793    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:41.065    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.066    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:41.297    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.298    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:41.571    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.572    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:41.808    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.810    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:42.080    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.081    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:42.315    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.316    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:42.594    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.596    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:42.848    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.866    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:43.116    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.117    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:43.330    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.331    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:43.642    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.643    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:43.870    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.882    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:44.112    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.122    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:44.380    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.382    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:44.646    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.648    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:44.897    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.919    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:45.131    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.142    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:45.386    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.408    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:45.656    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.658    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:45.900    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.910    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:46.160    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.161    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:46.399    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.409    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:46.669    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.670    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:46.894    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.908    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:47.184    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.185    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:47.420    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.430    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:47.688    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.689    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:47.920    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.921    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:48.164    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.166    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:48.424    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.436    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:48.694    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.696    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:48.927    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.939    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:49.148    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.161    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:49.390    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.391    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:49.675    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.677    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:49.900    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.902    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:50.160    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.178    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:50.434    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.436    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:50.701    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.702    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:50.946    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.947    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:51.214    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.215    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:51.432    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.434    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:51.701    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.712    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:51.967    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.968    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:52.208    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.219    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:52.475    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.476    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:52.680    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.681    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:52.922    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.940    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:53.188    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.190    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:53.409    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.411    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:53.698    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.699    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:53.987    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.989    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:54.207    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.208    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:54.496    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.497    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:54.710    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.712    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:54.967    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.985    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:55.219    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.221    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:55.632    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.633    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:55.806    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.807    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:56.051    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:56.052    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\execution\position_manager.py", line 176, in monitor_positions
+    commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+
+[DubaiMatrixASI] 23:59:56.071    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 23:59:56.141    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 23:59:56.142    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 23:59:56.147    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 23:59:56.148    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 23:59:56.148    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 23:59:56.149    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T02:59:56.149081+00:00
+[DubaiMatrixASI] 23:59:56.150     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 23:59:56.150     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 23:59:56.150     INFO │ 📈 P&L: $+0.00
+[DubaiMatrixASI] 00:02:21.728    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 00:02:27.398    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 00:02:28.916     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 00:02:28.916     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 00:02:28.917     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 00:02:28.917    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 00:02:28.917    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 00:02:28.918    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 00:02:28.918    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 00:02:28.918    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 00:02:28.919    OMEGA │ ⚡ 📅 2026-03-08T03:02:28.919125+00:00
+[DubaiMatrixASI] 00:02:28.919    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 00:02:28.919    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 00:02:28.920     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 00:02:28.922     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 00:02:28.923    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 00:02:28.923     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 00:02:28.924     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 00:02:28.924     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 00:02:28.924     INFO │    Saldo: $99461.42
+[DubaiMatrixASI] 00:02:28.924     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 00:02:28.925     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 00:02:28.925     INFO │    Spread: 136 points
+[DubaiMatrixASI] 00:02:28.926    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 00:02:28.926     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 00:02:28.927    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66878.97, Bid=66877.61
+[DubaiMatrixASI] 00:02:28.927     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 00:02:28.938    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 00:02:28.939    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 00:02:28.940    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 00:02:28.956    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 00:02:28.974    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 00:02:28.980    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 00:02:28.994    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 00:02:29.001    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 00:02:29.001    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 00:02:29.002    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 00:02:29.002     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 138, 'balance': 99461.42, 'equity': 99461.42, 'tick_buffer_size': 1, 'last_tick_ms': 1772946150288}
+[DubaiMatrixASI] 00:02:29.003    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 00:02:29.003    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 00:02:29.030    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 00:02:30.173    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56259)
+[DubaiMatrixASI] 00:02:30.521     INFO │ 🌍 Macro Update: ETH=$1943.88 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$58.8B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 00:02:31.158     INFO │ ⛓️ On-Chain Update: Mempool=21,286 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 00:02:31.516     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-2.11% | Score=-0.650 | Sources=2
+[DubaiMatrixASI] 00:02:54.121     INFO │ 💫 Cycle #100 | Action=WAIT | Signal=+0.041 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(25s/120.0s)
+[DubaiMatrixASI] 00:03:19.414    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0446)
+[DubaiMatrixASI] 00:03:19.414    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006794
+[DubaiMatrixASI] 00:03:19.418     INFO │ 💫 Cycle #200 | Action=WAIT | Signal=+0.410 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(50s/120.0s)
+[DubaiMatrixASI] 00:03:32.064    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 00:03:44.675     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.376 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+[DubaiMatrixASI] 00:04:09.936    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.8080)
+[DubaiMatrixASI] 00:04:09.939    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006589
+[DubaiMatrixASI] 00:04:09.948     INFO │ 💫 Cycle #400 | Action=WAIT | Signal=-0.163 | Coherence=0.51 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: VETO: STARTUP_COOLDOWN(101s/120.0s)
+[DubaiMatrixASI] 00:04:10.102    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.75)
+[DubaiMatrixASI] 00:04:29.122     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0134 < 0.1000)
+[DubaiMatrixASI] 00:04:31.168  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 00:04:31.169    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.042801 aw_pct=0.000747 al_pct=0.000747
+[DubaiMatrixASI] 00:04:31.169    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 00:04:31.169     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $99461.42
+[DubaiMatrixASI] 00:04:31.186    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.71 para caber na margem livre ($99461.42)
+[DubaiMatrixASI] 00:04:31.191   SIGNAL │ 🎯 DECISION: SELL | SELL signal=-0.222 conf=0.72 coherence=0.51 regime=BREAKOUT_DOWN ATR=129.29 RR=1.33 | Quantum: SIGNAL=-0.222 COHERENCE=0.51 CONFIDENCE=0.72 PHI=0.15 ENTROPY=0.82 CPP=0.003ms COLLAPSED |  BULL[11] BEAR[17] NEUT[17] | MC[score=+0.040 WP=44.5% EV=-0.15 CVaR=-96.97 sim=15.5ms]
+[DubaiMatrixASI] 00:04:31.192    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE SELL lot=4.71 (em 5 nodes) price=66915.95 SL=67012.92 TP=66786.66
+[DubaiMatrixASI] 00:04:31.253    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=4.71 @ 66914.37 | 5 tickets gerados | SELL signal=-0.222 conf=0.72 coherence=0.51 regime=BREAKOUT_DOWN ATR=129.29 RR=1
+[DubaiMatrixASI] 00:04:31.555     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:31.678    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 00:04:31.843     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:32.136     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:32.433     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:32.444     INFO │ 📩 Resposta EA Socket: SELL -> ERROR | Data: RESULT|SELL|ERROR|10019
+[DubaiMatrixASI] 00:04:33.104     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-2.05% | Score=-0.649 | Sources=2
+[DubaiMatrixASI] 00:04:35.249    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 00:04:35.250     INFO │ 💫 Cycle #500 | Action=SELL | Signal=-0.206 | Coherence=0.49 | Regime=BREAKOUT_DOWN | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=SELL signal=-0.206 conf=0.77 coherence=0.49 regime=BREAKOUT_DOWN ATR=129.29 RR=1.33 | Quantum: SIGNAL=-0.206 COHERENCE=0.49 CONFIDENCE=0.77 PHI=0.16 ENTROPY=0.82 CPP=0.004ms COLLAPSED |  BULL[11] BEAR[19] NEUT[18] | MC[score=+0.067 WP=45.0% EV=+2.14 CVaR=-96.97 sim=15.8ms]
+[DubaiMatrixASI] 00:04:50.370    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: ATOMIC_PROFIT_LOCK: Evaporação ($52.85->$15.75, DD=70.2%) | Closing 4 slots para BTCUSD
+[DubaiMatrixASI] 00:04:50.372    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932305 (via socket)
+[DubaiMatrixASI] 00:04:50.372    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932308 (via socket)
+[DubaiMatrixASI] 00:04:50.373    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932309 (via socket)
+[DubaiMatrixASI] 00:04:50.374    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932311 (via socket)
+[DubaiMatrixASI] 00:04:50.677     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:50.988     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:51.282     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:51.575     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:04:58.883    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 00:04:59.006     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 00:05:00.449    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
+[DubaiMatrixASI] 00:05:00.460    OMEGA │ ⚡ 🧬 Gen #1: 1 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 00:05:00.474    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9881)
+[DubaiMatrixASI] 00:05:00.474    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007237
+[DubaiMatrixASI] 00:05:00.478     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.192 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.192 < req 0.300)
+[DubaiMatrixASI] 00:05:25.773     INFO │ 💫 Cycle #700 | Action=WAIT | Signal=-0.211 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(-0.211 < req 0.300)
+[DubaiMatrixASI] 00:05:29.379     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0208 < 0.0250)
+[DubaiMatrixASI] 00:05:31.095     INFO │ 🌍 Macro Update: ETH=$1946.84 | BTC/ETH=34.4 | Gold=$5176 | Vol24h=$58.8B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 00:05:33.083     INFO │ 🛡️ [CHAOS SHIELD] Regime DRIFTING_BEAR detectado. Alargando SL para 1.88 ATR.
+[DubaiMatrixASI] 00:05:33.123  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 00:05:33.123    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.042355 aw_pct=0.000747 al_pct=0.000747
+[DubaiMatrixASI] 00:05:33.124    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 00:05:33.124    OMEGA │ ⚡ 🔥 HIGH CONVICTION: Multiplier 20.0x applied. Final Risk: 0.0000
+[DubaiMatrixASI] 00:05:33.125    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.70 para caber na margem livre ($99327.24)
+[DubaiMatrixASI] 00:05:33.126   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.443 conf=0.81 coherence=0.43 regime=DRIFTING_BEAR ATR=122.22 RR=0.53 | Quantum: SIGNAL=+0.443 COHERENCE=0.43 CONFIDENCE=0.81 PHI=0.04 ENTROPY=0.84 CPP=0.002ms COLLAPSED |  BULL[15] BEAR[13] NEUT[20] | MC[score=+0.127 WP=54.4% EV=-2.08 CVaR=-229.16 sim=25.1ms]
+[DubaiMatrixASI] 00:05:33.126    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=4.70 (em 5 nodes) price=66900.67 SL=66671.51 TP=67022.89
+[DubaiMatrixASI] 00:05:33.146    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66900.20 (via socket)
+[DubaiMatrixASI] 00:05:33.148    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66901.12 (via socket)
+[DubaiMatrixASI] 00:05:33.155    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66902.04 (via socket)
+[DubaiMatrixASI] 00:05:33.177    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66899.29 (via socket)
+[DubaiMatrixASI] 00:05:33.177    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66898.37 (via socket)
+[DubaiMatrixASI] 00:05:33.178    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=4.70 @ 66900.20 | 5 tickets gerados | BUY signal=+0.443 conf=0.81 coherence=0.43 regime=DRIFTING_BEAR ATR=122.22 RR=0.
+[DubaiMatrixASI] 00:05:33.310     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932517|66900.20
+[DubaiMatrixASI] 00:05:33.323    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932517 @ 66900.20
+[DubaiMatrixASI] 00:05:33.451     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932518|66901.12
+[DubaiMatrixASI] 00:05:33.451    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932518 @ 66901.12
+[DubaiMatrixASI] 00:05:33.604     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932519|66902.04
+[DubaiMatrixASI] 00:05:33.613    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932519 @ 66902.04
+[DubaiMatrixASI] 00:05:33.764     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932520|66899.29
+[DubaiMatrixASI] 00:05:33.771    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932520 @ 66899.29
+[DubaiMatrixASI] 00:05:33.915     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932521|66898.37
+[DubaiMatrixASI] 00:05:33.917    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932521 @ 66898.37
+[DubaiMatrixASI] 00:05:38.433    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 00:05:51.091    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.0910)
+[DubaiMatrixASI] 00:05:51.091    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007009
+[DubaiMatrixASI] 00:05:51.095     INFO │ 💫 Cycle #800 | Action=WAIT | Signal=+0.038 | Coherence=0.50 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(+0.038 < req 0.300)
+[DubaiMatrixASI] 00:06:14.330    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (41s/60s)
+[DubaiMatrixASI] 00:06:16.378     INFO │ 💫 Cycle #900 | Action=BUY | Signal=+0.438 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=BUY signal=+0.438 conf=0.78 coherence=0.43 regime=DRIFTING_BEAR ATR=123.99 RR=0.53 | Quantum: SIGNAL=+0.438 COHERENCE=0.43 CONFIDENCE=0.78 PHI=0.03 ENTROPY=0.84 CPP=0.003ms COLLAPSED |  BULL[15] BEAR[13] NEUT[19] | MC[score=+0.112 WP=53.7% EV=-2.72 CVaR=-232.48 sim=23.6ms]
+[DubaiMatrixASI] 00:06:29.589     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0000 < 0.0250)
+[DubaiMatrixASI] 00:06:34.756     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.5% | 24h=-2.14% | Score=-0.651 | Sources=2
+[DubaiMatrixASI] 00:06:41.694    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.8676)
+[DubaiMatrixASI] 00:06:41.715    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007054
+[DubaiMatrixASI] 00:06:41.736    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 00:06:41.737     INFO │ 💫 Cycle #1000 | Action=WAIT | Signal=+0.326 | Coherence=0.46 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: INCOHERENCE_VETO
+[DubaiMatrixASI] 00:06:59.093     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.69)
+[DubaiMatrixASI] 00:07:06.928     INFO │ 💫 Cycle #1100 | Action=WAIT | Signal=+0.217 | Coherence=0.49 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: SIGNAL_WEAK(+0.217 < req 0.300) | LOW_CONFIDENCE(0.65 < req 0.69)
+[DubaiMatrixASI] 00:07:17.054  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000 for best leverage 0.5. Reducing exposure.
+[DubaiMatrixASI] 00:07:17.067    DEBUG │ 📐 RISK_MATH: wr=0.5000 mu_pct=0.000000 sigma_pct=0.040967 aw_pct=0.000747 al_pct=0.000747
+[DubaiMatrixASI] 00:07:17.068    OMEGA │ ⚡ 📉 ITO REFINEMENT: Vol Taxed Risk Ceiling = 0.0000 (Ito_Sizing=$0.00)
+[DubaiMatrixASI] 00:07:17.068    OMEGA │ ⚡ ⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de 100.00 para 4.70 para caber na margem livre ($99327.24)
+[DubaiMatrixASI] 00:07:17.085   SIGNAL │ 🎯 DECISION: BUY | BUY signal=+0.306 conf=0.74 coherence=0.46 regime=DRIFTING_BEAR ATR=126.67 RR=0.53 | Quantum: SIGNAL=+0.306 COHERENCE=0.46 CONFIDENCE=0.74 PHI=0.05 ENTROPY=0.77 CPP=0.002ms COLLAPSED |  BULL[10] BEAR[15] NEUT[21] | MC[score=+0.097 WP=53.2% EV=-3.66 CVaR=-237.50 sim=22.9ms]
+[DubaiMatrixASI] 00:07:17.094    OMEGA │ ⚡ ⚡ EXECUTING P-BRANE BUY lot=4.70 (em 5 nodes) price=66973.12 SL=66735.62 TP=67099.79
+[DubaiMatrixASI] 00:07:17.114    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66970.63 (via socket)
+[DubaiMatrixASI] 00:07:17.121    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66971.33 (via socket)
+[DubaiMatrixASI] 00:07:17.123    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66970.98 (via socket)
+[DubaiMatrixASI] 00:07:17.128    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66972.03 (via socket)
+[DubaiMatrixASI] 00:07:17.128    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: BUY 0.94 @ 66971.68 (via socket)
+[DubaiMatrixASI] 00:07:17.129    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | BUY lot=4.70 @ 66971.33 | 5 tickets gerados | BUY signal=+0.306 conf=0.74 coherence=0.46 regime=DRIFTING_BEAR ATR=126.67 RR=0.
+[DubaiMatrixASI] 00:07:17.270     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932682|66970.63
+[DubaiMatrixASI] 00:07:17.277    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932682 @ 66970.63
+[DubaiMatrixASI] 00:07:17.348    DEBUG │ 🔒 Candle Lock: já executou BUY neste candle. Aguardando próximo.
+[DubaiMatrixASI] 00:07:17.431     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932683|66971.33
+[DubaiMatrixASI] 00:07:17.442    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932683 @ 66971.33
+[DubaiMatrixASI] 00:07:17.583     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932684|66970.98
+[DubaiMatrixASI] 00:07:17.594    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932684 @ 66970.98
+[DubaiMatrixASI] 00:07:17.733     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932685|66972.03
+[DubaiMatrixASI] 00:07:17.735    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932685 @ 66972.03
+[DubaiMatrixASI] 00:07:17.873     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|397932686|66971.68
+[DubaiMatrixASI] 00:07:17.874    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 397932686 @ 66971.68
+[DubaiMatrixASI] 00:07:29.940     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0192 < 0.0250)
+[DubaiMatrixASI] 00:07:30.932    OMEGA │ ⚡ 💀 NUCLEAR STRIKE: ATOMIC_MOMENTUM_REVERSAL (Flow Against) | Closing 5 slots para BTCUSD
+[DubaiMatrixASI] 00:07:30.933    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932683 (via socket)
+[DubaiMatrixASI] 00:07:30.933    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932682 (via socket)
+[DubaiMatrixASI] 00:07:30.934    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932685 (via socket)
+[DubaiMatrixASI] 00:07:30.934    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932684 (via socket)
+[DubaiMatrixASI] 00:07:30.935    OMEGA │ ⚡ ⚡ FAST CLOSE SINALIZADO: ticket=397932686 (via socket)
+[DubaiMatrixASI] 00:07:31.264     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:07:31.554     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:07:31.848     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:07:32.129     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:07:32.213    OMEGA │ ⚡ 🧬 Gen #2: 6 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 00:07:32.243    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6565)
+[DubaiMatrixASI] 00:07:32.244    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006531
+[DubaiMatrixASI] 00:07:32.248     INFO │ 💫 Cycle #1200 | Action=WAIT | Signal=+0.360 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: INCOHERENCE_VETO
+[DubaiMatrixASI] 00:07:32.426     INFO │ 📩 Resposta EA Socket: CLOSE -> SUCCESS | Data: RESULT|CLOSE|SUCCESS|0|0.00
+[DubaiMatrixASI] 00:07:32.499     INFO │ ⛓️ On-Chain Update: Mempool=21,828 txs | Fee=1.1 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 00:07:37.845    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 00:07:37.913    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 00:07:37.914    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 00:07:37.946    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 00:07:37.952    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 00:07:37.953    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 00:07:37.953    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T03:07:37.953862+00:00
+[DubaiMatrixASI] 00:07:37.954     INFO │ 📈 Trades: 0
+[DubaiMatrixASI] 00:07:37.955     INFO │ 📈 Win Rate: 0.0%
+[DubaiMatrixASI] 00:07:37.955     INFO │ 📈 P&L: $+0.00

@@ -4426,3 +4426,87 @@
 [DubaiMatrixASI] 21:49:11.091    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
 [DubaiMatrixASI] 23:20:21.351    ERROR │ 💀 EXCEPTION in [think]: UnboundLocalError: cannot access local variable 'rec_decision' where it is not associated with a value
 [DubaiMatrixASI] 23:29:29.947    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'MT5Bridge' object has no attribute '_initialized'
+[DubaiMatrixASI] 23:44:17.242    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:17.473    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:17.972    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.243    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.478    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:18.787    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:19.258    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:19.531    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:20.008    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:20.276    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:21.802    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.090    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.312    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:44:22.566    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'time_info'
+[DubaiMatrixASI] 23:59:38.554    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:38.872    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.065    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.339    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.573    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:39.815    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.054    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.284    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.586    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:40.791    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.065    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.297    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.571    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:41.808    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.080    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.315    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.594    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:42.848    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.116    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.330    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.642    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:43.870    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.112    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.380    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.646    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:44.897    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.131    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.386    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.656    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:45.900    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.160    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.399    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.669    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:46.894    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.184    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.420    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.688    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:47.920    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.164    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.424    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.694    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:48.927    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.148    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.390    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.675    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:49.900    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.160    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.434    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.701    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:50.946    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.214    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.432    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.701    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:51.967    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.208    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.475    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.680    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:52.922    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.188    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.409    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.698    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:53.987    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.207    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.496    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.710    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:54.967    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.219    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.632    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:55.806    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined
+[DubaiMatrixASI] 23:59:56.051    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'COMMISSION_ROUND_TURN_PER_LOT' is not defined

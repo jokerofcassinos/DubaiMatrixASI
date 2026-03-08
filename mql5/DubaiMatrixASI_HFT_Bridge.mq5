@@ -18,6 +18,12 @@ input int      InpSlippage    = 10;           // Slippage máximo
 
 int socket_handle = INVALID_HANDLE;
 
+// --- ESTRUTURAS DE COMANDO ---
+void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp);
+void ExecuteSonarProbe(string symbol, string side, double lot, double price, int duration_ms);
+void ExecuteTrade(string action, string symbol, double lot, double sl, double tp);
+void ExecuteClose(ulong ticket);
+
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
 //+------------------------------------------------------------------+
@@ -190,8 +196,7 @@ void ProcessSingleCommand(string cmd)
       SendTCP("PONG|OK\n");
       return;
      }
-     
-   if(action == "BUY" || action == "SELL" || action == "OPEN")
+   else if(action == "BUY" || action == "SELL" || action == "OPEN")
      {
       int offset = (action == "OPEN") ? 1 : 0;
       if(count < 5 + offset) return;
@@ -203,6 +208,29 @@ void ProcessSingleCommand(string cmd)
       double tp = StringToDouble(parts[4 + offset]);
       
       ExecuteTrade(trade_action, symbol, lot, sl, tp);
+     }
+   else if(action == "LIMIT")
+     {
+      if(count < 7) return;
+      string side = parts[1];
+      string symbol = parts[2];
+      double lot = StringToDouble(parts[3]);
+      double price = StringToDouble(parts[4]);
+      double sl = StringToDouble(parts[5]);
+      double tp = StringToDouble(parts[6]);
+      
+      ExecuteLimitOrder(side, symbol, lot, price, sl, tp);
+     }
+   else if(action == "SONAR")
+     {
+      if(count < 6) return;
+      string symbol = parts[1];
+      string side = parts[2];
+      double lot = StringToDouble(parts[3]);
+      double price = StringToDouble(parts[4]);
+      int duration_ms = (int)StringToInteger(parts[5]);
+      
+      ExecuteSonarProbe(symbol, side, lot, price, duration_ms);
      }
    else if(action == "CLOSE")
      {
@@ -321,3 +349,71 @@ void ExecuteClose(ulong ticket)
      }
   }
 //+------------------------------------------------------------------+
+//| Execute Limit Order (Phase 30/Singularity)                       |
+//+------------------------------------------------------------------+
+void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp)
+  {
+   MqlTradeRequest request;
+   MqlTradeResult  result;
+   ZeroMemory(request);
+   ZeroMemory(result);
+   
+   request.action   = TRADE_ACTION_PENDING;
+   request.symbol   = symbol;
+   request.volume   = lot;
+   request.type     = (side == "BUY") ? ORDER_TYPE_BUY_LIMIT : ORDER_TYPE_SELL_LIMIT;
+   request.price    = price;
+   request.sl       = sl;
+   request.tp       = tp;
+   request.deviation= InpSlippage;
+   request.magic    = (InpMagicNumber > 0) ? InpMagicNumber : 88888888;
+   request.type_filling = ORDER_FILLING_IOC;
+   request.comment  = "ASI_LIMIT";
+   
+   Print("⚡ ASI LIMIT COMMAND: ", side, " ", DoubleToString(lot, 2), " @ ", price);
+   
+   if(OrderSend(request, result))
+     {
+      string msg = "RESULT|LIMIT|SUCCESS|" + IntegerToString(result.order) + "|" + DoubleToString(price, _Digits) + "\n";
+      SendTCP(msg);
+      Print("✅ LIMIT DEFERIDO: ", result.order, " @ ", price);
+     }
+   else
+     {
+      string msg = "RESULT|LIMIT|ERROR|" + IntegerToString(result.retcode) + "\n";
+      SendTCP(msg);
+      Print("❌ LIMIT REJEITADO: CÓDIGO ", result.retcode);
+     }
+  }
+
+//+------------------------------------------------------------------+
+//| Execute Sonar Probe (Phase 40/47)                                |
+//+------------------------------------------------------------------+
+void ExecuteSonarProbe(string symbol, string side, double lot, double price, int duration_ms)
+  {
+   MqlTradeRequest request;
+   MqlTradeResult  result;
+   ZeroMemory(request);
+   ZeroMemory(result);
+   
+   request.action   = TRADE_ACTION_PENDING;
+   request.symbol   = symbol;
+   request.volume   = lot;
+   request.type     = (side == "BUY") ? ORDER_TYPE_BUY_LIMIT : ORDER_TYPE_SELL_LIMIT;
+   request.price    = price;
+   request.magic    = 999; // Sonar Magic Number
+   request.comment  = "SONAR_PROBE";
+   request.type_time  = ORDER_TIME_SPECIFIED;
+   request.expiration = TimeCurrent() + (duration_ms / 1000) + 1;
+   
+   Print("📡 ASI SONAR PROBE: ", side, " price=", price);
+   
+   if(OrderSend(request, result))
+     {
+      SendTCP("RESULT|SONAR|SUCCESS|" + IntegerToString(result.order) + "\n");
+     }
+   else
+     {
+      SendTCP("RESULT|SONAR|ERROR|" + IntegerToString(result.retcode) + "\n");
+     }
+  }

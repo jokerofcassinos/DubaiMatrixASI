@@ -19,6 +19,7 @@ from typing import Optional, Dict, List
 
 from utils.logger import log
 from config.settings import DATA_DIR
+from config.omega_params import OMEGA
 
 
 @dataclass
@@ -73,6 +74,12 @@ class PerformanceTracker:
 
     def record_trade(self, trade: TradeRecord):
         """Registra um novo trade completado."""
+        # [Phase 36] Commission Deduction for Net-Wealth Mutation Alignment
+        comm_per_lot = OMEGA.get("commission_per_lot", 7.0)
+        net_profit = trade.profit - (trade.lot_size * comm_per_lot)
+        trade.profit = net_profit
+        trade.is_winner = net_profit > 0
+
         self._trades.append(trade)
 
         # Atualizar equity curve

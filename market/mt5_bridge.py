@@ -243,7 +243,17 @@ class MT5Bridge:
             self.tick_buffer.append(tick_data)
 
         elif msg_type == "RESULT":
-            log.info(f"📩 Resposta EA Socket: {line}")
+            # Formato: RESULT|ACTION|STATUS|TICKET|PRICE
+            action = parts[1]
+            status = parts[2]
+            log.info(f"📩 Resposta EA Socket: {action} -> {status} | Data: {line}")
+            
+            if action == "LIMIT" and status == "SUCCESS":
+                ticket = parts[3]
+                price = parts[4]
+                log.omega(f"🎯 LIMIT EXECUTADO: Ticket {ticket} @ {price}")
+            elif action == "SONAR":
+                log.info(f"📡 SONAR PROBE RESULT: {status}")
 
         elif msg_type == "PONG":
             pass
