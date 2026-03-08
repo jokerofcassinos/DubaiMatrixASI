@@ -156,8 +156,11 @@ class DataEngine:
         
         # OMEGA-CLASS: Initialize Liquid State Reservoir
         CPP_CORE.init_reservoir(n_neurons=500, spectral_radius=0.95, connectivity=0.1)
-        log.omega("🌊 Liquid State Reservoir (500 neurons) INITIALIZED")
+        # ═══ [PHASE 51] OMEGA-ALPHA ADAPTATION ═══
+        self.v_pulse_capacitor = 0.0     # Carga de ignição (0.0 a 1.0)
+        self.v_pulse_active = False     # Flag de pulso ativo
         
+        log.info("[CORE] Sistemas de Percepção DataEngine [ONLINE]")
         self._worker_thread.start()
 
     def shutdown(self):
@@ -202,11 +205,40 @@ class DataEngine:
             
             # V-Pulse Detection (Pre-emptive)
             regime_state = snapshot.metadata.get("regime_state")
-            if regime_state and hasattr(self, 'regime_detector'):
-                v_pulse = self.regime_detector._detect_v_pulse(snapshot)
-                snapshot.metadata["v_pulse_detected"] = v_pulse is not None
+            # ═══ [PHASE 51] V-PULSE CAPACITOR v3 — Ignition Sensing ═══
+            # Detecta o 'heartbeat' de ignição institucional no milissegundo.
+            # Se a velocidade > 30 t/s E a volatilidade de tick está expandindo, 
+            # nós carregamos o capacitor.
+            
+            # PHI_V Calculation (V-Pulse Intensity)
+            # Se velocity > 25, começamos a monitorar a 'carga'
+            if tick_velocity > 25:
+                # Spread Compression check (Ignition cost efficiency)
+                spread = snapshot.tick["ask"] - snapshot.tick["bid"]
+                spread_factor = 1.0 / (spread + 0.00001) # Spread menor = fator maior
+                
+                # A carga do capacitor é proporcional à velocidade e inversamente ao spread
+                # É o 'Alpha Bruto' disponível no vácuo.
+                self.v_pulse_capacitor = min(1.0, self.v_pulse_capacitor + (tick_velocity / 100.0) * 0.2 * spread_factor)
             else:
-                snapshot.metadata["v_pulse_detected"] = False
+                # Decaimento rápido do capacitor se o pulso parar
+                self.v_pulse_capacitor *= 0.85
+                
+            # Threshold de ignição: capacitor > 0.65
+            self.v_pulse_active = (self.v_pulse_capacitor > 0.65)
+            
+            if self.v_pulse_active and not getattr(self, '_v_pulse_logged', False):
+                log.omega(f"V-PULSE ACTIVATED (Capacitor: {self.v_pulse_capacitor:.2f}, Velocity: {tick_velocity:.1f})")
+                self._v_pulse_logged = True
+            elif not self.v_pulse_active:
+                self._v_pulse_logged = False
+
+            if regime_state and hasattr(self, 'regime_detector'):
+                # The original v_pulse detection logic, now potentially influenced by capacitor state
+                v_pulse = self.regime_detector._detect_v_pulse(snapshot)
+                snapshot.metadata["v_pulse_detected"] = v_pulse is not None or self.v_pulse_active
+            else:
+                snapshot.metadata["v_pulse_detected"] = self.v_pulse_active # Use capacitor state if no regime detector
             
             inputs = np.array([
                 snapshot.tick["bid"], snapshot.tick["ask"], 

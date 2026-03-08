@@ -352,9 +352,15 @@
 - **Decisão:** Correção mandatória do método de chamada do `SelfOptimizer` de `.optimize()` para `.check_and_optimize()` no cérebro.
 - **Justificativa:** Divergência entre o protótipo do cérebro e a implementação final do módulo de evolução causou um crash fatal no ciclo #200.
 - **Data/Status:** ATIVO. (2026-03-08).
-### DECISÃO 50: DECOERÊNCIA SUPREMA (God-Mode Reversal Phase 50) - [NEW]
+
+### DECISÃO 50: DECOERÊNCIA SUPREMA (God-Mode Reversal Phase 50)
 - **Decisão:** Injeção de lógica de inversão de sinal quando a entropia sistêmica supera 0.85 em regimes de pânico/vácuo de liquidez.
 - **Justificativa:** Em liquidações violentas, o ruído é o sinal. Absorver o pânico via God-Mode Reversal permite capturar o "Snapback" elástico antes da recuperação do equilíbrio.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 51: QUANTUM RESONANCE IGNITION (Phase 50)
+- **Decisão:** Implementação de bypass de vetoes PnL e RR quando Φ (PHI) atinge o estado de ressonância (>0.85).
+- **Justificativa:** A coerência extrema do enxame neural indica um setup de alta probabilidade que não deve ser asfixiado por métricas estatísticas conservadoras.
 - **Data/Status:** ATIVO. (2026-03-08).
 ### DECISÃO 41: HEARTBEAT ELEVATION & SENSORY FIX (Phase 48)
 - **Decisão:** Redução do intervalo de log de status (100 -> 30 ciclos) e injeção do atributo `symbol` no `MarketSnapshot`.
@@ -365,5 +371,15 @@
 - **Decisão:** Implementação do `TradeRegistry` como banco de dados de persistência de intenção (contextual) no momento da entrada.
 - **Justificativa:** Identificou-se que a perda de dados de "Regime" e "Sinal" entre a abertura da posição (Sniper) e o fechamento (Position Manager) impedia a reflexão correta e a evolução darwiniana, um fenômeno apelidado de "Amnésia Financeira". O `TradeRegistry` desacopla a percepção de entrada da execução de saída, garantindo integridade de dados 1:1.
 - **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 43: V-PULSE CAPACITOR V3 (HFT Ignition Tracking)
+- **Decisão:** Implementação de um acumulador de inércia cinética (`v_pulse_accumulator`) no `QuantumThought`.
+- **Justificativa:** Detecção de breakouts baseada apenas em ticks instantâneos era barulhenta. O Capacitor v3 integra a força de 1500ms de fluxo, filtrando ruído e confirmando 'Ignição' real.
+- **Data/Status:** ATIVO. (2026-03-09).
+
+### DECISÃO 44: IGNITION SOVEREIGNTY (Veto Bypass)
+- **Decisão:** Trades com `v_pulse > 0.65` recebem bypass mandatório de `Startup Cooldown` e `Min Distance`.
+- **Justificativa:** Em momentos de ignição HFT, o custo de oportunidade de esperar cooldowns supera o risco de over-trading. A soberania garante a captura do movimento inicial.
+- **Data/Status:** ATIVO. (2026-03-09).
 
 *(Atualizado: 2026-03-08. Versão: 4.2.0-omega)* — Phase Ω-Data Integrity secured)

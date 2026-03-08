@@ -101,7 +101,7 @@ class ASIBrain:
         # Contadores
         self._cycle_count = 0
         self._last_snapshot = None
-        self._last_pnl_prediction = None
+        self._last_pnl_prediction = "STABLE"
         self._last_log_times = {} # key -> float
         self._history_synced = False # [Phase Ω-Darwin]
         self._reflection_interval = 5      # [Phase Ω-Darwin] 5s p/ Sincronização de Histórico
@@ -176,7 +176,9 @@ class ASIBrain:
         # ═══ 6. PENSAMENTO QUÂNTICO — Convergência ═══
         regime_aggression = regime_state.aggression_multiplier if regime_state else 1.0
         quantum_state = self.quantum_thought.process(
-            agent_signals, regime_weight=regime_aggression
+            agent_signals, 
+            regime_weight=regime_aggression,
+            v_pulse_detected=snapshot.metadata.get("v_pulse_detected", False)
         )
 
         # ═══ 6. DECISÃO — Trinity Core ═══
@@ -272,7 +274,7 @@ class ASIBrain:
 
         # ═══ 9. AUTO-EVOLUÇÃO (a cada 200 ciclos) ═══
         if self._cycle_count % 200 == 0:
-            self.self_optimizer.check_and_optimize(self._cycle_count)
+            self.self_optimizer.check_and_optimize(self._cycle_count, snapshot)
 
         # ═══ 10. PERSISTIR ESTADO (a cada 100 ciclos) ═══
         if self._cycle_count % 100 == 0:
@@ -300,7 +302,8 @@ class ASIBrain:
                         avg_loss = max(0.01, snapshot.price * 0.001) # Ex: 0.1% de move como estimativa
                     
                     account_balance = snapshot.account.get("balance", 0.0) if snapshot.account else 0.0
-                    msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}\n"
+                    is_relaxed = "true" if self.self_optimizer._is_relaxed_mode else "false"
+                    msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}:{is_relaxed}\n"
                     s.sendall(msg.encode('utf-8'))
                     
                     resp = s.recv(1024).decode('utf-8').strip()
@@ -308,10 +311,14 @@ class ASIBrain:
                         prediction = resp.split("ACK:")[1]
                         self._last_pnl_prediction = prediction
                         
-                        # [PHASE Ω-RESILIENCE] Log Cooldown
                         now = time.time()
                         if now - self._last_log_times.get("pnl_pred", 0) > 60.0:
-                            log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
+                            if "RELAXED" in prediction:
+                                log.omega(f"🥂 [RELAXED MODE] PnL Predictor: {prediction}")
+                            elif "WARNING" in prediction:
+                                log.warning(f"⚠️ [PNL WARNING] {prediction}")
+                            else:
+                                log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
                             self._last_log_times["pnl_pred"] = now
             except Exception as e:
                 log.debug(f"Pausa tática: Java PnL Predictor indisponível - {e}")
@@ -484,7 +491,7 @@ class ASIBrain:
         self.state.update_from_report(report)
         # [Phase Ω-Evolve] Darwinian Self-Optimization
         if hasattr(self, 'self_optimizer'):
-            self.self_optimizer.check_and_optimize(300) # Force optimization every reflection window
+            self.self_optimizer.check_and_optimize(300, snapshot) # Force optimization every reflection window
 
         log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals na fita, {processed_count} fechamentos analisados, {new_count} novos registros. P&L Líquido: ${self.state.total_profit:+.2f}")
 

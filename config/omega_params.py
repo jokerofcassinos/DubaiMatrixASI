@@ -249,6 +249,22 @@ class OmegaParameterSpace:
         self._register("p_brane_jitter_offset_points", 0.0, -100.0, 100.0,
                         "Offset em points para posicionamento da P-Brane na extremidade do spread")
 
+        # ═══ PHASE 50: OMEGA-SINGULARITY & RESONANCE ═══
+        self._register("phi_resonance_threshold", 0.85, 0.70, 0.98,
+                        "Threshold de Φ (PHI) para ativar Quantum Resonance Ignition")
+        self._register("pnl_relaxed_mode", 1.0, 0.0, 1.0,
+                        "Habilita modo RELAXED (redução de veto PnL)")
+        self._register("drift_aggression_mult", 1.25, 1.0, 2.0,
+                        "Multiplicador de agressividade em regime DRIFTING")
+        self._register("god_mode_entropy_threshold", 0.85, 0.50, 0.95,
+                        "Threshold de Entropia para God-Mode Reversal")
+
+        # ═══ PHASE 51: Ω-ALPHA SURGE (ALPHA EXTRACTION) ═══
+        self._register("kinematic_v_pulse_relaxation", 2.5, 1.0, 5.0,
+                        "Multiplicador de relaxação ATR durante V-Pulse/Ignition")
+        self._register("god_mode_rr_min", 0.35, 0.1, 1.5,
+                        "RR Ratio mínimo reduzido para God-Mode Reversal (Panic Absorption)")
+
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

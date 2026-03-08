@@ -240,24 +240,26 @@ class SniperExecutor:
             return None
 
         # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
-        base_max_slots = int(OMEGA.get("max_order_splits", 5))
+        # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime
+        is_resonance = decision.metadata.get("phi_resonance", False)
         
-        # Hydra Logic: Multiplica os slots baseados na confiança e tipo de regime
-        if decision.confidence > 0.85:
-            # Extrema convicção (ex: gerada pelo Meta-Swarm) -> Ativar Hydra Mode
+        if decision.confidence > 0.85 or is_resonance:
+            # Extrema convicção ou Ressonância -> Ativar Hydra Mode
             hydra_multiplier = 3 
-            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"]:
+            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:
                 hydra_multiplier = 5 # Até 25 slots progressivos em modo demente
                 
             max_slots = base_max_slots * hydra_multiplier
             
             # Libera a metralhadora temporariamente para esta vela
-            self._max_orders_per_candle = 15
+            self._max_orders_per_candle = 25 # Phase 50: Aumentado para 25 para ressonância total
             
             # [PHASE Ω-RESILIENCE] Log Cooldown
             now = time.time()
-            if now - self._last_log_times.get("hydra", 0) > 60.0:
-                log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 15")
+            if is_resonance:
+                 self._log_cooldown("resonance_ignite", f"⚡ [RESONANCE IGNITION] — High Frequency Strike Authorized. Max Slots={max_slots}", 30, level="omega")
+            elif now - self._last_log_times.get("hydra", 0) > 60.0:
+                log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 25")
                 self._last_log_times["hydra"] = now
         else:
             max_slots = base_max_slots
@@ -422,8 +424,12 @@ class SniperExecutor:
             
         has_ignition = snapshot.metadata.get("v_pulse_detected", False)
         
-        if has_ignition:
-            self._log_cooldown("v_pulse_ignite", f"🚀 [V-PULSE IGNITION] Bypassing ATR/Entropy constraints for immediate strike.", 30)
+        is_god_mode = decision.metadata.get("is_god_mode", False)
+        if is_god_mode or has_ignition:
+            surge_label = "👹 GOD-MODE" if is_god_mode else "🚀 V-PULSE"
+            self._log_cooldown("alpha_surge_ignite", 
+                               f"{surge_label} ALPHA STRIKE — Bypassing ATR/Entropy constraints for immediate extraction.", 
+                               10.0, level="omega")
 
         # Fetch Stops Level to avoid 10015
         sym_info = self.bridge.get_symbol_info()

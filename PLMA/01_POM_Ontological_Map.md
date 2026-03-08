@@ -15,7 +15,7 @@
 
 ### 3. CAMADA SENSORIAL (À explorar detalhadamente no ADL/CI)
 - **`market/mt5_bridge.py (MT5Bridge)`**: Interface FFI com o terminal MetaTrader 5. Provê latência zero e gerencia ordens.
-- **`market/data_engine.py (DataEngine)`**: O córtex visual da ASI. Agrega `MarketSnapshot`. **Phase 48**: Implementação do **SupernovaCapacitor v2** (HFT Tick Density/s) e unificação canônica do `symbol` no `MarketSnapshot`.
+- **`market/data_engine.py (DataEngine)`**: O córtex visual da ASI. Agrega `MarketSnapshot`. **Phase 48**: Implementação do **SupernovaCapacitor v2** (HFT Tick Density/s) e unificação canônica do `symbol` no `MarketSnapshot`. **Phase 51**: Implementação do **V-Pulse Capacitor v3** (Ignition Logic).
 - **`market/orderflow_matrix.py (OrderFlowMatrix)`**: Visão raios-X sobre liquidez, fluxo institucional e clustering do book de ofertas.
 
 ### 4. CAMADA NEURAL / DECISÓRIA (Trinity, Swarm, Quantum, Regime, Ω-One)
@@ -28,10 +28,9 @@
 - **`core/consciousness/agents/liquidity_leech_agent.py`**: [NEW] Agente Symbiotic Leech (Predador Institucional).
 - **`core/consciousness/quantum_thought.py`**: Aglutinador de multiversos. **Phase 48**: Injeção de **V-PULSE_LOCK** (Ignition Sovereignty).
 - **`core/consciousness/regime_detector.py`**: Visão macro-cibernética. **Phase 48**: Detecção de **V-Pulse (PHI_V)**.
-- **`core/decision/trinity_core.py`**: Veredicto final de Ação. **Phase 47**: Injeção de cooldowns de percepção e logging de PHI inteligente. **Phase 48**: Sincronização de **God-Mode Reversal** (Liquidation Absorption). **Phase 48**: Thresholds adaptativos para ignição (V-Pulse) e **Ignition Logging** (Observabilidade instantânea HFT).
-
+- **`core/decision/trinity_core.py`**: Veredicto final de Ação. **Phase 50**: Injeção de **God-Mode Reversal** (Decoerência Suprema) e **Quantum Resonance Ignition** (Φ > 0.85). Thresholds adaptativos para ignição (V-Pulse).
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
-- **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. Gera 5000 universos paralelos de trajetórias de preço usando Merton Jump-Diffusion. Atualmente offloaded para C++ (Phase 18) com ganho de +100ms no loop cognitivo, calculando Win Probability, Expected Value, CVaR, VaR, e Sharpe ratio.
+- **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. **Phase 50**: Sincronização com o `LucidDreamingDaemon` (Java) para simulações HFT de 1.2M cenários.
 
 ### 5. CAMADA DE ACELERAÇÃO NATIVA (Phase 7, 18, 41, Ω-One)
 - **`cpp/src/asi_core.h/cpp`**: Núcleo C++ compilado em `asi_core_v2.dll`.

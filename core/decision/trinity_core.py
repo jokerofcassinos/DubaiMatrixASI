@@ -99,7 +99,8 @@ class TrinityCore:
         strike_flag = ""
 
         # ═══ VETO CHECKS (condições de perigo) ═══
-        veto = self._check_vetos(snapshot, asi_state, regime_state)
+        v_pulse_detected = snapshot.metadata.get("v_pulse_detected", False)
+        veto = self._check_vetos(snapshot, asi_state, regime_state, v_pulse_detected)
         if veto:
             self._veto_count += 1
             # [Phase 51] OMEGA EMERGENCY: Se houver posições mas houver VETO fatal, força fechamento
@@ -189,6 +190,15 @@ class TrinityCore:
         # ═══ 3.5 DECOERÊRENCE SUPREMA (GOD-MODE REVERSAL — Phase 50) ═══
         # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e/ou
         # a volatilidade está explodindo, o ruído não é ruído: é uma "Liquidation Cascade".
+        # [PHASE 51] V-Pulse Ignition Bypass
+        v_pulse_detected = snapshot.metadata.get("v_pulse_detected", False)
+        v_pulse_active = snapshot.metadata.get("v_pulse_capacitor", 0.0) >= 0.65
+
+        # 1. Bypass Startup Cooldown (V-Pulse is self-validating and hot)
+        uptime = time.time() - self._creation_time
+        if v_pulse_detected and uptime < OMEGA.get("startup_cooldown_seconds", 120):
+            log.omega("⚡ [V-PULSE] Bypassing Startup Cooldown for immediate strike.")
+            # We don't modify self._creation_time as it's used for uptime, we just skip the check in _check_vetos
         is_god_mode = False
         
         tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
@@ -266,27 +276,49 @@ class TrinityCore:
         if quantum_state.confidence > 0.90:
             dynamic_phi_min *= 0.7
 
+        # [Phase 26] Integration with Java PnL Predictor
+        pnl_prediction = snapshot.metadata.get("pnl_prediction", "STABLE")
+        if "NEGATIVE_EXPECTANCY" in pnl_prediction or "DRAWDOWN_RISK" in pnl_prediction:
+            risk_mult = 0.5  # Reduce aggression if math says we are losing edge
+        elif "RELAXED" in pnl_prediction:
+            risk_mult = 1.3  # Even higher conviction in relaxed mode
+        elif pnl_prediction == "STABLE":
+            risk_mult = 1.0
         # 4. Ajuste por Previsão Java PnL Predictor
         pnl_pred = snapshot.metadata.get("pnl_prediction")
+        pnl_prediction = pnl_pred if pnl_pred else "STABLE"
+        
         if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
             dynamic_phi_min *= 0.5  # Expectância positiva atestada, facilita entrada
+            
+        phi = quantum_state.phi
 
-        # [Phase Ω-Singularity] Drifting regimes have naturally low Φ due to entropy.
-        # We lower the floor to 0.01 to avoid "SYSTEM_INCOHERENCE" paralysis.
-        dynamic_phi_min = max(0.01, min(phi_min, dynamic_phi_min))
-
-        # ═══ VETO 02: WEEKEND STAGNANT MARKET ═══
-        session = TimeEngine.session_info()
-        if session.get("is_weekend", False):
-            # BTC opera 24/7, mas fds com ATR < 15 ou favorabilidade < 0.20 é perigoso (Phase 47 Refinement)
-            if self._get_current_atr(snapshot) < 15.0 or session.get("trading_favorability", 0.5) < 0.20:
-                self._log_cooldown("WEEKEND_VETO", "⚠️ VETO: WEEKEND_STAGNANT_MARKET", 60)
-                return self._wait("WEEKEND_VETO")
+        # [Phase 50] Quantum Resonance Ignition Gate
+        is_phi_resonance = False
+        if phi >= 0.85 and (has_v_pulse or signal_strength > 0.8):
+             is_phi_resonance = True
+             
+        # [Phase 50] God-Mode Reversal (Decoerência Suprema)
+        # In highly incoherent but extremely high-entropy (panic) regimes, 
+        # subvert the wait and provide liquidity during the vacuum.
+        is_god_mode_phi = False # Renamed to avoid conflict with existing is_god_mode
+        q_meta = quantum_state.metadata
+        entropy = q_meta.get("entropy", 0)
+        entropy_thresh = OMEGA.get("god_mode_entropy_threshold", 0.85)
+        
+        if phi < 0.2 and entropy > entropy_thresh and has_v_pulse:
+            is_god_mode_phi = True
+            log.omega(f"👹 [GOD-MODE REVERSAL] — High Entropy Panic (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.")
 
         # ═══ VETO 03: SYSTEM INCOHERENCE (PHI) ═══
-        phi = quantum_state.phi
         phi_threshold = dynamic_phi_min # Use the dynamically calculated phi_min
-        if phi < phi_threshold:
+        
+        # [Phase 50] Resonance Bypass
+        if is_phi_resonance:
+            phi_threshold = 0.01 # Near-zero threshold for resonance
+            
+        # [Phase 50] God-Mode Reversal & Resonance Bypass
+        if phi < phi_threshold and not is_god_mode_phi: # God-Mode Reversal bypasses this veto
             self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f})", 60)
             return self._wait("INCOHERENCE_VETO")
 
@@ -387,14 +419,22 @@ class TrinityCore:
                 return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
+        
+        # [Phase 50] Resonance RR Relaxation
+        if is_phi_resonance:
+            min_rr *= 0.7  # Relax RR for resonance ignition
+            
         if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-             # [Phase Ω-Singularity] Relax RR for Maker trades
              # Maker execution (limit_mode) captures spread, making low RR trades profitable.
-             min_rr = 0.4 if limit_mode else 0.8
+             min_rr = 0.4 if limit_mode else (min_rr * 0.8)
 
-             
+        # [Phase 51] God-Mode RR Rationale
+        if is_god_mode:
+            min_rr = OMEGA.get("god_mode_rr_min", 0.35)
+            log.omega(f"👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: {min_rr:.2f})")
+
         if rr_ratio < min_rr:
-            return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
+            return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr:.2f})")
 
         # [Phase 48] Alpha Integrity: Commission Reward Ratio Gate
         # Reward in $ / Estimated Commission must be > threshold
@@ -444,6 +484,12 @@ class TrinityCore:
             last_close = closures[-1]
             
             kinematic_atr_mult = OMEGA.get("kinematic_exhaustion_atr_mult", 1.8)
+
+            # [Phase 51] Kinematic V-Pulse Relaxation
+            if is_god_mode or has_ignition:
+                relaxation = OMEGA.get("kinematic_v_pulse_relaxation", 2.5)
+                kinematic_atr_mult *= relaxation
+                log.omega(f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})")
             
             if action == Action.BUY:
                 local_min = np.min(closures[-5:])
@@ -584,6 +630,10 @@ class TrinityCore:
         
         if is_hydra_mode:
             decision.metadata["hydra_mode"] = True
+            
+        if is_phi_resonance:
+            decision.metadata["phi_resonance"] = True
+            decision.metadata["relaxed_mode"] = True
 
         self._execute_count += 1
         self._decision_history.append({
@@ -599,7 +649,7 @@ class TrinityCore:
         self.last_decision = decision
         return decision
 
-    def _check_vetos(self, snapshot, asi_state, regime_state) -> Optional[str]:
+    def _check_vetos(self, snapshot, asi_state, regime_state, v_pulse_detected: bool = False) -> Optional[str]:
         """
         Sistema de veto — rejeita trades em condições de perigo.
         NÃO é paralisante: veta apenas em casos claros.
@@ -607,7 +657,7 @@ class TrinityCore:
         # 0. Startup Cooldown (Evita trades com sistema "frio")
         uptime = time.time() - self._creation_time
         startup_cooldown = OMEGA.get("startup_cooldown_seconds", 120)  # Default 2 minutos
-        if uptime < startup_cooldown:
+        if uptime < startup_cooldown and not v_pulse_detected:
             return f"STARTUP_COOLDOWN({uptime:.0f}s/{startup_cooldown}s)"
 
         # 1. Spread excessivo absoluto

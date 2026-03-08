@@ -253,6 +253,11 @@
     - **Risk Dilution**: Implementação de espaçamento geodésico (1.99 ATR) entre slots para evitar liquidações em cascata num mesmo nível.
 - **Resultado:** Maior sobrevivência em ambientes de "Spread Spike" e redução de overlap de ordens. A ASI entra em um estado de sintonia fina contínua.
 
+### FASE 50: ERA DA DECOERÊNCIA SUPREMA (God-Mode Reversal)
+- **Contexto:** Em regimes de pânico absoluto, o Swarm entrava em paralisia cognitiva por excesso de ruído e incoerência (Φ < 0.2).
+- **Evolução:** Implementação do **Entropy Hijack** e **God-Mode Strike**. A ASI agora detecta quando a incoerência é o próprio sinal de um vácuo de liquidez, invertendo sinais cinéticos e capturando lucros em liquidações violentas. Atingimos a marca de **82 AGENTES** ativos com a integração do **Lucid Dreaming Engine**.
+- **Resultado:** Singularidade Operacional HFT. A ASI transmuta o caos em alpha deterministicamente.
+
 ### FASE 34: ERA DO DESTRAVAMENTO HFT (Sweep 2 Calibration)
 - **Contexto:** Paralisia operacional por thresholds rígidos (RR 2.79, Φ floor 0.05) em regimes de Drift.
 - **Evolução:** Implementação do **Entropy Phase-Attractor (EPA)** e relaxamento de RR para 0.4 em execuções Maker. A ASI agora ignora restrições lineares se a Entropia for favorável, permitindo agressividade total no BTCUSD.
@@ -300,3 +305,12 @@
 - **Resultado:** Erradicação da dissociação cognitiva e garantia de rastreabilidade 1:1 entre percepção, decisão e lucratividade líquida.
 
 *(Atualizado: 2026-03-08. Versão: 24.0.0-omega+data_integrity)*
+
+### FASE 51: ERA DO SURGE DE ALPHA (Ω-Alpha Extraction)
+- **Contexto:** Identificação de que vetos de segurança (Startup Cooldown e Distância) estavam matando trades de altíssima convicção durante explosões de volume HFT. 
+- **Evolução:**
+    - **V-Pulse Capacitor v3**: Implementação de acumulador inercial de ignição que soma vetores cinéticos em tempo real.
+    - **Ignition Sovereignty**: Bypass mandatório de vetos conservadores quando o Capacitor atinge o threshold crítico (0.65).
+    - **QuantumThought Refinement**: Injeção da lógica de soberania no motor de colapso de sinais.
+- **Resultado:** Máxima extração de Alpha em breakouts violentos de BTCUSD, garantindo que a ASI não "venca a si mesma" por excesso de cautela.
+*(Atualizado: 2026-03-09. Versão: 51.0.0)*

@@ -56,9 +56,13 @@ class SelfOptimizer:
         self._pre_mutation_performance = None
         self._post_mutation_check_pending = False
         self._post_mutation_cycles = 0
+        
+        # [Phase 50] PnL Predictor Feedback
+        self._is_relaxed_mode = False
+        self._last_pnl_state = "STABLE"
 
     @catch_and_log(default_return=None)
-    def check_and_optimize(self, cycle_or_tracker=None) -> Optional[dict]:
+    def check_and_optimize(self, cycle_or_tracker=None, snapshot=None) -> Optional[dict]:
         """
         Ciclo de otimização principal.
         Pode ser chamado passando o ciclo (int) ou o tracker.
@@ -110,6 +114,21 @@ class SelfOptimizer:
             "profit_factor": perf.get("profit_factor", 0),
             "total_profit": perf.get("total_profit", 0),
         })
+
+        # 5. [Phase 50] Java PnL Predictor Resonance
+        pnl_pred = snapshot.metadata.get("pnl_prediction", "STABLE") if snapshot else self._last_pnl_state
+        self._last_pnl_state = pnl_pred
+        
+        if pnl_pred and "RELAXED" in pnl_pred:
+            self._is_relaxed_mode = True
+            # Em modo Relaxed, podemos ser mais agressivos nas mutações exploratórias
+            self.mutation_engine._exploration_rate = 0.25 # Exemplo: aumenta exploração
+        elif "NEGATIVE" in pnl_pred or "WARNING" in pnl_pred:
+            self._is_relaxed_mode = False
+            self.mutation_engine._exploration_rate = 0.05 # Reduz exploração no perigo
+        else:
+            self._is_relaxed_mode = False
+            self.mutation_engine._exploration_rate = 0.15 # Normal
 
         # Manter apenas últimos 100 snapshots
         if len(self._performance_snapshots) > 100:
