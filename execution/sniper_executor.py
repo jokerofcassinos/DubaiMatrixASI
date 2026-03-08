@@ -70,6 +70,9 @@ class SniperExecutor:
         # OMEGA-CLASS: Sonar State
         self._last_sonar_time = 0
         self._sonar_cooldown_ms = 5000 # 5 segundos entre sondagens
+        
+        # [PHASE Ω-RESILIENCE] Log Cooldowns (Avoid spam)
+        self._last_log_times = {} # key -> timestamp
 
     @timed(log_threshold_ms=400) # Phase 50: Elevado de 200ms para reduzir spam
     @catch_and_log(default_return=None)
@@ -106,22 +109,34 @@ class SniperExecutor:
                     self._post_close_candle_count = 0
         
         if self._orders_in_candle >= self._max_orders_per_candle:
-            log.debug(f"Pausa tática: Limite de {self._max_orders_per_candle} ordens por candle atingido. Aguardando próximo minuto.")
+            # [PHASE Ω-RESILIENCE] Log Cooldown
+            now = time.time()
+            if now - self._last_log_times.get("candle_limit", 0) > 60.0:
+                log.debug(f"Pausa tática: Limite de {self._max_orders_per_candle} ordens por candle atingido. Aguardando próximo minuto.")
+                self._last_log_times["candle_limit"] = now
             return None
 
         # ═══ CANDLE DIRECTIONAL LOCK CHECK (Phase 20) ═══
         # Se já executamos nessa direção NESTE candle → bloqueia
         if self._candle_direction_lock == decision.action.value:
-            log.debug(f"🔒 Candle Lock: já executou {decision.action.value} neste candle. Aguardando próximo.")
+            # [PHASE Ω-RESILIENCE] Log Cooldown
+            now = time.time()
+            if now - self._last_log_times.get("candle_lock", 0) > 30.0:
+                log.debug(f"🔒 Candle Lock: já executou {decision.action.value} neste candle. Aguardando próximo.")
+                self._last_log_times["candle_lock"] = now
             return None
 
         # ═══ POST-CLOSE DIRECTIONAL COOLDOWN (Phase 20) ═══
         # Após Smart TP fechar posição, bloqueia re-entrada na MESMA direção por 2 candles
         if self._post_close_direction == decision.action.value:
-            log.debug(
-                f"⏸️ Post-Close Cooldown: aguardando {2 - self._post_close_candle_count} candle(s) "
-                f"antes de re-{decision.action.value}"
-            )
+            # [PHASE Ω-RESILIENCE] Log Cooldown
+            now = time.time()
+            if now - self._last_log_times.get("post_close_cooldown", 0) > 30.0:
+                log.debug(
+                    f"⏸️ Post-Close Cooldown: aguardando {2 - self._post_close_candle_count} candle(s) "
+                    f"antes de re-{decision.action.value}"
+                )
+                self._last_log_times["post_close_cooldown"] = now
             return None
 
         # ═══ ANTI-METRALHADORA PHASE 1: COOLDOWN TIMER ═══
@@ -131,7 +146,11 @@ class SniperExecutor:
         if self._last_entry_timestamp > 0:
             elapsed = now_epoch - self._last_entry_timestamp
             if elapsed < cooldown_s:
-                log.debug(f"⏳ Anti-metralhadora: cooldown ativo ({elapsed:.0f}s/{cooldown_s:.0f}s)")
+                # [PHASE Ω-RESILIENCE] Log Cooldown
+                now = time.time()
+                if now - self._last_log_times.get("metralhadora_time", 0) > 30.0:
+                    log.debug(f"⏳ Anti-metralhadora: cooldown ativo ({elapsed:.0f}s/{cooldown_s:.0f}s)")
+                    self._last_log_times["metralhadora_time"] = now
                 return None
 
         # ═══ ANTI-METRALHADORA PHASE 2: DISTÂNCIA MÍNIMA DE PREÇO ═══
@@ -147,10 +166,14 @@ class SniperExecutor:
             price_distance = abs(decision.entry_price - self._last_entry_price)
             min_distance = current_atr * min_dist_atr
             if price_distance < min_distance:
-                log.debug(
-                    f"📏 Anti-metralhadora: preço muito próximo do último entry "
-                    f"(dist={price_distance:.2f} < min={min_distance:.2f} [{min_dist_atr}×ATR])"
-                )
+                # [PHASE Ω-RESILIENCE] Log Cooldown
+                now = time.time()
+                if now - self._last_log_times.get("metralhadora_dist", 0) > 30.0:
+                    log.debug(
+                        f"📏 Anti-metralhadora: preço muito próximo do último entry "
+                        f"(dist={price_distance:.2f} < min={min_distance:.2f} [{min_dist_atr}×ATR])"
+                    )
+                    self._last_log_times["metralhadora_dist"] = now
                 return None
 
         # ═══ ANTI-METRALHADORA PHASE 3: CONFLITO DIRECIONAL ═══
@@ -167,10 +190,14 @@ class SniperExecutor:
                 if pos_dir == decision.action.value and pos_price > 0 and current_atr > 0:
                     dist = abs(decision.entry_price - pos_price)
                     if dist < current_atr * dup_dist_atr:
-                        log.debug(
-                            f"🚫 Anti-metralhadora: já existe {pos_dir} aberto @ {pos_price:.2f} "
-                            f"(dist={dist:.2f} < {dup_dist_atr}×ATR={current_atr * dup_dist_atr:.2f})"
-                        )
+                        # [PHASE Ω-RESILIENCE] Log Cooldown
+                        now = time.time()
+                        if now - self._last_log_times.get("metralhadora_dup", 0) > 30.0:
+                            log.debug(
+                                f"🚫 Anti-metralhadora: já existe {pos_dir} aberto @ {pos_price:.2f} "
+                                f"(dist={dist:.2f} < {dup_dist_atr}×ATR={current_atr * dup_dist_atr:.2f})"
+                            )
+                            self._last_log_times["metralhadora_dup"] = now
                         return None
 
 
@@ -222,7 +249,12 @@ class SniperExecutor:
             
             # Libera a metralhadora temporariamente para esta vela
             self._max_orders_per_candle = 15
-            log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 15")
+            
+            # [PHASE Ω-RESILIENCE] Log Cooldown
+            now = time.time()
+            if now - self._last_log_times.get("hydra", 0) > 60.0:
+                log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 15")
+                self._last_log_times["hydra"] = now
         else:
             max_slots = base_max_slots
             self._max_orders_per_candle = 2 # Default safety
@@ -235,7 +267,12 @@ class SniperExecutor:
         if current_positions + max_slots > MAX_OPEN_POSITIONS:
             old_slots = max_slots
             max_slots = max(1, MAX_OPEN_POSITIONS - current_positions)
-            log.omega(f"📏 SLOT CAPPING (Phase 39): Ajustando de {old_slots} para {max_slots} slots para respeitar o limite global de {MAX_OPEN_POSITIONS}")
+            
+            # [PHASE Ω-RESILIENCE] Log Cooldown
+            now = time.time()
+            if now - self._last_log_times.get("slot_capping", 0) > 60.0:
+                log.omega(f"📏 SLOT CAPPING (Phase 39): Ajustando de {old_slots} para {max_slots} slots para respeitar o limite global de {MAX_OPEN_POSITIONS}")
+                self._last_log_times["slot_capping"] = now
             
             if max_slots <= 0:
                 log.warning("❌ Limite de posições EXAURIDO. Não é possível abrir novas ordens.")
@@ -257,10 +294,14 @@ class SniperExecutor:
                 final_lot = round(final_lot / LOT_STEP) * LOT_STEP
                 final_lot = max(MIN_LOT_SIZE, final_lot)
                 
-                log.omega(
-                    f"⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de {old_lot:.2f} para {final_lot:.2f} "
-                    f"para caber na margem livre (${free_margin:.2f})"
-                )
+                # [PHASE Ω-RESILIENCE] Log Cooldown
+                now = time.time()
+                if now - self._last_log_times.get("margin_clawback", 0) > 60.0:
+                    log.omega(
+                        f"⚡ MARGIN CLAWBACK (Phase 37): Escalonando lote de {old_lot:.2f} para {final_lot:.2f} "
+                        f"para caber na margem livre (${free_margin:.2f})"
+                    )
+                    self._last_log_times["margin_clawback"] = now
         
         # ═══════════════════════════════════════════════════════════
         #  PHASE Ω-ZERO: DO-CALCULUS CAUSAL GATEKEEPER
@@ -282,11 +323,24 @@ class SniperExecutor:
                     if causal['confidence'] > 0.7:
                         return None # Veto absoluto se a confiança no DAG for alta
         
+        # ═══ PASSED ALL FILTERS: Log the actual realization of the decision ═══
+        log.signal(f"🎯 DECISION: {decision.action.value} | {decision.reasoning}")
+
         # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
         # Ao invés de blocos lineares rápidos, criamos uma rede fractal estendida (Brane)
-        # OMEGA-CLASS OPTIMIZATION: Limitar densidade para evitar spam de tickets no MT5 (Max 10 nodes)
-        target_nodes = min(10, max_slots)
-        num_nodes = len(self._split_lot(final_lot, target_nodes))
+        # [Phase Ω-Singularity] Automated Node Selection
+        # Scale nodes based on total lot size to ensure each chunk is tradable and statistically significant.
+        # $30k account / HFT context: each slot should ideally be > 0.05 lot.
+        if final_lot < 0.1:
+            target_nodes = 1
+        elif final_lot < 0.5:
+            target_nodes = min(3, max_slots)
+        elif final_lot < 1.0:
+            target_nodes = min(5, max_slots)
+        else:
+            target_nodes = min(10, max_slots)
+            
+        num_nodes = target_nodes # Use absolute count
         # Se for um único node, apenas envia. Se for múltiplos, gera a Brane
         if num_nodes <= 1:
             lot_chunks = [final_lot]
@@ -348,34 +402,50 @@ class SniperExecutor:
             if delay_sec > 0:
                 time.sleep(delay_sec)
                 
-            # [Phase Ω-Eternity] Quantum Limit Market Making
-            # Em vez de agredir, posicionamos limites baseados no spread para sermos Makers
-            # Isso corta o custo e cobra o spread de volta
-            is_buy = decision.action.value == "BUY"
-            # O preço do tick capturado (entry_price) é o Ask pra Buy e Bid pra Sell. 
-            # Para LIMIT, o Buy Limit deve ser colocado no Bid ou levemente abaixo.
-            tick_bid = current_tick["bid"]
-            tick_ask = current_tick["ask"]
-            spread = tick_ask - tick_bid
+            # [Phase Ω-Singularity] P-Brane Execution Logic
+            # Switches between Maker (Limit) and Taker (Market) based on metadata
+            use_limit = decision.metadata.get("limit_execution", False)
             
-            # Se for buy, eu coloco Limit no Bid ou mais abaixo baseado na posição da membrana (offset)
-            # Como a Brane usa entry_price, a gente força a conversão pra Limit compensando o spread.
-            # [PHASE Ω-ANTI-FRAGILITY] Maker Price Guard (Fix: Code 10015)
-            # Uma ordem de BUY LIMIT deve obrigatoriamente ser <= BID.
-            # Uma ordem de SELL LIMIT deve obrigatoriamente ser >= ASK.
-            if is_buy:
-                limit_price = min(tick_bid, tick_bid + (np.linspace(-1.5, -0.1, num_nodes)[i] * spread))
+            if use_limit:
+                # Maker Logic: Position orders at/near the spread boundaries
+                tick_bid = current_tick["bid"]
+                tick_ask = current_tick["ask"]
+                spread = tick_ask - tick_bid
+                
+                # [QUANTUM JITTER] Adaptive Noise Injection
+                # Using p_brane_jitter_offset_points from metadata (calibrated by Trinity EPA)
+                jitter_points = decision.metadata.get("jitter_offset", 0.0)
+                # Random factor: +/- 50% of the jitter setting
+                random_jitter = jitter_points * (0.5 + np.random.random())
+                jitter_price = random_jitter * snapshot.symbol_info.get("point", 0.0001)
+                
+                if decision.action.value == "BUY":
+                    # Buy Limit must be <= Bid
+                    limit_price = min(tick_bid, tick_bid + (np.linspace(-1.5, -0.1, num_nodes)[i] * spread))
+                    limit_price -= jitter_price # Push slightly deeper into the book
+                else:
+                    # Sell Limit must be >= Ask
+                    limit_price = max(tick_ask, tick_ask + (np.linspace(0.1, 1.5, num_nodes)[i] * spread))
+                    limit_price += jitter_price # Push slightly higher
+
+                return self.bridge.send_limit_order(
+                    action=decision.action.value,
+                    lot=chunk_lot,
+                    sl=decision.stop_loss,
+                    tp=decision.take_profit,
+                    comment=f"ASI_MAKER_{i+1}/{num_nodes}",
+                    price=limit_price
+                )
             else:
-                limit_price = max(tick_ask, tick_ask + (np.linspace(0.1, 1.5, num_nodes)[i] * spread))
- 
-            return self.bridge.send_limit_order(
-                action=decision.action.value,
-                lot=chunk_lot,
-                sl=decision.stop_loss,
-                tp=decision.take_profit,
-                comment=f"ASI_P_BRANE_{i+1}/{num_nodes}", # Phase Ω-Transcendence
-                price=limit_price
-            )
+                # Taker Logic: Aggressive Market Order (Phase 40 priority)
+                return self.bridge.send_market_order(
+                    action=decision.action.value,
+                    lot=chunk_lot,
+                    sl=decision.stop_loss,
+                    tp=decision.take_profit,
+                    comment=f"ASI_TAKER_{i+1}/{num_nodes}"
+                )
+
 
         # Mapeamento paralelo via ThreadPool com delays P-Brane
         futures = [self._order_pool.submit(_send_slot, i, lot, delays[i]) for i, lot in enumerate(lot_chunks)]
@@ -463,7 +533,11 @@ class SniperExecutor:
         point = snapshot.symbol_info.get("point", 0.0001) if snapshot.symbol_info else 0.0001
         price = (snapshot.tick["ask"] + point) if side == "BUY" else (snapshot.tick["bid"] - point)
         
-        log.omega(f"📡 QUANTUM SONAR: Probing {side} liquidity @ {price:.2f}")
+        # [PHASE Ω-RESILIENCE] Log Cooldown
+        now_s = time.time()
+        if now_s - self._last_log_times.get("sonar", 0) > 30.0:
+            log.omega(f"📡 QUANTUM SONAR: Probing {side} liquidity @ {price:.2f}")
+            self._last_log_times["sonar"] = now_s
         self.bridge.send_sonar_probe(side=side, lot=MIN_LOT_SIZE, price=price, duration_ms=50)
 
     def _split_lot(self, total_lot: float, max_splits: int) -> list:

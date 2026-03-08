@@ -22,7 +22,7 @@ from config.settings import (
     EXECUTION_MAX_SPREAD_POINTS, RISK_MAX_CONSECUTIVE_LOSSES
 )
 from utils.logger import log
-from utils.decorators import catch_and_log
+from utils.decorators import timed, catch_and_log, ast_self_heal
 from utils.time_tools import TimeEngine
 
 
@@ -75,7 +75,14 @@ class TrinityCore:
         # [PHASE Ω-ANTI-FRAGILITY] Ping-Pong State
         self._last_loss_time = 0.0
         self._last_loss_direction = None
+        
+        # [PHASE Ω-RESILIENCE] Log Cooldowns (Avoid spam)
+        self._last_log_times = {} # key -> timestamp
+        self._last_phi_val = 0.0
+        self._last_sl_mult = 0.0
+        self._last_regime = ""
 
+    @ast_self_heal
     @catch_and_log(default_return=None)
     def decide(self, quantum_state: QuantumState,
                regime_state: RegimeState,
@@ -120,21 +127,41 @@ class TrinityCore:
             dynamic_sell_thresh *= 0.6
             dynamic_conf_min *= 0.8
         
-        # 2. Ajuste por Regime
+        # 2. Ajuste por Regime e [Phase Ω-Singularity] MAKER_ADVANTAGE
+        limit_mode = (regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]) \
+                     and OMEGA.get("limit_execution_mode", 0.0) > 0.5
+        
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
         elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL"]:
             # [PHASE Ω-ANTI-FRAGILITY] Drifting/Compression regimes are noisy.
-            # We require a significantly stronger signal (1.5x) to avoid being trapped in range rotations.
-            dynamic_buy_thresh *= 1.5
-            dynamic_sell_thresh *= 1.5
+            # Normal logic: 1.5x signal mult.
+            # [EPA - Entropy Phase-Attractor]: If entropy is low, we relax even in drifting.
+            if quantum_state.entropy < 0.6 and limit_mode:
+                mult = 1.1 # EPA Attraction: Low noise + Maker execution = High Alpha
+            else:
+                mult = 1.25 if quantum_state.phi > 0.3 else 1.5
+                
+            dynamic_buy_thresh *= mult
+            dynamic_sell_thresh *= mult
             dynamic_conf_min = min(0.95, dynamic_conf_min * 1.1)
+
         elif regime_state.current.value in ["HIGH_VOL_CHAOS", "CHOPPY"]:
             # Em caos e chop, a exigência de sinal é muito mais estrita
             dynamic_buy_thresh *= 1.5
             dynamic_sell_thresh *= 1.5
             dynamic_conf_min = min(0.95, dynamic_conf_min * 1.2)
+
+        # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
+        if limit_mode:
+            dynamic_conf_min *= 0.90
+            now = time.time()
+            if now - self._last_log_times.get("maker_advantage", 0) > 120:
+                log.omega(f"📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: {dynamic_conf_min:.2f})")
+                self._last_log_times["maker_advantage"] = now
+
+
 
         # ═══ 3.5 DECOERÊNCIA SUPREMA (GOD-MODE REVERSAL) ═══
         # Se a entropia é máxima (todos os agentes discordam fortemente, pânico) e 
@@ -173,7 +200,9 @@ class TrinityCore:
                 reasons = []
                 if abs(signal) < abs(dynamic_buy_thresh):
                     reasons.append(f"SIGNAL_WEAK({signal:+.3f} < req {abs(dynamic_buy_thresh):.3f})")
-                if confidence < dynamic_conf_min:
+                
+                # OMEGA: Epsilon check (1e-6) to fix floating-point precision issues (e.g., 0.77 < 0.77)
+                if confidence < (dynamic_conf_min - 1e-6):
                     reasons.append(f"LOW_CONFIDENCE({confidence:.2f} < req {dynamic_conf_min:.2f})")
                 return self._wait(" | ".join(reasons))
 
@@ -210,8 +239,13 @@ class TrinityCore:
         dynamic_phi_min = max(0.05, min(phi_min, dynamic_phi_min))
 
         if quantum_state.phi < dynamic_phi_min:
-            # OMEGA: Log de Transparência Sensorial
-            log.debug(f"🔍 [PERCEPTION] PHI={quantum_state.phi:.2f} < REQ={dynamic_phi_min:.2f} (Veto por Incoerência Sistêmica)")
+            # OMEGA: Log de Transparência Sensorial com Cooldown Inteligente
+            now = time.time()
+            phi_delta = abs(quantum_state.phi - self._last_phi_val)
+            if now - self._last_log_times.get("perception", 0) > 30.0 or phi_delta > 0.05:
+                log.debug(f"🔍 [PERCEPTION] PHI={quantum_state.phi:.2f} < REQ={dynamic_phi_min:.2f} (Veto por Incoerência Sistêmica)")
+                self._last_log_times["perception"] = now
+                self._last_phi_val = quantum_state.phi
             return self._wait(f"SYSTEM_INCOHERENCE (Φ={quantum_state.phi:.2f} < {dynamic_phi_min:.2f})")
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
@@ -254,7 +288,17 @@ class TrinityCore:
             # Em DRIFTING ou Ruído, o preço faz muitos pullbacks de 1 ATR.
             # O multiplicador de 2.5x garante que o trade tenha espaço para respirar.
             dynamic_sl_mult *= 2.5 
-            log.omega(f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.")
+            
+            # [PHASE Ω-RESILIENCE] Log Cooldown (Avoid spam on every cycle)
+            now = time.time()
+            mult_delta = abs(dynamic_sl_mult - self._last_sl_mult)
+            if now - self._last_log_times.get("chaos_shield", 0) > 60.0 or \
+               regime_state.current.value != self._last_regime or \
+               mult_delta > 0.1:
+                log.omega(f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.")
+                self._last_log_times["chaos_shield"] = now
+                self._last_sl_mult = dynamic_sl_mult
+                self._last_regime = regime_state.current.value
  
         if action == Action.BUY:
             stop_loss = price - atr * dynamic_sl_mult
@@ -269,8 +313,9 @@ class TrinityCore:
         rr_ratio = reward / risk if risk > 0 else 0
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
-        if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP"]:
+        if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
              min_rr = 1.0  # Em mercados curtos o spread corrói o R:R inicial e precisamos abaixar o piso
+
              
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr})")
@@ -409,6 +454,13 @@ class TrinityCore:
             metadata={}
         )
         
+        # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
+        limit_mode = OMEGA.get("limit_execution_mode", 0.0)
+        if limit_mode > 0.5 and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]:
+            decision.metadata["limit_execution"] = True
+            decision.metadata["jitter_offset"] = OMEGA.get("p_brane_jitter_offset_points", 0.0)
+
+        
         if is_hydra_mode:
             decision.metadata["hydra_mode"] = True
         
@@ -425,7 +477,7 @@ class TrinityCore:
             "mc_win_prob": mc_win_prob,
         })
 
-        log.signal(f"🎯 DECISION: {action.value} | {reasoning}")
+        # OMEGA: Log.signal removido daqui. O SniperExecutor logará apenas se passar nos filtros de segurança.
         return decision
 
     def _check_vetos(self, snapshot, asi_state, regime_state) -> Optional[str]:
@@ -459,10 +511,28 @@ class TrinityCore:
             if regime_state.confidence > 0.8:
                 return "HIGH_VOL_CHAOS (confidence alta)"
 
-        # 5. Sessão desfavorável (weekend com baixa liquidez)
+        # 5. Sessão desfavorável (Weekend Sniper Mode)
         session = TimeEngine.session_info()
-        if session.get("is_weekend") and session.get("trading_favorability", 0) < 0.3:
-            return "WEEKEND_LOW_LIQUIDITY"
+        if session.get("is_weekend"):
+            # No fim de semana, só permitimos o "tiro perfeito"
+            # 1. Sinal deve ser muito forte (> 0.65)
+            # 2. Spread não pode ser abusivo (< 15% do ATR)
+            atr = snapshot.atr
+            spread = snapshot.symbol_info.get("spread", 999) if snapshot.symbol_info else 999
+            
+            # Traduz spread de pontos para preço se necessário (simplificado: spread_rel)
+            # Mas aqui usamos os thresholds de favorabilidade
+            if session.get("trading_favorability", 0) < 0.25:
+                 # Se a liquidez for nula, bloqueio total
+                 return "WEEKEND_ZERO_LIQUIDITY"
+                 
+            # Se estivermos tentando operar com sinal fraco no fds, bloqueia
+            # Note: o 'decide' será chamado depois, aqui é apenas veto preventivo
+            # Como não temos o 'signal' aqui no _check_vetos, usamos a favorabilidade
+            if session.get("trading_favorability", 0) < 0.35:
+                # Permitir apenas se a volatilidade (ATR) for saudável
+                if atr < 50: # BTC muito parado
+                    return "WEEKEND_STAGNANT_MARKET"
             
         # 6. [PHASE Ω-ANTI-FRAGILITY] Ping-Pong Veto
         # Impede inversão de mão imediata em regimes instáveis após loss
@@ -483,7 +553,9 @@ class TrinityCore:
         return 0.0
 
     def _wait(self, reason: str) -> Decision:
-        """Retorna decisão WAIT."""
+        """Retorna decisão WAIT com log inteligente para evitar spam."""
+        # [PHASE Ω-RESILIENCE] Log wait reasons with cooldown if they are spammy
+        # (A maioria já é logada no ASIBrain, mas aqui filtramos redundâncias internas)
         return Decision(
             action=Action.WAIT,
             confidence=0.0,

@@ -58,4 +58,4 @@ graph TD;
 11. `SniperExecutor` materializa a ordem no MT5.
 12. A cada 200 ciclos, `SelfOptimizer` avalia performance e orquestra mutações nos `OmegaParams`.
 
-*(Atualizado: 2026-03-07. Versão: 12.0.0-omega+extreme — Phase Ω-Extreme Victory)*
+*(Atualizado: 2026-03-08. Versão: 13.0.0-omega+phase47 — Phase Ω-Signal Integrity)*

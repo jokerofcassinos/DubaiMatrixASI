@@ -279,9 +279,15 @@ class AggressivenessAgent(BaseAgent):
                 # O candle atual é fraco vs os anteriores que eram fortes
                 signal *= -0.3  # Inversion por exaustão
                 reasons.append(f"{tf}:AGGR_EXHAUSTION(BRR dropping)")
-            elif vol_intensity > 15.0:  # Phase 29: Climax de Volume Absurdo (Squeeze Trap)
-                signal *= 0.1
-                reasons.append(f"{tf}:CLIMAX_DAMPING(vol > 15x)")
+            elif vol_intensity > 25.0:  # Phase 47: Refined Climax Damping (from 15x to 25x)
+                # Só dampamos se for um pico isolado sem sustentação (BRR baixo)
+                if current_brr < 0.6:
+                    signal *= 0.1
+                    reasons.append(f"{tf}:CLIMAX_DAMPING(vol={vol_intensity:.1f}x brr={current_brr:.2f})")
+                else:
+                    # Se o BRR é alto (>0.6), é um breakout real, não dampamos tanto
+                    signal *= 0.8 
+                    reasons.append(f"{tf}:EXPLOSIVE_IGNITION(vol={vol_intensity:.1f}x)")
 
             signals.append(float(signal))
 
@@ -567,11 +573,16 @@ class PriceVelocityAgent(BaseAgent):
 
         confidence = min(1.0, abs(signal) * 0.7 + 0.15 + conf_bonus)
         
-        # Phase 29: Damping Kinemático em Acelerações Irreais (Prevenção de topo/fundo)
-        if abs(avg_velocity) > 0.3 and abs(avg_accel) > 0.2:
-            signal *= 0.3  # Corta sinal para evitar compra de pico absoluto
+        # Phase 47: Refined Kinematic Damping
+        # Só asfixiamos se for um movimento EXTREMAMENTE esticado (>0.5% M1) sem aceleração positiva
+        if abs(avg_velocity) > 0.5 and avg_accel < 0:
+            signal *= 0.3  # Exaustão real detectada (velocidade alta mas desacelerando)
             confidence *= 0.5
-            reasons.append("KINEMATIC_DAMPING(extreme velocity/accel climax)")
+            reasons.append("KINEMATIC_EXHAUSTION(velocity-deceleration climax)")
+        elif abs(avg_velocity) > 0.4:
+            # Em aceleração forte, mantemos o sinal (Trend Riding)
+            signal *= 0.9 
+            reasons.append("KINEMATIC_MOMENTUM(high speed preserved)")
 
         return AgentSignal(
             self.name, float(np.clip(signal, -1, 1)),

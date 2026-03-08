@@ -8,9 +8,9 @@
 - **`core/asi_brain.py (ASIBrain)`**: O orquestrador supremo. Executa os ciclos cognitivos contínuos (Percepção → Análise → Reflexão → Decisão → Ação) interagindo com DataEngine, NeuralSwarm, QuantumThought, TrinityCore e SniperExecutor. Mantém ciência do `ASIState` e executa auto-diagnósticos da performance (win rate, profit, losses).
 
 ### 2. CAMADA DE EXECUÇÃO E RISCO
-- **`execution/sniper_executor.py (SniperExecutor)`**: Transformador de intelecto em agressão cinética. Envia ordens cirúrgicas via MT5Bridge. **Phase 40**: Implementação de `ThreadPoolExecutor` para disparo simultâneo de múltiplos slots (Latência < 300ms). Implementa **HFT Throttling** e sistema **Anti-Metralhadora**.
+- **`execution/sniper_executor.py (SniperExecutor)`**: Transformador de intelecto em agressão cinética. Envia ordens cirúrgicas via MT5Bridge. **Phase 40**: Multi-threading. **Phase 47**: Implementação de **Intelligent Log Pacing** (Suppressor de spam) e desacoplamento de logs de decisão (Decision realizations).
 - **`execution/risk_quantum.py (RiskQuantumEngine)`**: O escudo de adamantium do capital. Substitui stops fixos burros por Kelly Criterion dinâmico e bounds de drawdown severos.
-- **`execution/position_manager.py (PositionManager)`**: Gerenciamento de sub-consciente. Rastrea todas as ordens abertas, cruzando dados de orderflow. Deflagra o **Zero-Latency Close** via Socket TCP para a ponte MQ5.
+- **`execution/position_manager.py (PositionManager)`**: Gerenciamento de sub-consciente. Rastrea todas as ordens abertas, cruzando dados de orderflow. Deflagra o **Zero-Latency Close** via Socket TCP. **Phase 47**: Consolidação de logs de 'Nuclear Strike' (Anti-Spam).
 
 ### 3. CAMADA SENSORIAL (À explorar detalhadamente no ADL/CI)
 - **`market/mt5_bridge.py (MT5Bridge)`**: Interface FFI com o terminal MetaTrader 5. Provê latência zero e gerencia ordens.
@@ -27,7 +27,7 @@
 - **`core/consciousness/agents/liquidity_leech_agent.py`**: [NEW] Agente Symbiotic Leech (Predador Institucional).
 - **`core/consciousness/quantum_thought.py`**: Aglutinador de multiversos.
 - **`core/consciousness/regime_detector.py`**: Visão macro-cibernética.
-- **`core/decision/trinity_core.py`**: Veredicto final de Ação.
+- **`core/decision/trinity_core.py`**: Veredicto final de Ação. **Phase 47**: Injeção de cooldowns de percepção e logging de PHI inteligente.
 
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
 - **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. Gera 5000 universos paralelos de trajetórias de preço usando Merton Jump-Diffusion. Atualmente offloaded para C++ (Phase 18) com ganho de +100ms no loop cognitivo, calculando Win Probability, Expected Value, CVaR, VaR, e Sharpe ratio.
@@ -69,4 +69,4 @@
 - O sistema subentende latência inferior a "ticks rate" (sub-milissegundo para os cálculos neurais), utilizando o `CONSCIOUSNESS_CYCLE_MS` para não asfixiar o CPU indevidamente se necessário.
 - Paradigma multi-agentes: Cada arquivo sob `core` atua como subsistema dotado de capacidade de auto relato, fornecendo `metrics` unificadas ao Brain.
 
-*(Atualizado: 2026-03-07. Versão: 12.0.0-omega+extreme — Phase Ω-Extreme Victory)*
+*(Atualizado: 2026-03-08. Versão: 13.0.0-omega+phase47 — Phase Ω-Signal Integrity)*

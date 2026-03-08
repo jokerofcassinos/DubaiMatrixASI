@@ -116,6 +116,11 @@
 - **Justificativa:** Capturar reversões em flash-crashes que modelos normais ignoram.
 - **Data/Status:** ATIVO. (2026-03-07).
 
+### DECISION 31: PHASE Ω-SINGULARITY (P-BRANE MAKER LOGIC)
+- **Decisão:** Transição de execução Taker (Market) para Maker (Limit) em regimes de `DRIFTING` e baixa liquidez.
+- **Justificativa:** Em ambientes de baixa volatilidade, o spread corrói o Alpha. Ao atuar como Maker nas extremidades do spread (P-Brane Gaussiana), a ASI inverte o custo, cobrando spread do varejo e resolvendo vetos de RR baixo.
+- **Data/Status:** ATIVO. (2026-03-07).
+
 ### DECISÃO 26: P-BRANE NODE CAPPING (Phase Ω-Transcendence)
 - **Decisão:** Limitação da fragmentação de ordens P-Brane em no máximo 10 slots simultâneos.
 - **Justificativa:** A fragmentação excessiva (47 nodes detectados) causou congestionamento no socket MT5, resultando em latência catastrófica (10s). 10 slots mantêm a ofuscação gaussiana sem saturar o IO.
@@ -131,5 +136,30 @@
 - **Justificativa:** A latência de 2.1s no BTCUSD invalidou o sinal dos 79 agentes. No HFT, entrar com sinal "vencido" é garantia de Stop Loss.
 - **Data/Status:** ATIVO. (2026-03-07).
 
-*(Atualizado: 2026-03-07. Versão: 3.2.0-omega)*
- — Phase Ω-Transcendence Consolidation)*
+### DECISÃO 29: INTELLIGENT LOG PACING & DECISION DECOUPLING
+- **Decisão:** Implementação de cooldowns temporais (30-60s) em logs repetitivos (PHI, Chaos Shield, Nuclear Strike) e desacoplamento do log '🎯 DECISION' do TrinityCore para o SniperExecutor.
+- **Justificativa:** O spam de logs cegava o monitoramento humano e desperdiçava IO de terminal. O log de decisão agora só dispara se o trade passar nos gateways de segurança, refletindo apenas execuções reais.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 30: KINEMATIC SYMMETRY & BREAKOUT PRIORITY (Phase 47)
+- **Decisão:** Refatoração dos agentes de `Dynamics` para suavizar o damping cinemático e de volume (15x -> 25x) durante picos de aceleração confirmados por Order Flow (BRR > 0.6).
+- **Justificativa:** A ASI estava vendendo fundos em V-reversals porque o damping agressivo da Phase 29 misturava 'ignição' com 'exaustão'. A nova simetria permite que o Sniper surfe a explosão inicial.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 31: SPREAD TOLERANCE RELAXATION (Darwinian Gen #1)
+- **Decisão:** Elevação do `max_spread_points` de 5000 para 6921.
+- **Justificativa:** Em regimes de alta volatilidade, o spread do BTCUSD via Bridge Socket frequentemente cruzava os 5k, resultando em rejeições de trades de altíssima convicção. A relaxação permitiu liquidez em momentos de "Ignition".
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 32: AGGRESSIVE REGIME SWITCHING (Sensitivity Surge)
+- **Decisão:** Aumento da `regime_sensitivity` de 0.30 para 0.48.
+- **Justificativa:** O bot apresentava inércia (lag) ao sair de regimes "Bearing" para "Ignition". A maior sensibilidade permite transições mais rápidas para a proteção "Chaos Shield" ou agressão "Trend".
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 33: CLUSTER SPACING MULTIPLIER (Safety Surge)
+- **Decisão:** Dobra da distância mínima entre posições da mesma direção (`duplicate_position_distance_atr` 1.0 -> 1.99).
+- **Justificativa:** Prevenção de "Concentração de Risco" em um mesmo range. Ao exigir quase 2 ATRs de distância, a ASI garante que cada slot P-Brane explore uma zona de liquidez distinta.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+*(Atualizado: 2026-03-08. Versão: 3.4.0-omega)*
+ — Phase Ω-Signal Integrity Victory)*

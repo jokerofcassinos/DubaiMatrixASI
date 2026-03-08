@@ -15,7 +15,7 @@ class SupernovaCapacitorAgent(BaseAgent):
     sob alta densidade de ticks, a panela de pressão vai explodir.
     Diferente do ATR (que sobe depois da explosão), o Capacitor atinge 1.0 ANTES da explosão.
     """
-    def __init__(self, weight=2.5):
+    def __init__(self, weight=3.0):
         super().__init__("SupernovaCapacitor", weight=weight)
         self.needs_orderflow = True
 
@@ -43,24 +43,29 @@ class SupernovaCapacitorAgent(BaseAgent):
         confidence = 0.0
         reasoning = "Normal Pressure"
 
-        # Se a velocidade de agressão é insanamente alta (>50 ticks/sec)
-        # MAS o spread não sai do lugar (micro_spread mínimo histórico),
-        # estamos no olho da Fissura de Volatilidade.
-        if tick_velocity > 40.0 and micro_spread <= (snapshot.symbol_info.get('point', 0.01) * 2):
+        # PHASE 47: Refined Supernova Ignition
+        # Se a velocidade de agressão é alta (>30 ticks/sec) 
+        # MAS o spread está comprimido, a explosão é iminente.
+        if tick_velocity > 30.0 and micro_spread <= (snapshot.symbol_info.get('point', 0.01) * 3):
             
-            # Qual o lado que está "empurrando" a porta fechada?
             delta = orderflow_analysis.get('delta', 0.0)
             
-            if delta > 100.0:
-                # Compradores empurrando, mas a parede (limit sell) não cede. 
-                # Quando a parede quebrar, o preço entra em Supernova pra cima.
+            # Detecção de desequilíbrio cumulativo (Order Flow Imbalance)
+            if delta > 75.0:
                 signal = 1.0
                 confidence = 0.95
-                reasoning = "SUPERNOVA CAPACITOR: Bullish Micro-Compression"
-            elif delta < -100.0:
+                reasoning = f"SUPERNOVA IGNITION: Bullish (v={tick_velocity:.1f} d={delta:.1f})"
+            elif delta < -75.0:
                 signal = -1.0
                 confidence = 0.95
-                reasoning = "SUPERNOVA CAPACITOR: Bearish Micro-Compression"
+                reasoning = f"SUPERNOVA IGNITION: Bearish (v={tick_velocity:.1f} d={delta:.1f})"
+            elif tick_velocity > 60.0:
+                # [V-REVERSAL DETECT] Se o preço está parado mas os ticks explodiram, 
+                # seguimos a direção da última vela HFT
+                hft_dir = 1.0 if delta > 0 else -1.0
+                signal = hft_dir * 0.8
+                confidence = 0.90
+                reasoning = f"SUPERNOVA V-PULSE: High Velocity Pulse ({tick_velocity:.1f} t/s)"
                 
         return AgentSignal(
             agent_name=self.name,

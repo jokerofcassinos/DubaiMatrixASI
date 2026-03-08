@@ -107,6 +107,7 @@ class ASIBrain:
         self._cycle_count = 0
         self._last_snapshot = None
         self._last_pnl_prediction = None
+        self._last_log_times = {} # key -> float
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -250,7 +251,12 @@ class ASIBrain:
                     if resp.startswith("ACK:"):
                         prediction = resp.split("ACK:")[1]
                         self._last_pnl_prediction = prediction
-                        log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
+                        
+                        # [PHASE Ω-RESILIENCE] Log Cooldown
+                        now = time.time()
+                        if now - self._last_log_times.get("pnl_pred", 0) > 60.0:
+                            log.omega(f"🔮 [JAVA PnL PREDICTOR] {prediction}")
+                            self._last_log_times["pnl_pred"] = now
             except Exception as e:
                 log.debug(f"Pausa tática: Java PnL Predictor indisponível - {e}")
             # ═══ [PHASE Ω-TRANSCENDENCE] WORMHOLE RECOVERY ═══
@@ -273,8 +279,8 @@ class ASIBrain:
                     )
                     self.executor.execute(rec_decision, self.state, snapshot)
 
-        # Log periódico (a cada 50 ciclos)
-        if self._cycle_count % 50 == 0:
+        # Log periódico (a cada 100 ciclos - redução de ruído)
+        if self._cycle_count % 100 == 0:
             self._log_status(result, quantum_state, regime_state)
 
         return result

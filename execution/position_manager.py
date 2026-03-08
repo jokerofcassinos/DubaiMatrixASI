@@ -55,6 +55,10 @@ class PositionManager:
 
         # Thread pool para disparos paralelos (Phase 44)
         self._close_pool = ThreadPoolExecutor(max_workers=20, thread_name_prefix="ClosePool")
+        
+        # Cooldown de logging para evitar spam (Phase Ω-Resilience)
+        self._last_nuke_log_time = {} # anchor_ticket -> float
+        self._close_attempt_time = {} # ticket -> float (diagnostic)
     @catch_and_log(default_return=None)
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
         """
@@ -228,11 +232,30 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             if should_close:
                 symbol = g_data.get('symbol', 'UNKNOWN')
-                log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {symbol}")
+                
+                # [PHASE Ω-RESILIENCE] Global cooldown por símbolo/razão para evitar spam de slots independentes
+                now = time.time()
+                log_key = f"nuke_{symbol}_{reason[:20]}"
+                if now - self._last_nuke_log_time.get(log_key, 0) > 30.0:
+                    log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {symbol}")
+                    self._last_nuke_log_time[log_key] = now
+                    
                 for p in g_tickets:
                     ticket = p.get('ticket')
                     if ticket:
                         self._close_with_notify(ticket, "BUY" if g_is_buy else "SELL")
+
+        # ═══ [PHASE Ω-RESILIENCE] Close Monitor Diagnostic ═══
+        now = time.time()
+        for ticket in list(self._closing_tickets):
+            attempt_time = self._close_attempt_time.get(ticket, now)
+            if now - attempt_time > 2.0:
+                # Se ainda está na lista fechando após 2s, algo está errado (Socket/EA delay)
+                if ticket in current_tickets:
+                    log_key = f"lag_{ticket}"
+                    if now - self._last_nuke_log_time.get(log_key, 0) > 30.0:
+                        log.warning(f"⚠️ CLOSE_LAG: Ticket {ticket} ainda aberto após 2s do sinal de fechar.")
+                        self._last_nuke_log_time[log_key] = now
 
         # ═══ CLEANUP: Remover tickets fechados do state e da lista de pendentes ═══
         closed = [t for t in list(self._positions_state.keys()) if t not in current_tickets]
@@ -240,6 +263,10 @@ class PositionManager:
             del self._positions_state[t]
             if t in self._closing_tickets:
                 self._closing_tickets.remove(t)
+            if t in self._close_attempt_time:
+                del self._close_attempt_time[t]
+            if t in self._last_nuke_log_time:
+                del self._last_nuke_log_time[t]
 
     def _close_with_notify(self, ticket: int, direction: str):
         """Marca o ticket como fechando e dispara via pool paralela (Phase 44)."""
@@ -247,6 +274,7 @@ class PositionManager:
             return
             
         self._closing_tickets.add(ticket)
+        self._close_attempt_time[ticket] = time.time()
         
         def _exec_close():
             self.bridge.close_position(ticket)

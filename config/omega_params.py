@@ -121,8 +121,8 @@ class OmegaParameterSpace:
                         "% do saldo por posição")
         self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
-        self._register("stop_loss_atr_mult", 0.5, 0.2, 3.0,
-                        "Multiplicador ATR para stop loss (Recalibrado Phase 46)")
+        self._register("stop_loss_atr_mult", 0.75, 0.2, 3.0,
+                        "Multiplicador ATR para stop loss (Estabilizado Phase 47)")
         self._register("take_profit_atr_mult", 1.0, 0.3, 5.0,
                         "Multiplicador ATR para take profit (Recalibrado Phase 46)")
         self._register("trailing_stop_atr_mult", 0.5, 0.2, 2.0,
@@ -147,7 +147,7 @@ class OmegaParameterSpace:
                         "Multiplicador de agressividade em regime caótico")
 
         # ═══ PHASE 22 & 23: CONVICTION & SMART TP PARAMETERS ═══
-        self._register("high_conviction_multiplier", 15.0, 1.0, 30.0,
+        self._register("high_conviction_multiplier", 20.0, 1.0, 50.0,
                         "Multiplicador do Lot Size quando Coerência > 0.8 e Confiança > 0.8")
         self._register("smart_tp_micro_reversal_buffer", 20.0, 5.0, 100.0,
                         "Buffer de lucro ($) para ativar saída agressiva por reversão de delta (Reduzido p/ Agilidade)")
@@ -168,8 +168,8 @@ class OmegaParameterSpace:
                         "Peso do agente de volume")
         self._register("weight_pattern", 0.7, 0.1, 3.0,
                         "Peso do agente de padrões")
-        self._register("weight_volatility", 0.9, 0.1, 3.0,
-                        "Peso do agente de volatilidade")
+        self._register("weight_volatility", 1.1, 0.1, 3.0,
+                        "Peso do agente de volatilidade (Normalizado Phase 47)")
         self._register("weight_microstructure", 1.2, 0.1, 3.0,
                         "Peso do agente de microestrutura")
         self._register("weight_sentiment", 0.5, 0.1, 2.0,
@@ -196,7 +196,7 @@ class OmegaParameterSpace:
         # ═══ ANTI-METRALHADORA PARAMETERS ═══
         self._register("entry_cooldown_seconds", 60.0, 10.0, 300.0,
                         "Cooldown mínimo (segundos) entre entradas consecutivas")
-        self._register("min_entry_distance_atr", 0.3, 0.1, 3.0,
+        self._register("min_entry_distance_atr", 0.7, 0.1, 3.0,
                         "Distância mínima da última entrada em múltiplos de ATR")
         self._register("duplicate_position_distance_atr", 1.0, 0.3, 5.0,
                         "Distância mínima de posição existente na mesma direção em ATR")
@@ -224,7 +224,7 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.15, 0.01, 1.0,
+        self._register("phi_min_threshold", 0.10, 0.01, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
@@ -232,6 +232,13 @@ class OmegaParameterSpace:
                         "Habilita a dilatação temporal relativística do loop de consciência")
         self._register("evt_tail_threshold", 2.50, 2.0, 5.0,
                         "Threshold de cauda (EVT) para detecção de Black Swan")
+
+        # ═══ PHASE Ω-SINGULARITY: P-BRANE LIMIT EXECUTION ═══
+        self._register("limit_execution_mode", 1.0, 0.0, 1.0,
+                        "Habilita execução via Limit Orders (Maker) em regimes de drift")
+        self._register("p_brane_jitter_offset_points", 0.0, -100.0, 100.0,
+                        "Offset em points para posicionamento da P-Brane na extremidade do spread")
+
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

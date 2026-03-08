@@ -122,9 +122,9 @@ class TimeEngine:
         if "NY_OPEN" in sessions or "LONDON_OPEN" in sessions:
             score += 0.1
 
-        # Weekend = penalidade
+        # Weekend = penalidade menor para permitir Sniper de movimentos reais
         if cls.is_weekend():
-            score -= 0.3
+            score -= 0.15  # Reduzido de 0.3 para 0.15
 
         # Madrugada = penalidade
         hour = now.hour

@@ -4381,3 +4381,46 @@
 [DubaiMatrixASI] 18:19:59.666    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 18:19:59.685    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 18:52:09.053    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 19:15:41.246    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:32:18.803    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:19.037    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:19.313    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:19.537    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:19.814    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:20.098    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:20.327    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:20.590    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:20.833    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:21.098    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:21.337    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:21.611    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:21.813    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:22.101    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:22.393    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:22.601    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:32:22.817    ERROR │ 💀 EXCEPTION in [decide]: AttributeError: 'MarketSnapshot' object has no attribute 'market_context'
+[DubaiMatrixASI] 20:45:15.910    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:57:37.735    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:57:44.531    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:57:44.597    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_market]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:00:40.230    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:00:40.278    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:26:39.499    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.500    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.500    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.500    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.500    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.510    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.511    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.511    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.511    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 21:26:39.524    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.544    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.557    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.563    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.563    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.564    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.564    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.565    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:26:39.565    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 21:49:11.091    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))

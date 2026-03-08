@@ -76,4 +76,10 @@
 - **Descrição:** O Profit Lock ignorava drawdowns se o lucro caísse para zero ou negativo instantaneamente devido ao gate `avg_profit > 0`.
 - **Resolução:** [2026-03-07] Refatorada a lógica para tratar evaporação total como drawdown de 100% e adicionado nuke se lucro > $5 cair para < $1.
 
-*(Atualizado: 2026-03-07. Versão: 10.3.0-omega+transcendence)*
+### DÍVIDA TÉCNICA 14: Regime Detection Lag in V-Reversals
+- **Localização:** `core/consciousness/regime_detector.py`.
+- **Descrição:** O detector de regime utiliza médias M5/M15 que possuem inércia física. Em reversões violentas de <60s, o regime permanece "Bearish" enquanto o preço já explodiu em "Ignition Bullish".
+- **Risco:** [AMARELO] Conflito de bias (Regime v. Agentes Speed) induzindo trades contra-intuitivos.
+- **Solução Proposta:** Implementar transição instantânea de regime se o `SupernovaCapacitor` detectar `V-PULSE`.
+
+*(Atualizado: 2026-03-08. Versão: 10.4.0-omega+phase47)*

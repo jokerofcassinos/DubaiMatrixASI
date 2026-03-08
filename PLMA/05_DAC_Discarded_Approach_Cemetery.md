@@ -21,4 +21,10 @@
 - **Data do Óbito:** 2026-03-07.
 - **Condição para Retorno:** **NENHUMA**. Código Java deve ser purista ASCII-7 para garantir portabilidade em compiladores legados ou ambientes Windows/UTF-8 conflitantes.
 
-*(Atualizado: 2026-03-04. Versão: 1.0.0-omega)*
+### SEPULTAMENTO 04: Absolute Kinematic Damping (Phase 29)
+- **Conceito Original:** Damping agressivo de sinal (70%) se velocidade corporal ou aceleração do tick superassem thresholds fixos (ex: 15x vol).
+- **Motivo da Rejeição:** Veto de ignição. O filtro era incapaz de distinguir entre o fim de um movimento (exaustão) e o início de uma explosão (ignição). Causou a inversão de sinal (venda no fundo do repique) em V-reversals do BTC.
+- **Data do Óbito:** 2026-03-08.
+- **Condição para Retorno:** NENHUMA em formato absoluto. Substituído por Simetria Dinâmica (Phase 47).
+
+*(Atualizado: 2026-03-08. Versão: 1.1.0-omega)*

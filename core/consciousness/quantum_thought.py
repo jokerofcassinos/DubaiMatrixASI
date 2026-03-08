@@ -447,24 +447,31 @@ class QuantumThoughtEngine:
         max_entropy = OMEGA.get("max_resolution_entropy", 0.65)
         
         # ═══ 1. ISO: INSTITUTIONAL SUPERIORITY OVERRIDE ═══
-        # Se os agentes institucionais estão muito coerentes, eles vencem a discordância matemática.
+        # Se os agentes institucionais estão muito coerentes e com peso forte, 
+        # eles vencem a discordância matemática.
         inst_agents = {
             "WhaleTrackerAgent", "IcebergHunterAgent", "StopHunterAgent", 
-            "InstitutionalFootprintAgent", "LiquidityHeatmapAgent", "OrderBlockAgent"
+            "InstitutionalFootprintAgent", "LiquidityHeatmapAgent", "OrderBlockAgent",
+            "LiquidationVacuumAgent", "AggressivenessAgent"
         }
-        inst_sigs = [s for s in signals if s.agent_name in inst_agents]
+        inst_sigs = [s for s in signals if s.agent_name in inst_agents and abs(s.signal) > 0.2]
         
-        if inst_sigs:
-            inst_bull = sum(1 for s in inst_sigs if s.signal > 0.3)
-            inst_bear = sum(1 for s in inst_sigs if s.signal < -0.3)
-            inst_coh = max(inst_bull, inst_bear) / len(inst_sigs)
-            
-            if inst_coh >= inst_thresh:
-                resolution["resolved"] = True
-                resolution["signal"] = 1.0 if inst_bull > inst_bear else -1.0
-                resolution["confidence"] = min(0.95, confidence * conf_mult)
-                resolution["method"] = "INSTITUTIONAL_SUPERIORITY"
-                return resolution
+        if len(inst_sigs) >= 3:
+            # Cálculo ponderado pelo peso do agente (autoridade)
+            total_weight = sum(s.weight for s in inst_sigs)
+            if total_weight > 0:
+                weighted_avg_inst = sum(s.signal * s.weight for s in inst_sigs) / total_weight
+                inst_bull = sum(1 for s in inst_sigs if s.signal > 0)
+                inst_bear = sum(1 for s in inst_sigs if s.signal < 0)
+                inst_coh = max(inst_bull, inst_bear) / len(inst_sigs)
+                
+                # Critério de Superioridade: Coerência > 75% E sinal ponderado > 0.65
+                if inst_coh >= inst_thresh and abs(weighted_avg_inst) > 0.65:
+                    resolution["resolved"] = True
+                    resolution["signal"] = 1.0 if weighted_avg_inst > 0 else -1.0
+                    resolution["confidence"] = min(0.95, confidence * conf_mult)
+                    resolution["method"] = f"INSTITUTIONAL_WEIGHTED({weighted_avg_inst:.2f})"
+                    return resolution
 
         # ═══ 2. RAD: REGIME-ANCHORED DECOHERENCE ═══
         # Se o sinal bruto está alinhado com o momentum do regime, resolvemos a favor do regime.

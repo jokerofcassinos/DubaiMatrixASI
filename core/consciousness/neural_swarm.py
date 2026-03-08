@@ -13,6 +13,7 @@ from typing import Optional, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from utils.logger import log
+from utils.decorators import ast_self_heal
 
 # ═══════════════════════════════════════════════════════════════
 #  IMPORTAÇÃO MODULAR DE AGENTES
@@ -286,6 +287,7 @@ class NeuralSwarm:
             ExecutionScalerAgent(),
         ]
 
+    @ast_self_heal
     def analyze(self, snapshot, orderflow_analysis: dict = None, **kwargs) -> List[AgentSignal]:
         """
         Executa TODOS os agentes EM PARALELO e coleta seus sinais.
