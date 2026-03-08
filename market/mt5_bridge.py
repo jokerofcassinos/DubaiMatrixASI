@@ -902,36 +902,69 @@ class MT5Bridge:
         log.omega(f"🔴 EMERGENCY: {closed}/{len(positions)} posições fechadas")
         return closed
 
+    def get_pending_orders(self) -> Optional[List[dict]]:
+        """Lista de ordens pendentes (Limit/Stop)."""
+        if not self.connected:
+            return None
+
+        orders = mt5.orders_get(symbol=self.symbol)
+        if orders is None:
+            err = mt5.last_error()
+            if err[0] == mt5.RES_S_OK:
+                return []
+            return None
+
+        return [
+            {
+                "ticket": o.ticket,
+                "symbol": o.symbol,
+                "type": "BUY_LIMIT" if o.type == mt5.ORDER_TYPE_BUY_LIMIT else "SELL_LIMIT",
+                "volume": o.volume_initial,
+                "price": o.price_open,
+                "sl": o.sl,
+                "tp": o.tp,
+                "time": o.time_setup,
+                "magic": o.magic,
+                "comment": o.comment,
+            }
+            for o in orders
+        ]
+
     # ═══════════════════════════════════════════════════════════
     #  HISTÓRICO & AUDITORIA
     # ═══════════════════════════════════════════════════════════
 
-    def get_closed_deals(self, from_date: datetime, to_date: datetime = None) -> List[dict]:
-        """Recupera deals do histórico no período solicitado."""
+    def get_closed_deals(self, from_time: int, to_time: int = None) -> List[dict]:
+        """Recupera deals do histórico no período solicitado usando timestamps unix converted to naive datetime."""
         if not self.connected:
             return []
         
-        # [Phase Ω-Resilience] Handle server time offsets by looking into the "future"
-        _to_date = to_date if to_date else (datetime.now() + timedelta(days=2))
+        # [Phase Ω-Resilience] MT5 Python API prefers NAIVE datetimes (local terminal time)
+        # We convert the unix timestamp to a naive datetime object.
+        from_dt = datetime.fromtimestamp(from_time)
         
-        # Remove group filter to avoid case-sensitivity issues with symbols like 'btcusd' vs 'BTCUSD'
-        deals = mt5.history_deals_get(from_date, _to_date)
+        if to_time:
+            to_dt = datetime.fromtimestamp(to_time)
+        else:
+            # Look 2 days into the future to ensure we catch everything regardless of server offset
+            to_dt = datetime.now() + timedelta(days=2)
+        
+        deals = mt5.history_deals_get(from_dt, to_dt)
         if deals is None:
+            err = mt5.last_error()
+            if err[0] != mt5.RES_S_OK:
+                log.debug(f"⚠️ history_deals_get returned None (Code: {err[0]})")
             return []
         
-        # Mapear objetos MT5 para dicionários limpos
         result = []
         target_symbol = self.symbol.upper()
         
         for d in deals:
-            # Filtrar por símbolo manualmente (case-insensitive)
             deal_symbol = d.symbol.upper()
+            # Filtrar por símbolo (case-insensitive e partial match para prefixos/sufixos de corretora)
             if target_symbol not in deal_symbol and deal_symbol not in target_symbol:
-                # [Phase Ω-Resilience] Relaxed match for symbols like 'BTCUSD.m' or 'btcusd'
                 continue
                 
-            # Pegar apenas DEALS de saída (entry out / entry out by)
-            # Mas para auditoria de comissão/swap, precisamos de todos
             result.append({
                 "ticket": d.ticket,
                 "order": d.order,

@@ -319,9 +319,8 @@ class TrinityCore:
         # Em regimes de ruído ou queda lenta (Drifting), alargamos o range para evitar stop-hunting.
         dynamic_sl_mult = sl_mult
         if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-            # Em DRIFTING ou Ruído, o preço faz muitos pullbacks de 1 ATR.
-            # O multiplicador de 2.5x garante que o trade tenha espaço para respirar.
-            dynamic_sl_mult *= 2.5 
+            # Reduzido de 2.5 para 1.8 para aproximar o SL e evitar perdas profundas
+            dynamic_sl_mult *= 1.8 
             
             # [PHASE Ω-RESILIENCE] Log Cooldown (Avoid spam on every cycle)
             mult_delta = abs(dynamic_sl_mult - self._last_sl_mult)

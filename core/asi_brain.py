@@ -102,8 +102,9 @@ class ASIBrain:
         self._last_snapshot = None
         self._last_pnl_prediction = None
         self._last_log_times = {} # key -> float
-        # [Phase Ω-Darwin] Sincronização inicial: auditar as últimas 24h ou desde a última corrida
-        self._last_history_poll = time.time() - 86400 
+        self._history_synced = False # [Phase Ω-Darwin]
+        # [Phase Ω-Darwin] Sincronização inicial: auditar os últimos 7 dias para garantir histórico completo
+        self._last_history_poll = time.time() - (86400 * 7) 
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -188,21 +189,35 @@ class ASIBrain:
 
         # ═══ 7. EXECUÇÃO — Se não é WAIT ═══
         if decision and decision.action != Action.WAIT:
-            execution_result = self.executor.execute(
-                decision, self.state, snapshot
-            )
+            # [Phase Ω-Singularity] Pending Order Veto: Evita duplicar ignição se já houver LIMIT pendente
+            pending = self.bridge.get_pending_orders()
+            already_pending = False
+            if pending:
+                for po in pending:
+                    # Se temos ordem LIMIT na mesma direção, bloqueia novo disparo
+                    po_type = "BUY" if "BUY" in po['type'] else "SELL"
+                    if po_type == decision.action.value:
+                        already_pending = True
+                        break
             
-            # [PHASE 48] 🎯 IMMEDIATE IGNITION PULSE
-            log.omega(
-                f"🎯 IGNITION: {decision.action.value} {snapshot.symbol} | "
-                f"S={quantum_state.raw_signal:+.3f} PHI={quantum_state.phi:.2f} "
-                f"R={regime_state.current.value if regime_state else 'UNK'}"
-            )
+            if already_pending:
+                log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
+            else:
+                execution_result = self.executor.execute(
+                    decision, self.state, snapshot
+                )
+                
+                # [PHASE 48] 🎯 IMMEDIATE IGNITION PULSE
+                log.omega(
+                    f"🎯 IGNITION: {decision.action.value} {snapshot.symbol} | "
+                    f"S={quantum_state.raw_signal:+.3f} PHI={quantum_state.phi:.2f} "
+                    f"R={regime_state.current.value if regime_state else 'UNK'}"
+                )
 
-            if execution_result and execution_result.get("success"):
-                result["executed"] = True
-                result["ticket"] = execution_result.get("ticket")
-                result["price"] = execution_result.get("price")
+                if execution_result and execution_result.get("success"):
+                    result["executed"] = True
+                    result["ticket"] = execution_result.get("ticket")
+                    result["price"] = execution_result.get("price")
 
         # ═══ 8. MONITORAR POSIÇÕES ABERTAS (POSITION MANAGER / SMART TP) ═══
         self.position_manager.monitor_positions(snapshot, flow_analysis)
@@ -283,8 +298,8 @@ class ASIBrain:
                     self.executor.execute(rec_decision, self.state, snapshot)
 
         # ═══ 12. REFLEXÃO (CONSCIOUSNESS FEEDBACK) ═══
-        # A cada 600 ciclos (~1 minuto), audita o histórico real do MT5
-        if self._cycle_count % 600 == 0:
+        # No primeiro ciclo e a cada 300 ciclos (~30 segundos), audita o histórico real do MT5
+        if self._cycle_count == 1 or self._cycle_count % 300 == 0:
             self._reflection_phase(snapshot)
 
         # Log periódico (a cada 30 ciclos - [PHASE 48] ELEVATED HEARTBEAT)
@@ -300,22 +315,37 @@ class ASIBrain:
         """
         from core.evolution.performance_tracker import TradeRecord
         
-        # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
-        now = datetime.now()
-        # Buscamos deals desde o último poll + um buffer de segurança de 30s
-        last_poll_dt = datetime.fromtimestamp(self._last_history_poll, tz=timezone.utc)
+        # [Phase Ω-Resilience] Sincronizar saldo inicial para Drawdown real
+        if snapshot and snapshot.account:
+            self.performance_tracker.set_initial_balance(snapshot.account.get('balance', 100000.0))
         
-        deals = self.bridge.get_closed_deals(last_poll_dt, now)
-        self._last_history_poll = time.time()
+        # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
+        # Na primeira vez, forçamos um scan profundo de 30 dias se o histórico estiver muito curto
+        if not self._history_synced and self.performance_tracker.total_trades < 100:
+            from_ts = int(time.time() - (86400 * 30))
+            log.omega(f"🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).")
+        else:
+            from_ts = int(self._last_history_poll)
+        
+        # Polling do histórico usando a nova assinatura de timestamp
+        deals = self.bridge.get_closed_deals(from_ts, None)
+        
+        if deals:
+            # Só atualiza o marcador se de fato consultamos e houve deals
+            self._last_history_poll = time.time()
+            self._history_synced = True
 
         if not deals:
             return
 
+        processed_count = 0
+        new_count = 0
         for deal in deals:
-            # Entry Out (1) ou Out By (3) indica fechamento de posição
-            if deal.get("entry") not in [1, 3]:
+            # Entry Out (1), INOUT (2) ou Out By (3) indica fechamento de posição ou reversão
+            if deal.get("entry") not in [1, 2, 3]:
                 continue
-                
+            
+            processed_count += 1
             # Recuperar P&L líquido real (Soma dos deals da posição)
             pos_id = deal.get("position_id")
             pos_deals = self.bridge.get_deals_by_position(pos_id)
@@ -360,6 +390,8 @@ class ASIBrain:
             
             # Registrar na consciência permanente
             is_new = self.performance_tracker.record_trade(record)
+            if is_new:
+                new_count += 1
             
             # [PHASE Ω-ANTI-FRAGILITY] Notificar TrinityCore sobre perdas para o gate ANTI-PING-PONG
             # Apenas se for um trade NOVO e RECENTE (últimos 5 minutos)
@@ -375,7 +407,7 @@ class ASIBrain:
         # 4. Auto-Otimização Darwiniana (Phase 5)
         self.self_optimizer.check_and_optimize(self.performance_tracker)
 
-        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals analisados. P&L Líquido: ${self.state.total_profit:+.2f}")
+        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals na fita, {processed_count} fechamentos analisados, {new_count} novos registros. P&L Líquido: ${self.state.total_profit:+.2f}")
 
     def _get_session_name(self, timestamp: float) -> str:
         """Determina a sessão de mercado baseada na hora (UTC)."""

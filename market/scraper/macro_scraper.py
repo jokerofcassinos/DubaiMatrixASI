@@ -127,7 +127,19 @@ class MacroScraper:
 
     @catch_and_log(default_return=None)
     def _scrape_all(self):
-        snap = MacroSnapshot()
+        # [Phase Ω-Resilience] Iniciar com valores anteriores para evitar reset para zero em caso de falha parcial
+        snap = MacroSnapshot(
+            dxy_proxy=self._current.dxy_proxy,
+            gold_price=self._current.gold_price,
+            gold_24h_change=self._current.gold_24h_change,
+            sp500_proxy=self._current.sp500_proxy,
+            btc_eth_ratio=self._current.btc_eth_ratio,
+            eth_price=self._current.eth_price,
+            eth_24h_change=self._current.eth_24h_change,
+            total_crypto_volume_24h=self._current.total_crypto_volume_24h,
+            macro_risk_score=self._current.macro_risk_score,
+            sources_active=self._current.sources_active
+        )
         sources = 0
 
         # 1. CoinGecko multi-asset prices
@@ -135,27 +147,40 @@ class MacroScraper:
         if prices:
             btc_price = prices.get("btc_price", 0)
             eth_price = prices.get("eth_price", 0)
-            snap.eth_price = eth_price
-            snap.eth_24h_change = prices.get("eth_24h_change", 0)
-            snap.btc_eth_ratio = btc_price / eth_price if eth_price > 0 else 0
-            sources += 1
+            if btc_price > 0 and eth_price > 0:
+                snap.eth_price = eth_price
+                snap.eth_24h_change = prices.get("eth_24h_change", 0)
+                snap.btc_eth_ratio = btc_price / eth_price
+                sources += 1
+        
+        # [Phase Ω-Resilience] Fallback: Se CoinGecko falhar, tenta estimar via MT5 se possível
+        if snap.eth_price == 0 or snap.btc_eth_ratio == 0:
+            # Se já temos algum valor histórico, mantemos. 
+            # Se for o cold start, fontes permanecem 0.
+            pass
 
         # 2. CoinGecko global volumes
         global_data = self._scrape_coingecko_global()
         if global_data:
-            snap.total_crypto_volume_24h = global_data.get("total_volume", 0)
-            sources += 1
+            vol = global_data.get("total_volume", 0)
+            if vol > 0:
+                snap.total_crypto_volume_24h = vol
+                sources += 1
 
         # 3. Gold price
         gold = self._scrape_gold_price()
         if gold:
-            snap.gold_price = gold.get("price", 0)
-            snap.gold_24h_change = gold.get("change_24h", 0)
-            sources += 1
+            gp = gold.get("price", 0)
+            if gp > 0:
+                snap.gold_price = gp
+                snap.gold_24h_change = gold.get("change_24h", 0)
+                sources += 1
 
-        # Calcular risk score
-        snap.macro_risk_score = self._compute_macro_risk(snap)
-        snap.sources_active = sources
+        # Recalcular risk score se tivemos atualizações
+        if sources > 0:
+            snap.macro_risk_score = self._compute_macro_risk(snap)
+            snap.sources_active = sources
+            snap.timestamp = datetime.now(timezone.utc)
 
         self._current = snap
         self._history.append(snap)

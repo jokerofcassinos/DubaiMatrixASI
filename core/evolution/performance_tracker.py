@@ -64,7 +64,8 @@ class PerformanceTracker:
 
     def __init__(self):
         self._trades: List[TradeRecord] = []
-        self._equity_curve: List[float] = [0.0]
+        self._initial_balance: float = 100000.0 # Default fallback
+        self._equity_curve: List[float] = [] # Will be initialized on first trade or load
         self._peak_equity: float = 0.0
         self._max_drawdown: float = 0.0
         self._max_drawdown_pct: float = 0.0
@@ -78,8 +79,19 @@ class PerformanceTracker:
         self._trades_file = os.path.join(DATA_DIR, "trade_history.json")
         self._load_history()
 
+    def set_initial_balance(self, balance: float):
+        """Define o saldo inicial para cálculos de drawdown real."""
+        if not self._equity_curve:
+            self._initial_balance = balance
+            self._equity_curve = [balance]
+            self._peak_equity = balance
+
     def record_trade(self, trade: TradeRecord) -> bool:
         """Registra um novo trade completado ou atualiza existente. Retorna True se for novo."""
+        # [CRITICAL FIX] Always validate win status based on final net profit
+        # Do this BEFORE any returns to ensure updates carry the correct status
+        trade.is_winner = trade.profit > 0
+
         # [Phase Ω-Darwin] Deduplication & Update Check
         for i, existing in enumerate(self._trades):
             if existing.ticket == trade.ticket:
@@ -89,24 +101,24 @@ class PerformanceTracker:
                 return False
 
         # [Phase 36] Commission Deduction (Skip if already calculated by Brain)
-        # Se profit estiver vindo zerado ou sem comissão real, aplicamos a estimativa
         if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
-            # Fallback conservative estimate (FTMO is ~7, some brokers ~15)
             comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
             trade.commission = -(trade.lot_size * comm_per_lot)
-            trade.profit += trade.commission # Ajustar profit líquido se não tinha comissão
-        
-        # [CRITICAL FIX] Always validate win status based on final net profit
-        trade.is_winner = trade.profit > 0
+            trade.profit += trade.commission 
+            trade.is_winner = trade.profit > 0 # Re-check after commission
 
         self._trades.append(trade)
         self._ticket_index.add(trade.ticket)
 
-        # Atualizar equity curve
+        # Inicializar curva se vazia
+        if not self._equity_curve:
+            self._equity_curve = [self._initial_balance]
+
+        # Atualizar equity curve (Saldo Absoluto)
         current_equity = self._equity_curve[-1] + trade.profit
         self._equity_curve.append(current_equity)
 
-        # Atualizar peak e drawdown
+        # Atualizar peak e drawdown (Baseado no saldo total da conta)
         if current_equity > self._peak_equity:
             self._peak_equity = current_equity
         
@@ -115,7 +127,7 @@ class PerformanceTracker:
             self._max_drawdown = dd
         
         if self._peak_equity > 0:
-            dd_pct = dd / self._peak_equity
+            dd_pct = (dd / self._peak_equity) * 100.0
             if dd_pct > self._max_drawdown_pct:
                 self._max_drawdown_pct = dd_pct
 
@@ -140,6 +152,7 @@ class PerformanceTracker:
             f"{'✅ WIN' if trade.is_winner else '❌ LOSS'} | "
             f"Regime={trade.regime_at_entry}"
         )
+        return True
 
     @property
     def total_trades(self) -> int:

@@ -1,0 +1,5 @@
+[DubaiMatrixASI] 14:05:22.414    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:33:58.220    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_market]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:34:55.788    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 14:46:23.543    ERROR │ Erro ao carregar histórico: list index out of range
+[DubaiMatrixASI] 14:46:37.586    ERROR │ Erro ao carregar histórico: list index out of range

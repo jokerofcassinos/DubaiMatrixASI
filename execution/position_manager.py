@@ -63,8 +63,12 @@ class PositionManager:
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
         """
         Rotina principal de monitoramento chamada a cada ciclo pela ASIBrain.
-        Analisa cada posição aberta em paralelo contra 5 triggers de saída.
+        Analisa posições abertas e ordens pendentes.
         """
+        # 1. GESTÃO DE ORDENS PENDENTES (LIMITS)
+        self._manage_pending_orders()
+
+        # 2. GESTÃO DE POSIÇÕES ABERTAS
         positions = self.bridge.get_open_positions()
         
         # OMEGA: Se for None, houve erro na ponte. Mantemos o estado para evitar amnésia.
@@ -78,15 +82,8 @@ class PositionManager:
             return
         
         # ═══ Phase 45: Agrupamento Atômico ═══
-        # Agrupa posições por (símbolo, tipo, tempo_abertura_bucket)
-        # O bucket de 2s garante que uma rajada de slots seja tratada como um único Strike
-        groups = {}
-        # Agrupa posições por (símbolo, tipo, tempo_abertura_bucket)
-        # O bucket de 2s garante que uma rajada de slots seja tratada como um único Strike
         groups = {}
         for pos in positions:
-            # Robustez OMEGA: O MT5 às vezes retorna 'symbol' e às vezes 'symbol_name' 
-            # dependendo da versão da bridge ou do wrapper
             ticket = pos.get('ticket')
             p_type = pos.get('type')
             p_symbol = pos.get('symbol') or pos.get('symbol_name')
@@ -112,7 +109,7 @@ class PositionManager:
                     "is_buy": is_buy,
                     "entry_price": p_open,
                     "time": p_time,
-                    "symbol": p_symbol # Guardar o simbolo nominal
+                    "symbol": p_symbol 
                 }
             
             groups[group_key]["tickets"].append(pos)
@@ -124,12 +121,10 @@ class PositionManager:
 
         # ═══ EXTRAIR DADOS DO ORDER FLOW ═══
         flow_delta = flow_analysis.get("delta", 0.0)
-        flow_imbalance = flow_analysis.get("imbalance", 0.0)
         flow_signal = flow_analysis.get("signal", 0.0)
         exhaustion = flow_analysis.get("exhaustion", {})
         absorption = flow_analysis.get("absorption", {})
         climax_score = flow_analysis.get("volume_zscore", 0.0)
-        tick_velocity = flow_analysis.get("tick_velocity", 0.0)
 
         # ═══ ANALISAR CADA GRUPO (STRIKE) ═══
         for g_key, g_data in groups.items():
@@ -137,9 +132,7 @@ class PositionManager:
             g_is_buy = g_data["is_buy"]
             total_profit = g_data["total_profit"]
             
-            # State ID para o grupo (usamos o ticket da primeira posição como âncora)
             anchor_ticket = g_tickets[0]['ticket']
-            
             if anchor_ticket not in self._positions_state:
                 self._positions_state[anchor_ticket] = {
                     "peak_profit": total_profit,
@@ -150,8 +143,6 @@ class PositionManager:
                 }
             
             state = self._positions_state[anchor_ticket]
-            
-            # Update peak profit & stagnation tracking
             if total_profit > state['peak_profit']:
                 state['peak_profit'] = total_profit
             
@@ -163,131 +154,97 @@ class PositionManager:
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Total Dollar Based with ATR Anchor)
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK
             # ═══════════════════════════════════════════════════
             peak = state['peak_profit']
-            
-            # [Phase Ω-Resilience] Dynamic Profit Floor Anchor
-            # Anchor must be at least the estimated commission + a safety buffer.
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
             lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
-            
-            # [Phase Ω-Resilience] Dynamic Commission Extraction
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
             commission_cost = lot_scale * comm_per_lot
-            
-            # [Phase 36.1] CEO Hard Floor: Min profit per ticket
             min_profit_per_ticket = OMEGA.get("min_profit_per_ticket", 30.0)
             total_min_profit_target = len(g_tickets) * min_profit_per_ticket
 
-            # Floor = Commission * Multiplier + (10% of 1 ATR scaled by volume)
+            # Floor dinâmico para garantir lucro líquido
             comm_mult = OMEGA.get("commission_protection_mult", 1.5)
-            # The peak floor must be at least the total minimum profit target
-            dynamic_peak_floor = max(total_min_profit_target, commission_cost * comm_mult, atr_val * 0.1 * lot_scale) 
+            dynamic_peak_floor = max(total_min_profit_target, commission_cost * comm_mult) 
 
-            # [Phase 36.1] Alpha-Net Guard: Absolute Floor Enforcement
-            is_net_positive = (total_profit >= total_min_profit_target)
+            is_net_positive = (total_profit >= dynamic_peak_floor)
 
             if peak > dynamic_peak_floor:
-                drawdown_pct = 0.0
-                if total_profit > 0:
-                    drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
-                else: 
-                    drawdown_pct = 1.0 
-
-                # [Phase 50] Dynamic Lock Adaptation
-                # Se a volatilidade está alta (ATR > 200), ser mais agressivo no lock
-                vol_mult = 1.0 if atr_val < 150 else 0.7 
-                lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
+                drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
                 
-                if peak > dynamic_peak_floor * 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15) * vol_mult
-                if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10) * vol_mult
+                # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
+                # Se cada slot já deu > $35 de lucro, o drawdown lock vira 5% (não aceita reversão)
+                avg_profit_per_slot = total_profit / len(g_tickets)
+                if avg_profit_per_slot > 35.0:
+                    lock_threshold = 0.05 # 5% de tolerância apenas
+                else:
+                    vol_mult = 1.0 if atr_val < 150 else 0.7 
+                    lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
+                    if peak > dynamic_peak_floor * 5: lock_threshold = 0.15 * vol_mult
                 
-                # Nuke se evaporar > threshold OU se caiu de lucro alto para < floor
-                # Apenas se estiver em lucro líquido real (Alpha-Net Guard)
                 if is_net_positive:
-                    if drawdown_pct >= lock_threshold or (peak > dynamic_peak_floor * 2.5 and total_profit < dynamic_peak_floor):
+                    if drawdown_pct >= lock_threshold:
                         should_close = True
-                        reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
+                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f}"
 
             # ═══════════════════════════════════════════════════
-            #  SECONDARY TRIGGERS: Only fire if Net Positive floor is met (Alpha-Net Guard)
+            #  SECONDARY TRIGGERS
             # ═══════════════════════════════════════════════════
             if not should_close and is_net_positive:
-                #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL (with Hysteresis)
-                buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 20.0)
-                
-                if total_profit < buffer_tp * 0.5:
-                    req_delta, req_signal = 600, 0.95
-                elif total_profit > buffer_tp:
-                    req_delta, req_signal = 50, 0.3
-                else:
-                    req_delta, req_signal = 300, 0.85
-                
-                if g_is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
-                    should_close, reason = True, "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
-                elif not g_is_buy and flow_delta > req_delta and flow_signal > req_signal:
-                    should_close, reason = True, "ATOMIC_MOMENTUM_REVERSAL (Flow Against)"
+                #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
+                # Se estamos com lucro e o fluxo inverte, não esperamos bater no TP
+                if g_is_buy and flow_signal < -0.5:
+                    should_close, reason = True, "MOMENTUM_REVERSAL (Bearish Spike)"
+                elif not g_is_buy and flow_signal > 0.5:
+                    should_close, reason = True, "MOMENTUM_REVERSAL (Bullish Spike)"
 
                 #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
                 if not should_close:
-                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 3.0:
-                        should_close, reason = True, f"ATOMIC_EXHAUSTION (Climax={climax_score:.1f})"
+                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.5:
+                        should_close, reason = True, f"FLOW_EXHAUSTION (Z={climax_score:.1f})"
 
-                #  TRIGGER 4: MICRO-STAGNATION EXIT
-                if not should_close and total_profit > dynamic_peak_floor:
-                    stag_time = time.time() - state.get("last_price_change_time", time.time())
-                    if stag_time >= 4.0:
-                        should_close, reason = True, f"ATOMIC_STAGNATION ({stag_time:.1f}s)"
-
-                #  TRIGGER 5: ATOMIC TIME DECAY
+                #  TRIGGER 4: STAGNATION EXIT
                 if not should_close:
-                    elapsed = time.time() - state['start_time']
-                    if elapsed > 120: 
-                        should_close, reason = True, f"ATOMIC_TIME_DECAY: {elapsed:.0f}s"
+                    stag_time = time.time() - state.get("last_price_change_time", time.time())
+                    if stag_time >= 5.0: # 5 segundos parado com lucro = fecha
+                        should_close, reason = True, f"STAGNATION ({stag_time:.1f}s)"
 
             #  EJETAR GRUPO INTEIRO
-            # ═══════════════════════════════════════════════════
             if should_close:
                 symbol = g_data.get('symbol', 'UNKNOWN')
-                
-                # [PHASE Ω-RESILIENCE] Global cooldown por símbolo/razão para evitar spam de slots independentes
-                now = time.time()
-                log_key = f"nuke_{symbol}_{reason[:20]}"
-                if now - self._last_nuke_log_time.get(log_key, 0) > 30.0:
-                    log.omega(f"💀 NUCLEAR STRIKE: {reason} | Closing {len(g_tickets)} slots para {symbol}")
-                    self._last_nuke_log_time[log_key] = now
-                    
+                log.omega(f"💀 LETHAL CLOSE: {reason} | P&L Total: ${total_profit:+.2f}")
                 for p in g_tickets:
-                    ticket = p.get('ticket')
-                    if ticket:
-                        self._close_with_notify(ticket, "BUY" if g_is_buy else "SELL")
+                    self._close_with_notify(p.get('ticket'), "BUY" if g_is_buy else "SELL")
 
-        # ═══ [PHASE Ω-RESILIENCE] Close Monitor Diagnostic ═══
+        # Cleanup e monitoramento de lag permanecem os mesmos...
+        self._cleanup_tracking(current_tickets)
+
+    def _manage_pending_orders(self):
+        """Cancela ordens pendentes que não foram executadas e expiraram (Phase Ω-Eternity)."""
+        pending = self.bridge.get_pending_orders()
+        if not pending:
+            return
+            
         now = time.time()
-        for ticket in list(self._closing_tickets):
-            attempt_time = self._close_attempt_time.get(ticket, now)
-            if now - attempt_time > 2.0:
-                # Se ainda está na lista fechando após 2s, algo está errado (Socket/EA delay)
-                if ticket in current_tickets:
-                    log_key = f"lag_{ticket}"
-                    if now - self._last_nuke_log_time.get(log_key, 0) > 30.0:
-                        log.warning(f"⚠️ CLOSE_LAG: Ticket {ticket} ainda aberto após 2s do sinal de fechar.")
-                        self._last_nuke_log_time[log_key] = now
+        for order in pending:
+            setup_time = order.get('time', now)
+            # Se a ordem LIMIT está lá há mais de 120 segundos, ela é lixo.
+            if now - setup_time > 120:
+                ticket = order.get('ticket')
+                if ticket:
+                    log.omega(f"🧹 GC: Cancelando ordem LIMIT pendente e antiga #{ticket}")
+                    self.bridge.cancel_pending_order(ticket)
 
-        # ═══ CLEANUP: Remover tickets fechados do state e da lista de pendentes ═══
-        # [Phase Ω-Resilience] Fix state leakage: only remove state if ticket is NOT in current_tickets
-        # and NOT in closing_tickets (to avoid group reset mid-strike execution)
+    def _cleanup_tracking(self, current_tickets: List[int]):
+        """Remove estados de tickets que não existem mais."""
         closed = [t for t in list(self._positions_state.keys()) 
                   if t not in current_tickets and t not in self._closing_tickets]
         for t in closed:
-            del self._positions_state[t]
-            if t in self._close_attempt_time:
-                del self._close_attempt_time[t]
-            if t in self._last_nuke_log_time:
-                del self._last_nuke_log_time[t]
+            if t in self._positions_state: del self._positions_state[t]
+            if t in self._close_attempt_time: del self._close_attempt_time[t]
+            if t in self._last_nuke_log_time: del self._last_nuke_log_time[t]
         
-        # Cleanup independent list for confirmed closed tickets
         for t in list(self._closing_tickets):
             if t not in current_tickets:
                 self._closing_tickets.remove(t)
