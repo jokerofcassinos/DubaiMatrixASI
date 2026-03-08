@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-08T01:54:51.603378",
+  "saved_at": "2026-03-08T01:56:32.927383",
   "parameters": {
     "buy_threshold": {
       "value": 0.3455595306591172,
@@ -381,13 +381,13 @@
       ]
     },
     "regime_sensitivity": {
-      "value": 0.26119366382129494,
+      "value": 0.26165213761387673,
       "default": 0.3,
       "bounds": [
         0.1,
         0.7
       ],
-      "mutation_count": 2,
+      "mutation_count": 3,
       "last_mutations": [
         {
           "time": "2026-03-08T01:34:51.558550",
@@ -400,17 +400,23 @@
           "old": 0.27954236366228524,
           "new": 0.26119366382129494,
           "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932831",
+          "old": 0.26119366382129494,
+          "new": 0.26165213761387673,
+          "reason": ""
         }
       ]
     },
     "trend_regime_aggression": {
-      "value": 1.1185957468833738,
+      "value": 1.282767716860282,
       "default": 1.2,
       "bounds": [
         0.5,
         2.0
       ],
-      "mutation_count": 2,
+      "mutation_count": 3,
       "last_mutations": [
         {
           "time": "2026-03-08T01:34:51.558578",
@@ -422,6 +428,12 @@
           "time": "2026-03-08T01:50:09.719047",
           "old": 1.4855269799106816,
           "new": 1.1185957468833738,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932857",
+          "old": 1.1185957468833738,
+          "new": 1.282767716860282,
           "reason": ""
         }
       ]
@@ -533,18 +545,24 @@
       "last_mutations": []
     },
     "smart_tp_lock_threshold_high": {
-      "value": 0.09259392910439908,
+      "value": 0.11096997632827926,
       "default": 0.1,
       "bounds": [
         0.01,
         0.3
       ],
-      "mutation_count": 1,
+      "mutation_count": 2,
       "last_mutations": [
         {
           "time": "2026-03-08T01:37:24.483782",
           "old": 0.1,
           "new": 0.09259392910439908,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932876",
+          "old": 0.09259392910439908,
+          "new": 0.11096997632827926,
           "reason": ""
         }
       ]
@@ -686,13 +704,13 @@
       ]
     },
     "weight_statistical": {
-      "value": 2.1196757510596456,
+      "value": 0.6392096668208568,
       "default": 0.8,
       "bounds": [
         0.1,
         3.0
       ],
-      "mutation_count": 2,
+      "mutation_count": 3,
       "last_mutations": [
         {
           "time": "2026-03-08T01:27:14.604479",
@@ -704,6 +722,12 @@
           "time": "2026-03-08T01:45:02.653529",
           "old": 2.043559746390146,
           "new": 2.1196757510596456,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932892",
+          "old": 2.1196757510596456,
+          "new": 0.6392096668208568,
           "reason": ""
         }
       ]
@@ -742,14 +766,21 @@
       "last_mutations": []
     },
     "max_spread_points": {
-      "value": 5000.0,
+      "value": 978.0158343699827,
       "default": 5000.0,
       "bounds": [
         30.0,
         10000.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-08T01:55:16.932910",
+          "old": 5000.0,
+          "new": 978.0158343699827,
+          "reason": ""
+        }
+      ]
     },
     "max_spread_reward_impact": {
       "value": 0.19964070363527192,
@@ -915,18 +946,24 @@
       "last_mutations": []
     },
     "superposition_resolution_enabled": {
-      "value": 0.5656551674204876,
+      "value": 0.6461117312569483,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 1,
+      "mutation_count": 2,
       "last_mutations": [
         {
           "time": "2026-03-08T01:27:14.604533",
           "old": 1.0,
           "new": 0.5656551674204876,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932927",
+          "old": 0.5656551674204876,
+          "new": 0.6461117312569483,
           "reason": ""
         }
       ]
@@ -1028,18 +1065,24 @@
       "last_mutations": []
     },
     "v_reversal_atr_multiplier": {
-      "value": 5.262251431335864,
+      "value": 2.357508681928034,
       "default": 3.0,
       "bounds": [
         2.0,
         6.0
       ],
-      "mutation_count": 1,
+      "mutation_count": 2,
       "last_mutations": [
         {
           "time": "2026-03-08T01:50:09.719126",
           "old": 3.0,
           "new": 5.262251431335864,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-08T01:55:16.932942",
+          "old": 5.262251431335864,
+          "new": 2.357508681928034,
           "reason": ""
         }
       ]
@@ -1130,14 +1173,21 @@
       ]
     },
     "limit_execution_mode": {
-      "value": 1.0,
+      "value": 0.7158538554190911,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-08T01:55:16.932957",
+          "old": 1.0,
+          "new": 0.7158538554190911,
+          "reason": ""
+        }
+      ]
     },
     "p_brane_jitter_offset_points": {
       "value": 0.0,

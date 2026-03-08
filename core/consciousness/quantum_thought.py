@@ -34,6 +34,7 @@ class QuantumState:
     agent_contributions: dict   # Contribuição de cada agente
     agent_signals: List[AgentSignal] # Sinais originais dos agentes (Phase 46 Fix)
     phi: float                  # Métrica de Consciência Sistêmica (Phase Ω-Extreme)
+    metadata: dict              # Metadados adicionais para logs e diagnóstico (Phase 51 Fix)
     reasoning: str              # Explicação completa
 
 
@@ -435,6 +436,9 @@ class QuantumThoughtEngine:
             f"BEAR[{len(bear_agents)}]: {bear_list}"
         )
 
+        # ═══ [PHASE 51] METADATA COLLECTION ═══
+        # bull_agents and bear_agents are already defined above for reasoning string
+        
         state = QuantumState(
             raw_signal=raw_signal,
             collapsed_signal=collapsed_signal,
@@ -446,6 +450,10 @@ class QuantumThoughtEngine:
             agent_contributions=agent_contributions,
             agent_signals=valid_signals,
             phi=phi_val,
+            metadata={
+                "bull_agents": bull_agents,
+                "bear_agents": bear_agents
+            },
             reasoning=reasoning,
         )
 
@@ -538,6 +546,8 @@ class QuantumThoughtEngine:
             decision_vector=np.array([0.0]),
             agent_contributions={},
             agent_signals=[],
+            phi=0.0,
+            metadata={"bull_agents": [], "bear_agents": []},
             reasoning=reason,
         )
 

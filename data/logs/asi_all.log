@@ -6194,3 +6194,7 @@ AttributeError: 'QuantumState' object has no attribute 'metadata'
 [DubaiMatrixASI] 01:54:07.567     INFO │ 📈 Win Rate: 0.0%
 [DubaiMatrixASI] 01:54:07.567     INFO │ 📈 P&L: $+0.00
 [DubaiMatrixASI] 01:54:13.458    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 01:54:26.332    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.8767)
+[DubaiMatrixASI] 01:54:26.332    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006232
+[DubaiMatrixASI] 01:54:26.338     INFO │ 💫 Cycle #8800 | Action=WAIT | Signal=-0.521 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: KINEMATIC_EXHAUSTION_SELL (Spike=223.8 > 1.8xATR=188.7) | BOTTOM_HUNT_RISK
+[DubaiMatrixASI] 01:54:51.612     INFO │ 💫 Cycle #8900 | Action=WAIT | Signal=-0.517 | Coherence=0.43 | Regime=DRIFTING_BEAR | Trades=0 | WinRate=0.0% | P&L=$+0.00 | Reason=WAIT: KINEMATIC_EXHAUSTION_SELL (Spike=253.3 > 1.8xATR=192.3) | BOTTOM_HUNT_RISK
