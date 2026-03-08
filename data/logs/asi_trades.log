@@ -4406,3 +4406,74 @@
 [DubaiMatrixASI] 16:00:24.771    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006362
 [DubaiMatrixASI] 16:00:24.772    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 114 deals na fita, 57 fechamentos analisados, 0 novos registros. P&L Líquido: $-345.22
 [DubaiMatrixASI] 16:00:24.774  WARNING │ ⏱️ LATENCY [think] 2929.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:00:49.991  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:00:49.993    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9715)
+[DubaiMatrixASI] 16:00:49.993    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006060
+[DubaiMatrixASI] 16:00:49.998    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 16:01:40.627  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:01:40.644    OMEGA │ ⚡ 🧬 Gen #2: 4 mutações aplicadas | Tipo=gaussian | Fitness=-1524.4204
+[DubaiMatrixASI] 16:01:40.658    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=9.1818)
+[DubaiMatrixASI] 16:01:40.659    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006921
+[DubaiMatrixASI] 16:01:42.978  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:01:43.004    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5442)
+[DubaiMatrixASI] 16:01:43.009    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006549
+[DubaiMatrixASI] 16:01:43.010    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 114 deals na fita, 57 fechamentos analisados, 0 novos registros. P&L Líquido: $-345.22
+[DubaiMatrixASI] 16:01:43.012  WARNING │ ⏱️ LATENCY [think] 2542.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:01:55.514    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 16:02:04.207    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 16:02:04.234    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 16:02:04.235    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 16:02:04.241    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 16:02:04.242    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 16:02:04.242    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 16:02:04.243    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T19:02:04.243213+00:00
+[DubaiMatrixASI] 16:02:08.474    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 16:02:10.145    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 16:02:10.146    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 16:02:10.146    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 16:02:10.146    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 16:02:10.147    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 16:02:10.147    OMEGA │ ⚡ 📅 2026-03-08T19:02:10.147630+00:00
+[DubaiMatrixASI] 16:02:10.147    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 16:02:10.148    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 16:02:10.151    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 16:02:10.155    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 16:02:10.156    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66762.53, Bid=66761.53
+[DubaiMatrixASI] 16:02:10.164    OMEGA │ ⚡ 🌊 Liquid State Reservoir (500 neurons) INITIALIZED
+[DubaiMatrixASI] 16:02:10.165    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 16:02:10.165    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 16:02:10.190    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 16:02:10.226    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 16:02:10.227    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 16:02:10.228    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 16:02:10.234    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 16:02:10.236    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 78 agentes ativos
+[DubaiMatrixASI] 16:02:10.237    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 16:02:10.238    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 16:02:10.239    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 16:02:10.282    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 16:02:10.697    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55031)
+[DubaiMatrixASI] 16:02:20.392  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:02:20.401    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2869)
+[DubaiMatrixASI] 16:02:20.402    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006298
+[DubaiMatrixASI] 16:02:20.402    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 345 deals na fita, 172 fechamentos analisados, 0 novos registros. P&L Líquido: $-345.22
+[DubaiMatrixASI] 16:02:20.403  WARNING │ ⏱️ LATENCY [think] 10163.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:03:10.581  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:03:10.606    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5879)
+[DubaiMatrixASI] 16:03:10.612    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006659
+[DubaiMatrixASI] 16:03:23.246    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 16:03:38.234  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:03:38.248    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9608)
+[DubaiMatrixASI] 16:03:38.248    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006541
+[DubaiMatrixASI] 16:03:38.249    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 114 deals na fita, 57 fechamentos analisados, 0 novos registros. P&L Líquido: $-345.22
+[DubaiMatrixASI] 16:03:38.251  WARNING │ ⏱️ LATENCY [think] 2467.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:04:03.428  WARNING │ 🚨 ALERT [HIGH]: Win rate em 40.1% (threshold: 45.0%)
+[DubaiMatrixASI] 16:04:03.429    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3202)
+[DubaiMatrixASI] 16:04:03.430    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006576
+[DubaiMatrixASI] 16:04:25.240    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 16:04:25.314    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 16:04:25.315    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 16:04:25.319    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 16:04:25.320    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 16:04:25.321    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 16:04:25.321    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T19:04:25.321740+00:00

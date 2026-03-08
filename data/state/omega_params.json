@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-08T16:00:21.985221",
+  "saved_at": "2026-03-08T16:04:25.316423",
   "parameters": {
     "buy_threshold": {
       "value": 0.2,
@@ -72,21 +72,14 @@
       "last_mutations": []
     },
     "position_size_pct": {
-      "value": 49.23644351992548,
+      "value": 50.0,
       "default": 50.0,
       "bounds": [
         0.5,
         75.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-08T15:59:03.882979",
-          "old": 50.0,
-          "new": 49.23644351992548,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "kelly_fraction": {
       "value": 1.0,
@@ -219,38 +212,24 @@
       "last_mutations": []
     },
     "range_regime_aggression": {
-      "value": 0.709893140204136,
+      "value": 0.7,
       "default": 0.7,
       "bounds": [
         0.3,
         1.5
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-08T15:59:03.883021",
-          "old": 0.7,
-          "new": 0.709893140204136,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "chaos_regime_aggression": {
-      "value": 0.23964689921884405,
+      "value": 0.3,
       "default": 0.3,
       "bounds": [
         0.1,
         0.8
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-08T15:59:03.883048",
-          "old": 0.3,
-          "new": 0.23964689921884405,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "high_conviction_multiplier": {
       "value": 20.0,
@@ -443,21 +422,14 @@
       "last_mutations": []
     },
     "startup_cooldown_seconds": {
-      "value": 156.11762380675597,
+      "value": 120.0,
       "default": 120.0,
       "bounds": [
         10.0,
         600.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-08T15:59:03.883071",
-          "old": 120.0,
-          "new": 156.11762380675597,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "entry_cooldown_seconds": {
       "value": 60.0,
