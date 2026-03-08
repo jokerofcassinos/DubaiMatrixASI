@@ -194,30 +194,46 @@ class ASIBrain:
             already_pending = False
             if pending:
                 for po in pending:
-                    # Se temos ordem LIMIT na mesma direção, bloqueia novo disparo
                     po_type = "BUY" if "BUY" in po['type'] else "SELL"
                     if po_type == decision.action.value:
                         already_pending = True
                         break
             
+            # [Phase Ω-Resilience] Ignition Cooldown: Evita spam de tentativas se o mercado estiver 'fast'
+            now = time.time()
+            cooldown = OMEGA.get("entry_cooldown_seconds", 60.0)
+            last_ign = self._last_log_times.get(f"ign_{decision.action.value}", 0.0)
+            
             if already_pending:
-                log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
+                if now - self._last_log_times.get("ign_bypass", 0) > 30:
+                    log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
+                    self._last_log_times["ign_bypass"] = now
+            elif now - last_ign < 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
+                pass
             else:
                 execution_result = self.executor.execute(
                     decision, self.state, snapshot
                 )
                 
-                # [PHASE 48] 🎯 IMMEDIATE IGNITION PULSE
-                log.omega(
-                    f"🎯 IGNITION: {decision.action.value} {snapshot.symbol} | "
-                    f"S={quantum_state.raw_signal:+.3f} PHI={quantum_state.phi:.2f} "
-                    f"R={regime_state.current.value if regime_state else 'UNK'}"
-                )
-
                 if execution_result and execution_result.get("success"):
+                    self._last_log_times[f"ign_{decision.action.value}"] = now
                     result["executed"] = True
                     result["ticket"] = execution_result.get("ticket")
                     result["price"] = execution_result.get("price")
+                    
+                    # [PHASE 52] 🎯 PREMIUM IGNITION LOG (Full Detail)
+                    bull_agents = quantum_state.metadata.get("bull_agents", [])
+                    bear_agents = quantum_state.metadata.get("bear_agents", [])
+                    bull_str = ", ".join(bull_agents) if bull_agents else "None"
+                    bear_str = ", ".join(bear_agents) if bear_agents else "None"
+                    
+                    log.omega(
+                        f"🎯 IGNITION SUCCESS: {decision.action.value} {snapshot.symbol} | "
+                        f"S={quantum_state.raw_signal:+.3f} PHI={quantum_state.phi:.2f}\n"
+                        f"  🐂 BULL[{len(bull_agents)}]: {bull_str}\n"
+                        f"  🐻 BEAR[{len(bear_agents)}]: {bear_str}\n"
+                        f"  🎯 Reason: {decision.reasoning}"
+                    )
 
         # ═══ 8. MONITORAR POSIÇÕES ABERTAS (POSITION MANAGER / SMART TP) ═══
         self.position_manager.monitor_positions(snapshot, flow_analysis)

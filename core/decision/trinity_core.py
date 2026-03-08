@@ -483,6 +483,21 @@ class TrinityCore:
                     reward = abs(take_profit - price)
                     rr_ratio = reward / risk if risk > 0 else 0
 
+            # [Phase Ω-Singularity] Monte Carlo Hard Veto: Expected Value (EV)
+            if mc_result.expected_return < 0:
+                # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
+                # Só permitimos se for um sinal de exaustão extrema (God-Mode)
+                if not is_god_mode:
+                    return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
+
+            # [Phase Ω-Resilience] Counter-Trend Phi Gate
+            # Se a ordem é BUY em regime BEAR, ou SELL em regime BULL, exigimos Φ muito maior.
+            is_counter_trend = (action == Action.BUY and "BEAR" in regime_state.current.value) or \
+                               (action == Action.SELL and "BULL" in regime_state.current.value)
+            
+            if is_counter_trend and phi < 0.18:
+                return self._wait(f"COUNTER_TREND_LOW_PHI (Φ={phi:.2f} < 0.18) - Sem integração p/ reversão")
+
             mc_reasoning = (
                 f"MC[score={mc_score:+.3f} WP={mc_win_prob:.1%} "
                 f"EV={mc_ev:+.2f} CVaR={mc_cvar:+.2f} "
