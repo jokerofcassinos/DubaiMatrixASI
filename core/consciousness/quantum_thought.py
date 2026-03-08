@@ -420,9 +420,9 @@ class QuantumThoughtEngine:
         bear_agents = [s.agent_name for s in valid_signals if s.signal < -0.1]
         neutral_agents = [s.agent_name for s in valid_signals if abs(s.signal) <= 0.1]
 
-        # [Phase 49] Desabreviação de sinais para Transparência de Elite
-        bull_list = ", ".join(bull_agents[:5]) + ("..." if len(bull_agents) > 5 else "")
-        bear_list = ", ".join(bear_agents[:5]) + ("..." if len(bear_agents) > 5 else "")
+        # [Phase 52] Expansão Visual de Elite: Exposição Total de Agentes para o CEO
+        bull_list = ", ".join(bull_agents[:15]) + ("..." if len(bull_agents) > 15 else "")
+        bear_list = ", ".join(bear_agents[:15]) + ("..." if len(bear_agents) > 15 else "")
         dominance = len(bear_agents) / (len(bull_agents) + 1e-6) if raw_signal < 0 else len(bull_agents) / (len(bear_agents) + 1e-6)
 
         reasoning = (

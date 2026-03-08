@@ -4535,3 +4535,5 @@
 [DubaiMatrixASI] 01:47:28.384    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
 [DubaiMatrixASI] 01:47:28.405    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 01:53:59.551    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'QuantumState' object has no attribute 'metadata'
+[DubaiMatrixASI] 01:59:38.793    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 02:02:19.288    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))

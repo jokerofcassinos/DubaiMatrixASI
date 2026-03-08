@@ -367,7 +367,7 @@ void ExecuteLimitOrder(string side, string symbol, double lot, double price, dou
    request.tp       = tp;
    request.deviation= InpSlippage;
    request.magic    = (InpMagicNumber > 0) ? InpMagicNumber : 88888888;
-   request.type_filling = ORDER_FILLING_IOC;
+   request.type_filling = ORDER_FILLING_RETURN;
    request.comment  = "ASI_LIMIT";
    
    Print("⚡ ASI LIMIT COMMAND: ", side, " ", DoubleToString(lot, 2), " @ ", price);

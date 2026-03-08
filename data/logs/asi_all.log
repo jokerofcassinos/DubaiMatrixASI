@@ -6489,3 +6489,186 @@ requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetErro
 [DubaiMatrixASI] 02:00:44.512     INFO │ ⚠️ VETO: SYSTEM_INCOHERENCE (Φ=0.0147 < 0.0250)
 [DubaiMatrixASI] 02:00:46.852     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.4% | 24h=-2.10% | Score=-0.650 | Sources=2
 [DubaiMatrixASI] 02:00:47.579     INFO │ 💫 Cycle #10300 | Action=WAIT | Signal=-0.427 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:00:55.508    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7236)
+[DubaiMatrixASI] 02:00:55.513    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006692
+[DubaiMatrixASI] 02:00:55.519    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] PROJECTED_TRADES_TO_1M:76
+[DubaiMatrixASI] 02:00:55.520     INFO │ 💫 Cycle #1000 | Action=SELL | Signal=-0.439 | Coherence=0.45 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+0.00
+  🎯 Reason: SELL signal=-0.439 conf=0.75 coherence=0.45 regime=DRIFTING_BEAR ATR=110.23 RR=0.53 | Quantum: SIGNAL=-0.439 COHERENCE=0.45 PHI=0.14 DOMINANCE=1.9x CPP=0.01ms COLLAPSED | BULL[8]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent... | BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent... | MC[score=+0.094 WP=54.6% EV=-1.87 CVaR=-206.68 sim=30.7ms]
+  🧬 Quantum: SIGNAL=-0.439 COHERENCE=0.45 PHI=0.14
+  🐂 BULL[8]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, ChaosRegime, DarkMass
+  🐻 BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent
+[DubaiMatrixASI] 02:01:08.105     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.62)
+[DubaiMatrixASI] 02:01:12.861  WARNING │ 🚨 ALERT [CRITICAL]: Drawdown em 104.9% (max: 15.0%)
+[DubaiMatrixASI] 02:01:12.897    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3292)
+[DubaiMatrixASI] 02:01:12.906    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007428
+[DubaiMatrixASI] 02:01:12.919     INFO │ 💫 Cycle #10400 | Action=WAIT | Signal=-0.408 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:01:13.440    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=20.73 < min=77.16 [0.7×ATR])
+[DubaiMatrixASI] 02:01:20.799     INFO │ 💫 Cycle #1100 | Action=SELL | Signal=-0.434 | Coherence=0.45 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+0.00
+  🎯 Reason: SELL signal=-0.434 conf=0.74 coherence=0.45 regime=DRIFTING_BEAR ATR=110.23 RR=0.53 | Quantum: SIGNAL=-0.434 COHERENCE=0.45 PHI=0.14 DOMINANCE=1.7x CPP=0.00ms COLLAPSED | BULL[9]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent... | BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent... | MC[score=+0.086 WP=54.0% EV=-2.40 CVaR=-206.68 sim=23.1ms]
+  🧬 Quantum: SIGNAL=-0.434 COHERENCE=0.45 PHI=0.14
+  🐂 BULL[9]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, FeynmanPath, ChaosRegime, DarkMass
+  🐻 BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent
+[DubaiMatrixASI] 02:01:38.322    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 02:01:38.323     INFO │ 💫 Cycle #10500 | Action=WAIT | Signal=-0.400 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:01:40.844     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.4% | 24h=-2.10% | Score=-0.650 | Sources=2
+[DubaiMatrixASI] 02:01:43.495    DEBUG │ 📏 Anti-metralhadora: preço muito próximo do último entry (dist=20.73 < min=77.16 [0.7×ATR])
+[DubaiMatrixASI] 02:01:45.047     INFO │ ⛓️ On-Chain Update: Mempool=21,839 txs | Fee=1.1 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 02:01:46.293    OMEGA │ ⚡ 🧬 Gen #2: 7 mutações aplicadas | Tipo=uniform | Fitness=50.0000
+[DubaiMatrixASI] 02:01:46.320    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8977)
+[DubaiMatrixASI] 02:01:46.339    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006762
+[DubaiMatrixASI] 02:01:46.365     INFO │ 📊 Trade Recorded: BUY #397931670 | P&L=$+0.41 | Pips=+0.0 | ✅ WIN | Regime=UNKNOWN
+[DubaiMatrixASI] 02:01:46.366     INFO │ 📊 Trade Recorded: BUY #397931669 | P&L=$+0.41 | Pips=+0.0 | ✅ WIN | Regime=UNKNOWN
+[DubaiMatrixASI] 02:01:46.368     INFO │ 📊 Trade Recorded: BUY #397931668 | P&L=$-5.10 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 02:01:46.370     INFO │ 📊 Trade Recorded: BUY #397931667 | P&L=$-2.04 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 02:01:46.371     INFO │ 📊 Trade Recorded: BUY #397931671 | P&L=$-2.04 | Pips=+0.0 | ❌ LOSS | Regime=UNKNOWN
+[DubaiMatrixASI] 02:01:46.372    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 5 novos trades auditados e sincronizados na consciência.
+[DubaiMatrixASI] 02:01:46.373     INFO │ 💫 Cycle #1200 | Action=SELL | Signal=-0.445 | Coherence=0.45 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+62.29
+  🎯 Reason: SELL signal=-0.445 conf=0.74 coherence=0.45 regime=DRIFTING_BEAR ATR=110.23 RR=0.53 | Quantum: SIGNAL=-0.445 COHERENCE=0.45 PHI=0.14 DOMINANCE=2.0x CPP=0.00ms COLLAPSED | BULL[8]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent... | BEAR[16]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent... | MC[score=-0.147 WP=55.2% EV=+0.54 CVaR=-206.68 sim=23.7ms]
+  🧬 Quantum: SIGNAL=-0.445 COHERENCE=0.45 PHI=0.14
+  🐂 BULL[8]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, ChaosRegime, DarkMass
+  🐻 BEAR[16]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent, FeynmanPath
+[DubaiMatrixASI] 02:01:59.026    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 02:02:03.674  WARNING │ 🚨 ALERT [CRITICAL]: Drawdown em 104.9% (max: 15.0%)
+[DubaiMatrixASI] 02:02:03.675    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1529)
+[DubaiMatrixASI] 02:02:03.676    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.255120
+[DubaiMatrixASI] 02:02:03.699     INFO │ 💫 Cycle #10600 | Action=WAIT | Signal=-0.435 | Coherence=0.44 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:02:11.696     INFO │ 💫 Cycle #1300 | Action=WAIT | Signal=-0.458 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+62.29
+  🎯 Reason: WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+  🧬 Quantum: SIGNAL=-0.458 COHERENCE=0.44 PHI=0.14
+  🐂 BULL[9]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, FeynmanPath, ChaosRegime, DarkMass
+  🐻 BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent
+[DubaiMatrixASI] 02:02:12.747     INFO │ 🌍 Macro Update: ETH=$1938.42 | BTC/ETH=34.4 | Gold=$5177 | Vol24h=$61.8B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 02:02:19.288    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 02:02:19.329    DEBUG │ Traceback (most recent call last):
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\market\scraper\onchain_scraper.py", line 168, in _scrape_mempool_space
+    resp = self._session.get(url, timeout=10)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+[DubaiMatrixASI] 02:02:19.389     INFO │ ⛓️ On-Chain Update: Mempool=0 txs | Fee=0.0 sat/vB | Health=0.80 | Sources=1
+[DubaiMatrixASI] 02:02:29.034     INFO │ 💫 Cycle #10700 | Action=WAIT | Signal=-0.432 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:02:37.001  WARNING │ 🚨 ALERT [CRITICAL]: Drawdown em 1119.5% (max: 15.0%)
+[DubaiMatrixASI] 02:02:37.002    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.9908)
+[DubaiMatrixASI] 02:02:37.003    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007357
+[DubaiMatrixASI] 02:02:37.008     INFO │ 💫 Cycle #1400 | Action=WAIT | Signal=-0.448 | Coherence=0.45 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+62.29
+  🎯 Reason: WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+  🧬 Quantum: SIGNAL=-0.448 COHERENCE=0.45 PHI=0.14
+  🐂 BULL[8]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, ChaosRegime, DarkMass
+  🐻 BEAR[16]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent, FeynmanPath
+[DubaiMatrixASI] 02:02:41.078     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 02:02:41.717    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 02:02:43.118     INFO │ 🌍 Macro Update: ETH=$1939.86 | BTC/ETH=34.4 | Gold=$0 | Vol24h=$61.8B | Bias=+0.100 | Sources=2
+[DubaiMatrixASI] 02:02:48.210     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.628 | Sources=1
+[DubaiMatrixASI] 02:02:54.375  WARNING │ 🚨 ALERT [CRITICAL]: Drawdown em 104.9% (max: 15.0%)
+[DubaiMatrixASI] 02:02:54.376    OMEGA │ ⚡ 🧬 Gen #18: 8 mutações aplicadas | Tipo=uniform | Fitness=23.8933
+[DubaiMatrixASI] 02:02:54.377    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2856)
+[DubaiMatrixASI] 02:02:54.378    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006975
+[DubaiMatrixASI] 02:02:54.387     INFO │ 💫 Cycle #10800 | Action=WAIT | Signal=-0.433 | Coherence=0.45 | Regime=DRIFTING_BEAR | Trades=5 | WinRate=100.0% | P&L=$+62.29 | Reason=WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+[DubaiMatrixASI] 02:03:02.494    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY
+[DubaiMatrixASI] 02:03:02.495     INFO │ 💫 Cycle #1500 | Action=WAIT | Signal=-0.444 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$+62.29
+  🎯 Reason: WAIT: JAVA_PNL_VETO (Negative Expectancy Detected)
+  🧬 Quantum: SIGNAL=-0.444 COHERENCE=0.44 PHI=0.14
+  🐂 BULL[9]: VolumeAgent, VolatilityAgent, StatisticalAgent, StopHunterAgent, PremiumDiscountAgent, ChartStructureAgent, FeynmanPath, ChaosRegime, DarkMass
+  🐻 BEAR[15]: TrendAgent, MicrostructureAgent, LiquidationVacuumAgent, InformationEntropyAgent, SentimentFearGreedAgent, GameTheoryNashAgent, CppFractalAgent, CppTickEntropyAgent, BOSAgent, PriceGravityAgent, AggressivenessAgent, PriceVelocityAgent, OscillationWaveAgent, PressureMatrix, TBSAgent
+[DubaiMatrixASI] 02:03:08.159    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 02:03:08.172     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.62)
+[DubaiMatrixASI] 02:03:08.365    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 02:03:08.366    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 02:03:08.371    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 02:03:08.371    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 02:03:08.372    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 02:03:08.373    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-08T05:03:08.373132+00:00
+[DubaiMatrixASI] 02:03:08.373     INFO │ 📈 Trades: 5
+[DubaiMatrixASI] 02:03:08.374     INFO │ 📈 Win Rate: 100.0%
+[DubaiMatrixASI] 02:03:08.374     INFO │ 📈 P&L: $+62.29
