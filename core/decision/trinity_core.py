@@ -95,6 +95,9 @@ class TrinityCore:
         if quantum_state is None or regime_state is None:
             return self._wait("NO_DATA")
 
+        # [PHASE 50] Strike Flag
+        strike_flag = ""
+
         # ═══ VETO CHECKS (condições de perigo) ═══
         veto = self._check_vetos(snapshot, asi_state, regime_state)
         if veto:
@@ -233,7 +236,7 @@ class TrinityCore:
                 return self._wait(" | ".join(reasons))
         
         # If we reach here, we have an Action (either from God-Mode or Normal)
-        reasoning += f" | [PHASE_50_STRIKE: {action.name}]"
+        strike_flag = f" | [PHASE_50_STRIKE: {action.name}]"
         
         # The rest of the function (calculating SL/TP, RR, MC) will continue using the 'action', 'signal', 'confidence'.
         # Since is_god_mode is True, some later VETOs (like MC expected return < 0) will be bypassed.
@@ -550,7 +553,7 @@ class TrinityCore:
         reasoning = (
             f"{action.value} signal={signal:+.3f} conf={confidence:.2f} "
             f"coherence={coherence:.2f} regime={regime_state.current.value} "
-            f"ATR={atr:.2f} RR={rr_ratio:.2f} | "
+            f"ATR={atr:.2f} RR={rr_ratio:.2f}{strike_flag} | "
             f"Quantum: {quantum_state.reasoning} | "
             f"{mc_reasoning}"
         )
