@@ -353,17 +353,29 @@ class ASIBrain:
         log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} novos trades auditados e sincronizados na consciência.")
 
     def _log_status(self, result, quantum_state, regime_state):
-        """Log periódico de status."""
+        """Log periódico de status com visibilidade total do sinal."""
+        # Extrair nomes dos agentes para exibição completa
+        bull_agents = quantum_state.metadata.get("bull_agents", [])
+        bear_agents = quantum_state.metadata.get("bear_agents", [])
+        
+        bull_str = ", ".join(bull_agents) if bull_agents else "None"
+        bear_str = ", ".join(bear_agents) if bear_agents else "None"
+        
+        # Cálculo de latência de decisão real (total do think cycle)
+        think_time = getattr(self, '_last_think_time', 0.0) * 1000.0
+
         log.info(
             f"💫 Cycle #{self._cycle_count} | "
             f"Action={result.get('action')} | "
             f"Signal={result.get('signal', 0):+.3f} | "
             f"Coherence={result.get('coherence', 0):.2f} | "
             f"Regime={result.get('regime')} | "
-            f"Trades={self.state.total_trades} | "
-            f"WinRate={self.state.win_rate:.1%} | "
-            f"P&L=${self.state.total_profit:+.2f} | "
-            f"Reason={result.get('reasoning')}"
+            f"TotalThink={think_time:.1f}ms | "
+            f"P&L=${self.state.total_profit:+.2f}"
+            f"\n  🎯 Reason: {result.get('reasoning')}"
+            f"\n  🧬 Quantum: SIGNAL={result.get('signal', 0):+.3f} COHERENCE={result.get('coherence', 0):.2f} PHI={quantum_state.phi:.2f}"
+            f"\n  🐂 BULL[{len(bull_agents)}]: {bull_str}"
+            f"\n  🐻 BEAR[{len(bear_agents)}]: {bear_str}"
         )
 
     def shutdown(self):

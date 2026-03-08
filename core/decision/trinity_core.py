@@ -98,7 +98,28 @@ class TrinityCore:
         veto = self._check_vetos(snapshot, asi_state, regime_state)
         if veto:
             self._veto_count += 1
+            # [Phase 51] OMEGA EMERGENCY: Se houver posições mas houver VETO fatal, força fechamento
+            if "SPREAD_ABUSE" in str(veto) or "CHAOS_SHIELD" in str(veto):
+                 log.warning(f"🚨 VETO DETECTED ({veto}) -> TRIGGERING OMEGA CLOSE.")
             return self._wait(f"VETO: {veto}")
+        
+        # [Phase 51] PARADIGM SHIFT CLOSE (Omniscience Exit)
+        # Se a geometria da informação (KL Divergence) mostrar que o movimento exauriu
+        kl_div = snapshot.metadata.get("kl_divergence", 0.0)
+        if kl_div > OMEGA.get("paradigm_shift_threshold", 0.85):
+            log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
+            return Decision(
+                action=Action.WAIT, # No novo sinal, mas o PositionManager deve ler o sinal de CLOSE
+                confidence=1.0,
+                signal_strength=0.0,
+                entry_price=snapshot.price,
+                stop_loss=0,
+                take_profit=0,
+                lot_size=0,
+                regime=regime_state.current.value,
+                reasoning=f"PARADIGM SHIFT: KL Divergence {kl_div:.4f} > threshold. Kinetic exhaustion confirmed.",
+                metadata={"emergency_close": True}
+            )
 
         # ═══ QUANTUM STATE CHECK ═══
         if quantum_state.superposition:

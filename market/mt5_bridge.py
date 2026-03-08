@@ -213,11 +213,11 @@ class MT5Bridge:
                         self.client_socket.close()
                     self.client_socket = None
                     self._ea_connected = False
-                # [Phase 49] Backoff reduzido para HFT Reconnect
-                time.sleep(0.5) 
+                # [Phase 50] HFT Heartbeat: Reconnect ultra-veloz para minimizar tempo cego
+                time.sleep(0.05) 
 
     def _handle_socket_data(self, data: str):
-        """Processa ticks e resultados vindos do EA via socket. Assume 'data' como uma linha única sem '\n'."""
+        """Processa ticks e resultados vindos do EA via socket."""
         line = data.strip()
         if not line: return
         
@@ -245,6 +245,9 @@ class MT5Bridge:
             }
             self._last_socket_tick = tick_data
             self.tick_buffer.append(tick_data)
+            
+            # [Phase 50] EA Presence Confirmed
+            self._ea_connected = True
 
         elif msg_type == "RESULT":
             # Formato: RESULT|ACTION|STATUS|TICKET|PRICE
@@ -256,10 +259,11 @@ class MT5Bridge:
                 ticket = parts[3]
                 price = parts[4]
                 log.omega(f"🎯 LIMIT EXECUTADO: Ticket {ticket} @ {price}")
-            elif action == "SONAR":
-                log.info(f"📡 SONAR PROBE RESULT: {status}")
+            elif action == "CLOSE": # [Phase 50] Explicit close confirmation
+                log.omega(f"💀 SOCKET CLOSE CONFIRMED: {status}")
 
         elif msg_type == "PONG":
+            self._ea_connected = True
             pass
 
     def send_socket_command(self, cmd: str):
@@ -798,39 +802,53 @@ class MT5Bridge:
         pos = position[0]
 
         # Inverter a ordem para fechar
-        # Phase 18 Modification: Envio via Socket (Latência Zeo) em vez do Python MT5 API
+        # ═══ Phase 50: Omega Close Resilience ═══
         cmd = f"CLOSE|{ticket}"
         if self.send_socket_command(cmd):
-            log.omega(f"⚡ FAST CLOSE SINALIZADO: ticket={ticket} (via socket)")
-            return {"success": True, "ticket": ticket, "action": "CLOSE_SIGNALED"}
+            # OMEGA: Se o socket enviou, confiamos, mas monitoramos o retorno
+            return {"success": True, "ticket": ticket, "action": "CLOSE_SIGNALED_HFT"}
             
-        # Fallback MT5 API
-        log.warning(f"⚠️ Socket falhou para {ticket}. Tentando fechamento pela API Python MT5.")
+        # Fallback MT5 API (Ultra-Fast Force Close)
+        # Se chegamos aqui, o socket está morto ou falhou. Não podemos hesitar.
+        log.warning(f"⚠️ Socket HFT indisponível para ticket {ticket}. Iniciando FORCE CLOSE via API MT5.")
+        
+        # Obter tick mais fresco possível, sem travar
         tick = mt5.symbol_info_tick(self.symbol)
         if not tick:
-            log.error(f"❌ Sem tick da API MT5 para fechar ticket {ticket}")
-            return None
+            # Desespero: tentar pegar o último tick do buffer ou da conta
+            tick = self._last_socket_tick or mt5.account_info()
+            if not tick:
+                log.critical(f"💀 FALHA TOTAL SENSORIAL: Impossível fechar ticket {ticket} — sem dados de preço.")
+                return None
             
-        type_close = mt5.ORDER_TYPE_SELL if pos.type == mt5.ORDER_TYPE_BUY else mt5.ORDER_TYPE_BUY
-        price_close = tick.bid if pos.type == mt5.ORDER_TYPE_BUY else tick.ask
+        # Determinar preço de fechamento com slippage agressivo para garantir strike
+        is_buy = (pos.type == mt5.ORDER_TYPE_BUY)
+        price_close = tick.bid if is_buy else tick.ask if hasattr(tick, "bid") else pos.price_current
+        
+        # [Phase 50] Aumento do deviation para 100 pontos para garantir preenchimento no pânico
+        force_deviation = max(ORDER_DEVIATION * 2, 50) 
         
         request = {
             "action": mt5.TRADE_ACTION_DEAL,
             "symbol": self.symbol,
             "volume": pos.volume,
-            "type": type_close,
+            "type": mt5.ORDER_TYPE_SELL if is_buy else mt5.ORDER_TYPE_BUY,
             "position": ticket,
             "price": price_close,
-            "deviation": ORDER_DEVIATION,
+            "deviation": force_deviation,
             "magic": pos.magic,
-            "comment": "ASI Fallback Close",
+            "comment": "ASI OMEGA FORCE CLOSE",
             "type_time": mt5.ORDER_TIME_GTC,
             "type_filling": mt5.ORDER_FILLING_IOC,
         }
         
         result = mt5.order_send(request)
-        if result is None or result.retcode != mt5.TRADE_RETCODE_DONE:
-            log.error(f"❌ Falha no fallback MT5 API para fechar {ticket}")
+        if result is None:
+            log.critical(f"💀 ERRO CRÍTICO API MT5: order_send faliu totalmente para {ticket}")
+            return None
+            
+        if result.retcode != mt5.TRADE_RETCODE_DONE:
+            log.error(f"❌ Force Close Rejeitado: code={result.retcode} ({result.comment})")
             return None
             
         profit = pos.profit

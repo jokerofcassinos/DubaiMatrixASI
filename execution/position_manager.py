@@ -194,14 +194,18 @@ class PositionManager:
                 else: 
                     drawdown_pct = 1.0 
 
-                lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25)
-                if peak > dynamic_peak_floor * 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
-                if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
+                # [Phase 50] Dynamic Lock Adaptation
+                # Se a volatilidade está alta (ATR > 200), ser mais agressivo no lock
+                vol_mult = 1.0 if atr_val < 150 else 0.7 
+                lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
+                
+                if peak > dynamic_peak_floor * 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15) * vol_mult
+                if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10) * vol_mult
                 
                 # Nuke se evaporar > threshold OU se caiu de lucro alto para < floor
                 # Apenas se estiver em lucro líquido real (Alpha-Net Guard)
                 if is_net_positive:
-                    if drawdown_pct >= lock_threshold or (peak > dynamic_peak_floor * 2.0 and total_profit < dynamic_peak_floor):
+                    if drawdown_pct >= lock_threshold or (peak > dynamic_peak_floor * 2.5 and total_profit < dynamic_peak_floor):
                         should_close = True
                         reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
 

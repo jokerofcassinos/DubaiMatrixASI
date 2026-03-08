@@ -138,13 +138,13 @@ class RiskQuantumEngine:
         drift_compensator = 1.35 if hasattr(snapshot, 'regime') and snapshot.regime == "DRIFTING_BEAR" else 1.0
         risk_fraction *= drift_compensator
 
-        # [TOTAL WAR OVERRIDES]
-        if balance >= 5000.0:
-            if asi_state and balance < asi_state.peak_balance * 0.70:
-                risk_fraction *= 0.25 
-            elif confidence >= 0.85: risk_fraction = max(risk_fraction, 0.95)
-            elif confidence >= 0.75: risk_fraction = max(risk_fraction, 0.50)
-            elif confidence >= 0.65: risk_fraction = max(risk_fraction, 0.30)
+        # [Phase 51] Ito Resilience & Cold Start Protection
+        # Se wr/avg_win/avg_loss são novos, Ito pode dar 0.00.
+        # Travamos um floor de segurança baseado na convicção.
+        if confidence >= 0.75:
+            min_floor_fraction = 0.05  # Arriscar pelo menos 5% do capital em trades de elite
+            risk_fraction = max(risk_fraction, min_floor_fraction)
+            log.omega(f"🛡️ ITO RESILIENCE: Floor applied due to High Confidence ({confidence:.2f}). Fraction: {risk_fraction:.4f}")
 
         # 6. Converter para Lote
         point_value = 1.0

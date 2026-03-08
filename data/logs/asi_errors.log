@@ -4532,3 +4532,6 @@
 [DubaiMatrixASI] 01:16:15.480    ERROR │ 💀 EXCEPTION in [simulate_trade]: NameError: name 'wp_score' is not defined
 [DubaiMatrixASI] 01:20:47.867    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
 [DubaiMatrixASI] 01:20:48.356    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 01:47:28.384    ERROR │ ❌ Falha ao executar limit order: Invalid price (Code: 10015)
+[DubaiMatrixASI] 01:47:28.405    ERROR │ ❌ Falha ao executar slot
+[DubaiMatrixASI] 01:53:59.551    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'QuantumState' object has no attribute 'metadata'
