@@ -286,6 +286,9 @@ class PerformanceTracker:
                     trade = TradeRecord(**item)
                     if trade.ticket in self._ticket_index:
                         continue
+                    
+                    # [CRITICAL FIX] Recalculate win status on load
+                    trade.is_winner = trade.profit > 0
 
                     self._trades.append(trade)
                     self._ticket_index.add(trade.ticket)

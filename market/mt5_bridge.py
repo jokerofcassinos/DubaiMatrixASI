@@ -308,51 +308,6 @@ class MT5Bridge:
     #  DADOS DE MERCADO
     # ═══════════════════════════════════════════════════════════
 
-    @timed(log_threshold_ms=50)
-    def get_closed_deals(self, from_date: datetime) -> List[dict]:
-        """
-        Busca negócios (deals) fechados desde uma data específica.
-        Essencial para o Consciousness Feedback Loop.
-        """
-        if not self.connected:
-            return []
-
-        # MT5 lida melhor com timestamps float (epoch)
-        from_timestamp = int(from_date.timestamp())
-        to_timestamp = int(time.time())
-
-        deals = mt5.history_deals_get(from_timestamp, to_timestamp)
-        if deals is None:
-            err = mt5.last_error()
-            log.error(f"❌ Erro ao buscar histórico MT5: {err}")
-            return []
-
-        if len(deals) == 0:
-            return []
-
-        results = []
-        for d in deals:
-            # Filtramos apenas deals que fecham posições (entry out) 
-            # ou que são de lucro/perda real (excluindo balanço/créditos se houver)
-            if d.entry in [1, 2, 3]: # 1=OUT, 2=INOUT, 3=OUT_BY
-                results.append({
-                    "ticket": d.order,
-                    "position": d.position_id,
-                    "symbol": d.symbol,
-                    "type": "BUY" if d.type == 1 else "SELL", # Note: No deal, type 1=SELL(out of buy), 0=BUY
-                    # No Deal: 1=Sell side (close buy), 0=Buy side (close sell)
-                    "direction": "SELL" if d.type == 1 else "BUY",
-                    "volume": d.volume,
-                    "price": d.price,
-                    "profit": d.profit,
-                    "commission": d.commission,
-                    "swap": d.swap,
-                    "time": datetime.fromtimestamp(d.time, tz=timezone.utc).isoformat(),
-                    "comment": d.comment
-                })
-        
-        return results
-
     def get_tick(self) -> Optional[dict]:
         """Obtém o tick mais recente (preferência para HFT Socket)."""
         if not self.connected:
@@ -951,18 +906,30 @@ class MT5Bridge:
     #  HISTÓRICO & AUDITORIA
     # ═══════════════════════════════════════════════════════════
 
-    def get_closed_deals(self, from_date: datetime, to_date: datetime) -> List[dict]:
+    def get_closed_deals(self, from_date: datetime, to_date: datetime = None) -> List[dict]:
         """Recupera deals do histórico no período solicitado."""
         if not self.connected:
             return []
         
-        deals = mt5.history_deals_get(from_date, to_date, group=f"*{self.symbol}*")
+        # [Phase Ω-Resilience] Handle server time offsets by looking into the "future"
+        _to_date = to_date if to_date else (datetime.now() + timedelta(days=2))
+        
+        # Remove group filter to avoid case-sensitivity issues with symbols like 'btcusd' vs 'BTCUSD'
+        deals = mt5.history_deals_get(from_date, _to_date)
         if deals is None:
             return []
         
         # Mapear objetos MT5 para dicionários limpos
         result = []
+        target_symbol = self.symbol.upper()
+        
         for d in deals:
+            # Filtrar por símbolo manualmente (case-insensitive)
+            deal_symbol = d.symbol.upper()
+            if target_symbol not in deal_symbol and deal_symbol not in target_symbol:
+                # [Phase Ω-Resilience] Relaxed match for symbols like 'BTCUSD.m' or 'btcusd'
+                continue
+                
             # Pegar apenas DEALS de saída (entry out / entry out by)
             # Mas para auditoria de comissão/swap, precisamos de todos
             result.append({
@@ -1023,20 +990,25 @@ class MT5Bridge:
             return 7.0 # Default FTMO/Standard safety
 
         # Pegar deals das últimas 24h
-        to_date = datetime.now()
-        from_date = to_date - timedelta(days=1)
+        to_date = datetime.now() + timedelta(days=1) # Future proof
+        from_date = datetime.now() - timedelta(days=1)
         
-        deals = mt5.history_deals_get(from_date, to_date, group=f"*{self.symbol}*")
+        deals = mt5.history_deals_get(from_date, to_date)
         if deals is None or len(deals) == 0:
             # Se não houver trades nas últimas 24h, tenta os últimos 100 deals
-            deals = mt5.history_deals_get(to_date - timedelta(days=30), to_date, group=f"*{self.symbol}*")
+            deals = mt5.history_deals_get(datetime.now() - timedelta(days=30), to_date)
             if deals is None or len(deals) == 0:
                 return 7.0
 
         total_commission = 0.0
         total_volume = 0.0
+        target_symbol = self.symbol.upper()
         
         for d in deals:
+            # Filtrar por símbolo manualmente
+            if target_symbol not in d.symbol.upper() and d.symbol.upper() not in target_symbol:
+                continue
+                
             # Comissões costumam ser negativas no MT5
             if abs(d.commission) > 0:
                 total_commission += abs(d.commission)
