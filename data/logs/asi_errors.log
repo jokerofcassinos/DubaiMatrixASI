@@ -4424,3 +4424,5 @@
 [DubaiMatrixASI] 21:26:39.565    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 21:26:39.565    ERROR │ ❌ Falha ao executar slot
 [DubaiMatrixASI] 21:49:11.091    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 23:20:21.351    ERROR │ 💀 EXCEPTION in [think]: UnboundLocalError: cannot access local variable 'rec_decision' where it is not associated with a value
+[DubaiMatrixASI] 23:29:29.947    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'MT5Bridge' object has no attribute '_initialized'

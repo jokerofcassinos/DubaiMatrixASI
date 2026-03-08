@@ -163,10 +163,22 @@ class PositionManager:
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Total Dollar Based)
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Total Dollar Based with ATR Anchor)
             # ═══════════════════════════════════════════════════
             peak = state['peak_profit']
-            if peak > 2.0: # Ativa lock após $2.0 de lucro total do Strike
+            
+            # [Phase Ω-Resilience] Dynamic Profit Floor Anchor
+            # Anchor must be at least the estimated commission + a safety buffer.
+            atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
+            lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
+            
+            # FTMO/ECN Commission cost estimate
+            commission_cost = lot_scale * COMMISSION_ROUND_TURN_PER_LOT
+            
+            # Floor = Commission + (10% of 1 ATR scaled by volume)
+            dynamic_peak_floor = max(commission_cost * 1.5, atr_val * 0.1 * lot_scale) 
+
+            if peak > dynamic_peak_floor:
                 drawdown_pct = 0.0
                 if total_profit > 0:
                     drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
@@ -174,21 +186,32 @@ class PositionManager:
                     drawdown_pct = 1.0 
 
                 lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25)
-                if peak > 20: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
-                if peak > 100: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
+                if peak > dynamic_peak_floor * 10: lock_threshold = OMEGA.get("smart_tp_lock_threshold_mid", 0.15)
+                if peak > dynamic_peak_floor * 50: lock_threshold = OMEGA.get("smart_tp_lock_threshold_high", 0.10)
                 
-                # Nuke se evaporar > threshold OU se caiu de $10+ para < $2.0
-                if drawdown_pct >= lock_threshold or (peak > 10.0 and total_profit < 2.0):
+                # Nuke se evaporar > threshold OU se caiu de lucro alto para < floor
+                if drawdown_pct >= lock_threshold or (peak > 10.0 and total_profit < dynamic_peak_floor):
                     should_close = True
                     reason = f"ATOMIC_PROFIT_LOCK: Evaporação (${peak:.2f}->${total_profit:.2f}, DD={drawdown_pct*100:.1f}%)"
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
+            #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL (with Hysteresis)
             # ═══════════════════════════════════════════════════
             if not should_close and total_profit > 1.0:
                 buffer_tp = OMEGA.get("smart_tp_micro_reversal_buffer", 20.0)
-                req_delta = 50 if total_profit > buffer_tp else 300
-                req_signal = 0.3 if total_profit > buffer_tp else 0.85
+                
+                # [Phase Ω-Resilience] Hysteresis Logic:
+                # In low profit states, we need a MASSIVE reversal to exit. 
+                # Don't let noise kill a potential home run.
+                if total_profit < buffer_tp * 0.5:
+                    req_delta = 600   # Needs double the standard pressure
+                    req_signal = 0.95 # Needs near unanimity
+                elif total_profit > buffer_tp:
+                    req_delta = 50    # High profit = protect immediately
+                    req_signal = 0.3
+                else:
+                    req_delta = 300
+                    req_signal = 0.85
                 
                 if g_is_buy and flow_delta < -req_delta and flow_signal < -req_signal:
                     should_close = True
@@ -258,15 +281,21 @@ class PositionManager:
                         self._last_nuke_log_time[log_key] = now
 
         # ═══ CLEANUP: Remover tickets fechados do state e da lista de pendentes ═══
-        closed = [t for t in list(self._positions_state.keys()) if t not in current_tickets]
+        # [Phase Ω-Resilience] Fix state leakage: only remove state if ticket is NOT in current_tickets
+        # and NOT in closing_tickets (to avoid group reset mid-strike execution)
+        closed = [t for t in list(self._positions_state.keys()) 
+                  if t not in current_tickets and t not in self._closing_tickets]
         for t in closed:
             del self._positions_state[t]
-            if t in self._closing_tickets:
-                self._closing_tickets.remove(t)
             if t in self._close_attempt_time:
                 del self._close_attempt_time[t]
             if t in self._last_nuke_log_time:
                 del self._last_nuke_log_time[t]
+        
+        # Cleanup independent list for confirmed closed tickets
+        for t in list(self._closing_tickets):
+            if t not in current_tickets:
+                self._closing_tickets.remove(t)
 
     def _close_with_notify(self, ticket: int, direction: str):
         """Marca o ticket como fechando e dispara via pool paralela (Phase 44)."""

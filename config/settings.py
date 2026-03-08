@@ -92,6 +92,7 @@ EXECUTION_RETRY_DELAY_MS = 100     # Delay entre retries
 EXECUTION_ORDER_TIMEOUT_SEC = 10   # Timeout para execução de ordem
 MAX_SLOTS_PER_CANDLE = 5           # Máximo de ordens enviadas no mesmo candle (HFT Throttling)
 EXECUTION_COOLDOWN_MS = 500        # Cooldown mínimo entre disparos de ordens
+COMMISSION_ROUND_TURN_PER_LOT = 7.0 # Estimativa conservadora (FTMO/Ecn)
 
 # ═══════════════════════════════════════════════════════════════
 #  WEB SCRAPING

@@ -86,5 +86,7 @@
 - [x] **Lotka-Volterra Predator-Prey**: Modelagem de tensão comprador/vendedor como ecossistema.
 - [x] **EVT Black Swan Harvester**: Captura de reversões extremas via Distribuição de Pareto Generalizada.
 - [x] **P-Brane Maker Execution (Phase Ω-Singularity)**: Transição automática para Limit Orders em regimes de baixa liquidez/drift, capturando spread.
+- [x] **Consciousness Feedback Loop (Phase Ω-Darwin)**: Auditoria periódica de deals reais no MT5 para sincronização do P&L líquido na consciência da ASI.
+- [x] **Net-Wealth Mutation Alignment**: Garantia de que a auto-evolução darwiniana opera estritamente sobre Alpha Líquido, expurgando 'Fake Fitness'.
 
-*(Atualizado: 2026-03-07. Versão: 16.0.0-omega+singularity — Phase Ω-Singularity Victory)*
+*(Atualizado: 2026-03-08. Versão: 12.0.0-omega+extreme)*

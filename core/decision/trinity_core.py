@@ -182,8 +182,9 @@ class TrinityCore:
                 delta_price = closes[-1] - closes[-5]
                 atr_local = self._get_current_atr(snapshot)
                 
-                # Se o preço moveu mais que 2.5x o ATR local em 5 min e a entropia é máxima (ou Burst detectado):
-                if (abs(delta_price) > atr_local * 2.5 or is_velocity_burst) and atr_local > 0:
+                # [Phase Ω-Resilience] Increased price displacement requirement for God-Mode
+                # From 2.5x to 3.5x ATR to avoid firing during regular drift/mini-pullbacks
+                if (abs(delta_price) > atr_local * 3.5 or is_velocity_burst) and atr_local > 0:
                     log.omega(f"🌌 [GOD-MODE REVERSAL] {'Velocity Burst' if is_velocity_burst else 'Entropia Máxima'} detected. PHI={quantum_state.phi:.2f} Entropy={quantum_state.entropy:.2f}. Absorvendo impacto.")
                     action = Action.BUY if delta_price < 0 else Action.SELL
                     confidence = 0.99  # Certeza absoluta do rebote elástico
@@ -236,7 +237,9 @@ class TrinityCore:
         if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
             dynamic_phi_min *= 0.5  # Expectância positiva atestada, facilita entrada
 
-        dynamic_phi_min = max(0.05, min(phi_min, dynamic_phi_min))
+        # [Phase Ω-Singularity] Drifting regimes have naturally low Φ due to entropy.
+        # We lower the floor to 0.01 to avoid "SYSTEM_INCOHERENCE" paralysis.
+        dynamic_phi_min = max(0.01, min(phi_min, dynamic_phi_min))
 
         if quantum_state.phi < dynamic_phi_min:
             # OMEGA: Log de Transparência Sensorial com Cooldown Inteligente
@@ -314,7 +317,9 @@ class TrinityCore:
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-             min_rr = 1.0  # Em mercados curtos o spread corrói o R:R inicial e precisamos abaixar o piso
+             # [Phase Ω-Singularity] Relax RR for Maker trades
+             # Maker execution (limit_mode) captures spread, making low RR trades profitable.
+             min_rr = 0.4 if limit_mode else 0.8
 
              
         if rr_ratio < min_rr:

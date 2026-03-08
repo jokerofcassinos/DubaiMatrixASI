@@ -291,6 +291,50 @@ class MT5Bridge:
     # ═══════════════════════════════════════════════════════════
 
     @timed(log_threshold_ms=50)
+    def get_closed_deals(self, from_date: datetime) -> List[dict]:
+        """
+        Busca negócios (deals) fechados desde uma data específica.
+        Essencial para o Consciousness Feedback Loop.
+        """
+        if not self.connected:
+            return []
+
+        # MT5 lida melhor com timestamps float (epoch)
+        from_timestamp = int(from_date.timestamp())
+        to_timestamp = int(time.time())
+
+        deals = mt5.history_deals_get(from_timestamp, to_timestamp)
+        if deals is None:
+            err = mt5.last_error()
+            log.error(f"❌ Erro ao buscar histórico MT5: {err}")
+            return []
+
+        if len(deals) == 0:
+            return []
+
+        results = []
+        for d in deals:
+            # Filtramos apenas deals que fecham posições (entry out) 
+            # ou que são de lucro/perda real (excluindo balanço/créditos se houver)
+            if d.entry in [1, 2, 3]: # 1=OUT, 2=INOUT, 3=OUT_BY
+                results.append({
+                    "ticket": d.order,
+                    "position": d.position_id,
+                    "symbol": d.symbol,
+                    "type": "BUY" if d.type == 1 else "SELL", # Note: No deal, type 1=SELL(out of buy), 0=BUY
+                    # No Deal: 1=Sell side (close buy), 0=Buy side (close sell)
+                    "direction": "SELL" if d.type == 1 else "BUY",
+                    "volume": d.volume,
+                    "price": d.price,
+                    "profit": d.profit,
+                    "commission": d.commission,
+                    "swap": d.swap,
+                    "time": datetime.fromtimestamp(d.time, tz=timezone.utc).isoformat(),
+                    "comment": d.comment
+                })
+        
+        return results
+
     def get_tick(self) -> Optional[dict]:
         """Obtém o tick mais recente (preferência para HFT Socket)."""
         if not self.connected:
@@ -543,8 +587,23 @@ class MT5Bridge:
         if tp > 0:
             request["tp"] = tp
 
-        # Para Ordens Limites de Precisão, não utilizamos o Fallback do Socket "MQL5"
-        # que foi desenhado apenas para Market Execute de P-Branes agressivas
+        # [Phase Ω-Speed] Port to HFT Socket Bridge
+        # Command format: "LIMIT|ACTION|SYMBOL|LOT|PRICE|SL|TP"
+        cmd = f"LIMIT|{action.upper()}|{self.symbol}|{lot:.2f}|{price:.5f}|{sl:.5f}|{tp:.5f}"
+        
+        if self._ea_connected and self.send_socket_command(cmd):
+            log.omega(f"⚡ FAST LIMIT SINALIZADO: {action} {lot} @ {price:.2f} (via socket)")
+            return {
+                "success": True,
+                "ticket": 0, # Async result
+                "price": price,
+                "volume": lot,
+                "action": action,
+                "status": "PENDING_LIMIT_SIGNALED"
+            }
+
+        # Fallback to slow Native API
+        log.warning(f"⚠️ Socket indisponível para LIMIT. Usando fallback API Python (Lento).")
         result = mt5.order_send(request)
 
         if result is None:

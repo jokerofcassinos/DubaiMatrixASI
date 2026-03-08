@@ -108,6 +108,7 @@ class ASIBrain:
         self._last_snapshot = None
         self._last_pnl_prediction = None
         self._last_log_times = {} # key -> float
+        self._last_history_poll = time.time() - 3600 # Começar buscando a última 1 hora
 
         # Iniciar Scrapers em background
         self.sentiment_scraper.start()
@@ -279,11 +280,74 @@ class ASIBrain:
                     )
                     self.executor.execute(rec_decision, self.state, snapshot)
 
+        # ═══ 12. REFLEXÃO (CONSCIOUSNESS FEEDBACK) ═══
+        # A cada 600 ciclos (~1 minuto), audita o histórico real do MT5
+        if self._cycle_count % 600 == 0:
+            self._reflection_phase(snapshot)
+
         # Log periódico (a cada 100 ciclos - redução de ruído)
         if self._cycle_count % 100 == 0:
             self._log_status(result, quantum_state, regime_state)
 
         return result
+
+    def _reflection_phase(self, snapshot: MarketSnapshot):
+        """
+        Fase de Reflexão: Audita o histórico real para sincronizar a consciência.
+        Deduz comissões e atualiza a evolução darwiniana.
+        """
+        from core.evolution.performance_tracker import TradeRecord
+        from config.settings import COMMISSION_ROUND_TURN_PER_LOT
+
+        last_poll_dt = datetime.fromtimestamp(self._last_history_poll, tz=timezone.utc)
+        deals = self.bridge.get_closed_deals(last_poll_dt)
+        self._last_history_poll = time.time()
+
+        if not deals:
+            return
+
+        for deal in deals:
+            # 1. Calcular Lucro Líquido Real (Dedução Explícita de Comissão)
+            # Nota: Deals no MT5 já podem vir com comissão preenchida pela corretora.
+            # Se vier zero (comum em algos que não sincronizam rápido), usamos nossa estimativa.
+            gross_profit = deal.get("profit", 0.0)
+            comm_mt5 = deal.get("commission", 0.0)
+            
+            # Se a corretora não reportou comissão no deal ainda, estimamos
+            if comm_mt5 == 0:
+                comm_est = -abs(deal.get("volume", 0) * COMMISSION_ROUND_TURN_PER_LOT)
+            else:
+                comm_est = comm_mt5
+
+            net_profit = gross_profit + comm_est + deal.get("swap", 0.0)
+            
+            # 2. Registrar no Performance Tracker (Darwinian Input)
+            trade_rec = TradeRecord(
+                ticket=deal.get("ticket", 0),
+                symbol=deal.get("symbol", ""),
+                action=deal.get("direction", ""),
+                lot_size=deal.get("volume", 0.0),
+                entry_price=0, # MT5 deals 'entry out' não tem o entry price original fácil aqui
+                exit_price=deal.get("price", 0.0),
+                profit=net_profit,
+                is_winner=(net_profit > 0),
+                regime_at_entry=snapshot.regime.value if snapshot.regime else "UNKNOWN",
+                exit_time=deal.get("time", "")
+            )
+            
+            self.performance_tracker.record_trade(trade_rec)
+            
+            # 3. Sincronizar ASIState (Memória de Nível Superior)
+            self.state.total_trades += 1
+            self.state.total_profit += net_profit
+            if net_profit > 0:
+                self.state.total_wins += 1
+                self.state.consecutive_losses = 0
+            else:
+                self.state.total_losses += 1
+                self.state.consecutive_losses += 1
+
+        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} novos trades auditados e sincronizados na consciência.")
 
     def _log_status(self, result, quantum_state, regime_state):
         """Log periódico de status."""

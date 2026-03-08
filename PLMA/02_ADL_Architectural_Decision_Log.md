@@ -48,8 +48,13 @@
 - **Justificativa:** Proteção tripla contra (1) Comprar facas caindo, (2) Vender fundos esticados, e (3) Comprar topos de pullback.
 - **Data/Status:** ATIVO. (2026-03-06).
 
-### DECISÃO 10: PARALELIZAÇÃO DE EXECUÇÃO HFT (Phase 40)
-- **Decisão:** O `SniperExecutor` passou a utilizar `ThreadPoolExecutor` para disparar ordens simultaneamente ao invés de em loop sequencial.
+### FASE 30: ERA DA ANTIMATÉRIA E COBRANÇA DE SPREAD (Phase Ω-Singularity)
+- **Contexto:** Identificou-se que trades em regimes de "Drift" morriam no spread da corretora.
+- **Evolução:** Implementação do P-Brane Maker e execução por ordens limites quantizadas. O bot agora cobra o spread do varejo.
+
+### FASE 31: ERA DO DESTRAVAMENTO HFT (Sweep 2 Re-Calibration)
+- **Contexto:** Paralisia por veto de RR ratio (2.79) e PHI (0.4).
+- **Evolução:** Redução do piso de consciência (Φ=0.01) e RR (0.4) para Maker. Reversão de mutações tóxicas. O sistema recupera sua agressividade predatória original.
 - **Justificativa:** O delay de ~4.8s para enviar 10-15 slots era inaceitável para HFT, resultando em slippage catastrófico. Com threads, o tempo de envio caiu para <300ms.
 - **Data/Status:** ATIVO. (2026-03-06).
 
@@ -116,9 +121,14 @@
 - **Justificativa:** Capturar reversões em flash-crashes que modelos normais ignoram.
 - **Data/Status:** ATIVO. (2026-03-07).
 
-### DECISION 31: PHASE Ω-SINGULARITY (P-BRANE MAKER LOGIC)
-- **Decisão:** Transição de execução Taker (Market) para Maker (Limit) em regimes de `DRIFTING` e baixa liquidez.
-- **Justificativa:** Em ambientes de baixa volatilidade, o spread corrói o Alpha. Ao atuar como Maker nas extremidades do spread (P-Brane Gaussiana), a ASI inverte o custo, cobrando spread do varejo e resolvendo vetos de RR baixo.
+### DECISÃO 31: PARADIGMA MAKER (Phase Ω-Singularity)
+- **Decisão:** Implementação de lógica P-Brane Maker para regimes de Drift/Baixa Liquidez.
+- **Justificativa:** Em mercados com pouco deslocamento, pagar spread (Taker) corrói o alpha. O bot agora se posiciona como Maker (Limit Orders) nas extremidades do spread.
+- **Data/Status:** ATIVO. (2026-03-07).
+
+### DECISÃO 32: LIBERTAÇÃO DE THRESHOLDS (Sweep 2)
+- **Decisão:** Redução drástica do piso de Φ para 0.01 e bypass de RR para 0.4 em trades Maker.
+- **Justificativa:** O Self-Optimizer injetou mutações restritivas demais (RR 2.79). Scalping e Maker execution exigem agilidade; a proteção agora foca em Entropia, não em proporções lineares de RR.
 - **Data/Status:** ATIVO. (2026-03-07).
 
 ### DECISÃO 26: P-BRANE NODE CAPPING (Phase Ω-Transcendence)
@@ -161,5 +171,15 @@
 - **Justificativa:** Prevenção de "Concentração de Risco" em um mesmo range. Ao exigir quase 2 ATRs de distância, a ASI garante que cada slot P-Brane explore uma zona de liquidez distinta.
 - **Data/Status:** ATIVO. (2026-03-08).
 
-*(Atualizado: 2026-03-08. Versão: 3.4.0-omega)*
+### DECISÃO 34: CONSCIOUSNESS FEEDBACK LOOP (Phase Ω-Darwin)
+- **Decisão:** Implementação de auditoria periódica (60s) via `history_deals_get` para sincronizar o Brain com a realidade financeira do terminal.
+- **Justificativa:** A ASI estava "Ghost Trading" — operando sem auditar histórico, o que gerava amnésia sobre comissões e mutações baseadas em 'Fake Fitness'.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+### DECISÃO 35: COMMISSION-AWARE EVOLUTIONARY FITNESS
+- **Decisão:** Injeção mandatória de deduções de comissão (~$7/lote) em todos os registros de trade da `PerformanceTracker`.
+- **Justificativa:** Alinhar o `SelfOptimizer` com o crescimento real do patrimônio líquido (Net Wealth), matando estratégias que geram volume bruto mas prejuízo líquido.
+- **Data/Status:** ATIVO. (2026-03-08).
+
+*(Atualizado: 2026-03-08. Versão: 3.5.0-omega)*
  — Phase Ω-Signal Integrity Victory)*
