@@ -32152,3 +32152,313 @@ NameError: name 'snapshot' is not defined
 [DubaiMatrixASI] 21:40:18.852     INFO │ 📈 Trades: 179
 [DubaiMatrixASI] 21:40:18.852     INFO │ 📈 Win Rate: 38.5%
 [DubaiMatrixASI] 21:40:18.853     INFO │ 📈 P&L: $-2023.05
+[DubaiMatrixASI] 21:42:10.625     INFO │ 📂 Trade Registry carregado: 4 intenções mapeadas.
+[DubaiMatrixASI] 21:42:10.664    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 21:42:12.347     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 21:42:12.348     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 21:42:12.348     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 21:42:12.349    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 21:42:12.349    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 21:42:12.349    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 21:42:12.350    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 21:42:12.350    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 21:42:12.350    OMEGA │ ⚡ 📅 2026-03-09T00:42:12.350916+00:00
+[DubaiMatrixASI] 21:42:12.351    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 21:42:12.351    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 21:42:12.351     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 21:42:12.354     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 21:42:12.355    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 21:42:12.355     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 21:42:12.356     INFO │    Conta: 1512712670
+[DubaiMatrixASI] 21:42:12.356     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 21:42:12.357     INFO │    Saldo: $97976.95
+[DubaiMatrixASI] 21:42:12.357     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 21:42:12.357     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 21:42:12.357     INFO │    Spread: 100 points
+[DubaiMatrixASI] 21:42:12.358    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 21:42:12.359     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 21:42:12.359    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66408.77, Bid=66407.77
+[DubaiMatrixASI] 21:42:12.359     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 21:42:12.366     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 21:42:12.367    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 21:42:12.368    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 79 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 21:42:12.390    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 21:42:12.396     INFO │ 📂 Carregados 179 trades do histórico. WR=38.5%
+[DubaiMatrixASI] 21:42:12.427    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 21:42:12.428    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 21:42:12.429    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 21:42:12.437    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 21:42:12.438    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 79 agentes ativos
+[DubaiMatrixASI] 21:42:12.438    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 21:42:12.439     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 97976.95, 'equity': 97976.95, 'tick_buffer_size': 1, 'last_tick_ms': 1773027732471}
+[DubaiMatrixASI] 21:42:12.440    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 21:42:12.441    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 21:42:12.626    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $43.57
+[DubaiMatrixASI] 21:42:12.654  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924538. Usando fallback.
+[DubaiMatrixASI] 21:42:12.655  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924539. Usando fallback.
+[DubaiMatrixASI] 21:42:12.677  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924540. Usando fallback.
+[DubaiMatrixASI] 21:42:12.677    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 49459)
+[DubaiMatrixASI] 21:42:12.677  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924536. Usando fallback.
+[DubaiMatrixASI] 21:42:12.691  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924537. Usando fallback.
+[DubaiMatrixASI] 21:42:12.701  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924745. Usando fallback.
+[DubaiMatrixASI] 21:42:12.702  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924746. Usando fallback.
+[DubaiMatrixASI] 21:42:12.702  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924747. Usando fallback.
+[DubaiMatrixASI] 21:42:12.703  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924748. Usando fallback.
+[DubaiMatrixASI] 21:42:12.703  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397924749. Usando fallback.
+[DubaiMatrixASI] 21:42:12.704  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397925188. Usando fallback.
+[DubaiMatrixASI] 21:42:12.704  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397925189. Usando fallback.
+[DubaiMatrixASI] 21:42:12.705  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397925190. Usando fallback.
+[DubaiMatrixASI] 21:42:12.705  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397925191. Usando fallback.
+[DubaiMatrixASI] 21:42:12.706  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397925192. Usando fallback.
+[DubaiMatrixASI] 21:42:12.707  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397931572. Usando fallback.
+[DubaiMatrixASI] 21:42:12.708  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397931570. Usando fallback.
+[DubaiMatrixASI] 21:42:12.709  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397931569. Usando fallback.
+[DubaiMatrixASI] 21:42:12.709  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397931567. Usando fallback.
+[DubaiMatrixASI] 21:42:12.710  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397931573. Usando fallback.
+[DubaiMatrixASI] 21:42:12.710  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932305. Usando fallback.
+[DubaiMatrixASI] 21:42:12.711  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932308. Usando fallback.
+[DubaiMatrixASI] 21:42:12.711  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932309. Usando fallback.
+[DubaiMatrixASI] 21:42:12.712  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932311. Usando fallback.
+[DubaiMatrixASI] 21:42:12.712  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932683. Usando fallback.
+[DubaiMatrixASI] 21:42:12.713  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932682. Usando fallback.
+[DubaiMatrixASI] 21:42:12.714  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932685. Usando fallback.
+[DubaiMatrixASI] 21:42:12.714  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932684. Usando fallback.
+[DubaiMatrixASI] 21:42:12.715  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932686. Usando fallback.
+[DubaiMatrixASI] 21:42:12.716  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932909. Usando fallback.
+[DubaiMatrixASI] 21:42:12.716  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932911. Usando fallback.
+[DubaiMatrixASI] 21:42:12.717  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932912. Usando fallback.
+[DubaiMatrixASI] 21:42:12.718  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932910. Usando fallback.
+[DubaiMatrixASI] 21:42:12.719  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397932908. Usando fallback.
+[DubaiMatrixASI] 21:42:12.720  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933563. Usando fallback.
+[DubaiMatrixASI] 21:42:12.720  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933564. Usando fallback.
+[DubaiMatrixASI] 21:42:12.721  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933565. Usando fallback.
+[DubaiMatrixASI] 21:42:12.722  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933566. Usando fallback.
+[DubaiMatrixASI] 21:42:12.723  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933567. Usando fallback.
+[DubaiMatrixASI] 21:42:12.724  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933872. Usando fallback.
+[DubaiMatrixASI] 21:42:12.724  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933873. Usando fallback.
+[DubaiMatrixASI] 21:42:12.725  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397933874. Usando fallback.
+[DubaiMatrixASI] 21:42:12.726  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935266. Usando fallback.
+[DubaiMatrixASI] 21:42:12.743  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935265. Usando fallback.
+[DubaiMatrixASI] 21:42:12.764  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935124. Usando fallback.
+[DubaiMatrixASI] 21:42:12.765  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935122. Usando fallback.
+[DubaiMatrixASI] 21:42:12.788  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935123. Usando fallback.
+[DubaiMatrixASI] 21:42:12.795  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935125. Usando fallback.
+[DubaiMatrixASI] 21:42:12.796  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935264. Usando fallback.
+[DubaiMatrixASI] 21:42:12.802  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935126. Usando fallback.
+[DubaiMatrixASI] 21:42:12.813  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935958. Usando fallback.
+[DubaiMatrixASI] 21:42:12.819  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935959. Usando fallback.
+[DubaiMatrixASI] 21:42:12.820  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935960. Usando fallback.
+[DubaiMatrixASI] 21:42:12.821  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397935961. Usando fallback.
+[DubaiMatrixASI] 21:42:12.821  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936202. Usando fallback.
+[DubaiMatrixASI] 21:42:12.822  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936200. Usando fallback.
+[DubaiMatrixASI] 21:42:12.823  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936199. Usando fallback.
+[DubaiMatrixASI] 21:42:12.824  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936201. Usando fallback.
+[DubaiMatrixASI] 21:42:12.824  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936203. Usando fallback.
+[DubaiMatrixASI] 21:42:12.825  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936308. Usando fallback.
+[DubaiMatrixASI] 21:42:12.826  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936310. Usando fallback.
+[DubaiMatrixASI] 21:42:12.827  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936312. Usando fallback.
+[DubaiMatrixASI] 21:42:12.827  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936309. Usando fallback.
+[DubaiMatrixASI] 21:42:12.828  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936317. Usando fallback.
+[DubaiMatrixASI] 21:42:12.828  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936313. Usando fallback.
+[DubaiMatrixASI] 21:42:12.829  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936307. Usando fallback.
+[DubaiMatrixASI] 21:42:12.835  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936314. Usando fallback.
+[DubaiMatrixASI] 21:42:12.863  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936316. Usando fallback.
+[DubaiMatrixASI] 21:42:12.867  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936311. Usando fallback.
+[DubaiMatrixASI] 21:42:12.868  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936630. Usando fallback.
+[DubaiMatrixASI] 21:42:12.890  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936632. Usando fallback.
+[DubaiMatrixASI] 21:42:12.894  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936633. Usando fallback.
+[DubaiMatrixASI] 21:42:12.900  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936631. Usando fallback.
+[DubaiMatrixASI] 21:42:12.910  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936629. Usando fallback.
+[DubaiMatrixASI] 21:42:12.916  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936847. Usando fallback.
+[DubaiMatrixASI] 21:42:12.917  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936848. Usando fallback.
+[DubaiMatrixASI] 21:42:12.918  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397936849. Usando fallback.
+[DubaiMatrixASI] 21:42:12.918  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937506. Usando fallback.
+[DubaiMatrixASI] 21:42:12.919  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937502. Usando fallback.
+[DubaiMatrixASI] 21:42:12.919  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937505. Usando fallback.
+[DubaiMatrixASI] 21:42:12.920  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937504. Usando fallback.
+[DubaiMatrixASI] 21:42:12.921  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937503. Usando fallback.
+[DubaiMatrixASI] 21:42:12.921  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937610. Usando fallback.
+[DubaiMatrixASI] 21:42:12.922  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937611. Usando fallback.
+[DubaiMatrixASI] 21:42:12.923  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937872. Usando fallback.
+[DubaiMatrixASI] 21:42:12.923  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937874. Usando fallback.
+[DubaiMatrixASI] 21:42:12.924  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937871. Usando fallback.
+[DubaiMatrixASI] 21:42:12.924  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937873. Usando fallback.
+[DubaiMatrixASI] 21:42:12.925  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397937875. Usando fallback.
+[DubaiMatrixASI] 21:42:12.925  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397939837. Usando fallback.
+[DubaiMatrixASI] 21:42:12.926  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397939838. Usando fallback.
+[DubaiMatrixASI] 21:42:12.927  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397939839. Usando fallback.
+[DubaiMatrixASI] 21:42:12.928  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397939835. Usando fallback.
+[DubaiMatrixASI] 21:42:12.929  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397939836. Usando fallback.
+[DubaiMatrixASI] 21:42:12.929  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397972054. Usando fallback.
+[DubaiMatrixASI] 21:42:12.930  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397972055. Usando fallback.
+[DubaiMatrixASI] 21:42:12.952  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397972058. Usando fallback.
+[DubaiMatrixASI] 21:42:12.962  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397972056. Usando fallback.
+[DubaiMatrixASI] 21:42:12.963  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397972057. Usando fallback.
+[DubaiMatrixASI] 21:42:12.964  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397978750. Usando fallback.
+[DubaiMatrixASI] 21:42:12.980  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397978752. Usando fallback.
+[DubaiMatrixASI] 21:42:12.993  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397978748. Usando fallback.
+[DubaiMatrixASI] 21:42:12.995  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397978751. Usando fallback.
+[DubaiMatrixASI] 21:42:13.011  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397978746. Usando fallback.
+[DubaiMatrixASI] 21:42:13.018  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397981978. Usando fallback.
+[DubaiMatrixASI] 21:42:13.019  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397981980. Usando fallback.
+[DubaiMatrixASI] 21:42:13.019  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397981979. Usando fallback.
+[DubaiMatrixASI] 21:42:13.020  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397981981. Usando fallback.
+[DubaiMatrixASI] 21:42:13.021  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397982210. Usando fallback.
+[DubaiMatrixASI] 21:42:13.022  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397982211. Usando fallback.
+[DubaiMatrixASI] 21:42:13.023  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397987953. Usando fallback.
+[DubaiMatrixASI] 21:42:13.024  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397987954. Usando fallback.
+[DubaiMatrixASI] 21:42:13.024  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397989183. Usando fallback.
+[DubaiMatrixASI] 21:42:13.025  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397989184. Usando fallback.
+[DubaiMatrixASI] 21:42:13.026  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397989186. Usando fallback.
+[DubaiMatrixASI] 21:42:13.026  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990735. Usando fallback.
+[DubaiMatrixASI] 21:42:13.027  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990736. Usando fallback.
+[DubaiMatrixASI] 21:42:13.028  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990739. Usando fallback.
+[DubaiMatrixASI] 21:42:13.029  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990743. Usando fallback.
+[DubaiMatrixASI] 21:42:13.029  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990742. Usando fallback.
+[DubaiMatrixASI] 21:42:13.036  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990741. Usando fallback.
+[DubaiMatrixASI] 21:42:13.056  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990746. Usando fallback.
+[DubaiMatrixASI] 21:42:13.057  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990744. Usando fallback.
+[DubaiMatrixASI] 21:42:13.079  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990740. Usando fallback.
+[DubaiMatrixASI] 21:42:13.086  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397990745. Usando fallback.
+[DubaiMatrixASI] 21:42:13.087  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992698. Usando fallback.
+[DubaiMatrixASI] 21:42:13.100  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992700. Usando fallback.
+[DubaiMatrixASI] 21:42:13.109  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992706. Usando fallback.
+[DubaiMatrixASI] 21:42:13.110  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992702. Usando fallback.
+[DubaiMatrixASI] 21:42:13.111  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992705. Usando fallback.
+[DubaiMatrixASI] 21:42:13.111  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992697. Usando fallback.
+[DubaiMatrixASI] 21:42:13.112  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992701. Usando fallback.
+[DubaiMatrixASI] 21:42:13.113  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992704. Usando fallback.
+[DubaiMatrixASI] 21:42:13.114  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992699. Usando fallback.
+[DubaiMatrixASI] 21:42:13.114  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397992703. Usando fallback.
+[DubaiMatrixASI] 21:42:13.115  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997075. Usando fallback.
+[DubaiMatrixASI] 21:42:13.116  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997072. Usando fallback.
+[DubaiMatrixASI] 21:42:13.117  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997070. Usando fallback.
+[DubaiMatrixASI] 21:42:13.118  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997069. Usando fallback.
+[DubaiMatrixASI] 21:42:13.118  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997073. Usando fallback.
+[DubaiMatrixASI] 21:42:13.119  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997649. Usando fallback.
+[DubaiMatrixASI] 21:42:13.120  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997653. Usando fallback.
+[DubaiMatrixASI] 21:42:13.120  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397997648. Usando fallback.
+[DubaiMatrixASI] 21:42:13.121  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998197. Usando fallback.
+[DubaiMatrixASI] 21:42:13.122  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998198. Usando fallback.
+[DubaiMatrixASI] 21:42:13.123  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998199. Usando fallback.
+[DubaiMatrixASI] 21:42:13.123  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998201. Usando fallback.
+[DubaiMatrixASI] 21:42:13.125  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998200. Usando fallback.
+[DubaiMatrixASI] 21:42:13.125  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998971. Usando fallback.
+[DubaiMatrixASI] 21:42:13.126  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998965. Usando fallback.
+[DubaiMatrixASI] 21:42:13.127  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998966. Usando fallback.
+[DubaiMatrixASI] 21:42:13.127  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998963. Usando fallback.
+[DubaiMatrixASI] 21:42:13.128  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998972. Usando fallback.
+[DubaiMatrixASI] 21:42:13.128  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998964. Usando fallback.
+[DubaiMatrixASI] 21:42:13.129  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998973. Usando fallback.
+[DubaiMatrixASI] 21:42:13.129  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998967. Usando fallback.
+[DubaiMatrixASI] 21:42:13.130  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998969. Usando fallback.
+[DubaiMatrixASI] 21:42:13.152  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #397998974. Usando fallback.
+[DubaiMatrixASI] 21:42:13.160  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398002695. Usando fallback.
+[DubaiMatrixASI] 21:42:13.161  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398002696. Usando fallback.
+[DubaiMatrixASI] 21:42:13.185  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398002698. Usando fallback.
+[DubaiMatrixASI] 21:42:13.200  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398002697. Usando fallback.
+[DubaiMatrixASI] 21:42:13.201  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398002693. Usando fallback.
+[DubaiMatrixASI] 21:42:13.212  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398005445. Usando fallback.
+[DubaiMatrixASI] 21:42:13.213  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006067. Usando fallback.
+[DubaiMatrixASI] 21:42:13.214  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006064. Usando fallback.
+[DubaiMatrixASI] 21:42:13.215  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006066. Usando fallback.
+[DubaiMatrixASI] 21:42:13.216  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006065. Usando fallback.
+[DubaiMatrixASI] 21:42:13.217  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006063. Usando fallback.
+[DubaiMatrixASI] 21:42:13.217  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006359. Usando fallback.
+[DubaiMatrixASI] 21:42:13.218  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006354. Usando fallback.
+[DubaiMatrixASI] 21:42:13.219  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398006360. Usando fallback.
+[DubaiMatrixASI] 21:42:13.219  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398151989. Usando fallback.
+[DubaiMatrixASI] 21:42:13.220  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398151986. Usando fallback.
+[DubaiMatrixASI] 21:42:13.220  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167717. Usando fallback.
+[DubaiMatrixASI] 21:42:13.221     INFO │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #398167712: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 21:42:13.222  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167720. Usando fallback.
+[DubaiMatrixASI] 21:42:13.223  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167714. Usando fallback.
+[DubaiMatrixASI] 21:42:13.224  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167719. Usando fallback.
+[DubaiMatrixASI] 21:42:13.228  WARNING │ 🚨 ALERT [HIGH]: Win rate em 38.5% (threshold: 45.0%)
+[DubaiMatrixASI] 21:42:13.229    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.0218)
+[DubaiMatrixASI] 21:42:13.230    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006355
+[DubaiMatrixASI] 21:42:13.230    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 359 deals na fita, 179 fechamentos analisados, 0 novos registros. P&L Líquido: $-2023.05
+[DubaiMatrixASI] 21:42:14.037     INFO │ 🌍 Macro Update: ETH=$1957.97 | BTC/ETH=34.0 | Gold=$5068 | Vol24h=$82.2B | Bias=+0.000 | Sources=3
+[DubaiMatrixASI] 21:42:14.691     INFO │ ⛓️ On-Chain Update: Mempool=25,175 txs | Fee=1.1 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 21:42:15.039     INFO │ 📊 Sentiment Update: F&G=8 (Extreme Fear) | BTC Dom=56.3% | 24h=-1.13% | Score=-0.695 | Sources=2
+[DubaiMatrixASI] 21:42:20.431     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=+0.385 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(8s/120.0s)
+  🧬 Quantum: SIGNAL=+0.385 COHERENCE=0.48 PHI=0.09
+  🐂 BULL[13]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, LiquidStateAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, FeynmanPath, PriceVelocityAgent
+  🐻 BEAR[9]: AggressivenessAgent, OnChainPressureAgent, TemporalTrend, HexMatrix, GameTheoryNashAgent, PressureMatrix, Thermodynamic, SentimentFearGreedAgent, MicrostructureAgent
+[DubaiMatrixASI] 21:42:28.018     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=+0.408 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(16s/120.0s)
+  🧬 Quantum: SIGNAL=+0.408 COHERENCE=0.47 PHI=0.07
+  🐂 BULL[11]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+  🐻 BEAR[10]: FeynmanPath, OnChainPressureAgent, TemporalTrend, HexMatrix, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, SentimentFearGreedAgent, MicrostructureAgent
+[DubaiMatrixASI] 21:42:35.611     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=+0.353 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(23s/120.0s)
+  🧬 Quantum: SIGNAL=+0.353 COHERENCE=0.47 PHI=0.06
+  🐂 BULL[11]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, CandleAnatomyAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+  🐻 BEAR[11]: LiquidStateAgent, OnChainPressureAgent, TemporalTrend, HexMatrix, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, AggressivenessAgent, FeynmanPath, SentimentFearGreedAgent
+[DubaiMatrixASI] 21:42:43.162     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=+0.441 | Coherence=0.45 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(31s/120.0s)
+  🧬 Quantum: SIGNAL=+0.441 COHERENCE=0.45 PHI=0.06
+  🐂 BULL[12]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent, HexMatrix
+  🐻 BEAR[10]: OnChainPressureAgent, TemporalTrend, GameTheoryNashAgent, PressureMatrix, Thermodynamic, FeynmanPath, AggressivenessAgent, LiquidStateAgent, SentimentFearGreedAgent, MicrostructureAgent
+[DubaiMatrixASI] 21:42:50.736     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=+0.434 | Coherence=0.46 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(38s/120.0s)
+  🧬 Quantum: SIGNAL=+0.434 COHERENCE=0.46 PHI=0.06
+  🐂 BULL[11]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+  🐻 BEAR[10]: OnChainPressureAgent, TemporalTrend, HexMatrix, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, SentimentFearGreedAgent, FeynmanPath, MicrostructureAgent
+[DubaiMatrixASI] 21:42:58.323     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=+0.406 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(46s/120.0s)
+  🧬 Quantum: SIGNAL=+0.406 COHERENCE=0.47 PHI=0.07
+  🐂 BULL[11]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+  🐻 BEAR[10]: FeynmanPath, OnChainPressureAgent, TemporalTrend, HexMatrix, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, SentimentFearGreedAgent, MicrostructureAgent
+[DubaiMatrixASI] 21:43:03.365  WARNING │ 🚨 ALERT [HIGH]: Win rate em 38.5% (threshold: 45.0%)
+[DubaiMatrixASI] 21:43:03.367    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.9492)
+[DubaiMatrixASI] 21:43:03.367    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007469
+[DubaiMatrixASI] 21:43:05.916     INFO │ 💫 Cycle #210 | Action=WAIT | Signal=+0.384 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(54s/120.0s)
+  🧬 Quantum: SIGNAL=+0.384 COHERENCE=0.48 PHI=0.07
+  🐂 BULL[13]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, LiquidStateAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, LiquidationVacuumAgent, PriceVelocityAgent, CandleAnatomyAgent, HexMatrix, MomentumAgent
+  🐻 BEAR[9]: OnChainPressureAgent, TemporalTrend, AggressivenessAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, SentimentFearGreedAgent, FeynmanPath
+[DubaiMatrixASI] 21:43:13.482     INFO │ 💫 Cycle #240 | Action=WAIT | Signal=+0.415 | Coherence=0.46 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(61s/120.0s)
+  🧬 Quantum: SIGNAL=+0.415 COHERENCE=0.46 PHI=0.09
+  🐂 BULL[12]: MSSAgent, TBSAgent, ChaosRegime, DarkMass, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent, FeynmanPath
+  🐻 BEAR[11]: OnChainPressureAgent, TemporalTrend, CandleAnatomyAgent, HexMatrix, LiquidStateAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, SentimentFearGreedAgent, AggressivenessAgent
+[DubaiMatrixASI] 21:43:16.260    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-11,3020
+[DubaiMatrixASI] 21:43:21.182     INFO │ 💫 Cycle #270 | Action=WAIT | Signal=+0.317 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(69s/120.0s)
+  🧬 Quantum: SIGNAL=+0.317 COHERENCE=0.48 PHI=0.04
+  🐂 BULL[11]: MSSAgent, TBSAgent, ChaosRegime, DarkMass, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, MomentumAgent, PriceVelocityAgent, CandleAnatomyAgent
+  🐻 BEAR[12]: LiquidStateAgent, OnChainPressureAgent, TemporalTrend, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, HexMatrix, AggressivenessAgent, SentimentFearGreedAgent, FeynmanPath
+[DubaiMatrixASI] 21:43:28.734  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398151989. Usando fallback.
+[DubaiMatrixASI] 21:43:28.745  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398151986. Usando fallback.
+[DubaiMatrixASI] 21:43:28.751  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167717. Usando fallback.
+[DubaiMatrixASI] 21:43:28.752     INFO │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #398167712: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 21:43:28.753  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167720. Usando fallback.
+[DubaiMatrixASI] 21:43:28.753  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167714. Usando fallback.
+[DubaiMatrixASI] 21:43:28.754  WARNING │ ⚠️ [AMNESIA] Intent não encontrada para Position #398167719. Usando fallback.
+[DubaiMatrixASI] 21:43:28.756  WARNING │ 🚨 ALERT [HIGH]: Win rate em 38.5% (threshold: 45.0%)
+[DubaiMatrixASI] 21:43:28.757    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7102)
+[DubaiMatrixASI] 21:43:28.758    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006460
+[DubaiMatrixASI] 21:43:28.758    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 14 deals na fita, 7 fechamentos analisados, 0 novos registros. P&L Líquido: $-2023.05
+[DubaiMatrixASI] 21:43:28.758     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.349 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+  🧬 Quantum: SIGNAL=+0.349 COHERENCE=0.47 PHI=0.01
+  🐂 BULL[10]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, MomentumAgent, CandleAnatomyAgent, PriceVelocityAgent
+  🐻 BEAR[12]: OnChainPressureAgent, TemporalTrend, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, MicrostructureAgent, HexMatrix, AggressivenessAgent, SentimentFearGreedAgent, FeynmanPath
+[DubaiMatrixASI] 21:43:36.303     INFO │ 💫 Cycle #330 | Action=WAIT | Signal=+0.305 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(84s/120.0s)
+  🧬 Quantum: SIGNAL=+0.305 COHERENCE=0.48 PHI=0.01
+  🐂 BULL[10]: MSSAgent, TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, MomentumAgent, CandleAnatomyAgent, PriceVelocityAgent
+  🐻 BEAR[13]: SRAgent, OnChainPressureAgent, TemporalTrend, LiquidationVacuumAgent, GameTheoryNashAgent, FeynmanPath, PressureMatrix, LiquidStateAgent, Thermodynamic, MicrostructureAgent, HexMatrix, AggressivenessAgent, SentimentFearGreedAgent
+[DubaiMatrixASI] 21:43:43.891     INFO │ 💫 Cycle #360 | Action=WAIT | Signal=+0.333 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(92s/120.0s)
+  🧬 Quantum: SIGNAL=+0.333 COHERENCE=0.47 PHI=0.01
+  🐂 BULL[11]: TBSAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, FeynmanPath, MomentumAgent, PriceVelocityAgent, HexMatrix
+  🐻 BEAR[11]: OnChainPressureAgent, TemporalTrend, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, LiquidStateAgent, SentimentFearGreedAgent, MicrostructureAgent, SRAgent
+[DubaiMatrixASI] 21:43:51.507     INFO │ 💫 Cycle #390 | Action=WAIT | Signal=+0.312 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2023.05
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(99s/120.0s)
+  🧬 Quantum: SIGNAL=+0.312 COHERENCE=0.48 PHI=0.02
+  🐂 BULL[10]: TBSAgent, ChaosRegime, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, CandleAnatomyAgent, MomentumAgent, PriceVelocityAgent, FeynmanPath
+  🐻 BEAR[11]: OnChainPressureAgent, TemporalTrend, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, MicrostructureAgent, HexMatrix, SentimentFearGreedAgent, SRAgent
