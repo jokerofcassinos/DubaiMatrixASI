@@ -555,6 +555,31 @@ class TrinityCore:
         if "BLOW_OFF_CLIMAX" in agent_reasons or "REDLINE_VETO" in agent_reasons:
             return self._wait("BLOW_OFF_EXHAUSTION_DETECTED (Reversal Imminent)")
 
+        # [Phase 52] VETO 9: HORIZONTAL RESISTANCE (Double/Triple Top)
+        if action == Action.BUY:
+            # Buscar picos recentes no M1 e M5
+            for tf in ["M1", "M5"]:
+                candles = snapshot.candles.get(tf)
+                if candles and len(candles["high"]) > 50:
+                    highs = np.array(candles["high"], dtype=np.float64)
+                    recent_peaks = []
+                    # Detectar picos (fractal 5)
+                    for i in range(2, len(highs) - 5):
+                        if highs[i] > highs[i-1] and highs[i] > highs[i-2] and \
+                           highs[i] > highs[i+1] and highs[i] > highs[i+2]:
+                            recent_peaks.append(highs[i])
+                    
+                    if recent_peaks:
+                        # Se houver picos no mesmo nível (±0.1%)
+                        for peak in recent_peaks[-10:]: # Olhar últimos 10 picos
+                            dist_to_peak = (peak - snapshot.price) / snapshot.price * 100
+                            # Se o preço está encostando em um topo anterior
+                            if abs(dist_to_peak) < 0.08:
+                                # Contar quantos picos existem nesse nível (alinhamento)
+                                matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
+                                if matches >= 2: # Topo Duplo ou Triplo
+                                    return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
+
         # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
         volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar
