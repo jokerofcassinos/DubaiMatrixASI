@@ -244,27 +244,33 @@ class SniperExecutor:
         is_resonance = decision.metadata.get("phi_resonance", False)
         base_max_slots = int(OMEGA.get("max_order_splits", 5.0))
 
-        if decision.confidence > 0.85 or is_resonance:            # Extrema convicção ou Ressonância -> Ativar Hydra Mode
-            hydra_multiplier = 3 
-            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:
+        # [Phase 52] Ruin Protection for Hydra
+        # Se o Risk Engine detectou ruína não-ergódica, desativamos a Hydra para proteger o capital.
+        is_ruin = snapshot.metadata.get("non_ergodic_ruin", False)
+
+        if (decision.confidence > 0.85 or is_resonance) and not is_ruin:
+            # Extrema convicção ou Ressonância -> Ativar Hydra Mode
+            hydra_multiplier = 3
+            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:  
                 hydra_multiplier = 5 # Até 25 slots progressivos em modo demente
-                
+
             max_slots = base_max_slots * hydra_multiplier
-            
+
             # Libera a metralhadora temporariamente para esta vela
-            self._max_orders_per_candle = 25 # Phase 50: Aumentado para 25 para ressonância total
-            
+            self._max_orders_per_candle = 25 # Phase 50: Aumentado para 25 para ressonância total        
+
             # [PHASE Ω-RESILIENCE] Log Cooldown
             now = time.time()
             if is_resonance:
                  self._log_cooldown("resonance_ignite", f"⚡ [RESONANCE IGNITION] — High Frequency Strike Authorized. Max Slots={max_slots}", 30, level="omega")
             elif now - self._last_log_times.get("hydra", 0) > 60.0:
-                log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots} | Max Orders/Candle: 25")
+                log.omega(f"🐉 HYDRA MODE ACTIVATED! Confidence {decision.confidence:.2f} > 0.85 | Max Slots: {max_slots}")
                 self._last_log_times["hydra"] = now
         else:
             max_slots = base_max_slots
             self._max_orders_per_candle = 2 # Default safety
-
+            if is_ruin and decision.confidence > 0.85:
+                log.warning("🛡️ [HYDRA VETO]: Ruína Não-Ergódica detectada. Multiplicador Hydra desativado.")
         # 4.1. Pre-flight Slot Check & Dynamic Capping (Phase 39)
         from config.exchange_config import MAX_OPEN_POSITIONS
         current_positions = len(self.bridge.get_open_positions() or [])

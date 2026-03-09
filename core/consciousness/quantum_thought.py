@@ -76,6 +76,9 @@ class QuantumThoughtEngine:
         if not signals:
             return self._empty_state("NO_SIGNALS")
 
+        # [Phase 51] Initialize reasoning append string
+        v_pulse_reasoning_append = ""
+
         # Extrair sentimento se o snapshot estiver disponível
         sentiment_score = 0.0
         if snapshot:
@@ -325,14 +328,15 @@ class QuantumThoughtEngine:
         # ═══ [OMEGA INJECTION] PHASE 52: ANTI-BEAR TRAP PROTECTION ═══
         # Proteção contra vender o 'fundo' ou 'sweep' (O que ocorreu no Cycle #3).
         # Se agentes de estrutura/gravidade estão FORTEMENTE BULLISH, ignoramos sinais de venda de inércia.
-        structural_support_active = any(s.agent_name in ["OrderBlockAgent", "PriceGravityAgent", "LiquidStateAgent"] and s.signal > 0.6 for s in valid_signals)
+        rev_agents = ["OrderBlockAgent", "PriceGravityAgent", "LiquidStateAgent", "LiquidationVacuumAgent"]
+        bullish_reversal_intensity = np.mean([s.signal for s in valid_signals if s.agent_name in rev_agents])
         
-        if structural_support_active:
+        if bullish_reversal_intensity > 0.4:
             for s in valid_signals:
                 if s.agent_name in ["TrendAgent", "BOSAgent", "PressureMatrix", "MomentumAgent"]:
-                    if s.signal < -0.2:
-                        s.weight *= 0.05 # Esmagamento de 95%
-                        s.reasoning += " [!BEAR_TRAP_VETO: INSTITUTIONAL SUPPORT DETECTED!]"
+                    if s.signal < -0.1:
+                        s.weight *= 0.02 # Esmagamento de 98%
+                        s.reasoning += " [!BEAR_TRAP_VETO: INSTITUTIONAL REVERSAL DETECTED!]"
 
         # ═══ [OMEGA INJECTION] PHASE 52: LEADING-LAGGING DIVERGENCE BOOST ═══
         # Se os agentes 'Leading' (LiquidState, NavierStokes, PriceGravity) convergem contra
@@ -412,6 +416,15 @@ class QuantumThoughtEngine:
         system_entropy = cpp_result["entropy"]
         comp_time_cpp = cpp_result["time_ms"]
         
+        # ═══════════════════════════════════════════════════
+        #  PHASE 52: STRICT COHERENCE FILTER (After Convergence)
+        # ═══════════════════════════════════════════════════
+        # Se a coerência é baixa (< 0.55), o enxame está em 'guerra civil'.
+        # Nesses casos, o risco de armadilha é alto. Aplicamos um redutor global no sinal bruto.
+        if coherence < 0.55 and not v_pulse_detected:
+            raw_signal *= 0.5 # Asfixia a força da decisão se não há harmonia
+            v_pulse_reasoning_append += " [!LOW_COHERENCE_DAMPENING!]"
+        
         # ═══ 4. CONSCIOUSNESS METRICS (Φ) — Phase Ω-Extreme ═══
         phi_metrics = CPP_CORE.calculate_phi(valid_signals)
         phi_val = phi_metrics["phi"] if phi_metrics else 0.0
@@ -434,8 +447,6 @@ class QuantumThoughtEngine:
         # [PHASE 48]: Se v_pulse_detected, o colapso é forçado com thresholds relaxados.
         natural_collapse = (avg_confidence >= (confidence_min_val * 0.8 if v_pulse_detected else confidence_min_val)) and \
                            (abs(raw_signal) >= (buy_threshold * 0.7 if v_pulse_detected else buy_threshold))
-
-        v_pulse_reasoning_append = ""
 
         if natural_collapse:
             collapsed_signal = raw_signal

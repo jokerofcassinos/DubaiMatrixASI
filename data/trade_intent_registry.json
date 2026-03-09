@@ -166,5 +166,77 @@
     "phi": 0.0,
     "reasoning": "SELL signal=-0.463 conf=0.80 coherence=0.44 regime=LOW_LIQUIDITY ATR=200.59 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.80 | \u03a6=0.07 | COH=43.94% | BEAR: CrossScaleConvergenceAgent, LiquidationVacuumAgent, StopHunterAgent | MC[score=-0.120 WP=57.8% EV=+1.81 CVaR=-270.80 sim=4.5ms]",
     "symbol": "BTCUSD"
+  },
+  "ticket_398250489": {
+    "timestamp": "2026-03-09T02:07:00.954794+00:00",
+    "ticket": 398250489,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8625674591751866,
+    "signal_strength": -0.5119570426231564,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.512 conf=0.86 coherence=0.47 regime=DRIFTING_BEAR ATR=198.56 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.512 | CONF=0.86 | \u03a6=0.19 | COH=46.69% | BEAR: CrossScaleConvergenceAgent, TBSAgent, GameTheoryNashAgent | MC[score=+0.019 WP=46.1% EV=+3.46 CVaR=-140.87 sim=15.5ms]",
+    "symbol": "BTCUSD"
+  },
+  "398250489": {
+    "timestamp": "2026-03-09T02:07:00.954794+00:00",
+    "ticket": 398250489,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8625674591751866,
+    "signal_strength": -0.5119570426231564,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.512 conf=0.86 coherence=0.47 regime=DRIFTING_BEAR ATR=198.56 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.512 | CONF=0.86 | \u03a6=0.19 | COH=46.69% | BEAR: CrossScaleConvergenceAgent, TBSAgent, GameTheoryNashAgent | MC[score=+0.019 WP=46.1% EV=+3.46 CVaR=-140.87 sim=15.5ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_398252004": {
+    "timestamp": "2026-03-09T02:09:36.639653+00:00",
+    "ticket": 398252004,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8601010039447885,
+    "signal_strength": -0.2495866943314371,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.250 conf=0.86 coherence=0.54 regime=DRIFTING_BEAR ATR=205.62 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.250 | CONF=0.86 | \u03a6=0.12 | COH=54.41% | BEAR: LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix | MC[score=+0.019 WP=46.2% EV=+3.59 CVaR=-145.88 sim=16.2ms]",
+    "symbol": "BTCUSD"
+  },
+  "398252004": {
+    "timestamp": "2026-03-09T02:09:36.639653+00:00",
+    "ticket": 398252004,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8601010039447885,
+    "signal_strength": -0.2495866943314371,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.250 conf=0.86 coherence=0.54 regime=DRIFTING_BEAR ATR=205.62 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.250 | CONF=0.86 | \u03a6=0.12 | COH=54.41% | BEAR: LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix | MC[score=+0.019 WP=46.2% EV=+3.59 CVaR=-145.88 sim=16.2ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_398254543": {
+    "timestamp": "2026-03-09T02:11:59.144252+00:00",
+    "ticket": 398254543,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8732969268956665,
+    "signal_strength": -0.3549177492096796,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.355 conf=0.87 coherence=0.51 regime=DRIFTING_BEAR ATR=202.41 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.355 | CONF=0.87 | \u03a6=0.14 | COH=51.12% | BEAR: PressureMatrix, FVGAgent, LiquidationVacuumAgent | MC[score=+0.019 WP=46.2% EV=+3.70 CVaR=-143.60 sim=14.0ms]",
+    "symbol": "BTCUSD"
+  },
+  "398254543": {
+    "timestamp": "2026-03-09T02:11:59.144252+00:00",
+    "ticket": 398254543,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8732969268956665,
+    "signal_strength": -0.3549177492096796,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.355 conf=0.87 coherence=0.51 regime=DRIFTING_BEAR ATR=202.41 RR=1.26 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.355 | CONF=0.87 | \u03a6=0.14 | COH=51.12% | BEAR: PressureMatrix, FVGAgent, LiquidationVacuumAgent | MC[score=+0.019 WP=46.2% EV=+3.70 CVaR=-143.60 sim=14.0ms]",
+    "symbol": "BTCUSD"
   }
 }
