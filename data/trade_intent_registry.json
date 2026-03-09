@@ -1,0 +1,86 @@
+{
+  "ticket_0": {
+    "timestamp": "2026-03-09T14:59:59.084721+00:00",
+    "ticket": 0,
+    "position_id": -1004,
+    "regime": "CREEPING_BULL",
+    "confidence": 0.80336499143043,
+    "signal_strength": 0.25532382169686024,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "BUY signal=+0.255 conf=0.80 coherence=0.43 regime=CREEPING_BULL ATR=234.29 RR=2.12 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.255 | CONF=0.80 | \u03a6=0.05 | COH=43.45% | BULL: CrossScaleConvergenceAgent, StopHunterAgent, LiquidityHeatmapAgent [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.268 WP=42.8% EV=+2.55 CVaR=-199.15 sim=21.0ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_398886244": {
+    "timestamp": "2026-03-09T14:59:59.531163+00:00",
+    "ticket": 398886244,
+    "position_id": 398886244,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "398886244": {
+    "timestamp": "2026-03-09T14:59:59.531163+00:00",
+    "ticket": 398886244,
+    "position_id": 398886244,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_398886261": {
+    "timestamp": "2026-03-09T15:00:00.010423+00:00",
+    "ticket": 398886261,
+    "position_id": 398886261,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "398886261": {
+    "timestamp": "2026-03-09T15:00:00.010423+00:00",
+    "ticket": 398886261,
+    "position_id": 398886261,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_398886268": {
+    "timestamp": "2026-03-09T15:00:00.523898+00:00",
+    "ticket": 398886268,
+    "position_id": 398886268,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "398886268": {
+    "timestamp": "2026-03-09T15:00:00.523898+00:00",
+    "ticket": 398886268,
+    "position_id": 398886268,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  }
+}

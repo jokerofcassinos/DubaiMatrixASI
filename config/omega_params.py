@@ -109,7 +109,7 @@ class OmegaParameterSpace:
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
-        self._register("trinity_min_rr_ratio", 1.5, 0.5, 5.0,
+        self._register("trinity_min_rr_ratio", 1.3, 0.5, 5.0,
                         "RR Ratio mínimo no TrinityCore")
         self._register("mc_min_score", -0.30, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
@@ -123,7 +123,7 @@ class OmegaParameterSpace:
                         "Fração do Kelly Criterion")
         self._register("stop_loss_atr_mult", 0.85, 0.2, 3.0,
                         "Multiplicador ATR para stop loss")
-        self._register("take_profit_atr_mult", 1.8, 0.3, 5.0,
+        self._register("take_profit_atr_mult", 1.3, 0.3, 5.0,
                         "Multiplicador ATR para take profit")
         self._register("trailing_stop_atr_mult", 0.6, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")

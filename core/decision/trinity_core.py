@@ -300,6 +300,9 @@ class TrinityCore:
 
         # [Phase 50] Quantum Resonance Ignition Gate
         is_phi_resonance = False
+        has_v_pulse = snapshot.metadata.get("v_pulse_detected", False)
+        signal_strength = quantum_state.signal_strength if hasattr(quantum_state, 'signal_strength') else abs(quantum_state.raw_signal)
+        
         if phi >= 0.85 and (has_v_pulse or signal_strength > 0.8):
              is_phi_resonance = True
              
