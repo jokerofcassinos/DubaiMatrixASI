@@ -16,6 +16,8 @@ from config.omega_params import OMEGA
 from utils.logger import log
 from utils.decorators import catch_and_log
 from execution.wormhole_router import WormholeRouter
+from execution.trade_registry import registry as trade_registry
+from core.decision.trinity_core import Action, Decision
 
 class PositionManager:
     """
@@ -122,7 +124,7 @@ class PositionManager:
 
             # [PHASE Ω-EVOLVE] Anti-Amnesia: Se não há intenção registrada, criamos uma agora
             # Isso evita o aviso [AMNESIA] durante a reflexão e permite que o SelfOptimizer use o trade.
-            if not trade_registry.get_intent(pos_id=ticket):
+            if not trade_registry.get_intent(position_id=ticket):
                 trade_registry.register_intent(
                     ticket=ticket,
                     intent=Decision(

@@ -298,3 +298,26 @@
 [DubaiMatrixASI] 09:57:20.840    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
 [DubaiMatrixASI] 09:57:22.099    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
 [DubaiMatrixASI] 09:57:22.099    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
+[DubaiMatrixASI] 10:34:13.615    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:13.865    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:14.136    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:14.336    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:14.619    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:14.799    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:15.100    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:15.362    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:15.606    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:15.865    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:16.078    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:16.344    ERROR │ 💀 EXCEPTION in [monitor_positions]: NameError: name 'trade_registry' is not defined
+[DubaiMatrixASI] 10:34:47.812    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:48.119    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:48.378    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:48.589    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:48.903    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:49.096    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:49.403    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:49.579    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:49.861    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:50.063    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
+[DubaiMatrixASI] 10:34:50.384    ERROR │ 💀 EXCEPTION in [monitor_positions]: TypeError: TradeRegistry.get_intent() got an unexpected keyword argument 'pos_id'
