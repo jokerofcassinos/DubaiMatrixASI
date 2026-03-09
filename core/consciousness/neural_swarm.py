@@ -282,7 +282,7 @@ class NeuralSwarm:
             # ═══ OMEGA-CLASS OMNISCIENCE ═══
             HolographicManifoldAgent(),
             DarkMassAgent(weight=2.4),
-            LiquidStateAgent(),
+            LiquidStateAgent(weight=2.5),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

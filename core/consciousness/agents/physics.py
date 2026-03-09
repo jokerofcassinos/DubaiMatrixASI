@@ -45,10 +45,8 @@ class NavierStokesFluidAgent(BaseAgent):
         bid_vols = np.array([b.get("volume", 0) for b in bids[:5]], dtype=np.float64)
         ask_vols = np.array([a.get("volume", 0) for a in asks[:5]], dtype=np.float64)
         
+        # ratio: balance bid/ask, pressure: turbulência acumulada
         ratio, pressure = CPP_CORE.navier_stokes_pressure(bid_vols, ask_vols)
-
-        if density_bid == 0 or density_ask == 0:
-            return None
 
         # Pressão cinética = Velocidade do tape 
         ticks = snapshot.recent_ticks
@@ -63,18 +61,25 @@ class NavierStokesFluidAgent(BaseAgent):
         reason = "Fluid in Equilibrium"
         conf = 0.0
 
-        # Preço flui para a menor resistência (menor densidade), impulsionado pela pressão
-        ratio = density_bid / density_ask
-        
-        if kinetic_pressure > 10.0: # Fluido turbulento
-            if ratio > 3.0: # Bid é um muro, Ask é ar
-                signal = 0.8
-                conf = 0.85
-                reason = f"Hydrodynamic UP-FLOW (Density Ratio {ratio:.1f}, High kinetic pressure)"
-            elif ratio < 0.33: # Ask é um muro, Bid é ar
-                signal = -0.8
-                conf = 0.85
-                reason = f"Hydrodynamic DOWN-FLOW (Density Ratio {ratio:.1f}, High kinetic pressure)"
+        # [Phase 51] Fluid Dynamics Reversal Detection
+        # Se a pressão (turbulência) está extrema, o fluido vai 'explodir' na direção do vácuo.
+        if pressure > 0.8: # Alta turbulência
+            conf = 0.90
+            if ratio > 2.5:
+                signal = 0.85
+                reason = f"Turbulent UP-FLOW (Ratio {ratio:.1f}, Pres {pressure:.2f})"
+            elif ratio < 0.4:
+                signal = -0.85
+                reason = f"Turbulent DOWN-FLOW (Ratio {ratio:.1f}, Pres {pressure:.2f})"
+        elif kinetic_pressure > 15.0: # Fluxo rápido mas laminar
+            if ratio > 1.5:
+                signal = 0.6
+                conf = 0.75
+                reason = f"Kinetic UP-STREAM (Ratio {ratio:.1f}, K-Pres {kinetic_pressure:.1f})"
+            elif ratio < 0.66:
+                signal = -0.6
+                conf = 0.75
+                reason = f"Kinetic DOWN-STREAM (Ratio {ratio:.1f}, K-Pres {kinetic_pressure:.1f})"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
 

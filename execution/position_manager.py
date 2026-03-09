@@ -244,17 +244,21 @@ class PositionManager:
         pending = self.bridge.get_pending_orders()
         if not pending:
             return
-            
+
         now = time.time()
         for order in pending:
+            # O MT5 retorna setup_time em epoch local/server. 
+            # Se a ordem LIMIT está lá há mais de 30 segundos, ela é lixo e polui o book.
             setup_time = order.get('time', now)
-            # Se a ordem LIMIT está lá há mais de 120 segundos, ela é lixo.
-            if now - setup_time > 120:
+
+            # Sanity check: se setup_time for muito grande (futuro), ignorar
+            if setup_time > now + 3600: setup_time = now
+
+            if now - setup_time > 30: # Reduzido de 120s -> 30s para HFT Sniper
                 ticket = order.get('ticket')
                 if ticket:
-                    log.omega(f"🧹 GC: Cancelando ordem LIMIT pendente e antiga #{ticket}")
+                    log.omega(f"🧹 GC: Cancelando ordem LIMIT pendente e antiga #{ticket} ({int(now-setup_time)}s)")
                     self.bridge.cancel_pending_order(ticket)
-
     def _cleanup_tracking(self, current_tickets: List[int]):
         """Remove estados de tickets que não existem mais."""
         closed = [t for t in list(self._positions_state.keys()) 

@@ -58,6 +58,7 @@ class QuantumThoughtEngine:
 
     @catch_and_log(default_return=None)
     def process(self, signals: List[AgentSignal],
+                snapshot=None,
                 regime_weight: float = 1.0,
                 v_pulse_detected: bool = False) -> Optional[QuantumState]:
         """
@@ -65,6 +66,7 @@ class QuantumThoughtEngine:
 
         Args:
             signals: Lista de AgentSignals do NeuralSwarm
+            snapshot: Snapshot atual do mercado (Phase 51 Fix)
             regime_weight: Multiplicador do regime (agressividade)
             v_pulse_detected: [PHASE 48] V-Pulse detectado pelo RegimeDetector
 
@@ -73,6 +75,11 @@ class QuantumThoughtEngine:
         """
         if not signals:
             return self._empty_state("NO_SIGNALS")
+
+        # Extrair sentimento se o snapshot estiver disponível
+        sentiment_score = 0.0
+        if snapshot:
+            sentiment_score = snapshot.metadata.get("sentiment_score", 0.0)
 
         # ═══ 1. SUPERPOSIÇÃO — todos os sinais coexistem ═══
         valid_signals = [s for s in signals if s.confidence > 0.01]
@@ -295,6 +302,25 @@ class QuantumThoughtEngine:
                     if s.signal < -0.4: # Tentativa de vender o recuo na tendência de alta
                         s.weight *= 0.1
                         s.reasoning += " [!TRAP_VETO: COUNTER-TREND DIP (Bull Trap Pullback)!]"
+
+        # ═══════════════════════════════════════════════════
+        #  PHASE 51: SENTIMENT-DRIVEN REBALANCING (Trap Protection)
+        # ═══════════════════════════════════════════════════
+        sentiment_score = snapshot.metadata.get("sentiment_score", 0.0)
+        
+        # Se estamos em Extreme Fear (< -0.8) ou Extreme Greed (> 0.8)
+        if abs(sentiment_score) > 0.8:
+            is_extreme_fear = sentiment_score < -0.8
+            for s in valid_signals:
+                # Enfraquece agentes que seguem a multidão (Trend/BOS) em extremos
+                if s.agent_name in ["TrendAgent", "BOSAgent", "ChartStructureAgent", "MomentumAgent"]:
+                    s.weight *= 0.4
+                    s.reasoning += f" [!REBALANCED: EXTREME_{'FEAR' if is_extreme_fear else 'GREED'} SENTIMENT]"
+                
+                # Fortalece agentes de reversão e inteligência superior
+                if s.agent_name in ["LiquidStateAgent", "PriceGravityAgent", "LiquidationVacuumAgent", "DarkMassAgent"]:
+                    s.weight *= 2.5
+                    s.reasoning += " [*BOOSTED: REVERSAL_CONVICTION]"
 
         # ═══ [OMEGA INJECTION] PHASE 34: TREND-STRUCTURE ALIGNMENT VETO ═══
         # Defesa contra Bull Traps (Comprar repique em resistência).

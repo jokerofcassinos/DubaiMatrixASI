@@ -173,10 +173,11 @@ class ASIBrain:
         # ═══ 5. ANÁLISE NEURAL — Enxame de agentes ═══
         agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis, regime_state=regime_state)
 
-        # ═══ 6. PENSAMENTO QUÂNTICO — Convergência ═══
+        # ═══ 4. COLAPSO QUÂNTICO (Matematização da Consciência) ═══
         regime_aggression = regime_state.aggression_multiplier if regime_state else 1.0
         quantum_state = self.quantum_thought.process(
-            agent_signals, 
+            agent_signals,
+            snapshot=snapshot,
             regime_weight=regime_aggression,
             v_pulse_detected=snapshot.metadata.get("v_pulse_detected", False)
         )

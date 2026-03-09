@@ -23,16 +23,28 @@
     "reasoning": "SELL signal=-0.463 conf=0.76 coherence=0.47 regime=DRIFTING_BEAR ATR=201.73 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.76 | \u03a6=0.10 | COH=46.58% | BEAR: CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent | MC[score=+0.086 WP=53.4% EV=+1.72 CVaR=-272.34 sim=21.7ms]",
     "symbol": "BTCUSD"
   },
-  "ticket_0": {
-    "timestamp": "2026-03-09T00:26:34.926926+00:00",
-    "ticket": 0,
+  "ticket_398167712": {
+    "timestamp": "2026-03-09T00:27:35.908255+00:00",
+    "ticket": 398167712,
     "position_id": 0,
     "regime": "DRIFTING_BEAR",
-    "confidence": 0.743589596446284,
-    "signal_strength": -0.43974683744940973,
+    "confidence": 0.7087257578127528,
+    "signal_strength": -0.44871504667605755,
     "coherence": 0.0,
     "phi": 0.0,
-    "reasoning": "SELL signal=-0.440 conf=0.74 coherence=0.46 regime=DRIFTING_BEAR ATR=212.97 RR=0.88 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.440 | CONF=0.74 | \u03a6=0.10 | COH=45.86% | BEAR: TBSAgent, PressureMatrix, BOSAgent | MC[score=+0.065 WP=51.4% EV=+1.23 CVaR=-287.51 sim=23.1ms]",
+    "reasoning": "SELL signal=-0.449 conf=0.71 coherence=0.46 regime=DRIFTING_BEAR ATR=215.95 RR=0.88 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.449 | CONF=0.71 | \u03a6=0.13 | COH=45.68% | BEAR: TBSAgent, PressureMatrix, LiquidationVacuumAgent | MC[score=+0.085 WP=52.9% EV=+6.41 CVaR=-291.53 sim=22.6ms]",
+    "symbol": "BTCUSD"
+  },
+  "398167712": {
+    "timestamp": "2026-03-09T00:27:35.908255+00:00",
+    "ticket": 398167712,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7087257578127528,
+    "signal_strength": -0.44871504667605755,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.449 conf=0.71 coherence=0.46 regime=DRIFTING_BEAR ATR=215.95 RR=0.88 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.449 | CONF=0.71 | \u03a6=0.13 | COH=45.68% | BEAR: TBSAgent, PressureMatrix, LiquidationVacuumAgent | MC[score=+0.085 WP=52.9% EV=+6.41 CVaR=-291.53 sim=22.6ms]",
     "symbol": "BTCUSD"
   }
 }

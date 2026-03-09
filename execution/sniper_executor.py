@@ -446,7 +446,10 @@ class SniperExecutor:
         sym_info = self.bridge.get_symbol_info()
         stops_level = sym_info.get("stops_level", 0) if sym_info else 0
         point = sym_info.get("point", 0.01) if sym_info else 0.01
-        min_dist = (stops_level + 5) * point # Buffer safety of 5 points
+        
+        # [Phase 51 Fix] 10015 Mitigation: Aumentado buffer de 5 -> 30 points p/ BTCUSD 
+        # para garantir aceitação durante explosões de volatilidade.
+        min_dist = (stops_level + 30) * point 
 
         def _send_slot(i, chunk_lot, delay_sec):
             if delay_sec > 0:

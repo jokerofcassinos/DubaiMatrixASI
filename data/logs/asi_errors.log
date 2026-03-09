@@ -186,3 +186,17 @@
 [DubaiMatrixASI] 21:08:12.941    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
 [DubaiMatrixASI] 21:08:16.208    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
 [DubaiMatrixASI] 21:11:41.183    ERROR │ ❌ Erro no streaming do socket: 'TradeRegistry' object has no attribute 'update_ticket'
+[DubaiMatrixASI] 21:26:40.452    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:40:14.628    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:15.959    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:16.193    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:16.443    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:16.680    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:16.922    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:17.181    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:17.440    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:17.699    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:17.944    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:18.243    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:18.451    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:40:18.751    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
