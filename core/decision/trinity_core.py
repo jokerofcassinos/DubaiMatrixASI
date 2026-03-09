@@ -413,20 +413,29 @@ class TrinityCore:
         min_net_profit = OMEGA.get("min_profit_per_ticket", 60.0)
         
         # Profit in points needed to cover commission + target (assuming 1 lot for ratio check)
-        min_points_needed = (comm_per_lot + min_net_profit) / (contract_size if contract_size > 0 else 1.0)
+        # [Phase 52.6] Calibração de Alvo Realista:
+        # Se Φ é alto (>0.3), relaxamos o piso de lucro p/ não perder movimentos rápidos.
+        dynamic_min_profit = min_net_profit
+        if phi > 0.3:
+            dynamic_min_profit *= 0.7 # 30% de desconto no piso se há alta integração
+            
+        min_points_needed = (comm_per_lot + dynamic_min_profit) / (contract_size if contract_size > 0 else 1.0)
         
         if reward < min_points_needed:
-            # Se for God-Mode, engolimos o trade mesmo assim, a explosão de reversão vai compensar.
-            if is_god_mode:
-                 log.omega(f"👹 [GOD-MODE] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})")
+            # Se for God-Mode ou Ressonância, engolimos o trade mesmo assim.
+            if is_god_mode or is_phi_resonance:
+                 log.omega(f"👹 [OMEGA IGNITION] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})")
             else:
-                # If the ATR-based TP is too small to cover fees, we must expand it or veto
-                # We choose to expansion first if the regime allows, otherwise veto.
-                if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
-                    take_profit = price + (min_points_needed * 1.1) if action == Action.BUY else price - (min_points_needed * 1.1)
-                    reward = abs(take_profit - price)
-                    rr_ratio = reward / risk if risk > 0 else 0
-                    log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.4f} to cover commissions + target profit.")
+                # If the ATR-based TP is too small to cover fees, we try to expand it slightly
+                if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR", "DRIFTING_BULL", "DRIFTING_BEAR"]:
+                    # Tentar expandir até 1.5x o ATR original se isso satisfizer o piso
+                    expanded_tp_points = min_points_needed * 1.05
+                    if expanded_tp_points < atr * 1.6:
+                        reward = expanded_tp_points
+                        rr_ratio = reward / risk if risk > 0 else 0
+                        log.debug(f"⚖️ RR ADJUST: Expanding target to {reward:.4f} points to meet alpha floor.")
+                    else:
+                        return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
                 else:
                     return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
 

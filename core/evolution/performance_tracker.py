@@ -148,6 +148,9 @@ class PerformanceTracker:
         if not self._trades:
             return
 
+        # [Phase 52.6] Purge Incomplete Trades (trades sem lucro/prejuízo real ou fantasmas de 0)
+        self._trades = [t for t in self._trades if abs(t.profit) > 0.0001]
+
         # 1. Ordenar por tempo de entrada
         self._trades.sort(key=lambda x: x.entry_time)
 
@@ -162,6 +165,9 @@ class PerformanceTracker:
         self._max_consecutive_wins = 0
         self._max_consecutive_losses = 0
 
+        now_str = datetime.now(timezone.utc).isoformat()
+        now = datetime.fromisoformat(now_str)
+
         # 3. Rebuild
         for t in self._trades:
             # Equity
@@ -175,15 +181,27 @@ class PerformanceTracker:
             if self._peak_equity > 0:
                 self._max_drawdown_pct = max(self._max_drawdown_pct, (dd / self._peak_equity))
 
-            # Streaks
-            if t.is_winner:
-                self._consecutive_wins += 1
-                self._consecutive_losses = 0
-                self._max_consecutive_wins = max(self._max_consecutive_wins, self._consecutive_wins)
-            else:
-                self._consecutive_losses += 1
-                self._consecutive_wins = 0
-                self._max_consecutive_losses = max(self._max_consecutive_losses, self._consecutive_losses)
+            # Streaks (Apenas se o trade for recente - últimas 24h - para evitar spam de alertas antigos)
+            try:
+                t_time = datetime.fromisoformat(t.exit_time.replace('Z', '+00:00'))
+                if (now - t_time).total_seconds() < 86400:
+                    if t.is_winner:
+                        self._consecutive_wins += 1
+                        self._consecutive_losses = 0
+                    else:
+                        self._consecutive_losses += 1
+                        self._consecutive_wins = 0
+            except:
+                # Fallback se não conseguir parsear data
+                if t.is_winner:
+                    self._consecutive_wins += 1
+                    self._consecutive_losses = 0
+                else:
+                    self._consecutive_losses += 1
+                    self._consecutive_wins = 0
+
+            self._max_consecutive_wins = max(self._max_consecutive_wins, self._consecutive_wins)
+            self._max_consecutive_losses = max(self._max_consecutive_losses, self._consecutive_losses)
 
     def _rebuild_equity_curve(self):
         """Recalcula métricas (alias para _recalculate_all_metrics)."""
