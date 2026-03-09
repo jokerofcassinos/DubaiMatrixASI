@@ -120,6 +120,26 @@ class PositionManager:
             if p_profit > groups[group_key]["max_profit"]:
                 groups[group_key]["max_profit"] = p_profit
 
+            # [PHASE Ω-EVOLVE] Anti-Amnesia: Se não há intenção registrada, criamos uma agora
+            # Isso evita o aviso [AMNESIA] durante a reflexão e permite que o SelfOptimizer use o trade.
+            if not trade_registry.get_intent(pos_id=ticket):
+                trade_registry.register_intent(
+                    ticket=ticket,
+                    intent=Decision(
+                        action=Action.BUY if is_buy else Action.SELL,
+                        confidence=0.5, # Fallback conservative
+                        signal_strength=0.0,
+                        entry_price=p_open,
+                        stop_loss=pos.get('sl', 0),
+                        take_profit=pos.get('tp', 0),
+                        lot_size=pos.get('volume', 0.01),
+                        regime=snapshot.regime.value if hasattr(snapshot.regime, 'value') else str(snapshot.regime),
+                        reasoning="RECOVERED_INTENT (Original lost during async strike)"
+                    ),
+                    snapshot=snapshot,
+                    position_id=ticket
+                )
+
         current_tickets = [p['ticket'] for p in positions]
 
         # ═══ [PHASE Ω-RESILIENCE] ANTI-STUCK CLOSE GUARD ═══

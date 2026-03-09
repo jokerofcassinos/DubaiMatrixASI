@@ -544,14 +544,18 @@ class SniperExecutor:
             return None
 
         # [PHASE Ω-EVOLVE] Register Intents for Amnesia Prevention
-        for res in results:
+        for i, res in enumerate(results):
             ticket = res.get("ticket", 0)
+            # [Phase 52] Se o ticket é 0 (Async Socket), usamos i como ID temporário
+            # para o Registry não ignorar o registro por falta de ID único.
+            temp_pos_id = ticket if ticket > 0 else -(1000 + i) # ID negativo temporário
+
             trade_registry.register_intent(
                 ticket=ticket,
                 intent=decision,
-                snapshot=snapshot
+                snapshot=snapshot,
+                position_id=temp_pos_id
             )
-
         # 5. Sucesso!
         self._execution_count += 1
         self._orders_in_candle += 1  # Incrementa o contador do throttle por candle
