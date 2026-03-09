@@ -370,11 +370,11 @@ class TrinityCore:
         tp_mult = OMEGA.get("take_profit_atr_mult")
         
         # [PHASE Ω-ANTI-FRAGILITY] Adaptive SL Scaling
-        # Em regimes de ruído ou queda lenta (Drifting), alargamos o range para evitar stop-hunting.
+        # Em regimes de ruído ou queda lenta (Drifting), alargamos levemente para evitar stop-hunting.
+        # [Phase 52 Update] Reduzido de 1.8 para 1.1 para priorizar preservação de capital.
         dynamic_sl_mult = sl_mult
         if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-            # Reduzido de 2.5 para 1.8 para aproximar o SL e evitar perdas profundas
-            dynamic_sl_mult *= 1.8 
+            dynamic_sl_mult *= 1.1 
             
             # [PHASE Ω-RESILIENCE] Log Cooldown (Avoid spam on every cycle)
             mult_delta = abs(dynamic_sl_mult - self._last_sl_mult)
@@ -582,6 +582,19 @@ class TrinityCore:
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
                                     return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
+
+        # [Phase 52.4] VETO 10: ELITE DIVERGENCE (Meritocracia de Ideias)
+        # Identificamos os 5 agentes com maior peso (Elite)
+        elite_agents = sorted(quantum_state.agent_signals, key=lambda x: x.weight, reverse=True)[:5]
+        if elite_agents:
+            elite_direction_sum = sum(np.sign(a.signal) for a in elite_agents)
+            swarm_direction = np.sign(quantum_state.raw_signal)
+            
+            # Se a maioria da elite (3 de 5) está na direção oposta ao sinal do swarm
+            if (swarm_direction > 0 and elite_direction_sum <= -1) or \
+               (swarm_direction < 0 and elite_direction_sum >= 1):
+                self._veto_count += 1
+                return self._wait(f"ELITE_DIVERGENCE_VETO (Swarm={swarm_direction}, Elite_Sum={elite_direction_sum})")
 
         # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
