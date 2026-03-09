@@ -393,95 +393,89 @@ class ASIBrain:
             log.omega(f"🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).")
         else:
             from_ts = int(self._last_history_poll)
-        
-        # Polling do histórico usando a nova assinatura de timestamp
+
         deals = self.bridge.get_closed_deals(from_ts, None)
         
-        if deals:
-            # Só atualiza o marcador se de fato consultamos e houve deals
-            self._last_history_poll = time.time()
-            self._history_synced = True
-
         if not deals:
             return
 
-        processed_count = 0
+        # [Phase 52.2] Consolidação por Posição: Evitar tratar fragmentos como trades independentes
+        # Agrupamos deals pelo position_id
+        deals_by_pos = {}
+        for d in deals:
+            pid = d.get("position_id")
+            if pid not in deals_by_pos:
+                deals_by_pos[pid] = []
+            deals_by_pos[pid].append(d)
+
         new_count = 0
-        for deal in deals:
-            # Entry Out (1), INOUT (2) ou Out By (3) indica fechamento de posição ou reversão
-            if deal.get("entry") not in [1, 2, 3]:
+        for pos_id, pos_deals in deals_by_pos.items():
+            # Critério de Encerramento: Uma posição só é considerada 'trade' se houver deal tipo OUT (1, 2 ou 3)
+            # e a soma dos volumes IN vs OUT for igual (posição fechada)
+            in_vol = sum(d.get('volume', 0.0) for d in pos_deals if d.get('entry') == 0)
+            out_deals = [d for d in pos_deals if d.get('entry') in [1, 2, 3]]
+            out_vol = sum(d.get('volume', 0.0) for d in out_deals)
+            
+            if not out_deals or out_vol < in_vol * 0.99:
+                # Posição ainda aberta ou parcialmente fechada - ignorar na reflexão p/ não corromper WR
                 continue
             
-            processed_count += 1
-            # Recuperar P&L líquido real consolidando TODOS os deals da posição
-            pos_id = deal.get("position_id")
-            pos_deals = self.bridge.get_deals_by_position(pos_id)
+            # Deal representativo para o encerramento (o último OUT)
+            final_deal = sorted(out_deals, key=lambda x: x['time'])[-1]
             
-            if not pos_deals:
-                pos_deals = [deal] # Fallback caso a API falhe em agrupar
-                
             # Deal de entrada (IN)
             entry_deal = next((d for d in pos_deals if d.get('entry') == 0), None)
+            
             if not entry_deal:
-                # Se não achou o IN, foi uma posição aberta antes da janela de scan
-                # Precisamos registrar o P&L mesmo assim para não corromper o Gross Profit/Loss
                 entry_price = 0.0
-                entry_time_val = deal['time']
-                
-                # Tipo do Deal OUT inverte o lado. Se deal = SELL(1), a posicao era BUY.
-                # No MT5, mt5.DEAL_TYPE_BUY é 0, mt5.DEAL_TYPE_SELL é 1.
-                is_buy_position = (deal.get('type') == "SELL" or deal.get('type') == 1)
+                entry_time_val = final_deal['time']
+                is_buy_position = (final_deal.get('type') == "SELL" or final_deal.get('type') == 1)
                 action_str = "BUY" if is_buy_position else "SELL"
             else:
                 entry_price = entry_deal['price']
                 entry_time_val = entry_deal['time']
-                # Entry deal action é a direção da posição.
                 is_buy_position = (entry_deal.get('type') == "BUY" or entry_deal.get('type') == 0)
                 action_str = "BUY" if is_buy_position else "SELL"
             
-            # Soma total de TUDO daquela posição (Profit + Comm + Swap + Fee)
+            # Cálculo de P&L Líquido Total
             total_comm = sum(d.get('commission', 0.0) for d in pos_deals)
             total_swap = sum(d.get('swap', 0.0) for d in pos_deals)
             total_fee = sum(d.get('fee', 0.0) for d in pos_deals)
             total_profit = sum(d.get('profit', 0.0) for d in pos_deals)
-            
             net_profit = total_profit + total_comm + total_swap + total_fee
             
-            # [PHASE Ω-EVOLVE] Recuperar contexto original da intenção (Resolvendo Amnésia Financeira)
-            intent = trade_registry.get_intent(pos_id, ticket=deal['ticket'])
+            # [PHASE Ω-EVOLVE] Recuperar contexto
+            intent = trade_registry.get_intent(pos_id, ticket=final_deal['ticket'])
             
             if intent:
                 regime_label = intent.get("regime", "UNKNOWN")
                 coherence = intent.get("coherence", 0.0)
                 signal_str = intent.get("signal_strength", 0.0)
-                log.info(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
+                log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
             else:
-                # Fallback para o snapshot atual (Legado - Indesejado mas necessário para trades órfãos)
                 regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")
                 coherence = 0.0
                 signal_str = 0.0
-                if pos_id > 0:
-                    log.warning(f"⚠️ [AMNESIA] Intent não encontrada para Position #{pos_id}. Usando fallback.")
 
             record = TradeRecord(
-                ticket=deal['ticket'],
+                ticket=final_deal['ticket'],
                 position_id=pos_id,
-                symbol=deal['symbol'],
+                symbol=final_deal['symbol'],
                 action=action_str,
-                lot_size=deal['volume'],
+                lot_size=in_vol,
                 entry_price=entry_price,
-                exit_price=deal['price'],
+                exit_price=final_deal['price'],
                 profit=net_profit,
                 commission=total_comm,
                 swap=total_swap,
                 fee=total_fee,
                 entry_time=datetime.fromtimestamp(entry_time_val, tz=timezone.utc).isoformat(),
-                exit_time=datetime.fromtimestamp(deal['time'], tz=timezone.utc).isoformat(),
+                exit_time=datetime.fromtimestamp(final_deal['time'], tz=timezone.utc).isoformat(),
                 regime_at_entry=regime_label,
                 coherence_at_entry=coherence,
                 signal_strength=signal_str,
                 session=self._get_session_name(entry_time_val),
-                duration_seconds=float(deal['time'] - entry_time_val)
+                duration_seconds=float(final_deal['time'] - entry_time_val)
             )
             
             # Registrar na consciência permanente
@@ -489,11 +483,10 @@ class ASIBrain:
             if is_new:
                 new_count += 1
             
-            # [PHASE Ω-ANTI-FRAGILITY] Notificar TrinityCore sobre perdas para o gate ANTI-PING-PONG
-            # Apenas se for um trade NOVO e RECENTE (últimos 5 minutos)
+            # Anti-Ping-Pong
             if is_new and net_profit < 0:
-                trade_age = time.time() - deal.get('time', 0)
-                if trade_age < 300: # 5 minutos
+                trade_age = time.time() - final_deal.get('time', 0)
+                if trade_age < 300:
                     self.trinity_core.update_loss_event()
 
         # Atualizar relatório e estado da ASI
@@ -503,7 +496,7 @@ class ASIBrain:
         if hasattr(self, 'self_optimizer'):
             self.self_optimizer.check_and_optimize(300, snapshot) # Force optimization every reflection window
 
-        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals)} deals na fita, {processed_count} fechamentos analisados, {new_count} novos registros. P&L Líquido: ${self.state.total_profit:+.2f}")
+        log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals_by_pos)} posições auditadas, {new_count} novos registros finalizados. P&L Líquido Total: ${self.state.total_profit:+.2f}")
 
     def _get_session_name(self, timestamp: float) -> str:
         """Determina a sessão de mercado baseada na hora (UTC)."""

@@ -73,7 +73,8 @@ class PerformanceTracker:
         self._consecutive_losses: int = 0
         self._max_consecutive_wins: int = 0
         self._max_consecutive_losses: int = 0
-        self._ticket_index: set = set()  # [Phase Ω-Darwin] Deduplication index
+        self._position_index: set = set()  # [Phase Ω-Darwin] Deduplication index (Position ID)
+        self._ticket_index: set = set()    # Legacy support
         
         # [Phase Ω-Resilience] Daily Metrics
         self._daily_trades: List[TradeRecord] = []
@@ -86,9 +87,7 @@ class PerformanceTracker:
     def set_initial_balance(self, balance: float):
         """
         Ajusta o ponto de partida da curva de equidade. 
-        Se a curva só tem o valor inicial default, ou se há uma discrepância massiva, nós a corrigimos.
         """
-        # Se houve mudança de magnitude (ex: 100k para 1M), forçamos o re-ancoramento
         discrepancy = abs(self._initial_balance - balance)
         
         if discrepancy > 1.0:
@@ -102,11 +101,14 @@ class PerformanceTracker:
     def record_trade(self, trade: TradeRecord):
         """
         Adiciona ou atualiza um trade no histórico e recalcula métricas.
-        [Phase Ω-Darwin] Sincronização de Fidelidade Extrema.
+        [Phase Ω-Darwin] Sincronização por POSITION_ID p/ consolidar fragmentos HFT.
         Retorna True se for um trade NOVO.
         """
-        if not trade or trade.ticket == 0:
+        if not trade or (trade.position_id == 0 and trade.ticket == 0):
             return False
+
+        # Identificador canônico da posição
+        pos_key = trade.position_id if trade.position_id > 0 else trade.ticket
 
         # Reset diário se necessário
         current_day = datetime.now(timezone.utc).day
@@ -115,22 +117,21 @@ class PerformanceTracker:
             self._last_reset_day = current_day
 
         # [Phase 36] Commission Deduction (Fiscal Sovereignty)
-        # Se o MT5 não reportou comissão ainda, usamos o prior do OMEGA
         if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
-            comm_per_lot = OMEGA.get("commission_per_lot", 15.0)
+            comm_per_lot = OMEGA.get("commission_per_lot", 32.0) # Adjusted default
             trade.commission = -(trade.lot_size * comm_per_lot)
             trade.profit += trade.commission 
 
-        # [CRITICAL FIX] Win status must be based on net profit
         trade.is_winner = trade.profit > 0
 
-        # [Phase Ω-Darwin] Deduplication & Update Check
+        # [Phase Ω-Darwin] Deduplication & Update Check (Consolidação por Position ID)
         for i, existing in enumerate(self._trades):
-            if existing.ticket == trade.ticket:
+            existing_key = existing.position_id if existing.position_id > 0 else existing.ticket
+            if existing_key == pos_key:
                 # Se o profit mudou (ajuste de swap/comissão real do MT5), recalcular
                 profit_diff = trade.profit - existing.profit
                 if abs(profit_diff) > 0.001:
-                    log.debug(f"🔄 TRADE UPDATE [{trade.ticket}]: PnL Diff ${profit_diff:+.4f}")
+                    log.debug(f"🔄 POSITION UPDATE [{pos_key}]: PnL Diff ${profit_diff:+.4f}")
                     self._trades[i] = trade
                     self._rebuild_equity_curve()
                     self._save_history()
@@ -138,13 +139,13 @@ class PerformanceTracker:
 
         self._trades.append(trade)
         self._daily_trades.append(trade)
-        self._ticket_index.add(trade.ticket)
+        self._position_index.add(pos_key)
 
         # Atualizar equity curve (Saldo Absoluto)
         current_equity = self._equity_curve[-1] + trade.profit
         self._equity_curve.append(current_equity)
 
-        # Atualizar peak e drawdown (Baseado no saldo total da conta)
+        # Atualizar peak e drawdown
         if current_equity > self._peak_equity:
             self._peak_equity = current_equity
         
@@ -153,7 +154,6 @@ class PerformanceTracker:
             self._max_drawdown = dd
         
         if self._peak_equity > 0:
-            # [Phase Ω-Resilience] Drawdown % real sobre o capital (Fração 0.0 - 1.0)
             dd_pct = (dd / self._peak_equity)
             if dd_pct > self._max_drawdown_pct:
                 self._max_drawdown_pct = dd_pct
@@ -172,7 +172,7 @@ class PerformanceTracker:
         self._save_history()
 
         log.info(
-            f"📊 Trade Recorded: {trade.action} #{trade.ticket} | "
+            f"📊 Trade Recorded: {trade.action} Pos#{pos_key} | "
             f"P&L=${trade.profit:+.2f} | "
             f"{'✅ WIN' if trade.is_winner else '❌ LOSS'} | "
             f"Regime={trade.regime_at_entry}"

@@ -125,6 +125,8 @@ class PositionManager:
             # [PHASE Ω-EVOLVE] Anti-Amnesia: Se não há intenção registrada, criamos uma agora
             # Isso evita o aviso [AMNESIA] durante a reflexão e permite que o SelfOptimizer use o trade.
             if not trade_registry.get_intent(position_id=ticket):
+                # Usar log.debug para evitar spam no terminal
+                log.debug(f"🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #{ticket}")
                 trade_registry.register_intent(
                     ticket=ticket,
                     intent=Decision(
