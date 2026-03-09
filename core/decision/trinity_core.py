@@ -306,9 +306,9 @@ class TrinityCore:
         entropy = q_meta.get("entropy", 0)
         entropy_thresh = OMEGA.get("god_mode_entropy_threshold", 0.85)
         
-        if phi < 0.2 and entropy > entropy_thresh and has_v_pulse:
+        if (phi < 0.2 and entropy > entropy_thresh) or is_god_mode:
             is_god_mode_phi = True
-            log.omega(f"👹 [GOD-MODE REVERSAL] — High Entropy Panic (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.")
+            log.omega(f"👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.")
 
         # ═══ VETO 03: SYSTEM INCOHERENCE (PHI) ═══
         phi_threshold = dynamic_phi_min # Use the dynamically calculated phi_min
@@ -408,15 +408,19 @@ class TrinityCore:
         min_points_needed = (comm_per_lot + min_net_profit) / (contract_size if contract_size > 0 else 1.0)
         
         if reward < min_points_needed:
-            # If the ATR-based TP is too small to cover fees, we must expand it or veto
-            # We choose to expansion first if the regime allows, otherwise veto.
-            if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
-                take_profit = price + (min_points_needed * 1.1) if action == Action.BUY else price - (min_points_needed * 1.1)
-                reward = abs(take_profit - price)
-                rr_ratio = reward / risk if risk > 0 else 0
-                log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.4f} to cover commissions + target profit.")
+            # Se for God-Mode, engolimos o trade mesmo assim, a explosão de reversão vai compensar.
+            if is_god_mode:
+                 log.omega(f"👹 [GOD-MODE] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})")
             else:
-                return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
+                # If the ATR-based TP is too small to cover fees, we must expand it or veto
+                # We choose to expansion first if the regime allows, otherwise veto.
+                if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+                    take_profit = price + (min_points_needed * 1.1) if action == Action.BUY else price - (min_points_needed * 1.1)
+                    reward = abs(take_profit - price)
+                    rr_ratio = reward / risk if risk > 0 else 0
+                    log.debug(f"⚖️ RR ADJUST: Expanding TP to {reward:.4f} to cover commissions + target profit.")
+                else:
+                    return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         

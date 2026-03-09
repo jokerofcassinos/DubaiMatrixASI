@@ -53,3 +53,135 @@
 [DubaiMatrixASI] 19:22:25.139    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'DataEngine' object has no attribute 'get_tick_velocity'
 [DubaiMatrixASI] 19:22:25.389    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'DataEngine' object has no attribute 'get_tick_velocity'
 [DubaiMatrixASI] 19:22:25.645    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'DataEngine' object has no attribute 'get_tick_velocity'
+[DubaiMatrixASI] 19:37:03.645    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:03.870    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:04.151    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:04.373    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:04.667    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:04.855    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:05.127    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:05.166    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'NoneType' object has no attribute 'metadata'
+[DubaiMatrixASI] 19:37:05.375    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:05.636    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:05.910    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:06.144    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:06.439    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:06.651    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:06.947    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:07.156    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:07.445    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:07.689    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:07.966    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:08.176    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:08.438    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:08.684    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:08.950    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:09.200    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:09.434    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:09.669    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:14.010    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:14.246    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:14.487    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:14.757    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:14.992    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:15.262    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:15.510    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:15.763    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:16.062    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:16.269    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:16.543    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:16.780    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:17.028    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:17.284    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:17.534    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:17.788    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:18.182    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:18.439    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:18.692    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:18.923    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:19.174    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:19.435    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:19.670    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:19.937    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:20.178    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:20.444    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:20.447    ERROR │ 💀 EXCEPTION in [think]: AttributeError: 'NoneType' object has no attribute 'metadata'
+[DubaiMatrixASI] 19:37:20.717    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:20.950    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:21.229    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:21.459    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:21.733    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:21.966    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:22.241    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:22.472    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:22.743    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:22.979    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:23.219    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:23.482    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:23.767    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:23.989    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:37:24.279    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'reasoning' where it is not associated with a value
+[DubaiMatrixASI] 19:49:57.049    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'base_max_slots' is not defined
+[DubaiMatrixASI] 19:49:57.524    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'base_max_slots' is not defined
+[DubaiMatrixASI] 19:49:59.839    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'base_max_slots' is not defined
+[DubaiMatrixASI] 19:50:02.801    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'base_max_slots' is not defined
+[DubaiMatrixASI] 20:00:36.712    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:00:36.723    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:00:36.729    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:00:36.730    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:00:36.730    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:06:22.973    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:10:39.913    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:10:39.913    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:10:39.914    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:10:39.914    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:10:39.915    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:10:49.195    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:50.055    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:50.266    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:50.526    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:50.766    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:51.000    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:51.267    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:51.498    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:51.747    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:52.018    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:52.253    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:52.518    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:52.759    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:53.024    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:53.269    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:53.535    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:53.774    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:54.042    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:54.282    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:54.543    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:54.791    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:55.046    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:55.292    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:55.551    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:10:55.800    ERROR │ Agent LiquidStateAgent falhou: LiquidStateAgent.analyze() got an unexpected keyword argument 'regime_state'
+[DubaiMatrixASI] 20:12:10.913    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:11.563    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:11.762    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:11.995    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:12.298    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:12.523    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:12.724    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:12.993    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:13.241    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:13.502    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:13.751    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:14.003    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:12:14.256    ERROR │ Agent LiquidStateAgent falhou: 'LiquidStateAgent' object has no attribute 'base_weight'
+[DubaiMatrixASI] 20:18:16.048    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:18:16.057    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:18:16.062    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:18:16.063    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:18:16.063    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:18:16.064    ERROR │ ❌ Erro ao registrar intenção: 'TradeRegistry' object has no attribute 'save'
+[DubaiMatrixASI] 20:35:48.624    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:50:53.304    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:08:12.724    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
+[DubaiMatrixASI] 21:08:12.941    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
+[DubaiMatrixASI] 21:08:16.208    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined

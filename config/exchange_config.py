@@ -71,7 +71,7 @@ ORDER_TYPE_FILLING_MAP = {
 #  POSITION LIMITS
 # ═══════════════════════════════════════════════════════════════
 MAX_OPEN_POSITIONS = 200        # Aumentado para suportar HFT Hydra (antes 20)
-MAX_LOT_SIZE = 100.0           # Aumentado para OMEGA OVERLOAD (antes 10.0)
+MAX_LOT_SIZE = 5.0             # Limitado a 5.0 lotes por ticket (Limite FTMO para BTCUSD)
 MIN_LOT_SIZE = 0.01            # Lot size mínimo
 LOT_STEP = 0.01                # Incremento de lote
 

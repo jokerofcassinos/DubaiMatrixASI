@@ -377,11 +377,13 @@ class QuantumThoughtEngine:
         natural_collapse = (avg_confidence >= (confidence_min_val * 0.8 if v_pulse_detected else confidence_min_val)) and \
                            (abs(raw_signal) >= (buy_threshold * 0.7 if v_pulse_detected else buy_threshold))
 
+        v_pulse_reasoning_append = ""
+
         if natural_collapse:
             collapsed_signal = raw_signal
             superposition = False
             if v_pulse_detected:
-                reasoning += " [V-PULSE FORCED COLLAPSE]"
+                v_pulse_reasoning_append = " [V-PULSE FORCED COLLAPSE]"
         elif OMEGA.get("superposition_resolution_enabled", 0.0) > 0.5:
             # ═══ PHASE 46: SUPERPOSITION RESOLUTION MOTOR ═══
             # Se não colapsou naturalmente, as mentes "brigaram". 
@@ -437,6 +439,7 @@ class QuantumThoughtEngine:
             f"COH={coherence:.2%}"
             + (f" | BULL: {', '.join(top_bulls)}" if raw_signal > 0 else "")
             + (f" | BEAR: {', '.join(top_bears)}" if raw_signal < -0.1 else "")
+            + v_pulse_reasoning_append
         )
 
         # ═══ [PHASE 50] GOD-MODE SANCTUARY SYNC ═══

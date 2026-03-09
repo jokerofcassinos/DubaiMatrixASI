@@ -129,8 +129,8 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 15.0, 0.0, 50.0,
                         "Comissão estimada por lote (Round Turn, $)")
-        self._register("min_profit_per_ticket", 60.0, 0.0, 500.0,
-                        "Lucro líquido mínimo exigido por ordem/ticket ($)")
+        self._register("min_profit_per_ticket", 20.0, 0.0, 500.0,
+                        "Lucro líquido mínimo exigido por ordem/ticket ($) - Reduzido p/ aceitar God-Mode em ranges curtos")
         self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
@@ -234,7 +234,7 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.10, 0.01, 0.5,
+        self._register("phi_min_threshold", 0.015, 0.005, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")

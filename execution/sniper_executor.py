@@ -20,7 +20,7 @@ from cpp.asi_bridge import CPP_CORE
 import numpy as np
 
 from config.omega_params import OMEGA
-from config.exchange_config import MIN_LOT_SIZE
+from config.exchange_config import MIN_LOT_SIZE, MAX_LOT_SIZE
 from utils.logger import log
 from execution.trade_registry import registry as trade_registry
 from utils.decorators import retry, timed, catch_and_log
@@ -242,9 +242,9 @@ class SniperExecutor:
         # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
         # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime
         is_resonance = decision.metadata.get("phi_resonance", False)
-        
-        if decision.confidence > 0.85 or is_resonance:
-            # Extrema convicção ou Ressonância -> Ativar Hydra Mode
+        base_max_slots = int(OMEGA.get("max_order_splits", 5.0))
+
+        if decision.confidence > 0.85 or is_resonance:            # Extrema convicção ou Ressonância -> Ativar Hydra Mode
             hydra_multiplier = 3 
             if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:
                 hydra_multiplier = 5 # Até 25 slots progressivos em modo demente
@@ -405,9 +405,20 @@ class SniperExecutor:
             diff = final_lot - sum(lot_chunks)
             if abs(diff) > 0.01:
                 lot_chunks[0] = max(MIN_LOT_SIZE, round(lot_chunks[0] + diff, 2))
-            
-            delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]
-            
+
+            # [FTMO SANITY CHECK] - Ensure no chunk exceeds MAX_LOT_SIZE
+            for i in range(len(lot_chunks)):
+                 if lot_chunks[i] > MAX_LOT_SIZE:
+                      excess = lot_chunks[i] - MAX_LOT_SIZE
+                      lot_chunks[i] = MAX_LOT_SIZE
+                      # Se sobrou excesso e tem próximo nó, joga pro próximo
+                      if i + 1 < len(lot_chunks):
+                          lot_chunks[i+1] += excess
+                      else:
+                          # Se é o último nó, o excesso se perde (ou poderíamos adicionar mais um nó)
+                          pass
+
+            delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]            
         log.omega(
             f"🎯 DECISION: {decision.action.value} "
             f"lot={final_lot:.2f} (em {num_nodes} nodes) "

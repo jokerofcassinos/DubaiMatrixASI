@@ -127,6 +127,7 @@ from core.consciousness.agents.chaos_regime_agent import ChaosRegimeAgent
 # Phase Ω-Class — Omega Omniscience (1)
 from core.consciousness.agents.holographic_manifold_agent import HolographicManifoldAgent
 from core.consciousness.agents.dark_mass_agent import DarkMassAgent
+from core.consciousness.agents.liquid_state_agent import LiquidStateAgent
 
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
@@ -281,6 +282,7 @@ class NeuralSwarm:
             # ═══ OMEGA-CLASS OMNISCIENCE ═══
             HolographicManifoldAgent(),
             DarkMassAgent(weight=2.4),
+            LiquidStateAgent(),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

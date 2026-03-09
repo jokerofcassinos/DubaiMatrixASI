@@ -217,7 +217,7 @@ class ASIBrain:
                 if now - self._last_log_times.get("ign_bypass", 0) > 30:
                     log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
                     self._last_log_times["ign_bypass"] = now
-            elif now - last_ign < 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
+            elif now - last_ign >= 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
                 # 5. EXECUÇÃO (Sniper Strike)
                 # [PHASE 48] EXECUTION ATTRIBUTE FIX
                 # O executor é instanciado como self.executor, mas o loop chamava self.sniper

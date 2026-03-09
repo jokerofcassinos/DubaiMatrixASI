@@ -103,7 +103,7 @@ class TradeRegistry:
                     for k in keys:
                         self.intents.pop(k, None)
 
-                self.save() # [PHASE 48 FIX] Corrigido self._save() -> self.save()
+                self._save() # [PHASE 48 FIX] Corrigido self.save() -> self._save()
                 log.info(f"💾 Intenção registrada Ticket#{ticket} | Regime={metadata.get('regime')} | Conf={metadata.get('confidence'):.2f}")
         except Exception as e:
             log.error(f"❌ Erro ao registrar intenção: {e}")

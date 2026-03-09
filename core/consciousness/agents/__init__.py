@@ -43,6 +43,8 @@ from core.consciousness.agents.smc import (
     BreakOfStructureAgent,
 )
 
+from core.consciousness.agents.liquid_state_agent import LiquidStateAgent
+
 __all__ = [
     "AgentSignal", "BaseAgent",
     # Classic
@@ -69,6 +71,7 @@ __all__ = [
     "RetailPsychologyAgent", "GameTheoryNashAgent",
     "CppAcceleratedFractalAgent", "CppTickEntropyAgent",
     "CppCrossScaleAgent",
+    "LiquidStateAgent",
     # SMC / ICT
     "LiquiditySweepAgent", "MarketStructureShiftAgent", "FairValueGapAgent",
     "LiquidityHeatmapAgent", "OrderBlockAgent", "PremiumDiscountAgent",
