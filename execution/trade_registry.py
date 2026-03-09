@@ -119,5 +119,17 @@ class TradeRegistry:
             
         return intent
 
+    def update_ticket(self, old_ticket: int, new_ticket: int):
+        """Atualiza o ticket de um registro de intenção pendente."""
+        with self._lock:
+            old_key = f"ticket_{old_ticket}"
+            if old_key in self.intents:
+                intent_record = self.intents.pop(old_key)
+                intent_record["ticket"] = new_ticket
+                self.intents[f"ticket_{new_ticket}"] = intent_record
+                # Se for o ticket final, ele também se torna o position_id inicial
+                self.intents[str(new_ticket)] = intent_record
+                self._save()
+
 # Singleton Global
 registry = TradeRegistry()

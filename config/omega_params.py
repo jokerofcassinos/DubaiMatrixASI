@@ -127,8 +127,8 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para take profit (Recalibrado Phase 46)")
         self._register("trailing_stop_atr_mult", 0.5, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
-        self._register("commission_per_lot", 15.0, 0.0, 50.0,
-                        "Comissão estimada por lote (Round Turn, $)")
+        self._register("commission_per_lot", 32.0, 0.0, 100.0,
+                        "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD")
         self._register("min_profit_per_ticket", 20.0, 0.0, 500.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Reduzido p/ aceitar God-Mode em ranges curtos")
         self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,

@@ -185,3 +185,4 @@
 [DubaiMatrixASI] 21:08:12.724    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
 [DubaiMatrixASI] 21:08:12.941    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
 [DubaiMatrixASI] 21:08:16.208    ERROR │ 💀 EXCEPTION in [execute]: NameError: name 'MAX_LOT_SIZE' is not defined
+[DubaiMatrixASI] 21:11:41.183    ERROR │ ❌ Erro no streaming do socket: 'TradeRegistry' object has no attribute 'update_ticket'

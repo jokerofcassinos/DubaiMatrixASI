@@ -334,22 +334,18 @@ class MT5Bridge:
                 commissions.append(comm_per_unit)
 
         if not commissions:
-            return OMEGA.get("commission_per_lot", 15.0)
+            return OMEGA.get("commission_per_lot", 32.0)
 
-        # Usar a mediana para evitar outliers (ex: correções manuais ou bônus)
+        # Usar a mediana para evitar outliers
         commissions.sort()
         detected_val = commissions[len(commissions) // 2]
         
-        # O valor no OMEGA deve ser Round Turn (entrada + saída)
-        # Se detectamos $7.50 e a corretora cobra na entrada e saída (2 deals por pos),
-        # precisamos garantir que o valor no OMEGA reflita o custo TOTAL por lote.
-        # Major brokers HFT costumam cobrar metade na abertura e metade no fechamento.
-        # Então dobramos o valor detectado se ele parecer ser 'per leg'.
-        
-        # Heurística: se o valor for < 10, provavelmente é 'per leg'. 
-        # (Standard BTC comm is often $10-$20 round turn).
-        if detected_val < 10.0:
-            detected_val *= 2
+        # [Phase 51] Round-Turn Logic Correction
+        # Se a comissão detectada no deal for menor que $25, assumimos que é 'per leg'
+        # (visto que BTC na FTMO/Prop chegam a $15-20 por perna, totalizando $30-40 RT)
+        # Quase todas as corretoras MT5 registram a comissão por deal (leg).
+        # Para o Smart TP, precisamos do custo ROUND TURN (in + out).
+        detected_val *= 2.0 # Dobrar sempre para garantir cobertura de saída
             
         return round(float(detected_val), 2)
 
@@ -1094,8 +1090,8 @@ class MT5Bridge:
         
         if total_volume > 0:
             comm_per_lot = total_commission / total_volume
-            # Sanity check: comissões raramente passam de $20 ou são menores que $1
-            return max(1.0, min(20.0, comm_per_lot))
+            # Sanity check: comissões raramente passam de $50 ou são menores que $1
+            return max(1.0, min(50.0, comm_per_lot))
             
         return 7.0 # Fallback
 
