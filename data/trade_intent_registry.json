@@ -142,5 +142,29 @@
     "phi": 0.0,
     "reasoning": "SELL signal=-0.428 conf=0.67 coherence=0.47 regime=LOW_LIQUIDITY ATR=209.77 RR=0.90 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.428 | CONF=0.67 | \u03a6=0.10 | COH=47.28% | BEAR: CrossScaleConvergenceAgent, LiquidationVacuumAgent, LiquidStateAgent | MC[score=+0.094 WP=53.8% EV=+4.56 CVaR=-234.21 sim=3.9ms]",
     "symbol": "BTCUSD"
+  },
+  "ticket_398234085": {
+    "timestamp": "2026-03-09T01:45:34.069791+00:00",
+    "ticket": 398234085,
+    "position_id": 0,
+    "regime": "LOW_LIQUIDITY",
+    "confidence": 0.797796586668472,
+    "signal_strength": -0.46341515752141343,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.463 conf=0.80 coherence=0.44 regime=LOW_LIQUIDITY ATR=200.59 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.80 | \u03a6=0.07 | COH=43.94% | BEAR: CrossScaleConvergenceAgent, LiquidationVacuumAgent, StopHunterAgent | MC[score=-0.120 WP=57.8% EV=+1.81 CVaR=-270.80 sim=4.5ms]",
+    "symbol": "BTCUSD"
+  },
+  "398234085": {
+    "timestamp": "2026-03-09T01:45:34.069791+00:00",
+    "ticket": 398234085,
+    "position_id": 0,
+    "regime": "LOW_LIQUIDITY",
+    "confidence": 0.797796586668472,
+    "signal_strength": -0.46341515752141343,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.463 conf=0.80 coherence=0.44 regime=LOW_LIQUIDITY ATR=200.59 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.80 | \u03a6=0.07 | COH=43.94% | BEAR: CrossScaleConvergenceAgent, LiquidationVacuumAgent, StopHunterAgent | MC[score=-0.120 WP=57.8% EV=+1.81 CVaR=-270.80 sim=4.5ms]",
+    "symbol": "BTCUSD"
   }
 }
