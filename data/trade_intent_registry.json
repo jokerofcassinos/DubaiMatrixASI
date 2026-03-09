@@ -1,14 +1,38 @@
 {
+  "ticket_398164727": {
+    "timestamp": "2026-03-09T00:23:36.908616+00:00",
+    "ticket": 398164727,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.75963344068578,
+    "signal_strength": -0.4630718551890089,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.463 conf=0.76 coherence=0.47 regime=DRIFTING_BEAR ATR=201.73 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.76 | \u03a6=0.10 | COH=46.58% | BEAR: CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent | MC[score=+0.086 WP=53.4% EV=+1.72 CVaR=-272.34 sim=21.7ms]",
+    "symbol": "BTCUSD"
+  },
+  "398164727": {
+    "timestamp": "2026-03-09T00:23:36.908616+00:00",
+    "ticket": 398164727,
+    "position_id": 0,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.75963344068578,
+    "signal_strength": -0.4630718551890089,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.463 conf=0.76 coherence=0.47 regime=DRIFTING_BEAR ATR=201.73 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.76 | \u03a6=0.10 | COH=46.58% | BEAR: CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent | MC[score=+0.086 WP=53.4% EV=+1.72 CVaR=-272.34 sim=21.7ms]",
+    "symbol": "BTCUSD"
+  },
   "ticket_0": {
-    "timestamp": "2026-03-09T00:11:40.917130+00:00",
+    "timestamp": "2026-03-09T00:26:34.926926+00:00",
     "ticket": 0,
     "position_id": 0,
     "regime": "DRIFTING_BEAR",
-    "confidence": 0.7209273283129874,
-    "signal_strength": -0.2965436060249518,
+    "confidence": 0.743589596446284,
+    "signal_strength": -0.43974683744940973,
     "coherence": 0.0,
     "phi": 0.0,
-    "reasoning": "SELL signal=-0.297 conf=0.72 coherence=0.51 regime=DRIFTING_BEAR ATR=208.88 RR=0.74 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.297 | CONF=0.72 | \u03a6=0.11 | COH=50.84% | BEAR: FVGAgent, LiquidationVacuumAgent, GameTheoryNashAgent | MC[score=+0.088 WP=53.8% EV=+0.21 CVaR=-281.99 sim=21.1ms]",
+    "reasoning": "SELL signal=-0.440 conf=0.74 coherence=0.46 regime=DRIFTING_BEAR ATR=212.97 RR=0.88 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.440 | CONF=0.74 | \u03a6=0.10 | COH=45.86% | BEAR: TBSAgent, PressureMatrix, BOSAgent | MC[score=+0.065 WP=51.4% EV=+1.23 CVaR=-287.51 sim=23.1ms]",
     "symbol": "BTCUSD"
   }
 }
