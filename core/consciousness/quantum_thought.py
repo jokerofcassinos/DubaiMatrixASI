@@ -322,6 +322,38 @@ class QuantumThoughtEngine:
                     s.weight *= 2.5
                     s.reasoning += " [*BOOSTED: REVERSAL_CONVICTION]"
 
+        # ═══ [OMEGA INJECTION] PHASE 52: ANTI-BEAR TRAP PROTECTION ═══
+        # Proteção contra vender o 'fundo' ou 'sweep' (O que ocorreu no Cycle #3).
+        # Se agentes de estrutura/gravidade estão FORTEMENTE BULLISH, ignoramos sinais de venda de inércia.
+        structural_support_active = any(s.agent_name in ["OrderBlockAgent", "PriceGravityAgent", "LiquidStateAgent"] and s.signal > 0.6 for s in valid_signals)
+        
+        if structural_support_active:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "BOSAgent", "PressureMatrix", "MomentumAgent"]:
+                    if s.signal < -0.2:
+                        s.weight *= 0.05 # Esmagamento de 95%
+                        s.reasoning += " [!BEAR_TRAP_VETO: INSTITUTIONAL SUPPORT DETECTED!]"
+
+        # ═══ [OMEGA INJECTION] PHASE 52: LEADING-LAGGING DIVERGENCE BOOST ═══
+        # Se os agentes 'Leading' (LiquidState, NavierStokes, PriceGravity) convergem contra
+        # os agentes 'Lagging' (Trend, Momentum), damos soberania aos Leading.
+        leading_signals = [s for s in valid_signals if s.agent_name in ["LiquidStateAgent", "NavierStokesFluidAgent", "PriceGravityAgent", "LiquidationVacuumAgent"]]
+        lagging_signals = [s for s in valid_signals if s.agent_name in ["TrendAgent", "MomentumAgent", "BOSAgent"]]
+        
+        if leading_signals and lagging_signals:
+            l_vals = [ls.signal for ls in leading_signals]
+            lag_vals = [lgs.signal for lgs in lagging_signals]
+            leading_dir = np.sign(np.mean(l_vals))
+            lagging_dir = np.sign(np.mean(lag_vals))
+            
+            if leading_dir != lagging_dir and abs(np.mean(l_vals)) > 0.4:
+                for s in leading_signals:
+                    s.weight *= 3.0 # Triplica autoridade
+                    s.reasoning += " [*LEADING_SOVEREIGNTY: DIVERGENCE DETECTED]"
+                for s in lagging_signals:
+                    s.weight *= 0.2 # Reduz lagging
+                    s.reasoning += " [!LAGGING_DAMPENED: DIVERGENCE!]"
+
         # ═══ [OMEGA INJECTION] PHASE 34: TREND-STRUCTURE ALIGNMENT VETO ═══
         # Defesa contra Bull Traps (Comprar repique em resistência).
         # Se a Tendência Macro E a Estrutura (OrderBlocks/SR) estão Alinhadas em Baixa,

@@ -437,6 +437,24 @@ class TrinityCore:
             min_rr = OMEGA.get("god_mode_rr_min", 0.35)
             log.omega(f"👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: {min_rr:.2f})")
 
+        # [Phase 52] Divergence-Aware RR Adjustment
+        # Se agentes 'Leading' divergem da decisão final, aumentamos a exigência de RR.
+        q_meta = quantum_state.metadata
+        top_bulls = q_meta.get("top_bulls", [])
+        top_bears = q_meta.get("top_bears", [])
+        
+        leading_against = False
+        if action == Action.SELL:
+            if "LiquidStateAgent" in top_bulls or "PriceGravityAgent" in top_bulls:
+                leading_against = True
+        elif action == Action.BUY:
+            if "LiquidStateAgent" in top_bears or "PriceGravityAgent" in top_bears:
+                leading_against = True
+                
+        if leading_against and not is_god_mode:
+            min_rr *= 1.5 # Exige 50% mais RR se os líderes estão desconfiados
+            self._log_cooldown("RR_DIVERGENCE", f"⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para {min_rr:.2f}", 60)
+
         if rr_ratio < min_rr:
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr:.2f})")
 

@@ -169,6 +169,7 @@ class ASIBrain:
         snapshot.metadata["network_pressure"] = self.onchain_scraper.network_pressure
         snapshot.metadata["macro_bias"] = self.macro_scraper.macro_bias
         snapshot.metadata["pnl_prediction"] = self._last_pnl_prediction
+        snapshot.metadata["dynamic_commission_per_lot"] = OMEGA.get("commission_per_lot", 32.0)
 
         # ═══ 5. ANÁLISE NEURAL — Enxame de agentes ═══
         agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis, regime_state=regime_state)

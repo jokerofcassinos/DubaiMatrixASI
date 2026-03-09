@@ -200,3 +200,18 @@
 [DubaiMatrixASI] 21:40:18.243    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
 [DubaiMatrixASI] 21:40:18.451    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
 [DubaiMatrixASI] 21:40:18.751    ERROR │ 💀 EXCEPTION in [process]: NameError: name 'snapshot' is not defined
+[DubaiMatrixASI] 21:57:18.838    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 22:07:22.301    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 22:15:03.621    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 22:18:27.403 CRITICAL │ 🌀 [WORMHOLE TRIGGER] Pos #398207645 SELL em colapso (94.93%). Iniciando Gamma Hedge BUY.
+[DubaiMatrixASI] 22:18:27.403    ERROR │ 💀 EXCEPTION in [think]: TypeError: Decision.__init__() missing 2 required positional arguments: 'signal_strength' and 'lot_size'
+[DubaiMatrixASI] 22:26:26.580    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:27.704    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:27.979    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:28.198    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:28.455    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:28.767    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:28.950    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:29.221    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:29.442    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value
+[DubaiMatrixASI] 22:26:29.695    ERROR │ 💀 EXCEPTION in [process]: UnboundLocalError: cannot access local variable 'raw_signal' where it is not associated with a value

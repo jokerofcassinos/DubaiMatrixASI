@@ -171,14 +171,13 @@ class PositionManager:
             peak = state['peak_profit']
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
             lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
-            comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
+            comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
             commission_cost = lot_scale * comm_per_lot
-            min_profit_per_ticket = OMEGA.get("min_profit_per_ticket", 30.0)
-            total_min_profit_target = num_slots * min_profit_per_ticket
-
-            # Floor dinâmico para garantir lucro líquido
+            
+            # Floor dinâmico para garantir lucro líquido (Phase 51 Refinement)
             comm_mult = OMEGA.get("commission_protection_mult", 1.5)
-            dynamic_peak_floor = max(total_min_profit_target, commission_cost * comm_mult) 
+            target_net_profit = num_slots * OMEGA.get("min_profit_per_ticket", 40.0)
+            dynamic_peak_floor = commission_cost + target_net_profit
 
             is_net_positive = (total_profit >= dynamic_peak_floor)
 
@@ -186,48 +185,40 @@ class PositionManager:
                 drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
                 
                 # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
-                # Se cada slot já deu > $35 de lucro, o drawdown lock vira 5% (não aceita reversão)
-                avg_profit_per_slot = total_profit / num_slots
-                if avg_profit_per_slot > 30.0: # Reduzido de 35 -> 30 para ser mais letal
+                # Se cada slot já deu > $40 de lucro líquido, o drawdown lock vira 3% (não aceita reversão)
+                avg_profit_per_slot = (total_profit - commission_cost) / num_slots
+                if avg_profit_per_slot > OMEGA.get("min_profit_per_ticket", 40.0):
                     lock_threshold = 0.03 # 3% de tolerância apenas (Ultra-Aggressive)
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
-                    if peak > dynamic_peak_floor * 3: lock_threshold = 0.10 * vol_mult # Reduzido thresholds
+                    if peak > dynamic_peak_floor * 2: lock_threshold = 0.10 * vol_mult # Reduzido thresholds
                 
                 if is_net_positive:
                     if drawdown_pct >= lock_threshold:
                         should_close = True
-                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f}"
+                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Net OK)"
 
-            # ═══════════════════════════════════════════════════
-            #  SECONDARY TRIGGERS
-            # ═══════════════════════════════════════════════════
+            # ═══════════════════════════════════════════════════════════
+            #  SOFT TRIGGERS: Só ativam se estivermos em lucro líquido real
+            # ═══════════════════════════════════════════════════════════
             if not should_close and is_net_positive:
                 #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
-                # [Phase Ω-Resilience] Bailing faster if momentum stalls
-                if g_is_buy and flow_signal < -0.3: # Reduzido de -0.5 -> -0.3
+                if g_is_buy and flow_signal < -0.4:
                     should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bearish)"
-                elif not g_is_buy and flow_signal > 0.3:
+                elif not g_is_buy and flow_signal > 0.4:
                     should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bullish)"
 
                 #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
                 if not should_close:
-                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.0:
+                    if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.5:
                         should_close, reason = True, f"FLOW_EXHAUSTION (Z={climax_score:.1f})"
 
                 #  TRIGGER 4: STAGNATION EXIT
                 if not should_close:
                     stag_time = time.time() - state.get("last_price_change_time", time.time())
-                    if stag_time >= 3.0: # Reduzido de 5s -> 3s para HFT
+                    if stag_time >= 5.0: # Aumentado p/ 5s para dar chance ao profit crescer
                         should_close, reason = True, f"STAGNATION ({stag_time:.1f}s)"
-
-            #  EJETAR GRUPO INTEIRO
-            if should_close:
-                symbol = g_data.get('symbol', 'UNKNOWN')
-                log.omega(f"💀 LETHAL CLOSE: {reason} | P&L Total: ${total_profit:+.2f}")
-                for p in g_tickets:
-                    self._close_with_notify(p.get('ticket'), "BUY" if g_is_buy else "SELL")
 
             #  EJETAR GRUPO INTEIRO
             if should_close:
