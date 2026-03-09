@@ -95,6 +95,18 @@ class TrinityCore:
         if quantum_state is None or regime_state is None:
             return self._wait("NO_DATA")
 
+        # [Phase 48] Metadata Extraction & Initialization (Consistency Fix)
+        sym_info = snapshot.symbol_info
+        q_meta = quantum_state.metadata if quantum_state and hasattr(quantum_state, 'metadata') else {}
+        point_val = sym_info.get("point", 0.00001) if sym_info else 0.00001
+        atr_m5 = self._get_current_atr(snapshot)
+        atr = atr_m5 # Backward compatibility for legacy code paths
+
+        # [Phase 50] Evolution: Entropy & God-Mode Initialization
+        entropy = q_meta.get("entropy", 0)
+        entropy_thresh = OMEGA.get("god_mode_entropy_threshold", 0.85)
+        is_god_mode_phi = False
+
         # [Phase 51] OMEGA-ALPHA: Ignition & God-Mode Status
         has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
         is_god_mode = snapshot.metadata.get("god_mode_active", False)
@@ -138,6 +150,7 @@ class TrinityCore:
         signal = quantum_state.collapsed_signal
         confidence = quantum_state.confidence
         coherence = quantum_state.coherence
+        action = Action.WAIT # Default state
 
         # ═══ THRESHOLDS ═══
         base_buy_threshold = OMEGA.get("buy_threshold")
@@ -234,6 +247,33 @@ class TrinityCore:
                     signal = god_signal
                     # reasoning and other variables will be populated below as the function continues
         
+        # ═══ 3.6 ORTHOGONAL CONVERGENCE (Echo Chamber Penalty) ═══
+        # [Phase Ω-Transcendence] Verifica se o sinal é dominado por apenas um "tipo" de agente.
+        bulls = q_meta.get("bull_agents", [])
+        bears = q_meta.get("bear_agents", [])
+        
+        def _count_domains(agent_names):
+            domains = set()
+            for name in agent_names:
+                if "Agent" in name:
+                    # Categorização heurística baseada no nome
+                    if any(x in name for x in ["Trend", "Momentum", "Velocity"]): domains.add("Kinematic")
+                    elif any(x in name for x in ["Volume", "Liquidity", "OrderBook", "Vacuum"]): domains.add("OrderFlow")
+                    elif any(x in name for x in ["Structure", "SRAgent", "Fractal", "FVG", "Block"]): domains.add("Structural")
+                    elif any(x in name for x in ["Macro", "Sentiment", "Whale", "OnChain"]): domains.add("Macro")
+                    elif any(x in name for x in ["Chaos", "Entropy", "Quantum", "Manifold"]): domains.add("Physics")
+                    else: domains.add("Other")
+            return len(domains)
+            
+        bull_domains = _count_domains(bulls)
+        bear_domains = _count_domains(bears)
+        
+        # Penaliza a confiança se o sinal vem de menos de 3 domínios diferentes
+        major_domains = bull_domains if signal > 0 else bear_domains
+        if major_domains < 3 and not is_god_mode:
+            dynamic_conf_min *= 1.1 # Aumenta exigência (mais difícil passar)
+            self._log_cooldown("ECHO_CHAMBER", f"⚠️ [ECHO CHAMBER] Signal supported by only {major_domains} domains. Raising conf threshold to {dynamic_conf_min:.2f}", 120)
+
         # ═══ DECISÃO ═══
         if not is_god_mode:
             if signal >= dynamic_buy_thresh and confidence >= dynamic_conf_min:
@@ -306,14 +346,7 @@ class TrinityCore:
         if phi >= 0.85 and (has_v_pulse or signal_strength > 0.8):
              is_phi_resonance = True
              
-        # [Phase 50] God-Mode Reversal (Decoerência Suprema)
-        # In highly incoherent but extremely high-entropy (panic) regimes, 
-        # subvert the wait and provide liquidity during the vacuum.
-        is_god_mode_phi = False # Renamed to avoid conflict with existing is_god_mode
-        q_meta = quantum_state.metadata
-        entropy = q_meta.get("entropy", 0)
-        entropy_thresh = OMEGA.get("god_mode_entropy_threshold", 0.85)
-        
+        # [Phase 50] God-Mode Reversal & Resonance Bypass
         if (phi < 0.2 and entropy > entropy_thresh) or is_god_mode:
             is_god_mode_phi = True
             log.omega(f"👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.")
@@ -355,45 +388,74 @@ class TrinityCore:
             action = Action.BUY if shadow_signal.signal > 0 else Action.SELL
             confidence = shadow_signal.confidence
 
-        # ═══ CALCULAR SL/TP ═══
+        # ═══ CALCULAR SL/TP (Phase 52.7: Structural Anchoring) ═══
         tick = snapshot.tick
         if tick is None:
             return self._wait("NO_TICK_DATA")
  
         price = tick["ask"] if action == Action.BUY else tick["bid"]
-        atr = self._get_current_atr(snapshot)
- 
-        if atr <= 0:
+        
+        # [Phase 52.7] Usar ATR M1 para maior agilidade em Scalps
+        atr_m1_list = snapshot.indicators.get("M1_atr_14", [0.0])
+        atr_m1 = float(atr_m1_list[-1]) if len(atr_m1_list) > 0 else 0.0
+        atr_m5 = self._get_current_atr(snapshot)
+        
+        # Referência de volatilidade rápida
+        fast_atr = atr_m1 if atr_m1 > 0 else (atr_m5 * 0.5)
+        if fast_atr <= 0:
             return self._wait("ATR_ZERO")
  
-        sl_mult = OMEGA.get("stop_loss_atr_mult")
-        tp_mult = OMEGA.get("take_profit_atr_mult")
+        sl_mult = OMEGA.get("stop_loss_atr_mult", 0.55)
         
-        # [PHASE Ω-ANTI-FRAGILITY] Adaptive SL Scaling
-        # Em regimes de ruído ou queda lenta (Drifting), alargamos levemente para evitar stop-hunting.
-        # [Phase 52 Update] Reduzido de 1.8 para 1.1 para priorizar preservação de capital.
-        dynamic_sl_mult = sl_mult
-        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY", "HIGH_VOL_CHAOS", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-            dynamic_sl_mult *= 1.1 
+        # Buscar extremos estruturais (Fractais de M1)
+        candles_m1 = snapshot.candles.get("M1")
+        m1_highs = np.array(candles_m1["high"], dtype=np.float64)[-10:] if candles_m1 else []
+        m1_lows = np.array(candles_m1["low"], dtype=np.float64)[-10:] if candles_m1 else []
+        
+        # [Phase 52.8] Dynamic RR Scaling (The "Long Trade" Hunter)
+        # Em tendências ou ignições, buscamos alvos muito mais longos
+        rr_mult = 1.3 # Default Scalp
+        if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+            rr_mult = 2.5 # Modo Trend
+        elif regime_state.current.value in ["SQUEEZE", "SQUEEZE_BUILDUP", "IGNITION_BULL", "IGNITION_BEAR"]:
+            rr_mult = 3.0 # Modo Explosão (Breakout)
+        
+        # Ajuste extra por Consciência (Φ)
+        if phi > 0.25:
+            rr_mult += (phi * 0.5) # Mais integração = mais ambição
             
-            # [PHASE Ω-RESILIENCE] Log Cooldown (Avoid spam on every cycle)
-            mult_delta = abs(dynamic_sl_mult - self._last_sl_mult)
-            if regime_state.current.value != self._last_regime or \
-               mult_delta > 0.1:
-                self._log_cooldown("chaos_shield", f"🛡️ [CHAOS SHIELD] Regime {regime_state.current.value} detectado. Alargando SL para {dynamic_sl_mult:.2f} ATR.", 60)
-                self._last_sl_mult = dynamic_sl_mult
-                self._last_regime = regime_state.current.value
- 
-        # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
-        limit_mode_param = OMEGA.get("limit_execution_mode", 0.0)
-        limit_mode = limit_mode_param > 0.5 and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]
+        # [Phase Ω-Omniscience] Quantum Entanglement TP Boost
+        agent_reasons = str(q_meta.get("agent_signals", ""))
+        if "ENTANGLEMENT" in agent_reasons:
+            rr_mult += 1.5 # Macro alignment justifies huge targets
+            self._log_cooldown("ENTANGLEMENT_BOOST", f"🌌 [OMNISCIENCE] Macro Entanglement Detected. TP Multiplier boosted to {rr_mult:.2f}x", 60)
 
         if action == Action.BUY:
-            stop_loss = price - atr * dynamic_sl_mult
-            take_profit = price + atr * tp_mult
+            # SL: O maior entre (Mínima dos últimos 10 candles + buffer) e (Preço - sl_mult * Fast_ATR)
+            structural_sl = np.min(m1_lows) - (10 * point_val) if len(m1_lows) > 0 else (price - fast_atr * sl_mult)
+            # Garantir que o SL não seja longo demais
+            stop_loss = max(structural_sl, price - fast_atr * 1.2)
+            
+            # TP Dinâmico (Phase 52.8)
+            risk_dist = abs(price - stop_loss)
+            take_profit = price + (risk_dist * rr_mult)
         else:
-            stop_loss = price + atr * dynamic_sl_mult
-            take_profit = price - atr * tp_mult
+            # SL: O menor entre (Máxima dos últimos 10 candles + buffer) e (Preço + sl_mult * Fast_ATR)
+            structural_sl = np.max(m1_highs) + (10 * point_val) if len(m1_highs) > 0 else (price + fast_atr * sl_mult)
+            stop_loss = min(structural_sl, price + fast_atr * 1.2)
+            
+            # TP Dinâmico (Phase 52.8)
+            risk_dist = abs(price - stop_loss)
+            take_profit = price - (risk_dist * rr_mult)
+
+        # [Phase 52.8] BTC_STRIKE_CAP: Alargado para 450 pontos para permitir trades longos
+        max_dist_tp = 450.0 
+        max_dist_sl = 150.0 # Stop continua curto e letal
+        
+        if abs(price - take_profit) > max_dist_tp:
+            take_profit = price + (max_dist_tp if action == Action.BUY else -max_dist_tp)
+        if abs(price - stop_loss) > max_dist_sl:
+            stop_loss = price - (max_dist_sl if action == Action.BUY else -max_dist_sl)
 
         # ═══ RISK/REWARD CHECK ═══
         risk = abs(price - stop_loss)
@@ -419,7 +481,9 @@ class TrinityCore:
         if phi > 0.3:
             dynamic_min_profit *= 0.7 # 30% de desconto no piso se há alta integração
             
-        min_points_needed = (comm_per_lot + dynamic_min_profit) / (contract_size if contract_size > 0 else 1.0)
+        # O divisor era contract_size que na FTMO BTCUSD costuma vir zuado (ex: 1.0 ou 100.0)
+        # Vamos assumir que 1 lote = 1 bitcoin de variação direta no PnL.
+        min_points_needed = (comm_per_lot + dynamic_min_profit)
         
         if reward < min_points_needed:
             # Se for God-Mode ou Ressonância, engolimos o trade mesmo assim.
@@ -433,7 +497,7 @@ class TrinityCore:
                     if expanded_tp_points < atr * 1.6:
                         reward = expanded_tp_points
                         rr_ratio = reward / risk if risk > 0 else 0
-                        log.debug(f"⚖️ RR ADJUST: Expanding target to {reward:.4f} points to meet alpha floor.")
+                        self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.4f} points to meet alpha floor.", 60, level="debug")
                     else:
                         return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
                 else:
@@ -456,7 +520,6 @@ class TrinityCore:
 
         # [Phase 52] Divergence-Aware RR Adjustment
         # Se agentes 'Leading' divergem da decisão final, aumentamos a exigência de RR.
-        q_meta = quantum_state.metadata
         top_bulls = q_meta.get("top_bulls", [])
         top_bears = q_meta.get("top_bears", [])
         
@@ -534,13 +597,13 @@ class TrinityCore:
             if action == Action.BUY:
                 local_min = np.min(closures[-5:])
                 distance = last_close - local_min
-                if distance > atr * kinematic_atr_mult:  
-                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr*kinematic_atr_mult:.1f}) | TOP_HUNT_RISK")
+                if distance > atr_m5 * kinematic_atr_mult:  
+                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr_m5*kinematic_atr_mult:.1f}) | TOP_HUNT_RISK")
             elif action == Action.SELL:
                 local_max = np.max(closures[-5:])
                 distance = local_max - last_close
-                if distance > atr * kinematic_atr_mult:
-                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr*kinematic_atr_mult:.1f}) | BOTTOM_HUNT_RISK")
+                if distance > atr_m5 * kinematic_atr_mult:
+                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr_m5*kinematic_atr_mult:.1f}) | BOTTOM_HUNT_RISK")
 
         # [Phase 52] VETO 7: KINEMATIC DECOUPLING (Vácuo de Liquidez)
         # Se estamos comprando no topo de um spike parabólico longe da média
@@ -832,6 +895,8 @@ class TrinityCore:
                 log.warning(message)
             elif level == "omega":
                 log.omega(message)
+            elif level == "debug":
+                log.debug(message)
             else:
                 log.info(message)
             self._log_cache[key] = now

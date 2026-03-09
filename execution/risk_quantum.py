@@ -121,6 +121,22 @@ class RiskQuantumEngine:
             mult = OMEGA.get("high_conviction_multiplier", 2.0)
             risk_fraction *= mult
 
+        # [Phase Ω-Transcendence] Dynamic Order Flow Risk Modification
+        # Se a pressão do livro de ofertas estiver contra a intenção do trade, reduzimos o risco.
+        if snapshot and hasattr(snapshot, 'metadata'):
+            # metadata tem os sinais dos agentes
+            pressure = snapshot.metadata.get("orderbook_pressure", 0.0) # Assume extraction in flow
+            action = snapshot.metadata.get("intended_action", "WAIT")
+            
+            # Se queremos comprar, mas a pressão é muito vendedora (< -0.4)
+            if action == "BUY" and pressure < -0.4:
+                risk_fraction *= 0.5
+                log.debug("🛡️ [ORDER FLOW RISK] Pressão vendedora intensa detectada. Cortando lote pela metade.")
+            # Se queremos vender, mas a pressão é muito compradora (> 0.4)
+            elif action == "SELL" and pressure > 0.4:
+                risk_fraction *= 0.5
+                log.debug("🛡️ [ORDER FLOW RISK] Pressão compradora intensa detectada. Cortando lote pela metade.")
+
         # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0
         if confidence >= 0.70:

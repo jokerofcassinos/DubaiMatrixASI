@@ -383,8 +383,9 @@ class SniperExecutor:
         log.signal(decision_sig)
 
         # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
-        # Ao invés de blocos lineares rápidos, criamos uma rede fractal estendida (Brane)
-        # [Phase Ω-Singularity] Automated Node Selection
+        # [Phase Ω-Omniscience] Liquidity-Aware Tensor Execution
+        # Em vez de divisão estúpida/linear, dimensionamos os nós baseados na liquidez do book.
+        
         if final_lot < 0.1:
             target_nodes = 1
         elif final_lot < 0.5:
@@ -399,7 +400,7 @@ class SniperExecutor:
             lot_chunks = [final_lot]
             delays = [0.0]
         else:
-            # Distribuição P-Brane Estigmérgica
+            # 1. Base Estigmérgica
             offsets = np.linspace(-2, 2, num_nodes)
             weights = np.exp(-(offsets**2) / 2.0)
             
@@ -413,28 +414,56 @@ class SniperExecutor:
                             weights = (weights * 0.6) + (ph_weights * 0.4)
                 except Exception as e:
                     log.debug(f"Pheromone read error: {e}")
+                    
+            # 2. Modulação por Densidade do Order Book (Tensor Execution)
+            if snapshot.book:
+                try:
+                    bids = snapshot.book.get("bids", [])
+                    asks = snapshot.book.get("asks", [])
+                    
+                    if decision.action.value == "BUY" and asks and len(asks) >= num_nodes:
+                        # Para compras, olhamos a densidade de asks (onde vamos consumir liquidez)
+                        # Se há mais liquidez longe, podemos colocar lotes maiores lá
+                        book_vols = [a.get("volume", 1.0) if isinstance(a, dict) else 1.0 for a in asks[:num_nodes]]
+                    elif decision.action.value == "SELL" and bids and len(bids) >= num_nodes:
+                        book_vols = [b.get("volume", 1.0) if isinstance(b, dict) else 1.0 for b in bids[:num_nodes]]
+                    else:
+                        book_vols = np.ones(num_nodes)
+                        
+                    book_weights = np.array(book_vols) / np.sum(book_vols)
+                    # Mescla a inércia Gaussiana/Estigmérgica com a realidade bruta do Book
+                    weights = (weights * 0.5) + (book_weights * 0.5)
+                except Exception as e:
+                    log.debug(f"Book tensor modulation error: {e}")
+            
+            weights /= np.sum(weights) # Normaliza para 1.0
             
             # [Phase Ω-TRANSCENDENCE] Jitter
             jitter_atr = current_atr * 0.05 if current_atr > 0 else 2.0
             offsets = np.random.normal(0, jitter_atr, num_nodes)
             offsets = np.sort(offsets)
             
-            lot_chunks = [max(MIN_LOT_SIZE, round(final_lot / num_nodes, 2)) for _ in range(num_nodes)]
-            diff = final_lot - sum(lot_chunks)
-            if abs(diff) > 0.01:
-                lot_chunks[0] = max(MIN_LOT_SIZE, round(lot_chunks[0] + diff, 2))
+            # Distribuição assimétrica inteligente
+            lot_chunks = []
+            for w in weights:
+                chunk = round(final_lot * w, 2)
+                chunk = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, chunk))
+                lot_chunks.append(chunk)
+                
+            # Ajuste de sobra (sempre arredondando para MIN_LOT_SIZE)
+            diff = round(final_lot - sum(lot_chunks), 2)
+            if diff != 0:
+                # Se faltou, joga no nó com maior peso
+                idx = np.argmax(weights) if diff > 0 else np.argmin(weights)
+                lot_chunks[idx] = max(MIN_LOT_SIZE, round(lot_chunks[idx] + diff, 2))
 
             # [FTMO SANITY CHECK] - Ensure no chunk exceeds MAX_LOT_SIZE
             for i in range(len(lot_chunks)):
                  if lot_chunks[i] > MAX_LOT_SIZE:
                       excess = lot_chunks[i] - MAX_LOT_SIZE
                       lot_chunks[i] = MAX_LOT_SIZE
-                      # Se sobrou excesso e tem próximo nó, joga pro próximo
                       if i + 1 < len(lot_chunks):
                           lot_chunks[i+1] += excess
-                      else:
-                          # Se é o último nó, o excesso se perde (ou poderíamos adicionar mais um nó)
-                          pass
 
             delays = [abs(np.random.normal(0.03, 0.01)) for _ in range(num_nodes)]            
         log.omega(

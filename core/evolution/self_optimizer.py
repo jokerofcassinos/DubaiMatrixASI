@@ -199,19 +199,31 @@ class SelfOptimizer:
 
         before = self._pre_mutation_performance
         
-        before_wr = before.get("win_rate", 0)
-        after_wr = current_perf.get("win_rate", 0)
-        
-        before_pf = before.get("profit_factor", 0)
-        after_pf = current_perf.get("profit_factor", 0)
+        # Usar a mesma lógica de fitness da Mutation Engine para avaliar
+        before_fitness = self.mutation_engine._compute_fitness(before)
+        after_fitness = self.mutation_engine._compute_fitness(current_perf)
 
-        improved = (after_wr >= before_wr - 0.05 and after_pf >= before_pf - 0.1)
+        improved = after_fitness >= before_fitness
 
         if improved:
-            log.omega("🧬 Mutação VALIDADA — Performance mantida ou melhorada")
+            log.omega(f"✨ MUTAÇÃO VALIDADA — Fitness subiu de {before_fitness:.4f} para {after_fitness:.4f}")
+            # Aquece o sistema (mais flexível a pioras no futuro)
+            self.mutation_engine._exploration_rate = min(0.3, self.mutation_engine._exploration_rate * 1.1)
         else:
-            log.omega("🧬 Mutação REVERTIDA — Performance degradou")
-            self.mutation_engine.revert_last_mutations()
+            # [Phase Ω-Singularity] Simulated Annealing (Metrópolis-Hastings)
+            delta_e = after_fitness - before_fitness
+            temperature = max(0.01, self.mutation_engine._exploration_rate * 100) # Ex: 0.15 * 100 = 15
+            
+            p_accept = np.exp(delta_e / temperature)
+            
+            if np.random.random() < p_accept:
+                log.omega(f"🔥 [QUANTUM ANNEALING] Mutação sub-ótima ACEITA (P={p_accept:.2%}) para escapar de mínimo local.")
+            else:
+                log.omega(f"❌ MUTAÇÃO REJEITADA (P={p_accept:.2%} de aceitar) — Revertendo. Fitness caiu de {before_fitness:.4f} para {after_fitness:.4f}")
+                self.mutation_engine.revert_last_mutations()
+                
+            # Resfria o sistema
+            self.mutation_engine._exploration_rate = max(0.05, self.mutation_engine._exploration_rate * 0.9)
 
         self._pre_mutation_performance = None
 

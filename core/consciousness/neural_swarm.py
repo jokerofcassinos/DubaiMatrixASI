@@ -130,6 +130,35 @@ from core.consciousness.agents.dark_mass_agent import DarkMassAgent
 from core.consciousness.agents.liquid_state_agent import LiquidStateAgent
 from core.consciousness.agents.pheromone_field_agent import PheromoneFieldAgent
 
+# Phase Ω-Transcendence
+from core.consciousness.agents.transcendence_agents import (
+    RiemannianManifoldAgent, InformationGeometryAgent, QuantumSuperpositionAgent
+)
+from core.consciousness.agents.holographic_memory_agent import HolographicMemoryAgent
+from core.consciousness.agents.omniscience_agents import (
+    OrderBookSpoofingAgent, QuantumEntanglementAgent
+)
+
+# Phase Ω-Singularity (Nível 5 - Autotranscendência)
+from core.consciousness.agents.singularity_agents import (
+    AccretionDiskAgent, KinematicDerivativesAgent, TopologicalDataAgent
+)
+
+# Phase Ω-Eternity (Nível 6 - Teoria do Caos e Homeostase)
+from core.consciousness.agents.eternity_agents import (
+    QuantumSpinAgent, CyberneticHomeostasisAgent, ChaosFractalDimensionAgent
+)
+
+# Phase Ω-Apocalypse (Nível 7 - Inteligência Predatória Hostil)
+from core.consciousness.agents.apocalypse_agents import (
+    DarkPoolArbitrageAgent, OptionGammaSqueezeAgent
+)
+
+# Phase Ω-Apotheosis (Nível 8 - Inteligência Cósmica & Bio-Cibernética)
+from core.consciousness.agents.apotheosis_agents import (
+    MorphogeneticResonanceAgent, AntifragileExtremumAgent, QuantumTunnelingProbabilityAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -159,7 +188,8 @@ class NeuralSwarm:
         self.agents: List[BaseAgent] = []
         self._initialize_agents(memory, predator_engine)
         # Thread pool para execução paralela (max_workers calibrado para o hardware e número de agentes)
-        self._executor = ThreadPoolExecutor(max_workers=32)
+        # [Phase Ω-Eternity] Elevado para 64 para acomodar a explosão demográfica de agentes super-pesados
+        self._executor = ThreadPoolExecutor(max_workers=64)
         log.omega(f"🧠 Neural Swarm inicializado: {len(self.agents)} agentes ativos (Parallel Execution Enabled)")
 
     def shutdown(self):
@@ -285,6 +315,29 @@ class NeuralSwarm:
             DarkMassAgent(weight=2.4),
             LiquidStateAgent(weight=2.5),
             PheromoneFieldAgent(weight=1.8),
+
+            # ═══ TRANSCENDENCE & MEMORY (Phase Ω-Transcendence) ═══
+            RiemannianManifoldAgent(weight=2.5),
+            InformationGeometryAgent(weight=2.2),
+            QuantumSuperpositionAgent(weight=2.4),
+            HolographicMemoryAgent(weight=3.0),
+            OrderBookSpoofingAgent(weight=2.6),
+            QuantumEntanglementAgent(weight=3.0),
+
+            # ═══ SINGULARITY (Phase Ω-Singularity) ═══
+            AccretionDiskAgent(weight=3.5),
+            KinematicDerivativesAgent(weight=3.8),
+            TopologicalDataAgent(weight=2.8),
+
+            # ═══ ETERNITY (Phase Ω-Eternity) ═══
+            QuantumSpinAgent(weight=2.9),
+            CyberneticHomeostasisAgent(weight=2.7),
+            ChaosFractalDimensionAgent(weight=3.2),
+
+            # ═══ APOTHEOSIS (Phase Ω-Apotheosis) ═══
+            MorphogeneticResonanceAgent(weight=3.3),
+            AntifragileExtremumAgent(weight=3.7),
+            QuantumTunnelingProbabilityAgent(weight=3.1),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

@@ -64,9 +64,15 @@ def sync_plma():
         
         with open(target_file, 'w', encoding='utf-8') as f:
             f.write(final_output)
+
+    # NOVO: Gera arquivo consolidado para implementação manual no GEMINI.md
+    consolidated_file = os.path.join(plma_dir, "PLMA_CONSOLIDATED.txt")
+    with open(consolidated_file, 'w', encoding='utf-8') as f:
+        f.write(body_text)
             
     print(f"✅ Sincronização Ômega Concluída.")
     print(f"🧠 {len(plma_files)} camadas comprimidas e divididas dinamicamente em {len(chunks)} arquivo(s).")
+    print(f"📝 Arquivo consolidado gerado: {consolidated_file}")
     created_files = ", ".join([f"{base_target_filename}{'' if i == 0 else str(i+1)}.md" for i in range(len(chunks))])
     print(f"Arquivos gerados: {created_files}")
 

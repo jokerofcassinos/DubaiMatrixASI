@@ -183,7 +183,18 @@ class PerformanceTracker:
 
             # Streaks (Apenas se o trade for recente - últimas 24h - para evitar spam de alertas antigos)
             try:
-                t_time = datetime.fromisoformat(t.exit_time.replace('Z', '+00:00'))
+                # Tratar tzinfo de forma segura para Python 3.11+
+                if 'Z' in t.exit_time:
+                    t_time = datetime.fromisoformat(t.exit_time.replace('Z', '+00:00'))
+                else:
+                    t_time = datetime.fromisoformat(t.exit_time)
+                    if t_time.tzinfo is None:
+                        t_time = t_time.replace(tzinfo=timezone.utc)
+                
+                # Se o "now" for naive, forçar UTC
+                if now.tzinfo is None:
+                    now = now.replace(tzinfo=timezone.utc)
+                    
                 if (now - t_time).total_seconds() < 86400:
                     if t.is_winner:
                         self._consecutive_wins += 1

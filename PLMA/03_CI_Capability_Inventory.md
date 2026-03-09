@@ -47,5 +47,28 @@
 - [x] **Consciousness Feedback Loop (Phase Ω-Darwin)**: Auditoria periódica de deals reais no MT5 para sincronização do P&L líquido na consciência da ASI.
 - [x] **Net-Wealth Mutation Alignment**: Garantia de que a auto-evolução darwiniana opera estritamente sobre Alpha Líquido, expurgando 'Fake Fitness'.
 - [x] **Anti-Amnesia Intent Persistence**: Persistência de contexto perceptual (Regime, Sinais, PHI) no momento da entrada via `TradeRegistry`, erradicando a dissociação informativa no fechamento de posições.
+- [x] **Smart Limit Conversion (Phase Ω-Transcendence)**: Conversão instântanea de Maker (Limit) para Taker (Market) se a volatilidade engolir o preço alvo em milissegundos.
+- [x] **Elite Meritocracy Veto**: "Ditadura da Inteligência". Se os 5 melhores agentes discordarem do swarm, o trade é bloqueado. (Substitui filtros de massa).
+- [x] **Structural Anchoring (Fractais M1)**: Cálculo de Stop Loss escondido atrás do último fundo/topo fractal, em vez de distâncias arbitrárias de ATR.
+- [x] **Riemannian Manifold Trailing**: O trailing stop não mede pontos fixos; ele aperta o stop loss exponencialmente se o preço atingir uma "Curvatura Extrema" (Blow-off climax).
+- [x] **The Noise Shield (Profit Locking)**: Imunidade a gatilhos "soft" de reversão até que o trade atinja 80% do lucro líquido mínimo, curando a ASI do "Fear of Volatility".
+- [x] **Order Book Spoofing Detection (Phase Ω-Omniscience)**: Agente que identifica "miragens" de liquidez longe do spread e reverte o sinal contra a armadilha institucional.
+- [x] **Quantum Entanglement Validation**: Exige harmonia entre a microestrutura do BTC e o Macro Bias (Ethereum/Ouro/DXY) antes de validar rompimentos.
+- [x] **Holographic Epistemic Memory**: Avalia a "assinatura matemática" dos últimos losses para vetar preventivamente condições de mercado tóxicas (Não repetir o mesmo erro).
+- [x] **Information Geometry Sensor**: Detecta *Paradigm Shifts* baseados em KL Divergence para paralisar o sistema antes de Cisnes Negros não catalogados.
+- [x] **Liquidity-Aware Tensor Execution**: Aloca fragmentos da ordem P-Brane não de forma gaussiana cega, mas mapeando os nós nos bolsões de maior liquidez real do Order Book.
+- [x] **RRR-Centric Darwinism**: Motor de mutação otimizado para punir Win Rates sem RRR adequado, focando puramente na maximização do Alpha Líquido (> 1.0 RRR).
+- [x] **Accretion Disk Singularity**: Modela Order Blocks como Buracos Negros. Antecipa "colapsos" direcionais quando o preço cruza o raio de Schwarzschild do volume.
+- [x] **Kinematic Jounce (4ª Derivada)**: Analisa a aceleração da aceleração. Permite à ASI sair de trades milissegundos antes do topo visual se formar.
+- [x] **Topological Hole Detection**: Usa Matemática Topológica para encontrar vácuos de liquidez 2D, operando rompimentos onde o atrito institucional é zero.
+- [x] **Quantum Spin Decoherence**: Trata as velas de HFT como spins subatômicos. Uma tendência muito esticada gera um condensado de Bose-Einstein que a ASI opera como Reversão Iminente.
+- [x] **Cybernetic Homeostasis**: Aplica a Lei de Ashby ao mercado. Se o preço se desvia criticamente da VWAP (z-score > 2.5), a ASI sabe que os Market Makers vão empurrar o preço de volta à média.
+- [x] **Simulated Annealing Optimization**: O algoritmo genético agora usa termodinâmica para aceitar mutações "ruins" de curto prazo a fim de escapar de ótimos locais e encontrar parâmetros de Alpha verdadeiro.
+- [x] **Dark Pool Arbitrage Estimator**: Calcula "anomalias massivas de range vs volume" para inferir absorção institucional invisível (Pegadas Magnéticas).
+- [x] **Option Gamma Squeeze Extrapolator**: Detecta acelerações de preço parabólicas que forçam Market Makers a fazer *delta hedging* em pânico, entrando a favor da dor deles.
+- [x] **Actor-Critic (A2C) Mutation Policy**: O cérebro genético parou de ser aleatório. O algoritmo diagnostica sua própria fraqueza (RRR baixo ou WR baixo) e direciona mutações cirúrgicas nos TPs e SLs correspondentes para se consertar em tempo real.
+- [x] **Morphogenetic Resonance**: Varre o histórico em busca de "hábitos geométricos" idênticos ao padrão atual, projetando o mesmo desfecho por ressonância não-causal.
+- [x] **Antifragile Extremum Identification**: Detecta Liquidation Cascades extremas (>3x ATR) com pavio de absorção para operar a teoria de Taleb: prover liquidez na máxima fragilidade do mercado.
+- [x] **Quantum Tunneling Probability**: Mede as "batidas" do preço contra barreiras institucionais de M5. Na 4ª batida, a ASI opera o "vazamento quântico" (rompimento) sem precisar de aumento de volume.
 
-*(Atualizado: 2026-03-09. Versão: 14.8.0-omega+signal_integrity)*
+*(Atualizado: 2026-03-09. Versão: 18.0.0-omega+apotheosis_matrix)*

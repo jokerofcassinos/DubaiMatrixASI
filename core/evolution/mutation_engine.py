@@ -167,63 +167,80 @@ class MutationEngine:
     def _compute_fitness(self, perf: dict) -> float:
         """
         Calcula fitness score baseado em performance líquida (Net Alpha).
-        [Phase 36] Commission-Aware Evolutionary Fitness.
+        [Phase Ω-Transcendence] Evolução focada em RRR (Risco-Retorno) e sobrevivência de longo prazo.
         """
         wr = perf.get("win_rate", 0)
         pf = perf.get("profit_factor", 0)
         total_profit = perf.get("total_profit", 0) # Já deve ser NET
         max_dd = perf.get("max_drawdown", 0)
         trades = perf.get("total_trades", 0)
-        avg_commission = perf.get("avg_commission", 15.0)
+        
+        avg_win = perf.get("avg_win", 0.0)
+        avg_loss = abs(perf.get("avg_loss", 1.0))
+        rrr = avg_win / avg_loss if avg_loss > 0 else 1.0
 
-        # Fitness: Foco absoluto em crescimento Real (Líquido)
+        # Fitness: Foco absoluto em crescimento Real e Assimetria de Risco
         fitness = 0.0
         
-        # Win Rate (30 pts) - Reduzido peso para favorecer Net Profit
-        fitness += wr * 30                              
+        # Win Rate (20 pts) - Reduzido para dar lugar ao RRR
+        fitness += wr * 20                              
         
-        # Profit Factor (40 pts) - Medida de eficiência
-        fitness += min(pf, 4) * 10                      
+        # Profit Factor (20 pts)
+        fitness += min(pf, 4) * 5                      
         
-        # Alpha Líquido (50 pts) - O motor real de riqueza
-        # Penaliza se o lucro não cobrir as comissões de forma saudável
-        fitness += min(total_profit / 100, 50)           
+        # [Phase Ω-Transcendence] Assimetria de Risco (RRR) - Motor principal
+        # Se RRR > 1.0, bônus exponencial. Se RRR < 0.5, penalidade severa.
+        if rrr >= 1.0:
+            fitness += (rrr * 30) # Premia trades longos e lucrativos
+        else:
+            fitness -= (1.0 - rrr) * 50 # Punição brutal para "scalp medroso"
         
-        # Penalidade por Drawdown (Agravada)
-        fitness -= max_dd * 0.75                         
+        # Alpha Líquido (40 pts)
+        fitness += min(total_profit / 100, 40)           
         
-        # Bônus por Volume (Apenas se PF > 1.1)
-        if pf > 1.1:
-            fitness += min(trades, 200) * 0.05
+        # Penalidade por Drawdown
+        fitness -= max_dd * 1.5                         
+        
+        # Bônus por Volume (Apenas se PF > 1.2 e RRR > 0.8)
+        if pf > 1.2 and rrr > 0.8:
+            fitness += min(trades, 200) * 0.1
         
         # PENALIDADE DE COMISSÃO (Anti-Churn)
-        # Se comissão devora +50% do lucro bruto, fitness cai drasticamente
         if total_profit > 0:
             gross = total_profit + abs(perf.get("total_commission", 0))
             if gross > 0:
                 comm_ratio = abs(perf.get("total_commission", 0)) / gross
-                if comm_ratio > 0.5:
+                if comm_ratio > 0.4:
                     fitness *= (1.0 - comm_ratio)
 
         return fitness
 
     def _choose_mutation_strategy(self, perf: dict) -> str:
-        """Escolhe a estratégia de mutação baseado no estado atual."""
-        wr = perf.get("win_rate", 0)
-        trades = perf.get("total_trades", 0)
-
-        # Poucos trades: exploração uniforme
-        if trades < 20:
+        """
+        [Phase Ω-Apocalypse] Actor-Critic (A2C) Policy Selection.
+        O 'Critic' avalia as métricas atuais e direciona o 'Actor' para a
+        estratégia de exploração/explotação ótima.
+        """
+        fitness = self._compute_fitness(perf)
+        
+        # Critic State Evaluation
+        rrr = (perf.get("avg_win", 0.0) / abs(perf.get("avg_loss", 1.0))) if perf.get("avg_loss", 1.0) != 0 else 1.0
+        wr = perf.get("win_rate", 0.0)
+        
+        # Se o fitness está caindo, ativamos exploração (Temperatura alta do Annealing resolve isso também)
+        if fitness < self._best_fitness * 0.8:
+            # Sistema degradando rápido: Exploração ampla
             return "uniform"
+        
+        # Se o RRR está péssimo (< 0.8), focamos em Targeted para esticar lucros
+        if rrr < 0.8:
+            return "targeted_rrr"
+            
+        # Se o WR está péssimo (< 0.5), focamos em Targeted para melhorar a precisão
+        if wr < 0.5:
+            return "targeted_precision"
 
-        # Win rate bom: mutação suave (gaussian)
-        if wr > 0.6:
-            return "gaussian"
-
-        # Win rate ruim: mutação agressiva direcionada
-        if wr < 0.4:
-            return "targeted"
-
+        # Refinamento de uma estratégia que já é boa
         return "gaussian"
 
     def _gaussian_mutation(self, value: float, min_val: float, max_val: float) -> float:
@@ -238,25 +255,44 @@ class MutationEngine:
 
     def _targeted_mutation(self, name: str, value: float,
                            min_val: float, max_val: float,
-                           perf: dict) -> float:
-        """Mutação direcionada baseada em análise de performance."""
-        # Se win rate baixo, tentar ser mais conservador
-        wr = perf.get("win_rate", 0.5)
+                           perf: dict, strategy: str = "targeted") -> float:
+        """
+        Mutação direcionada pelo Ator (Actor) baseada na Crítica (Critic).
+        """
+        # Se a estratégia for focada em RRR, atuamos nos TPs e SLs
+        if strategy == "targeted_rrr":
+            if "take_profit" in name.lower():
+                # Esticar TP
+                return min(max_val, value * (1.0 + random.random() * 0.3)) # +0 a +30%
+            elif "stop_loss" in name.lower():
+                # Encurtar SL
+                return max(min_val, value * (1.0 - random.random() * 0.2)) # -0 a -20%
+            elif "kelly" in name.lower() or "size" in name.lower():
+                # Diminuir agressividade de lote até arrumar RRR
+                return max(min_val, value * 0.9)
 
+        # Se a estratégia for focada em Precisão (WR), atuamos em Phi e Confidence
+        elif strategy == "targeted_precision":
+            if "phi_min" in name.lower() or "confidence" in name.lower() or "threshold" in name.lower():
+                # Exigir mais certeza
+                return min(max_val, value * (1.0 + random.random() * 0.15))
+            elif "take_profit" in name.lower():
+                # Encurtar levemente o TP para acertar mais
+                return max(min_val, value * 0.9)
+                
+        # Fallback para o direcionamento simples antigo (se aplicável)
+        wr = perf.get("win_rate", 0.5)
         if "threshold" in name.lower() or "confidence" in name.lower():
-            # Aumentar thresholds (mais seletivo)
             direction = 1 if wr < 0.5 else -1
             delta = (max_val - min_val) * 0.1 * direction
             return max(min_val, min(max_val, value + delta))
 
         if "aggression" in name.lower():
-            # Diminuir agressividade se perdendo
             if wr < 0.5:
                 return max(min_val, value * 0.9)
             else:
                 return min(max_val, value * 1.1)
 
-        # Default: gaussian
         return self._gaussian_mutation(value, min_val, max_val)
 
     @property

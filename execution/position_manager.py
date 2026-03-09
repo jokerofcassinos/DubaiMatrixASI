@@ -218,9 +218,16 @@ class PositionManager:
                 
                 # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
                 # Se o lucro líquido já passou significativamente do alvo, ativamos o lock de proteção.
-                # [Phase 52 Update] Relaxado de 1.2x para 1.5x e de 3% para 8% para dar mais fôlego ao trade.
-                if total_profit > dynamic_peak_floor * 1.5:
-                    lock_threshold = 0.08 # Mais folga para buscar o topo
+                # [Phase 52.9] Riemannian Manifold Trailing: O threshold se ajusta com a 'curvatura' (caos) do preço.
+                if total_profit > dynamic_peak_floor * 2.0:
+                    # [Phase Ω-Omniscience] Quantum Tunneling Trailing:
+                    # Quando estamos com 2x o alvo, relaxamos o stop para "túnel" através de pullbacks normais,
+                    # a menos que a curvatura seja parabólica (climax). Isso permite corridas longas ($400+).
+                    curvature_adj = max(0, climax_score - 1.5) * 0.03
+                    lock_threshold = max(0.01, 0.15 - curvature_adj) # Permite 15% de pullback, mas fecha seco no clímax
+                elif total_profit > dynamic_peak_floor * 1.5:
+                    curvature_adj = max(0, climax_score - 2.0) * 0.02
+                    lock_threshold = max(0.02, 0.08 - curvature_adj) # Aperta até 2% se houver clímax
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
@@ -228,7 +235,7 @@ class PositionManager:
                 if is_net_positive:
                     if drawdown_pct >= lock_threshold:
                         should_close = True
-                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Net Floor OK)"
+                        reason = f"RIEMANNIAN_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Curv={climax_score:.1f})"
 
             # ═══════════════════════════════════════════════════════════
             #  SOFT TRIGGERS: Só ativam se o Noise Shield foi rompido
@@ -245,12 +252,22 @@ class PositionManager:
                     if (exhaustion.get("detected", False) or absorption.get("detected", False)) and climax_score > 2.5:
                         should_close, reason = True, f"FLOW_EXHAUSTION (Z={climax_score:.1f})"
 
-                #  TRIGGER 4: STAGNATION EXIT
+                # [Phase Ω-Apocalypse] TRIGGER 4: TIME-DECAY PROFIT LOCK
+                # O preço parou de se mover a nosso favor e o tempo está passando. O Alfa "vence".
                 if not should_close:
                     stag_time = time.time() - state.get("last_price_change_time", time.time())
-                    # [FTMO Safety] Aumentado para 10s para dar fôlego ao breakout inicial.
-                    if stag_time >= 10.0: 
-                        should_close, reason = True, f"STAGNATION ({stag_time:.1f}s)"
+                    
+                    # Dinâmica de decaimento temporal: quanto maior o lucro em relação ao alvo,
+                    # menos tempo toleramos ficar parado antes de embolsar (Fuga de Theta).
+                    if total_profit > dynamic_peak_floor * 2.0:
+                        max_stag_time = 15.0 # Pode respirar um pouco no "túnel"
+                    elif total_profit > dynamic_peak_floor * 1.2:
+                        max_stag_time = 8.0  # Lucro alto, menos tolerância a ficar parado
+                    else:
+                        max_stag_time = 12.0 # Início do Noise Shield (damos um tempo para decidir)
+                        
+                    if stag_time >= max_stag_time:
+                        should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s stagnant @ +${total_profit:.2f})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:
