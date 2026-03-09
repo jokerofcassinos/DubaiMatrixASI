@@ -82,19 +82,31 @@ class SniperExecutor:
         """
         Executa uma decisão de trading no MT5.
         """
+        # OMEGA-CLASS: Acuidade sensorial - obter ATR uma única vez
+        atr_values = snapshot.indicators.get("M5_atr_14")
+        current_atr = float(atr_values[-1]) if atr_values is not None and len(atr_values) > 0 else 0.0
+        
+        # [PHASE Ω-INTEGRITY] Pre-emptive initialization for scope safety
+        jitter_atr = current_atr  # Default initial value
+        num_nodes = 1
+        phi_val = getattr(snapshot, "phi", 0.0)
+        # [Phase 48] V-Pulse Ignition Gate
+        v_pulse = snapshot.metadata.get("v_pulse_detected", False)
+        v_pulse_lock = OMEGA.get("v_pulse_lock", False)
+        
+        # [PHASE 48] SENSORY FIX: Extração correta do minuto e segundo para o Decision Realization
+        now_dt = datetime.now(timezone.utc)
+        current_minute = now_dt.minute
+        current_second = now_dt.second
+        
         if decision.action == Action.WAIT:
             # Ativar Sonar se estivermos em WAIT mas com volatilidade interessante
             self._maybe_sonar_probe(snapshot)
             return None
-
-        # 0. Throttle de Ordens por Candle (Impede metralhadora no mesmo candle)
-        # Usar timestamp ms nativo do snapshot ou datetime local se ausente
-        ts_ms = getattr(snapshot, "raw_timestamp", int(datetime.now(timezone.utc).timestamp() * 1000))
-        current_minute = int(ts_ms / 60000) * 60000  # Arredonda ms para o minuto atual
         
-        # OMEGA-CLASS: Acuidade sensorial - obter ATR uma única vez
-        atr_values = snapshot.indicators.get("M5_atr_14")
-        current_atr = float(atr_values[-1]) if atr_values is not None and len(atr_values) > 0 else 0
+        # [Phase 48] Ignition Sovereignty
+        if v_pulse and v_pulse_lock:
+            log.omega("⚡ [IGNITION SOVEREIGNTY] V-Pulse detected. Prioritizing momentum over structural damping.")
         
         if current_minute != self._current_candle_time:
             self._current_candle_time = current_minute
@@ -508,15 +520,20 @@ class SniperExecutor:
                 res = future.result(timeout=5.0) # Aumentar timeout para suportar rede lenta
                 if res and res.get("success"):
                     results.append(res)
-                    # [Phase 52] Stigmergy: Deposit Pheromone at strike price
                     try:
                         p_price = res.get("price", decision.entry_price)
-                        p_strength = chunk_lot * (decision.confidence + 0.1)
+                        # [PHASE 52 Fix] Get lot from result to avoid NameError
+                        actual_lot = res.get("lot", final_lot / num_nodes)
+                        p_strength = actual_lot * (decision.confidence + 0.1)
                         # Polarizado: Buy = +, Sell = -
                         p_sign = 1.0 if decision.action.value == "BUY" else -1.0
-                        from cpp.asi_bridge import CPP_CORE
-                        CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
-                    except: pass
+                        
+                        # Use global CPP_CORE directly (Python 3 closures handle this if not re-assigned)
+                        from cpp.asi_bridge import CPP_CORE as G_CPP_CORE
+                        G_CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
+                    except Exception as pheromone_err:
+                        # Non-critical, just log debug
+                        log.debug(f"Pheromone update failed: {pheromone_err}")
                 else:
                     log.error(f"❌ Falha ao executar slot")
             except Exception as e:

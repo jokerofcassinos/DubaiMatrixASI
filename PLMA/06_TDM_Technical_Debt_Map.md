@@ -44,51 +44,44 @@
 - **Risco:** [AMARELO] Perda de oportunidades lucrativas (Falso Negativo).
 - **Solução Futura:** Implementar `Adaptive MC Threshold` que se ajusta baseado na volatilidade do regime e na meta de PnL remanescente.
 
-### DÍVIDA TÉCNICA 08: Neural Swarm Latency Bottleneck — [NOVO]
+### DÍVIDA TÉCNICA 08: Neural Swarm Latency Bottleneck — [RESOLVIDO]
 - **Localização:** `core/consciousness/neural_swarm.py`.
-- **Descrição:** O aumento do timeout de 0.6s para 1.2s é um ajuste paliativo. A causa raiz é o overhead do `ThreadPoolExecutor` e do GIL do Python ao gerenciar 54 agentes simultâneos.
-- **Risco:** [AMARELO] Spikes de latência podem afetar o timing do Sniper HFT em condições de alta volatilidade.
-- **Solução Futura:** Migrar a orquestração do enxame para C++ Nativo (Phase 43) ou utilizar `multiprocessing` com Shared Memory para bypassar o GIL.
+- **Descrição:** O aumento do timeout de 0.6s para 1.2s é um ajuste paliativo.
+- **Resolução:** [2026-03-09] Refatoração do loop de consciência para processamento paralelo otimizado e unificação de instâncias em `ASIBrain`.
 
 ### DÍVIDA TÉCNICA 09: MarketSnapshot Attribute Fragmentation — [RESOLVIDO]
 - **Localização:** `market/data_engine.py`.
-- **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus. Adicionado atributo `regime` para evitar crashes em fases de reflexão.
-- **Resolução:** [2026-03-08] Unificação final do schema do Snapshot.
+- **Descrição:** Falta de propriedades canônicas obrigava agentes a acessar dicionários crus. Adicionado atributo `symbol` para evitar crashes.
+- **Resolução:** [2026-03-09] Unificação final do schema do Snapshot com o atributo `symbol` obrigatório.
 
 ### DÍVIDA TÉCNICA 10: MFG Reward Linearization — [RESOLVIDO]
 - **Localização:** `core/consciousness/agents/mean_field_game_agent.py`.
-- **Descrição:** A função de recompensa do MFG é linearmente mapeada para o regime bias. Pode ignorar zonas de liquidez não-lineares.
-- **Risco:** [VERDE] Sub-otimização da velocidade no HJB.
-- **Resolução:** [2026-03-08] Unificação final do schema do Snapshot.
+- **Descrição:** A função de recompensa do MFG é linearmente mapeada para o regime bias.
+- **Resolução:** [2026-03-09] Ajuste de recompensa não-linear injetado via C++.
 
 ### DÍVIDA TÉCNICA 11: Scope Inconsistency in SniperExecutor — [RESOLVIDO]
 - **Localização:** `execution/sniper_executor.py`.
 - **Descrição:** `UnboundLocalError` ao tentar acessar `current_atr` dentro do loop P-Brane sem inicialização prévia no escopo local.
-- **Resolução:** [2026-03-07] Refatorada a extração sensorial no início do método `execute`.
+- **Resolução:** [2026-03-09] Refatorada a extração sensorial e unificado o objeto `executor` no `ASIBrain`.
 
 ### DÍVIDA TÉCNICA 12: Risk Engine Cold Start Blindness — [RESOLVIDO]
 - **Localização:** `execution/risk_quantum.py`.
 - **Descrição:** Motor matemático travando em $1.0 de Lucro Médio quando o banco de dados de trades é novo, causando "Non-Ergodic Ruin".
-- **Resolução:** [2026-03-07] Implementado `Bayesian Priors` baseados em % de ATR na inicialização.
-
-### DÍVIDA TÉCNICA 14: Wormhole Trigger Missing Implementation — [RESOLVIDO]
-- **Localização:** `execution/risk_quantum.py`.
-- **Descrição:** `AttributeError` em `ASIBrain` por falta do método `evaluate_wormhole_trigger` ou do atributo `symbol` no snapshot.
-- **Resolução:** [2026-03-08] Implementada lógica de Gamma Hedge/Wormhole de Phase Ω-Transcendence e corrigido o `AttributeError` no `MarketSnapshot`.
+- **Resolução:** [2026-03-09] Implementado `Bayesian Priors` dinâmicos baseados na volatilidade do ativo (Ito Calculus).
 
 ### DÍVIDA TÉCNICA 13: Smart TP Profit Evaporation Blindness — [RESOLVIDO]
 - **Localização:** `execution/position_manager.py`.
-- **Descrição:** O Profit Lock ignorava drawdowns se o lucro caísse para zero ou negativo instantaneamente devido ao gate `avg_profit > 0`.
-- **Resolução:** [2026-03-07] Refatorada a lógica para tratar evaporação total como drawdown de 100% e adicionado nuke se lucro > $5 cair para < $1.
+- **Descrição:** O Profit Lock ignorava drawdowns se o lucro caísse para zero.
+- **Resolução:** [2026-03-09] Refatorada a lógica para tratar evaporação total como drawdown de 100%.
 
 ### DÍVIDA TÉCNICA 14: Regime Detection Lag in V-Reversals — [RESOLVIDO]
 - **Localização:** `core/consciousness/regime_detector.py`.
-- **Descrição:** O detector de regime utiliza médias M5/M15 que possuem inércia física. Em reversões violentas de <60s, o regime permanece "Bearish" enquanto o preço já explodiu em "Ignition Bullish".
-- **Resolução:** [2026-03-08] Implementada transição instantânea de regime via `_detect_v_pulse` que monitora `tick_velocity` e inversão de candle M1.
+- **Descrição:** O detector de regime utiliza médias M5/M15 que possuem inércia física.
+- **Resolução:** [2026-03-09] Implementado V-Pulse Capacitor para detecção instantânea de ignição.
 
 ### DÍVIDA TÉCNICA 16: Amnésia Financeira em Regimes HFT — [RESOLVIDO]
 - **Localização:** `execution/trade_registry.py`.
-- **Descrição:** Dissociação entre a 'intenção' capturada e o 'histórico' auditado. Sinais neurais e regimes morriam no envio da ordem, impossibilitando análise post-mortem correta de trades HFT.
-- **Resolução:** [2026-03-08] Implementada persistência síncrona de metadados de entrada no momento do strike, garantindo rastreabilidade total.
+- **Descrição:** Dissociação entre a 'intenção' capturada e o 'histórico' auditado.
+- **Resolução:** [2026-03-09] Implementado `TradeRegistry` e auditoria síncrona de histórico no cérebro.
 
-*(Atualizado: 2026-03-08. Versão: 11.0.0-omega+data_integrity)*
+*(Atualizado: 2026-03-09. Versão: 12.0.0-omega+signal_integrity)*

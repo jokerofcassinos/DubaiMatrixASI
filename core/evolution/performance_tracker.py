@@ -179,6 +179,58 @@ class PerformanceTracker:
         )
         return True
 
+    def on_position_closed(self, deal: dict):
+        """
+        [Phase Ω-Darwin] Receptor de fechamento de posição.
+        Converte o dicionário de deal do MT5 para um TradeRecord.
+        """
+        try:
+            # Extrair dados do deal (formato MT5)
+            ticket = deal.get("ticket", 0)
+            position_id = deal.get("position_id", ticket)
+            symbol = deal.get("symbol", "")
+            action_type = deal.get("type", 0) # 0=BUY, 1=SELL
+            action = "BUY" if action_type == 0 else "SELL"
+            
+            # Lucros e taxas
+            profit = deal.get("profit", 0.0)
+            commission = deal.get("commission", 0.0)
+            swap = deal.get("swap", 0.0)
+            fee = deal.get("fee", 0.0)
+            
+            # Net P&L
+            net_pnl = profit + commission + swap + fee
+            
+            # Preços
+            exit_price = deal.get("price", 0.0)
+            lot_size = deal.get("volume", 0.0)
+            
+            # Tempo
+            exit_time_raw = deal.get("time", int(time.time()))
+            exit_time = datetime.fromtimestamp(exit_time_raw, timezone.utc).isoformat()
+            
+            # Criar registro
+            record = TradeRecord(
+                ticket=ticket,
+                position_id=position_id,
+                symbol=symbol,
+                action=action,
+                lot_size=lot_size,
+                exit_price=exit_price,
+                profit=net_pnl,
+                commission=commission,
+                swap=swap,
+                fee=fee,
+                exit_time=exit_time,
+                is_winner=(net_pnl > 0),
+                comment=deal.get("comment", "")
+            )
+            
+            return self.record_trade(record)
+        except Exception as e:
+            log.error(f"❌ [PerformanceTracker] Erro ao processar on_position_closed: {e}")
+            return False
+
     def _rebuild_equity_curve(self):
         """Recalcula toda a curva de equidade e drawdown do zero."""
         self._equity_curve = [self._initial_balance]

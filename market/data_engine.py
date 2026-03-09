@@ -38,7 +38,7 @@ class MarketSnapshot:
         self.indicators = {}             # Indicadores calculados
         self.account = None              # Info da conta
         self.symbol_info = None          # Info do símbolo
-        self.symbol = None               # [PHASE 48] Símbolo do snapshot
+        self.symbol = "BTCUSD"           # [PHASE 48] Símbolo do snapshot
         self.regime = None               # [PHASE 37+] Regime de mercado (ENUM)
         self.metadata = {}               # Metadados extras
         self.raw_timestamp = int(self.timestamp.timestamp() * 1000) # MS timestamp para executor

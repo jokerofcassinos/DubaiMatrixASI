@@ -76,12 +76,18 @@ class ASIBrain:
         # ═══ PHASE 5: EDGE LLM DISTILLATION ═══
         self.llm_distiller = EdgeLLMDistiller()
         
-        self.executor = SniperExecutor(bridge, self.risk_engine)
+        self.sniper = SniperExecutor(bridge, self.risk_engine)
+        self.executor = self.sniper
         
         # Callback para Anti-Metralhadora Pós-Close
-        def on_position_closed(direction: str):
-            self.executor._post_close_direction = direction
-            self.executor._post_close_candle_count = 0
+        def on_position_closed(deal: dict):
+            # [Phase Ω-Darwin] Sincronização de Histórico
+            self.performance_tracker.on_position_closed(deal)
+            
+            # Anti-Metralhadora
+            direction = "BUY" if deal.get("type") == 0 else "SELL"
+            self.sniper._post_close_direction = direction
+            self.sniper._post_close_candle_count = 0
             
         self.position_manager = PositionManager(bridge, on_close_callback=on_position_closed)
 
@@ -148,6 +154,10 @@ class ASIBrain:
             return {"cycle": self._cycle_count, "action": "NO_DATA"}
 
         self._last_snapshot = snapshot
+
+        # [Phase 40] Self-Optimizer Cycle
+        if self._cycle_count % self._evolution_check_interval == 0:
+            self.self_optimizer.check_and_optimize(self._cycle_count, snapshot)
 
         # ═══ 2. ANÁLISE DE ORDER FLOW ═══
         ticks = self.bridge.get_ticks_range(30)  # Últimos 30s
@@ -221,13 +231,7 @@ class ASIBrain:
                     self._last_log_times["ign_bypass"] = now
             elif now - last_ign >= 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
                 # 5. EXECUÇÃO (Sniper Strike)
-                # [PHASE 48] EXECUTION ATTRIBUTE FIX
-                # O executor é instanciado como self.executor, mas o loop chamava self.sniper
-                execution_result = None
-                if hasattr(self, "executor") and snapshot and decision:
-                    execution_result = self.executor.execute(decision, self.state, snapshot)
-                elif hasattr(self, "sniper") and snapshot and decision:
-                    execution_result = self.sniper.execute(decision, self.state, snapshot)
+                execution_result = self.sniper.execute(decision, self.state, snapshot)
                 
                 if execution_result and execution_result.get("success"):
                     # [Phase 48] Dubai-Grade Ignition Observability
@@ -273,10 +277,6 @@ class ASIBrain:
                 # O outcome será preenchido pelo PerformanceTracker futuramente, 
                 # aqui gravamos o estado com o preço atual.
                 self.memory.add_episode(embedding, {"price": snapshot.price, "time": snapshot.timestamp})
-
-        # ═══ 9. AUTO-EVOLUÇÃO (a cada 200 ciclos) ═══
-        if self._cycle_count % 200 == 0:
-            self.self_optimizer.check_and_optimize(self._cycle_count, snapshot)
 
         # ═══ 10. PERSISTIR ESTADO (a cada 100 ciclos) ═══
         if self._cycle_count % 100 == 0:

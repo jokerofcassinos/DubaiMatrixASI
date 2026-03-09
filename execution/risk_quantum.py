@@ -58,21 +58,22 @@ class RiskQuantumEngine:
             aw = asi_state.avg_win
             al = asi_state.avg_loss
         
-        # OMEGA-CLASS: Bayesian Priors for Cold Start
+        # OMEGA-CLASS: Bayesian Priors for Cold Start (Resilience Phase)
         price = snapshot.price if snapshot else 67000.0
-        atr = snapshot.indicators.get("M1_atr_14", [price * 0.001])[0]
+        atr = snapshot.indicators.get("M1_atr_14", [price * 0.001])[0] / (snapshot.digits_mult if hasattr(snapshot, 'digits_mult') else 1)
         
         # [Phase Ω-Resilience] Commission-Aware Math:
         comm_per_lot = commission_per_lot
-        min_target = OMEGA.get("min_profit_per_ticket", 30.0)
+        min_target_pts = OMEGA.get("min_profit_points", 300)
+        point = (snapshot.symbol_info.get("point", 0.01) if snapshot and snapshot.symbol_info else 0.01)
         
-        baseline_move = max(min_target + comm_per_lot, atr * 0.5) 
+        baseline_move = max(min_target_pts * point + comm_per_lot, atr * 0.75) 
         
-        aw = max(baseline_move, aw)
-        al = max(baseline_move, al + comm_per_lot) 
+        if aw <= 0: aw = baseline_move * 1.5
+        if al <= 0: al = baseline_move
         
         # Limit aw to something reasonable to avoid absurd Kelly sizes
-        aw = min(aw, balance * 0.1) 
+        aw = min(aw, balance * 0.05) 
         
         rr = aw / al if al > 0 else 1.0
 

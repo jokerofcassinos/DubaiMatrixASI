@@ -95,6 +95,11 @@ class TrinityCore:
         if quantum_state is None or regime_state is None:
             return self._wait("NO_DATA")
 
+        # [Phase 51] OMEGA-ALPHA: Ignition & God-Mode Status
+        has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        is_god_mode = snapshot.metadata.get("god_mode_active", False)
+        is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
+
         # [PHASE 50] Strike Flag
         strike_flag = ""
 
