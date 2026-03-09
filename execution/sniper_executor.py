@@ -487,28 +487,35 @@ class SniperExecutor:
                 random_jitter = jitter_points * (0.5 + np.random.random())
                 jitter_price = random_jitter * point
                 
-                # [Phase 52.2] Smart Order Logic:
-                # Se o preço já passou do nosso alvo, convertemos para Market p/ não perder o strike
+                # [Phase 52.3] Robust Price Validation:
+                # MT5 rules: BUY LIMIT < Bid, SELL LIMIT > Ask.
+                # Adding a safety buffer of (stops_level + 100) points for HFT.
+                hft_buffer = (stops_level + 100) * point
                 is_invalid_limit = False
+                
                 if decision.action.value == "BUY":
-                    limit_price = tick_bid - min_dist - (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread)
+                    # Preço limite deve estar ABAIXO do Bid
+                    limit_price = tick_bid - hft_buffer - (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread)
                     limit_price -= jitter_price
-                    if limit_price >= tick_ask: # Se o preço limite de compra está ACIMA do ask atual
+                    # Se, por lag, o preço limite ficou acima ou muito perto do Bid -> MARKET
+                    if limit_price >= tick_bid - (10 * point):
                         is_invalid_limit = True
                 else:
-                    limit_price = tick_ask + min_dist + (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread)
+                    # Preço limite deve estar ACIMA do Ask
+                    limit_price = tick_ask + hft_buffer + (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread)
                     limit_price += jitter_price
-                    if limit_price <= tick_bid: # Se o preço limite de venda está ABAIXO do bid atual
+                    # Se o preço limite ficou abaixo ou muito perto do Ask -> MARKET
+                    if limit_price <= tick_ask + (10 * point):
                         is_invalid_limit = True
 
                 if is_invalid_limit:
-                    log.debug(f"⚡ [SMART_CONVERSION] Limit @ {limit_price:.2f} invalid vs Market. Switching to TAKER mode.")
+                    log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price:.2f} too risky. Executing MARKET for slot {i+1}.")
                     return self.bridge.send_market_order(
                         action=decision.action.value,
                         lot=chunk_lot,
                         sl=decision.stop_loss,
                         tp=decision.take_profit,
-                        comment=f"ASI_AUTO_TAKER_{i+1}/{num_nodes}"
+                        comment=f"ASI_HFT_TAKER_{i+1}/{num_nodes}"
                     )
 
                 res = self.bridge.send_limit_order(

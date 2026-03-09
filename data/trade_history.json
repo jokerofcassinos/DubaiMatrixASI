@@ -1873,5 +1873,30 @@
     "session": "US",
     "is_winner": true,
     "comment": ""
+  },
+  {
+    "ticket": 382395567,
+    "position_id": 398957894,
+    "symbol": "BTCUSD",
+    "action": "SELL",
+    "lot_size": 1.25,
+    "entry_price": 68941.35,
+    "exit_price": 68878.98,
+    "sl": 0.0,
+    "tp": 0.0,
+    "profit": 21.96999999999999,
+    "pips": 0.0,
+    "commission": -55.99,
+    "swap": 0.0,
+    "fee": 0.0,
+    "duration_seconds": 92.0,
+    "regime_at_entry": "LOW_LIQUIDITY",
+    "coherence_at_entry": 0.0,
+    "signal_strength": -1.0,
+    "entry_time": "2026-03-09T19:30:01+00:00",
+    "exit_time": "2026-03-09T19:31:33+00:00",
+    "session": "US",
+    "is_winner": true,
+    "comment": ""
   }
 ]

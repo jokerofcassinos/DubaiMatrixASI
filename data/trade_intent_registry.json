@@ -1,14 +1,26 @@
 {
-  "ticket_0": {
-    "timestamp": "2026-03-09T16:10:32.423307+00:00",
-    "ticket": 0,
-    "position_id": -1004,
+  "ticket_398957894": {
+    "timestamp": "2026-03-09T16:29:58.333703+00:00",
+    "ticket": 398957894,
+    "position_id": -1003,
     "regime": "LOW_LIQUIDITY",
-    "confidence": 0.7224072005186708,
-    "signal_strength": -0.23031923485434455,
+    "confidence": 0.721264360452386,
+    "signal_strength": -1.0,
     "coherence": 0.0,
     "phi": 0.0,
-    "reasoning": "SELL signal=-0.230 conf=0.72 coherence=0.48 regime=LOW_LIQUIDITY ATR=206.82 RR=0.85 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.230 | CONF=0.72 | \u03a6=0.16 | COH=48.44% | BEAR: CrossScaleConvergenceAgent, LiquidStateAgent, TBSAgent [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.097 WP=54.5% EV=+2.41 CVaR=-316.43 sim=6.0ms]",
+    "reasoning": "SELL signal=-1.000 conf=0.72 coherence=0.48 regime=LOW_LIQUIDITY ATR=188.36 RR=0.85 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=+0.118 | CONF=0.72 | \u03a6=0.08 | COH=47.70% | BULL: TBSAgent, ChaosRegime, LiquidStateAgent [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.092 WP=54.2% EV=+0.65 CVaR=-288.18 sim=6.1ms]",
+    "symbol": "BTCUSD"
+  },
+  "398957894": {
+    "timestamp": "2026-03-09T16:29:58.333703+00:00",
+    "ticket": 398957894,
+    "position_id": -1003,
+    "regime": "LOW_LIQUIDITY",
+    "confidence": 0.721264360452386,
+    "signal_strength": -1.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-1.000 conf=0.72 coherence=0.48 regime=LOW_LIQUIDITY ATR=188.36 RR=0.85 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=+0.118 | CONF=0.72 | \u03a6=0.08 | COH=47.70% | BULL: TBSAgent, ChaosRegime, LiquidStateAgent [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.092 WP=54.2% EV=+0.65 CVaR=-288.18 sim=6.1ms]",
     "symbol": "BTCUSD"
   }
 }
