@@ -530,7 +530,32 @@ class TrinityCore:
                 if distance > atr * kinematic_atr_mult:
                     return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr*kinematic_atr_mult:.1f}) | BOTTOM_HUNT_RISK")
 
-        # ═══ MONTE CARLO VALIDATION ═══
+        # [Phase 52] VETO 7: KINEMATIC DECOUPLING (Vácuo de Liquidez)
+        # Se estamos comprando no topo de um spike parabólico longe da média
+        ema_9 = snapshot.indicators.get("M5_ema_9")
+        if ema_9 is not None and len(ema_9) > 0 and atr > 0:
+            dist_from_mean = (snapshot.price - ema_9[-1]) / atr
+            # Se preço > 2 ATRs da média E sinal é BUY -> Perigo de Blow-off
+            if action == Action.BUY and dist_from_mean > 2.0:
+                # Se não houver uma ignição genuína comprovada por volume institucional
+                v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
+                vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
+                if vol_ratio < 3.0: # Volume não justifica o estiramento
+                    return self._wait(f"KINEMATIC_DECOUPLING_BUY (Price too far from mean: {dist_from_mean:.1f}xATR)")
+            # Simétrico para SELL
+            elif action == Action.SELL and dist_from_mean < -2.0:
+                v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
+                vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
+                if vol_ratio < 3.0:
+                    return self._wait(f"KINEMATIC_DECOUPLING_SELL (Price too far from mean: {dist_from_mean:.1f}xATR)")
+
+        # [Phase 52] VETO 8: BLOW-OFF CLIMAX (Proteção contra Exaustão)
+        q_meta = quantum_state.metadata
+        agent_reasons = str(q_meta.get("agent_signals", ""))
+        if "BLOW_OFF_CLIMAX" in agent_reasons or "REDLINE_VETO" in agent_reasons:
+            return self._wait("BLOW_OFF_EXHAUSTION_DETECTED (Reversal Imminent)")
+
+        # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
         volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar
         # [Phase 47] Drift Decoupling: Se houve ignição ou explosão de ticks, 

@@ -109,27 +109,27 @@ class OmegaParameterSpace:
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
-        self._register("trinity_min_rr_ratio", 1.1, 0.5, 5.0,
+        self._register("trinity_min_rr_ratio", 1.5, 0.5, 5.0,
                         "RR Ratio mínimo no TrinityCore")
-        self._register("mc_min_score", -0.35, -0.80, 0.50,
+        self._register("mc_min_score", -0.30, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
-        self._register("mc_min_win_prob", 0.38, 0.25, 0.55,
-                        "Win Probability mínima do Monte Carlo (Restaurado Phase Ω-Transcendence)")
+        self._register("mc_min_win_prob", 0.42, 0.25, 0.55,
+                        "Win Probability mínima do Monte Carlo")
 
         # ═══ RISK PARAMETERS ═══
         self._register("position_size_pct", 50.0, 0.5, 75.0,
                         "% do saldo por posição")
         self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
-        self._register("stop_loss_atr_mult", 0.75, 0.2, 3.0,
-                        "Multiplicador ATR para stop loss (Estabilizado Phase 47)")
-        self._register("take_profit_atr_mult", 1.0, 0.3, 5.0,
-                        "Multiplicador ATR para take profit (Recalibrado Phase 46)")
-        self._register("trailing_stop_atr_mult", 0.5, 0.2, 2.0,
+        self._register("stop_loss_atr_mult", 0.85, 0.2, 3.0,
+                        "Multiplicador ATR para stop loss")
+        self._register("take_profit_atr_mult", 1.8, 0.3, 5.0,
+                        "Multiplicador ATR para take profit")
+        self._register("trailing_stop_atr_mult", 0.6, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 32.0, 0.0, 100.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD")
-        self._register("min_profit_per_ticket", 20.0, 0.0, 500.0,
+        self._register("min_profit_per_ticket", 50.0, 0.0, 500.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
         self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")

@@ -136,12 +136,19 @@ class PriceGravityAgent(BaseAgent):
                     gravity_signal *= 0.3  # Reduzir sinal (indecisão)
                     reasons.append(f"{tf}:GRAVITY_WELL(POC={poc_price:.0f} mass={poc_mass:.2f})")
                 elif price_momentum > escape_velocity * 1.5:
-                    # Velocidade de escape atingida → Breakout legítimo
-                    direction = np.sign(close[-1] - close[-3])
-                    gravity_signal = direction * 0.8
-                    reasons.append(
-                        f"{tf}:ESCAPE_VELOCITY(mom={price_momentum:.1f}>{escape_velocity:.1f})"
-                    )
+                    # [Phase 52 Refinement] Gravitational Redline:
+                    # Se o preço está MUITO longe do POC (> 3x ATR), o risco de snapping é alto.
+                    # Ignoramos a velocidade de escape e vetamos a entrada.
+                    if abs(current_price - poc_price) > current_atr * 2.5:
+                        gravity_signal = 0.0
+                        reasons.append(f"{tf}:REDLINE_VETO(stretched={abs(current_price - poc_price)/current_atr:.1f}xATR)")
+                    else:
+                        # Velocidade de escape atingida → Breakout legítimo
+                        direction = np.sign(close[-1] - close[-3])
+                        gravity_signal = direction * 0.8
+                        reasons.append(
+                            f"{tf}:ESCAPE_VELOCITY(mom={price_momentum:.1f}>{escape_velocity:.1f})"
+                        )
                 else:
                     # Sendo puxado de volta pelo campo gravitacional
                     if dist_to_poc > 0.05:
@@ -279,15 +286,18 @@ class AggressivenessAgent(BaseAgent):
                 # O candle atual é fraco vs os anteriores que eram fortes
                 signal *= -0.3  # Inversion por exaustão
                 reasons.append(f"{tf}:AGGR_EXHAUSTION(BRR dropping)")
-            elif vol_intensity > 25.0:  # Phase 47: Refined Climax Damping (from 15x to 25x)
-                # Só dampamos se for um pico isolado sem sustentação (BRR baixo)
-                if current_brr < 0.6:
-                    signal *= 0.1
-                    reasons.append(f"{tf}:CLIMAX_DAMPING(vol={vol_intensity:.1f}x brr={current_brr:.2f})")
+            elif vol_intensity > 12.0:  # [Phase 52 Refinement] Blow-off Climax
+                # Se o volume é > 12x a média, é exaustão quase certeira
+                if current_brr > 0.8: # Candle muito cheio no topo do volume
+                    signal = direction * -0.8 # REVERSÃO: Provável Blow-off Top/Bottom
+                    reasons.append(f"{tf}:BLOW_OFF_CLIMAX(vol={vol_intensity:.1f}x)")
                 else:
-                    # Se o BRR é alto (>0.6), é um breakout real, não dampamos tanto
-                    signal *= 0.8 
-                    reasons.append(f"{tf}:EXPLOSIVE_IGNITION(vol={vol_intensity:.1f}x)")
+                    signal *= 0.1
+                    reasons.append(f"{tf}:CLIMAX_DAMPING(vol={vol_intensity:.1f}x)")
+            elif vol_intensity > 5.0 and current_brr < 0.4:
+                # Volume alto mas corpo pequeno = absorção (perigo)
+                signal = direction * -0.5
+                reasons.append(f"{tf}:ABSORPTION_RISK(vol={vol_intensity:.1f}x brr={current_brr:.2f})")
 
             signals.append(float(signal))
 

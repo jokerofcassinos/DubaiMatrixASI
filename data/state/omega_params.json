@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-09T10:36:39.469304",
+  "saved_at": "2026-03-09T11:04:17.219645",
   "parameters": {
     "buy_threshold": {
       "value": 0.2,
@@ -42,8 +42,8 @@
       "last_mutations": []
     },
     "trinity_min_rr_ratio": {
-      "value": 1.1,
-      "default": 1.1,
+      "value": 1.5,
+      "default": 1.5,
       "bounds": [
         0.5,
         5.0
@@ -52,8 +52,8 @@
       "last_mutations": []
     },
     "mc_min_score": {
-      "value": -0.35,
-      "default": -0.35,
+      "value": -0.3,
+      "default": -0.3,
       "bounds": [
         -0.8,
         0.5
@@ -62,8 +62,8 @@
       "last_mutations": []
     },
     "mc_min_win_prob": {
-      "value": 0.38,
-      "default": 0.38,
+      "value": 0.42,
+      "default": 0.42,
       "bounds": [
         0.25,
         0.55
@@ -92,8 +92,8 @@
       "last_mutations": []
     },
     "stop_loss_atr_mult": {
-      "value": 0.75,
-      "default": 0.75,
+      "value": 0.85,
+      "default": 0.85,
       "bounds": [
         0.2,
         3.0
@@ -102,8 +102,8 @@
       "last_mutations": []
     },
     "take_profit_atr_mult": {
-      "value": 1.0,
-      "default": 1.0,
+      "value": 1.8,
+      "default": 1.8,
       "bounds": [
         0.3,
         5.0
@@ -112,8 +112,8 @@
       "last_mutations": []
     },
     "trailing_stop_atr_mult": {
-      "value": 0.5,
-      "default": 0.5,
+      "value": 0.6,
+      "default": 0.6,
       "bounds": [
         0.2,
         2.0
@@ -132,8 +132,8 @@
       "last_mutations": []
     },
     "min_profit_per_ticket": {
-      "value": 20.0,
-      "default": 20.0,
+      "value": 50.0,
+      "default": 50.0,
       "bounds": [
         0.0,
         500.0

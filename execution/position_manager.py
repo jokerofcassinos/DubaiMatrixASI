@@ -200,21 +200,25 @@ class PositionManager:
             commission_cost = lot_scale * comm_per_lot
             
             # Floor dinâmico para garantir lucro líquido (Phase 52 Refinement)
-            # O alvo é $40 de lucro líquido por LOTE real, não por fragmento.
-            target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 40.0) 
+            # [Phase 52.1] Noise Shield: Elevado p/ $50 conforme OMEGA.
+            target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 50.0) 
             target_net_profit = lot_scale * target_net_profit_per_lot
             
             dynamic_peak_floor = commission_cost + target_net_profit
 
+            # [Phase 52.1] Noise Shield Active: 80% do floor deve ser atingido 
+            # antes de permitirmos saídas por "ruído" (Momentum/Exaustão).
             is_net_positive = (total_profit >= dynamic_peak_floor)
+            reached_noise_shield = (total_profit >= dynamic_peak_floor * 0.8)
 
             if peak > dynamic_peak_floor:
                 drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
                 
                 # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
-                # Se o lucro líquido já passou do alvo, arrochamos o trailing (3% tolerance)
-                if total_profit > dynamic_peak_floor * 1.2:
-                    lock_threshold = 0.03 # Ultra-Lethal
+                # Se o lucro líquido já passou significativamente do alvo, ativamos o lock de proteção.
+                # [Phase 52 Update] Relaxado de 1.2x para 1.5x e de 3% para 8% para dar mais fôlego ao trade.
+                if total_profit > dynamic_peak_floor * 1.5:
+                    lock_threshold = 0.08 # Mais folga para buscar o topo
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
@@ -225,9 +229,9 @@ class PositionManager:
                         reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Net Floor OK)"
 
             # ═══════════════════════════════════════════════════════════
-            #  SOFT TRIGGERS: Só ativam se estivermos em lucro líquido real
+            #  SOFT TRIGGERS: Só ativam se o Noise Shield foi rompido
             # ═══════════════════════════════════════════════════════════
-            if not should_close and is_net_positive:
+            if not should_close and reached_noise_shield:
                 #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
                 if g_is_buy and flow_signal < -0.4:
                     should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bearish)"
