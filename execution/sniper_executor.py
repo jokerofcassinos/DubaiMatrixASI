@@ -508,6 +508,15 @@ class SniperExecutor:
                 res = future.result(timeout=5.0) # Aumentar timeout para suportar rede lenta
                 if res and res.get("success"):
                     results.append(res)
+                    # [Phase 52] Stigmergy: Deposit Pheromone at strike price
+                    try:
+                        p_price = res.get("price", decision.entry_price)
+                        p_strength = chunk_lot * (decision.confidence + 0.1)
+                        # Polarizado: Buy = +, Sell = -
+                        p_sign = 1.0 if decision.action.value == "BUY" else -1.0
+                        from cpp.asi_bridge import CPP_CORE
+                        CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
+                    except: pass
                 else:
                     log.error(f"❌ Falha ao executar slot")
             except Exception as e:

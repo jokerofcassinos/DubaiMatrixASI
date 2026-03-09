@@ -128,6 +128,7 @@ from core.consciousness.agents.chaos_regime_agent import ChaosRegimeAgent
 from core.consciousness.agents.holographic_manifold_agent import HolographicManifoldAgent
 from core.consciousness.agents.dark_mass_agent import DarkMassAgent
 from core.consciousness.agents.liquid_state_agent import LiquidStateAgent
+from core.consciousness.agents.pheromone_field_agent import PheromoneFieldAgent
 
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
@@ -283,6 +284,7 @@ class NeuralSwarm:
             HolographicManifoldAgent(),
             DarkMassAgent(weight=2.4),
             LiquidStateAgent(weight=2.5),
+            PheromoneFieldAgent(weight=1.8),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

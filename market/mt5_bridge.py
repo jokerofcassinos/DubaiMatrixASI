@@ -27,6 +27,7 @@ from config.exchange_config import (
     MAGIC_NUMBER, ORDER_DEVIATION, ORDER_FILLING_TYPE,
     MAX_OPEN_POSITIONS, MAX_LOT_SIZE, MIN_LOT_SIZE
 )
+from config.omega_params import OMEGA
 from utils.logger import log
 from execution.trade_registry import registry as trade_registry
 from utils.decorators import retry, timed, CircuitBreaker, catch_and_log

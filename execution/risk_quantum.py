@@ -91,8 +91,12 @@ class RiskQuantumEngine:
 
         if max_growth < 0:
             log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f}. Reducing exposure.")
-            risk_fraction = 0.001 
+            if snapshot and hasattr(snapshot, 'metadata'):
+                snapshot.metadata["non_ergodic_ruin"] = True
+            risk_fraction = 0.001
         else:
+            if snapshot and hasattr(snapshot, 'metadata'):
+                snapshot.metadata["non_ergodic_ruin"] = False
             sl_pct = stop_loss_distance / price if price > 0 else 0.01
             risk_fraction = best_leverage * sl_pct
             log.omega(f"📊 NON-ERGODIC OPTIMIZATION: Max Growth {max_growth:.6f} @ {best_leverage}x Leverage. Risk Fraction: {risk_fraction:.4f}")

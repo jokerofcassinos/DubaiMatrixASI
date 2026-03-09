@@ -174,9 +174,11 @@ class PositionManager:
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
             commission_cost = lot_scale * comm_per_lot
             
-            # Floor dinâmico para garantir lucro líquido (Phase 51 Refinement)
-            comm_mult = OMEGA.get("commission_protection_mult", 1.5)
-            target_net_profit = num_slots * OMEGA.get("min_profit_per_ticket", 40.0)
+            # Floor dinâmico para garantir lucro líquido (Phase 52 Refinement)
+            # O alvo é $40 de lucro líquido por LOTE real, não por fragmento.
+            target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 40.0) 
+            target_net_profit = lot_scale * target_net_profit_per_lot
+            
             dynamic_peak_floor = commission_cost + target_net_profit
 
             is_net_positive = (total_profit >= dynamic_peak_floor)
@@ -185,19 +187,17 @@ class PositionManager:
                 drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
                 
                 # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
-                # Se cada slot já deu > $40 de lucro líquido, o drawdown lock vira 3% (não aceita reversão)
-                avg_profit_per_slot = (total_profit - commission_cost) / num_slots
-                if avg_profit_per_slot > OMEGA.get("min_profit_per_ticket", 40.0):
-                    lock_threshold = 0.03 # 3% de tolerância apenas (Ultra-Aggressive)
+                # Se o lucro líquido já passou do alvo, arrochamos o trailing (3% tolerance)
+                if total_profit > dynamic_peak_floor * 1.2:
+                    lock_threshold = 0.03 # Ultra-Lethal
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
-                    if peak > dynamic_peak_floor * 2: lock_threshold = 0.10 * vol_mult # Reduzido thresholds
                 
                 if is_net_positive:
                     if drawdown_pct >= lock_threshold:
                         should_close = True
-                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Net OK)"
+                        reason = f"LETHAL_PROFIT_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Net Floor OK)"
 
             # ═══════════════════════════════════════════════════════════
             #  SOFT TRIGGERS: Só ativam se estivermos em lucro líquido real

@@ -63,13 +63,21 @@ class NavierStokesFluidAgent(BaseAgent):
 
         # [Phase 51] Fluid Dynamics Reversal Detection
         # Se a pressão (turbulência) está extrema, o fluido vai 'explodir' na direção do vácuo.
-        if pressure > 0.8: # Alta turbulência
-            conf = 0.90
-            if ratio > 2.5:
-                signal = 0.85
+        if pressure > 0.85: # Alta turbulência
+            conf = 0.95
+            if ratio > 3.5: # Muro de compra, explode pra cima
+                signal = 1.0 # Veto BULL
+                reason = f"NAV-STOKES VETO: High Pressure BULL Explosion (Ratio {ratio:.1f})"
+            elif ratio < 0.28: # Muro de venda, explode pra baixo
+                signal = -1.0 # Veto BEAR
+                reason = f"NAV-STOKES VETO: High Pressure BEAR Explosion (Ratio {ratio:.1f})"
+        elif pressure > 0.70:
+            conf = 0.85
+            if ratio > 2.0:
+                signal = 0.80
                 reason = f"Turbulent UP-FLOW (Ratio {ratio:.1f}, Pres {pressure:.2f})"
-            elif ratio < 0.4:
-                signal = -0.85
+            elif ratio < 0.5:
+                signal = -0.80
                 reason = f"Turbulent DOWN-FLOW (Ratio {ratio:.1f}, Pres {pressure:.2f})"
         elif kinetic_pressure > 15.0: # Fluxo rápido mas laminar
             if ratio > 1.5:
