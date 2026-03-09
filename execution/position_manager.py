@@ -95,9 +95,9 @@ class PositionManager:
                 continue
 
             is_buy = (p_type == "BUY")
-            # [Phase Ω-Resilience] Bucket de 5 segundos para agrupar disparos HFT
-            # Evita que slots de um mesmo strike fiquem órfãos por lag do broker
-            group_key = (p_symbol, p_type, int(p_time / 5))
+            # [Phase Ω-Resilience] Bucket de 1 segundo para agrupar disparos HFT (Reduzido de 5s para Precisão)
+            # Evita que slots de um mesmo strike fiquem órfãos por lag do broker.
+            group_key = (p_symbol, p_type, int(p_time))
             
             # Chama a monitoração topológica de perdas em background (Wormhole Risk Router)
             self.wormhole_router.monitor_event_horizon(pos)
@@ -110,11 +110,13 @@ class PositionManager:
                     "is_buy": is_buy,
                     "entry_price": p_open,
                     "time": p_time,
-                    "symbol": p_symbol 
+                    "symbol": p_symbol,
+                    "lot_total": 0.0
                 }
             
             groups[group_key]["tickets"].append(pos)
             groups[group_key]["total_profit"] += p_profit
+            groups[group_key]["lot_total"] += pos.get('volume', 0.0)
             if p_profit > groups[group_key]["max_profit"]:
                 groups[group_key]["max_profit"] = p_profit
 
@@ -143,7 +145,9 @@ class PositionManager:
             g_is_buy = g_data["is_buy"]
             total_profit = g_data["total_profit"]
             num_slots = len(g_tickets)
+            lot_scale = g_data["lot_total"]
             
+            # Usamos o primeiro ticket do grupo como âncora para o estado persistente do strike
             anchor_ticket = g_tickets[0]['ticket']
             if anchor_ticket not in self._positions_state:
                 self._positions_state[anchor_ticket] = {
@@ -170,7 +174,6 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             peak = state['peak_profit']
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
-            lot_scale = sum(p.get('volume', 0.01) for p in g_tickets)
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
             commission_cost = lot_scale * comm_per_lot
             
@@ -217,18 +220,25 @@ class PositionManager:
                 #  TRIGGER 4: STAGNATION EXIT
                 if not should_close:
                     stag_time = time.time() - state.get("last_price_change_time", time.time())
-                    if stag_time >= 5.0: # Aumentado p/ 5s para dar chance ao profit crescer
+                    # [FTMO Safety] Aumentado para 10s para dar fôlego ao breakout inicial.
+                    if stag_time >= 10.0: 
                         should_close, reason = True, f"STAGNATION ({stag_time:.1f}s)"
 
-            #  EJETAR GRUPO INTEIRO
+            #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:
                 symbol = g_data.get('symbol', 'UNKNOWN')
-                log.omega(f"💀 LETHAL CLOSE: {reason} | P&L Total: ${total_profit:+.2f}")
-                for p in g_tickets:
-                    self._close_with_notify(p.get('ticket'), "BUY" if g_is_buy else "SELL")
+                log.omega(f"💀 LETHAL CLOSE STRIKE: {reason} | P&L Total: ${total_profit:+.2f} | Lots: {lot_scale:.2f} | Nodes: {num_slots}")
+                self._close_strike_group(g_tickets, "BUY" if g_is_buy else "SELL")
 
         # Cleanup e monitoramento de lag permanecem os mesmos...
         self._cleanup_tracking(current_tickets)
+
+    def _close_strike_group(self, tickets: List[dict], direction: str):
+        """Fecha todos os tickets de um strike em paralelo total."""
+        for p in tickets:
+            ticket = p.get('ticket')
+            if ticket not in self._closing_tickets:
+                self._close_with_notify(ticket, direction)
 
     def _manage_pending_orders(self):
         """Cancela ordens pendentes que não foram executadas e expiraram (Phase Ω-Eternity)."""
@@ -272,12 +282,14 @@ class PositionManager:
         self._close_attempt_time[ticket] = time.time()
         
         def _exec_close():
-            self.bridge.close_position(ticket)
+            result = self.bridge.close_position(ticket)
             if self._on_close_callback:
                 try:
-                    self._on_close_callback(direction)
-                except Exception:
-                    pass
+                    # [Phase 52 Fix] Pass the full result dict (containing profit/ticket)
+                    # instead of just the direction string.
+                    self._on_close_callback(result or {"ticket": ticket, "success": False})
+                except Exception as e:
+                    log.error(f"❌ Erro ao disparar callback de fechamento: {e}")
 
         # Disparo assíncrono para não travar o loop de monitoramento
         self._close_pool.submit(_exec_close)

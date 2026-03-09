@@ -80,14 +80,22 @@ class ASIBrain:
         self.executor = self.sniper
         
         # Callback para Anti-Metralhadora Pós-Close
-        def on_position_closed(deal: dict):
+        def on_position_closed(result: dict):
+            # [Phase 52 Fix] Receive dict from PositionManager and update state
+            if not result or not result.get("success"):
+                return
+
             # [Phase Ω-Darwin] Sincronização de Histórico
-            self.performance_tracker.on_position_closed(deal)
+            self.performance_tracker.on_position_closed(result)
             
-            # Anti-Metralhadora
-            direction = "BUY" if deal.get("type") == 0 else "SELL"
-            self.sniper._post_close_direction = direction
-            self.sniper._post_close_candle_count = 0
+            # Anti-Metralhadora: Impedir reentrada imediata na mesma direção
+            # O result contém o ticket e o close_price.
+            # A direção vem originalmente do strike. No MT5 Bridge, close_position injeta o profit.
+            # [Phase 52] Precisamos saber se era BUY ou SELL para o bloqueio.
+            direction = result.get("direction", "UNKNOWN")
+            if direction != "UNKNOWN":
+                self.sniper._post_close_direction = direction
+                self.sniper._post_close_candle_count = 0
             
         self.position_manager = PositionManager(bridge, on_close_callback=on_position_closed)
 

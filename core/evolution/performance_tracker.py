@@ -179,37 +179,51 @@ class PerformanceTracker:
         )
         return True
 
-    def on_position_closed(self, deal: dict):
+    def on_position_closed(self, result: dict):
         """
         [Phase Ω-Darwin] Receptor de fechamento de posição.
-        Converte o dicionário de deal do MT5 para um TradeRecord.
+        Suporta tanto o dicionário completo do deal quanto o resultado parcial do PositionManager.
         """
+        if not isinstance(result, dict):
+            log.warning(f"⚠️ [PerformanceTracker] Recebeu tipo inválido em on_position_closed: {type(result)}")
+            return False
+
         try:
-            # Extrair dados do deal (formato MT5)
-            ticket = deal.get("ticket", 0)
-            position_id = deal.get("position_id", ticket)
-            symbol = deal.get("symbol", "")
-            action_type = deal.get("type", 0) # 0=BUY, 1=SELL
-            action = "BUY" if action_type == 0 else "SELL"
+            # Extrair dados do resultado (formato PositionManager/MT5Bridge.close_position)
+            ticket = result.get("ticket", 0)
+            if not ticket:
+                return False
+
+            position_id = result.get("position_id", ticket)
+            symbol = result.get("symbol", "")
+            
+            # [Phase 52] Compatibilidade com novo formato de fecho do Sniper
+            # Se vier 'direction', usamos. Se vier 'type', mapeamos MT5 (0=BUY, 1=SELL)
+            if "direction" in result:
+                action = result["direction"]
+            else:
+                action_type = result.get("type", 0) 
+                action = "BUY" if action_type == 0 else "SELL"
             
             # Lucros e taxas
-            profit = deal.get("profit", 0.0)
-            commission = deal.get("commission", 0.0)
-            swap = deal.get("swap", 0.0)
-            fee = deal.get("fee", 0.0)
+            profit = result.get("profit", 0.0)
+            commission = result.get("commission", 0.0)
+            swap = result.get("swap", 0.0)
+            fee = result.get("fee", 0.0)
             
-            # Net P&L
+            # Net P&L (MT5 costuma retornar profit parcial no deal)
             net_pnl = profit + commission + swap + fee
             
-            # Preços
-            exit_price = deal.get("price", 0.0)
-            lot_size = deal.get("volume", 0.0)
+            # Preços e Volume
+            exit_price = result.get("close_price", result.get("price", 0.0))
+            lot_size = result.get("volume", result.get("lot", 0.0))
             
             # Tempo
-            exit_time_raw = deal.get("time", int(time.time()))
+            exit_time_raw = result.get("time", int(time.time()))
             exit_time = datetime.fromtimestamp(exit_time_raw, timezone.utc).isoformat()
             
             # Criar registro
+            from core.evolution.performance_tracker import TradeRecord
             record = TradeRecord(
                 ticket=ticket,
                 position_id=position_id,
@@ -223,7 +237,7 @@ class PerformanceTracker:
                 fee=fee,
                 exit_time=exit_time,
                 is_winner=(net_pnl > 0),
-                comment=deal.get("comment", "")
+                comment=result.get("comment", "OMEGA CLOSE")
             )
             
             return self.record_trade(record)

@@ -850,6 +850,9 @@ class MT5Bridge:
             return None
             
         profit = pos.profit
+        # [Phase 52] Return direction for anti-metralhadora logic
+        p_direction = "BUY" if is_buy else "SELL"
+        
         log.trade(
             action="CLOSE", symbol=self.symbol, lot=pos.volume,
             price=result.price, profit=profit,
@@ -861,6 +864,8 @@ class MT5Bridge:
             "ticket": ticket,
             "close_price": result.price,
             "profit": profit,
+            "direction": p_direction,
+            "symbol": self.symbol
         }
 
     def modify_position(self, ticket: int, sl: float = None,

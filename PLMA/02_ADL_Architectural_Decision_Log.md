@@ -388,4 +388,29 @@
 - **Impacto:** Eliminação de 100% dos crashes de inicialização e ativação imediata do alpha líquido.
 - **Data/Status:** ATIVO. (2026-03-09).
 
-*(Atualizado: 2026-03-09. Versão: 4.8.0-omega) — Phase Ω-Signal Integrity secured*
+### DECISÃO 46: DATAENGINE SNAPSHOT REFACTORING
+- **Decisão:** Substituição do método inexistente `get_snapshot()` por `update()` no `ASIBrain.think()`.
+- **Justificativa:** Garantir a sincronização sensorial absoluta e evitar `AttributeError` que paralisava o loop de consciência.
+- **Data/Status:** ATIVO. (2026-03-09).
+
+### DECISÃO 47: SNIPEREXECUTOR PHEROMONE CLOSURE FIX
+- **Decisão:** Uso do valor local `res.get("lot")` ao invés da variável fora de escopo `chunk_lot` no registro de feromônios.
+- **Justificativa:** Resolver `NameError` que impedia a atualização do campo estigmérgico após execuções bem-sucedidas.
+- **Data/Status:** ATIVO. (2026-03-09).
+
+### DECISÃO 48: TRINITYCORE VARIABLE INITIALIZATION
+- **Decisão:** Inicialização centralizada de `has_ignition` e `is_god_mode` no início do método `decide()`.
+- **Justificativa:** Eliminar `UnboundLocalError` em ramificações lógicas complexas (Kinematic Exhaustion).
+- **Data/Status:** ATIVO. (2026-03-09).
+
+### DECISÃO 49: POSITIONMANAGER v2.1 HFT GROUPING & PARALLEL CLOSE
+- **Decisão:** Redução da janela de agrupamento de strikes de 5s para 1s e implementação de fechamento em paralelo total via `_close_strike_group`.
+- **Justificativa:** Em HFT, 5 segundos é uma eternidade. O agrupamento de 1s garante que todos os slots de um mesmo strike sejam tratados como uma unidade atômica, reduzindo slippage e garantindo que o `Lethal Profit Lock` considere o lucro total real do strike.
+- **Data/Status:** ATIVO. (2026-03-09).
+
+### DECISÃO 52: SMART TP SENSITIVITY CALIBRATION
+- **Decisão:** Redução do parâmetro `min_profit_per_ticket` de $40 para $20.
+- **Justificativa:** O threshold anterior era conservador demais para movimentos rápidos do BTC, impedindo o fechamento de trades com lucro real significativo (~$280). A nova calibração aumenta a agressividade na captura de alpha.
+- **Data/Status:** ATIVO. (2026-03-09).
+
+*(Atualizado: 2026-03-09. Versão: 4.8.1-omega) — Phase Ω-Execution Integrity secured*

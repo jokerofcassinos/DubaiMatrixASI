@@ -293,3 +293,8 @@
 [DubaiMatrixASI] 09:12:39.430    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'has_ignition' where it is not associated with a value
 [DubaiMatrixASI] 09:12:40.222    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'has_ignition' where it is not associated with a value
 [DubaiMatrixASI] 09:12:40.437    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'has_ignition' where it is not associated with a value
+[DubaiMatrixASI] 09:39:38.652    ERROR │ 💀 EXCEPTION in [decide]: NameError: name 'signal_strength' is not defined
+[DubaiMatrixASI] 09:57:20.839    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
+[DubaiMatrixASI] 09:57:20.840    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
+[DubaiMatrixASI] 09:57:22.099    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'
+[DubaiMatrixASI] 09:57:22.099    ERROR │ ❌ [PerformanceTracker] Erro ao processar on_position_closed: 'str' object has no attribute 'get'

@@ -1,14 +1,14 @@
 {
   "ticket_0": {
-    "timestamp": "2026-03-09T12:19:59.949882+00:00",
+    "timestamp": "2026-03-09T12:49:34.644541+00:00",
     "ticket": 0,
     "position_id": 0,
     "regime": "CREEPING_BULL",
-    "confidence": 0.8079004686795225,
-    "signal_strength": 0.28646243397408977,
+    "confidence": 0.7588581936922262,
+    "signal_strength": 0.20017633703655524,
     "coherence": 0.0,
     "phi": 0.0,
-    "reasoning": "BUY signal=+0.286 conf=0.81 coherence=0.40 regime=CREEPING_BULL ATR=133.53 RR=1.33 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.286 | CONF=0.81 | \u03a6=0.08 | COH=39.64% | BULL: CrossScaleConvergenceAgent, PheromoneFieldAgent, TBSAgent [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.044 WP=47.5% EV=+6.60 CVaR=-100.15 sim=15.9ms]",
+    "reasoning": "BUY signal=+0.200 conf=0.76 coherence=0.45 regime=CREEPING_BULL ATR=161.00 RR=1.33 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.200 | CONF=0.76 | \u03a6=0.02 | COH=45.03% | BULL: CrossScaleConvergenceAgent, ChaosRegime, DarkMass [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.022 WP=46.0% EV=+4.82 CVaR=-120.75 sim=15.6ms]",
     "symbol": "BTCUSD"
   }
 }
