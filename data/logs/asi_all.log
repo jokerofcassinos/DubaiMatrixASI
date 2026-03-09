@@ -1,1 +1,127 @@
-[DubaiMatrixASI] 12:04:16.517    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 12:51:26.653    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 12:51:28.249     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 12:51:28.249     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 12:51:28.249     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 12:51:28.250    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 12:51:28.255    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 12:51:28.256    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 12:51:28.256    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 12:51:28.257    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 12:51:28.257    OMEGA │ ⚡ 📅 2026-03-09T15:51:28.257421+00:00
+[DubaiMatrixASI] 12:51:28.257    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 12:51:28.258    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 12:51:28.258     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 12:51:28.261     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 12:51:28.261    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 12:51:28.262     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 12:51:28.262     INFO │    Conta: 1512720147
+[DubaiMatrixASI] 12:51:28.262     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 12:51:28.263     INFO │    Saldo: $99346.70
+[DubaiMatrixASI] 12:51:28.263     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 12:51:28.263     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 12:51:28.264     INFO │    Spread: 100 points
+[DubaiMatrixASI] 12:51:28.265    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 12:51:28.265     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 12:51:28.265    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=68825.19, Bid=68824.19
+[DubaiMatrixASI] 12:51:28.266     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 12:51:28.273     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 12:51:28.274    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 12:51:28.275    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 80 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 12:51:28.291    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 12:51:28.300    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 12:51:28.317    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 12:51:28.324    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 12:51:28.337    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 12:51:28.338    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 80 agentes ativos
+[DubaiMatrixASI] 12:51:28.338    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 12:51:28.339     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99346.7, 'equity': 99346.7, 'tick_buffer_size': 1, 'last_tick_ms': 1773082290415}
+[DubaiMatrixASI] 12:51:28.340    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 12:51:28.340    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 12:51:28.515    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.26
+[DubaiMatrixASI] 12:51:28.537    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,346.70
+[DubaiMatrixASI] 12:51:28.546    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 12:51:28.549    DEBUG │ 📊 Trade Recorded: Pos#398672911 | P&L=$+90.74 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.551    DEBUG │ 📊 Trade Recorded: Pos#398672917 | P&L=$+91.07 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.554    DEBUG │ 📊 Trade Recorded: Pos#398672922 | P&L=$+90.65 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.556    DEBUG │ 📊 Trade Recorded: Pos#398672929 | P&L=$+90.69 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.584    DEBUG │ 📊 Trade Recorded: Pos#398688345 | P&L=$-185.76 | ❌ LOSS
+[DubaiMatrixASI] 12:51:28.608    DEBUG │ 📊 Trade Recorded: Pos#398688359 | P&L=$-205.79 | ❌ LOSS
+[DubaiMatrixASI] 12:51:28.625    DEBUG │ 📊 Trade Recorded: Pos#398688365 | P&L=$-206.83 | ❌ LOSS
+[DubaiMatrixASI] 12:51:28.628    DEBUG │ 📊 Trade Recorded: Pos#398688368 | P&L=$-213.61 | ❌ LOSS
+[DubaiMatrixASI] 12:51:28.630    DEBUG │ 📊 Trade Recorded: Pos#398695409 | P&L=$+20.65 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.634    DEBUG │ 📊 Trade Recorded: Pos#398695416 | P&L=$+26.30 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.638    DEBUG │ 📊 Trade Recorded: Pos#398695423 | P&L=$+25.61 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.642    DEBUG │ 📊 Trade Recorded: Pos#398695431 | P&L=$+26.68 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.645    DEBUG │ 📊 Trade Recorded: Pos#398748371 | P&L=$+130.94 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.649    DEBUG │ 📊 Trade Recorded: Pos#398748375 | P&L=$+129.13 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.653    DEBUG │ 📊 Trade Recorded: Pos#398748381 | P&L=$+124.47 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.674    DEBUG │ 📊 Trade Recorded: Pos#398748398 | P&L=$+101.79 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.708    DEBUG │ 📊 Trade Recorded: Pos#398757015 | P&L=$+21.96 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.736    DEBUG │ 📊 Trade Recorded: Pos#398757020 | P&L=$+23.70 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.748    DEBUG │ 📊 Trade Recorded: Pos#398757035 | P&L=$+22.13 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.752    DEBUG │ 📊 Trade Recorded: Pos#398757050 | P&L=$+12.08 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.758    DEBUG │ 📊 Trade Recorded: Pos#398758767 | P&L=$+14.01 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.787    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58899)
+[DubaiMatrixASI] 12:51:28.791    DEBUG │ 📊 Trade Recorded: Pos#398758804 | P&L=$+15.27 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.822    DEBUG │ 📊 Trade Recorded: Pos#398758835 | P&L=$+11.34 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.845    DEBUG │ 📊 Trade Recorded: Pos#398758863 | P&L=$+12.76 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.853    DEBUG │ 📊 Trade Recorded: Pos#398762269 | P&L=$+7.74 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.871    DEBUG │ 📊 Trade Recorded: Pos#398762280 | P&L=$+13.68 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.906    DEBUG │ 📊 Trade Recorded: Pos#398762294 | P&L=$+6.00 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.942    DEBUG │ 📊 Trade Recorded: Pos#398762320 | P&L=$+6.81 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.953    DEBUG │ 📊 Trade Recorded: Pos#398766843 | P&L=$+7.08 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.960    DEBUG │ 📊 Trade Recorded: Pos#398766854 | P&L=$+24.02 | ✅ WIN
+[DubaiMatrixASI] 12:51:28.998    DEBUG │ 📊 Trade Recorded: Pos#398766863 | P&L=$+7.37 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.032    DEBUG │ 📊 Trade Recorded: Pos#398766879 | P&L=$+5.14 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.048    DEBUG │ 📊 Trade Recorded: Pos#398766890 | P&L=$+16.64 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.056    DEBUG │ 📊 Trade Recorded: Pos#398768542 | P&L=$+4.59 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.080    DEBUG │ 📊 Trade Recorded: Pos#398768549 | P&L=$+4.01 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.120    DEBUG │ 📊 Trade Recorded: Pos#398768555 | P&L=$+4.22 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.143    DEBUG │ 📊 Trade Recorded: Pos#398768565 | P&L=$+6.76 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.153    DEBUG │ 📊 Trade Recorded: Pos#398768575 | P&L=$+3.60 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.160    DEBUG │ 📊 Trade Recorded: Pos#398775041 | P&L=$-211.59 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.160  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 12:51:29.194    DEBUG │ 📊 Trade Recorded: Pos#398775047 | P&L=$-222.00 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.222    DEBUG │ 📊 Trade Recorded: Pos#398775051 | P&L=$-223.45 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.250    DEBUG │ 📊 Trade Recorded: Pos#398775054 | P&L=$+19.23 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.268    DEBUG │ 📊 Trade Recorded: Pos#398812096 | P&L=$+26.19 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.311    DEBUG │ 📊 Trade Recorded: Pos#398812118 | P&L=$+30.85 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.351    DEBUG │ 📊 Trade Recorded: Pos#398812122 | P&L=$+34.34 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.375    DEBUG │ 📊 Trade Recorded: Pos#398812133 | P&L=$+27.78 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.409    DEBUG │ 📊 Trade Recorded: Pos#398819413 | P&L=$+6.54 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.445    DEBUG │ 📊 Trade Recorded: Pos#398819418 | P&L=$+24.87 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.466    DEBUG │ 📊 Trade Recorded: Pos#398819426 | P&L=$+21.65 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.475    DEBUG │ 📊 Trade Recorded: Pos#398819432 | P&L=$+19.90 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.494    DEBUG │ 📊 Trade Recorded: Pos#398823030 | P&L=$+23.97 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.522    DEBUG │ 📊 Trade Recorded: Pos#398823058 | P&L=$+42.16 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.557    DEBUG │ 📊 Trade Recorded: Pos#398823069 | P&L=$+47.89 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.568    DEBUG │ 📊 Trade Recorded: Pos#398823085 | P&L=$+35.36 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.576    DEBUG │ 📊 Trade Recorded: Pos#398824797 | P&L=$-315.33 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.600    DEBUG │ 📊 Trade Recorded: Pos#398824816 | P&L=$-316.18 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.632    DEBUG │ 📊 Trade Recorded: Pos#398824833 | P&L=$-314.22 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.656    DEBUG │ 📊 Trade Recorded: Pos#398824853 | P&L=$-281.47 | ❌ LOSS
+[DubaiMatrixASI] 12:51:29.665    DEBUG │ 📊 Trade Recorded: Pos#398886244 | P&L=$+28.78 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.674    DEBUG │ 📊 Trade Recorded: Pos#398886261 | P&L=$+16.66 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.683    DEBUG │ 📊 Trade Recorded: Pos#398886268 | P&L=$+11.93 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.716     INFO │ 🌍 Macro Update: ETH=$2021.79 | BTC/ETH=34.1 | Gold=$5105 | Vol24h=$112.3B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 12:51:29.716    DEBUG │ 📊 Trade Recorded: Pos#398898645 | P&L=$+18.77 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.753    DEBUG │ 📊 Trade Recorded: Pos#398898651 | P&L=$+9.75 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.764    DEBUG │ 📊 Trade Recorded: Pos#398898657 | P&L=$+11.69 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.775    DEBUG │ 📊 Trade Recorded: Pos#398898661 | P&L=$+7.64 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.809    DEBUG │ 📊 Trade Recorded: Pos#398899436 | P&L=$+39.64 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.848    DEBUG │ 📊 Trade Recorded: Pos#398899441 | P&L=$+39.26 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.867    DEBUG │ 📊 Trade Recorded: Pos#398899444 | P&L=$+39.53 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.878    DEBUG │ 📊 Trade Recorded: Pos#398899445 | P&L=$+33.94 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.911    DEBUG │ 📊 Trade Recorded: Pos#398901455 | P&L=$+41.71 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.950    DEBUG │ 📊 Trade Recorded: Pos#398901457 | P&L=$+40.48 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.974    DEBUG │ 📊 Trade Recorded: Pos#398901460 | P&L=$+41.92 | ✅ WIN
+[DubaiMatrixASI] 12:51:29.985    DEBUG │ 📊 Trade Recorded: Pos#398901464 | P&L=$+41.03 | ✅ WIN
+[DubaiMatrixASI] 12:51:30.020    DEBUG │ 📊 Trade Recorded: Pos#398918080 | P&L=$+29.77 | ✅ WIN
+[DubaiMatrixASI] 12:51:30.055    DEBUG │ 📊 Trade Recorded: Pos#398918095 | P&L=$+30.07 | ✅ WIN
+[DubaiMatrixASI] 12:51:30.066    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3263)
+[DubaiMatrixASI] 12:51:30.067    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006953
+[DubaiMatrixASI] 12:51:30.067    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 76 posições auditadas, 75 novos registros finalizados. P&L Líquido Total: $-653.30
+[DubaiMatrixASI] 12:51:30.068  WARNING │ ⏱️ LATENCY [think] 1727.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 12:51:30.727     INFO │ 📊 Sentiment Update: F&G=8 (Extreme Fear) | BTC Dom=56.7% | 24h=+0.00% | Score=-0.840 | Sources=2
+[DubaiMatrixASI] 12:51:31.116     INFO │ ⛓️ On-Chain Update: Mempool=32,646 txs | Fee=1.8 sat/vB | Health=0.80 | Sources=2

@@ -353,8 +353,8 @@ class ASIBrain:
                     self.sniper.execute(rec_decision, self.state, snapshot)
 
         # ═══ 12. REFLEXÃO (CONSCIOUSNESS FEEDBACK) ═══
-        # No primeiro ciclo e a cada 300 ciclos (~30 segundos), audita o histórico real do MT5
-        if self._cycle_count == 1 or self._cycle_count % 300 == 0:
+        # No primeiro ciclo e a cada 600 ciclos (~60 segundos), audita o histórico real do MT5
+        if self._cycle_count == 1 or self._cycle_count % 600 == 0:
             self._reflection_phase(snapshot)
 
         # Log periódico (a cada 30 ciclos - [PHASE 48] ELEVATED HEARTBEAT)

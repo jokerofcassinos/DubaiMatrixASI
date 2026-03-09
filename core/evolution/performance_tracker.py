@@ -80,6 +80,12 @@ class PerformanceTracker:
         self._daily_trades: List[TradeRecord] = []
         self._last_reset_day: int = datetime.now(timezone.utc).day
 
+        # Métricas de Streaks (Calculadas dinamicamente)
+        self._consecutive_wins: int = 0
+        self._consecutive_losses: int = 0
+        self._max_consecutive_wins: int = 0
+        self._max_consecutive_losses: int = 0
+
         # Caminhos de persistência
         self._trades_file = os.path.join(DATA_DIR, "trade_history.json")
         self._load_history()
@@ -101,39 +107,28 @@ class PerformanceTracker:
     def record_trade(self, trade: TradeRecord):
         """
         Adiciona ou atualiza um trade no histórico e recalcula métricas.
-        [Phase Ω-Darwin] Sincronização por POSITION_ID p/ consolidar fragmentos HFT.
-        Retorna True se for um trade NOVO.
         """
         if not trade or (trade.position_id == 0 and trade.ticket == 0):
             return False
 
-        # Identificador canônico da posição
         pos_key = trade.position_id if trade.position_id > 0 else trade.ticket
 
-        # Reset diário se necessário
-        current_day = datetime.now(timezone.utc).day
-        if current_day != self._last_reset_day:
-            self._daily_trades = []
-            self._last_reset_day = current_day
-
-        # [Phase 36] Commission Deduction (Fiscal Sovereignty)
+        # [Phase 36] Commission Deduction
         if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
-            comm_per_lot = OMEGA.get("commission_per_lot", 32.0) # Adjusted default
+            comm_per_lot = OMEGA.get("commission_per_lot", 32.0)
             trade.commission = -(trade.lot_size * comm_per_lot)
             trade.profit += trade.commission 
 
         trade.is_winner = trade.profit > 0
 
-        # [Phase Ω-Darwin] Deduplication & Update Check (Consolidação por Position ID)
+        # Deduplication & Update Check
         for i, existing in enumerate(self._trades):
             existing_key = existing.position_id if existing.position_id > 0 else existing.ticket
             if existing_key == pos_key:
-                # Se o profit mudou (ajuste de swap/comissão real do MT5), recalcular
                 profit_diff = trade.profit - existing.profit
                 if abs(profit_diff) > 0.001:
-                    log.debug(f"🔄 POSITION UPDATE [{pos_key}]: PnL Diff ${profit_diff:+.4f}")
                     self._trades[i] = trade
-                    self._rebuild_equity_curve()
+                    self._recalculate_all_metrics()
                     self._save_history()
                 return False
 
@@ -141,128 +136,58 @@ class PerformanceTracker:
         self._daily_trades.append(trade)
         self._position_index.add(pos_key)
 
-        # Atualizar equity curve (Saldo Absoluto)
-        current_equity = self._equity_curve[-1] + trade.profit
-        self._equity_curve.append(current_equity)
-
-        # Atualizar peak e drawdown
-        if current_equity > self._peak_equity:
-            self._peak_equity = current_equity
-        
-        dd = self._peak_equity - current_equity
-        if dd > self._max_drawdown:
-            self._max_drawdown = dd
-        
-        if self._peak_equity > 0:
-            dd_pct = (dd / self._peak_equity)
-            if dd_pct > self._max_drawdown_pct:
-                self._max_drawdown_pct = dd_pct
-
-        # Consecutivos
-        if trade.is_winner:
-            self._consecutive_wins += 1
-            self._consecutive_losses = 0
-            self._max_consecutive_wins = max(self._max_consecutive_wins, self._consecutive_wins)
-        else:
-            self._consecutive_losses += 1
-            self._consecutive_wins = 0
-            self._max_consecutive_losses = max(self._max_consecutive_losses, self._consecutive_losses)
-
-        # Persistir
+        # Recalcular tudo para garantir integridade cronológica
+        self._recalculate_all_metrics()
         self._save_history()
 
-        log.info(
-            f"📊 Trade Recorded: {trade.action} Pos#{pos_key} | "
-            f"P&L=${trade.profit:+.2f} | "
-            f"{'✅ WIN' if trade.is_winner else '❌ LOSS'} | "
-            f"Regime={trade.regime_at_entry}"
-        )
+        log.debug(f"📊 Trade Recorded: Pos#{pos_key} | P&L=${trade.profit:+.2f} | {'✅ WIN' if trade.is_winner else '❌ LOSS'}")
         return True
 
-    def on_position_closed(self, result: dict):
-        """
-        [Phase Ω-Darwin] Receptor de fechamento de posição.
-        Suporta tanto o dicionário completo do deal quanto o resultado parcial do PositionManager.
-        """
-        if not isinstance(result, dict):
-            log.warning(f"⚠️ [PerformanceTracker] Recebeu tipo inválido em on_position_closed: {type(result)}")
-            return False
+    def _recalculate_all_metrics(self):
+        """Recalcula equity, drawdown e streaks baseando-se na ordem cronológica real."""
+        if not self._trades:
+            return
 
-        try:
-            # Extrair dados do resultado (formato PositionManager/MT5Bridge.close_position)
-            ticket = result.get("ticket", 0)
-            if not ticket:
-                return False
+        # 1. Ordenar por tempo de entrada
+        self._trades.sort(key=lambda x: x.entry_time)
 
-            position_id = result.get("position_id", ticket)
-            symbol = result.get("symbol", "")
-            
-            # [Phase 52] Compatibilidade com novo formato de fecho do Sniper
-            # Se vier 'direction', usamos. Se vier 'type', mapeamos MT5 (0=BUY, 1=SELL)
-            if "direction" in result:
-                action = result["direction"]
-            else:
-                action_type = result.get("type", 0) 
-                action = "BUY" if action_type == 0 else "SELL"
-            
-            # Lucros e taxas
-            profit = result.get("profit", 0.0)
-            commission = result.get("commission", 0.0)
-            swap = result.get("swap", 0.0)
-            fee = result.get("fee", 0.0)
-            
-            # Net P&L (MT5 costuma retornar profit parcial no deal)
-            net_pnl = profit + commission + swap + fee
-            
-            # Preços e Volume
-            exit_price = result.get("close_price", result.get("price", 0.0))
-            lot_size = result.get("volume", result.get("lot", 0.0))
-            
-            # Tempo
-            exit_time_raw = result.get("time", int(time.time()))
-            exit_time = datetime.fromtimestamp(exit_time_raw, timezone.utc).isoformat()
-            
-            # Criar registro
-            from core.evolution.performance_tracker import TradeRecord
-            record = TradeRecord(
-                ticket=ticket,
-                position_id=position_id,
-                symbol=symbol,
-                action=action,
-                lot_size=lot_size,
-                exit_price=exit_price,
-                profit=net_pnl,
-                commission=commission,
-                swap=swap,
-                fee=fee,
-                exit_time=exit_time,
-                is_winner=(net_pnl > 0),
-                comment=result.get("comment", "OMEGA CLOSE")
-            )
-            
-            return self.record_trade(record)
-        except Exception as e:
-            log.error(f"❌ [PerformanceTracker] Erro ao processar on_position_closed: {e}")
-            return False
-
-    def _rebuild_equity_curve(self):
-        """Recalcula toda a curva de equidade e drawdown do zero."""
+        # 2. Resetar métricas
         self._equity_curve = [self._initial_balance]
         self._peak_equity = self._initial_balance
         self._max_drawdown = 0.0
         self._max_drawdown_pct = 0.0
         
+        self._consecutive_wins = 0
+        self._consecutive_losses = 0
+        self._max_consecutive_wins = 0
+        self._max_consecutive_losses = 0
+
+        # 3. Rebuild
         for t in self._trades:
+            # Equity
             current = self._equity_curve[-1] + t.profit
             self._equity_curve.append(current)
             if current > self._peak_equity:
                 self._peak_equity = current
+            
             dd = self._peak_equity - current
-            if dd > self._max_drawdown:
-                self._max_drawdown = dd
+            self._max_drawdown = max(self._max_drawdown, dd)
             if self._peak_equity > 0:
-                # [Phase Ω-Resilience] Fixed: Fraction 0-1
                 self._max_drawdown_pct = max(self._max_drawdown_pct, (dd / self._peak_equity))
+
+            # Streaks
+            if t.is_winner:
+                self._consecutive_wins += 1
+                self._consecutive_losses = 0
+                self._max_consecutive_wins = max(self._max_consecutive_wins, self._consecutive_wins)
+            else:
+                self._consecutive_losses += 1
+                self._consecutive_wins = 0
+                self._max_consecutive_losses = max(self._max_consecutive_losses, self._consecutive_losses)
+
+    def _rebuild_equity_curve(self):
+        """Recalcula métricas (alias para _recalculate_all_metrics)."""
+        self._recalculate_all_metrics()
 
     def _load_history(self):
         """Carrega histórico de trades persistido."""
