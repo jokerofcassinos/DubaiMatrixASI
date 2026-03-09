@@ -355,13 +355,17 @@ class MT5Bridge:
         if not self.connected:
             return None
 
-        # Tentar pegar o tick do socket primeiro (Latência menor)
+        # [Phase 52.3] Tick Persistence: 
+        # Não consumimos mais o socket tick instantaneamente para permitir que 
+        # slots em paralelo (Hydra/Strike) compartilhem a mesma leitura ultra-veloz.
+        now_ms = time.time() * 1000
         if self._last_socket_tick:
-            tick = self._last_socket_tick
-            self._last_socket_tick = None # Consumido
-            return tick
+            # Consideramos o tick do socket "fresco" por 50ms
+            tick_age = now_ms - self._last_socket_tick.get("time_msc", 0)
+            if tick_age < 50:
+                return self._last_socket_tick
 
-        # Fallback para API oficial
+        # Fallback para API oficial (Lenta)
         tick = mt5.symbol_info_tick(self.symbol)
         if tick is None:
             return None
