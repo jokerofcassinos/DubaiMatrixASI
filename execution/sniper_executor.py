@@ -474,7 +474,10 @@ class SniperExecutor:
                 time.sleep(delay_sec)
                 
             use_limit = decision.metadata.get("limit_execution", False)
-            
+            current_tick = self.bridge.get_tick() # Re-checar tick p/ precisão HFT
+            if not current_tick:
+                return {"success": False, "error": "No tick"}
+
             if use_limit:
                 tick_bid = current_tick["bid"]
                 tick_ask = current_tick["ask"]
@@ -484,16 +487,31 @@ class SniperExecutor:
                 random_jitter = jitter_points * (0.5 + np.random.random())
                 jitter_price = random_jitter * point
                 
+                # [Phase 52.2] Smart Order Logic:
+                # Se o preço já passou do nosso alvo, convertemos para Market p/ não perder o strike
+                is_invalid_limit = False
                 if decision.action.value == "BUY":
-                    # Buy Limit must be <= Bid - min_dist
                     limit_price = tick_bid - min_dist - (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread)
                     limit_price -= jitter_price
+                    if limit_price >= tick_ask: # Se o preço limite de compra está ACIMA do ask atual
+                        is_invalid_limit = True
                 else:
-                    # Sell Limit must be >= Ask + min_dist
                     limit_price = tick_ask + min_dist + (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread)
                     limit_price += jitter_price
+                    if limit_price <= tick_bid: # Se o preço limite de venda está ABAIXO do bid atual
+                        is_invalid_limit = True
 
-                return self.bridge.send_limit_order(
+                if is_invalid_limit:
+                    log.debug(f"⚡ [SMART_CONVERSION] Limit @ {limit_price:.2f} invalid vs Market. Switching to TAKER mode.")
+                    return self.bridge.send_market_order(
+                        action=decision.action.value,
+                        lot=chunk_lot,
+                        sl=decision.stop_loss,
+                        tp=decision.take_profit,
+                        comment=f"ASI_AUTO_TAKER_{i+1}/{num_nodes}"
+                    )
+
+                res = self.bridge.send_limit_order(
                     action=decision.action.value,
                     lot=chunk_lot,
                     sl=decision.stop_loss,
@@ -501,6 +519,16 @@ class SniperExecutor:
                     comment=f"ASI_MAKER_{i+1}/{num_nodes}",
                     price=limit_price
                 )
+                
+                # [Phase 52.2] Emergency Fallback for 10015
+                if res and not res.get("success") and "10015" in str(res.get("error", "")):
+                    log.warning(f"⚠️ [LIMIT_REJECTED] Error 10015 for slot {i+1}. Immediate Market Fallback triggered.")
+                    return self.bridge.send_market_order(
+                        action=decision.action.value, lot=chunk_lot,
+                        sl=decision.stop_loss, tp=decision.take_profit,
+                        comment=f"ASI_FALLBACK_{i+1}/{num_nodes}"
+                    )
+                return res
             else:
                 return self.bridge.send_market_order(
                     action=decision.action.value,

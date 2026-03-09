@@ -1,0 +1,14 @@
+{
+  "ticket_0": {
+    "timestamp": "2026-03-09T16:00:21.957719+00:00",
+    "ticket": 0,
+    "position_id": -1004,
+    "regime": "LOW_LIQUIDITY",
+    "confidence": 0.6697661627082091,
+    "signal_strength": -0.2800239375685017,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.280 conf=0.67 coherence=0.56 regime=LOW_LIQUIDITY ATR=204.45 RR=0.85 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.280 | CONF=0.67 | \u03a6=0.13 | COH=55.63% | BEAR: TBSAgent, PressureMatrix, BOSAgent | MC[score=+0.091 WP=54.1% EV=+0.21 CVaR=-312.80 sim=6.1ms]",
+    "symbol": "BTCUSD"
+  }
+}
