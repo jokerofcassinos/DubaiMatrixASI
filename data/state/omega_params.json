@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-09T11:50:05.252896",
+  "saved_at": "2026-03-09T11:54:59.836157",
   "parameters": {
     "buy_threshold": {
       "value": 0.2,
@@ -172,14 +172,21 @@
       "last_mutations": []
     },
     "quantum_collapse_threshold": {
-      "value": 0.8,
+      "value": 0.7924406101374949,
       "default": 0.8,
       "bounds": [
         0.6,
         0.95
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-09T11:54:59.720326",
+          "old": 0.8,
+          "new": 0.7924406101374949,
+          "reason": ""
+        }
+      ]
     },
     "quantum_interference_weight": {
       "value": 0.5,
@@ -512,14 +519,21 @@
       "last_mutations": []
     },
     "institutional_superiority_threshold": {
-      "value": 0.75,
+      "value": 0.7564916711906126,
       "default": 0.75,
       "bounds": [
         0.5,
         0.95
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-09T11:54:59.720370",
+          "old": 0.75,
+          "new": 0.7564916711906126,
+          "reason": ""
+        }
+      ]
     },
     "temporal_tunneling_cycles": {
       "value": 5.0,
@@ -602,14 +616,21 @@
       "last_mutations": []
     },
     "limit_execution_mode": {
-      "value": 1.0,
+      "value": 0.9698030627630998,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-09T11:54:59.720397",
+          "old": 1.0,
+          "new": 0.9698030627630998,
+          "reason": ""
+        }
+      ]
     },
     "p_brane_jitter_offset_points": {
       "value": 0.0,
@@ -622,14 +643,21 @@
       "last_mutations": []
     },
     "phi_resonance_threshold": {
-      "value": 0.85,
+      "value": 0.8463652147433378,
       "default": 0.85,
       "bounds": [
         0.7,
         0.98
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-09T11:54:59.720415",
+          "old": 0.85,
+          "new": 0.8463652147433378,
+          "reason": ""
+        }
+      ]
     },
     "pnl_relaxed_mode": {
       "value": 1.0,
