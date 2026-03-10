@@ -573,9 +573,9 @@ class MT5Bridge:
 
     @timed(log_threshold_ms=200)
     def send_limit_order(self, action: str, lot: float,
-                          sl: float = 0.0, tp: float = 0.0,
-                          comment: str = "ASI_LIMIT", magic: int = None,
-                          price: float = None) -> Optional[dict]:
+                         sl: float = 0.0, tp: float = 0.0,
+                         comment: str = "ASI_LIMIT", magic: int = None,
+                         price: float = None) -> Optional[dict]:
         """
         [Phase Ω-Eternity] Envia ordem Limit para Market Making Quântico.
         Pega a liquidez do spread e evita slippage cobrando do Varejo.
@@ -584,9 +584,30 @@ class MT5Bridge:
             log.error("❌ MT5 não conectado ou Preço não fornecido para LIMIT")
             return None
 
+        # [Phase 52.12] Pre-validation: Validar se o preço limite é válido para a corretora
+        # Se o preço limite for muito perto do preço atual (viola stops_level), o MT5 rejeita com 10015.
+        # Nesses casos, convertemos para MARKET imediatamente.
+        tick = self.get_last_tick()
+        info = self.get_symbol_info()
+        if tick and info:
+            point = info.get("point", 0.01)
+            stops_level = info.get("stops_level", 50) * point
+            bid, ask = tick['bid'], tick['ask']
+
+            is_invalid = False
+            if action.upper() == "BUY":
+                if price >= (bid - stops_level):
+                    is_invalid = True
+            else: # SELL
+                if price <= (ask + stops_level):
+                    is_invalid = True
+
+            if is_invalid:
+                log.warning(f"⚠️ [PRE-LIMIT-VETO] Preço {price:.2f} muito perto do spread (Stops={stops_level/point:.0f} pts). Fallback p/ MARKET.")
+                return self.send_market_order(action, lot, sl, tp, comment)
+
         # Validar lot size
         lot = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, round(lot, 2)))
-
         order_type = mt5.ORDER_TYPE_BUY_LIMIT if action.upper() == "BUY" else mt5.ORDER_TYPE_SELL_LIMIT
 
         request = {
