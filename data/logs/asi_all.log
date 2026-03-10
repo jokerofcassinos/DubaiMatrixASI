@@ -1,117 +1,41 @@
-[DubaiMatrixASI] 13:56:21.248     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 13:56:21.249     INFO │ 
+[DubaiMatrixASI] 14:56:12.251     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 14:56:12.251     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 13:56:21.249     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 13:56:21.249     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 13:56:21.250    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 13:56:21.250    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 13:56:21.250    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 13:56:21.251    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 13:56:21.251    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 13:56:21.252    OMEGA │ ⚡ 📅 2026-03-10T16:56:21.252051+00:00
-[DubaiMatrixASI] 13:56:21.252    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 13:56:21.253    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 13:56:21.253     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 13:56:21.256     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 13:56:21.257    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 13:56:21.257     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 13:56:21.257     INFO │    Conta: 1521199394
-[DubaiMatrixASI] 13:56:21.258     INFO │    Servidor: FTMO-Demo2
-[DubaiMatrixASI] 13:56:21.258     INFO │    Saldo: $99414.76
-[DubaiMatrixASI] 13:56:21.258     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 13:56:21.259     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 13:56:21.259     INFO │    Spread: 100 points
-[DubaiMatrixASI] 13:56:21.260    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 13:56:21.261     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 13:56:21.261    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=71199.9, Bid=71198.9
-[DubaiMatrixASI] 13:56:21.261     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 13:56:21.269     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 13:56:21.270    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 13:56:21.271    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 13:56:21.293    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 13:56:21.296     INFO │ 📂 Carregados 38 trades do histórico. WR=44.7%
-[DubaiMatrixASI] 13:56:21.324    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 13:56:21.330    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 13:56:21.331    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 13:56:21.338    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 13:56:21.339    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
-[DubaiMatrixASI] 13:56:21.340    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 13:56:21.341     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99414.76, 'equity': 99414.76, 'tick_buffer_size': 1, 'last_tick_ms': 1773172581217}
-[DubaiMatrixASI] 13:56:21.342    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 13:56:21.342    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 13:56:21.379    OMEGA │ ⚡ 🌊 REGIME CHANGE → SQUEEZE_BUILDUP (conf=0.80)
-[DubaiMatrixASI] 13:56:21.415    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58787)
-[DubaiMatrixASI] 13:56:21.487    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:21.590    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.69
-[DubaiMatrixASI] 13:56:21.617    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 13:56:21.635    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111056: Regime=None
-[DubaiMatrixASI] 13:56:21.636    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111058: Regime=None
-[DubaiMatrixASI] 13:56:21.637    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111059: Regime=None
-[DubaiMatrixASI] 13:56:21.644    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114639: Regime=None
-[DubaiMatrixASI] 13:56:21.644    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114637: Regime=SQUEEZE_BUILDUP
-[DubaiMatrixASI] 13:56:21.645    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114638: Regime=None
-[DubaiMatrixASI] 13:56:21.645    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120769: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 13:56:21.646    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120773: Regime=None
-[DubaiMatrixASI] 13:56:21.646    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120770: Regime=None
-[DubaiMatrixASI] 13:56:21.647    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120771: Regime=None
-[DubaiMatrixASI] 13:56:21.647    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123887: Regime=None
-[DubaiMatrixASI] 13:56:21.648    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123889: Regime=None
-[DubaiMatrixASI] 13:56:21.649    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123888: Regime=None
-[DubaiMatrixASI] 13:56:21.649    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123886: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 13:56:21.650    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129948: Regime=None
-[DubaiMatrixASI] 13:56:21.651    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129947: Regime=LOW_LIQUIDITY
-[DubaiMatrixASI] 13:56:21.651    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129949: Regime=None
-[DubaiMatrixASI] 13:56:21.652    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129950: Regime=None
-[DubaiMatrixASI] 13:56:21.653    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138647: Regime=None
-[DubaiMatrixASI] 13:56:21.653    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138648: Regime=None
-[DubaiMatrixASI] 13:56:21.659    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138650: Regime=None
-[DubaiMatrixASI] 13:56:21.671    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138651: Regime=None
-[DubaiMatrixASI] 13:56:21.683    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138827: Regime=None
-[DubaiMatrixASI] 13:56:21.684    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138828: Regime=None
-[DubaiMatrixASI] 13:56:21.684    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138831: Regime=None
-[DubaiMatrixASI] 13:56:21.701    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138834: Regime=None
-[DubaiMatrixASI] 13:56:21.706    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279740: Regime=None
-[DubaiMatrixASI] 13:56:21.712    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279741: Regime=None
-[DubaiMatrixASI] 13:56:21.719    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279742: Regime=None
-[DubaiMatrixASI] 13:56:21.727  WARNING │ 🚨 ALERT [HIGH]: Win rate em 44.7% (threshold: 45.0%)
-[DubaiMatrixASI] 13:56:21.728  WARNING │ 🚨 ALERT [CRITICAL]: 7 losses consecutivos!
-[DubaiMatrixASI] 13:56:21.729    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5104)
-[DubaiMatrixASI] 13:56:21.730    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006855
-[DubaiMatrixASI] 13:56:21.730    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 39 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-585.24
-[DubaiMatrixASI] 13:56:21.880    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:22.105    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:22.315    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:22.538    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:22.724     INFO │ 🌍 Macro Update: ETH=$2084.33 | BTC/ETH=34.2 | Gold=$5229 | Vol24h=$126.6B | Bias=+0.300 | Sources=3
-[DubaiMatrixASI] 13:56:22.813    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:23.083    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:23.338    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:23.570    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:23.821    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:23.961     INFO │ 📊 Sentiment Update: F&G=13 (Extreme Fear) | BTC Dom=57.0% | 24h=+3.42% | Score=-0.524 | Sources=2
-[DubaiMatrixASI] 13:56:24.046    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:24.195     INFO │ ⛓️ On-Chain Update: Mempool=34,455 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
-[DubaiMatrixASI] 13:56:24.312    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:24.591    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:24.824    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:25.096    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:25.321    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:25.601    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:25.846    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:26.095    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:26.329    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:26.578    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:26.818    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:27.091    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:27.330    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:27.578    ERROR │ Agent EigenvectorCentrality falhou: too many indices for array: array is 1-dimensional, but 2 were indexed
-[DubaiMatrixASI] 13:56:27.742    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 13:56:27.797    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 13:56:27.813    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 13:56:27.853    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 13:56:27.854    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 13:56:27.854    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 13:56:27.855    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-10T16:56:27.855018+00:00
-[DubaiMatrixASI] 13:56:27.855     INFO │ 📈 Trades: 38
-[DubaiMatrixASI] 13:56:27.855     INFO │ 📈 Win Rate: 44.7%
-[DubaiMatrixASI] 13:56:27.856     INFO │ 📈 P&L: $-585.24
+[DubaiMatrixASI] 14:56:12.252     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 14:56:12.252     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 14:56:12.252    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 14:56:12.253    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 14:56:12.253    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 14:56:12.253    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 14:56:12.254    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 14:56:12.254    OMEGA │ ⚡ 📅 2026-03-10T17:56:12.254354+00:00
+[DubaiMatrixASI] 14:56:12.254    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 14:56:12.255    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 14:56:12.255     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 14:56:12.258     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 14:56:12.258    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 14:56:12.259     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 14:56:12.259     INFO │    Conta: 1521199394
+[DubaiMatrixASI] 14:56:12.259     INFO │    Servidor: FTMO-Demo2
+[DubaiMatrixASI] 14:56:12.260     INFO │    Saldo: $99414.76
+[DubaiMatrixASI] 14:56:12.260     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 14:56:12.260     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 14:56:12.261     INFO │    Spread: 100 points
+[DubaiMatrixASI] 14:56:12.261    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 14:56:12.262     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 14:56:12.262    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70802.49, Bid=70801.49
+[DubaiMatrixASI] 14:56:12.263     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 14:56:12.270     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 14:56:12.271    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 14:56:12.272    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 14:56:12.289    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 14:56:12.308     INFO │ 📂 Carregados 38 trades do histórico. WR=44.7%
+[DubaiMatrixASI] 14:56:12.327    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 14:56:12.344    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 14:56:12.345    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 14:56:12.352    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 14:56:12.353    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
+[DubaiMatrixASI] 14:56:12.353    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 14:56:12.354     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 99414.76, 'equity': 99414.76, 'tick_buffer_size': 1, 'last_tick_ms': 1773176172634}
+[DubaiMatrixASI] 14:56:12.355    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 14:56:12.355    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal

@@ -27,10 +27,17 @@ class EigenvectorCentralityAgent(BaseAgent):
 
         # Converter book para matriz de adjacência simplificada
         # (Níveis de preço conectados por distância e volume)
-        bids = np.array(book["bids"])[:10] # Top 10 níveis
-        asks = np.array(book["asks"])[:10]
+        bids_list = book["bids"][:10] # Top 10 níveis
+        asks_list = book["asks"][:10]
         
-        # Preços e Volumes
+        if not bids_list or not asks_list:
+            return AgentSignal(self.name, 0.0, 0.0, "INSUFFICIENT_BOOK_DEPTH", self.weight)
+
+        # Criar arrays 2D a partir das listas de dicionários
+        bids = np.array([[b["price"], b["volume"]] for b in bids_list], dtype=np.float64)
+        asks = np.array([[a["price"], a["volume"]] for a in asks_list], dtype=np.float64)
+        
+        # Preços e Volumes (Agora sim, arrays 2D)
         p_bids, v_bids = bids[:, 0], bids[:, 1]
         p_asks, v_asks = asks[:, 0], asks[:, 1]
         
