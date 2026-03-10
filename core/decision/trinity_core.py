@@ -720,6 +720,22 @@ class TrinityCore:
                 self._veto_count += 1
                 return self._wait(f"ELITE_DIVERGENCE_VETO (Swarm={swarm_direction}, Elite_Sum={elite_direction_sum})")
 
+        # [Phase Ω-Apocalypse] VETO 10.5: MOMENTUM EXHAUSTION DIVERGENCE
+        # Se os agentes de Momentum/Velocidade estão empolgados, mas os de
+        # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
+        if not is_god_mode:
+            momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
+            exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent"])]
+            
+            if action == Action.BUY and len(momentum_bulls) >= 3 and len(exhaustion_bears) >= 2:
+                return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
+            
+            # Simétrico para SELL
+            momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
+            exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent"])]
+            if action == Action.SELL and len(momentum_bears) >= 3 and len(exhaustion_bulls) >= 2:
+                return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
+
         # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
         volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar

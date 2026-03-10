@@ -366,6 +366,7 @@ class NeuralSwarm:
             # ═══ APOTHEOSIS (Phase Ω-Apotheosis) ═══
             MorphogeneticResonanceAgent(weight=3.3),
             AntifragileExtremumAgent(weight=3.7),
+            AntifragileExhaustionAgent(weight=3.5),
             QuantumTunnelingProbabilityAgent(weight=3.1),
 
             # ═══ NEXUS (Phase Ω-Nexus) ═══

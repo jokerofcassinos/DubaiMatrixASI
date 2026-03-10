@@ -602,4 +602,14 @@
 - **Justificativa:** Garante que o monitoramento humano e o processamento de erros sejam focados estritamente na sessão atual, eliminando o ruído de dados históricos irrelevantes que asfixiavam a análise de bugs.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 14.0.0-omega) — Phase Ω-Genesis Systems Initialized*
+### DECISÃO 90: HALF-WAY BREAKEVEN PROTECTION
+- **Decisão:** Implementação de uma trava de segurança no `PositionManager`. Se um trade atinge 50% do caminho rumo ao Take Profit, a ASI arma o modo Breakeven. Se o preço retornar ao nível de entrada, a posição é encerrada a zero (lucro neutro).
+- **Justificativa:** Previne que trades que estavam quase ganhos se transformem em perdas totais por reversões súbitas de M1. Proteção de capital sobre ganância.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 91: MOMENTUM EXHAUSTION VETO
+- **Decisão:** Injeção do Veto 10.5 no `TrinityCore`. Bloqueia ordens quando há uma divergência letal entre Velocidade (BULL) e Estrutura (BEAR). Se o preço sobe rápido mas os agentes de exaustão e suporte já detectaram rejeição, o trade é abortado.
+- **Justificativa:** Resolve a "Cegueira de Topo". A ASI agora percebe quando um pump está "oco" e prestes a colapsar, evitando comprar o exato topo de um exaustão.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 15.0.0-omega) — Phase Ω-Genesis Shield Active*

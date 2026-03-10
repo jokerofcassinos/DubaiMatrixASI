@@ -186,14 +186,28 @@ class PositionManager:
             state = self._positions_state[anchor_ticket]
             if total_profit > state['peak_profit']:
                 state['peak_profit'] = total_profit
-                state['peak_time'] = time.time()
+                state['peak_time'] = time.monotonic()
             
             if abs(total_profit - state.get("last_cached_profit", -999)) > 0.01:
                 state["last_cached_profit"] = total_profit
-                state["last_price_change_time"] = time.time()
+                state["last_price_change_time"] = time.monotonic()
 
             should_close = False
             reason = ""
+
+            # ═══════════════════════════════════════════════════
+            #  TRIGGER 0: HALF-WAY BREAKEVEN PROTECTION (Phase Ω)
+            # ═══════════════════════════════════════════════════
+            # Se atingimos 50% do alvo, mas o mercado reverteu para o preço de entrada,
+            # saímos no 0x0 para não transformar um quase-gain em loss total.
+            target_profit = abs(g_tickets[0].get('tp', 0) - g_tickets[0].get('price_open', 0)) * lot_scale
+            if not state.get("breakeven_active", False) and total_profit > (target_profit * 0.5):
+                state["breakeven_active"] = True
+                log.omega(f"🛡️ [HALF-WAY PROTECTION] Strike {anchor_ticket} atingiu 50% do alvo. Breakeven armado.")
+
+            if state.get("breakeven_active", False) and total_profit <= 5.0: # Buffer de $5 p/ taxas
+                should_close = True
+                reason = "HALF_WAY_BREAKEVEN_PROTECTION (Returned to entry after 50% progress)"
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Trailing)
