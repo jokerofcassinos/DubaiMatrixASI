@@ -174,6 +174,11 @@ from core.consciousness.agents.elysium_agents import (
     HiddenMarkovRegimeAgent, FractalStandardDeviationAgent, DarkEnergyMomentumAgent
 )
 
+# Phase Ω-Illuminati (Nível 12 - Relatividade Temporal e Análise Espectral)
+from core.consciousness.agents.illuminati_agents import (
+    ChronosDilationAgent, FourierSpectralAgent, LiquidityVoidMagnetAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -353,6 +358,11 @@ class NeuralSwarm:
             MorphogeneticResonanceAgent(weight=3.3),
             AntifragileExtremumAgent(weight=3.7),
             QuantumTunnelingProbabilityAgent(weight=3.1),
+
+            # ═══ ILLUMINATI (Phase Ω-Illuminati) ═══
+            ChronosDilationAgent(weight=3.9),
+            FourierSpectralAgent(weight=3.4),
+            LiquidityVoidMagnetAgent(weight=3.6),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

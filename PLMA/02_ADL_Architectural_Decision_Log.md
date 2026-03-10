@@ -567,4 +567,19 @@
 - **Justificativa:** A ASI estava vetando trades perfeitos (`REWARD_TOO_SMALL_FOR_ALPHA`) apenas porque o alvo caía alguns centavos abaixo do limite. O alongamento elástico permite capturar a ignição sem ferir a probabilidade matemática do alvo.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 12.0.0-omega) — Phase Ω-Apocalypse Systems Refined*
+### DECISÃO 84: TIME RELATIVITY (CHRONOS DILATION)
+- **Decisão:** Injeção do `ChronosDilationAgent`. Mede a compressão/dilatação do tempo entre os ticks. Se o mercado, que normalmente leva 1 minuto para mover 10 pontos, subitamente move 10 pontos em 2 segundos, o tempo dilatou, sinalizando uma onda de choque institucional (HFT Sweep).
+- **Justificativa:** Ultrapassa a barreira do gráfico fixo (M1, M5). O tempo em HFT não é absoluto, é relativo à densidade da informação.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 85: FAST FOURIER TRANSFORM (SPECTRAL ANALYSIS)
+- **Decisão:** Implementação do `FourierSpectralAgent`. Transforma o gráfico de preços do domínio do tempo para o domínio da frequência. Extrai a onda senoidal (ciclo) dominante.
+- **Justificativa:** Se a frequência dominante muda subitamente de ciclos longos (Whale Trend) para ciclos curtos (HFT Chaos), a ASI detecta a mudança de marcha dos Market Makers e se reposiciona antes do rompimento.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 86: ELECTROMAGNETIC LIQUIDITY VOIDS
+- **Decisão:** Implementação do `LiquidityVoidMagnetAgent`. Procura por Fair Value Gaps gigantes e calcula sua "atração eletromagnética" sobre o preço atual baseado no momentum direcional.
+- **Justificativa:** Se o momentum falha enquanto o preço está próximo a um grande FVG, o "vácuo" invariavelmente sugará o preço para fechar a ineficiência. A ASI opera essa gravidade, antecipando o preenchimento do Gap.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 13.0.0-omega) — Phase Ω-Illuminati Systems Initialized*
