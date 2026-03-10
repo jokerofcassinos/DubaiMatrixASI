@@ -612,4 +612,14 @@
 - **Justificativa:** Resolve a "Cegueira de Topo". A ASI agora percebe quando um pump está "oco" e prestes a colapsar, evitando comprar o exato topo de um exaustão.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 15.0.0-omega) — Phase Ω-Genesis Shield Active*
+### DECISÃO 92: EIGENVECTOR CENTRALITY (LIQUIDITY NETWORKS)
+- **Decisão:** Injeção do `EigenvectorCentralityAgent`. O agente aplica o algoritmo PageRank do Google aos níveis de preço do Book. Ele identifica a centralidade da rede de liquidez.
+- **Justificativa:** Preço não é uma ilha. O agente detecta onde a rede de ordens está mais conectada, revelando o "Preço de Gravidade" institucional onde o mercado invariavelmente retornará.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 93: BAIT-LAYERING DETECTION (SPOOFING HFT)
+- **Decisão:** Implementação do `BaitLayeringSpoofAgent`. Monitora o cancelamento ultra-rápido de ordens em cascata (layering) para induzir pânico no varejo.
+- **Justificativa:** Identifica blefes institucionais. Se há Bait-Layering no Bid, a ASI compra (contrariando a isca), sabendo que o Market Maker quer induzir vendas para preencher suas próprias ordens de compra ocultas.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 16.0.0-omega) — Phase Ω-Architect Systems Active*

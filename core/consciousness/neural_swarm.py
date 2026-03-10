@@ -156,7 +156,8 @@ from core.consciousness.agents.apocalypse_agents import (
 
 # Phase Ω-Apotheosis (Nível 8 - Inteligência Cósmica & Bio-Cibernética)
 from core.consciousness.agents.apotheosis_agents import (
-    MorphogeneticResonanceAgent, AntifragileExtremumAgent, QuantumTunnelingProbabilityAgent
+    MorphogeneticResonanceAgent, AntifragileExtremumAgent, 
+    AntifragileExhaustionAgent, QuantumTunnelingProbabilityAgent
 )
 
 # Phase Ω-Nexus (Nível 9 - Grafos de Liquidez e Choques Vetoriais)
@@ -182,6 +183,11 @@ from core.consciousness.agents.illuminati_agents import (
 # Phase Ω-Genesis (Nível 13 - Inferência Causal e Contrafactual)
 from core.consciousness.agents.genesis_agents import (
     CausalCounterfactualAgent, IntentionalityDecompositionAgent
+)
+
+# Phase Ω-Architect (Nível 14 - Centralidade de Autovetores e Bait-Layering)
+from core.consciousness.agents.architect_agents import (
+    EigenvectorCentralityAgent, BaitLayeringSpoofAgent
 )
 
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
@@ -391,6 +397,10 @@ class NeuralSwarm:
             # ═══ GENESIS (Phase Ω-Genesis) ═══
             CausalCounterfactualAgent(weight=4.2),
             IntentionalityDecompositionAgent(weight=4.0),
+
+            # ═══ ARCHITECT (Phase Ω-Architect) ═══
+            EigenvectorCentralityAgent(weight=4.1),
+            BaitLayeringSpoofAgent(weight=4.3),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
