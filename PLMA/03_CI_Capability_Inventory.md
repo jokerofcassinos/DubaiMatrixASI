@@ -78,5 +78,8 @@
 - [x] **Hidden Markov Regime Prediction**: Calcula a probabilidade oculta da próxima transição de regime usando matrizes de HMM, prevendo a mudança de volatilidade antes do rompimento mecânico.
 - [x] **Fractal Standard Deviation**: Mede o desvio ponderado pela rugosidade (Hurst). Detecta quando o preço contrai mas o ruído expande, sinalizando a compressão de uma "Mola Quântica".
 - [x] **Dark Energy Momentum Extrapolator**: Detecta aceleração exponencial iterativa (velocidade que dobra a cada vela). Sinaliza Squeezes institucionais massivos orientados por liquidações forçadas.
+- [x] **Chronos Dilation Sensor**: Mede a compressão/dilatação do tempo entre ticks HFT. Detecta "ondas de choque" institucionais avaliando a aceleração temporal em vez da direcional.
+- [x] **Fourier Spectral Analysis**: Usa Transformada Rápida de Fourier (FFT) para extrair as frequências dominantes do mercado. Detecta mudanças de "marcha" (ciclos longos vs micro-ciclos) antes do preço mostrar direção.
+- [x] **Electromagnetic Liquidity Voids**: Projeta a atração gravitacional/magnética de Fair Value Gaps (FVG) gigantes sobre a perda de momentum, antecipando o preenchimento de ineficiências (Vacuum pull).
 
-*(Atualizado: 2026-03-10. Versão: 21.0.0-omega+elysium_matrix)*
+*(Atualizado: 2026-03-10. Versão: 22.0.0-omega+illuminati_matrix)*
