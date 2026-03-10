@@ -431,18 +431,6 @@
     "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
     "symbol": "BTCUSD"
   },
-  "ticket_0": {
-    "timestamp": "2026-03-10T16:44:03.510696+00:00",
-    "ticket": 0,
-    "position_id": -1004,
-    "regime": "CREEPING_BULL",
-    "confidence": 0.7699962039885586,
-    "signal_strength": 0.23157747662732517,
-    "coherence": 0.0,
-    "phi": 0.0,
-    "reasoning": "BUY signal=+0.232 conf=0.77 coherence=0.42 regime=CREEPING_BULL ATR=280.70 RR=1.30 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.232 | CONF=0.77 | \u03a6=0.03 | COH=42.43% | BULL: CrossScaleConvergenceAgent, FourierSpectral, QuantumEntanglement [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.245 WP=44.7% EV=+2.77 CVaR=-102.48 sim=4.9ms]",
-    "symbol": "BTCUSD"
-  },
   "ticket_106138647": {
     "timestamp": "2026-03-10T01:38:00.814904+00:00",
     "ticket": 106138647,
@@ -705,6 +693,138 @@
     "coherence": 0.0,
     "phi": 0.0,
     "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_106302112": {
+    "timestamp": "2026-03-10T18:18:51.009005+00:00",
+    "ticket": 106302112,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7668146780090778,
+    "signal_strength": -0.29621679711702464,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.296 conf=0.77 coherence=0.41 regime=DRIFTING_BEAR ATR=260.78 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.296 | CONF=0.77 | \u03a6=0.19 | COH=40.90% | BEAR: LiquidityGraph, FourierSpectral, QuantumSuperposition [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.259 WP=43.9% EV=+0.89 CVaR=-137.83 sim=9.6ms]",
+    "symbol": "BTCUSD"
+  },
+  "106302112": {
+    "timestamp": "2026-03-10T18:18:51.009005+00:00",
+    "ticket": 106302112,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7668146780090778,
+    "signal_strength": -0.29621679711702464,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.296 conf=0.77 coherence=0.41 regime=DRIFTING_BEAR ATR=260.78 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.296 | CONF=0.77 | \u03a6=0.19 | COH=40.90% | BEAR: LiquidityGraph, FourierSpectral, QuantumSuperposition [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.259 WP=43.9% EV=+0.89 CVaR=-137.83 sim=9.6ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_106302983": {
+    "timestamp": "2026-03-10T18:20:15.841414+00:00",
+    "ticket": 106302983,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8063468453492617,
+    "signal_strength": -0.30773070924192736,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.308 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=258.11 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.308 | CONF=0.81 | \u03a6=0.22 | COH=41.00% | BEAR: LiquidityGraph, FourierSpectral, QuantumSuperposition [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.257 WP=44.1% EV=+0.97 CVaR=-146.47 sim=10.9ms]",
+    "symbol": "BTCUSD"
+  },
+  "106302983": {
+    "timestamp": "2026-03-10T18:20:15.841414+00:00",
+    "ticket": 106302983,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8063468453492617,
+    "signal_strength": -0.30773070924192736,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.308 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=258.11 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.308 | CONF=0.81 | \u03a6=0.22 | COH=41.00% | BEAR: LiquidityGraph, FourierSpectral, QuantumSuperposition [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.257 WP=44.1% EV=+0.97 CVaR=-146.47 sim=10.9ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_106303815": {
+    "timestamp": "2026-03-10T18:21:46.464295+00:00",
+    "ticket": 106303815,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7622912707143796,
+    "signal_strength": -0.25841581893386967,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.258 conf=0.76 coherence=0.44 regime=DRIFTING_BEAR ATR=264.45 RR=1.32 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.258 | CONF=0.76 | \u03a6=0.16 | COH=43.90% | BEAR: LiquidityGraph, FourierSpectral, InfoGeometry [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.255 WP=44.1% EV=+2.14 CVaR=-150.00 sim=10.7ms]",
+    "symbol": "BTCUSD"
+  },
+  "106303815": {
+    "timestamp": "2026-03-10T18:21:46.464295+00:00",
+    "ticket": 106303815,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7622912707143796,
+    "signal_strength": -0.25841581893386967,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.258 conf=0.76 coherence=0.44 regime=DRIFTING_BEAR ATR=264.45 RR=1.32 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.258 | CONF=0.76 | \u03a6=0.16 | COH=43.90% | BEAR: LiquidityGraph, FourierSpectral, InfoGeometry [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.255 WP=44.1% EV=+2.14 CVaR=-150.00 sim=10.7ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_106303817": {
+    "timestamp": "2026-03-10T18:21:48.929130+00:00",
+    "ticket": 106303817,
+    "position_id": 106303817,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "106303817": {
+    "timestamp": "2026-03-10T18:21:48.929130+00:00",
+    "ticket": 106303817,
+    "position_id": 106303817,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_106303820": {
+    "timestamp": "2026-03-10T18:21:49.227614+00:00",
+    "ticket": 106303820,
+    "position_id": 106303820,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "106303820": {
+    "timestamp": "2026-03-10T18:21:49.227614+00:00",
+    "ticket": 106303820,
+    "position_id": 106303820,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_0": {
+    "timestamp": "2026-03-10T18:22:46.796741+00:00",
+    "ticket": 0,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.7767980029240354,
+    "signal_strength": -0.29383617542932383,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.294 conf=0.78 coherence=0.43 regime=DRIFTING_BEAR ATR=266.39 RR=1.34 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.294 | CONF=0.78 | \u03a6=0.22 | COH=43.41% | BEAR: FourierSpectral, QuantumSuperposition, InfoGeometry [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.258 WP=43.8% EV=+1.97 CVaR=-150.00 sim=10.8ms]",
     "symbol": "BTCUSD"
   }
 }

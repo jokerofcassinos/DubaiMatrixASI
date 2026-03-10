@@ -1,52 +1,45 @@
 {
-  "saved_at": "2026-03-10T15:16:00.529056",
+  "saved_at": "2026-03-10T15:31:47.623474",
   "parameters": {
     "buy_threshold": {
-      "value": 0.24945458866033618,
+      "value": 0.2,
       "default": 0.2,
       "bounds": [
         0.05,
         0.95
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:07:32.356536",
-          "old": 0.2,
-          "new": 0.24945458866033618,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "sell_threshold": {
-      "value": -0.2,
+      "value": -0.18377448052951698,
       "default": -0.2,
       "bounds": [
         -0.95,
         -0.05
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:21:36.735947",
+          "old": -0.2,
+          "new": -0.18377448052951698,
+          "reason": ""
+        }
+      ]
     },
     "confidence_min": {
-      "value": 0.6665213647794515,
+      "value": 0.7,
       "default": 0.7,
       "bounds": [
         0.1,
         0.95
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:15:09.559844",
-          "old": 0.7,
-          "new": 0.6665213647794515,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "convergence_threshold": {
-      "value": 0.44745821682854325,
+      "value": 0.433484805715562,
       "default": 0.4,
       "bounds": [
         0.2,
@@ -55,15 +48,15 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:15:09.559879",
+          "time": "2026-03-10T15:19:04.473024",
           "old": 0.4,
-          "new": 0.44745821682854325,
+          "new": 0.433484805715562,
           "reason": ""
         }
       ]
     },
     "trinity_min_rr_ratio": {
-      "value": 1.690789768673211,
+      "value": 1.7327411530360073,
       "default": 1.3,
       "bounds": [
         0.8,
@@ -72,15 +65,15 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597498",
+          "time": "2026-03-10T15:24:09.585759",
           "old": 1.3,
-          "new": 1.690789768673211,
+          "new": 1.7327411530360073,
           "reason": ""
         }
       ]
     },
     "mc_min_score": {
-      "value": 0.22446774052243312,
+      "value": -0.27087302711278805,
       "default": -0.3,
       "bounds": [
         -0.8,
@@ -89,125 +82,79 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:01:16.861403",
+          "time": "2026-03-10T15:26:42.914041",
           "old": -0.3,
-          "new": 0.22446774052243312,
+          "new": -0.27087302711278805,
           "reason": ""
         }
       ]
     },
     "mc_min_win_prob": {
-      "value": 0.434454601649655,
+      "value": 0.42,
       "default": 0.42,
       "bounds": [
         0.25,
         0.55
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:05:00.136797",
-          "old": 0.42,
-          "new": 0.434454601649655,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "position_size_pct": {
-      "value": 50.0,
+      "value": 50.88549907659481,
       "default": 50.0,
       "bounds": [
         0.5,
         75.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:26:42.914080",
+          "old": 50.0,
+          "new": 50.88549907659481,
+          "reason": ""
+        }
+      ]
     },
     "kelly_fraction": {
-      "value": 0.9435306977512017,
+      "value": 1.0,
       "default": 1.0,
       "bounds": [
         0.1,
         1.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:07:32.356573",
-          "old": 1.0,
-          "new": 0.9435306977512017,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "stop_loss_atr_mult": {
-      "value": 0.13463200064121505,
+      "value": 0.55,
       "default": 0.55,
       "bounds": [
         0.1,
         3.0
       ],
-      "mutation_count": 2,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:07:32.356592",
-          "old": 0.55,
-          "new": 0.8352233462258759,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:10:04.598223",
-          "old": 0.8352233462258759,
-          "new": 0.13463200064121505,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "take_profit_atr_mult": {
-      "value": 1.7738237352461184,
+      "value": 1.3,
       "default": 1.3,
       "bounds": [
         0.3,
         5.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:01:16.861451",
-          "old": 1.3,
-          "new": 1.7738237352461184,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "trailing_stop_atr_mult": {
-      "value": 1.6327559411129766,
+      "value": 0.6,
       "default": 0.6,
       "bounds": [
         0.2,
         2.0
       ],
-      "mutation_count": 3,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:01:16.861475",
-          "old": 0.6,
-          "new": 0.8147323637922581,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:07:32.356610",
-          "old": 0.8147323637922581,
-          "new": 1.8714535125036058,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:15:09.559901",
-          "old": 1.8714535125036058,
-          "new": 1.6327559411129766,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "commission_per_lot": {
       "value": 44.69,
@@ -216,35 +163,23 @@
         0.0,
         100.0
       ],
-      "mutation_count": 5,
+      "mutation_count": 3,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:56:12.705056",
+          "time": "2026-03-10T15:16:32.191583",
           "old": 32.0,
           "new": 44.69,
           "reason": "Phase 49 Auto-Detection"
         },
         {
-          "time": "2026-03-10T15:10:04.598258",
+          "time": "2026-03-10T15:24:09.585793",
           "old": 44.69,
-          "new": 21.85231764621758,
+          "new": 2.6385584449262423,
           "reason": ""
         },
         {
-          "time": "2026-03-10T15:10:05.123945",
-          "old": 21.85231764621758,
-          "new": 44.69,
-          "reason": "Phase 49 Auto-Detection"
-        },
-        {
-          "time": "2026-03-10T15:12:37.367861",
-          "old": 44.69,
-          "new": 79.14574703584483,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:12:37.545299",
-          "old": 79.14574703584483,
+          "time": "2026-03-10T15:24:09.802560",
+          "old": 2.6385584449262423,
           "new": 44.69,
           "reason": "Phase 49 Auto-Detection"
         }
@@ -261,68 +196,54 @@
       "last_mutations": []
     },
     "min_commission_reward_ratio": {
-      "value": 1.5,
+      "value": 2.7062492405482597,
       "default": 1.5,
       "bounds": [
         1.0,
         5.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:31:47.476618",
+          "old": 1.5,
+          "new": 2.7062492405482597,
+          "reason": ""
+        }
+      ]
     },
     "commission_protection_mult": {
-      "value": 1.6913997904621976,
+      "value": 1.5,
       "default": 1.5,
       "bounds": [
         1.1,
         5.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:10:04.598279",
-          "old": 1.5,
-          "new": 1.6913997904621976,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "margin_safety_buffer": {
-      "value": 0.19371886592367402,
+      "value": 0.1,
       "default": 0.1,
       "bounds": [
         0.01,
         0.5
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:01:16.861496",
-          "old": 0.1,
-          "new": 0.19371886592367402,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "quantum_collapse_threshold": {
-      "value": 0.802235883302722,
+      "value": 0.8,
       "default": 0.8,
       "bounds": [
         0.6,
         0.95
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T14:58:44.597600",
-          "old": 0.8,
-          "new": 0.802235883302722,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "quantum_interference_weight": {
-      "value": 0.8889603513552893,
+      "value": 0.43981108896222965,
       "default": 0.5,
       "bounds": [
         0.1,
@@ -331,9 +252,9 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:10:04.598298",
+          "time": "2026-03-10T15:24:09.585812",
           "old": 0.5,
-          "new": 0.8889603513552893,
+          "new": 0.43981108896222965,
           "reason": ""
         }
       ]
@@ -349,54 +270,41 @@
       "last_mutations": []
     },
     "regime_sensitivity": {
-      "value": 0.22193716709363548,
+      "value": 0.3,
       "default": 0.3,
       "bounds": [
         0.1,
         0.7
       ],
-      "mutation_count": 2,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:07:32.356627",
-          "old": 0.3,
-          "new": 0.36425866419353503,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:10:04.598317",
-          "old": 0.36425866419353503,
-          "new": 0.22193716709363548,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "trend_regime_aggression": {
-      "value": 1.527892220559997,
+      "value": 1.2,
       "default": 1.2,
       "bounds": [
         0.5,
         2.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T14:58:44.597650",
-          "old": 1.2,
-          "new": 1.527892220559997,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "range_regime_aggression": {
-      "value": 0.7,
+      "value": 0.8597886638018661,
       "default": 0.7,
       "bounds": [
         0.3,
         1.5
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:24:09.585830",
+          "old": 0.7,
+          "new": 0.8597886638018661,
+          "reason": ""
+        }
+      ]
     },
     "chaos_regime_aggression": {
       "value": 0.3,
@@ -409,7 +317,7 @@
       "last_mutations": []
     },
     "high_conviction_multiplier": {
-      "value": 41.92775213285623,
+      "value": 4.240688854748079,
       "default": 20.0,
       "bounds": [
         1.0,
@@ -418,15 +326,15 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:07:32.356644",
+          "time": "2026-03-10T15:21:36.735985",
           "old": 20.0,
-          "new": 41.92775213285623,
+          "new": 4.240688854748079,
           "reason": ""
         }
       ]
     },
     "smart_tp_micro_reversal_buffer": {
-      "value": 96.42180593289841,
+      "value": 23.165649535117613,
       "default": 20.0,
       "bounds": [
         5.0,
@@ -435,71 +343,65 @@
       "mutation_count": 2,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:01:16.861516",
+          "time": "2026-03-10T15:26:42.914104",
           "old": 20.0,
-          "new": 8.719942651422286,
+          "new": 66.21920032546325,
           "reason": ""
         },
         {
-          "time": "2026-03-10T15:12:37.367892",
-          "old": 8.719942651422286,
-          "new": 96.42180593289841,
+          "time": "2026-03-10T15:31:47.476656",
+          "old": 66.21920032546325,
+          "new": 23.165649535117613,
           "reason": ""
         }
       ]
     },
     "smart_tp_lock_threshold_low": {
-      "value": 0.25,
+      "value": 0.24086905497484248,
       "default": 0.25,
       "bounds": [
         0.05,
         0.5
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:26:42.914127",
+          "old": 0.25,
+          "new": 0.24086905497484248,
+          "reason": ""
+        }
+      ]
     },
     "smart_tp_lock_threshold_mid": {
-      "value": 0.15820029130537594,
+      "value": 0.17332469008148388,
       "default": 0.15,
       "bounds": [
         0.05,
         0.4
       ],
-      "mutation_count": 2,
+      "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597690",
+          "time": "2026-03-10T15:21:36.736011",
           "old": 0.15,
-          "new": 0.14098690900821595,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:15:09.559924",
-          "old": 0.14098690900821595,
-          "new": 0.15820029130537594,
+          "new": 0.17332469008148388,
           "reason": ""
         }
       ]
     },
     "smart_tp_lock_threshold_high": {
-      "value": 0.05532716689226852,
+      "value": 0.1,
       "default": 0.1,
       "bounds": [
         0.01,
         0.3
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:05:00.136836",
-          "old": 0.1,
-          "new": 0.05532716689226852,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "weight_trend": {
-      "value": 1.0995457479159079,
+      "value": 0.7193887091298778,
       "default": 1.0,
       "bounds": [
         0.1,
@@ -508,15 +410,15 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:12:37.367910",
+          "time": "2026-03-10T15:29:15.118289",
           "old": 1.0,
-          "new": 1.0995457479159079,
+          "new": 0.7193887091298778,
           "reason": ""
         }
       ]
     },
     "weight_momentum": {
-      "value": 1.0950753925813124,
+      "value": 2.892125547673949,
       "default": 1.0,
       "bounds": [
         0.1,
@@ -525,16 +427,33 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:10:04.598336",
+          "time": "2026-03-10T15:26:42.914146",
           "old": 1.0,
-          "new": 1.0950753925813124,
+          "new": 2.892125547673949,
           "reason": ""
         }
       ]
     },
     "weight_volume": {
-      "value": 1.5669800757406924,
+      "value": 2.4431353846207275,
       "default": 0.8,
+      "bounds": [
+        0.1,
+        3.0
+      ],
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:19:04.473074",
+          "old": 0.8,
+          "new": 2.4431353846207275,
+          "reason": ""
+        }
+      ]
+    },
+    "weight_pattern": {
+      "value": 0.4794217204237813,
+      "default": 0.7,
       "bounds": [
         0.1,
         3.0
@@ -542,22 +461,22 @@
       "mutation_count": 2,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597723",
-          "old": 0.8,
-          "new": 1.7165548928079626,
+          "time": "2026-03-10T15:19:04.473098",
+          "old": 0.7,
+          "new": 2.8492411232727486,
           "reason": ""
         },
         {
-          "time": "2026-03-10T15:07:32.356659",
-          "old": 1.7165548928079626,
-          "new": 1.5669800757406924,
+          "time": "2026-03-10T15:29:15.118325",
+          "old": 2.8492411232727486,
+          "new": 0.4794217204237813,
           "reason": ""
         }
       ]
     },
-    "weight_pattern": {
-      "value": 0.7,
-      "default": 0.7,
+    "weight_volatility": {
+      "value": 1.1,
+      "default": 1.1,
       "bounds": [
         0.1,
         3.0
@@ -565,9 +484,9 @@
       "mutation_count": 0,
       "last_mutations": []
     },
-    "weight_volatility": {
-      "value": 1.132472155264831,
-      "default": 1.1,
+    "weight_microstructure": {
+      "value": 1.624920235933007,
+      "default": 1.2,
       "bounds": [
         0.1,
         3.0
@@ -575,22 +494,12 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:10:04.598353",
-          "old": 1.1,
-          "new": 1.132472155264831,
+          "time": "2026-03-10T15:24:09.585847",
+          "old": 1.2,
+          "new": 1.624920235933007,
           "reason": ""
         }
       ]
-    },
-    "weight_microstructure": {
-      "value": 1.2,
-      "default": 1.2,
-      "bounds": [
-        0.1,
-        3.0
-      ],
-      "mutation_count": 0,
-      "last_mutations": []
     },
     "weight_sentiment": {
       "value": 0.5,
@@ -603,85 +512,48 @@
       "last_mutations": []
     },
     "weight_statistical": {
-      "value": 2.895254978675688,
+      "value": 2.666103709331177,
       "default": 0.8,
       "bounds": [
         0.1,
         3.0
       ],
-      "mutation_count": 3,
+      "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597754",
+          "time": "2026-03-10T15:31:47.476677",
           "old": 0.8,
-          "new": 2.82844379018768,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:10:04.598375",
-          "old": 2.82844379018768,
-          "new": 2.388794878930387,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:12:37.367927",
-          "old": 2.388794878930387,
-          "new": 2.895254978675688,
+          "new": 2.666103709331177,
           "reason": ""
         }
       ]
     },
     "weight_fractal": {
-      "value": 1.0001399571243934,
+      "value": 1.7329704299934061,
       "default": 0.6,
       "bounds": [
         0.1,
         2.0
       ],
-      "mutation_count": 2,
+      "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597784",
+          "time": "2026-03-10T15:29:15.118344",
           "old": 0.6,
-          "new": 0.22002435804810921,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:05:00.136856",
-          "old": 0.22002435804810921,
-          "new": 1.0001399571243934,
+          "new": 1.7329704299934061,
           "reason": ""
         }
       ]
     },
     "weight_correlation": {
-      "value": 0.1174472945237185,
+      "value": 0.5,
       "default": 0.5,
       "bounds": [
         0.1,
         2.0
       ],
-      "mutation_count": 3,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:01:16.861537",
-          "old": 0.5,
-          "new": 0.4225697900192654,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:07:32.356675",
-          "old": 0.4225697900192654,
-          "new": 0.9225682756229483,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:12:37.367942",
-          "old": 0.9225682756229483,
-          "new": 0.1174472945237185,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "max_spread_points": {
       "value": 5000.0,
@@ -704,54 +576,47 @@
       "last_mutations": []
     },
     "max_spread_atr_impact": {
-      "value": 0.13375944918270544,
+      "value": 0.25,
       "default": 0.25,
       "bounds": [
         0.05,
         0.5
       ],
-      "mutation_count": 2,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:05:00.136873",
-          "old": 0.25,
-          "new": 0.19503299427426768,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:07:32.356691",
-          "old": 0.19503299427426768,
-          "new": 0.13375944918270544,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "entry_urgency": {
-      "value": 0.35065911196348154,
+      "value": 0.5,
       "default": 0.5,
       "bounds": [
         0.1,
         1.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:05:00.136889",
-          "old": 0.5,
-          "new": 0.35065911196348154,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "startup_cooldown_seconds": {
-      "value": 120.0,
+      "value": 165.23310596469227,
       "default": 120.0,
       "bounds": [
         10.0,
         600.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 2,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:21:36.736030",
+          "old": 120.0,
+          "new": 234.35981696973147,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-10T15:24:09.585864",
+          "old": 234.35981696973147,
+          "new": 165.23310596469227,
+          "reason": ""
+        }
+      ]
     },
     "entry_cooldown_seconds": {
       "value": 60.0,
@@ -764,7 +629,7 @@
       "last_mutations": []
     },
     "min_entry_distance_atr": {
-      "value": 0.17761926314457344,
+      "value": 0.4572790762024308,
       "default": 0.7,
       "bounds": [
         0.1,
@@ -773,66 +638,72 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:05:00.136904",
+          "time": "2026-03-10T15:24:09.585882",
           "old": 0.7,
-          "new": 0.17761926314457344,
+          "new": 0.4572790762024308,
           "reason": ""
         }
       ]
     },
     "duplicate_position_distance_atr": {
-      "value": 1.0,
+      "value": 1.0245221157206794,
       "default": 1.0,
       "bounds": [
         0.3,
         5.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 2,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:24:09.585899",
+          "old": 1.0,
+          "new": 2.8165048028975876,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-10T15:26:42.914168",
+          "old": 2.8165048028975876,
+          "new": 1.0245221157206794,
+          "reason": ""
+        }
+      ]
     },
     "max_order_splits": {
-      "value": 4.309475228499881,
+      "value": 5.0,
       "default": 5.0,
       "bounds": [
         1.0,
         15.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:12:37.367963",
-          "old": 5.0,
-          "new": 4.309475228499881,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "kinematic_exhaustion_atr_mult": {
-      "value": 1.8,
+      "value": 3.3124776141142274,
       "default": 1.8,
       "bounds": [
         1.0,
         3.5
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:29:15.118363",
+          "old": 1.8,
+          "new": 3.3124776141142274,
+          "reason": ""
+        }
+      ]
     },
     "superposition_resolution_enabled": {
-      "value": 0.25465114004534795,
+      "value": 1.0,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:12:37.367981",
-          "old": 1.0,
-          "new": 0.25465114004534795,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "resolution_confidence_multiplier": {
       "value": 1.2,
@@ -845,31 +716,31 @@
       "last_mutations": []
     },
     "institutional_superiority_threshold": {
-      "value": 0.75,
+      "value": 0.7103018230006466,
       "default": 0.75,
       "bounds": [
         0.5,
         0.95
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-10T15:24:09.585917",
+          "old": 0.75,
+          "new": 0.7103018230006466,
+          "reason": ""
+        }
+      ]
     },
     "temporal_tunneling_cycles": {
-      "value": 9.65279532288567,
+      "value": 5.0,
       "default": 5.0,
       "bounds": [
         3.0,
         20.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:07:32.356708",
-          "old": 5.0,
-          "new": 9.65279532288567,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "max_resolution_entropy": {
       "value": 0.65,
@@ -882,18 +753,24 @@
       "last_mutations": []
     },
     "exposure_ceiling_balance_ratio": {
-      "value": 2630.677834606534,
+      "value": 4256.093940211039,
       "default": 500.0,
       "bounds": [
         100.0,
         5000.0
       ],
-      "mutation_count": 1,
+      "mutation_count": 2,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:07:32.356723",
+          "time": "2026-03-10T15:21:36.736049",
           "old": 500.0,
-          "new": 2630.677834606534,
+          "new": 4490.685880120566,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-10T15:24:09.585934",
+          "old": 4490.685880120566,
+          "new": 4256.093940211039,
           "reason": ""
         }
       ]
@@ -929,33 +806,14 @@
       "last_mutations": []
     },
     "lorentz_dilation_enabled": {
-      "value": 0.8269681611735678,
+      "value": 1.0,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 3,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T14:58:44.597819",
-          "old": 1.0,
-          "new": 0.24386483483155563,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:10:04.598396",
-          "old": 0.24386483483155563,
-          "new": 0.02907489410680375,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:12:37.367999",
-          "old": 0.02907489410680375,
-          "new": 0.8269681611735678,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "evt_tail_threshold": {
       "value": 2.5,
@@ -968,24 +826,18 @@
       "last_mutations": []
     },
     "limit_execution_mode": {
-      "value": 0.6225917226439784,
+      "value": 0.6007394635293379,
       "default": 1.0,
       "bounds": [
         0.0,
         1.0
       ],
-      "mutation_count": 2,
+      "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T14:58:44.597847",
+          "time": "2026-03-10T15:31:47.476700",
           "old": 1.0,
-          "new": 0.8171851104752099,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:10:04.598414",
-          "old": 0.8171851104752099,
-          "new": 0.6225917226439784,
+          "new": 0.6007394635293379,
           "reason": ""
         }
       ]
@@ -1001,24 +853,18 @@
       "last_mutations": []
     },
     "phi_resonance_threshold": {
-      "value": 0.8744094980082715,
+      "value": 0.8633957279653853,
       "default": 0.85,
       "bounds": [
         0.7,
         0.98
       ],
-      "mutation_count": 2,
+      "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-10T15:01:16.861567",
+          "time": "2026-03-10T15:24:09.585955",
           "old": 0.85,
-          "new": 0.88479345155477,
-          "reason": ""
-        },
-        {
-          "time": "2026-03-10T15:07:32.356744",
-          "old": 0.88479345155477,
-          "new": 0.8744094980082715,
+          "new": 0.8633957279653853,
           "reason": ""
         }
       ]
@@ -1044,55 +890,34 @@
       "last_mutations": []
     },
     "god_mode_entropy_threshold": {
-      "value": 0.8475231698815269,
+      "value": 0.85,
       "default": 0.85,
       "bounds": [
         0.5,
         0.95
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:01:16.861586",
-          "old": 0.85,
-          "new": 0.8475231698815269,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "kinematic_v_pulse_relaxation": {
-      "value": 2.137946596873237,
+      "value": 2.5,
       "default": 2.5,
       "bounds": [
         1.0,
         5.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T14:58:44.597881",
-          "old": 2.5,
-          "new": 2.137946596873237,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "god_mode_rr_min": {
-      "value": 0.594088324936931,
+      "value": 0.35,
       "default": 0.35,
       "bounds": [
         0.1,
         1.5
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-10T15:15:09.559946",
-          "old": 0.35,
-          "new": 0.594088324936931,
-          "reason": ""
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     }
   }
 }

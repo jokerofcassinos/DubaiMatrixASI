@@ -522,16 +522,25 @@ class SniperExecutor:
                 hft_buffer = (stops_level + 100) * point
                 is_invalid_limit = False
                 
+                # [Phase Ω-Apocalypse] Ignition-Aware Price Optimization
+                # If we have V-PULSE (high momentum) or GOD-MODE, we want immediate execution
+                # but still trying to keep "Maker" status if possible.
+                # Reduce the offset distance from current price.
+                aggression_mult = 0.15 if (has_ignition or is_god_mode) else 1.0
+                
                 if decision.action.value == "BUY":
                     # Preço limite deve estar ABAIXO do Bid
-                    limit_price = tick_bid - hft_buffer - (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread)
+                    # [Phase 52.3] Added dynamic spread multiplier
+                    dist_offset = (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread) * aggression_mult
+                    limit_price = tick_bid - hft_buffer - dist_offset
                     limit_price -= jitter_price
                     # Se, por lag, o preço limite ficou acima ou muito perto do Bid -> MARKET
                     if limit_price >= tick_bid - (10 * point):
                         is_invalid_limit = True
                 else:
                     # Preço limite deve estar ACIMA do Ask
-                    limit_price = tick_ask + hft_buffer + (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread)
+                    dist_offset = (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread) * aggression_mult
+                    limit_price = tick_ask + hft_buffer + dist_offset
                     limit_price += jitter_price
                     # Se o preço limite ficou abaixo ou muito perto do Ask -> MARKET
                     if limit_price <= tick_ask + (10 * point):
