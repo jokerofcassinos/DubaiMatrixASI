@@ -547,9 +547,11 @@ class TrinityCore:
             comm_reward_ratio = reward_in_dollars / comm_per_lot
             min_comm_ratio = OMEGA.get("min_commission_reward_ratio", 1.5)
             
-            # [Phase 52.10] Maker Relaxation
+            # [Phase 52.10] Maker Neutralization
+            # Ordens limite não pagam o "spread cego" da corretora, elas embolsam o spread.
+            # Portanto, o peso da comissão bruta sobre o alvo é mitigado.
             if limit_mode:
-                min_comm_ratio *= 0.5 # Maker mode captures spread, needs less RR buffer
+                min_comm_ratio = 0.0 # Desliga o veto de comissão para Maker
             
             if comm_reward_ratio < min_comm_ratio:
                 return self._wait(f"COMM_REWARD_RATIO_LOW({comm_reward_ratio:.2f} < {min_comm_ratio:.2f})")
