@@ -118,3 +118,8 @@
 [DubaiMatrixASI] 19:47:18.327    ERROR │ 💀 EXCEPTION in [decide]: NameError: name 'entropy' is not defined
 [DubaiMatrixASI] 20:38:57.121    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
 [DubaiMatrixASI] 20:49:00.680    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 21:34:25.613    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
+[DubaiMatrixASI] 21:34:25.613    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
+[DubaiMatrixASI] 21:34:25.613    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
+[DubaiMatrixASI] 21:34:25.615    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
+[DubaiMatrixASI] 21:52:04.573    ERROR │ 💀 EXCEPTION in [_scrape_blockchain_com]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))

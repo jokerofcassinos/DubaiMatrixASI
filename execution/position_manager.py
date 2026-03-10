@@ -176,6 +176,7 @@ class PositionManager:
             if anchor_ticket not in self._positions_state:
                 self._positions_state[anchor_ticket] = {
                     "peak_profit": total_profit,
+                    "peak_time": time.time(),
                     "start_time": g_data["time"],
                     "trail_activated": False,
                     "last_price_change_time": time.time(),
@@ -185,6 +186,7 @@ class PositionManager:
             state = self._positions_state[anchor_ticket]
             if total_profit > state['peak_profit']:
                 state['peak_profit'] = total_profit
+                state['peak_time'] = time.time()
             
             if abs(total_profit - state.get("last_cached_profit", -999)) > 0.01:
                 state["last_cached_profit"] = total_profit
@@ -194,7 +196,7 @@ class PositionManager:
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK
+            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Trailing)
             # ═══════════════════════════════════════════════════
             peak = state['peak_profit']
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
@@ -210,32 +212,28 @@ class PositionManager:
 
             # [Phase 52.1] Noise Shield Active: 80% do floor deve ser atingido 
             # antes de permitirmos saídas por "ruído" (Momentum/Exaustão).
-            is_net_positive = (total_profit >= dynamic_peak_floor)
             reached_noise_shield = (total_profit >= dynamic_peak_floor * 0.8)
 
             if peak > dynamic_peak_floor:
-                drawdown_pct = (peak - total_profit) / peak if peak > 0 else 0
-                
-                # [Phase Ω-Singularity] High Satisfaction Lock (Lethal Mode)
-                # Se o lucro líquido já passou significativamente do alvo, ativamos o lock de proteção.
-                # [Phase 52.9] Riemannian Manifold Trailing: O threshold se ajusta com a 'curvatura' (caos) do preço.
-                if total_profit > dynamic_peak_floor * 2.0:
-                    # [Phase Ω-Omniscience] Quantum Tunneling Trailing:
-                    # Quando estamos com 2x o alvo, relaxamos o stop para "túnel" através de pullbacks normais,
-                    # a menos que a curvatura seja parabólica (climax). Isso permite corridas longas ($400+).
+                # [Phase Ω-Singularity] Trailing Stop Absoluto.
+                # Calculamos o threshold com base no PICO (Peak) e não no lucro atual.
+                if peak > dynamic_peak_floor * 2.0:
+                    # Quantum Tunneling Trailing (Permite 15% de pullback, fecha seco no clímax)
                     curvature_adj = max(0, climax_score - 1.5) * 0.03
-                    lock_threshold = max(0.01, 0.15 - curvature_adj) # Permite 15% de pullback, mas fecha seco no clímax
-                elif total_profit > dynamic_peak_floor * 1.5:
+                    lock_threshold = max(0.01, 0.15 - curvature_adj) 
+                elif peak > dynamic_peak_floor * 1.5:
                     curvature_adj = max(0, climax_score - 2.0) * 0.02
-                    lock_threshold = max(0.02, 0.08 - curvature_adj) # Aperta até 2% se houver clímax
+                    lock_threshold = max(0.02, 0.08 - curvature_adj)
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
                 
-                if is_net_positive:
-                    if drawdown_pct >= lock_threshold:
-                        should_close = True
-                        reason = f"RIEMANNIAN_LOCK: Reversão de {drawdown_pct:.1%} no pico de ${peak:.2f} (Curv={climax_score:.1f})"
+                # Trava de Segurança Absoluta (Nunca deixar o lucro cair abaixo do Noise Shield depois de bater no alvo)
+                trailing_stop_profit = max(dynamic_peak_floor * 0.8, peak * (1.0 - lock_threshold))
+                
+                if total_profit <= trailing_stop_profit:
+                    should_close = True
+                    reason = f"RIEMANNIAN_TRAILING_STOP (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Curv={climax_score:.1f})"
 
             # ═══════════════════════════════════════════════════════════
             #  SOFT TRIGGERS: Só ativam se o Noise Shield foi rompido
@@ -253,21 +251,20 @@ class PositionManager:
                         should_close, reason = True, f"FLOW_EXHAUSTION (Z={climax_score:.1f})"
 
                 # [Phase Ω-Apocalypse] TRIGGER 4: TIME-DECAY PROFIT LOCK
-                # O preço parou de se mover a nosso favor e o tempo está passando. O Alfa "vence".
+                # O preço não faz nova máxima/mínima há muito tempo. Fuga de Theta.
                 if not should_close:
-                    stag_time = time.time() - state.get("last_price_change_time", time.time())
+                    # Medimos o tempo desde o ÚLTIMO PICO, e não da última variação de micro-lucro
+                    stag_time = time.time() - state.get("peak_time", state["start_time"])
                     
-                    # Dinâmica de decaimento temporal: quanto maior o lucro em relação ao alvo,
-                    # menos tempo toleramos ficar parado antes de embolsar (Fuga de Theta).
-                    if total_profit > dynamic_peak_floor * 2.0:
-                        max_stag_time = 15.0 # Pode respirar um pouco no "túnel"
-                    elif total_profit > dynamic_peak_floor * 1.2:
-                        max_stag_time = 8.0  # Lucro alto, menos tolerância a ficar parado
+                    if peak > dynamic_peak_floor * 2.0:
+                        max_stag_time = 25.0 # Mais tempo para túneis de grande alvo
+                    elif peak > dynamic_peak_floor * 1.5:
+                        max_stag_time = 15.0  
                     else:
-                        max_stag_time = 12.0 # Início do Noise Shield (damos um tempo para decidir)
+                        max_stag_time = 25.0 
                         
                     if stag_time >= max_stag_time:
-                        should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s stagnant @ +${total_profit:.2f})"
+                        should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:

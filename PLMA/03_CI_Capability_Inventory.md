@@ -72,5 +72,11 @@
 - [x] **Quantum Tunneling Probability**: Mede as "batidas" do preço contra barreiras institucionais de M5. Na 4ª batida, a ASI opera o "vazamento quântico" (rompimento) sem precisar de aumento de volume.
 - [x] **Liquidity Graph Theory**: A ASI parou de processar o preço como uma série temporal e passou a construir um Grafo Direcionado, identificando os "Hubs" Gravitacionais e prevendo atração/repulsão.
 - [x] **Vector Autoregression (Choque Endógeno)**: Identifica quando a "mola está sendo comprimida" (alto volume, baixo range) ou quando um movimento está "oco" (baixo volume, alto range), disparando a favor do vetor de choque institucional.
+- [x] **Asymmetric Information Sensor**: Mede a divergência entre volatilidade realizada e pressão de volume para detectar "Absorção Institucional Oculta" (muito volume, zero deslocamento).
+- [x] **Bait and Switch Detector**: Ignora o primeiro movimento explosivo de um "Shakeout" (a isca) e opera a rejeição violenta da vela (a troca), surfando a armadilha armada contra o varejo.
+- [x] **Evolutionary Nash Equilibrium**: Em momentos de paralisia e volume nulo (Equilíbrio de Nash), a ASI injeta micro-ordens para forçar a quebra de simetria e guiar a manada de HFTs reativos.
+- [x] **Hidden Markov Regime Prediction**: Calcula a probabilidade oculta da próxima transição de regime usando matrizes de HMM, prevendo a mudança de volatilidade antes do rompimento mecânico.
+- [x] **Fractal Standard Deviation**: Mede o desvio ponderado pela rugosidade (Hurst). Detecta quando o preço contrai mas o ruído expande, sinalizando a compressão de uma "Mola Quântica".
+- [x] **Dark Energy Momentum Extrapolator**: Detecta aceleração exponencial iterativa (velocidade que dobra a cada vela). Sinaliza Squeezes institucionais massivos orientados por liquidações forçadas.
 
-*(Atualizado: 2026-03-10. Versão: 19.0.0-omega+nexus_matrix)*
+*(Atualizado: 2026-03-10. Versão: 21.0.0-omega+elysium_matrix)*

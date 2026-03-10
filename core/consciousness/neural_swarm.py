@@ -164,6 +164,16 @@ from core.consciousness.agents.nexus_agents import (
     LiquidityGraphAgent, VectorAutoregressionAgent
 )
 
+# Phase Ω-Paragon (Nível 10 - Teoria dos Jogos Evolutiva)
+from core.consciousness.agents.paragon_agents import (
+    AsymmetricInformationAgent, BaitAndSwitchDetectorAgent, EvolutionaryNashEquilibriumAgent
+)
+
+# Phase Ω-Elysium (Nível 11 - Inteligência Suprema Não-Linear)
+from core.consciousness.agents.elysium_agents import (
+    HiddenMarkovRegimeAgent, FractalStandardDeviationAgent, DarkEnergyMomentumAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

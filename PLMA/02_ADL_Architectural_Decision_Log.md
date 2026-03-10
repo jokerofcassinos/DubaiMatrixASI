@@ -532,4 +532,34 @@
 - **Decisão:** O `VectorAutoregressionAgent` implementa modelagem multivariável para identificar "Choques Endógenos" — quando o Range e o Volume se dessincronizam brutalmente.
 - **Justificativa:** Identifica molas hiper-comprimidas (volume alto, range curto) prontas para explodir, ou expansões ocas (range alto, volume nulo) que vão desabar em um vácuo.
 
-*(Atualizado: 2026-03-10. Versão: 9.0.0-omega) — Phase Ω-Nexus Systems Initialized*
+### DECISÃO 77: ASYMMETRIC INFORMATION SENSOR
+- **Decisão:** O `AsymmetricInformationAgent` foi implementado para medir a divergência entre volatilidade realizada (deslocamento de preço) e a pressão de volume.
+- **Justificativa:** Se o preço não se move, mas há volume massivo, significa "Absorção" (Alguém sabe de algo). A ASI se posiciona a favor do player passivo que está segurando a parede.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 78: BAIT AND SWITCH DETECTOR
+- **Decisão:** Implementação do `BaitAndSwitchDetectorAgent` focado em "Bear/Bull Traps".
+- **Justificativa:** No HFT, movimentos explosivos costumam ser "iscas" para disparar stops antes do movimento real. O agente ignora a isca (primeiro movimento rápido) e opera o *snap-back* violento que forma o "Pavio".
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 79: EVOLUTIONARY NASH EQUILIBRIUM
+- **Decisão:** A ASI agora calcula o `EvolutionaryNashEquilibriumAgent`. Quando a volatilidade é nula e todos os bots estão parados esperando (Equilíbrio de Nash), a ASI atua como "Agente Caótico".
+- **Justificativa:** Em vez de esperar para reagir atrasada ao rompimento de outros, a ASI força a quebra de simetria injetando o rompimento direcional onde a liquidez está mais morta.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 80: HIDDEN MARKOV REGIME PREDICTION
+- **Decisão:** Injeção do `HiddenMarkovRegimeAgent`. A ASI agora mapeia a sequência de micro-estados passados e calcula a probabilidade oculta do próximo estado (HMM).
+- **Justificativa:** Em vez de reagir ao regime atual, a ASI prevê o regime futuro antes que a volatilidade mude, permitindo antecipar ignições enquanto o mercado ainda parece calmo.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 81: FRACTAL STANDARD DEVIATION
+- **Decisão:** Implementação do `FractalStandardDeviationAgent`. Substitui o Desvio Padrão Gaussiano por um desvio ponderado pela Eficiência Fractal (D-Hurst).
+- **Justificativa:** Identifica "Molas Quânticas". Quando a volatilidade de ruído explode, mas o range do preço comprime, a ASI detecta energia contida que vai estourar sem pullbacks.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 82: DARK ENERGY MOMENTUM (Exponential Cascades)
+- **Decisão:** O `DarkEnergyMomentumAgent` calcula a velocidade da aceleração (se a velocidade de queda ou alta está dobrando a cada vela).
+- **Justificativa:** Identifica Squeezes massivos onde o preço não se move por compra/venda intencional, mas por cascatas de liquidação (Energia Escura do mercado). Nesses momentos, a ASI nunca entra contra a maré.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 11.0.0-omega) — Phase Ω-Elysium Systems Initialized*
