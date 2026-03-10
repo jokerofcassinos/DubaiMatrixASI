@@ -60,6 +60,7 @@ class SelfOptimizer:
         # [Phase 50] PnL Predictor Feedback
         self._is_relaxed_mode = False
         self._last_pnl_state = "STABLE"
+        self._last_omega_log = 0.0 # [Phase Ω-Signal Integrity] Cooldown de logs OMEGA
 
     @catch_and_log(default_return=None)
     def check_and_optimize(self, cycle_or_tracker=None, snapshot=None) -> Optional[dict]:
@@ -145,10 +146,13 @@ class SelfOptimizer:
             
             fisher = CPP_CORE.calculate_fisher_metric(p, q)
             if fisher and fisher.get('kl_div', 0) > 0.5:
-                log.omega(f"🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL={fisher['kl_div']:.4f})")
-                # Ajustamos a agressividade da mutação via Natural Gradient
-                mutation_intensity = fisher.get('nat_grad', 1.0) * 0.1
-                log.omega(f"🧬 Natural Gradient Step applied: {mutation_intensity:.6f}")
+                # Pacing de logs OMEGA (60s)
+                now_log = time.time()
+                if now_log - self._last_omega_log > 60:
+                    log.omega(f"🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL={fisher['kl_div']:.4f})")
+                    mutation_intensity = fisher.get('nat_grad', 1.0) * 0.1
+                    log.omega(f"🧬 Natural Gradient Step applied: {mutation_intensity:.6f}")
+                    self._last_omega_log = now_log
 
         return result
 

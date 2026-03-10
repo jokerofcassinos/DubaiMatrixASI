@@ -72,17 +72,29 @@ class DubaiMatrixASI:
         log.omega("🛑 Shutdown signal recebido (Ctrl+C)")
         self._shutdown_requested = True
 
+    def _clear_old_logs(self):
+        """Exclui arquivos de log de sessões antigas para manter clareza."""
+        log_dir = "data/logs"
+        if os.path.exists(log_dir):
+            try:
+                for file in os.listdir(log_dir):
+                    if file.endswith(".log"):
+                        file_path = os.path.join(log_dir, file)
+                        # Sobrescreve o arquivo com vazio em vez de deletar para evitar lock de arquivos abertos
+                        with open(file_path, 'w') as f:
+                            f.write("")
+                log.info("🧹 Logs de sessões anteriores limpos com sucesso.")
+            except Exception as e:
+                print(f"Erro ao limpar logs: {e}")
+
     def start(self, login: int = None, password: str = None,
               server: str = None, path: str = None):
         """
         Inicializa e roda a ASI.
-
-        Args:
-            login: MT5 Login
-            password: MT5 Password
-            server: MT5 Server
-            path: Caminho do terminal MT5
         """
+        # ═══ 0. LIMPEZA DE SESSÃO ═══
+        self._clear_old_logs()
+
         log.startup_banner()
 
         log.omega(f"🚀 {ASI_NAME} {ASI_VERSION}")

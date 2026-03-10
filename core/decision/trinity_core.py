@@ -540,7 +540,7 @@ class TrinityCore:
             min_rr = min(2.5, min_rr * 1.5) 
             self._log_cooldown("RR_DIVERGENCE", f"⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para {min_rr:.2f}", 60)
 
-        if rr_ratio < min_rr:
+        if rr_ratio < (min_rr - 1e-6):
             return self._wait(f"RR_RATIO_LOW({rr_ratio:.2f} < {min_rr:.2f})")
 
         # [Phase 48] Alpha Integrity: Commission Reward Ratio Gate

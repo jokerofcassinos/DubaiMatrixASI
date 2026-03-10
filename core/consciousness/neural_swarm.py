@@ -179,6 +179,11 @@ from core.consciousness.agents.illuminati_agents import (
     ChronosDilationAgent, FourierSpectralAgent, LiquidityVoidMagnetAgent
 )
 
+# Phase Ω-Genesis (Nível 13 - Inferência Causal e Contrafactual)
+from core.consciousness.agents.genesis_agents import (
+    CausalCounterfactualAgent, IntentionalityDecompositionAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -354,15 +359,37 @@ class NeuralSwarm:
             CyberneticHomeostasisAgent(weight=2.7),
             ChaosFractalDimensionAgent(weight=3.2),
 
+            # ═══ APOCALYPSE (Phase Ω-Apocalypse) ═══
+            DarkPoolArbitrageAgent(weight=3.5),
+            OptionGammaSqueezeAgent(weight=3.8),
+
             # ═══ APOTHEOSIS (Phase Ω-Apotheosis) ═══
             MorphogeneticResonanceAgent(weight=3.3),
             AntifragileExtremumAgent(weight=3.7),
             QuantumTunnelingProbabilityAgent(weight=3.1),
 
+            # ═══ NEXUS (Phase Ω-Nexus) ═══
+            LiquidityGraphAgent(weight=3.6),
+            VectorAutoregressionAgent(weight=3.4),
+
+            # ═══ PARAGON (Phase Ω-Paragon) ═══
+            AsymmetricInformationAgent(weight=3.7),
+            BaitAndSwitchDetectorAgent(weight=3.9),
+            EvolutionaryNashEquilibriumAgent(weight=3.2),
+
+            # ═══ ELYSIUM (Phase Ω-Elysium) ═══
+            HiddenMarkovRegimeAgent(weight=3.8),
+            FractalStandardDeviationAgent(weight=3.5),
+            DarkEnergyMomentumAgent(weight=4.0),
+
             # ═══ ILLUMINATI (Phase Ω-Illuminati) ═══
             ChronosDilationAgent(weight=3.9),
             FourierSpectralAgent(weight=3.4),
             LiquidityVoidMagnetAgent(weight=3.6),
+
+            # ═══ GENESIS (Phase Ω-Genesis) ═══
+            CausalCounterfactualAgent(weight=4.2),
+            IntentionalityDecompositionAgent(weight=4.0),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

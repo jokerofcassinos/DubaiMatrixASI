@@ -22,6 +22,7 @@ class HolographicMemoryAgent(BaseAgent):
         super().__init__("HolographicMemory", weight)
         self.last_sync_time = 0
         self.loss_signatures = []
+        self.last_log_time = 0.0 # [Phase Ω-Signal Integrity] Cooldown de logs
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         now = time.time()
@@ -64,7 +65,11 @@ class HolographicMemoryAgent(BaseAgent):
             signal = direction
             conf = min(0.95, match_count * 0.3)
             reason = f"TOXIC_MEMORY_MATCH (Hits={match_count} in {current_regime})"
-            log.debug(f"🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.")
+            
+            # Pacing de logs para evitar spam em HFT
+            if now - self.last_log_time > 60:
+                log.debug(f"🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.")
+                self.last_log_time = now
             
         return AgentSignal(self.name, signal, conf, reason, self.weight)
 

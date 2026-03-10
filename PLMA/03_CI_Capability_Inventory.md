@@ -81,5 +81,8 @@
 - [x] **Chronos Dilation Sensor**: Mede a compressão/dilatação do tempo entre ticks HFT. Detecta "ondas de choque" institucionais avaliando a aceleração temporal em vez da direcional.
 - [x] **Fourier Spectral Analysis**: Usa Transformada Rápida de Fourier (FFT) para extrair as frequências dominantes do mercado. Detecta mudanças de "marcha" (ciclos longos vs micro-ciclos) antes do preço mostrar direção.
 - [x] **Electromagnetic Liquidity Voids**: Projeta a atração gravitacional/magnética de Fair Value Gaps (FVG) gigantes sobre a perda de momentum, antecipando o preenchimento de ineficiências (Vacuum pull).
+- [x] **Causal Counterfactual Reasoning**: Decompõe o preço em 'Causa' (choque de volume) e 'Efeito' (deslocamento). Calcula o preço contrafactual para identificar se um movimento é orgânico ou uma anomalia causal prestes a reverter.
+- [x] **Intentionality Decomposition**: Separa ordens agressivas de ordens passivas em tempo real. Identifica quando uma tendência está sendo 'sustentada' institucionalmente ou se é apenas exaustão de uma das pontas.
+- [x] **Session-Start Log Sanitization**: Rotina automatizada de limpeza de logs históricos no boot, garantindo 100% de foco nos eventos da sessão corrente.
 
-*(Atualizado: 2026-03-10. Versão: 22.0.0-omega+illuminati_matrix)*
+*(Atualizado: 2026-03-10. Versão: 23.0.0-omega+genesis_matrix)*

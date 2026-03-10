@@ -582,4 +582,24 @@
 - **Justificativa:** Se o momentum falha enquanto o preço está próximo a um grande FVG, o "vácuo" invariavelmente sugará o preço para fechar a ineficiência. A ASI opera essa gravidade, antecipando o preenchimento do Gap.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 13.0.0-omega) — Phase Ω-Illuminati Systems Initialized*
+### DECISÃO 39: INTELLIGENT LOG PACING & DECISION DECOUPLING
+- **Decisão:** Implementação de cooldowns temporais (30-60s) em logs repetitivos (PHI, Chaos Shield, Nuclear Strike, Epistemic Veto) e desacoplamento de logs informativos do loop HFT.
+- **Justificativa:** O spam de logs cegava o monitoramento humano e desperdiçava IO. A compressão de eventos garante que apenas mudanças significativas de estado sejam reportadas em alta frequência.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 87: CAUSAL COUNTERFACTUAL REASONING
+- **Decisão:** Injeção do `CausalCounterfactualAgent`. O agente separa o "Preço Orgânico" (sem picos de volume) do "Preço Manipulado" (choques recentes). Ele calcula: "O que o preço seria se este choque não tivesse acontecido?".
+- **Justificativa:** Se a divergência entre o preço atual e o preço orgânico for insustentável (v-pulse caindo), a ASI aposta na reversão causal. Permite distinguir rompimentos reais de "penduricalhos" de preço sem suporte.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 88: INTENTIONALITY DECOMPOSITION (ACTIVE VS PASSIVE)
+- **Decisão:** Implementação do `IntentionalityDecompositionAgent`. O agente cruza o Imbalance agressivo com a Absorção passiva em níveis de tick.
+- **Justificativa:** Identifica "Decepção de Intencionalidade". Se o varejo agride na compra mas as baleias absorvem tudo passivamente (sell absorption), a ASI vende o topo da agressão, antecipando a exaustão dos compradores.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 89: SESSION-START LOG PURGE
+- **Decisão:** Modificação do `main.py` para limpar os arquivos de log (`data/logs/*.log`) sempre que o sistema for inicializado.
+- **Justificativa:** Garante que o monitoramento humano e o processamento de erros sejam focados estritamente na sessão atual, eliminando o ruído de dados históricos irrelevantes que asfixiavam a análise de bugs.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 14.0.0-omega) — Phase Ω-Genesis Systems Initialized*

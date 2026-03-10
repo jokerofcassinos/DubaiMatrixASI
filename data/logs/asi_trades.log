@@ -7060,3 +7060,62 @@
 [DubaiMatrixASI] 23:08:19.919    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
 [DubaiMatrixASI] 23:08:19.920    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-10T02:08:19.920143+00:00
 [DubaiMatrixASI] 23:10:51.825    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 12:54:53.059    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 12:54:55.410    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 12:54:55.411    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 12:54:55.411    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 12:54:55.411    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 12:54:55.412    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 12:54:55.412    OMEGA │ ⚡ 📅 2026-03-10T15:54:55.412329+00:00
+[DubaiMatrixASI] 12:54:55.412    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 12:54:55.412    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 12:54:55.417    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 12:54:55.421    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 12:54:55.422    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70880.91, Bid=70879.91
+[DubaiMatrixASI] 12:54:55.432    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 12:54:55.432    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 98 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 12:54:55.703  WARNING │ ⏱️ LATENCY [get_candles] 261.1ms (threshold: 100ms)
+[DubaiMatrixASI] 12:54:55.703    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 12:54:55.777    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 12:54:55.784    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 12:54:55.785    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 12:54:55.849    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 12:54:55.850    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 98 agentes ativos
+[DubaiMatrixASI] 12:54:55.850    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 12:54:55.877    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 12:54:55.883    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 12:55:25.417    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 12:55:25.423    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56854)
+[DubaiMatrixASI] 12:55:25.729    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.69
+[DubaiMatrixASI] 12:55:25.749    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 12:55:25.859    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7810)
+[DubaiMatrixASI] 12:55:25.885    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006395
+[DubaiMatrixASI] 12:55:25.893    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 36 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $+21.25
+[DubaiMatrixASI] 12:55:25.896  WARNING │ ⏱️ LATENCY [think] 30012.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 12:55:26.513    ERROR │ 💀 EXCEPTION in [_scrape_coingecko_prices]: SSLError: HTTPSConnectionPool(host='api.coingecko.com', port=443): Max retries exceeded with url: /api/v3/simple/price?ids=bitcoin,ethereum&vs_currencies=usd&include_24hr_change=true (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[DubaiMatrixASI] 12:55:26.514    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: SSLError: HTTPSConnectionPool(host='mempool.space', port=443): Max retries exceeded with url: /api/mempool (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[DubaiMatrixASI] 12:55:31.529    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: SSLError: HTTPSConnectionPool(host='api.alternative.me', port=443): Max retries exceeded with url: /fng/?limit=1&format=json (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[DubaiMatrixASI] 12:56:16.227    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4253)
+[DubaiMatrixASI] 12:56:16.228    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007299
+[DubaiMatrixASI] 12:56:29.514    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:0,0495|TRADES_LEFT:1482317|EXPECTED_VALUE:0,6071|MODE:STRICT
+[DubaiMatrixASI] 12:57:07.247    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.9671)
+[DubaiMatrixASI] 12:57:07.247    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006459
+[DubaiMatrixASI] 12:57:33.284    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:0,0498|TRADES_LEFT:1482317|EXPECTED_VALUE:0,6071|MODE:STRICT
+[DubaiMatrixASI] 12:58:01.481    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1511.9576 Gen=1
+[DubaiMatrixASI] 12:58:01.487    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=-1511.9576
+[DubaiMatrixASI] 12:58:01.488    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7936)
+[DubaiMatrixASI] 12:58:01.489    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006356
+[DubaiMatrixASI] 12:58:01.723    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 12:58:01.803    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.3277)
+[DubaiMatrixASI] 12:58:01.803    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006397
+[DubaiMatrixASI] 12:58:01.804    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 36 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $+21.25
+[DubaiMatrixASI] 12:58:40.386    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:0,0543|TRADES_LEFT:1482317|EXPECTED_VALUE:0,6071|MODE:STRICT
+[DubaiMatrixASI] 12:58:53.257    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.3555)
+[DubaiMatrixASI] 12:58:53.257    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006784
+[DubaiMatrixASI] 12:59:05.200    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 12:59:05.425    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 12:59:05.426    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 12:59:05.433    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 12:59:05.435    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 12:59:05.436    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 12:59:05.437    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-10T15:59:05.436965+00:00
