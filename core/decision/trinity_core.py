@@ -640,7 +640,7 @@ class TrinityCore:
         if "BLOW_OFF_CLIMAX" in agent_reasons or "REDLINE_VETO" in agent_reasons:
             return self._wait("BLOW_OFF_EXHAUSTION_DETECTED (Reversal Imminent)")
 
-        # [Phase 52] VETO 9: HORIZONTAL RESISTANCE (Double/Triple Top)
+        # [Phase 52] VETO 9: HORIZONTAL RESISTANCE/SUPPORT (Double/Triple Top/Bottom)
         if action == Action.BUY:
             # Buscar picos recentes no M1 e M5
             for tf in ["M1", "M5"]:
@@ -664,6 +664,48 @@ class TrinityCore:
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
                                     return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
+        
+        # [Phase 52.11] Simétrico: Suporte Horizontal para SELL
+        elif action == Action.SELL:
+            for tf in ["M1", "M5"]:
+                candles = snapshot.candles.get(tf)
+                if candles and len(candles["low"]) > 50:
+                    lows = np.array(candles["low"], dtype=np.float64)
+                    recent_valleys = []
+                    # Detectar fundos (fractal 5)
+                    for i in range(2, len(lows) - 5):
+                        if lows[i] < lows[i-1] and lows[i] < lows[i-2] and \
+                           lows[i] < lows[i+1] and lows[i] < lows[i+2]:
+                            recent_valleys.append(lows[i])
+                    
+                    if recent_valleys:
+                        for valley in recent_valleys[-10:]:
+                            dist_to_valley = (snapshot.price - valley) / snapshot.price * 100
+                            # Se o preço está caindo e encostando num fundo forte
+                            if abs(dist_to_valley) < 0.08:
+                                matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
+                                if matches >= 2: # Fundo Duplo ou Triplo
+                                    return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
+
+        # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
+        # Prevents selling the exact bottom of a liquidity hunt (wick) or buying the exact top.
+        candles_m1 = snapshot.candles.get("M1")
+        if candles_m1 and len(candles_m1["close"]) >= 3:
+            c0, c1 = candles_m1["close"][-1], candles_m1["close"][-2]
+            o0, o1 = candles_m1["open"][-1], candles_m1["open"][-2]
+            h0, l0 = candles_m1["high"][-1], candles_m1["low"][-1]
+            
+            # Condição de Venda na mínima (Bear Trap)
+            if action == Action.SELL:
+                # Se o preço caiu forte mas já formou um pavio enorme de absorção
+                if c0 > l0 + (atr_m5 * 0.4): # Pavio inferior de 40% do ATR M5
+                    return self._wait(f"LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected {c0 - l0:.1f} points)")
+            
+            # Condição de Compra na máxima (Bull Trap)
+            elif action == Action.BUY:
+                # Se o preço subiu forte mas já formou um pavio superior enorme
+                if c0 < h0 - (atr_m5 * 0.4):
+                    return self._wait(f"LIQUIDITY_SWEEP_VETO (Bull Trap: Wick rejected {h0 - c0:.1f} points)")
 
         # [Phase 52.4] VETO 10: ELITE DIVERGENCE (Meritocracia de Ideias)
         # Identificamos os 5 agentes com maior peso (Elite)
