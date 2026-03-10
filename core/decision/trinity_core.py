@@ -547,8 +547,12 @@ class TrinityCore:
             comm_reward_ratio = reward_in_dollars / comm_per_lot
             min_comm_ratio = OMEGA.get("min_commission_reward_ratio", 1.5)
             
+            # [Phase 52.10] Maker Relaxation
+            if limit_mode:
+                min_comm_ratio *= 0.5 # Maker mode captures spread, needs less RR buffer
+            
             if comm_reward_ratio < min_comm_ratio:
-                return self._wait(f"COMM_REWARD_RATIO_LOW({comm_reward_ratio:.2f} < {min_comm_ratio})")
+                return self._wait(f"COMM_REWARD_RATIO_LOW({comm_reward_ratio:.2f} < {min_comm_ratio:.2f})")
 
         # ═══ ADAPTIVE SPREAD/FEE VALIDATION (Phase 28) ═══
         # A taxa real do trade (spread) não pode corroer o potencial de lucro nem dominar o ATR.

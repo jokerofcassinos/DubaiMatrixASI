@@ -159,6 +159,11 @@ from core.consciousness.agents.apotheosis_agents import (
     MorphogeneticResonanceAgent, AntifragileExtremumAgent, QuantumTunnelingProbabilityAgent
 )
 
+# Phase Ω-Nexus (Nível 9 - Grafos de Liquidez e Choques Vetoriais)
+from core.consciousness.agents.nexus_agents import (
+    LiquidityGraphAgent, VectorAutoregressionAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

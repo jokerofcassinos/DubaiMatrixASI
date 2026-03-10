@@ -70,5 +70,7 @@
 - [x] **Morphogenetic Resonance**: Varre o histórico em busca de "hábitos geométricos" idênticos ao padrão atual, projetando o mesmo desfecho por ressonância não-causal.
 - [x] **Antifragile Extremum Identification**: Detecta Liquidation Cascades extremas (>3x ATR) com pavio de absorção para operar a teoria de Taleb: prover liquidez na máxima fragilidade do mercado.
 - [x] **Quantum Tunneling Probability**: Mede as "batidas" do preço contra barreiras institucionais de M5. Na 4ª batida, a ASI opera o "vazamento quântico" (rompimento) sem precisar de aumento de volume.
+- [x] **Liquidity Graph Theory**: A ASI parou de processar o preço como uma série temporal e passou a construir um Grafo Direcionado, identificando os "Hubs" Gravitacionais e prevendo atração/repulsão.
+- [x] **Vector Autoregression (Choque Endógeno)**: Identifica quando a "mola está sendo comprimida" (alto volume, baixo range) ou quando um movimento está "oco" (baixo volume, alto range), disparando a favor do vetor de choque institucional.
 
-*(Atualizado: 2026-03-09. Versão: 18.0.0-omega+apotheosis_matrix)*
+*(Atualizado: 2026-03-10. Versão: 19.0.0-omega+nexus_matrix)*

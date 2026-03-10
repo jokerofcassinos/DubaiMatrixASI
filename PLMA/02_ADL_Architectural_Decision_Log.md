@@ -518,4 +518,18 @@
 - **Justificativa:** Elimina a necessidade de prever o volume do rompimento. O atrito simplesmente desmorona por cansaço da matéria (Liquidity Exhaustion).
 - **Data/Status:** ATIVO. (2026-03-09).
 
-*(Atualizado: 2026-03-09. Versão: 7.0.0-omega) — Phase Ω-Apotheosis Systems Initialized*
+### DECISÃO 74: TIME-DECAY PROFIT LOCKING
+- **Decisão:** Implementação de decaimento temporal no `PositionManager`. Se um trade estiver com um lucro massivo parado sem se mover por mais de 8 a 15 segundos, a ASI aciona a liquidação para realizar o ganho antes da "Fuga de Theta".
+- **Justificativa:** Previne o cenário em que a ASI segura um trade vencedor esperando um alvo maior até que a volatilidade inverta. Se o preço para, o lucro foge.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 75: LIQUIDITY GRAPH THEORY
+- **Decisão:** Implementação do `LiquidityGraphAgent`. O mercado não é mais uma série temporal linear, mas um Grafo. Os nós são clusters de liquidez e as arestas são os fluxos.
+- **Justificativa:** Identifica os "Hubs" gravitacionais (onde a liquidez se aglomera) e prevê atração eletromagnética ou repulsão institucional antes que o movimento gráfico se desenhe.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+### DECISÃO 76: VECTOR AUTOREGRESSION SHOCK
+- **Decisão:** O `VectorAutoregressionAgent` implementa modelagem multivariável para identificar "Choques Endógenos" — quando o Range e o Volume se dessincronizam brutalmente.
+- **Justificativa:** Identifica molas hiper-comprimidas (volume alto, range curto) prontas para explodir, ou expansões ocas (range alto, volume nulo) que vão desabar em um vácuo.
+
+*(Atualizado: 2026-03-10. Versão: 9.0.0-omega) — Phase Ω-Nexus Systems Initialized*
