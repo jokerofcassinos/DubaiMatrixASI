@@ -536,8 +536,9 @@ class TrinityCore:
                 leading_against = True
                 
         if leading_against and not is_god_mode:
-            # [Phase 52 Refinement] Cap at 2.5 to avoid paralysis
-            min_rr = min(2.5, min_rr * 1.5) 
+            # [Phase 52 Refinement] Cap at 1.8 to avoid excessive paralysis
+            # Divergence should demand better RRR, but not impossible targets.
+            min_rr = min(1.8, min_rr * 1.25) 
             self._log_cooldown("RR_DIVERGENCE", f"⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para {min_rr:.2f}", 60)
 
         if rr_ratio < (min_rr - 1e-6):

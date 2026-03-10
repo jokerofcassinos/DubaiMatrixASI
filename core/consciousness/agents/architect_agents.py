@@ -74,28 +74,52 @@ class BaitLayeringSpoofAgent(BaseAgent):
         orderflow = kwargs.get("orderflow_analysis", {})
         spoofing = orderflow.get("spoofing_metrics", {})
         
-        if not spoofing:
-            return AgentSignal(self.name, 0.0, 0.0, "NO_SPOOF_DATA", self.weight)
-            
-        # Métricas de Bait-Layering (ordens canceladas rápido no Ask/Bid)
+        # [Phase Ω-Architect Upgrade]
+        # Se não tivermos dados de spoofing diretos do orderflow, inferimos pela
+        # microestrutura do book (delta de volume nos níveis secundários).
+        book = snapshot.book
+        if not book or not book.get("bids") or not book.get("asks"):
+            return AgentSignal(self.name, 0.0, 0.0, "NO_BOOK_DATA", self.weight)
+
+        # Intensidade de Bait Layering (Inferida ou Direta)
         bid_bait = spoofing.get("bid_layering_intensity", 0.0)
         ask_bait = spoofing.get("ask_layering_intensity", 0.0)
         
+        # Se os dados diretos falharem, analisamos o 'Weight' dos níveis 5-10
+        if bid_bait == 0 and ask_bait == 0:
+            bids = np.array([[b["price"], b["volume"]] for b in book["bids"]], dtype=np.float64)
+            asks = np.array([[a["price"], a["volume"]] for a in book["asks"]], dtype=np.float64)
+            
+            if len(bids) > 10 and len(asks) > 10:
+                # Camadas externas (5 a 10) representam o "Layering"
+                bid_layering_vol = np.sum(bids[5:10, 1])
+                ask_layering_vol = np.sum(asks[5:10, 1])
+                
+                # Se as camadas externas são muito maiores que as internas, mas o preço não anda
+                bid_bait = bid_layering_vol / (np.sum(bids[:2, 1]) + 1e-6)
+                ask_bait = ask_layering_vol / (np.sum(asks[:2, 1]) + 1e-6)
+
         signal = 0.0
         conf = 0.0
         reason = "NO_BAIT_DETECTED"
         
-        # Se há Bait Layering massivo no Bid (estão fingindo que vão comprar pra você vender)
-        if bid_bait > 0.8 and ask_bait < 0.3:
-            # Eles querem que você venda. Então nós COMPRAMOS. (Contrarian Architect)
-            signal = 1.0 
-            conf = 0.96
-            reason = f"BAIT_LAYERING_BULL_TRAP (Fake Bid Intensity={bid_bait:.2f})"
+        # [Phase Ω-Architect] Lógica de Contra-Ataque (Contrarian)
+        # Se o Market Maker está 'layering' no BID (comprando falso), ele quer que você 
+        # acredite que o suporte é forte para você comprar, enquanto ele descarrega (SELL).
+        # OU ele quer que você venda o topo do pump para ele comprar mais barato.
+        # REGRA: Bait Massivo no Bid = Risco de Reversão de Baixa (Baiting Longs).
+        
+        if bid_bait > 2.5 and ask_bait < 1.0:
+            # Eles estão inflando o BID. Armadilha de Compra Detectada.
+            signal = -1.0 # Contrarian Sell
+            conf = min(0.98, (bid_bait / 5.0) * 0.8)
+            reason = f"BAIT_LAYERING_LONG_TRAP (Bid_Inf={bid_bait:.1f}x)"
             
-        elif ask_bait > 0.8 and bid_bait < 0.3:
-            # Fingindo venda pra você comprar. Nós VENDEMOS.
-            signal = -1.0
-            conf = 0.96
-            reason = f"BAIT_LAYERING_BEAR_TRAP (Fake Ask Intensity={ask_bait:.2f})"
+        elif ask_bait > 2.5 and bid_bait < 1.0:
+            # Inflando o ASK. Armadilha de Venda Detectada.
+            signal = 1.0 # Contrarian Buy
+            conf = min(0.98, (ask_bait / 5.0) * 0.8)
+            reason = f"BAIT_LAYERING_SHORT_TRAP (Ask_Inf={ask_bait:.1f}x)"
             
         return AgentSignal(self.name, signal, conf, reason, self.weight)
+
