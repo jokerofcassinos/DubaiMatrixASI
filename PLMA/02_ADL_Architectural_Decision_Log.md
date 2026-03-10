@@ -562,4 +562,9 @@
 - **Justificativa:** Identifica Squeezes massivos onde o preço não se move por compra/venda intencional, mas por cascatas de liquidação (Energia Escura do mercado). Nesses momentos, a ASI nunca entra contra a maré.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 11.0.0-omega) — Phase Ω-Elysium Systems Initialized*
+### DECISÃO 83: TP ELASTIC EXPANSION (Alpha Floor Re-Targeting)
+- **Decisão:** No `TrinityCore`, se o Take Profit estrutural (baseado em fractais) for menor que o piso mínimo para justificar a comissão ($50 líquidos), a ASI "estica" o alvo para encontrar o Alpha Floor, contanto que não exceda 2.5x ATR.
+- **Justificativa:** A ASI estava vetando trades perfeitos (`REWARD_TOO_SMALL_FOR_ALPHA`) apenas porque o alvo caía alguns centavos abaixo do limite. O alongamento elástico permite capturar a ignição sem ferir a probabilidade matemática do alvo.
+- **Data/Status:** ATIVO. (2026-03-10).
+
+*(Atualizado: 2026-03-10. Versão: 12.0.0-omega) — Phase Ω-Apocalypse Systems Refined*

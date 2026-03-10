@@ -490,18 +490,22 @@ class TrinityCore:
             if is_god_mode or is_phi_resonance:
                  log.omega(f"👹 [OMEGA IGNITION] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})")
             else:
-                # If the ATR-based TP is too small to cover fees, we try to expand it slightly
-                if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR", "DRIFTING_BULL", "DRIFTING_BEAR"]:
-                    # Tentar expandir até 1.5x o ATR original se isso satisfizer o piso
-                    expanded_tp_points = min_points_needed * 1.05
-                    if expanded_tp_points < atr * 1.6:
-                        reward = expanded_tp_points
-                        rr_ratio = reward / risk if risk > 0 else 0
-                        self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.4f} points to meet alpha floor.", 60, level="debug")
+                # [Phase Ω-Apocalypse] TP Elastic Expansion
+                # If the ATR-based TP is too small to cover fees, we stretch it to meet the floor.
+                # We allow stretching up to 2.5x ATR to avoid missing perfect setups due to a $2 difference.
+                expanded_tp_points = min_points_needed * 1.02 # Add a 2% safety buffer
+                
+                if expanded_tp_points < (atr * 2.5):
+                    reward = expanded_tp_points
+                    if action == Action.BUY:
+                        take_profit = price + reward
                     else:
-                        return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
+                        take_profit = price - reward
+                    
+                    rr_ratio = reward / risk if risk > 0 else 0
+                    self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.2f} points to meet alpha floor.", 60, level="debug")
                 else:
-                    return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.4f} < Min {min_points_needed:.4f})")
+                    return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block)")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         
