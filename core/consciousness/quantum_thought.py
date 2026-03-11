@@ -419,9 +419,10 @@ class QuantumThoughtEngine:
         # ═══════════════════════════════════════════════════
         #  PHASE 52: STRICT COHERENCE FILTER (After Convergence)
         # ═══════════════════════════════════════════════════
-        # Se a coerência é baixa (< 0.55), o enxame está em 'guerra civil'.
-        # Nesses casos, o risco de armadilha é alto. Aplicamos um redutor global no sinal bruto.
-        if coherence < 0.55 and not v_pulse_detected:
+        # Se a coerência é baixa (< 0.40), o enxame está em 'guerra civil'.
+        # Com 110 agentes, uma coerência de 0.45 já indica um consenso direcional forte.
+        # Nesses casos de caos total (<0.40), aplicamos um redutor global no sinal bruto.
+        if coherence < 0.40 and not v_pulse_detected:
             raw_signal *= 0.5 # Asfixia a força da decisão se não há harmonia
             v_pulse_reasoning_append += " [!LOW_COHERENCE_DAMPENING!]"
         
