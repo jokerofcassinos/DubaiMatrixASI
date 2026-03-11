@@ -448,15 +448,14 @@ class TrinityCore:
             risk_dist = abs(price - stop_loss)
             take_profit = price - (risk_dist * rr_mult)
 
-        # [Phase 52.8] BTC_STRIKE_CAP: Alargado para 450 pontos para permitir trades longos
-        max_dist_tp = 450.0 
-        max_dist_sl = 150.0 # Stop continua curto e letal
-        
+        # [Phase 52.8] BTC_STRIKE_CAP: Alargado massivamente para permitir corridas colossais
+        max_dist_tp = 1500.0
+        max_dist_sl = 350.0 # Stop alargado para sobreviver à volatilidade extrema do BTC
+
         if abs(price - take_profit) > max_dist_tp:
             take_profit = price + (max_dist_tp if action == Action.BUY else -max_dist_tp)
         if abs(price - stop_loss) > max_dist_sl:
             stop_loss = price - (max_dist_sl if action == Action.BUY else -max_dist_sl)
-
         # ═══ RISK/REWARD CHECK ═══
         risk = abs(price - stop_loss)
         reward = abs(take_profit - price)

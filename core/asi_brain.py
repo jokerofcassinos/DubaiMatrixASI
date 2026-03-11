@@ -85,8 +85,8 @@ class ASIBrain:
             if not result or not result.get("success"):
                 return
 
-            # [Phase Ω-Darwin] Sincronização de Histórico
-            self.performance_tracker.on_position_closed(result)
+            # [Phase Ω-Darwin] Sincronização de Histórico já é feita no _audit_mt5_history
+            # Portanto, não precisamos mais chamar self.performance_tracker.on_position_closed(result)
             
             # Anti-Metralhadora: Impedir reentrada imediata na mesma direção
             # O result contém o ticket e o close_price.

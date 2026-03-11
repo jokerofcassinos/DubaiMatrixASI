@@ -109,7 +109,7 @@ class OmegaParameterSpace:
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
-        self._register("trinity_min_rr_ratio", 1.3, 0.8, 2.5,
+        self._register("trinity_min_rr_ratio", 1.8, 1.5, 3.5,
                         "RR Ratio mínimo no TrinityCore")
         self._register("mc_min_score", -0.30, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
@@ -130,7 +130,8 @@ class OmegaParameterSpace:
         self._register("commission_per_lot", 32.0, 0.0, 100.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD")
         self._register("min_profit_per_ticket", 20.0, 10.0, 60.0,
-                       "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")        self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
+                        "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
+        self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
                         "Multiplicador de cobertura de comissão para Smart TP")

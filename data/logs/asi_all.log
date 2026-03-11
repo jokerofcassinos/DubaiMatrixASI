@@ -1,42 +1,41 @@
-[DubaiMatrixASI] 19:28:39.074     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 19:28:39.075     INFO │ 
+[DubaiMatrixASI] 19:37:26.898     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 19:37:26.899     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 19:28:39.075     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 19:28:39.076     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 19:28:39.076    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 19:28:39.076    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 19:28:39.077    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 19:28:39.077    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 19:28:39.077    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 19:28:39.078    OMEGA │ ⚡ 📅 2026-03-11T22:28:39.078168+00:00
-[DubaiMatrixASI] 19:28:39.078    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 19:28:39.078    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 19:28:39.079     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 19:28:39.082     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 19:28:39.082    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 19:28:39.083     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 19:28:39.083     INFO │    Conta: 1521199394
-[DubaiMatrixASI] 19:28:39.083     INFO │    Servidor: FTMO-Demo2
-[DubaiMatrixASI] 19:28:39.084     INFO │    Saldo: $98486.10
-[DubaiMatrixASI] 19:28:39.084     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 19:28:39.084     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 19:28:39.085     INFO │    Spread: 100 points
-[DubaiMatrixASI] 19:28:39.086    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 19:28:39.086     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 19:28:39.086    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70511.17, Bid=70510.17
-[DubaiMatrixASI] 19:28:39.087     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 19:28:39.094     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 19:28:39.095    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 19:28:39.096    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 19:28:39.119    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 19:28:39.138     INFO │ 📂 Carregados 57 trades do histórico. WR=49.1%
-[DubaiMatrixASI] 19:28:39.154    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 19:28:39.154    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 19:28:39.155    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 19:28:39.162    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 19:28:39.163    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
-[DubaiMatrixASI] 19:28:39.164    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 19:28:39.165     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98486.1, 'equity': 98486.1, 'tick_buffer_size': 1, 'last_tick_ms': 1773278921421}
-[DubaiMatrixASI] 19:28:39.166    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 19:28:39.167    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 19:28:39.195    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 19:37:26.899     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 19:37:26.899     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 19:37:26.900    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 19:37:26.900    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 19:37:26.900    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 19:37:26.901    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 19:37:26.901    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 19:37:26.901    OMEGA │ ⚡ 📅 2026-03-11T22:37:26.901762+00:00
+[DubaiMatrixASI] 19:37:26.902    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 19:37:26.902    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 19:37:26.902     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 19:37:26.906     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 19:37:26.906    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 19:37:26.907     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 19:37:26.907     INFO │    Conta: 1521199394
+[DubaiMatrixASI] 19:37:26.907     INFO │    Servidor: FTMO-Demo2
+[DubaiMatrixASI] 19:37:26.908     INFO │    Saldo: $98486.10
+[DubaiMatrixASI] 19:37:26.908     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 19:37:26.908     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 19:37:26.908     INFO │    Spread: 195 points
+[DubaiMatrixASI] 19:37:26.909    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 19:37:26.910     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 19:37:26.910    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70293.16, Bid=70291.21
+[DubaiMatrixASI] 19:37:26.910     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 19:37:26.918     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 19:37:26.919    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 19:37:26.920    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 19:37:26.931    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 19:37:26.946     INFO │ 📂 Carregados 57 trades do histórico. WR=49.1%
+[DubaiMatrixASI] 19:37:26.974    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 19:37:26.980    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 19:37:26.983    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 19:37:26.990    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 19:37:26.991    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
+[DubaiMatrixASI] 19:37:26.992    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 19:37:26.993     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 195, 'balance': 98486.1, 'equity': 98486.1, 'tick_buffer_size': 1, 'last_tick_ms': 1773279449435}
+[DubaiMatrixASI] 19:37:26.994    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 19:37:26.994    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
