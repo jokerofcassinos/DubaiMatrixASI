@@ -1,149 +1,28 @@
-[DubaiMatrixASI] 13:34:23.877    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 13:34:23.877    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 13:34:23.877    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 13:34:23.878    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 13:34:23.878    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 13:34:23.878    OMEGA │ ⚡ 📅 2026-03-11T16:34:23.878940+00:00
-[DubaiMatrixASI] 13:34:23.879    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 13:34:23.879    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 13:34:23.966    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 13:34:23.977    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 13:34:23.980    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70660.27, Bid=70659.27
-[DubaiMatrixASI] 13:34:23.996    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 13:34:23.997    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 13:34:24.025    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 13:34:24.063    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 13:34:24.070    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 13:34:24.071    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 13:34:24.079    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 13:34:24.079    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
-[DubaiMatrixASI] 13:34:24.080    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 13:34:24.083    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 13:34:24.083    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 13:34:24.131    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 52256)
-[DubaiMatrixASI] 13:34:24.137    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 13:34:24.498    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.7
-[DubaiMatrixASI] 13:34:24.520    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 13:34:24.628  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:34:24.629    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.9022)
-[DubaiMatrixASI] 13:34:24.630    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006987
-[DubaiMatrixASI] 13:34:24.630    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 47 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1230.07
-[DubaiMatrixASI] 13:35:14.733  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:35:27.831    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-26,7407
-[DubaiMatrixASI] 13:36:05.550  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:36:05.551    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6246)
-[DubaiMatrixASI] 13:36:05.551    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006840
-[DubaiMatrixASI] 13:36:24.688  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000190. Reducing exposure.
-[DubaiMatrixASI] 13:36:24.714    OMEGA │ ⚡ 🎯 DECISION: BUY lot=5.00 (em 5 nodes) price=70648.88 SL=70532.29 TP=70800.45 | Φ: 0.03 | CONF: 0.83
-[DubaiMatrixASI] 13:36:24.952    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=5.00 @ 70648.90 | 5 tickets gerados | BUY signal=+0.236 conf=0.83 coherence=0.40 regime=CREEPING_BULL ATR=251.27 RR=1.
-[DubaiMatrixASI] 13:36:24.958    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: BUY BTCUSD | lots=5.00 @ 70648.90 | Φ=0.03 | CONF=0.83 | REGIME=CREEPING_BULL
-[DubaiMatrixASI] 13:36:24.959    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: BUY BTCUSD | S=+0.236 PHI=0.03
-  🐂 BULL[17]: KinematicJounce, FourierSpectral, QuantumTunnelingProb, PheromoneFieldAgent, MSSAgent, QuantumSpin, TBSAgent, ChaosRegime, CppFractalAgent, HarmonicResonanceAgent, MacroBiasAgent, TemporalTrend, OscillationWaveAgent, PriceVelocityAgent, TrendAgent, MomentumAgent, MeanFieldGame
-  🐻 BEAR[20]: LiquidityGraph, MorphogeneticResonance, HolographicMemory, LiquidStateAgent, PriceGravityAgent, AggressivenessAgent, OnChainPressureAgent, StatisticalAgent, FeynmanPath, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, HexMatrix, LiquidationVacuumAgent, VolatilityAgent, SentimentFearGreedAgent, ChartStructureAgent, PremiumDiscountAgent
-  🎯 Reason: BUY signal=+0.236 conf=0.83 coherence=0.40 regime=CREEPING_BULL ATR=251.27 RR=1.30 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.236 | CONF=0.83 | Φ=0.03 | COH=39.68% | BULL: KinematicJounce, FourierSpectral, QuantumTunnelingProb [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.260 WP=43.8% EV=+0.70 CVaR=-116.59 sim=7.4ms]
-[DubaiMatrixASI] 13:36:26.138    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:36:29.956    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:36:31.460    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-26,7407
-[DubaiMatrixASI] 13:36:56.491  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:36:56.492    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-3186.2673 Gen=1
-[DubaiMatrixASI] 13:36:56.510    OMEGA │ ⚡ 🧬 Gen #1: 7 mutações aplicadas | Tipo=uniform | Fitness=-3186.2673
-[DubaiMatrixASI] 13:36:56.689    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,911.84
-[DubaiMatrixASI] 13:36:56.689    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 13:36:56.762  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:36:56.763    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 51 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1230.07
-[DubaiMatrixASI] 13:37:30.582    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.00, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:31.332    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:32.602    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:33.107    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:34.376    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:34.838    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-26,7407
-[DubaiMatrixASI] 13:37:35.246    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:37.033    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+255.01 | Lots: 3.36 | Nodes: 3
-[DubaiMatrixASI] 13:37:37.034    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
-[DubaiMatrixASI] 13:37:37.035    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
-[DubaiMatrixASI] 13:37:37.037    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
-[DubaiMatrixASI] 13:37:37.334    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+37.88 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 13:37:37.334    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+272.00 | Lots: 3.36 | Nodes: 3
-[DubaiMatrixASI] 13:37:37.335    ERROR │ ❌ Erro ao disparar callback de fechamento: 'PerformanceTracker' object has no attribute 'on_position_closed'
-[DubaiMatrixASI] 13:37:37.345    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 13:37:37.501    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.13, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:37.504    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+37.88 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 13:37:37.505    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+232.86 | Lots: 2.88 | Nodes: 2
-[DubaiMatrixASI] 13:37:37.654    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 13:37:37.800    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+37.90 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 13:37:37.801    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+94.77 | Lots: 1.16 | Nodes: 1
-[DubaiMatrixASI] 13:37:37.955    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 13:37:38.022    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+49.08 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 13:37:38.259    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 13:37:39.835    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.08, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:40.289    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:40.597    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:40.826    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.10, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:41.053    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:41.346    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.87). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:42.100    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:43.344    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.10, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:46.902    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.08, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:47.240  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:37:47.241    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5838)
-[DubaiMatrixASI] 13:37:47.241    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.143359
-[DubaiMatrixASI] 13:37:47.648    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:49.916    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.09, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:53.807    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:53.953    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:55.248    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.09, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:55.479    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:37:56.786    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:01.082    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:03.126    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:04.623    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:06.214    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:08.375    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:08.630    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.07, E=0.87). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:09.885    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:11.174    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.08, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:11.995    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.08, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:12.459    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:12.698    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.87). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:13.191    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:16.542  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000189. Reducing exposure.
-[DubaiMatrixASI] 13:38:16.544    OMEGA │ ⚡ 🎯 DECISION: BUY lot=5.00 (em 5 nodes) price=70682.78 SL=70567.21 TP=70833.02 | Φ: 0.06 | CONF: 0.80
-[DubaiMatrixASI] 13:38:16.654    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=5.00 @ 70682.71 | 5 tickets gerados | BUY signal=+0.278 conf=0.80 coherence=0.38 regime=CREEPING_BULL ATR=253.94 RR=1.
-[DubaiMatrixASI] 13:38:16.654    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: BUY BTCUSD | lots=5.00 @ 70682.71 | Φ=0.06 | CONF=0.80 | REGIME=CREEPING_BULL
-[DubaiMatrixASI] 13:38:16.655    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: BUY BTCUSD | S=+0.278 PHI=0.06
-  🐂 BULL[20]: FourierSpectral, QuantumTunnelingProb, QuantumSuperposition, MSSAgent, QuantumSpin, TBSAgent, ChaosRegime, DarkMass, CandleAnatomyAgent, CppFractalAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, FeynmanPath, MacroBiasAgent, TemporalTrend, TrendAgent, OscillationWaveAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
-  🐻 BEAR[19]: AggressivenessAgent, OnChainPressureAgent, StatisticalAgent, HexMatrix, LiquidityGraph, MorphogeneticResonance, HolographicMemory, GameTheoryNashAgent, StopHunterAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, LiquidStateAgent, DivergenceAgent, VolatilityAgent, SentimentFearGreedAgent, PriceGravityAgent, ChartStructureAgent, PremiumDiscountAgent
-  🎯 Reason: BUY signal=+0.278 conf=0.80 coherence=0.38 regime=CREEPING_BULL ATR=253.94 RR=1.30 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.278 | CONF=0.80 | Φ=0.06 | COH=38.23% | BULL: FourierSpectral, QuantumTunnelingProb, QuantumSuperposition [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.252 WP=44.3% EV=+1.91 CVaR=-115.57 sim=7.1ms]
-[DubaiMatrixASI] 13:38:17.324    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.08, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:18.077    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:18.572    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.05, E=0.87). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:21.384    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:38:37.884  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:38:38.339    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-26,7407
-[DubaiMatrixASI] 13:39:20.961    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:39:21.703    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:39:28.655  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
-[DubaiMatrixASI] 13:39:28.656    OMEGA │ ⚡ 🧬 Gen #2: 5 mutações aplicadas | Tipo=uniform | Fitness=-3186.2673
-[DubaiMatrixASI] 13:39:28.657    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2656)
-[DubaiMatrixASI] 13:39:28.658    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006287
-[DubaiMatrixASI] 13:39:28.809    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,911.84 -> $100,062.57
-[DubaiMatrixASI] 13:39:28.825    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 13:39:28.934    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 54 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-1090.31
-[DubaiMatrixASI] 13:39:41.811    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-21,8062
-[DubaiMatrixASI] 13:40:45.407    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-21,8062
-[DubaiMatrixASI] 13:41:10.442    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8436)
-[DubaiMatrixASI] 13:41:10.443    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006056
-[DubaiMatrixASI] 13:41:48.861    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-21,8062
-[DubaiMatrixASI] 13:41:57.612    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.06, E=0.85). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 13:42:01.252    OMEGA │ ⚡ 🧬 Gen #3: 5 mutações aplicadas | Tipo=uniform | Fitness=-3188.1708
-[DubaiMatrixASI] 13:42:01.456    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,062.57 -> $99,425.80
-[DubaiMatrixASI] 13:42:01.465    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 13:42:01.570  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 13:42:01.664    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 54 posições auditadas, 3 novos registros finalizados. P&L Líquido Total: $-1664.51
-[DubaiMatrixASI] 13:42:28.837    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 13:42:29.011    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 13:42:29.018    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 13:42:29.037    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 13:42:29.039    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 13:42:29.040    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 13:42:29.040    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-11T16:42:29.040515+00:00
+[DubaiMatrixASI] 13:43:39.532    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 13:43:39.533    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 13:43:39.533    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 13:43:39.533    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 13:43:39.534    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 13:43:39.534    OMEGA │ ⚡ 📅 2026-03-11T16:43:39.534534+00:00
+[DubaiMatrixASI] 13:43:39.534    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 13:43:39.535    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 13:43:39.538    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 13:43:39.542    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 13:43:39.543    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70604.01, Bid=70600.89
+[DubaiMatrixASI] 13:43:39.551    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 13:43:39.552    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 13:43:39.575    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 13:43:39.614    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 13:43:39.614    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 13:43:39.615    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 13:43:39.622    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 13:43:39.623    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
+[DubaiMatrixASI] 13:43:39.623    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 13:43:39.625    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 13:43:39.626    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 13:43:39.663    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 13:43:39.820    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.7
+[DubaiMatrixASI] 13:43:39.853    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 13:43:39.992    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3290)
+[DubaiMatrixASI] 13:43:39.993    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006510
+[DubaiMatrixASI] 13:43:39.993    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 54 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1664.51
