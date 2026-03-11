@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-11T13:44:30.249795",
+  "saved_at": "2026-03-11T13:48:18.547336",
   "parameters": {
     "buy_threshold": {
       "value": 0.2,
@@ -52,14 +52,21 @@
       "last_mutations": []
     },
     "mc_min_score": {
-      "value": -0.3,
+      "value": -0.5977869338839283,
       "default": -0.3,
       "bounds": [
         -0.8,
         0.5
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645417",
+          "old": -0.3,
+          "new": -0.5977869338839283,
+          "reason": ""
+        }
+      ]
     },
     "mc_min_win_prob": {
       "value": 0.42,
@@ -82,14 +89,21 @@
       "last_mutations": []
     },
     "kelly_fraction": {
-      "value": 1.0,
+      "value": 0.5098145816259257,
       "default": 1.0,
       "bounds": [
         0.1,
         1.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645459",
+          "old": 1.0,
+          "new": 0.5098145816259257,
+          "reason": ""
+        }
+      ]
     },
     "stop_loss_atr_mult": {
       "value": 0.55,
@@ -102,14 +116,21 @@
       "last_mutations": []
     },
     "take_profit_atr_mult": {
-      "value": 1.3,
+      "value": 4.670636572466919,
       "default": 1.3,
       "bounds": [
         0.3,
         5.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645482",
+          "old": 1.3,
+          "new": 4.670636572466919,
+          "reason": ""
+        }
+      ]
     },
     "trailing_stop_atr_mult": {
       "value": 0.6,
@@ -128,11 +149,23 @@
         0.0,
         100.0
       ],
-      "mutation_count": 1,
+      "mutation_count": 3,
       "last_mutations": [
         {
           "time": "2026-03-11T13:43:39.847754",
           "old": 32.0,
+          "new": 44.7,
+          "reason": "Phase 49 Auto-Detection"
+        },
+        {
+          "time": "2026-03-11T13:46:11.645501",
+          "old": 44.7,
+          "new": 98.68675760988869,
+          "reason": ""
+        },
+        {
+          "time": "2026-03-11T13:46:11.836086",
+          "old": 98.68675760988869,
           "new": 44.7,
           "reason": "Phase 49 Auto-Detection"
         }
@@ -509,14 +542,21 @@
       "last_mutations": []
     },
     "resolution_confidence_multiplier": {
-      "value": 1.2,
+      "value": 1.218399703074852,
       "default": 1.2,
       "bounds": [
         1.0,
         2.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645535",
+          "old": 1.2,
+          "new": 1.218399703074852,
+          "reason": ""
+        }
+      ]
     },
     "institutional_superiority_threshold": {
       "value": 0.75,
@@ -559,14 +599,21 @@
       "last_mutations": []
     },
     "v_reversal_atr_multiplier": {
-      "value": 3.0,
+      "value": 5.498321387879952,
       "default": 3.0,
       "bounds": [
         2.0,
         6.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645555",
+          "old": 3.0,
+          "new": 5.498321387879952,
+          "reason": ""
+        }
+      ]
     },
     "phi_min_threshold": {
       "value": 0.015,
@@ -579,14 +626,21 @@
       "last_mutations": []
     },
     "phi_hydra_threshold": {
-      "value": 4.5,
+      "value": 4.420718543271972,
       "default": 4.5,
       "bounds": [
         1.5,
         10.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-11T13:46:11.645574",
+          "old": 4.5,
+          "new": 4.420718543271972,
+          "reason": ""
+        }
+      ]
     },
     "lorentz_dilation_enabled": {
       "value": 1.0,
