@@ -187,8 +187,8 @@ class AntifragileExhaustionAgent(BaseAgent):
     """
     [Phase Ω-Apotheosis] Sensor de Exaustão Antifrágil.
     Detecta quando o momentum atual é "frágil" (demasiado esticado sem base).
-    Se o preço percorreu > 2.0x ATR sem nenhum candle de respiro (pullback), 
-    qualquer nova agressão é sinal de exaustão, não de força.
+    Mede a esticada direcional em uma janela rápida. Se o preço percorreu
+    > 2.0x ATR em poucos minutos, a probabilidade de um snap-back é massiva.
     """
     def __init__(self, weight=3.5):
         super().__init__("AntifragileExhaustion", weight)
@@ -201,35 +201,29 @@ class AntifragileExhaustionAgent(BaseAgent):
         closes = np.array(candles_m1["close"], dtype=np.float64)
         atr = snapshot.indicators.get("M5_atr_14", [50.0])[-1]
         
-        # Medir a esticada sem pullbacks
-        # BULL exhaustion
-        bull_stretch = 0
-        for i in range(len(closes)-1, 0, -1):
-            if closes[i] > closes[i-1]:
-                bull_stretch += (closes[i] - closes[i-1])
-            else:
-                break # Pullback detected
-                
-        # BEAR exhaustion
-        bear_stretch = 0
-        for i in range(len(closes)-1, 0, -1):
-            if closes[i] < closes[i-1]:
-                bear_stretch += (closes[i-1] - closes[i])
-            else:
-                break
-                
+        # [Phase 52.14] Medir a esticada ao longo dos últimos 5 candles
+        # Em vez de exigir candles perfeitamente consecutivos (que falha em micro-pullbacks),
+        # medimos a variação absoluta.
+        recent_closes = closes[-6:] # Pega os últimos 5 deltas
+        total_delta = recent_closes[-1] - recent_closes[0]
+        
         signal = 0.0
         conf = 0.0
         reason = "MOMENTUM_HEALTHY"
         
-        if bull_stretch > atr * 2.0:
+        # O limiar de exaustão é reduzido para capturar picos mais realistas
+        exhaustion_threshold = atr * 1.5
+        
+        if total_delta > exhaustion_threshold:
+            # Subida parabólica
             signal = -1.0 # Vende a exaustão da alta
-            conf = min(0.95, (bull_stretch / atr) * 0.3)
-            reason = f"ANTIFRAGILE_BULL_EXHAUSTION (Stretch={bull_stretch:.1f} > 2xATR)"
-        elif bear_stretch > atr * 2.0:
+            conf = min(0.98, (total_delta / atr) * 0.4)
+            reason = f"ANTIFRAGILE_BULL_EXHAUSTION (Stretch={total_delta:.1f} > 1.5xATR)"
+        elif total_delta < -exhaustion_threshold:
+            # Queda parabólica
             signal = 1.0 # Compra a exaustão da baixa
-            conf = min(0.95, (bear_stretch / atr) * 0.3)
-            reason = f"ANTIFRAGILE_BEAR_EXHAUSTION (Stretch={bear_stretch:.1f} > 2xATR)"
+            conf = min(0.98, (abs(total_delta) / atr) * 0.4)
+            reason = f"ANTIFRAGILE_BEAR_EXHAUSTION (Stretch={abs(total_delta):.1f} > 1.5xATR)"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
 
