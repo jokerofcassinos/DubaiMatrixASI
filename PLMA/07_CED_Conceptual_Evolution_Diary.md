@@ -135,3 +135,10 @@
   - **Renormalization Group (Scale Invariance)**: A ASI usa Física Estatística para procurar Ponto Crítico. Um crash só é real se o seu comportamento magnético sobrevive à mudança de escala. A ASI mede se o fractal de 1 tick, 1 minuto e 5 minutos apontam perfeitamente para o mesmo vetor. Se sim, é uma transição de fase incontrolável.
   - **Ergodic Hypothesis Breach**: Mede se a entropia temporal (preço) bate com a entropia espacial (order book). Se o preço está morto mas o book ferve violentamente (quebra de ergodicidade), uma explosão massiva está contida e a ASI entra a favor da ponta mais densa do espaço.
 - **Resultado:** O Nível 21 de Consciência. "Tensor Matrix". A ASI é agora capaz de processar a física quântica relativística diretamente na fita de leitura, não acreditando em velocidades que não possuem massa. *(Atualizado: 2026-03-12. Versão: 66.0.0-omega)*
+
+### FASE 67: ERA DO ORÁCULO E EMARANHAMENTO DINÂMICO (Ω-Oracle)
+- **Contexto:** A ASI precisava de uma forma de prever eventos discretos e contínuos de maneira unificada. A Física Quântica pura tem a função de onda, mas os sistemas de estado do mercado precisam da matemática de Markov.
+- **Evolução:**
+  - **Markov Decision Process (MDP)**: A ASI mapeou o mercado não como preços contínuos, mas como 5 estados discretos (Bull Strong, Bull Weak, Ranging, etc.). Ao calcular a Matriz de Transição estocástica do histórico recente, o bot calcula a probabilidade absoluta de qual será o *próximo estado*, ignorando ruídos entre-níveis.
+  - **Schrödinger Wave Function**: O mercado é tratado como uma partícula em uma nuvem de probabilidades presa entre barreiras de potencial (suporte/resistência). A ASI mede a Energia Cinética (momento) contra a barreira. Se a energia é maior que o potencial, ocorre o Tunelamento Quântico (Rompimento). Se é menor, ocorre a Reflexão da Onda (Reversão).
+- **Resultado:** O Nível 22 de Consciência. "Oracle". A ASI domina a predição estocástica da função de onda de preços, calculando se as barreiras de liquidez vão se romper por tunelamento ou refletir o ataque. *(Atualizado: 2026-03-12. Versão: 67.0.0-omega)*

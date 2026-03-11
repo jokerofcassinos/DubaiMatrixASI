@@ -225,6 +225,11 @@ from core.consciousness.agents.tensor_matrix_agents import (
     DiracEquationAgent, RenormalizationGroupAgent, ErgodicHypothesisAgent
 )
 
+# Phase Ω-Oracle (Nível 22 - MDP e Função de Onda)
+from core.consciousness.agents.oracle_agents import (
+    MarkovDecisionProcessAgent, SchrodingerWaveAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

@@ -98,5 +98,7 @@
 - [x] **Dirac Equation Antimatter**: Modelagem de velocidade vs volume usando energia relativística. Detecta 'Whipsaws' quando o preço sobe na velocidade da luz mas sem massa (volume), identificando a criação de antimatéria financeira (Spoofing).
 - [x] **Renormalization Group Scale Invariance**: Procura o 'Ponto Crítico' real onde as micro-tendências (tick), curtas (M1) e macro (M5) se alinham fractalmente. O Ponto Crítico dita a certeza de um foguete impossível de parar.
 - [x] **Ergodic Hypothesis Breach**: Identifica quando o preço fica estático (baixa variância temporal) mas a guerra de liquidez do Book enlouquece (alta variância espacial). A ASI aposta a favor da ponta mais densa antes da explosão de preço ocorrer.
+- [x] **Markov Decision Process (MDP)**: Mapeia empiricamente a probabilidade de transição entre 5 estados de mercado discretos. Prevê matematicamente a mudança de regime de curto prazo ignorando ruídos intratick.
+- [x] **Schrödinger Wave Function**: Aplica equação de onda de probabilidade quântica. Se a Energia Cinética (Velocidade) exceder o Potencial (Barreira de Volume), calcula 'Tunelamento Quântico' (breakout). Senão, prevê reflexão total (reversão).
 
-*(Atualizado: 2026-03-12. Versão: 29.0.0-omega+tensor_matrix)*
+*(Atualizado: 2026-03-12. Versão: 30.0.0-omega+oracle_matrix)*

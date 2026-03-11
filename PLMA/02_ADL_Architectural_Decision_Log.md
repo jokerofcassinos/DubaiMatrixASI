@@ -712,4 +712,14 @@
 - **Justificativa:** Quando a entropia do espaço (book) supera massivamente a do tempo (preço parado), a ergodicidade foi quebrada. A ASI antecipa a explosão direcional baseada no repouso forçado da ponta que retém mais volume.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 23.0.0-omega) — Phase Ω-Tensor Systems Active*
+### DECISÃO 112: MARKOV DECISION PROCESS
+- **Decisão:** Injeção do `MarkovDecisionProcessAgent`. Converte as séries de preço em transições discretas de estado e usa Matrizes de Transição para calcular a probabilidade exata do próximo estado.
+- **Justificativa:** Trata o mercado como um sistema estocástico, reduzindo o ruído e prevendo tendências baseadas na contagem absoluta de transições de probabilidade observadas nas últimas horas.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 113: SCHRODINGER WAVE FUNCTION
+- **Decisão:** Implementação do `SchrodingerWaveAgent`. Calcula o 'Tunelamento Quântico' usando a equação de Schrödinger, onde a Volatilidade é a Energia Cinética e os Suportes são as Barreiras de Potencial.
+- **Justificativa:** Avalia matematicamente se o momentum de preço tem energia suficiente para atravessar uma parede (rompimento) ou se a onda de probabilidade será refletida de volta (reversão).
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 24.0.0-omega) — Phase Ω-Oracle Systems Active*

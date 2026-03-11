@@ -109,7 +109,7 @@ class OmegaParameterSpace:
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
-        self._register("trinity_min_rr_ratio", 1.8, 1.5, 3.5,
+        self._register("trinity_min_rr_ratio", 1.6, 1.2, 2.5,
                         "RR Ratio mínimo no TrinityCore")
         self._register("mc_min_score", -0.30, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
