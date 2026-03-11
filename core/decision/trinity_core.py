@@ -349,7 +349,7 @@ class TrinityCore:
         # [Phase 50] God-Mode Reversal & Resonance Bypass
         if (phi < 0.2 and entropy > entropy_thresh) or is_god_mode:
             is_god_mode_phi = True
-            log.omega(f"👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.")
+            self._log_cooldown("GOD_MODE_REVERSAL_GATE", f"👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ={phi:.2f}, E={entropy:.2f}). Bypassing Incoherence Veto.", 30, level="omega")
 
         # ═══ VETO 03: SYSTEM INCOHERENCE (PHI) ═══
         phi_threshold = dynamic_phi_min # Use the dynamically calculated phi_min
@@ -488,7 +488,7 @@ class TrinityCore:
         if reward < min_points_needed:
             # Se for God-Mode ou Ressonância, engolimos o trade mesmo assim.
             if is_god_mode or is_phi_resonance:
-                 log.omega(f"👹 [OMEGA IGNITION] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})")
+                 self._log_cooldown("REWARD_BYPASS", f"👹 [OMEGA IGNITION] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})", 30, level="omega")
             else:
                 # [Phase Ω-Apocalypse] TP Elastic Expansion
                 # If the ATR-based TP is too small to cover fees, we stretch it to meet the floor.
@@ -520,7 +520,7 @@ class TrinityCore:
         # [Phase 51] God-Mode RR Rationale
         if is_god_mode:
             min_rr = OMEGA.get("god_mode_rr_min", 0.35)
-            log.omega(f"👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: {min_rr:.2f})")
+            self._log_cooldown("GOD_MODE_RR", f"👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: {min_rr:.2f})", 30, level="omega")
 
         # [Phase 52] Divergence-Aware RR Adjustment
         # Se agentes 'Leading' divergem da decisão final, aumentamos a exigência de RR.
@@ -603,7 +603,7 @@ class TrinityCore:
             if is_god_mode or has_ignition:
                 relaxation = OMEGA.get("kinematic_v_pulse_relaxation", 2.5)
                 kinematic_atr_mult *= relaxation
-                log.omega(f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})")
+                self._log_cooldown("ALPHA_SURGE", f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})", 30, level="omega")
             
             if action == Action.BUY:
                 local_min = np.min(closures[-5:])

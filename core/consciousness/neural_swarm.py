@@ -200,6 +200,11 @@ from core.consciousness.agents.sovereignty_agents import (
     TemporalAttentionAgent, CrossExchangeDeltaAgent
 )
 
+# Phase Ω-Emanation (Nível 17 - Geometria Não-Euclidiana e Teoria da Informação)
+from core.consciousness.agents.emanation_agents import (
+    NonEuclideanGeometryAgent, ShannonKLDivergenceAgent, StringTheoryVibrationAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

@@ -88,5 +88,7 @@
 - [x] **Blow-Off Top & Climax Bottom Detector**: Identifica o exato milissegundo de exaustão institucional cruzando Z-Scores anormais de volume (>3.0) com anatomia de retração de pavios extremos, revertendo a mão a favor do repique.
 - [x] **Temporal Attention Mechanism (Transformer)**: Calcula um "Attention Score" (Volume x Amplitude) para as velas recentes. Força o enxame a focar na vela âncora de maior gravidade, silenciando o ruído e eliminando a paralisia direcional.
 - [x] **Cross-Exchange Delta Proxy**: Isola spoofing em Futuros vs Spot analisando a divergência entre aceleração de preço e entropia de ticks. Movimentos sem entropia (oco) são operados contra a tendência.
+- [x] **Non-Euclidean Geometry**: Mede a distorção do espaço-tempo entre velas usando distância hiperbólica (Poincaré). Detecta quando o ruído intra-vela é massivo mas o spread euclidiano é nulo, antecipando uma panela de pressão.
+- [x] **String Theory Resonance**: Modelagem de médias móveis como cordas vibrantes N-dimensionais. Identifica o "Nó Quântico" exato (variância zera) que precede uma Ejeção de Singularidade.
 
-*(Atualizado: 2026-03-11. Versão: 25.0.0-omega+sovereignty_matrix)*
+*(Atualizado: 2026-03-12. Versão: 26.0.0-omega+emanation_matrix)*

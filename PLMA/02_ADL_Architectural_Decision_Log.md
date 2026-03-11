@@ -647,4 +647,19 @@
 - **Justificativa:** Com um enxame colossal de 112 agentes, exigir 55% de coerência para não mutilar o sinal estava causando "Paralisia por Superposição" constante. Uma coerência de 45% com 112 mentes já é um consenso massivo.
 - **Data/Status:** ATIVO. (2026-03-11).
 
-*(Atualizado: 2026-03-11. Versão: 18.0.0-omega) — Phase Ω-Sovereignty Systems Active*
+### DECISÃO 99: NON-EUCLIDEAN GEOMETRY (Hyperbolic Space)
+- **Decisão:** Implementação do `NonEuclideanGeometryAgent`. Usa matemática do disco de Poincaré para medir a distorção do espaço-tempo entre as velas. Se a "distância hiperbólica" (volatilidade bruta acumulada) é gigante mas a distância euclidiana (preço de A a B) é mínima, o agente decreta que o mercado é uma "panela de pressão".
+- **Justificativa:** Em HFT, o spread e os saltos de tick criam distâncias que não existem no gráfico limpo. Medir essa distorção permite prever fugas explosivas.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 100: KULLBACK-LEIBLER DIVERGENCE (Information Theory)
+- **Decisão:** Injeção do `ShannonKLDivergenceAgent`. Calcula a divergência de distribuição de probabilidade de volume (P || Q) entre o passado e o presente imediato.
+- **Justificativa:** Se a assinatura informacional do mercado sofre um "Paradigm Shift" (Divergência KL > 1.5) sem o preço se mover, a ASI sabe que a estrutura fundamental de liquidez foi alterada pelas baleias.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 101: STRING THEORY VIBRATION
+- **Decisão:** Implementação do `StringTheoryVibrationAgent`. Trata as médias móveis (EMAs) como "cordas" num espaço multidimensional. 
+- **Justificativa:** Se as cordas se tangenciam perfeitamente (Nó Quântico), a variância zera e uma "ejeção de singularidade" (breakout violento) é garantida. Se elas vibram harmoniosamente, a ASI segue a expansão.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 19.0.0-omega) — Phase Ω-Emanation Systems Active*
