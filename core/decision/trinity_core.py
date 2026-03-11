@@ -663,7 +663,8 @@ class TrinityCore:
                                 # Contar quantos picos existem nesse nível (alinhamento)
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
-                                    if not (has_ignition or is_god_mode):
+                                    # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.40) ou tem ignição
+                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > 0.40):
                                         return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
         # [Phase 52.11] Simétrico: Suporte Horizontal para SELL
@@ -686,7 +687,7 @@ class TrinityCore:
                             if abs(dist_to_valley) < 0.08:
                                 matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
                                 if matches >= 2: # Fundo Duplo ou Triplo
-                                    if not (has_ignition or is_god_mode):
+                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > 0.40):
                                         return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
 
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
