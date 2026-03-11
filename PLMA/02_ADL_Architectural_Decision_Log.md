@@ -662,4 +662,19 @@
 - **Justificativa:** Se as cordas se tangenciam perfeitamente (Nó Quântico), a variância zera e uma "ejeção de singularidade" (breakout violento) é garantida. Se elas vibram harmoniosamente, a ASI segue a expansão.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 19.0.0-omega) — Phase Ω-Emanation Systems Active*
+### DECISÃO 102: WHITE HOLE INJECTION SENSOR
+- **Decisão:** Injeção do `WhiteHoleInjectionAgent`. Ele detecta o surgimento instantâneo de paredes maciças de liquidez nas 3 primeiras camadas do spread.
+- **Justificativa:** Diferencia Spoofing de "Injeção de Propulsão" institucional, entrando a favor da barreira para surfar o empurrão do Market Maker.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 103: HAWKING RADIATION EVAPORATION
+- **Decisão:** Implementação do `HawkingRadiationAgent`. Calcula a taxa de evaporação de blocos de liquidez antes de serem executados.
+- **Justificativa:** Antecipa o rompimento de suportes/resistências gigantes observando quando a parede de liquidez "desiste" ou é micro-agredida até evaporar.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 104: GRAVITATIONAL LENSING
+- **Decisão:** Implementação do `GravitationalLensingAgent`. Mede quando o preço "orbita" uma parede massiva de ordens mas falha em tocá-la, começando a curvar.
+- **Justificativa:** O efeito estilingue (slingshot). O preço tenta ir a um Hub, sofre repulsão magnética da parede antes de bater e inverte. A ASI antecipa a inversão.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 20.0.0-omega) — Phase Ω-Void Systems Active*

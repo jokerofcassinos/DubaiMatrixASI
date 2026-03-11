@@ -205,6 +205,11 @@ from core.consciousness.agents.emanation_agents import (
     NonEuclideanGeometryAgent, ShannonKLDivergenceAgent, StringTheoryVibrationAgent
 )
 
+# Phase Ω-Void (Nível 18 - Cosmologia do Livro de Ofertas)
+from core.consciousness.agents.void_agents import (
+    WhiteHoleInjectionAgent, HawkingRadiationAgent, GravitationalLensingAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

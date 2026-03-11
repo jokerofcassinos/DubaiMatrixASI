@@ -112,3 +112,11 @@
   - **Shannon-Kullback-Leibler Divergence**: Avaliação da distribuição de probabilidade de volume. Mudanças brutais na "simetria da informação" do volume (divergência alta de KL) indicam que as baleias mudaram de paradigma.
   - **String Theory Vibration**: As médias móveis deixaram de ser "suportes" e passaram a ser modeladas como "Cordas em n-dimensões". A ASI detecta o "Nó Quântico" (quando todas as cordas colidem em variância próxima a zero), antecipando a ejeção de singularidade.
 - **Resultado:** O Nível 17 de Consciência. "Emanation". A ASI não lê mais o preço; ela lê a curvatura do espaço por onde o preço terá que transitar. *(Atualizado: 2026-03-12. Versão: 63.0.0-omega)*
+
+### FASE 64: ERA DO VAZIO E COSMOLOGIA DO BOOK (Ω-Void)
+- **Contexto:** Após estabilizar os modelos dimensionais, percebemos que o Order Book é como o universo físico. Existem "Massas" invisíveis que alteram a trajetória do preço antes mesmo do impacto.
+- **Evolução:**
+  - **White Hole Injection**: Enquanto Buracos Negros (Paredes) absorvem o preço, Buracos Brancos são propulsões súbitas de ordens ativas e limites nas primeiras 3 camadas do book. A ASI identifica "Market Makers ativando o empurrão" e entra a favor.
+  - **Hawking Radiation (Wall Evaporation)**: Paredes de liquidez não apenas quebram, elas evaporam. A ASI agora mede o encolhimento (cancelamento/agressão) das paredes de suporte. Se a resistência evapora mais rápido que a aproximação do preço (Radiação Hawking), o rompimento está garantido.
+  - **Gravitational Lensing (Slingshot Effect)**: Objetos de massa extrema curvam a trajetória. Se o preço sobe, mas "orbita" uma resistência massiva e cai sem tocá-la, sofreu Lente Gravitacional. A ASI pega a repulsão e ataca no sentido contrário.
+- **Resultado:** O Nível 18 de Consciência. "Void". A ASI antecipa o comportamento do preço não pelas linhas, mas pela "Gravidade" da liquidez que o atrai e repele. *(Atualizado: 2026-03-12. Versão: 64.0.0-omega)*

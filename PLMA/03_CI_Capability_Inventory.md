@@ -90,5 +90,8 @@
 - [x] **Cross-Exchange Delta Proxy**: Isola spoofing em Futuros vs Spot analisando a divergência entre aceleração de preço e entropia de ticks. Movimentos sem entropia (oco) são operados contra a tendência.
 - [x] **Non-Euclidean Geometry**: Mede a distorção do espaço-tempo entre velas usando distância hiperbólica (Poincaré). Detecta quando o ruído intra-vela é massivo mas o spread euclidiano é nulo, antecipando uma panela de pressão.
 - [x] **String Theory Resonance**: Modelagem de médias móveis como cordas vibrantes N-dimensionais. Identifica o "Nó Quântico" exato (variância zera) que precede uma Ejeção de Singularidade.
+- [x] **White Hole Injection Sensor**: Detecta empurrões súbitos de liquidez macroscópica (Makers) nas camadas frontais do spread, surfando a propulsão instantânea.
+- [x] **Hawking Radiation Evaporation**: Mede a taxa de evaporação de paredes institucionais. Prevê rompimentos quando a parede de defesa cancela ordens mais rápido que a agressão.
+- [x] **Gravitational Lensing Slingshot**: Detecta quando o preço orbita uma parede de ofertas sem tocá-la e começa a reverter (efeito estilingue gravitacional).
 
-*(Atualizado: 2026-03-12. Versão: 26.0.0-omega+emanation_matrix)*
+*(Atualizado: 2026-03-12. Versão: 27.0.0-omega+void_matrix)*
