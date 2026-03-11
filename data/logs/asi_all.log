@@ -1,100 +1,407 @@
-[DubaiMatrixASI] 20:35:28.036     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 20:35:28.037     INFO │ 
+[DubaiMatrixASI] 20:50:48.310     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 20:50:48.310     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 20:35:28.037     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 20:35:28.038     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 20:35:28.038    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 20:35:28.038    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 20:35:28.039    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 20:35:28.039    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 20:35:28.039    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 20:35:28.040    OMEGA │ ⚡ 📅 2026-03-11T23:35:28.040264+00:00
-[DubaiMatrixASI] 20:35:28.040    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 20:35:28.041    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 20:35:28.041     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 20:35:28.044     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 20:35:28.044    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 20:35:28.045     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 20:35:28.045     INFO │    Conta: 1521199394
-[DubaiMatrixASI] 20:35:28.045     INFO │    Servidor: FTMO-Demo2
-[DubaiMatrixASI] 20:35:28.046     INFO │    Saldo: $98493.58
-[DubaiMatrixASI] 20:35:28.046     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 20:35:28.046     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 20:35:28.047     INFO │    Spread: 100 points
-[DubaiMatrixASI] 20:35:28.048    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 20:35:28.048     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 20:35:28.048    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70198.39, Bid=70197.39
-[DubaiMatrixASI] 20:35:28.049     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 20:35:28.056     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 20:35:28.058    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 20:35:28.059    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 20:35:28.075    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 20:35:28.085     INFO │ 📂 Carregados 60 trades do histórico. WR=51.7%
-[DubaiMatrixASI] 20:35:28.116    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 20:35:28.117    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 20:35:28.118    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 20:35:28.124    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 20:35:28.125    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
-[DubaiMatrixASI] 20:35:28.125    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 20:35:28.126     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98493.58, 'equity': 98493.58, 'tick_buffer_size': 1, 'last_tick_ms': 1773282929815}
-[DubaiMatrixASI] 20:35:28.127    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 20:35:28.127    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 20:35:28.156    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 20:35:28.318    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.78
-[DubaiMatrixASI] 20:35:28.333    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 20:35:28.335    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111056: Regime=None
-[DubaiMatrixASI] 20:35:28.352    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111058: Regime=None
-[DubaiMatrixASI] 20:35:28.369    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111059: Regime=None
-[DubaiMatrixASI] 20:35:28.381    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114639: Regime=None
-[DubaiMatrixASI] 20:35:28.382    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114637: Regime=SQUEEZE_BUILDUP
-[DubaiMatrixASI] 20:35:28.399    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114638: Regime=None
-[DubaiMatrixASI] 20:35:28.404    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120769: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 20:35:28.411    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120773: Regime=None
-[DubaiMatrixASI] 20:35:28.422    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120770: Regime=None
-[DubaiMatrixASI] 20:35:28.422    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120771: Regime=None
-[DubaiMatrixASI] 20:35:28.428    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123887: Regime=None
-[DubaiMatrixASI] 20:35:28.429    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123889: Regime=None
-[DubaiMatrixASI] 20:35:28.430    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123888: Regime=None
-[DubaiMatrixASI] 20:35:28.430    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123886: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 20:35:28.431    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129948: Regime=None
-[DubaiMatrixASI] 20:35:28.432    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129947: Regime=LOW_LIQUIDITY
-[DubaiMatrixASI] 20:35:28.432    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129949: Regime=None
-[DubaiMatrixASI] 20:35:28.433    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129950: Regime=None
-[DubaiMatrixASI] 20:35:28.433    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138647: Regime=None
-[DubaiMatrixASI] 20:35:28.433    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138648: Regime=None
-[DubaiMatrixASI] 20:35:28.434    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138650: Regime=None
-[DubaiMatrixASI] 20:35:28.435    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138651: Regime=None
-[DubaiMatrixASI] 20:35:28.435    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138827: Regime=None
-[DubaiMatrixASI] 20:35:28.436    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138828: Regime=None
-[DubaiMatrixASI] 20:35:28.436    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138831: Regime=None
-[DubaiMatrixASI] 20:35:28.436    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138834: Regime=None
-[DubaiMatrixASI] 20:35:28.437    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279740: Regime=None
-[DubaiMatrixASI] 20:35:28.437    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279741: Regime=None
-[DubaiMatrixASI] 20:35:28.438    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279742: Regime=None
-[DubaiMatrixASI] 20:35:28.438    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106302983: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 20:35:28.455    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303817: Regime=None
-[DubaiMatrixASI] 20:35:28.468    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303820: Regime=None
-[DubaiMatrixASI] 20:35:28.469    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303815: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 20:35:28.485    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532717: Regime=None
-[DubaiMatrixASI] 20:35:28.491    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532719: Regime=None
-[DubaiMatrixASI] 20:35:28.491    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532720: Regime=None
-[DubaiMatrixASI] 20:35:28.506    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532721: Regime=None
-[DubaiMatrixASI] 20:35:28.514    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536285: Regime=None
-[DubaiMatrixASI] 20:35:28.515    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536286: Regime=None
-[DubaiMatrixASI] 20:35:28.516    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536287: Regime=None
-[DubaiMatrixASI] 20:35:28.517    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536289: Regime=None
-[DubaiMatrixASI] 20:35:28.517    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536708: Regime=None
-[DubaiMatrixASI] 20:35:28.518    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536711: Regime=None
-[DubaiMatrixASI] 20:35:28.518    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536712: Regime=None
-[DubaiMatrixASI] 20:35:28.518    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580315: Regime=None
-[DubaiMatrixASI] 20:35:28.519    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580317: Regime=None
-[DubaiMatrixASI] 20:35:28.519    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580320: Regime=None
-[DubaiMatrixASI] 20:35:28.520    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580322: Regime=None
-[DubaiMatrixASI] 20:35:28.521    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584169: Regime=None
-[DubaiMatrixASI] 20:35:28.521    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584170: Regime=None
-[DubaiMatrixASI] 20:35:28.521    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584171: Regime=None
-[DubaiMatrixASI] 20:35:28.525    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5388)
-[DubaiMatrixASI] 20:35:28.525    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006917
-[DubaiMatrixASI] 20:35:28.526    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 61 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1506.42
-[DubaiMatrixASI] 20:35:29.226    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 58777)
-[DubaiMatrixASI] 20:35:29.765     INFO │ 🌍 Macro Update: ETH=$2057.31 | BTC/ETH=34.2 | Gold=$5156 | Vol24h=$104.7B | Bias=+0.200 | Sources=3
+[DubaiMatrixASI] 20:50:48.311     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 20:50:48.311     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 20:50:48.311    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 20:50:48.312    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 20:50:48.312    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 20:50:48.312    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 20:50:48.313    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 20:50:48.313    OMEGA │ ⚡ 📅 2026-03-11T23:50:48.313509+00:00
+[DubaiMatrixASI] 20:50:48.313    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 20:50:48.314    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 20:50:48.314     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 20:50:48.317     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 20:50:48.317    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 20:50:48.318     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 20:50:48.318     INFO │    Conta: 1521199394
+[DubaiMatrixASI] 20:50:48.318     INFO │    Servidor: FTMO-Demo2
+[DubaiMatrixASI] 20:50:48.319     INFO │    Saldo: $98493.58
+[DubaiMatrixASI] 20:50:48.319     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 20:50:48.319     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 20:50:48.320     INFO │    Spread: 100 points
+[DubaiMatrixASI] 20:50:48.321    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 20:50:48.321     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 20:50:48.322    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70257.58, Bid=70256.58
+[DubaiMatrixASI] 20:50:48.322     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 20:50:48.330     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 20:50:48.331    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 20:50:48.332    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 20:50:48.360    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 20:50:48.429     INFO │ 📂 Carregados 60 trades do histórico. WR=51.7%
+[DubaiMatrixASI] 20:50:48.494    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 20:50:48.522    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 20:50:48.526    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 20:50:48.549    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 20:50:48.549    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 113 agentes ativos
+[DubaiMatrixASI] 20:50:48.550    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 20:50:48.550     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98493.58, 'equity': 98493.58, 'tick_buffer_size': 1, 'last_tick_ms': 1773283848038}
+[DubaiMatrixASI] 20:50:48.551    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 20:50:48.551    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 20:50:48.602    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 20:50:48.799    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.78
+[DubaiMatrixASI] 20:50:48.820    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 20:50:48.822    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111056: Regime=None
+[DubaiMatrixASI] 20:50:48.822    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111058: Regime=None
+[DubaiMatrixASI] 20:50:48.823    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106111059: Regime=None
+[DubaiMatrixASI] 20:50:48.823    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114639: Regime=None
+[DubaiMatrixASI] 20:50:48.824    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114637: Regime=SQUEEZE_BUILDUP
+[DubaiMatrixASI] 20:50:48.824    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106114638: Regime=None
+[DubaiMatrixASI] 20:50:48.825    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120769: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 20:50:48.825    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120773: Regime=None
+[DubaiMatrixASI] 20:50:48.825    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120770: Regime=None
+[DubaiMatrixASI] 20:50:48.826    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106120771: Regime=None
+[DubaiMatrixASI] 20:50:48.826    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123887: Regime=None
+[DubaiMatrixASI] 20:50:48.827    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123889: Regime=None
+[DubaiMatrixASI] 20:50:48.827    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123888: Regime=None
+[DubaiMatrixASI] 20:50:48.828    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106123886: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 20:50:48.828    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129948: Regime=None
+[DubaiMatrixASI] 20:50:48.829    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129947: Regime=LOW_LIQUIDITY
+[DubaiMatrixASI] 20:50:48.830    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129949: Regime=None
+[DubaiMatrixASI] 20:50:48.830    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106129950: Regime=None
+[DubaiMatrixASI] 20:50:48.847    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138647: Regime=None
+[DubaiMatrixASI] 20:50:48.861    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138648: Regime=None
+[DubaiMatrixASI] 20:50:48.861    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138650: Regime=None
+[DubaiMatrixASI] 20:50:48.867    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138651: Regime=None
+[DubaiMatrixASI] 20:50:48.881    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138827: Regime=None
+[DubaiMatrixASI] 20:50:48.882    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138828: Regime=None
+[DubaiMatrixASI] 20:50:48.894    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138831: Regime=None
+[DubaiMatrixASI] 20:50:48.903    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106138834: Regime=None
+[DubaiMatrixASI] 20:50:48.904    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279740: Regime=None
+[DubaiMatrixASI] 20:50:48.904    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279741: Regime=None
+[DubaiMatrixASI] 20:50:48.905    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106279742: Regime=None
+[DubaiMatrixASI] 20:50:48.905    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106302983: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 20:50:48.906    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303817: Regime=None
+[DubaiMatrixASI] 20:50:48.907    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303820: Regime=None
+[DubaiMatrixASI] 20:50:48.907    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106303815: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 20:50:48.908    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532717: Regime=None
+[DubaiMatrixASI] 20:50:48.908    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532719: Regime=None
+[DubaiMatrixASI] 20:50:48.909    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532720: Regime=None
+[DubaiMatrixASI] 20:50:48.909    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106532721: Regime=None
+[DubaiMatrixASI] 20:50:48.910    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536285: Regime=None
+[DubaiMatrixASI] 20:50:48.911    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536286: Regime=None
+[DubaiMatrixASI] 20:50:48.911    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536287: Regime=None
+[DubaiMatrixASI] 20:50:48.912    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536289: Regime=None
+[DubaiMatrixASI] 20:50:48.912    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536708: Regime=None
+[DubaiMatrixASI] 20:50:48.913    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536711: Regime=None
+[DubaiMatrixASI] 20:50:48.913    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106536712: Regime=None
+[DubaiMatrixASI] 20:50:48.914    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580315: Regime=None
+[DubaiMatrixASI] 20:50:48.914    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580317: Regime=None
+[DubaiMatrixASI] 20:50:48.915    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580320: Regime=None
+[DubaiMatrixASI] 20:50:48.915    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106580322: Regime=None
+[DubaiMatrixASI] 20:50:48.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584169: Regime=None
+[DubaiMatrixASI] 20:50:48.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584170: Regime=None
+[DubaiMatrixASI] 20:50:48.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #106584171: Regime=None
+[DubaiMatrixASI] 20:50:48.919    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9036)
+[DubaiMatrixASI] 20:50:48.920    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007247
+[DubaiMatrixASI] 20:50:48.920    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 61 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1506.42
+[DubaiMatrixASI] 20:50:49.043    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 59028)
+[DubaiMatrixASI] 20:50:49.822     INFO │ 🌍 Macro Update: ETH=$2050.12 | BTC/ETH=34.2 | Gold=$0 | Vol24h=$104.4B | Bias=+0.200 | Sources=2
+[DubaiMatrixASI] 20:50:50.943     INFO │ 📊 Sentiment Update: F&G=15 (Extreme Fear) | BTC Dom=0.0% | 24h=+0.00% | Score=-0.580 | Sources=1
+[DubaiMatrixASI] 20:50:51.630     INFO │ ⛓️ On-Chain Update: Mempool=32,038 txs | Fee=1.8 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 20:50:56.210     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.227 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(8s/120.0s)
+  🧬 Quantum: SIGNAL=-0.227 COHERENCE=0.52 PHI=0.12
+  🐂 BULL[9]: QuantumSpin, ChaosRegime, PremiumDiscountAgent, AggressivenessAgent, OscillationWaveAgent, MacroBiasAgent, ChartStructureAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[17]: FourierSpectral, PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, MicrostructureAgent, TrendAgent, CandleAnatomyAgent, PriceGravityAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:03.787     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.148 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(15s/120.0s)
+  🧬 Quantum: SIGNAL=-0.148 COHERENCE=0.51 PHI=0.10
+  🐂 BULL[11]: QuantumEntanglement, QuantumSpin, ChaosRegime, PremiumDiscountAgent, CandleAnatomyAgent, OscillationWaveAgent, FeynmanPath, MacroBiasAgent, ChartStructureAgent, HexMatrix, AggressivenessAgent
+  🐻 BEAR[18]: FourierSpectral, QuantumSuperposition, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, PriceGravityAgent, CppFractalAgent, FVGAgent, PriceVelocityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, MicrostructureAgent, TrendAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:11.402     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.168 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(23s/120.0s)
+  🧬 Quantum: SIGNAL=-0.168 COHERENCE=0.51 PHI=0.10
+  🐂 BULL[9]: QuantumEntanglement, PheromoneFieldAgent, QuantumSpin, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, MacroBiasAgent, FeynmanPath, ChartStructureAgent
+  🐻 BEAR[20]: FourierSpectral, QuantumSuperposition, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, PriceVelocityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, HexMatrix, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:18.996     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.132 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(31s/120.0s)
+  🧬 Quantum: SIGNAL=-0.132 COHERENCE=0.50 PHI=0.08
+  🐂 BULL[12]: QuantumEntanglement, PheromoneFieldAgent, QuantumSpin, ChaosRegime, PremiumDiscountAgent, LiquidStateAgent, OscillationWaveAgent, MacroBiasAgent, CandleAnatomyAgent, AggressivenessAgent, ChartStructureAgent, HexMatrix
+  🐻 BEAR[18]: FourierSpectral, QuantumSuperposition, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, FeynmanPath, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, PriceVelocityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:26.626     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=-0.103 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(38s/120.0s)
+  🧬 Quantum: SIGNAL=-0.103 COHERENCE=0.51 PHI=0.07
+  🐂 BULL[12]: QuantumEntanglement, PheromoneFieldAgent, QuantumSpin, ChaosRegime, PremiumDiscountAgent, LiquidStateAgent, FeynmanPath, AggressivenessAgent, MacroBiasAgent, ChartStructureAgent, HexMatrix, CandleAnatomyAgent
+  🐻 BEAR[16]: FourierSpectral, QuantumSuperposition, PressureMatrix, GameTheoryNashAgent, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, PriceVelocityAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:34.160     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=-0.202 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(46s/120.0s)
+  🧬 Quantum: SIGNAL=-0.202 COHERENCE=0.52 PHI=0.11
+  🐂 BULL[9]: QuantumEntanglement, QuantumSpin, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, MacroBiasAgent, FeynmanPath, ChartStructureAgent, HexMatrix
+  🐻 BEAR[19]: FourierSpectral, QuantumSuperposition, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, LiquidStateAgent, CppFractalAgent, FVGAgent, PriceVelocityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:41.789     INFO │ 💫 Cycle #210 | Action=WAIT | Signal=-0.200 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(53s/120.0s)
+  🧬 Quantum: SIGNAL=-0.200 COHERENCE=0.52 PHI=0.11
+  🐂 BULL[9]: QuantumEntanglement, QuantumSpin, ChaosRegime, PremiumDiscountAgent, OscillationWaveAgent, FeynmanPath, MacroBiasAgent, ChartStructureAgent, HexMatrix
+  🐻 BEAR[19]: FourierSpectral, QuantumSuperposition, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, PriceVelocityAgent, LiquidStateAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, OnChainPressureAgent, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:49.368     INFO │ 💫 Cycle #240 | Action=WAIT | Signal=-0.208 | Coherence=0.52 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(61s/120.0s)
+  🧬 Quantum: SIGNAL=-0.208 COHERENCE=0.52 PHI=0.12
+  🐂 BULL[8]: QuantumEntanglement, QuantumSpin, ChaosRegime, PremiumDiscountAgent, FeynmanPath, MacroBiasAgent, ChartStructureAgent, HexMatrix
+  🐻 BEAR[21]: FourierSpectral, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, LiquidStateAgent, TrendAgent, CppFractalAgent, FVGAgent, AggressivenessAgent, OscillationWaveAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent, OnChainPressureAgent, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 20:51:52.219    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-25,1070
+[DubaiMatrixASI] 20:51:57.196     INFO │ 💫 Cycle #270 | Action=WAIT | Signal=-0.219 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(69s/120.0s)
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.51 PHI=0.14
+  🐂 BULL[9]: QuantumEntanglement, QuantumSpin, StopHunterAgent, ChaosRegime, PremiumDiscountAgent, MacroBiasAgent, FeynmanPath, ChartStructureAgent, HexMatrix
+  🐻 BEAR[22]: FourierSpectral, CrossScaleConvergenceAgent, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, LiquidStateAgent, MicrostructureAgent, TrendAgent, AggressivenessAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent, OnChainPressureAgent, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:04.771     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.296 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(76s/120.0s)
+  🧬 Quantum: SIGNAL=-0.296 COHERENCE=0.51 PHI=0.15
+  🐂 BULL[9]: QuantumSpin, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, HexMatrix, AggressivenessAgent
+  🐻 BEAR[21]: FourierSpectral, TBSAgent, PressureMatrix, InformationEntropyAgent, PriceVelocityAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, Thermodynamic, CandleAnatomyAgent, MicrostructureAgent, TrendAgent, PriceGravityAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, FeynmanPath, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:12.348     INFO │ 💫 Cycle #330 | Action=WAIT | Signal=-0.344 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(84s/120.0s)
+  🧬 Quantum: SIGNAL=-0.344 COHERENCE=0.50 PHI=0.18
+  🐂 BULL[9]: QuantumSpin, ChaosRegime, DarkMass, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, AggressivenessAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[21]: FourierSpectral, CppTickEntropyAgent, TBSAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, BOSAgent, PriceVelocityAgent, GameTheoryNashAgent, Thermodynamic, PriceGravityAgent, MicrostructureAgent, CandleAnatomyAgent, TrendAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:19.921     INFO │ 💫 Cycle #360 | Action=WAIT | Signal=-0.245 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(92s/120.0s)
+  🧬 Quantum: SIGNAL=-0.245 COHERENCE=0.50 PHI=0.13
+  🐂 BULL[9]: PheromoneFieldAgent, QuantumSpin, ChaosRegime, DarkMass, PremiumDiscountAgent, OscillationWaveAgent, ChartStructureAgent, MacroBiasAgent, AggressivenessAgent
+  🐻 BEAR[21]: FourierSpectral, CppTickEntropyAgent, PressureMatrix, InformationEntropyAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PriceVelocityAgent, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CandleAnatomyAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, HexMatrix, FeynmanPath, MeanFieldGame
+[DubaiMatrixASI] 20:52:27.499     INFO │ 💫 Cycle #390 | Action=WAIT | Signal=-0.215 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(99s/120.0s)
+  🧬 Quantum: SIGNAL=-0.215 COHERENCE=0.51 PHI=0.12
+  🐂 BULL[11]: PheromoneFieldAgent, QuantumSpin, ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidStateAgent, ChartStructureAgent, MacroBiasAgent, AggressivenessAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[19]: FourierSpectral, TBSAgent, PressureMatrix, LiquidationVacuumAgent, BOSAgent, PriceVelocityAgent, GameTheoryNashAgent, Thermodynamic, PriceGravityAgent, CandleAnatomyAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:29.904    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5337)
+[DubaiMatrixASI] 20:52:29.905    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006830
+[DubaiMatrixASI] 20:52:35.078     INFO │ 💫 Cycle #420 | Action=WAIT | Signal=-0.271 | Coherence=0.51 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(107s/120.0s)
+  🧬 Quantum: SIGNAL=-0.271 COHERENCE=0.51 PHI=0.14
+  🐂 BULL[9]: QuantumSpin, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, AggressivenessAgent, FeynmanPath
+  🐻 BEAR[20]: FourierSpectral, TBSAgent, PressureMatrix, LiquidationVacuumAgent, BOSAgent, PriceVelocityAgent, GameTheoryNashAgent, Thermodynamic, PriceGravityAgent, CandleAnatomyAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, HexMatrix, MeanFieldGame
+[DubaiMatrixASI] 20:52:42.727     INFO │ 💫 Cycle #450 | Action=WAIT | Signal=-0.238 | Coherence=0.50 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: WAIT: VETO: STARTUP_COOLDOWN(114s/120.0s)
+  🧬 Quantum: SIGNAL=-0.238 COHERENCE=0.50 PHI=0.13
+  🐂 BULL[9]: PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, ChartStructureAgent, MacroBiasAgent, FeynmanPath
+  🐻 BEAR[22]: FourierSpectral, CrossScaleConvergenceAgent, TBSAgent, PriceVelocityAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, SentimentFearGreedAgent, MomentumAgent, OnChainPressureAgent, HexMatrix, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:48.520     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.66)
+[DubaiMatrixASI] 20:52:48.812  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:48.817     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $98493.58
+[DubaiMatrixASI] 20:52:48.818   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.561 | CONF: 0.77 | Φ: 0.18
+║ BULL[10]: MacroBiasAgent, FeynmanPath, HexMatrix, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[22]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.561 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.561 | CONF=0.77 | Φ=0.18 | COH=43.90% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.251 WP=44.4% EV=+1.15 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:48.819    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.35 SL=70246.30 TP=70071.62 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:48.842    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:48.843    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:48.854    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:48.872    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:48.887    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:48.888    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:49.314  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:49.326   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.563 | CONF: 0.77 | Φ: 0.18
+║ BULL[10]: MacroBiasAgent, FeynmanPath, HexMatrix, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[22]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.563 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.563 | CONF=0.77 | Φ=0.18 | COH=43.90% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=+0.011 WP=45.3% EV=+2.11 CVaR=-75.95 sim=10.4ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:49.344    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.34 SL=70246.29 TP=70071.61 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:49.362    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.369    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.371    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.372    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.383    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.383    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:49.580  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:49.585   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.586 | CONF: 0.77 | Φ: 0.18
+║ BULL[9]: MacroBiasAgent, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, FeynmanPath, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.586 conf=0.77 coherence=0.43 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.586 | CONF=0.77 | Φ=0.18 | COH=43.33% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=+0.012 WP=45.2% EV=+2.36 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:49.586    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.34 SL=70246.29 TP=70071.61 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:49.609    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.610    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.611    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.618    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.619    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.619    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:49.817  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:49.823   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.586 | CONF: 0.77 | Φ: 0.18
+║ BULL[9]: MacroBiasAgent, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, FeynmanPath, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.586 conf=0.77 coherence=0.43 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.586 | CONF=0.77 | Φ=0.18 | COH=43.35% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.257 WP=44.0% EV=+0.67 CVaR=-75.95 sim=10.4ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:49.824    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.34 SL=70246.29 TP=70071.61 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:49.845    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.851    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.861    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.862    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.885    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:49.886    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:50.067  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:50.067   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.570 | CONF: 0.76 | Φ: 0.21
+║ BULL[8]: MacroBiasAgent, FeynmanPath, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.570 conf=0.76 coherence=0.45 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.570 | CONF=0.76 | Φ=0.21 | COH=45.33% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.257 WP=44.0% EV=+0.65 CVaR=-75.95 sim=10.4ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:50.068    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.33 SL=70246.28 TP=70071.60 | Φ: 0.21 | CONF: 0.76
+[DubaiMatrixASI] 20:52:50.095    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.096    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.113    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.122    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.128    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.128    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:50.307  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:50.308   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.572 | CONF: 0.77 | Φ: 0.18
+║ BULL[8]: MacroBiasAgent, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[24]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, FeynmanPath, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.572 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.572 | CONF=0.77 | Φ=0.18 | COH=44.01% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=+0.015 WP=45.4% EV=+2.57 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:50.309    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.33 SL=70246.28 TP=70071.60 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:50.336    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.337    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.353    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.355    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.364    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.370    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:50.371     INFO │ 💫 Cycle #480 | Action=SELL | Signal=-0.572 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-1506.42
+  🎯 Reason: SELL signal=-0.572 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.572 | CONF=0.77 | Φ=0.18 | COH=44.01% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=+0.015 WP=45.4% EV=+2.57 CVaR=-75.95 sim=10.5ms]
+  🧬 Quantum: SIGNAL=-0.572 COHERENCE=0.44 PHI=0.18
+  🐂 BULL[8]: MacroBiasAgent, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[24]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, FeynmanPath, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 20:52:50.625  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:50.626   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.574 | CONF: 0.77 | Φ: 0.21
+║ BULL[8]: MacroBiasAgent, FeynmanPath, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.574 conf=0.77 coherence=0.45 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.574 | CONF=0.77 | Φ=0.21 | COH=45.34% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.256 WP=44.2% EV=+0.56 CVaR=-75.95 sim=10.4ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:50.627    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.57 SL=70246.52 TP=70071.84 | Φ: 0.21 | CONF: 0.77
+[DubaiMatrixASI] 20:52:50.667    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.668    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.679    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.689    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.700    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.706    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:50.883  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:50.895   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.595 | CONF: 0.75 | Φ: 0.21
+║ BULL[7]: MacroBiasAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[24]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, FeynmanPath, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.595 conf=0.75 coherence=0.45 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.595 | CONF=0.75 | Φ=0.21 | COH=44.96% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.260 WP=43.9% EV=+0.15 CVaR=-75.95 sim=10.4ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:50.904    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.70 SL=70246.65 TP=70071.97 | Φ: 0.21 | CONF: 0.75
+[DubaiMatrixASI] 20:52:50.936    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.942    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.943    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.947    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.951    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:50.952    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:51.137  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:51.138   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.585 | CONF: 0.77 | Φ: 0.21
+║ BULL[9]: MacroBiasAgent, HexMatrix, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, FeynmanPath, PremiumDiscountAgent
+║ BEAR[22]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.585 conf=0.77 coherence=0.45 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.585 | CONF=0.77 | Φ=0.21 | COH=44.57% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.255 WP=44.3% EV=+0.57 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:51.143    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.65 SL=70246.60 TP=70071.92 | Φ: 0.21 | CONF: 0.77
+[DubaiMatrixASI] 20:52:51.168    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.178    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.180    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.181    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.185    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.185    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:51.396  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:51.402   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.590 | CONF: 0.77 | Φ: 0.21
+║ BULL[8]: MacroBiasAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, FeynmanPath, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.590 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.590 | CONF=0.77 | Φ=0.21 | COH=44.38% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=+0.025 WP=46.1% EV=+3.61 CVaR=-75.95 sim=10.6ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:51.403    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.51 SL=70246.46 TP=70071.78 | Φ: 0.21 | CONF: 0.77
+[DubaiMatrixASI] 20:52:51.423    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.424    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.425    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.432    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.438    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.438    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:51.644  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:51.645   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.568 | CONF: 0.77 | Φ: 0.19
+║ BULL[9]: MacroBiasAgent, FeynmanPath, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[23]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.568 conf=0.77 coherence=0.44 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.568 | CONF=0.77 | Φ=0.19 | COH=43.85% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.260 WP=43.9% EV=+0.25 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:51.647    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.57 SL=70246.52 TP=70071.84 | Φ: 0.19 | CONF: 0.77
+[DubaiMatrixASI] 20:52:51.663    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.689    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.690    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.713    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.722    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.728    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:51.869  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:51.875   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.579 | CONF: 0.77 | Φ: 0.18
+║ BULL[10]: MacroBiasAgent, HexMatrix, PheromoneFieldAgent, QuantumSpin, StopHunterAgent, ChaosRegime, FeynmanPath, LiquidStateAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[22]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.579 conf=0.77 coherence=0.43 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.579 | CONF=0.77 | Φ=0.18 | COH=42.65% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.257 WP=44.1% EV=+0.40 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:51.876    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.57 SL=70246.52 TP=70071.84 | Φ: 0.18 | CONF: 0.77
+[DubaiMatrixASI] 20:52:51.905    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.923    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.933    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.939    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.939    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:51.940    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:52.560     INFO │ 📊 Sentiment Update: F&G=15 (Extreme Fear) | BTC Dom=56.9% | 24h=+0.52% | Score=-0.550 | Sources=2
+[DubaiMatrixASI] 20:52:52.633     INFO │ ⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para 0.50
+[DubaiMatrixASI] 20:52:52.648  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000179. Reducing exposure.
+[DubaiMatrixASI] 20:52:52.649   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.545 | CONF: 0.75 | Φ: 0.21
+║ BULL[7]: LiquidStateAgent, MacroBiasAgent, QuantumSpin, StopHunterAgent, ChaosRegime, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[24]: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, TrendAgent, FeynmanPath, CppFractalAgent, FVGAgent, CandleAnatomyAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, HexMatrix, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 132.49
+║ REASONING: SELL signal=-0.545 conf=0.75 coherence=0.47 regime=DRIFTING_BEAR ATR=132.49 RR=1.30 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.545 | CONF=0.75 | Φ=0.21 | COH=46.61% | BEAR: FourierSpectral, QuantumSuperposition, CrossScaleConvergenceAgent | MC[score=-0.249 WP=44.5% EV=+1.42 CVaR=-75.95 sim=10.5ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 20:52:52.651    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70170.46 SL=70246.41 TP=70071.73 | Φ: 0.21 | CONF: 0.75
+[DubaiMatrixASI] 20:52:52.677    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:52.677    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:52.695    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:52.705    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:52.710    ERROR │ ❌ Exceção no disparo do slot: 'MT5Bridge' object has no attribute 'get_last_tick'
+[DubaiMatrixASI] 20:52:52.710    ERROR │ ❌ Execução falhou: todas as tentativas retornaram erro no MT5
+[DubaiMatrixASI] 20:52:54.211    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 20:52:54.260    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 20:52:54.261    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 20:52:54.266    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 20:52:54.267    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 20:52:54.267    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 20:52:54.268    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-11T23:52:54.268168+00:00
+[DubaiMatrixASI] 20:52:54.268     INFO │ 📈 Trades: 60
+[DubaiMatrixASI] 20:52:54.269     INFO │ 📈 Win Rate: 51.7%
+[DubaiMatrixASI] 20:52:54.269     INFO │ 📈 P&L: $-1506.42

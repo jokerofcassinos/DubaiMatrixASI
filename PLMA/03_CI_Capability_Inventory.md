@@ -100,5 +100,7 @@
 - [x] **Ergodic Hypothesis Breach**: Identifica quando o preço fica estático (baixa variância temporal) mas a guerra de liquidez do Book enlouquece (alta variância espacial). A ASI aposta a favor da ponta mais densa antes da explosão de preço ocorrer.
 - [x] **Markov Decision Process (MDP)**: Mapeia empiricamente a probabilidade de transição entre 5 estados de mercado discretos. Prevê matematicamente a mudança de regime de curto prazo ignorando ruídos intratick.
 - [x] **Schrödinger Wave Function**: Aplica equação de onda de probabilidade quântica. Se a Energia Cinética (Velocidade) exceder o Potencial (Barreira de Volume), calcula 'Tunelamento Quântico' (breakout). Senão, prevê reflexão total (reversão).
+- [x] **Quantum Zeno Effect**: Detecta paralisia anômala de preço sob alto volume (observação algorítmica constante) antecipando explosões direcionais causadas pelo fim do "pinning" institucional.
+- [x] **Event Horizon Attraction**: Mapeia Buracos Negros de Liquidez. Se o preço cruza o 'Raio de Schwarzschild' (horizonte de eventos), a ASI percebe a atração gravitacional inescapável e veta operar contra a captura dos stops.
 
-*(Atualizado: 2026-03-12. Versão: 30.0.0-omega+oracle_matrix)*
+*(Atualizado: 2026-03-12. Versão: 31.0.0-omega+omniverse_matrix)*

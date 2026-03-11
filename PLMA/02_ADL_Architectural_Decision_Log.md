@@ -722,4 +722,14 @@
 - **Justificativa:** Avalia matematicamente se o momentum de preço tem energia suficiente para atravessar uma parede (rompimento) ou se a onda de probabilidade será refletida de volta (reversão).
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 24.0.0-omega) — Phase Ω-Oracle Systems Active*
+### DECISÃO 114: QUANTUM ZENO EFFECT
+- **Decisão:** Implementação do `QuantumZenoEffectAgent`. Detecta a paralisia do preço sob alto volume (congelamento por observação) e antecipa o rompimento que ocorre quando a "observação algorítmica" cessa.
+- **Justificativa:** Diferencia consolidações orgânicas de manipulações de "pinning" (preço artificialmente colado) em HFT, preparando-se para o *snap-back* após o release da pressão.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 115: EVENT HORIZON (LIQUIDITY BLACK HOLES)
+- **Decisão:** Injeção do `BlackHoleEventHorizonAgent`. Calcula o 'Raio de Schwarzschild' (distância crítica) ao redor de grandes pools de liquidez. Se o preço cruza essa distância, a ASI entende que a atração gravitacional se tornou infinita e irreversível.
+- **Justificativa:** Previne que a ASI tente operar reversões enquanto o mercado está "caindo/subindo em queda livre" em direção a um buraco negro de stop-losses.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 25.0.0-omega) — Phase Ω-Omniverse Systems Active*

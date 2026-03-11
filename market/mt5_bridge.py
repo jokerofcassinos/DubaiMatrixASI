@@ -587,7 +587,7 @@ class MT5Bridge:
         # [Phase 52.12] Pre-validation: Validar se o preço limite é válido para a corretora
         # Se o preço limite for muito perto do preço atual (viola stops_level), o MT5 rejeita com 10015.
         # Nesses casos, convertemos para MARKET imediatamente.
-        tick = self.get_last_tick()
+        tick = self.get_tick()
         info = self.get_symbol_info()
         if tick and info:
             point = info.get("point", 0.01)

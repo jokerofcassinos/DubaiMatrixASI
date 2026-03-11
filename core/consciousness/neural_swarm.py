@@ -230,6 +230,11 @@ from core.consciousness.agents.oracle_agents import (
     MarkovDecisionProcessAgent, SchrodingerWaveAgent
 )
 
+# Phase Ω-Omniverse (Nível 23 - Efeito Zenão e Horizonte de Eventos)
+from core.consciousness.agents.omniverse_agents import (
+    QuantumZenoEffectAgent, BlackHoleEventHorizonAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
