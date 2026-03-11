@@ -190,6 +190,11 @@ from core.consciousness.agents.architect_agents import (
     EigenvectorCentralityAgent, BaitLayeringSpoofAgent
 )
 
+# Phase Ω-Ascension (Nível 15 - Fluxo Multidimensional e Absorção)
+from core.consciousness.agents.ascension_agents import (
+    OrderBookImbalanceAgent, BlowOffTopDetectorAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

@@ -622,4 +622,14 @@
 - **Justificativa:** Identifica blefes institucionais. Se há Bait-Layering no Bid, a ASI compra (contrariando a isca), sabendo que o Market Maker quer induzir vendas para preencher suas próprias ordens de compra ocultas.
 - **Data/Status:** ATIVO. (2026-03-10).
 
-*(Atualizado: 2026-03-10. Versão: 16.0.0-omega) — Phase Ω-Architect Systems Active*
+### DECISÃO 94: CROSS-EXCHANGE DELTA & ORDER BOOK IMBALANCE
+- **Decisão:** Injeção do `OrderBookImbalanceAgent` (Proxy de Fluxo Multidimensional). Ao invés de olhar apenas para o volume executado (passado), ele cruza a variação do preço com a densidade da fila de ordens (Book Imbalance) atual.
+- **Justificativa:** Identifica movimentos ocos (Fake Breakouts). Se o preço sobe mas o book está massivamente preenchido por Asks (ordens passivas de venda), o pump é uma armadilha institucional para executar lotes de venda. A ASI entra contrária ao movimento.
+- **Data/Status:** ATIVO. (2026-03-11).
+
+### DECISÃO 95: BLOW-OFF TOP DETECTOR
+- **Decisão:** Implementação do `BlowOffTopDetectorAgent`. Ele cruza o Z-Score de Volume (Volume absurdamente alto, >3.0) com a anatomia do pavio da vela de M1.
+- **Justificativa:** Quando a agressão (volume) atinge um pico histórico no exato momento em que o preço atinge as bandas externas e forma um pavio de rejeição, o "Smart Money" saiu. A ASI reconhece a exaustão fatal (Climax Bottom / Blow-Off Top) e ataca na inversão.
+- **Data/Status:** ATIVO. (2026-03-11).
+
+*(Atualizado: 2026-03-11. Versão: 17.0.0-omega) — Phase Ω-Ascension Systems Active*

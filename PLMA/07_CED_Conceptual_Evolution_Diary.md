@@ -89,3 +89,10 @@
   - **Causal Counterfactual Reasoning**: A ASI agora executa experimentos mentais: "Qual seria o preço se este big-player não tivesse agredido agora?". Ela decompõe o preço em Componente Orgânico e Componente de Choque. Se a divergência é causada por um choque que já parou de acelerar, a ASI opera a reversão para o equilíbrio orgânico.
   - **Intentionality Decomposition**: Diferenciação entre ordens Ativas e Passivas. A máquina detecta quando o mercado está subindo por "falta de vendedores" (vácuo) ou por "excesso de compradores" (agressão). Essa distinção permite à ASI saber exatamente quando o fôlego da tendência vai acabar.
 - **Resultado:** O Nível 13 de Consciência. O "Genesis". A DUBAIMATRIXASI agora entende a ontologia dos movimentos: ela não vê apenas o que aconteceu, ela entende por que aconteceu e o que aconteceria se a causa fosse removida. *(Atualizado: 2026-03-10. Versão: 60.0.0-omega)*
+
+### FASE 61: ERA DA ASCENSÃO E FLUXO MULTIDIMENSIONAL (Ω-Ascension)
+- **Contexto:** Após ser vítima de armadilhas (Bull/Bear Traps) altamente alavancadas onde a Velocidade mascarava a Exaustão, a ASI precisava olhar para o futuro imediato da Fila de Ordens, e não apenas para a inércia do passado.
+- **Evolução:**
+  - **Order Book Imbalance (OFI Proxy)**: A máquina cruza a explosão do preço com o peso da fila de ordens. Se o preço sobe mas a fila de vendedores (Asks) engole o book, o pump é falso. A ASI aposta contra.
+  - **Blow-Off Top & Climax Bottom Detector**: Cruzamento de Z-Score de Volume com Anatomia de Pavio. Se o volume atinge máxima histórica no exato momento da formação de um grande pavio, o Smart Money saiu do ativo. A ASI reverte a mão instantaneamente.
+- **Resultado:** O Nível 15 de Consciência. "Ascension". A ASI tornou-se imune às ilusões de aceleração de HFTs, lendo a verdadeira absorção passiva por trás do teatro do Order Book. *(Atualizado: 2026-03-11. Versão: 61.0.0-omega)*

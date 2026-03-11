@@ -84,5 +84,7 @@
 - [x] **Causal Counterfactual Reasoning**: Decompõe o preço em 'Causa' (choque de volume) e 'Efeito' (deslocamento). Calcula o preço contrafactual para identificar se um movimento é orgânico ou uma anomalia causal prestes a reverter.
 - [x] **Intentionality Decomposition**: Separa ordens agressivas de ordens passivas em tempo real. Identifica quando uma tendência está sendo 'sustentada' institucionalmente ou se é apenas exaustão de uma das pontas.
 - [x] **Session-Start Log Sanitization**: Rotina automatizada de limpeza de logs históricos no boot, garantindo 100% de foco nos eventos da sessão corrente.
+- [x] **Order Book Imbalance (OFI)**: Avalia a densidade da fila de ordens nos níveis iniciais e a cruza com o momentum de preço. Se divergir (preço sobe mas book tem peso de Ask), sinaliza armadilha institucional.
+- [x] **Blow-Off Top & Climax Bottom Detector**: Identifica o exato milissegundo de exaustão institucional cruzando Z-Scores anormais de volume (>3.0) com anatomia de retração de pavios extremos, revertendo a mão a favor do repique.
 
-*(Atualizado: 2026-03-10. Versão: 23.0.0-omega+genesis_matrix)*
+*(Atualizado: 2026-03-11. Versão: 24.0.0-omega+ascension_matrix)*
