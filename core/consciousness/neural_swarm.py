@@ -195,6 +195,11 @@ from core.consciousness.agents.ascension_agents import (
     OrderBookImbalanceAgent, BlowOffTopDetectorAgent
 )
 
+# Phase Ω-Sovereignty (Nível 16 - Atenção Temporal e Delta Cruzado)
+from core.consciousness.agents.sovereignty_agents import (
+    TemporalAttentionAgent, CrossExchangeDeltaAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

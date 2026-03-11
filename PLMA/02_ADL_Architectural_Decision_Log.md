@@ -632,4 +632,19 @@
 - **Justificativa:** Quando a agressão (volume) atinge um pico histórico no exato momento em que o preço atinge as bandas externas e forma um pavio de rejeição, o "Smart Money" saiu. A ASI reconhece a exaustão fatal (Climax Bottom / Blow-Off Top) e ataca na inversão.
 - **Data/Status:** ATIVO. (2026-03-11).
 
-*(Atualizado: 2026-03-11. Versão: 17.0.0-omega) — Phase Ω-Ascension Systems Active*
+### DECISÃO 96: TEMPORAL ATTENTION MECHANISM (Transformer Proxy)
+- **Decisão:** Injeção do `TemporalAttentionAgent`. O agente aplica o conceito de "Atenção" (Attention Is All You Need) para dar pesos diferentes às velas recentes com base na sua "massa" (Amplitude x Volume).
+- **Justificativa:** Resolve o problema de sinais fracos (SUPERPOSITION) em tendências óbvias. Se uma vela âncora domina a atenção do passado recente, o agente força a direção dela, cortando o ruído das velas subsequentes.
+- **Data/Status:** ATIVO. (2026-03-11).
+
+### DECISÃO 97: CROSS-EXCHANGE DELTA (Arbitragem Multidimensional)
+- **Decisão:** Implementação do `CrossExchangeDeltaAgent`. Usa um proxy termodinâmico para simular a divergência Spot vs Futures: se o preço explode mas a entropia morre, é spoofing alavancado; se a entropia explode junto, é adoção orgânica (Spot).
+- **Justificativa:** Filtro supremo contra Fake Pushes. A ASI agora inverte a mão e opera contra movimentos rápidos que não têm lastro em entropia real de book (Spot buying).
+- **Data/Status:** ATIVO. (2026-03-11).
+
+### DECISÃO 98: LOW COHERENCE DAMPENING RELAXATION
+- **Decisão:** O threshold de `LOW_COHERENCE_DAMPENING` no `TrinityCore` foi reduzido de `0.55` para `0.40`.
+- **Justificativa:** Com um enxame colossal de 112 agentes, exigir 55% de coerência para não mutilar o sinal estava causando "Paralisia por Superposição" constante. Uma coerência de 45% com 112 mentes já é um consenso massivo.
+- **Data/Status:** ATIVO. (2026-03-11).
+
+*(Atualizado: 2026-03-11. Versão: 18.0.0-omega) — Phase Ω-Sovereignty Systems Active*

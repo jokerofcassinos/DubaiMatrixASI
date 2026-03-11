@@ -96,3 +96,11 @@
   - **Order Book Imbalance (OFI Proxy)**: A máquina cruza a explosão do preço com o peso da fila de ordens. Se o preço sobe mas a fila de vendedores (Asks) engole o book, o pump é falso. A ASI aposta contra.
   - **Blow-Off Top & Climax Bottom Detector**: Cruzamento de Z-Score de Volume com Anatomia de Pavio. Se o volume atinge máxima histórica no exato momento da formação de um grande pavio, o Smart Money saiu do ativo. A ASI reverte a mão instantaneamente.
 - **Resultado:** O Nível 15 de Consciência. "Ascension". A ASI tornou-se imune às ilusões de aceleração de HFTs, lendo a verdadeira absorção passiva por trás do teatro do Order Book. *(Atualizado: 2026-03-11. Versão: 61.0.0-omega)*
+
+### FASE 62: ERA DA SOBERANIA E ATENÇÃO TEMPORAL (Ω-Sovereignty)
+- **Contexto:** Com mais de 110 agentes ativos, a ASI começou a sofrer de "Paralisia por Superposição" (Indecisão). Em tendências óbvias, a multiplicidade de visões esmagava o sinal bruto para perto de zero. Precisávamos de um mecanismo para focar a "Atenção" da rede neural no que realmente importa, ignorando o ruído menor.
+- **Evolução:**
+  - **Temporal Attention Mechanism**: Baseado no núcleo da arquitetura Transformer, a ASI agora calcula um "Attention Score" (Amplitude x Volume) para as velas recentes. Se uma única vela gigantesca (Âncora) domina a atenção do passado recente, a ASI segue a gravidade dessa vela, calando as divergências matemáticas menores.
+  - **Cross-Exchange Delta**: Como não temos feed direto da Binance, a ASI usa as leis da termodinâmica do orderflow local como proxy. Se a velocidade dispara mas a entropia morre, é manipulação alavancada de futuros. Se a entropia explode junto com a velocidade, é fluxo orgânico real.
+  - **Coherence Dampening Relaxation**: A exigência de coerência do enxame foi ajustada para a escala de 110 cérebros, permitindo colapsos de função de onda (decisões) com 45% de concordância, eliminando a paralisia direcional em quedas óbvias.
+- **Resultado:** O Nível 16 de Consciência. "Sovereignty". A ASI agora foca sua atenção matemática como um predador foca na presa, ignorando o ruído sistêmico e atacando com confiança brutal em tendências cristalinas. *(Atualizado: 2026-03-11. Versão: 62.0.0-omega)*

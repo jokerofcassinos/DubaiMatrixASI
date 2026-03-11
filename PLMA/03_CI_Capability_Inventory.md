@@ -86,5 +86,7 @@
 - [x] **Session-Start Log Sanitization**: Rotina automatizada de limpeza de logs históricos no boot, garantindo 100% de foco nos eventos da sessão corrente.
 - [x] **Order Book Imbalance (OFI)**: Avalia a densidade da fila de ordens nos níveis iniciais e a cruza com o momentum de preço. Se divergir (preço sobe mas book tem peso de Ask), sinaliza armadilha institucional.
 - [x] **Blow-Off Top & Climax Bottom Detector**: Identifica o exato milissegundo de exaustão institucional cruzando Z-Scores anormais de volume (>3.0) com anatomia de retração de pavios extremos, revertendo a mão a favor do repique.
+- [x] **Temporal Attention Mechanism (Transformer)**: Calcula um "Attention Score" (Volume x Amplitude) para as velas recentes. Força o enxame a focar na vela âncora de maior gravidade, silenciando o ruído e eliminando a paralisia direcional.
+- [x] **Cross-Exchange Delta Proxy**: Isola spoofing em Futuros vs Spot analisando a divergência entre aceleração de preço e entropia de ticks. Movimentos sem entropia (oco) são operados contra a tendência.
 
-*(Atualizado: 2026-03-11. Versão: 24.0.0-omega+ascension_matrix)*
+*(Atualizado: 2026-03-11. Versão: 25.0.0-omega+sovereignty_matrix)*
