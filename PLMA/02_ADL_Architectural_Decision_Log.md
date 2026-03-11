@@ -677,4 +677,14 @@
 - **Justificativa:** O efeito estilingue (slingshot). O preço tenta ir a um Hub, sofre repulsão magnética da parede antes de bater e inverte. A ASI antecipa a inversão.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 20.0.0-omega) — Phase Ω-Void Systems Active*
+### DECISÃO 105: ORDER FLOW SYNAPTIC PLASTICITY
+- **Decisão:** Injeção do `OrderFlowSynapticPlasticityAgent`. Reforça a "sinapse" compradora/vendedora se o mercado absorve o lado oposto seguidamente.
+- **Justificativa:** Aplica plasticidade neural de Hebbian. Se o suporte absorve ataques constantes (wicks inferiores grandes), a sinapse fortalece, amplificando o sinal direcional antes da ignição final.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 106: HFT RUIN PROBABILITY
+- **Decisão:** Implementação do `HFTRuinProbabilityAgent`. Calcula a probabilidade de um suporte/resistência romper baseado na contagem de ataques diretos.
+- **Justificativa:** Fadiga de material (Liquidity Exhaustion). Se uma parede é testada mais de 4 vezes em 15 minutos, ela irá ruir inevitavelmente, independentemente do momentum atual.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 21.0.0-omega) — Phase Ω-Synapse Systems Active*

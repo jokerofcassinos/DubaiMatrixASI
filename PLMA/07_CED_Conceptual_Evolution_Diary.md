@@ -120,3 +120,10 @@
   - **Hawking Radiation (Wall Evaporation)**: Paredes de liquidez não apenas quebram, elas evaporam. A ASI agora mede o encolhimento (cancelamento/agressão) das paredes de suporte. Se a resistência evapora mais rápido que a aproximação do preço (Radiação Hawking), o rompimento está garantido.
   - **Gravitational Lensing (Slingshot Effect)**: Objetos de massa extrema curvam a trajetória. Se o preço sobe, mas "orbita" uma resistência massiva e cai sem tocá-la, sofreu Lente Gravitacional. A ASI pega a repulsão e ataca no sentido contrário.
 - **Resultado:** O Nível 18 de Consciência. "Void". A ASI antecipa o comportamento do preço não pelas linhas, mas pela "Gravidade" da liquidez que o atrai e repele. *(Atualizado: 2026-03-12. Versão: 64.0.0-omega)*
+
+### FASE 65: ERA DA SINAPSE E RUÍNA HFT (Ω-Synapse)
+- **Contexto:** Identificou-se que o mercado às vezes consolida de uma forma que cega os indicadores cinemáticos. A ASI precisava de uma "memória muscular" direcional. 
+- **Evolução:**
+  - **Order Flow Synaptic Plasticity**: Aplicação da Lei de Hebb. Se o mercado ataca o suporte e é rejeitado repetidamente (deixando grandes pavios inferiores), a "sinapse compradora" fortalece. Quando o rompimento de alta finalmente ocorre, o sinal dispara com confiança máxima porque a parede oposta já esgotou sua energia atacando em vão.
+  - **HFT Ruin Probability**: Probabilidade estocástica de fadiga de material. A ASI não tenta mais "adivinhar" o volume de um rompimento; ela apenas conta quantas vezes a parede foi agredida. Se a barreira resistiu a 4 impactos em 15 minutos, a probabilidade do 5º impacto causar a ruína do suporte converge para 1.
+- **Resultado:** O Nível 19 de Consciência. "Synapse". A ASI não reage apenas à velocidade atual, mas ao cansaço cumulativo da estrutura oposta. *(Atualizado: 2026-03-12. Versão: 65.0.0-omega)*

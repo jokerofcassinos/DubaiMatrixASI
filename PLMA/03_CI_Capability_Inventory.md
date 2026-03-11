@@ -93,5 +93,7 @@
 - [x] **White Hole Injection Sensor**: Detecta empurrões súbitos de liquidez macroscópica (Makers) nas camadas frontais do spread, surfando a propulsão instantânea.
 - [x] **Hawking Radiation Evaporation**: Mede a taxa de evaporação de paredes institucionais. Prevê rompimentos quando a parede de defesa cancela ordens mais rápido que a agressão.
 - [x] **Gravitational Lensing Slingshot**: Detecta quando o preço orbita uma parede de ofertas sem tocá-la e começa a reverter (efeito estilingue gravitacional).
+- [x] **Order Flow Synaptic Plasticity**: Aplica 'Lei de Hebb' ao preço. Reforça a sinapse de compra quando a venda tenta romper e falha repetidamente, amplificando o sinal do breakout subsequente.
+- [x] **HFT Ruin Probability**: Calcula a probabilidade matemática de um suporte/resistência colapsar baseado unicamente na fadiga do material (número de ataques).
 
-*(Atualizado: 2026-03-12. Versão: 27.0.0-omega+void_matrix)*
+*(Atualizado: 2026-03-12. Versão: 28.0.0-omega+synapse_matrix)*

@@ -129,9 +129,8 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 32.0, 0.0, 100.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD")
-        self._register("min_profit_per_ticket", 50.0, 0.0, 500.0,
-                        "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
-        self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
+        self._register("min_profit_per_ticket", 20.0, 10.0, 60.0,
+                       "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")        self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
                         "Multiplicador de cobertura de comissão para Smart TP")
