@@ -687,4 +687,14 @@
 - **Justificativa:** Fadiga de material (Liquidity Exhaustion). Se uma parede é testada mais de 4 vezes em 15 minutos, ela irá ruir inevitavelmente, independentemente do momentum atual.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 21.0.0-omega) — Phase Ω-Synapse Systems Active*
+### DECISÃO 107: SINGULAR SPECTRUM ANALYSIS
+- **Decisão:** Injeção do `SingularSpectrumAnalysisAgent`. Decompõe a matriz de trajetória e isola o Autovetor Primário para agir como uma média móvel de atraso zero (Zero-Lag).
+- **Justificativa:** Médias móveis causam paralisia direcional no HFT porque atrasam a virada de preço. O SSA detecta a "inflexão espectral limpa" antes do atraso matemático.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 108: RANDOM MATRIX THEORY
+- **Decisão:** Implementação do `RandomMatrixTheoryAgent`. Usa teoria de matrizes aleatórias (Marchenko-Pastur) no book.
+- **Justificativa:** Diferencia ruído aleatório de manipulação. Se os autovalores de correlação estouram a distribuição teórica, a ASI segue a inércia, sabendo que os robôs institucionais "ensaiaram" o movimento.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 22.0.0-omega) — Phase Ω-Eschaton Systems Active*

@@ -215,6 +215,11 @@ from core.consciousness.agents.synapse_agents import (
     OrderFlowSynapticPlasticityAgent, HFTRuinProbabilityAgent
 )
 
+# Phase Ω-Eschaton (Nível 20 - Espectro Singular e Matrizes Aleatórias)
+from core.consciousness.agents.eschaton_agents import (
+    SingularSpectrumAnalysisAgent, RandomMatrixTheoryAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent

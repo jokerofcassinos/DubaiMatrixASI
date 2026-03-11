@@ -663,7 +663,8 @@ class TrinityCore:
                                 # Contar quantos picos existem nesse nível (alinhamento)
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
-                                    return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
+                                    if not (has_ignition or is_god_mode):
+                                        return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
         # [Phase 52.11] Simétrico: Suporte Horizontal para SELL
         elif action == Action.SELL:
@@ -685,7 +686,8 @@ class TrinityCore:
                             if abs(dist_to_valley) < 0.08:
                                 matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
                                 if matches >= 2: # Fundo Duplo ou Triplo
-                                    return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
+                                    if not (has_ignition or is_god_mode):
+                                        return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
 
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
         # Prevents selling the exact bottom of a liquidity hunt (wick) or buying the exact top.
