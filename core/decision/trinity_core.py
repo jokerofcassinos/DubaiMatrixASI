@@ -726,14 +726,14 @@ class TrinityCore:
         # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
         if not is_god_mode:
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
-            exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent"])]
+            exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
             
             if action == Action.BUY and len(momentum_bulls) >= 3 and len(exhaustion_bears) >= 2:
                 return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
             # Simétrico para SELL
             momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
-            exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent"])]
+            exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
             if action == Action.SELL and len(momentum_bears) >= 3 and len(exhaustion_bulls) >= 2:
                 return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
