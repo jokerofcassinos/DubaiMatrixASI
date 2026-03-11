@@ -697,4 +697,19 @@
 - **Justificativa:** Diferencia ruído aleatório de manipulação. Se os autovalores de correlação estouram a distribuição teórica, a ASI segue a inércia, sabendo que os robôs institucionais "ensaiaram" o movimento.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 22.0.0-omega) — Phase Ω-Eschaton Systems Active*
+### DECISÃO 109: DIRAC EQUATION ANTIMATTER
+- **Decisão:** Injeção do `DiracEquationAgent`. Aplica a equação de Dirac em HFT, tratando a volatilidade como a velocidade da luz e o volume relativo como massa.
+- **Justificativa:** Se a energia cinética atinge níveis relativísticos sem lastro em massa (volume), a ASI detecta "anti-liquidez" (spoofing que aniquila o preço) e aposta contra o movimento.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 110: RENORMALIZATION GROUP CRITICALITY
+- **Decisão:** Implementação do `RenormalizationGroupAgent`. Verifica se o "Spin" (momento) do preço se mantém idêntico ao mudar a escala temporal (do tick ao M5).
+- **Justificativa:** O mercado só engata uma propulsão massiva (crash/pump) quando atinge Criticalidade Invariante de Escala. Se as escalas discordam, a ASI não confia no movimento macro.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 111: ERGODIC HYPOTHESIS BREACH
+- **Decisão:** Injeção do `ErgodicHypothesisAgent`. Mede a divergência entre a média temporal (volatilidade do preço) e a média espacial do ensemble (dispersão instantânea do Order Book).
+- **Justificativa:** Quando a entropia do espaço (book) supera massivamente a do tempo (preço parado), a ergodicidade foi quebrada. A ASI antecipa a explosão direcional baseada no repouso forçado da ponta que retém mais volume.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 23.0.0-omega) — Phase Ω-Tensor Systems Active*

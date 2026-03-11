@@ -95,5 +95,8 @@
 - [x] **Gravitational Lensing Slingshot**: Detecta quando o preço orbita uma parede de ofertas sem tocá-la e começa a reverter (efeito estilingue gravitacional).
 - [x] **Order Flow Synaptic Plasticity**: Aplica 'Lei de Hebb' ao preço. Reforça a sinapse de compra quando a venda tenta romper e falha repetidamente, amplificando o sinal do breakout subsequente.
 - [x] **HFT Ruin Probability**: Calcula a probabilidade matemática de um suporte/resistência colapsar baseado unicamente na fadiga do material (número de ataques).
+- [x] **Dirac Equation Antimatter**: Modelagem de velocidade vs volume usando energia relativística. Detecta 'Whipsaws' quando o preço sobe na velocidade da luz mas sem massa (volume), identificando a criação de antimatéria financeira (Spoofing).
+- [x] **Renormalization Group Scale Invariance**: Procura o 'Ponto Crítico' real onde as micro-tendências (tick), curtas (M1) e macro (M5) se alinham fractalmente. O Ponto Crítico dita a certeza de um foguete impossível de parar.
+- [x] **Ergodic Hypothesis Breach**: Identifica quando o preço fica estático (baixa variância temporal) mas a guerra de liquidez do Book enlouquece (alta variância espacial). A ASI aposta a favor da ponta mais densa antes da explosão de preço ocorrer.
 
-*(Atualizado: 2026-03-12. Versão: 28.0.0-omega+synapse_matrix)*
+*(Atualizado: 2026-03-12. Versão: 29.0.0-omega+tensor_matrix)*

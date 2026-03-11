@@ -220,6 +220,11 @@ from core.consciousness.agents.eschaton_agents import (
     SingularSpectrumAnalysisAgent, RandomMatrixTheoryAgent
 )
 
+# Phase Ω-Tensor (Nível 21 - Mecânica Relativística e criticalidade)
+from core.consciousness.agents.tensor_matrix_agents import (
+    DiracEquationAgent, RenormalizationGroupAgent, ErgodicHypothesisAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
