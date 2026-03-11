@@ -725,16 +725,17 @@ class TrinityCore:
         # Se os agentes de Momentum/Velocidade estão empolgados, mas os de
         # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
         if not is_god_mode:
-            momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
+            momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
             
-            if action == Action.BUY and len(momentum_bulls) >= 3 and len(exhaustion_bears) >= 2:
+            # [Phase 52.13] Relaxed momentum condition to 2 agents to catch traps earlier
+            if action == Action.BUY and len(momentum_bulls) >= 2 and len(exhaustion_bears) >= 2:
                 return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
             # Simétrico para SELL
-            momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness"])]
+            momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
-            if action == Action.SELL and len(momentum_bears) >= 3 and len(exhaustion_bulls) >= 2:
+            if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
                 return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
         # ═══ 4. MONTE CARLO VALIDATION ═══
