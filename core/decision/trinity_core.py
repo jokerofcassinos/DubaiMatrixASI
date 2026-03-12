@@ -666,7 +666,7 @@ class TrinityCore:
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
                                     # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador ou tem ignição
-                                    bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.40
+                                    bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
                                     if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
@@ -690,7 +690,8 @@ class TrinityCore:
                             if abs(dist_to_valley) < 0.08:
                                 matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
                                 if matches >= 2: # Fundo Duplo ou Triplo
-                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > 0.40):
+                                    bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
+                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
 
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
@@ -735,16 +736,16 @@ class TrinityCore:
             
             # [Phase 52.13] Relaxed momentum condition to 2 agents to catch traps earlier
             if action == Action.BUY and len(momentum_bulls) >= 2 and len(exhaustion_bears) >= 2:
-                # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.50)
-                if abs(quantum_state.raw_signal) < 0.50:
+                bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.50
+                if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
             # Simétrico para SELL
             momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
-                # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.50)
-                if abs(quantum_state.raw_signal) < 0.50:
+                bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.50
+                if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
         # ═══ 4. MONTE CARLO VALIDATION ═══
