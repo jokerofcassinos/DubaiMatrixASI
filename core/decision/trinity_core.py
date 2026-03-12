@@ -715,15 +715,16 @@ class TrinityCore:
                     return self._wait(f"LIQUIDITY_SWEEP_VETO (Bull Trap: Wick rejected {h0 - c0:.1f} points)")
 
         # [Phase 52.4] VETO 10: ELITE DIVERGENCE (Meritocracia de Ideias)
-        # Identificamos os 5 agentes com maior peso (Elite)
-        elite_agents = sorted(quantum_state.agent_signals, key=lambda x: x.weight, reverse=True)[:5]
+        # Identificamos os 5 agentes com maior peso (Elite), excluindo puros vetos (TCellImmunity)
+        directional_elites = [a for a in quantum_state.agent_signals if a.agent_name not in ["TCellImmunity", "KripkeSemantics", "IntuitionisticLogic"]]
+        elite_agents = sorted(directional_elites, key=lambda x: x.weight, reverse=True)[:5]
         if elite_agents:
             elite_direction_sum = sum(np.sign(a.signal) for a in elite_agents)
             swarm_direction = np.sign(quantum_state.raw_signal)
             
-            # Se a maioria da elite (3 de 5) está na direção oposta ao sinal do swarm
-            if (swarm_direction > 0 and elite_direction_sum <= -1) or \
-               (swarm_direction < 0 and elite_direction_sum >= 1):
+            # Se a elite está na direção oposta OU neutra (0), enquanto a manada grita para um lado
+            if (swarm_direction > 0 and elite_direction_sum <= 0) or \
+               (swarm_direction < 0 and elite_direction_sum >= 0):
                 self._veto_count += 1
                 return self._wait(f"ELITE_DIVERGENCE_VETO (Swarm={swarm_direction}, Elite_Sum={elite_direction_sum})")
 
@@ -828,9 +829,9 @@ class TrinityCore:
 
             # VETO se Monte Carlo score é muito negativo
             mc_min_score = OMEGA.get("mc_min_score", -0.1)
-            # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong
+            # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong, EXCEPT in low liquidity/choppy OR Counter-Trend
             if mc_score < mc_min_score:
-                if phi > 0.15 and abs(signal) > 0.35:
+                if phi > 0.15 and abs(signal) > 0.35 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
                      self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] Strong consensus (Φ={phi:.2f}, Sig={signal:.2f}) overriding pessimistic MC.", 60, level="omega")
                 else:
                     return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
@@ -842,7 +843,7 @@ class TrinityCore:
                 mc_min_wp = 0.40
                 
             if mc_win_prob < mc_min_wp:
-                if phi > 0.15 and abs(signal) > 0.35:
+                if phi > 0.15 and abs(signal) > 0.35 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
                      pass # Bypass
                 else:
                     return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")

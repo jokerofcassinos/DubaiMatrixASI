@@ -290,6 +290,11 @@ from core.consciousness.agents.pleroma_agents import (
     DiracFluidAgent, CPTSymmetryAgent
 )
 
+# Phase Ω-Phantom & Chronos (Nível 33 - Liquidez Fantasma e Assimetria Temporal)
+from core.consciousness.agents.phantom_agents import (
+    PhantomLiquidityAgent, TimeReversalAsymmetryAgent
+)
+
 # Byzantine Consensus
 from core.consciousness.byzantine_consensus import ByzantineConsensusManager
 
@@ -533,6 +538,18 @@ class NeuralSwarm:
             NavierStokesTurbulenceAgent(weight=4.2),
             DarkMatterGravityAgent(weight=4.0),
             TCellImmunityAgent(weight=5.0),
+
+            # ═══ CONTINUUM (Phase Ω-Continuum) ═══
+            MTheoryDimensionalAgent(weight=5.0),
+            QuantumChromodynamicsAgent(weight=4.8),
+
+            # ═══ PLEROMA (Phase Ω-Pleroma) ═══
+            DiracFluidAgent(weight=5.0),
+            CPTSymmetryAgent(weight=4.9),
+
+            # ═══ PHANTOM & CHRONOS (Phase Ω-Phantom & Chronos) ═══
+            PhantomLiquidityAgent(weight=4.9),
+            TimeReversalAsymmetryAgent(weight=5.0),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
