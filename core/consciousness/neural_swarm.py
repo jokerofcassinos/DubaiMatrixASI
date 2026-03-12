@@ -235,6 +235,16 @@ from core.consciousness.agents.omniverse_agents import (
     QuantumZenoEffectAgent, BlackHoleEventHorizonAgent
 )
 
+# Phase Ω-Phantom (Nível 24 - Reconstrução Holográfica e Cálculo Fracionário)
+from core.consciousness.agents.phantom_agents import (
+    HolographicDOMAgent, FractionalCalculusVelocityAgent
+)
+
+# Phase Ω-Kinetics (Nível 25 - Impacto Inelástico e Monopolos)
+from core.consciousness.agents.kinetics_agents import (
+    ImpulseScatteringAgent, MagneticMonopoleAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -446,6 +456,10 @@ class NeuralSwarm:
             # ═══ ARCHITECT (Phase Ω-Architect) ═══
             EigenvectorCentralityAgent(weight=4.1),
             BaitLayeringSpoofAgent(weight=4.3),
+
+            # ═══ KINETICS (Phase Ω-Kinetics) ═══
+            ImpulseScatteringAgent(weight=4.7),
+            MagneticMonopoleAgent(weight=4.4),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

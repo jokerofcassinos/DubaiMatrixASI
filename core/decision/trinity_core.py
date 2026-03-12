@@ -736,7 +736,7 @@ class TrinityCore:
             
             # Simétrico para SELL
             momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
-            exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
+            exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
                 return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 

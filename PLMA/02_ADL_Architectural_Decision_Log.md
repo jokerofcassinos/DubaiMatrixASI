@@ -732,4 +732,14 @@
 - **Justificativa:** Previne que a ASI tente operar reversões enquanto o mercado está "caindo/subindo em queda livre" em direção a um buraco negro de stop-losses.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 25.0.0-omega) — Phase Ω-Omniverse Systems Active*
+### DECISÃO 116: IMPULSE SCATTERING RESTITUTION
+- **Decisão:** Injeção do `ImpulseScatteringAgent`. Baseado na física de colisões, calcula o coeficiente de restituição quando o preço atinge blocos de liquidez.
+- **Justificativa:** Identifica se um suporte/resistência agiu como uma parede elástica (rebote imediato) ou inelástica (absorção). Permite entrar no quique do preço antes da confirmação de candle.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 117: MAGNETIC MONOPOLES (NAKED WICKS)
+- **Decisão:** Implementação do `MagneticMonopoleAgent`. Atribui uma "carga magnética" a pavios isolados que não foram revisitados.
+- **Justificativa:** Pavios longos e isolados agem como imãs irresistíveis de liquidez (Naked Stops). A ASI opera a atração magnética em direção ao preenchimento desses pavios.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 26.0.0-omega) — Phase Ω-Kinetics Systems Active*
