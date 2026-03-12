@@ -1,1 +1,0 @@
-[DubaiMatrixASI] 16:55:00.992    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: SSLError: HTTPSConnectionPool(host='mempool.space', port=443): Max retries exceeded with url: /api/mempool (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))

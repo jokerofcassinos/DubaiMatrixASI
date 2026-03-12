@@ -813,7 +813,12 @@ class TrinityCore:
                                (action == Action.SELL and "BULL" in regime_state.current.value)
             
             if is_counter_trend and phi < 0.18:
-                return self._wait(f"COUNTER_TREND_LOW_PHI (Φ={phi:.2f} < 0.18) - Sem integração p/ reversão")
+                # [Phase Ω-Pleroma] Regime Decoupling: Se a inércia do mercado quebrou violentamente, 
+                # o Regime_Detector (que é atrasado) está mentindo. Bypassamos o veto.
+                if is_velocity_burst or abs(signal) > 0.40:
+                    self._log_cooldown("COUNTER_TREND_BYPASS", f"🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.", 60, level="omega")
+                else:
+                    return self._wait(f"COUNTER_TREND_LOW_PHI (Φ={phi:.2f} < 0.18) - Sem integração p/ reversão")
 
             mc_reasoning = (
                 f"MC[score={mc_score:+.3f} WP={mc_win_prob:.1%} "

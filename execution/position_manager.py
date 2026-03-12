@@ -270,15 +270,26 @@ class PositionManager:
                     # Medimos o tempo desde o ÚLTIMO PICO, e não da última variação de micro-lucro
                     stag_time = time.time() - state.get("peak_time", state["start_time"])
                     
-                    if peak > dynamic_peak_floor * 2.0:
-                        max_stag_time = 25.0 # Mais tempo para túneis de grande alvo
-                    elif peak > dynamic_peak_floor * 1.5:
-                        max_stag_time = 15.0  
-                    else:
-                        max_stag_time = 25.0 
-                        
-                    if stag_time >= max_stag_time:
-                        should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f})"
+                    # [Phase Ω-Pleroma] Trava de Tempo Inteligente
+                    # Só fechamos por tempo se o lucro já pagou as comissões COM FOLGA
+                    if peak > dynamic_peak_floor * 1.5:
+                        if peak > dynamic_peak_floor * 4.0:
+                            max_stag_time = 300.0 # Em corridas massivas, deixamos respirar 5 minutos
+                        elif peak > dynamic_peak_floor * 3.0:
+                            max_stag_time = 180.0 
+                        elif peak > dynamic_peak_floor * 2.0:
+                            max_stag_time = 90.0  
+                        else:
+                            max_stag_time = 45.0  
+                            
+                        # [Phase Ω-Chronos] VETO DO TIME DECAY
+                        # Se o fluxo subjacente ainda está a nosso favor, ignoramos o tempo!
+                        is_flow_favorable = (g_is_buy and flow_signal > 0.25) or (not g_is_buy and flow_signal < -0.25)
+                        if is_flow_favorable:
+                            max_stag_time *= 4.0 # Damos 4x mais tempo se a inércia ainda empurra
+                            
+                        if stag_time >= max_stag_time:
+                            should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:
