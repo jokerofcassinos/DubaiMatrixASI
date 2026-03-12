@@ -1,116 +1,138 @@
-[DubaiMatrixASI] 17:10:21.460    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 17:10:21.461    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 17:10:21.461    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 17:10:21.461    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 17:10:21.462    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 17:10:21.462    OMEGA │ ⚡ 📅 2026-03-12T20:10:21.462553+00:00
-[DubaiMatrixASI] 17:10:21.463    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 17:10:21.463    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 17:10:21.467    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 17:10:21.471    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 17:10:21.473    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70381.63, Bid=70380.63
-[DubaiMatrixASI] 17:10:21.482    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 17:10:21.483    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 17:10:21.506    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 17:10:21.537    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 17:10:21.544    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 17:10:21.545    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 17:10:21.552    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 17:10:21.553    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos
-[DubaiMatrixASI] 17:10:21.554    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 17:10:21.556    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 17:10:21.557    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 17:10:21.623    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 17:10:21.820    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:10:21.854    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4758)
-[DubaiMatrixASI] 17:10:21.860    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006443
-[DubaiMatrixASI] 17:10:21.860    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 1 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $+0.00
-[DubaiMatrixASI] 17:10:22.169    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55133)
-[DubaiMatrixASI] 17:11:24.798    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25599|EXPECTED_VALUE:35,1567|MODE:STRICT
-[DubaiMatrixASI] 17:12:02.580    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.8600)
-[DubaiMatrixASI] 17:12:02.591    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006581
-[DubaiMatrixASI] 17:12:28.054    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25589|EXPECTED_VALUE:35,1702|MODE:STRICT
-[DubaiMatrixASI] 17:12:53.163    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=50.0000 Gen=1
-[DubaiMatrixASI] 17:12:53.164    OMEGA │ ⚡ 🧬 Gen #1: 1 mutações aplicadas | Tipo=targeted_precision | Fitness=50.0000
-[DubaiMatrixASI] 17:12:53.384    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:12:53.386    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 1 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $+0.00
-[DubaiMatrixASI] 17:13:31.288    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25590|EXPECTED_VALUE:35,1699|MODE:STRICT
-[DubaiMatrixASI] 17:13:43.752    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3672)
-[DubaiMatrixASI] 17:13:43.752    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006709
-[DubaiMatrixASI] 17:14:34.587    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25586|EXPECTED_VALUE:35,1750|MODE:STRICT
-[DubaiMatrixASI] 17:15:24.976    OMEGA │ ⚡ 🧬 Gen #2: 2 mutações aplicadas | Tipo=targeted_precision | Fitness=50.0000
-[DubaiMatrixASI] 17:15:24.982    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.1863)
-[DubaiMatrixASI] 17:15:24.983    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.239368
-[DubaiMatrixASI] 17:15:25.168    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:15:25.202    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 1 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $+0.00
-[DubaiMatrixASI] 17:15:37.863    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25580|EXPECTED_VALUE:35,1825|MODE:STRICT
-[DubaiMatrixASI] 17:16:14.312    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:16:24.745    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.15, Sig=-0.57) overriding pessimistic MC.
-[DubaiMatrixASI] 17:16:24.746  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000000. Reducing exposure.
-[DubaiMatrixASI] 17:16:24.787    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70316.20 SL=70375.35 TP=70197.90 | Φ: 0.15 | CONF: 0.85
-[DubaiMatrixASI] 17:16:25.082    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 70316.93 | 5 tickets gerados | SELL signal=-0.574 conf=0.85 coherence=0.41 regime=CREEPING_BULL ATR=141.04 RR=2
-[DubaiMatrixASI] 17:16:25.101    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70316.93 | Φ=0.15 | CONF=0.85 | REGIME=CREEPING_BULL
-[DubaiMatrixASI] 17:16:25.107    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.574 PHI=0.15
-  🐂 BULL[13]: CandleAnatomyAgent, MacroBiasAgent, HexMatrix, DarkMatterGravity, FourierSpectral, QuantumSpin, FVGAgent, MeanFieldGame, StopHunterAgent, ChaosRegime, CppFractalAgent, TrendAgent, MomentumAgent
-  🐻 BEAR[20]: KripkeSemantics, SolitonWave, QuantumSuperposition, CrossScaleConvergenceAgent, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PremiumDiscountAgent, MicrostructureAgent, LiquidStateAgent, FeynmanPath, SRAgent, ChartStructureAgent, AggressivenessAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, PriceVelocityAgent
-  🎯 Reason: SELL signal=-0.574 conf=0.85 coherence=0.41 regime=CREEPING_BULL ATR=141.04 RR=2.00 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.574 | CONF=0.85 | Φ=0.15 | COH=41.03% | BEAR: KripkeSemantics, SolitonWave, QuantumSuperposition | MC[score=-0.317 WP=36.2% EV=+4.18 CVaR=-59.15 sim=11.5ms]
-[DubaiMatrixASI] 17:16:52.946    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25591|EXPECTED_VALUE:35,1719|MODE:STRICT
-[DubaiMatrixASI] 17:17:18.109    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8239)
-[DubaiMatrixASI] 17:17:18.110    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006878
-[DubaiMatrixASI] 17:17:33.960    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:17:33.961    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.17, Sig=-0.49) overriding pessimistic MC.
-[DubaiMatrixASI] 17:17:56.224    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:25593|EXPECTED_VALUE:35,1688|MODE:STRICT
-[DubaiMatrixASI] 17:18:06.816    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: TIME_DECAY_LOCK (1772907249.8s below peak $20.10) | P&L Total: $+20.10 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 17:18:07.018    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: TIME_DECAY_LOCK (1772907250.0s below peak $20.10) | P&L Total: $+20.10 | Lots: 0.48 | Nodes: 1
-[DubaiMatrixASI] 17:18:07.196    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 17:18:08.648    OMEGA │ ⚡ 🧬 Gen #3: 5 mutações aplicadas | Tipo=targeted_precision | Fitness=50.0000
-[DubaiMatrixASI] 17:18:08.838    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,921.56
-[DubaiMatrixASI] 17:18:08.838    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:18:08.845  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (1 patógenos).
-[DubaiMatrixASI] 17:18:08.846  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 17:18:08.847    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 5 posições auditadas, 1 novos registros finalizados. P&L Líquido Total: $-1.66
-[DubaiMatrixASI] 17:18:20.434    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: TIME_DECAY_LOCK (1772907249.8s below peak $177.01) | P&L Total: $+177.01 | Lots: 3.36 | Nodes: 3
-[DubaiMatrixASI] 17:18:20.716    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: TIME_DECAY_LOCK (1772907250.1s below peak $177.01) | P&L Total: $+170.32 | Lots: 3.36 | Nodes: 3
-[DubaiMatrixASI] 17:18:20.751    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 17:18:21.035    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 17:18:21.366    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
-[DubaiMatrixASI] 17:18:21.724    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth 0.002887 @ 10.0x Leverage. Risk Fraction: 0.0085
-[DubaiMatrixASI] 17:18:21.724    OMEGA │ ⚡ 🛡️ EXPOSURE CEILING: Lote 113851.21 excedeu teto de segurança 199.99. Limitando.
-[DubaiMatrixASI] 17:18:21.727    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70262.67 SL=70322.69 TP=70142.64 | Φ: 0.21 | CONF: 0.82
-[DubaiMatrixASI] 17:18:21.796    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=5.00 @ 70262.73 | 5 tickets gerados | SELL signal=-0.598 conf=0.82 coherence=0.41 regime=CREEPING_BULL ATR=145.35 RR=2
-[DubaiMatrixASI] 17:18:21.797    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70262.73 | Φ=0.21 | CONF=0.82 | REGIME=CREEPING_BULL
-[DubaiMatrixASI] 17:18:21.797    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.598 PHI=0.21
-  🐂 BULL[13]: MacroBiasAgent, HexMatrix, DarkMatterGravity, FourierSpectral, MomentumAgent, StopHunterAgent, ChartStructureAgent, ChaosRegime, MeanFieldGame, FVGAgent, CandleAnatomyAgent, FeynmanPath, TrendAgent
-  🐻 BEAR[21]: KripkeSemantics, Supersymmetry, SolitonWave, LiquidStateAgent, QuantumSuperposition, CrossScaleConvergenceAgent, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, PriceGravityAgent, MicrostructureAgent, CppFractalAgent, SRAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, AggressivenessAgent, PriceVelocityAgent
-  🎯 Reason: SELL signal=-0.598 conf=0.82 coherence=0.41 regime=CREEPING_BULL ATR=145.35 RR=2.00 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.598 | CONF=0.82 | Φ=0.21 | COH=41.09% | BEAR: KripkeSemantics, Supersymmetry, SolitonWave | MC[score=-0.341 WP=34.9% EV=+2.05 CVaR=-60.02 sim=8.7ms]
-[DubaiMatrixASI] 17:18:34.501    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.24, Sig=-0.67) overriding pessimistic MC.
-[DubaiMatrixASI] 17:18:50.930    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:18:59.385    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8369)
-[DubaiMatrixASI] 17:18:59.391    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007304
-[DubaiMatrixASI] 17:18:59.588    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:12964|EXPECTED_VALUE:69,4291|MODE:STRICT
-[DubaiMatrixASI] 17:19:51.124    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:20:00.489    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.16, Sig=-0.62) overriding pessimistic MC.
-[DubaiMatrixASI] 17:20:03.056    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:1,0000|TRADES_LEFT:12963|EXPECTED_VALUE:69,4361|MODE:STRICT
-[DubaiMatrixASI] 17:20:40.819    OMEGA │ ⚡ 🧬 Gen #4: 9 mutações aplicadas | Tipo=uniform | Fitness=-52.5066
-[DubaiMatrixASI] 17:20:40.820    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.0018)
-[DubaiMatrixASI] 17:20:40.821    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007520
-[DubaiMatrixASI] 17:20:41.041    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,921.56 -> $99,892.79
-[DubaiMatrixASI] 17:20:41.042    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:20:41.096  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (2 patógenos).
-[DubaiMatrixASI] 17:20:41.097  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 17:20:41.104  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (3 patógenos).
-[DubaiMatrixASI] 17:20:41.111    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 3 novos registros finalizados. P&L Líquido Total: $-5.66
-[DubaiMatrixASI] 17:20:53.179    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:21:06.436    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:0,9853|TRADES_LEFT:1836956|EXPECTED_VALUE:0,4900|MODE:STRICT
-[DubaiMatrixASI] 17:21:37.532    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.16, Sig=-0.57) overriding pessimistic MC.
-[DubaiMatrixASI] 17:22:09.760    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] SUCCESS_PROB:0,9840|TRADES_LEFT:1836956|EXPECTED_VALUE:0,4900|MODE:STRICT
-[DubaiMatrixASI] 17:22:22.188    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9605)
-[DubaiMatrixASI] 17:22:22.199    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006653
-[DubaiMatrixASI] 17:22:46.777    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.10, E=0.86). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 17:22:53.185    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 17:22:53.231    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 17:22:53.232    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 17:22:53.237    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 17:22:53.240    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 17:22:53.240    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 17:22:53.241    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-12T20:22:53.241016+00:00
+[DubaiMatrixASI] 17:33:05.488    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 📅 2026-03-12T20:33:05.490433+00:00
+[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 17:33:05.491    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 17:33:05.494    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 17:33:05.497    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 17:33:05.498    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70191.9, Bid=70190.9
+[DubaiMatrixASI] 17:33:05.509    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 17:33:05.510    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 17:33:05.532    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 17:33:05.562    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 17:33:05.568    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 17:33:05.569    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 17:33:05.577    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 17:33:05.577    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos
+[DubaiMatrixASI] 17:33:05.578    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 17:33:05.580    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 17:33:05.581    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 17:33:05.610    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 17:33:05.841    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,438.28
+[DubaiMatrixASI] 17:33:05.857    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:33:06.036  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (4 patógenos).
+[DubaiMatrixASI] 17:33:06.037    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56520)
+[DubaiMatrixASI] 17:33:06.043  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 17:33:06.070  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (5 patógenos).
+[DubaiMatrixASI] 17:33:06.132  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (6 patógenos).
+[DubaiMatrixASI] 17:33:06.468  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (7 patógenos).
+[DubaiMatrixASI] 17:33:06.470  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:33:06.471    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.1393)
+[DubaiMatrixASI] 17:33:06.472    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006591
+[DubaiMatrixASI] 17:33:06.472    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-567.38
+[DubaiMatrixASI] 17:33:56.618  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:34:09.568    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:34:47.240  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:34:47.255    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2532)
+[DubaiMatrixASI] 17:34:47.255    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006330
+[DubaiMatrixASI] 17:35:06.576    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
+[DubaiMatrixASI] 17:35:12.981    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:35:38.042  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:35:38.059    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-901.5736 Gen=1
+[DubaiMatrixASI] 17:35:38.059    OMEGA │ ⚡ 🧬 Gen #1: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
+[DubaiMatrixASI] 17:35:38.241    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,438.28 -> $100,000.00
+[DubaiMatrixASI] 17:35:38.263    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:35:38.307  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:35:38.308    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
+[DubaiMatrixASI] 17:36:16.245    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:36:28.656  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:36:28.657    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.1388)
+[DubaiMatrixASI] 17:36:28.657    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.248933
+[DubaiMatrixASI] 17:37:19.285  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:37:19.568    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:38:09.971  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:38:09.976    OMEGA │ ⚡ 🧬 Gen #2: 6 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
+[DubaiMatrixASI] 17:38:09.977    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6552)
+[DubaiMatrixASI] 17:38:09.978    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006161
+[DubaiMatrixASI] 17:38:10.125    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:38:10.129  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:38:10.168    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
+[DubaiMatrixASI] 17:38:22.922    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:39:00.634  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:39:26.222    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:39:51.299  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:39:51.319    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9579)
+[DubaiMatrixASI] 17:39:51.319    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006958
+[DubaiMatrixASI] 17:40:29.582    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:40:41.952  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:40:41.961    OMEGA │ ⚡ 🧬 Gen #3: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
+[DubaiMatrixASI] 17:40:42.121    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:40:42.172  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:40:42.178    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
+[DubaiMatrixASI] 17:41:32.542  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:41:32.543    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0374)
+[DubaiMatrixASI] 17:41:32.544    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006465
+[DubaiMatrixASI] 17:41:32.836    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:42:23.244  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:42:36.188    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:43:13.910  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:43:13.914    OMEGA │ ⚡ 🧬 Gen #4: 7 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
+[DubaiMatrixASI] 17:43:13.939    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9367)
+[DubaiMatrixASI] 17:43:13.942    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006806
+[DubaiMatrixASI] 17:43:14.099    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:43:14.155  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:43:14.156    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
+[DubaiMatrixASI] 17:43:39.483    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:44:04.596  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:44:42.798    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:44:55.204  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:44:55.206    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5357)
+[DubaiMatrixASI] 17:44:55.206    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.257662
+[DubaiMatrixASI] 17:45:00.285    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 17:45:00.436    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.20, Sig=-0.59) overriding pessimistic MC.
+[DubaiMatrixASI] 17:45:00.437  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000399. Reducing exposure.
+[DubaiMatrixASI] 17:45:00.437    OMEGA │ ⚡ 🛡️ EXPOSURE CEILING: Lote 269.94 excedeu teto de segurança 43.33. Limitando.
+[DubaiMatrixASI] 17:45:00.440    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70093.25 SL=70130.08 TP=69987.67 | Φ: 0.20 | CONF: 0.75
+[DubaiMatrixASI] 17:45:00.483    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 70096.75 (via socket)
+[DubaiMatrixASI] 17:45:00.483    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 70096.40 (via socket)
+[DubaiMatrixASI] 17:45:00.484    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.72 @ 70096.05 (via socket)
+[DubaiMatrixASI] 17:45:00.501    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 70095.35 (via socket)
+[DubaiMatrixASI] 17:45:00.503    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 70095.70 (via socket)
+[DubaiMatrixASI] 17:45:00.527    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 70096.05 | 5 tickets gerados | SELL signal=-0.591 conf=0.75 coherence=0.45 regime=LOW_LIQUIDITY ATR=118.40 RR=2
+[DubaiMatrixASI] 17:45:00.527    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70096.05 | Φ=0.20 | CONF=0.75 | REGIME=LOW_LIQUIDITY
+[DubaiMatrixASI] 17:45:00.528    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.591 PHI=0.20
+  🐂 BULL[5]: HexMatrix, DarkMatterGravity, StopHunterAgent, ChaosRegime, ChartStructureAgent
+  🐻 BEAR[21]: FourierSpectral, CrossScaleConvergenceAgent, QuantumSpin, CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, GameTheoryNashAgent, LiquidStateAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, PriceGravityAgent, FeynmanPath, LiquidationVacuumAgent, SentimentFearGreedAgent, PriceVelocityAgent, TrendAgent, OnChainPressureAgent, MomentumAgent
+  🎯 Reason: SELL signal=-0.591 conf=0.75 coherence=0.45 regime=LOW_LIQUIDITY ATR=118.40 RR=2.87 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.591 | CONF=0.75 | Φ=0.20 | COH=44.64% | BEAR: FourierSpectral, CrossScaleConvergenceAgent, QuantumSpin | MC[score=-0.327 WP=31.2% EV=+7.54 CVaR=-36.83 sim=1.5ms]
+[DubaiMatrixASI] 17:45:00.643    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516556 @ 70096.75
+[DubaiMatrixASI] 17:45:00.841    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516558 @ 70096.4
+[DubaiMatrixASI] 17:45:00.944    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516563 @ 70096.05
+[DubaiMatrixASI] 17:45:01.111    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516566 @ 70095.35
+[DubaiMatrixASI] 17:45:01.381    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516568 @ 70095.7
+[DubaiMatrixASI] 17:45:25.586    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 17:45:35.802    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 17:45:43.391    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 17:45:46.187  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 17:45:46.188    OMEGA │ ⚡ 🧬 Gen #5: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
+[DubaiMatrixASI] 17:45:46.494    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
+[DubaiMatrixASI] 17:45:46.503    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,644.95
+[DubaiMatrixASI] 17:45:46.504    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:45:46.519  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (8 patógenos).
+[DubaiMatrixASI] 17:45:46.520  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 17:45:46.530  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (9 patógenos).
+[DubaiMatrixASI] 17:45:46.578  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (10 patógenos).
+[DubaiMatrixASI] 17:45:46.602  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (11 patógenos).
+[DubaiMatrixASI] 17:45:46.603  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:45:46.604  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:45:46.605    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-922.43
+[DubaiMatrixASI] 17:46:16.230    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 17:46:36.950  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:46:36.957  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:46:36.976    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.8993)
+[DubaiMatrixASI] 17:46:36.985    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.183252
+[DubaiMatrixASI] 17:46:49.844    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:47:27.608  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:47:27.616  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
