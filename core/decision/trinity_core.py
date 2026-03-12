@@ -417,6 +417,8 @@ class TrinityCore:
         rr_mult = 1.3 # Default Scalp
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             rr_mult = 2.5 # Modo Trend
+        elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
+            rr_mult = 2.0 # Modo Drift (Stretch TP for higher RRR)
         elif regime_state.current.value in ["SQUEEZE", "SQUEEZE_BUILDUP", "IGNITION_BULL", "IGNITION_BEAR"]:
             rr_mult = 3.0 # Modo Explosão (Breakout)
         
@@ -728,17 +730,21 @@ class TrinityCore:
         # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
         if not is_god_mode:
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
-            exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering"])]
+            exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             
             # [Phase 52.13] Relaxed momentum condition to 2 agents to catch traps earlier
             if action == Action.BUY and len(momentum_bulls) >= 2 and len(exhaustion_bears) >= 2:
-                return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
+                # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.55)
+                if abs(quantum_state.raw_signal) < 0.55:
+                    return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
             # Simétrico para SELL
             momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
-                return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
+                # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.55)
+                if abs(quantum_state.raw_signal) < 0.55:
+                    return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
         # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
