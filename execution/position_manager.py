@@ -186,11 +186,11 @@ class PositionManager:
             state = self._positions_state[anchor_ticket]
             if total_profit > state['peak_profit']:
                 state['peak_profit'] = total_profit
-                state['peak_time'] = time.monotonic()
+                state['peak_time'] = time.time()
             
             if abs(total_profit - state.get("last_cached_profit", -999)) > 0.01:
                 state["last_cached_profit"] = total_profit
-                state["last_price_change_time"] = time.monotonic()
+                state["last_price_change_time"] = time.time()
 
             should_close = False
             reason = ""
