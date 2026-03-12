@@ -245,6 +245,16 @@ from core.consciousness.agents.kinetics_agents import (
     ImpulseScatteringAgent, MagneticMonopoleAgent
 )
 
+# Phase Ω-Hyper-Dimension (Nível 26 - Padrões de Turing e Decoerência)
+from core.consciousness.agents.hyper_dimension_agents import (
+    TuringPatternAgent, EigenstateDecoherenceAgent
+)
+
+# Phase Ω-Singularity (Nível 27 - Fluxo de Ricci e Gargalo de Informação)
+from core.consciousness.agents.quantum_field_agents import (
+    RicciFlowAgent, InformationBottleneckAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -460,6 +470,10 @@ class NeuralSwarm:
             # ═══ KINETICS (Phase Ω-Kinetics) ═══
             ImpulseScatteringAgent(weight=4.7),
             MagneticMonopoleAgent(weight=4.4),
+
+            # ═══ HYPER-DIMENSION (Phase Ω-Hyper-Dimension) ═══
+            TuringPatternAgent(weight=4.6),
+            EigenstateDecoherenceAgent(weight=4.9),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

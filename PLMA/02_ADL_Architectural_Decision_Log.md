@@ -742,4 +742,14 @@
 - **Justificativa:** Pavios longos e isolados agem como imãs irresistíveis de liquidez (Naked Stops). A ASI opera a atração magnética em direção ao preenchimento desses pavios.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 26.0.0-omega) — Phase Ω-Kinetics Systems Active*
+### DECISÃO 118: TURING PATTERNS MORPHOGENESIS
+- **Decisão:** Injeção do `TuringPatternAgent`. Utiliza o Laplaciano Discreto do Volume para detectar a formação de "Ilhas de Liquidez" estáveis no Book.
+- **Justificativa:** Identifica onde o mercado está se agrupando defensivamente antes da criação de um novo Order Block, permitindo prever a direção do próximo "habitat" de liquidez.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 119: EIGENSTATE DECOHERENCE
+- **Decisão:** Implementação do `EigenstateDecoherenceAgent`. Mede a taxa de queda da entropia sistêmica do enxame.
+- **Justificativa:** A decoerência (colapso da superposição) precede o rompimento direcional. O agente detecta o momento exato em que o enxame "decide" o lado da força antes do preço explodir.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 27.0.0-omega) — Phase Ω-Hyper-Dimension Systems Active*
