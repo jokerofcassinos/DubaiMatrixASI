@@ -1,54 +1,24 @@
-[DubaiMatrixASI] 22:57:48.833    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 22:57:48.833    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 22:57:48.833    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 22:57:48.834    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 22:57:48.834    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 22:57:48.834    OMEGA │ ⚡ 📅 2026-03-12T01:57:48.834814+00:00
-[DubaiMatrixASI] 22:57:48.835    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 22:57:48.835    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 22:57:48.838    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 22:57:48.842    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 22:57:48.843    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69752.16, Bid=69751.16
-[DubaiMatrixASI] 22:57:48.852    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 22:57:48.853    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 22:57:48.877    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 22:57:48.912    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 22:57:48.913    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 22:57:48.914    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 22:57:48.922    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 22:57:48.923    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos
-[DubaiMatrixASI] 22:57:48.924    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 22:57:48.925    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 22:57:48.926    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 22:57:48.973    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 22:57:49.131    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:49.133    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (116,) (129,) 
-[DubaiMatrixASI] 22:57:49.184    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $32.0 -> $44.79
-[DubaiMatrixASI] 22:57:49.211    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 22:57:49.318    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 65262)
-[DubaiMatrixASI] 22:57:49.331    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9115)
-[DubaiMatrixASI] 22:57:49.331    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006723
-[DubaiMatrixASI] 22:57:49.332    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 64 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1968.09
-[DubaiMatrixASI] 22:57:49.489    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:49.580    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:49.726    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:49.777    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:49.941    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:49.983    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:50.169    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:50.241    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:50.430    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:50.550    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:50.700    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:50.807    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:50.957    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:51.084    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:51.196    ERROR │ Agent DarkMatterGravity falhou: 'CppASICore' object has no attribute 'calculate_dark_matter_gravity'
-[DubaiMatrixASI] 22:57:51.259    ERROR │ Byzantine modulation falhou: operands could not be broadcast together with shapes (117,) (129,) 
-[DubaiMatrixASI] 22:57:51.285    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 22:57:51.366    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 22:57:51.369    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 22:57:51.402    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 22:57:51.408    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 22:57:51.408    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 22:57:51.409    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-12T01:57:51.409113+00:00
+[DubaiMatrixASI] 23:02:07.905    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 23:02:07.906    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 23:02:07.906    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 23:02:07.907    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 23:02:07.907    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 23:02:07.907    OMEGA │ ⚡ 📅 2026-03-12T02:02:07.907812+00:00
+[DubaiMatrixASI] 23:02:07.908    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 23:02:07.908    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 23:02:07.912    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 23:02:07.915    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 23:02:07.916    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69792.93, Bid=69791.93
+[DubaiMatrixASI] 23:02:07.925    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 23:02:07.926    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 23:02:07.943    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 23:02:07.983    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 23:02:07.984    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 23:02:07.986    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 23:02:07.993    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 23:02:07.994    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos
+[DubaiMatrixASI] 23:02:07.995    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 23:02:07.997    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 23:02:07.998    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 23:02:08.060    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 23:02:08.131    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 49461)

@@ -1224,6 +1224,35 @@ class CppASICore:
             "is_black_swan": bool(result.is_black_swan)
         }
 
+    # ═══════════════════════════════════════════════════════════
+    #  PHD OMEGA MATH (Phase 69)
+    # ═══════════════════════════════════════════════════════════
+
+    def calculate_laser_compression(self, energy_window: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        window = self._ensure_f64(energy_window)
+        return self._lib.calculate_laser_compression(self._ptr(window), len(window))
+
+    def calculate_navier_stokes_reynolds(self, velocities: np.ndarray, densities: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        v = self._ensure_f64(velocities)
+        rho = self._ensure_f64(densities)
+        return self._lib.calculate_navier_stokes_reynolds(self._ptr(v), self._ptr(rho), len(v))
+
+    def calculate_dark_matter_gravity(self, acceleration: float, visible_mass: float) -> float:
+        if not self._loaded: return 0.0
+        return self._lib.calculate_dark_matter_gravity(ctypes.c_double(acceleration), ctypes.c_double(visible_mass))
+
+    def calculate_aethel_viscosity(self, vwap_deltas: np.ndarray) -> float:
+        if not self._loaded: return 1.0
+        deltas = self._ensure_f64(vwap_deltas)
+        return self._lib.calculate_aethel_viscosity(self._ptr(deltas), len(deltas))
+
+    def detect_soliton_wave(self, velocities: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        v = self._ensure_f64(velocities)
+        return self._lib.detect_soliton_wave(self._ptr(v), len(v))
+
 
 # ═══ SINGLETON ═══
 CPP_CORE = CppASICore()

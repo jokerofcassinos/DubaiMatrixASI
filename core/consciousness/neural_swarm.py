@@ -564,11 +564,19 @@ class NeuralSwarm:
         # [Phase 69] BYZANTINE WEIGHT MODULATION
         # Aplicamos as penalidades de consenso antes de retornar os sinais
         try:
-            base_weights = np.array([s.weight for s in signals])
-            modulated_weights = self.byzantine.get_modulated_weights(base_weights)
+            # Pegamos os nomes dos agentes que retornaram sinal
+            active_names = [s.agent_name for s in signals]
             
-            for i, s in enumerate(signals):
-                s.weight = modulated_weights[i]
+            # Pegamos as penalidades de todos os agentes
+            all_penalties = self.byzantine.penalties
+            
+            # Mapeamos penalidade para o sinal correspondente
+            for i, sig in enumerate(signals):
+                # Encontrar o índice original do agente no enxame
+                for idx, agent in enumerate(self.agents):
+                    if agent.name == sig.agent_name:
+                        sig.weight *= all_penalties[idx]
+                        break
         except Exception as e:
             log.error(f"Byzantine modulation falhou: {e}")
 
