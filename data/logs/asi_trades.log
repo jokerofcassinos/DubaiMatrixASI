@@ -1,269 +1,565 @@
-[DubaiMatrixASI] 17:33:05.488    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 17:33:05.489    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 📅 2026-03-12T20:33:05.490433+00:00
-[DubaiMatrixASI] 17:33:05.490    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 17:33:05.491    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 17:33:05.494    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 17:33:05.497    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 17:33:05.498    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70191.9, Bid=70190.9
-[DubaiMatrixASI] 17:33:05.509    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 17:33:05.510    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 17:33:05.532    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 17:33:05.562    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 17:33:05.568    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 17:33:05.569    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 17:33:05.577    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 17:33:05.577    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 129 agentes ativos
-[DubaiMatrixASI] 17:33:05.578    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 17:33:05.580    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 17:33:05.581    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 17:33:05.610    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 17:33:05.841    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,438.28
-[DubaiMatrixASI] 17:33:05.857    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:33:06.036  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (4 patógenos).
-[DubaiMatrixASI] 17:33:06.037    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56520)
-[DubaiMatrixASI] 17:33:06.043  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 17:33:06.070  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (5 patógenos).
-[DubaiMatrixASI] 17:33:06.132  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (6 patógenos).
-[DubaiMatrixASI] 17:33:06.468  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (7 patógenos).
-[DubaiMatrixASI] 17:33:06.470  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:33:06.471    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.1393)
-[DubaiMatrixASI] 17:33:06.472    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006591
-[DubaiMatrixASI] 17:33:06.472    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-567.38
-[DubaiMatrixASI] 17:33:56.618  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:34:09.568    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:34:47.240  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:34:47.255    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2532)
-[DubaiMatrixASI] 17:34:47.255    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006330
-[DubaiMatrixASI] 17:35:06.576    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
-[DubaiMatrixASI] 17:35:12.981    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:35:38.042  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:35:38.059    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-901.5736 Gen=1
-[DubaiMatrixASI] 17:35:38.059    OMEGA │ ⚡ 🧬 Gen #1: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
-[DubaiMatrixASI] 17:35:38.241    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,438.28 -> $100,000.00
-[DubaiMatrixASI] 17:35:38.263    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:35:38.307  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:35:38.308    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
-[DubaiMatrixASI] 17:36:16.245    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:36:28.656  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:36:28.657    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.1388)
-[DubaiMatrixASI] 17:36:28.657    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.248933
-[DubaiMatrixASI] 17:37:19.285  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:37:19.568    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:38:09.971  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:38:09.976    OMEGA │ ⚡ 🧬 Gen #2: 6 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
-[DubaiMatrixASI] 17:38:09.977    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6552)
-[DubaiMatrixASI] 17:38:09.978    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006161
-[DubaiMatrixASI] 17:38:10.125    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:38:10.129  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:38:10.168    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
-[DubaiMatrixASI] 17:38:22.922    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:39:00.634  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:39:26.222    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:39:51.299  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:39:51.319    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9579)
-[DubaiMatrixASI] 17:39:51.319    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006958
-[DubaiMatrixASI] 17:40:29.582    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:40:41.952  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:40:41.961    OMEGA │ ⚡ 🧬 Gen #3: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
-[DubaiMatrixASI] 17:40:42.121    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:40:42.172  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:40:42.178    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
-[DubaiMatrixASI] 17:41:32.542  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:41:32.543    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0374)
-[DubaiMatrixASI] 17:41:32.544    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006465
-[DubaiMatrixASI] 17:41:32.836    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:42:23.244  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:42:36.188    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:43:13.910  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:43:13.914    OMEGA │ ⚡ 🧬 Gen #4: 7 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
-[DubaiMatrixASI] 17:43:13.939    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9367)
-[DubaiMatrixASI] 17:43:13.942    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006806
-[DubaiMatrixASI] 17:43:14.099    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:43:14.155  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:43:14.156    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 9 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-567.38
-[DubaiMatrixASI] 17:43:39.483    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:44:04.596  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:44:42.798    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:44:55.204  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:44:55.206    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5357)
-[DubaiMatrixASI] 17:44:55.206    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.257662
-[DubaiMatrixASI] 17:45:00.285    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
-[DubaiMatrixASI] 17:45:00.436    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.20, Sig=-0.59) overriding pessimistic MC.
-[DubaiMatrixASI] 17:45:00.437  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000399. Reducing exposure.
-[DubaiMatrixASI] 17:45:00.437    OMEGA │ ⚡ 🛡️ EXPOSURE CEILING: Lote 269.94 excedeu teto de segurança 43.33. Limitando.
-[DubaiMatrixASI] 17:45:00.440    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70093.25 SL=70130.08 TP=69987.67 | Φ: 0.20 | CONF: 0.75
-[DubaiMatrixASI] 17:45:00.483    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 70096.75 (via socket)
-[DubaiMatrixASI] 17:45:00.483    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 70096.40 (via socket)
-[DubaiMatrixASI] 17:45:00.484    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.72 @ 70096.05 (via socket)
-[DubaiMatrixASI] 17:45:00.501    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 70095.35 (via socket)
-[DubaiMatrixASI] 17:45:00.503    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 70095.70 (via socket)
-[DubaiMatrixASI] 17:45:00.527    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 70096.05 | 5 tickets gerados | SELL signal=-0.591 conf=0.75 coherence=0.45 regime=LOW_LIQUIDITY ATR=118.40 RR=2
-[DubaiMatrixASI] 17:45:00.527    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70096.05 | Φ=0.20 | CONF=0.75 | REGIME=LOW_LIQUIDITY
-[DubaiMatrixASI] 17:45:00.528    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.591 PHI=0.20
-  🐂 BULL[5]: HexMatrix, DarkMatterGravity, StopHunterAgent, ChaosRegime, ChartStructureAgent
-  🐻 BEAR[21]: FourierSpectral, CrossScaleConvergenceAgent, QuantumSpin, CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, GameTheoryNashAgent, LiquidStateAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, PriceGravityAgent, FeynmanPath, LiquidationVacuumAgent, SentimentFearGreedAgent, PriceVelocityAgent, TrendAgent, OnChainPressureAgent, MomentumAgent
-  🎯 Reason: SELL signal=-0.591 conf=0.75 coherence=0.45 regime=LOW_LIQUIDITY ATR=118.40 RR=2.87 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.591 | CONF=0.75 | Φ=0.20 | COH=44.64% | BEAR: FourierSpectral, CrossScaleConvergenceAgent, QuantumSpin | MC[score=-0.327 WP=31.2% EV=+7.54 CVaR=-36.83 sim=1.5ms]
-[DubaiMatrixASI] 17:45:00.643    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516556 @ 70096.75
-[DubaiMatrixASI] 17:45:00.841    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516558 @ 70096.4
-[DubaiMatrixASI] 17:45:00.944    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516563 @ 70096.05
-[DubaiMatrixASI] 17:45:01.111    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516566 @ 70095.35
-[DubaiMatrixASI] 17:45:01.381    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 401516568 @ 70095.7
-[DubaiMatrixASI] 17:45:25.586    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 17:45:35.802    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
-[DubaiMatrixASI] 17:45:43.391    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
-[DubaiMatrixASI] 17:45:46.187  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
-[DubaiMatrixASI] 17:45:46.188    OMEGA │ ⚡ 🧬 Gen #5: 8 mutações aplicadas | Tipo=uniform | Fitness=-901.5736
-[DubaiMatrixASI] 17:45:46.494    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,6843
-[DubaiMatrixASI] 17:45:46.503    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,644.95
-[DubaiMatrixASI] 17:45:46.504    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:45:46.519  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (8 patógenos).
-[DubaiMatrixASI] 17:45:46.520  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 17:45:46.530  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (9 patógenos).
-[DubaiMatrixASI] 17:45:46.578  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (10 patógenos).
-[DubaiMatrixASI] 17:45:46.602  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (11 patógenos).
-[DubaiMatrixASI] 17:45:46.603  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:45:46.604  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:45:46.605    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:46:16.230    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 17:46:36.950  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:46:36.957  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:46:36.976    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.8993)
-[DubaiMatrixASI] 17:46:36.985    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.183252
-[DubaiMatrixASI] 17:46:49.844    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:47:27.608  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:47:27.616  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:47:53.120    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:48:18.205  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:48:18.206  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:48:18.207    OMEGA │ ⚡ 🧬 Gen #6: 10 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 17:48:18.208    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5154)
-[DubaiMatrixASI] 17:48:18.208    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006530
-[DubaiMatrixASI] 17:48:18.434    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,644.95 -> $100,000.00
-[DubaiMatrixASI] 17:48:18.435    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:48:18.447  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:48:18.448  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:48:18.449    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:48:56.329    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:49:08.740  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:49:08.756  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:49:59.327  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:49:59.328  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:49:59.329    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6959)
-[DubaiMatrixASI] 17:49:59.329    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006693
-[DubaiMatrixASI] 17:49:59.547    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:50:49.910  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:50:49.911  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:50:49.911    OMEGA │ ⚡ 🧬 Gen #7: 11 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 17:50:50.069    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:50:50.126  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:50:50.126  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:50:50.127    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:51:02.735    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:51:38.056    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
-[DubaiMatrixASI] 17:51:38.127    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 126 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 17:51:40.512  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:51:40.513  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:51:40.533    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7470)
-[DubaiMatrixASI] 17:51:40.542    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006112
-[DubaiMatrixASI] 17:52:06.072    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:52:31.158  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:52:31.158  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:53:09.444    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:53:13.273    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
-[DubaiMatrixASI] 17:53:21.872  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:53:21.873  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:53:21.890    OMEGA │ ⚡ 🧬 Gen #8: 4 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 17:53:21.908    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7468)
-[DubaiMatrixASI] 17:53:21.909    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007379
-[DubaiMatrixASI] 17:53:22.085    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:53:22.132  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:53:22.132  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:53:22.134    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:54:06.292    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
-[DubaiMatrixASI] 17:54:12.837  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:54:12.848  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:54:13.076    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:54:19.595    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.22, Sig=-0.70) overriding pessimistic MC.
-[DubaiMatrixASI] 17:54:19.605  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000412. Reducing exposure.
-[DubaiMatrixASI] 17:54:19.612    OMEGA │ ⚡ 🛡️ EXPOSURE CEILING: Lote 246.69 excedeu teto de segurança 65.77. Limitando.
-[DubaiMatrixASI] 17:54:19.614    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70098.67 SL=70138.83 TP=70036.19 | Φ: 0.22 | CONF: 0.82
-[DubaiMatrixASI] 17:54:19.713    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=5.00 @ 70098.78 | 5 tickets gerados | SELL signal=-0.703 conf=0.82 coherence=0.40 regime=UNKNOWN ATR=126.58 RR=1.56 | 
-[DubaiMatrixASI] 17:54:19.714    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70098.78 | Φ=0.22 | CONF=0.82 | REGIME=UNKNOWN
-[DubaiMatrixASI] 17:54:19.714    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.703 PHI=0.22
-  🐂 BULL[7]: DarkMatterGravity, MorphogeneticResonance, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, ChartStructureAgent
-  🐻 BEAR[25]: KripkeSemantics, Supersymmetry, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, LiquidStateAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MomentumAgent
-  🎯 Reason: SELL signal=-0.703 conf=0.82 coherence=0.40 regime=UNKNOWN ATR=126.58 RR=1.56 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.703 | CONF=0.82 | Φ=0.22 | COH=40.07% | BEAR: KripkeSemantics, Supersymmetry, SolitonWave | MC[score=-0.279 WP=40.8% EV=+1.71 CVaR=-40.16 sim=5.6ms]
-[DubaiMatrixASI] 17:55:03.525  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:55:03.548  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:55:03.587    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8430)
-[DubaiMatrixASI] 17:55:03.596    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006595
-[DubaiMatrixASI] 17:55:11.121    OMEGA │ ⚡ V-PULSE ACTIVATED (Capacitor: 1.00, Velocity: 245.1)
-[DubaiMatrixASI] 17:55:11.302    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 6.88 (x2.5)
-[DubaiMatrixASI] 17:55:16.383    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:55:54.121  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:55:54.122  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:55:54.122    OMEGA │ ⚡ 🧬 Gen #9: 7 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 17:55:54.405    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,912.51
-[DubaiMatrixASI] 17:55:54.426    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:55:54.468  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:55:54.468  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:55:54.469    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:56:20.039    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:56:45.420  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:56:45.448  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:56:45.463    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5109)
-[DubaiMatrixASI] 17:56:45.473    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007106
-[DubaiMatrixASI] 17:57:24.757    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:57:37.220  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:57:37.221  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:58:27.837  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:58:27.837  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:58:27.838    OMEGA │ ⚡ 🧬 Gen #10: 4 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 17:58:27.839    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.8749)
-[DubaiMatrixASI] 17:58:27.840    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006402
-[DubaiMatrixASI] 17:58:28.148    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 17:58:28.170    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 17:58:28.183  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:58:28.183  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:58:28.184    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 17:59:19.228  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 17:59:19.233  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 17:59:32.105    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 18:00:09.902  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 18:00:09.903  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 18:00:09.918    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9170)
-[DubaiMatrixASI] 18:00:09.919    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007399
-[DubaiMatrixASI] 18:00:35.463    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 18:01:00.515  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 18:01:00.516  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 18:01:00.517    OMEGA │ ⚡ 🧬 Gen #11: 10 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
-[DubaiMatrixASI] 18:01:00.741    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
-[DubaiMatrixASI] 18:01:00.747  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 18:01:00.748  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 18:01:00.749    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
-[DubaiMatrixASI] 18:01:38.761    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 18:01:51.218  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 18:01:51.227  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 18:01:51.233    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1484)
-[DubaiMatrixASI] 18:01:51.234    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006523
-[DubaiMatrixASI] 18:01:57.511  WARNING │ ⏱️ LATENCY [update] 69.3ms (threshold: 20ms)
-[DubaiMatrixASI] 18:01:57.779    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 18:01:58.025    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
-[DubaiMatrixASI] 18:02:44.268  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
-[DubaiMatrixASI] 18:02:44.269  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
-[DubaiMatrixASI] 18:02:44.540    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
-[DubaiMatrixASI] 18:02:46.250    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 18:02:46.330    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 18:02:46.331    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 18:02:46.339    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 18:02:46.341    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 18:02:46.341    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 18:02:46.342    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-12T21:02:46.342396+00:00
-[DubaiMatrixASI] 18:02:48.012    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
-[DubaiMatrixASI] 18:23:55.616    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
-[DubaiMatrixASI] 18:26:33.818    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
-[DubaiMatrixASI] 18:26:33.918    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 132 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 20:09:29.383    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 20:09:29.383    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 20:09:29.383    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 20:09:29.384    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 20:09:29.384    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 20:09:29.384    OMEGA │ ⚡ 📅 2026-03-12T23:09:29.384603+00:00
+[DubaiMatrixASI] 20:09:29.384    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 20:09:29.385    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 20:09:29.389    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 20:09:29.417    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 20:09:29.418    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70344.54, Bid=70343.54
+[DubaiMatrixASI] 20:09:29.428    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 20:09:29.429    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 135 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 20:09:29.458    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 20:09:29.522    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 52687)
+[DubaiMatrixASI] 20:09:29.531    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 20:09:29.532    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 20:09:29.533    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 20:09:29.557    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 20:09:29.611    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 135 agentes ativos
+[DubaiMatrixASI] 20:09:29.616    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 20:09:29.629    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 20:09:29.638    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 20:09:29.661  WARNING │ ⏱️ LATENCY [update] 22.0ms (threshold: 20ms)
+[DubaiMatrixASI] 20:09:42.128    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $98,891.17
+[DubaiMatrixASI] 20:09:42.144    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 20:09:42.335  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (12 patógenos).
+[DubaiMatrixASI] 20:09:42.344  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 20:09:42.395  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (13 patógenos).
+[DubaiMatrixASI] 20:09:42.452  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (14 patógenos).
+[DubaiMatrixASI] 20:09:42.528  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (15 patógenos).
+[DubaiMatrixASI] 20:09:42.546  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:09:42.567  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:09:42.575    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8475)
+[DubaiMatrixASI] 20:09:42.576    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006952
+[DubaiMatrixASI] 20:09:42.577    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-2031.26
+[DubaiMatrixASI] 20:09:42.580  WARNING │ ⏱️ LATENCY [think] 12941.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 20:09:42.775    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.62 < 2.5).
+[DubaiMatrixASI] 20:09:43.026    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: SSLError: HTTPSConnectionPool(host='mempool.space', port=443): Max retries exceeded with url: /api/mempool (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+[DubaiMatrixASI] 20:09:43.057    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.63 < 2.5).
+[DubaiMatrixASI] 20:09:43.239    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.64 < 2.5).
+[DubaiMatrixASI] 20:09:43.490    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.64 < 2.5).
+[DubaiMatrixASI] 20:09:43.814    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.65 < 2.5).
+[DubaiMatrixASI] 20:09:44.126    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.66 < 2.5).
+[DubaiMatrixASI] 20:09:44.412    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.67 < 2.5).
+[DubaiMatrixASI] 20:09:44.628    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.68 < 2.5).
+[DubaiMatrixASI] 20:09:44.872    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.68 < 2.5).
+[DubaiMatrixASI] 20:09:59.032    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 20:10:33.024  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:10:33.030  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:10:45.966    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-126,9538
+[DubaiMatrixASI] 20:11:23.697  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:11:23.698  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:11:23.725    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.3277)
+[DubaiMatrixASI] 20:11:23.730    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.221104
+[DubaiMatrixASI] 20:11:35.026    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 20:11:50.134    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-126,9538
+[DubaiMatrixASI] 20:12:15.497  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:12:15.498  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:12:15.498    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-3114.3577 Gen=1
+[DubaiMatrixASI] 20:12:15.499    OMEGA │ ⚡ 🧬 Gen #1: 4 mutações aplicadas | Tipo=uniform | Fitness=-3114.3577
+[DubaiMatrixASI] 20:12:15.719    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $98,891.17 -> $100,000.00
+[DubaiMatrixASI] 20:12:15.720    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 20:12:15.733  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:12:15.733  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:12:15.765    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-2031.26
+[DubaiMatrixASI] 20:12:38.819    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.14, E=0.85). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 20:12:41.852    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.43 < 2.5).
+[DubaiMatrixASI] 20:12:42.557    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.43 < 2.5).
+[DubaiMatrixASI] 20:12:43.432    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.40 < 2.5).
+[DubaiMatrixASI] 20:12:43.705    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.17, Sig=0.35) overriding pessimistic MC.
+[DubaiMatrixASI] 20:12:43.716  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000666. Reducing exposure.
+[DubaiMatrixASI] 20:12:43.729  WARNING │ 🛡️ [HYDRA VETO]: Ruína Não-Ergódica detectada. Multiplicador Hydra desativado.
+[DubaiMatrixASI] 20:12:43.756    OMEGA │ ⚡ 🎯 DECISION: BUY lot=5.00 (em 5 nodes) price=70381.59 SL=70309.22 TP=70526.33 | Φ: 0.17 | CONF: 0.86
+[DubaiMatrixASI] 20:12:43.914    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | BUY lot=5.00 @ 70381.60 | 5 tickets gerados | BUY signal=+0.350 conf=0.86 coherence=0.36 regime=CREEPING_BULL ATR=115.01 RR=2.
+[DubaiMatrixASI] 20:12:43.915    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: BUY BTCUSD | lots=5.00 @ 70381.60 | Φ=0.17 | CONF=0.86 | REGIME=CREEPING_BULL
+[DubaiMatrixASI] 20:12:43.915    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: BUY BTCUSD | S=+0.350 PHI=0.17
+  🐂 BULL[22]: KripkeSemantics, DarkMatterGravity, FourierSpectral, QuantumTunnelingProb, InfoGeometry, PheromoneFieldAgent, MSSAgent, CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, ChaosRegime, CandleAnatomyAgent, CppFractalAgent, FVGAgent, AggressivenessAgent, LiquidationVacuumAgent, MacroBiasAgent, TrendAgent, HexMatrix, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+  🐻 BEAR[16]: OnChainPressureAgent, StatisticalAgent, KinematicJounce, LiquidityVoidMagnet, QuantumSpin, PressureMatrix, GameTheoryNashAgent, StopHunterAgent, Thermodynamic, MicrostructureAgent, LiquidStateAgent, PriceGravityAgent, FeynmanPath, ChartStructureAgent, PremiumDiscountAgent, SRAgent
+  🎯 Reason: BUY signal=+0.350 conf=0.86 coherence=0.36 regime=CREEPING_BULL ATR=115.01 RR=2.00 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.350 | CONF=0.86 | Φ=0.17 | COH=36.31% | BULL: KripkeSemantics, DarkMatterGravity, FourierSpectral [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.309 WP=38.4% EV=+1.60 CVaR=-72.37 sim=24.7ms]
+[DubaiMatrixASI] 20:12:44.042    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.41 < 2.5).
+[DubaiMatrixASI] 20:12:44.486    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.40 < 2.5).
+[DubaiMatrixASI] 20:12:44.934    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.41 < 2.5).
+[DubaiMatrixASI] 20:12:45.420    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.47 < 2.5).
+[DubaiMatrixASI] 20:12:45.778    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.43 < 2.5).
+[DubaiMatrixASI] 20:13:10.595    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-126,9538
+[DubaiMatrixASI] 20:13:24.650  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:13:24.651  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:13:24.652    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3924)
+[DubaiMatrixASI] 20:13:24.652    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006350
+[DubaiMatrixASI] 20:13:49.624    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.26, Sig=0.35) overriding pessimistic MC.
+[DubaiMatrixASI] 20:14:11.129    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+103.04 | Lots: 1.64 | Nodes: 2
+[DubaiMatrixASI] 20:14:11.133    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+175.39 | Lots: 2.88 | Nodes: 2
+[DubaiMatrixASI] 20:14:11.393    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+84.13 | Lots: 1.64 | Nodes: 2
+[DubaiMatrixASI] 20:14:11.399    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+142.19 | Lots: 2.88 | Nodes: 2
+[DubaiMatrixASI] 20:14:11.460    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
+[DubaiMatrixASI] 20:14:11.628    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+55.36 | Lots: 1.16 | Nodes: 1
+[DubaiMatrixASI] 20:14:11.629    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+137.44 | Lots: 2.88 | Nodes: 2
+[DubaiMatrixASI] 20:14:11.765    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
+[DubaiMatrixASI] 20:14:11.892    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: LETHAL_MOMENTUM_REVERSAL (Bearish) | P&L Total: $+137.47 | Lots: 2.88 | Nodes: 2
+[DubaiMatrixASI] 20:14:12.043    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
+[DubaiMatrixASI] 20:14:12.144    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: RIEMANNIAN_TRAILING_STOP (Peak=$175.39, Locked=$161.36, Curv=1.0) | P&L Total: $+82.16 | Lots: 1.72 | Nodes: 1
+[DubaiMatrixASI] 20:14:12.359    OMEGA │ ⚡ 💀 SOCKET CLOSE CONFIRMED: SUCCESS
+[DubaiMatrixASI] 20:14:12.433  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000665. Reducing exposure.
+[DubaiMatrixASI] 20:14:12.434  WARNING │ 🛡️ [HYDRA VETO]: Ruína Não-Ergódica detectada. Multiplicador Hydra desativado.
+[DubaiMatrixASI] 20:14:12.436    OMEGA │ ⚡ 🎯 DECISION: BUY lot=5.00 (em 5 nodes) price=70436.90 SL=70367.67 TP=70584.46 | Φ: 0.26 | CONF: 0.86
+[DubaiMatrixASI] 20:14:12.507    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | BUY lot=5.00 @ 70437.33 | 5 tickets gerados | BUY signal=+0.358 conf=0.86 coherence=0.38 regime=CREEPING_BULL ATR=118.92 RR=2.
+[DubaiMatrixASI] 20:14:12.508    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: BUY BTCUSD | lots=5.00 @ 70437.33 | Φ=0.26 | CONF=0.86 | REGIME=CREEPING_BULL
+[DubaiMatrixASI] 20:14:12.508    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: BUY BTCUSD | S=+0.358 PHI=0.26
+  🐂 BULL[27]: KripkeSemantics, CrossScaleConvergenceAgent, DarkMatterGravity, FourierSpectral, MorphogeneticResonance, QuantumTunnelingProb, QuantumSuperposition, InfoGeometry, PheromoneFieldAgent, MSSAgent, QuantumSpin, CppTickEntropyAgent, TBSAgent, InformationEntropyAgent, TrendAgent, ChaosRegime, AggressivenessAgent, LiquidationVacuumAgent, CppFractalAgent, FVGAgent, PriceGravityAgent, LiquidStateAgent, PriceVelocityAgent, MacroBiasAgent, HexMatrix, MomentumAgent, MeanFieldGame
+  🐻 BEAR[15]: OnChainPressureAgent, CandleAnatomyAgent, FeynmanPath, StatisticalAgent, Supersymmetry, ReflexivityAgent, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, VolatilityAgent, SentimentFearGreedAgent, ChartStructureAgent, PremiumDiscountAgent, PressureMatrix, SRAgent
+  🎯 Reason: BUY signal=+0.358 conf=0.86 coherence=0.38 regime=CREEPING_BULL ATR=118.92 RR=2.13 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.358 | CONF=0.86 | Φ=0.26 | COH=37.58% | BULL: KripkeSemantics, CrossScaleConvergenceAgent, DarkMatterGravity [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.318 WP=37.1% EV=+2.52 CVaR=-69.23 sim=14.6ms]
+[DubaiMatrixASI] 20:14:15.211    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.20, E=0.85). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 20:14:16.569  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:14:16.577  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:14:16.831    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-126,9538
+[DubaiMatrixASI] 20:14:49.858    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.29, Sig=0.37) overriding pessimistic MC.
+[DubaiMatrixASI] 20:15:08.708  WARNING │ 🚨 ALERT [HIGH]: Win rate em 6.2% (threshold: 45.0%)
+[DubaiMatrixASI] 20:15:08.719  WARNING │ 🚨 ALERT [CRITICAL]: 13 losses consecutivos!
+[DubaiMatrixASI] 20:15:08.720    OMEGA │ ⚡ 🧬 Gen #2: 11 mutações aplicadas | Tipo=uniform | Fitness=-3114.3577
+[DubaiMatrixASI] 20:15:08.739    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6253)
+[DubaiMatrixASI] 20:15:08.772    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006527
+[DubaiMatrixASI] 20:15:08.978    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,900.32
+[DubaiMatrixASI] 20:15:08.996    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 20:15:09.445  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (16 patógenos).
+[DubaiMatrixASI] 20:15:09.446  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 20:15:09.461  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (17 patógenos).
+[DubaiMatrixASI] 20:15:09.506  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (18 patógenos).
+[DubaiMatrixASI] 20:15:09.508  WARNING │ 🚨 ALERT [HIGH]: Win rate em 10.0% (threshold: 45.0%)
+[DubaiMatrixASI] 20:15:09.540    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-2043.02
+[DubaiMatrixASI] 20:15:09.584    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.17 < 2.5).
+[DubaiMatrixASI] 20:15:09.850    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:10.107    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:10.358    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:10.620    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:10.927    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:11.131    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:11.383    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:11.680    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:11.907    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:12.186    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:12.426    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:12.676    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:12.925    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:13.192    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:13.425    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:13.685    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:13.940    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:14.187    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:14.441    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:14.709    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:14.959    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:15.196    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:15.455    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:15.709    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:15.969    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:16.220    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:16.460    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:16.731    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:16.989    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:17.232    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:17.498    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:17.745    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:17.994    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:18.241    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:18.506    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:18.756    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:18.989    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:19.268    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:19.514    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:19.756    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:20.024    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:15:20.269    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.88 < 2.5).
+[DubaiMatrixASI] 20:15:20.509    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.88 < 2.5).
+[DubaiMatrixASI] 20:15:20.775    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:15:21.037    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:15:21.280    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:15:21.559    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.92 < 2.5).
+[DubaiMatrixASI] 20:15:21.793    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.92 < 2.5).
+[DubaiMatrixASI] 20:15:22.074    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.94 < 2.5).
+[DubaiMatrixASI] 20:15:22.244    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-102,1510
+[DubaiMatrixASI] 20:15:22.321    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:22.591    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:22.835    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:23.090    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:23.346    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:23.584    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 2.5).
+[DubaiMatrixASI] 20:15:23.850    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.76 < 2.5).
+[DubaiMatrixASI] 20:15:24.118    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 2.5).
+[DubaiMatrixASI] 20:15:24.352    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 2.5).
+[DubaiMatrixASI] 20:15:24.597    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:24.865    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.73 < 2.5).
+[DubaiMatrixASI] 20:15:25.110    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.73 < 2.5).
+[DubaiMatrixASI] 20:15:25.354    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:25.630    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:25.881    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.73 < 2.5).
+[DubaiMatrixASI] 20:15:26.122    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:26.396    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:26.655    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:26.879    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:27.127    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:27.406    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:27.648    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.71 < 2.5).
+[DubaiMatrixASI] 20:15:27.903    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:28.144    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:28.243    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.17, E=0.86). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 20:15:28.408    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:28.663    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:28.902    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:29.159    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:29.409    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:29.655    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.71 < 2.5).
+[DubaiMatrixASI] 20:15:29.923    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:30.155    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 2.5).
+[DubaiMatrixASI] 20:15:30.424    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.71 < 2.5).
+[DubaiMatrixASI] 20:15:30.680    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.71 < 2.5).
+[DubaiMatrixASI] 20:15:30.954    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.71 < 2.5).
+[DubaiMatrixASI] 20:15:31.216    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:31.453    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:31.725    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:31.971    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:32.225    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:32.500    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:32.722    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:32.985    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:33.237    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:33.502    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:33.731    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:34.003    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.68 < 2.5).
+[DubaiMatrixASI] 20:15:34.265    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:34.496    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.68 < 2.5).
+[DubaiMatrixASI] 20:15:34.766    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.68 < 2.5).
+[DubaiMatrixASI] 20:15:35.016    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:15:35.265    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.73 < 2.5).
+[DubaiMatrixASI] 20:15:35.531    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.73 < 2.5).
+[DubaiMatrixASI] 20:15:35.774    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.72 < 2.5).
+[DubaiMatrixASI] 20:15:36.053    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:36.301    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:36.545    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:36.789    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:37.047    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:37.296    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:37.570    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:37.794    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:38.057    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:38.326    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:38.591    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 2.5).
+[DubaiMatrixASI] 20:15:38.856    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:15:39.094    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:39.345    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:39.569    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:39.831    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:40.076    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:40.342    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:40.583    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:40.830    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:41.099    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:41.338    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:41.609    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:41.836    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:42.112    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:42.361    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:42.617    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:42.866    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:43.103    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:43.382    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:43.645    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:43.872    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:44.141    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:44.388    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:44.628    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:15:44.892    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:45.130    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:45.408    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:45.646    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:45.907    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:46.141    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:46.417    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:46.699    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:46.926    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:47.171    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:15:47.452    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:47.691    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:47.928    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:48.189    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:48.457    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:48.683    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:48.940    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:49.204    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:49.445    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:49.703    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:49.956    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:50.212    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:50.372    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.25, Sig=0.35) overriding pessimistic MC.
+[DubaiMatrixASI] 20:15:50.452    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:50.716    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:50.955    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:51.235    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:51.477    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:51.733    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:51.985    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:52.255    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:52.498    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:52.730    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:53.007    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:53.249    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:15:53.523    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:53.771    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:54.022    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:54.303    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:54.537    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:54.795    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:15:55.037    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:55.290    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:15:55.556    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:15:55.809    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:56.061    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:56.300    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:56.563    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:15:56.809    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:57.060    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:15:57.324    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:57.565    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:15:57.837    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:15:58.068    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 2.5).
+[DubaiMatrixASI] 20:15:58.343    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 2.5).
+[DubaiMatrixASI] 20:15:58.575    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.74 < 2.5).
+[DubaiMatrixASI] 20:15:58.832    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:15:59.070    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:15:59.352    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:15:59.612    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:15:59.835    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:00.047  WARNING │ 🚨 ALERT [HIGH]: Win rate em 10.0% (threshold: 45.0%)
+[DubaiMatrixASI] 20:16:00.110    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:00.350    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:00.584    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:00.847    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:01.112    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:01.392    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:01.661    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:01.900    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:02.142    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:02.417    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:02.655    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:02.905    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:03.151    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:03.423    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:03.676    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.19 < 2.5).
+[DubaiMatrixASI] 20:16:03.924    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.19 < 2.5).
+[DubaiMatrixASI] 20:16:04.164    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.19 < 2.5).
+[DubaiMatrixASI] 20:16:04.439    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.22 < 2.5).
+[DubaiMatrixASI] 20:16:04.685    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:04.935    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:05.178    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:05.422    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:05.697    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:05.939    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:06.192    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:06.442    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:06.711    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:06.975    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:07.221    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:07.457    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.98 < 2.5).
+[DubaiMatrixASI] 20:16:07.707    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.98 < 2.5).
+[DubaiMatrixASI] 20:16:08.002    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:08.243    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.96 < 2.5).
+[DubaiMatrixASI] 20:16:08.514    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.96 < 2.5).
+[DubaiMatrixASI] 20:16:08.735    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:08.984    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:16:09.249    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:09.478    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:16:09.743    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:10.025    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:16:10.252    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:16:10.534    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:10.787    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.98 < 2.5).
+[DubaiMatrixASI] 20:16:11.018    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:11.269    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.01 < 2.5).
+[DubaiMatrixASI] 20:16:11.566    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:11.781    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:12.046    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:12.276    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.02 < 2.5).
+[DubaiMatrixASI] 20:16:12.538    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.00 < 2.5).
+[DubaiMatrixASI] 20:16:12.780    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.00 < 2.5).
+[DubaiMatrixASI] 20:16:13.063    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.02 < 2.5).
+[DubaiMatrixASI] 20:16:13.303    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.00 < 2.5).
+[DubaiMatrixASI] 20:16:13.557    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.01 < 2.5).
+[DubaiMatrixASI] 20:16:13.795    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:14.055    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:14.310    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.93 < 2.5).
+[DubaiMatrixASI] 20:16:14.578    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:14.826    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.88 < 2.5).
+[DubaiMatrixASI] 20:16:15.071    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:15.339    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:16:15.581    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:15.837    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:16.089    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.88 < 2.5).
+[DubaiMatrixASI] 20:16:16.330    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:16.611    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.92 < 2.5).
+[DubaiMatrixASI] 20:16:16.834    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:17.099    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.93 < 2.5).
+[DubaiMatrixASI] 20:16:17.352    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:17.581    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.89 < 2.5).
+[DubaiMatrixASI] 20:16:17.836    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:16:18.107    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.94 < 2.5).
+[DubaiMatrixASI] 20:16:18.367    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.93 < 2.5).
+[DubaiMatrixASI] 20:16:18.593    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.95 < 2.5).
+[DubaiMatrixASI] 20:16:18.857    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:19.128    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:19.358    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.94 < 2.5).
+[DubaiMatrixASI] 20:16:19.613    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.01 < 2.5).
+[DubaiMatrixASI] 20:16:19.889    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:20.130    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:20.444    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:20.645    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.00 < 2.5).
+[DubaiMatrixASI] 20:16:20.898    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.03 < 2.5).
+[DubaiMatrixASI] 20:16:21.156    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:21.425    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:21.669    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:21.918    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.98 < 2.5).
+[DubaiMatrixASI] 20:16:22.171    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.96 < 2.5).
+[DubaiMatrixASI] 20:16:22.411    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.02 < 2.5).
+[DubaiMatrixASI] 20:16:22.667    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.05 < 2.5).
+[DubaiMatrixASI] 20:16:22.908    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.05 < 2.5).
+[DubaiMatrixASI] 20:16:23.170    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.02 < 2.5).
+[DubaiMatrixASI] 20:16:23.422    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.69 < 2.5).
+[DubaiMatrixASI] 20:16:23.665    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.62 < 2.5).
+[DubaiMatrixASI] 20:16:23.924    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.62 < 2.5).
+[DubaiMatrixASI] 20:16:24.190    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.63 < 2.5).
+[DubaiMatrixASI] 20:16:24.440    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.63 < 2.5).
+[DubaiMatrixASI] 20:16:24.683    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.63 < 2.5).
+[DubaiMatrixASI] 20:16:24.932    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.64 < 2.5).
+[DubaiMatrixASI] 20:16:25.201    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.65 < 2.5).
+[DubaiMatrixASI] 20:16:25.431    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.64 < 2.5).
+[DubaiMatrixASI] 20:16:25.643    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-102,1510
+[DubaiMatrixASI] 20:16:25.718    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.63 < 2.5).
+[DubaiMatrixASI] 20:16:25.966    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.65 < 2.5).
+[DubaiMatrixASI] 20:16:26.240    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.65 < 2.5).
+[DubaiMatrixASI] 20:16:26.496    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.67 < 2.5).
+[DubaiMatrixASI] 20:16:26.758    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:26.992    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:16:27.246    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:16:27.493    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:16:27.782    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:28.013    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:16:28.252    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:16:28.506    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:16:28.762    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:16:29.017    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:16:29.286    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:29.526    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:29.789    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.82 < 2.5).
+[DubaiMatrixASI] 20:16:30.040    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:30.286    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:16:30.553    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.80 < 2.5).
+[DubaiMatrixASI] 20:16:30.801    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 2.5).
+[DubaiMatrixASI] 20:16:31.081    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.78 < 2.5).
+[DubaiMatrixASI] 20:16:31.319    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:16:31.570    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.83 < 2.5).
+[DubaiMatrixASI] 20:16:31.811    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.81 < 2.5).
+[DubaiMatrixASI] 20:16:32.071    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:16:32.340    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:32.579    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.84 < 2.5).
+[DubaiMatrixASI] 20:16:32.837    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.85 < 2.5).
+[DubaiMatrixASI] 20:16:33.096    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:33.346    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.86 < 2.5).
+[DubaiMatrixASI] 20:16:33.582    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:16:33.855    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.88 < 2.5).
+[DubaiMatrixASI] 20:16:34.092    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.87 < 2.5).
+[DubaiMatrixASI] 20:16:34.352    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.91 < 2.5).
+[DubaiMatrixASI] 20:16:34.610    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.07 < 2.5).
+[DubaiMatrixASI] 20:16:34.857    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.00 < 2.5).
+[DubaiMatrixASI] 20:16:35.111    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.01 < 2.5).
+[DubaiMatrixASI] 20:16:35.358    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.03 < 2.5).
+[DubaiMatrixASI] 20:16:35.632    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.96 < 2.5).
+[DubaiMatrixASI] 20:16:35.878    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.98 < 2.5).
+[DubaiMatrixASI] 20:16:36.115    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.97 < 2.5).
+[DubaiMatrixASI] 20:16:36.394    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.99 < 2.5).
+[DubaiMatrixASI] 20:16:36.659    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.04 < 2.5).
+[DubaiMatrixASI] 20:16:36.896    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.07 < 2.5).
+[DubaiMatrixASI] 20:16:37.132    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.04 < 2.5).
+[DubaiMatrixASI] 20:16:37.386    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.08 < 2.5).
+[DubaiMatrixASI] 20:16:37.629    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.05 < 2.5).
+[DubaiMatrixASI] 20:16:37.904    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:38.149    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:38.396    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.09 < 2.5).
+[DubaiMatrixASI] 20:16:38.686    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:38.931    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.07 < 2.5).
+[DubaiMatrixASI] 20:16:39.147    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.04 < 2.5).
+[DubaiMatrixASI] 20:16:39.434    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.04 < 2.5).
+[DubaiMatrixASI] 20:16:39.665    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:39.941    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:40.174    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:40.443    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:40.706    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:40.951    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:41.200    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.12 < 2.5).
+[DubaiMatrixASI] 20:16:41.472    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.16 < 2.5).
+[DubaiMatrixASI] 20:16:41.713    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:41.952    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.10 < 2.5).
+[DubaiMatrixASI] 20:16:42.230    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.09 < 2.5).
+[DubaiMatrixASI] 20:16:42.480    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.07 < 2.5).
+[DubaiMatrixASI] 20:16:42.723    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:42.997    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:43.241    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:43.491    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.16 < 2.5).
+[DubaiMatrixASI] 20:16:43.733    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.07 < 2.5).
+[DubaiMatrixASI] 20:16:44.003    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:44.255    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:44.509    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:44.749    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.11 < 2.5).
+[DubaiMatrixASI] 20:16:45.034    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:45.278    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:45.536    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.15 < 2.5).
+[DubaiMatrixASI] 20:16:45.766    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.16 < 2.5).
+[DubaiMatrixASI] 20:16:46.019    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.16 < 2.5).
+[DubaiMatrixASI] 20:16:46.273    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.17 < 2.5).
+[DubaiMatrixASI] 20:16:46.543    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.16 < 2.5).
+[DubaiMatrixASI] 20:16:46.808    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.14 < 2.5).
+[DubaiMatrixASI] 20:16:47.026    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.13 < 2.5).
+[DubaiMatrixASI] 20:16:47.266    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.27 < 2.5).
+[DubaiMatrixASI] 20:16:47.542    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.24 < 2.5).
+[DubaiMatrixASI] 20:16:47.780    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.30 < 2.5).
+[DubaiMatrixASI] 20:16:47.950    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.20, E=0.87). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 20:16:48.032    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.31 < 2.5).
+[DubaiMatrixASI] 20:16:48.298    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.31 < 2.5).
+[DubaiMatrixASI] 20:16:48.559    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.32 < 2.5).
+[DubaiMatrixASI] 20:16:48.808    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.32 < 2.5).
+[DubaiMatrixASI] 20:16:49.074    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.34 < 2.5).
+[DubaiMatrixASI] 20:16:49.364    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.34 < 2.5).
+[DubaiMatrixASI] 20:16:49.570    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.40 < 2.5).
+[DubaiMatrixASI] 20:16:49.847    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.31 < 2.5).
+[DubaiMatrixASI] 20:16:50.113    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.35 < 2.5).
+[DubaiMatrixASI] 20:16:50.352    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.33 < 2.5).
+[DubaiMatrixASI] 20:16:50.626    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.37 < 2.5).
+[DubaiMatrixASI] 20:16:50.833  WARNING │ 🚨 ALERT [HIGH]: Win rate em 10.0% (threshold: 45.0%)
+[DubaiMatrixASI] 20:16:50.851    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.6160)
+[DubaiMatrixASI] 20:16:50.852    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007059
+[DubaiMatrixASI] 20:16:50.902    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.38 < 2.5).
+[DubaiMatrixASI] 20:16:51.188    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.40 < 2.5).
+[DubaiMatrixASI] 20:16:51.433    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.43 < 2.5).
+[DubaiMatrixASI] 20:16:51.711    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.46 < 2.5).
+[DubaiMatrixASI] 20:16:51.931    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.46 < 2.5).
+[DubaiMatrixASI] 20:16:52.196    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.39 < 2.5).
+[DubaiMatrixASI] 20:16:52.423    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.22, Sig=0.35) overriding pessimistic MC.
+[DubaiMatrixASI] 20:16:52.517    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.42 < 2.5).
+[DubaiMatrixASI] 20:16:52.763    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.43 < 2.5).
+[DubaiMatrixASI] 20:16:53.016    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.45 < 2.5).
+[DubaiMatrixASI] 20:16:53.288    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.45 < 2.5).
+[DubaiMatrixASI] 20:16:53.550    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.40 < 2.5).
+[DubaiMatrixASI] 20:16:53.852    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.46 < 2.5).
+[DubaiMatrixASI] 20:16:54.069    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.42 < 2.5).
+[DubaiMatrixASI] 20:16:54.360    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.49 < 2.5).
+[DubaiMatrixASI] 20:16:55.891    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.50 < 2.5).
+[DubaiMatrixASI] 20:16:58.452    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.49 < 2.5).
+[DubaiMatrixASI] 20:16:58.944    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.50 < 2.5).
+[DubaiMatrixASI] 20:16:59.200    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.44 < 2.5).
+[DubaiMatrixASI] 20:16:59.470    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=2.47 < 2.5).
+[DubaiMatrixASI] 20:17:10.206    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 20:17:10.247    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 20:17:10.248    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 20:17:10.256    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 20:17:10.258    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 20:17:10.259    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 20:17:10.259    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-12T23:17:10.259366+00:00

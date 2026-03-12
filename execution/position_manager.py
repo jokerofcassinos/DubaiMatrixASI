@@ -224,26 +224,26 @@ class PositionManager:
             
             dynamic_peak_floor = commission_cost + target_net_profit
 
-            # [Phase 52.1] Noise Shield Active: 80% do floor deve ser atingido 
-            # antes de permitirmos saídas por "ruído" (Momentum/Exaustão).
-            reached_noise_shield = (total_profit >= dynamic_peak_floor * 0.8)
+            # [Phase 52.1] Noise Shield Active: 1.5x do floor deve ser atingido 
+            # antes de permitirmos saídas por "ruído" (Momentum/Exaustão). Queremos esticar ganhos.
+            reached_noise_shield = (total_profit >= dynamic_peak_floor * 1.5)
 
             if peak > dynamic_peak_floor:
                 # [Phase Ω-Singularity] Trailing Stop Absoluto.
                 # Calculamos o threshold com base no PICO (Peak) e não no lucro atual.
                 if peak > dynamic_peak_floor * 2.0:
-                    # Quantum Tunneling Trailing (Permite 15% de pullback, fecha seco no clímax)
+                    # Quantum Tunneling Trailing (Permite 25% de pullback em grandes runs)
                     curvature_adj = max(0, climax_score - 1.5) * 0.03
-                    lock_threshold = max(0.01, 0.15 - curvature_adj) 
+                    lock_threshold = max(0.05, 0.25 - curvature_adj) 
                 elif peak > dynamic_peak_floor * 1.5:
                     curvature_adj = max(0, climax_score - 2.0) * 0.02
-                    lock_threshold = max(0.02, 0.08 - curvature_adj)
+                    lock_threshold = max(0.05, 0.15 - curvature_adj)
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
                 
-                # Trava de Segurança Absoluta (Nunca deixar o lucro cair abaixo do Noise Shield depois de bater no alvo)
-                trailing_stop_profit = max(dynamic_peak_floor * 0.8, peak * (1.0 - lock_threshold))
+                # Trava de Segurança Absoluta (Nunca deixar o lucro cair abaixo de 1.0x do Noise Shield depois de bater no alvo)
+                trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
                 
                 if total_profit <= trailing_stop_profit:
                     should_close = True
