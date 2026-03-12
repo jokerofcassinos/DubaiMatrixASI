@@ -292,7 +292,8 @@ from core.consciousness.agents.pleroma_agents import (
 
 # Phase Ω-Phantom & Chronos (Nível 33 - Liquidez Fantasma e Assimetria Temporal)
 from core.consciousness.agents.phantom_agents import (
-    PhantomLiquidityAgent, TimeReversalAsymmetryAgent
+    PhantomLiquidityAgent, TimeReversalAsymmetryAgent,
+    HolographicDOMAgent, FractionalCalculusVelocityAgent
 )
 
 # Byzantine Consensus

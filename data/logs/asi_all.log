@@ -1070,3 +1070,733 @@
 [DubaiMatrixASI] 17:51:38.056    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
 [DubaiMatrixASI] 17:51:38.087     INFO │ 📂 Trade Registry carregado: 24 intenções mapeadas.
 [DubaiMatrixASI] 17:51:38.127    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 126 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 17:51:40.512  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:51:40.513  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:51:40.533    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7470)
+[DubaiMatrixASI] 17:51:40.542    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006112
+[DubaiMatrixASI] 17:51:43.189     INFO │ 💫 Cycle #4410 | Action=WAIT | Signal=-0.141 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.141 COHERENCE=0.50 PHI=0.10
+  🐂 BULL[11]: DarkMatterGravity, QuantumSpin, StopHunterAgent, ChaosRegime, DarkMass, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, LiquidStateAgent, TrendAgent, MeanFieldGame
+  🐻 BEAR[19]: KripkeSemantics, FourierSpectral, QuantumSuperposition, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, HexMatrix, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:51:50.772     INFO │ 💫 Cycle #4440 | Action=WAIT | Signal=-0.115 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.115 COHERENCE=0.50 PHI=0.07
+  🐂 BULL[12]: DarkMatterGravity, QuantumSpin, InformationEntropyAgent, StopHunterAgent, ChaosRegime, DarkMass, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[17]: KripkeSemantics, FourierSpectral, QuantumSuperposition, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:51:58.376     INFO │ 💫 Cycle #4470 | Action=WAIT | Signal=-0.121 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.121 COHERENCE=0.49 PHI=0.07
+  🐂 BULL[12]: DarkMatterGravity, QuantumSpin, InformationEntropyAgent, StopHunterAgent, ChaosRegime, DarkMass, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[17]: KripkeSemantics, FourierSpectral, QuantumSuperposition, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:06.072    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:52:06.081     INFO │ 💫 Cycle #4500 | Action=WAIT | Signal=-0.028 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.028 COHERENCE=0.50 PHI=0.00
+  🐂 BULL[13]: DarkMatterGravity, FractalStdDev, CppTickEntropyAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, LiquidationVacuumAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[16]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, MomentumAgent, MicrostructureAgent, FeynmanPath, PressureMatrix, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:13.572     INFO │ 💫 Cycle #4530 | Action=WAIT | Signal=-0.160 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.160 COHERENCE=0.50 PHI=0.13
+  🐂 BULL[10]: DarkMatterGravity, FractalStdDev, StopHunterAgent, ChaosRegime, ChartStructureAgent, PriceGravityAgent, CandleAnatomyAgent, TrendAgent, FeynmanPath, MeanFieldGame
+  🐻 BEAR[20]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, LiquidStateAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MicrostructureAgent, HexMatrix, AggressivenessAgent, MomentumAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:21.154     INFO │ 💫 Cycle #4560 | Action=WAIT | Signal=-0.144 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.144 COHERENCE=0.50 PHI=0.12
+  🐂 BULL[10]: DarkMatterGravity, FractalStdDev, StopHunterAgent, ChaosRegime, LiquidStateAgent, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, MeanFieldGame
+  🐻 BEAR[20]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, HexMatrix, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:28.777     INFO │ 💫 Cycle #4590 | Action=WAIT | Signal=-0.102 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.102 COHERENCE=0.50 PHI=0.09
+  🐂 BULL[11]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, LiquidStateAgent, TrendAgent, MeanFieldGame
+  🐻 BEAR[20]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, HexMatrix, FeynmanPath, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:31.158  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:52:31.158  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:52:36.390     INFO │ 💫 Cycle #4620 | Action=WAIT | Signal=-0.115 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.115 COHERENCE=0.49 PHI=0.10
+  🐂 BULL[11]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[19]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:44.021     INFO │ 💫 Cycle #4650 | Action=WAIT | Signal=-0.075 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.075 COHERENCE=0.49 PHI=0.06
+  🐂 BULL[13]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, FeynmanPath, HexMatrix, MeanFieldGame
+  🐻 BEAR[17]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:51.590     INFO │ 💫 Cycle #4680 | Action=WAIT | Signal=-0.081 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.081 COHERENCE=0.49 PHI=0.06
+  🐂 BULL[12]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, CandleAnatomyAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[18]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, FeynmanPath, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:52:59.241     INFO │ 💫 Cycle #4710 | Action=WAIT | Signal=-0.121 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.121 COHERENCE=0.50 PHI=0.10
+  🐂 BULL[11]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, ChartStructureAgent, PriceGravityAgent, CandleAnatomyAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[20]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, LiquidStateAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MomentumAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:53:06.845     INFO │ 💫 Cycle #4740 | Action=WAIT | Signal=+0.194 | Coherence=0.48 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.194 COHERENCE=0.48 PHI=0.07
+  🐂 BULL[15]: KripkeSemantics, DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, FeynmanPath, LiquidStateAgent, TrendAgent, LiquidationVacuumAgent, MeanFieldGame
+  🐻 BEAR[16]: FourierSpectral, QuantumSuperposition, QuantumSpin, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, MomentumAgent, HexMatrix, CandleAnatomyAgent, PriceVelocityAgent, PressureMatrix, AggressivenessAgent
+[DubaiMatrixASI] 17:53:09.444    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:53:13.273    ERROR │ 💀 EXCEPTION in [_scrape_mempool_space]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 17:53:13.440    DEBUG │ Traceback (most recent call last):
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] Foi forçado o cancelamento de uma conexão existente pelo host remoto
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\adapters.py", line 644, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\util\retry.py", line 490, in increment
+    raise reraise(type(error), error, _stacktrace)
+          ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\util\util.py", line 38, in reraise
+    raise value.with_traceback(tb)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connectionpool.py", line 534, in _make_request
+    response = conn.getresponse()
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\urllib3\connection.py", line 571, in getresponse
+    httplib_response = super().getresponse()
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 1450, in getresponse
+    response.begin()
+    ~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 336, in begin
+    version, status, reason = self._read_status()
+                              ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\http\client.py", line 297, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+               ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\socket.py", line 719, in readinto
+    return self._sock.recv_into(b)
+           ~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1304, in recv_into
+    return self.read(nbytes, buffer)
+           ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\pichau\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1138, in read
+    return self._sslobj.read(len, buffer)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+urllib3.exceptions.ProtocolError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\market\scraper\onchain_scraper.py", line 168, in _scrape_mempool_space
+    resp = self._session.get(url, timeout=10)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 602, in get
+    return self.request("GET", url, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "D:\DubaiMatrixASI\venv\Lib\site-packages\requests\adapters.py", line 659, in send
+    raise ConnectionError(err, request=request)
+requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+
+[DubaiMatrixASI] 17:53:13.493     INFO │ ⛓️ On-Chain Update: Mempool=0 txs | Fee=0.0 sat/vB | Health=0.80 | Sources=1
+[DubaiMatrixASI] 17:53:14.483     INFO │ 💫 Cycle #4770 | Action=WAIT | Signal=+0.199 | Coherence=0.48 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.199 COHERENCE=0.48 PHI=0.07
+  🐂 BULL[16]: KripkeSemantics, DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, FeynmanPath, TrendAgent, LiquidationVacuumAgent, HexMatrix, AggressivenessAgent, MeanFieldGame
+  🐻 BEAR[14]: FourierSpectral, QuantumSuperposition, QuantumSpin, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, MomentumAgent, CandleAnatomyAgent, PriceVelocityAgent, PressureMatrix
+[DubaiMatrixASI] 17:53:21.872  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:53:21.873  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:53:21.890    OMEGA │ ⚡ 🧬 Gen #8: 4 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
+[DubaiMatrixASI] 17:53:21.908    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7468)
+[DubaiMatrixASI] 17:53:21.909    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007379
+[DubaiMatrixASI] 17:53:22.085    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:53:22.089    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501243: Regime=None
+[DubaiMatrixASI] 17:53:22.089    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501253: Regime=None
+[DubaiMatrixASI] 17:53:22.095    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501259: Regime=None
+[DubaiMatrixASI] 17:53:22.106    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501265: Regime=None
+[DubaiMatrixASI] 17:53:22.111    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501841: Regime=None
+[DubaiMatrixASI] 17:53:22.112    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501844: Regime=None
+[DubaiMatrixASI] 17:53:22.120    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501846: Regime=None
+[DubaiMatrixASI] 17:53:22.121    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501847: Regime=None
+[DubaiMatrixASI] 17:53:22.128    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516566: Regime=None
+[DubaiMatrixASI] 17:53:22.129    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516556: Regime=LOW_LIQUIDITY
+[DubaiMatrixASI] 17:53:22.129    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516558: Regime=None
+[DubaiMatrixASI] 17:53:22.130    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516563: Regime=None
+[DubaiMatrixASI] 17:53:22.132  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:53:22.132  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:53:22.134    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 13 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
+[DubaiMatrixASI] 17:53:22.134     INFO │ 💫 Cycle #4800 | Action=WAIT | Signal=+0.182 | Coherence=0.48 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.182 COHERENCE=0.48 PHI=0.07
+  🐂 BULL[14]: KripkeSemantics, DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, ChartStructureAgent, TrendAgent, LiquidationVacuumAgent, AggressivenessAgent, MeanFieldGame
+  🐻 BEAR[16]: FourierSpectral, QuantumSuperposition, QuantumSpin, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, FeynmanPath, MomentumAgent, HexMatrix, CandleAnatomyAgent, PriceVelocityAgent, PressureMatrix
+[DubaiMatrixASI] 17:53:24.528     INFO │ 📊 Sentiment Update: F&G=18 (Extreme Fear) | BTC Dom=56.8% | 24h=-0.45% | Score=-0.521 | Sources=2
+[DubaiMatrixASI] 17:53:29.710     INFO │ 💫 Cycle #4830 | Action=WAIT | Signal=+0.038 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.038 COHERENCE=0.49 PHI=0.06
+  🐂 BULL[11]: KripkeSemantics, DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, ChartStructureAgent, PriceGravityAgent, TrendAgent, FeynmanPath, MeanFieldGame
+  🐻 BEAR[19]: FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, PressureMatrix, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, CandleAnatomyAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, LiquidationVacuumAgent, MomentumAgent, AggressivenessAgent, HexMatrix, PriceVelocityAgent
+[DubaiMatrixASI] 17:53:37.353     INFO │ 💫 Cycle #4860 | Action=WAIT | Signal=-0.061 | Coherence=0.51 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.061 COHERENCE=0.51 PHI=0.08
+  🐂 BULL[10]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, ChartStructureAgent, PriceGravityAgent, TrendAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[20]: FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, LiquidStateAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, CandleAnatomyAgent, InformationEntropyAgent, LiquidationVacuumAgent, PriceVelocityAgent, FeynmanPath, MomentumAgent, AggressivenessAgent
+[DubaiMatrixASI] 17:53:44.950     INFO │ 💫 Cycle #4890 | Action=WAIT | Signal=-0.134 | Coherence=0.49 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.134 COHERENCE=0.49 PHI=0.10
+  🐂 BULL[12]: DarkMatterGravity, FractalStdDev, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, FeynmanPath, TrendAgent, HexMatrix, CandleAnatomyAgent, MeanFieldGame
+  🐻 BEAR[19]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, PriceVelocityAgent, AggressivenessAgent, LiquidationVacuumAgent, MomentumAgent
+[DubaiMatrixASI] 17:53:52.766     INFO │ 💫 Cycle #4920 | Action=WAIT | Signal=-0.279 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: COUNTER_TREND_LOW_PHI (Φ=0.15 < 0.18) - Sem integração p/ reversão
+  🧬 Quantum: SIGNAL=-0.279 COHERENCE=0.50 PHI=0.15
+  🐂 BULL[8]: DarkMatterGravity, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, TrendAgent, CandleAnatomyAgent, MeanFieldGame
+  🐻 BEAR[20]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, HexMatrix, AggressivenessAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:54:00.376     INFO │ 💫 Cycle #4950 | Action=WAIT | Signal=-0.219 | Coherence=0.50 | Regime=CREEPING_BULL | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.50 PHI=0.13
+  🐂 BULL[10]: DarkMatterGravity, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, TrendAgent, CandleAnatomyAgent, HexMatrix, MeanFieldGame
+  🐻 BEAR[19]: KripkeSemantics, FourierSpectral, QuantumSuperposition, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, MicrostructureAgent, CppFractalAgent, FVGAgent, SentimentFearGreedAgent, OnChainPressureAgent, InformationEntropyAgent, FeynmanPath, AggressivenessAgent, LiquidationVacuumAgent, MomentumAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:54:06.292    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 17:54:06.424    DEBUG │ ⚖️ RR ADJUST: Expanding target to 62.48 points to meet alpha floor.
+[DubaiMatrixASI] 17:54:07.906     INFO │ 💫 Cycle #4980 | Action=WAIT | Signal=-0.326 | Coherence=0.50 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: HORIZONTAL_SUPPORT_VETO (Level=70171, Valleys=22)
+  🧬 Quantum: SIGNAL=-0.326 COHERENCE=0.50 PHI=0.17
+  🐂 BULL[7]: DarkMatterGravity, ChartStructureAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, PriceGravityAgent, HexMatrix
+  🐻 BEAR[23]: KripkeSemantics, Supersymmetry, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, LiquidStateAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:54:10.798     INFO │ 🌍 Macro Update: ETH=$2064.00 | BTC/ETH=34.0 | Gold=$5088 | Vol24h=$98.1B | Bias=+0.000 | Sources=3
+[DubaiMatrixASI] 17:54:12.837  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:54:12.848  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:54:13.076    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:54:15.508     INFO │ 💫 Cycle #5010 | Action=WAIT | Signal=-0.337 | Coherence=0.50 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: HORIZONTAL_SUPPORT_VETO (Level=70171, Valleys=22)
+  🧬 Quantum: SIGNAL=-0.337 COHERENCE=0.50 PHI=0.17
+  🐂 BULL[7]: DarkMatterGravity, ChartStructureAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, PriceGravityAgent, HexMatrix
+  🐻 BEAR[22]: KripkeSemantics, Supersymmetry, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidityHeatmapAgent, AggressivenessAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, FeynmanPath, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:54:19.595    OMEGA │ ⚡ 🛡️ [MC BYPASS] Strong consensus (Φ=0.22, Sig=-0.70) overriding pessimistic MC.
+[DubaiMatrixASI] 17:54:19.605  WARNING │ ⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate -0.000412. Reducing exposure.
+[DubaiMatrixASI] 17:54:19.612    OMEGA │ ⚡ 🛡️ EXPOSURE CEILING: Lote 246.69 excedeu teto de segurança 65.77. Limitando.
+[DubaiMatrixASI] 17:54:19.613   SIGNAL │ 
+╔══ 🎯 [TAKER] SELL PREVIEW ══╗
+║ SIGNAL: -0.703 | CONF: 0.82 | Φ: 0.22
+║ BULL[7]: DarkMatterGravity, MorphogeneticResonance, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, ChartStructureAgent
+║ BEAR[25]: KripkeSemantics, Supersymmetry, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, LiquidStateAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MomentumAgent
+║ REGIME: UNKNOWN | ADAPTIVE_LOT: 5.00 | ATR: 126.58
+║ REASONING: SELL signal=-0.703 conf=0.82 coherence=0.40 regime=UNKNOWN ATR=126.58 RR=1.56 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.703 | CONF=0.82 | Φ=0.22 | COH=40.07% | BEAR: KripkeSemantics, Supersymmetry, SolitonWave | MC[score=-0.279 WP=40.8% EV=+1.71 CVaR=-40.16 sim=5.6ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 17:54:19.614    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=70098.67 SL=70138.83 TP=70036.19 | Φ: 0.22 | CONF: 0.82
+[DubaiMatrixASI] 17:54:19.686     INFO │ 💾 Intenção registrada Ticket#0 | Regime=UNKNOWN | Conf=0.82
+[DubaiMatrixASI] 17:54:19.699     INFO │ 💾 Intenção registrada Ticket#0 | Regime=UNKNOWN | Conf=0.82
+[DubaiMatrixASI] 17:54:19.707     INFO │ 💾 Intenção registrada Ticket#0 | Regime=UNKNOWN | Conf=0.82
+[DubaiMatrixASI] 17:54:19.710     INFO │ 💾 Intenção registrada Ticket#0 | Regime=UNKNOWN | Conf=0.82
+[DubaiMatrixASI] 17:54:19.712     INFO │ 💾 Intenção registrada Ticket#0 | Regime=UNKNOWN | Conf=0.82
+[DubaiMatrixASI] 17:54:19.713    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=5.00 @ 70098.78 | 5 tickets gerados | SELL signal=-0.703 conf=0.82 coherence=0.40 regime=UNKNOWN ATR=126.58 RR=1.56 | 
+[DubaiMatrixASI] 17:54:19.714    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 70098.78 | Φ=0.22 | CONF=0.82 | REGIME=UNKNOWN
+[DubaiMatrixASI] 17:54:19.714    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.703 PHI=0.22
+  🐂 BULL[7]: DarkMatterGravity, MorphogeneticResonance, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, ChartStructureAgent
+  🐻 BEAR[25]: KripkeSemantics, Supersymmetry, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, LiquidStateAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MomentumAgent
+  🎯 Reason: SELL signal=-0.703 conf=0.82 coherence=0.40 regime=UNKNOWN ATR=126.58 RR=1.56 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.703 | CONF=0.82 | Φ=0.22 | COH=40.07% | BEAR: KripkeSemantics, Supersymmetry, SolitonWave | MC[score=-0.279 WP=40.8% EV=+1.71 CVaR=-40.16 sim=5.6ms]
+[DubaiMatrixASI] 17:54:19.945     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 17:54:20.155    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #401518890
+[DubaiMatrixASI] 17:54:20.159     INFO │ 💾 Intenção registrada Ticket#401518890 | Regime=None | Conf=0.50
+[DubaiMatrixASI] 17:54:20.242     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 17:54:20.372    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #401518891
+[DubaiMatrixASI] 17:54:20.375     INFO │ 💾 Intenção registrada Ticket#401518891 | Regime=None | Conf=0.50
+[DubaiMatrixASI] 17:54:20.553     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 17:54:20.682    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #401518892
+[DubaiMatrixASI] 17:54:20.685     INFO │ 💾 Intenção registrada Ticket#401518892 | Regime=None | Conf=0.50
+[DubaiMatrixASI] 17:54:20.832     INFO │ 📩 Resposta EA Socket: SELL -> SUCCESS | Data: RESULT|SELL|SUCCESS|0|0.00
+[DubaiMatrixASI] 17:54:20.843     INFO │ 📩 Resposta EA Socket: SELL -> ERROR | Data: RESULT|SELL|ERROR|10019
+[DubaiMatrixASI] 17:54:20.908    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #401518894
+[DubaiMatrixASI] 17:54:20.911     INFO │ 💾 Intenção registrada Ticket#401518894 | Regime=None | Conf=0.50
+[DubaiMatrixASI] 17:54:23.204     INFO │ 💫 Cycle #5040 | Action=WAIT | Signal=-0.342 | Coherence=0.39 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: HORIZONTAL_SUPPORT_VETO (Level=70150, Valleys=22)
+  🧬 Quantum: SIGNAL=-0.342 COHERENCE=0.39 PHI=0.19
+  🐂 BULL[8]: DarkMatterGravity, MorphogeneticResonance, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, ChartStructureAgent
+  🐻 BEAR[25]: KripkeSemantics, Supersymmetry, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, FeynmanPath, MicrostructureAgent, HexMatrix, PriceVelocityAgent, MomentumAgent
+[DubaiMatrixASI] 17:54:24.711    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 17:54:30.722     INFO │ 💫 Cycle #5070 | Action=WAIT | Signal=-0.343 | Coherence=0.39 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: HORIZONTAL_SUPPORT_VETO (Level=70150, Valleys=22)
+  🧬 Quantum: SIGNAL=-0.343 COHERENCE=0.39 PHI=0.19
+  🐂 BULL[10]: HexMatrix, DarkMatterGravity, MorphogeneticResonance, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, FeynmanPath, ChartStructureAgent
+  🐻 BEAR[23]: KripkeSemantics, Supersymmetry, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, AggressivenessAgent, LiquidStateAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MomentumAgent
+[DubaiMatrixASI] 17:54:38.415     INFO │ 💫 Cycle #5100 | Action=WAIT | Signal=-0.327 | Coherence=0.38 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: HORIZONTAL_SUPPORT_VETO (Level=70150, Valleys=22)
+  🧬 Quantum: SIGNAL=-0.327 COHERENCE=0.38 PHI=0.13
+  🐂 BULL[11]: HexMatrix, Supersymmetry, DarkMatterGravity, MorphogeneticResonance, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, MarketTransition, PriceGravityAgent, CandleAnatomyAgent, ChartStructureAgent
+  🐻 BEAR[22]: KripkeSemantics, SolitonWave, FourierSpectral, RiemannianManifold, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, FeynmanPath, HarmonicResonanceAgent, LiquidationVacuumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, AggressivenessAgent, MicrostructureAgent, PriceVelocityAgent, MomentumAgent
+[DubaiMatrixASI] 17:54:39.764     INFO │ ⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para 1.60
+[DubaiMatrixASI] 17:54:46.004     INFO │ 💫 Cycle #5130 | Action=WAIT | Signal=-0.167 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.167 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, DarkMatterGravity, ChartStructureAgent, StopHunterAgent, ChaosRegime, MarketTransition, PriceGravityAgent, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, SolitonWave, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:54:53.641     INFO │ 💫 Cycle #5160 | Action=WAIT | Signal=-0.136 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.136 COHERENCE=0.47 PHI=0.12
+  🐂 BULL[10]: Supersymmetry, DarkMatterGravity, MorphogeneticResonance, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, MarketTransition, PriceGravityAgent, CandleAnatomyAgent
+  🐻 BEAR[23]: KripkeSemantics, IntuitionisticLogic, SolitonWave, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, HexMatrix, FeynmanPath, AggressivenessAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:55:01.151     INFO │ 💫 Cycle #5190 | Action=WAIT | Signal=-0.107 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.107 COHERENCE=0.48 PHI=0.10
+  🐂 BULL[12]: Supersymmetry, DarkMatterGravity, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, LiquidStateAgent, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:55:03.525  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:55:03.548  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:55:03.587    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8430)
+[DubaiMatrixASI] 17:55:03.596    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006595
+[DubaiMatrixASI] 17:55:08.741     INFO │ 💫 Cycle #5220 | Action=WAIT | Signal=+0.029 | Coherence=0.47 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.029 COHERENCE=0.47 PHI=0.01
+  🐂 BULL[13]: Supersymmetry, DarkMatterGravity, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[18]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, GameTheoryNashAgent, AggressivenessAgent, FeynmanPath, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, SentimentFearGreedAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:11.121    OMEGA │ ⚡ V-PULSE ACTIVATED (Capacitor: 1.00, Velocity: 245.1)
+[DubaiMatrixASI] 17:55:11.301    DEBUG │ ⚖️ RR ADJUST: Expanding target to 62.48 points to meet alpha floor.
+[DubaiMatrixASI] 17:55:11.302    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 6.88 (x2.5)
+[DubaiMatrixASI] 17:55:11.303     INFO │ 🚀 [IGNITION DRIFT] Applying forced drift of +0.0091 due to V-Pulse
+[DubaiMatrixASI] 17:55:16.383    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:55:16.388     INFO │ 💫 Cycle #5250 | Action=WAIT | Signal=-0.031 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.031 COHERENCE=0.49 PHI=0.01
+  🐂 BULL[12]: Supersymmetry, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[18]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, GameTheoryNashAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, SentimentFearGreedAgent, OnChainPressureAgent, MicrostructureAgent, FeynmanPath, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:23.959     INFO │ 💫 Cycle #5280 | Action=WAIT | Signal=-0.021 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.021 COHERENCE=0.48 PHI=0.01
+  🐂 BULL[13]: Supersymmetry, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[17]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, GameTheoryNashAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, SentimentFearGreedAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:26.119     INFO │ 📊 Sentiment Update: F&G=18 (Extreme Fear) | BTC Dom=56.8% | 24h=-0.46% | Score=-0.521 | Sources=2
+[DubaiMatrixASI] 17:55:31.503     INFO │ 💫 Cycle #5310 | Action=WAIT | Signal=-0.030 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.030 COHERENCE=0.49 PHI=0.01
+  🐂 BULL[13]: Supersymmetry, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, InformationEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[17]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, GameTheoryNashAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, SentimentFearGreedAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:39.052     INFO │ 💫 Cycle #5340 | Action=WAIT | Signal=-0.088 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.088 COHERENCE=0.49 PHI=0.05
+  🐂 BULL[11]: Supersymmetry, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[19]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, InformationEntropyAgent, GameTheoryNashAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:46.639     INFO │ 💫 Cycle #5370 | Action=WAIT | Signal=-0.065 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=-0.065 COHERENCE=0.48 PHI=0.03
+  🐂 BULL[12]: Supersymmetry, PriceGravityAgent, PheromoneFieldAgent, CppTickEntropyAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, TimeWarpAgent, LiquidationVacuumAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[19]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, InformationEntropyAgent, GameTheoryNashAgent, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, SentimentFearGreedAgent, OnChainPressureAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent, PressureMatrix, MomentumAgent, TrendAgent
+[DubaiMatrixASI] 17:55:54.121  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:55:54.122  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:55:54.122    OMEGA │ ⚡ 🧬 Gen #9: 7 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
+[DubaiMatrixASI] 17:55:54.405    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,912.51
+[DubaiMatrixASI] 17:55:54.426    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:55:54.427    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501243: Regime=None
+[DubaiMatrixASI] 17:55:54.428    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501253: Regime=None
+[DubaiMatrixASI] 17:55:54.445    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501259: Regime=None
+[DubaiMatrixASI] 17:55:54.448    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501265: Regime=None
+[DubaiMatrixASI] 17:55:54.448    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501841: Regime=None
+[DubaiMatrixASI] 17:55:54.459    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501844: Regime=None
+[DubaiMatrixASI] 17:55:54.464    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501846: Regime=None
+[DubaiMatrixASI] 17:55:54.465    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501847: Regime=None
+[DubaiMatrixASI] 17:55:54.465    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516566: Regime=None
+[DubaiMatrixASI] 17:55:54.466    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516556: Regime=LOW_LIQUIDITY
+[DubaiMatrixASI] 17:55:54.466    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516558: Regime=None
+[DubaiMatrixASI] 17:55:54.466    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516563: Regime=None
+[DubaiMatrixASI] 17:55:54.468  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:55:54.468  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:55:54.469    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
+[DubaiMatrixASI] 17:55:54.469     INFO │ 💫 Cycle #5400 | Action=WAIT | Signal=-0.223 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:02.226     INFO │ 💫 Cycle #5430 | Action=WAIT | Signal=-0.230 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.230 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.230 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, FeynmanPath, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:09.767     INFO │ 💫 Cycle #5460 | Action=WAIT | Signal=-0.219 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.219 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:17.369     INFO │ 💫 Cycle #5490 | Action=WAIT | Signal=-0.238 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.238 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, FeynmanPath, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:20.039    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:56:25.359     INFO │ 💫 Cycle #5520 | Action=WAIT | Signal=-0.223 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:32.950     INFO │ 💫 Cycle #5550 | Action=WAIT | Signal=-0.231 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.231 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:40.478     INFO │ 💫 Cycle #5580 | Action=WAIT | Signal=-0.237 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.237 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:45.420  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:56:45.448  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:56:45.463    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5109)
+[DubaiMatrixASI] 17:56:45.473    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007106
+[DubaiMatrixASI] 17:56:48.137     INFO │ 💫 Cycle #5610 | Action=WAIT | Signal=-0.239 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.239 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, FeynmanPath, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:56:56.095     INFO │ 💫 Cycle #5640 | Action=WAIT | Signal=-0.237 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.237 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:04.361     INFO │ 💫 Cycle #5670 | Action=WAIT | Signal=-0.226 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.226 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.226 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:11.552     INFO │ 🌍 Macro Update: ETH=$2062.96 | BTC/ETH=34.0 | Gold=$5090 | Vol24h=$98.1B | Bias=+0.000 | Sources=3
+[DubaiMatrixASI] 17:57:12.021     INFO │ 💫 Cycle #5700 | Action=WAIT | Signal=-0.232 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.232 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:19.567     INFO │ 💫 Cycle #5730 | Action=WAIT | Signal=-0.243 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.243 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, FeynmanPath, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:24.757    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:57:27.270     INFO │ 💫 Cycle #5760 | Action=WAIT | Signal=-0.223 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:28.101     INFO │ 📊 Sentiment Update: F&G=18 (Extreme Fear) | BTC Dom=56.8% | 24h=-0.67% | Score=-0.525 | Sources=2
+[DubaiMatrixASI] 17:57:34.842     INFO │ 💫 Cycle #5790 | Action=WAIT | Signal=-0.233 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.233 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:37.220  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:57:37.221  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:57:42.443     INFO │ 💫 Cycle #5820 | Action=WAIT | Signal=-0.226 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.226 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.226 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:50.015     INFO │ 💫 Cycle #5850 | Action=WAIT | Signal=-0.218 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.218 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.218 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:57:57.651     INFO │ 💫 Cycle #5880 | Action=WAIT | Signal=-0.239 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.239 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, FeynmanPath, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:05.241     INFO │ 💫 Cycle #5910 | Action=WAIT | Signal=-0.238 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.238 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, FeynmanPath, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:12.831     INFO │ 💫 Cycle #5940 | Action=WAIT | Signal=-0.221 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.221 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.221 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:14.956     INFO │ ⛓️ On-Chain Update: Mempool=29,274 txs | Fee=1.2 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 17:58:20.379     INFO │ 💫 Cycle #5970 | Action=WAIT | Signal=-0.242 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.242 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, FeynmanPath, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:27.837  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:58:27.837  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:58:27.838    OMEGA │ ⚡ 🧬 Gen #10: 4 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
+[DubaiMatrixASI] 17:58:27.839    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.8749)
+[DubaiMatrixASI] 17:58:27.840    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006402
+[DubaiMatrixASI] 17:58:28.148    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:58:28.170    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:58:28.177    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501243: Regime=None
+[DubaiMatrixASI] 17:58:28.177    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501253: Regime=None
+[DubaiMatrixASI] 17:58:28.178    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501259: Regime=None
+[DubaiMatrixASI] 17:58:28.178    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501265: Regime=None
+[DubaiMatrixASI] 17:58:28.178    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501841: Regime=None
+[DubaiMatrixASI] 17:58:28.179    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501844: Regime=None
+[DubaiMatrixASI] 17:58:28.179    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501846: Regime=None
+[DubaiMatrixASI] 17:58:28.180    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501847: Regime=None
+[DubaiMatrixASI] 17:58:28.180    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516566: Regime=None
+[DubaiMatrixASI] 17:58:28.181    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516556: Regime=LOW_LIQUIDITY
+[DubaiMatrixASI] 17:58:28.181    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516558: Regime=None
+[DubaiMatrixASI] 17:58:28.181    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516563: Regime=None
+[DubaiMatrixASI] 17:58:28.183  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:58:28.183  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:58:28.184    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
+[DubaiMatrixASI] 17:58:28.185     INFO │ 💫 Cycle #6000 | Action=WAIT | Signal=-0.219 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.219 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:36.034     INFO │ 💫 Cycle #6030 | Action=WAIT | Signal=-0.223 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:43.684     INFO │ 💫 Cycle #6060 | Action=WAIT | Signal=-0.216 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.216 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.216 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:51.463     INFO │ 💫 Cycle #6090 | Action=WAIT | Signal=-0.229 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.229 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.229 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, FeynmanPath, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:58:59.121     INFO │ 💫 Cycle #6120 | Action=WAIT | Signal=-0.225 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.225 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.225 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:06.733     INFO │ 💫 Cycle #6150 | Action=WAIT | Signal=-0.222 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.222 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.222 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:14.324     INFO │ 💫 Cycle #6180 | Action=WAIT | Signal=-0.224 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.224 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.224 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:19.228  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 17:59:19.233  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 17:59:21.881     INFO │ 💫 Cycle #6210 | Action=WAIT | Signal=-0.238 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.238 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, FeynmanPath, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:29.491     INFO │ 💫 Cycle #6240 | Action=WAIT | Signal=-0.229 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.229 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.229 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, FeynmanPath, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:29.758     INFO │ 📊 Sentiment Update: F&G=18 (Extreme Fear) | BTC Dom=56.8% | 24h=-0.67% | Score=-0.525 | Sources=2
+[DubaiMatrixASI] 17:59:32.105    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 17:59:37.121     INFO │ 💫 Cycle #6270 | Action=WAIT | Signal=-0.224 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.224 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.224 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:44.687     INFO │ 💫 Cycle #6300 | Action=WAIT | Signal=-0.232 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.232 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:52.303     INFO │ 💫 Cycle #6330 | Action=WAIT | Signal=-0.213 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.213 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.213 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, FeynmanPath, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 17:59:59.975     INFO │ 💫 Cycle #6360 | Action=WAIT | Signal=-0.212 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.212 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.212 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, FeynmanPath, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:07.522     INFO │ 💫 Cycle #6390 | Action=WAIT | Signal=-0.225 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.225 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.225 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:09.902  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 18:00:09.903  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 18:00:09.918    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9170)
+[DubaiMatrixASI] 18:00:09.919    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007399
+[DubaiMatrixASI] 18:00:12.160     INFO │ 🌍 Macro Update: ETH=$2062.83 | BTC/ETH=34.0 | Gold=$5091 | Vol24h=$97.9B | Bias=+0.000 | Sources=3
+[DubaiMatrixASI] 18:00:15.112     INFO │ 💫 Cycle #6420 | Action=WAIT | Signal=-0.225 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.225 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.225 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:22.717     INFO │ 💫 Cycle #6450 | Action=WAIT | Signal=-0.218 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.218 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.218 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:30.299     INFO │ 💫 Cycle #6480 | Action=WAIT | Signal=-0.222 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.222 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.222 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:35.463    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 18:00:37.925     INFO │ 💫 Cycle #6510 | Action=WAIT | Signal=-0.219 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.219 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:45.455     INFO │ 💫 Cycle #6540 | Action=WAIT | Signal=-0.223 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:00:53.069     INFO │ 💫 Cycle #6570 | Action=WAIT | Signal=-0.220 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.220 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.220 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:00.515  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 18:01:00.516  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 18:01:00.517    OMEGA │ ⚡ 🧬 Gen #11: 10 mutações aplicadas | Tipo=uniform | Fitness=-1438.6274
+[DubaiMatrixASI] 18:01:00.741    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 18:01:00.742    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501243: Regime=None
+[DubaiMatrixASI] 18:01:00.742    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501253: Regime=None
+[DubaiMatrixASI] 18:01:00.743    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501259: Regime=None
+[DubaiMatrixASI] 18:01:00.743    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501265: Regime=None
+[DubaiMatrixASI] 18:01:00.743    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501841: Regime=None
+[DubaiMatrixASI] 18:01:00.744    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501844: Regime=None
+[DubaiMatrixASI] 18:01:00.744    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501846: Regime=None
+[DubaiMatrixASI] 18:01:00.745    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401501847: Regime=None
+[DubaiMatrixASI] 18:01:00.745    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516566: Regime=None
+[DubaiMatrixASI] 18:01:00.745    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516556: Regime=LOW_LIQUIDITY
+[DubaiMatrixASI] 18:01:00.746    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516558: Regime=None
+[DubaiMatrixASI] 18:01:00.746    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #401516563: Regime=None
+[DubaiMatrixASI] 18:01:00.747  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 18:01:00.748  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 18:01:00.749    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-922.43
+[DubaiMatrixASI] 18:01:00.749     INFO │ 💫 Cycle #6600 | Action=WAIT | Signal=-0.221 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.221 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.221 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:08.289     INFO │ 💫 Cycle #6630 | Action=WAIT | Signal=-0.229 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.229 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.229 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:15.861     INFO │ 💫 Cycle #6660 | Action=WAIT | Signal=-0.214 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.214 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.214 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, FeynmanPath, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:23.532     INFO │ 💫 Cycle #6690 | Action=WAIT | Signal=-0.236 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.236 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:31.039     INFO │ 💫 Cycle #6720 | Action=WAIT | Signal=-0.219 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.219 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.219 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:31.375     INFO │ 📊 Sentiment Update: F&G=18 (Extreme Fear) | BTC Dom=56.8% | 24h=-0.67% | Score=-0.525 | Sources=2
+[DubaiMatrixASI] 18:01:38.761    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 18:01:38.762     INFO │ 💫 Cycle #6750 | Action=WAIT | Signal=-0.223 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.223 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.223 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:46.282     INFO │ 💫 Cycle #6780 | Action=WAIT | Signal=-0.225 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.225 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.225 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:51.218  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 18:01:51.227  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 18:01:51.233    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1484)
+[DubaiMatrixASI] 18:01:51.234    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006523
+[DubaiMatrixASI] 18:01:54.190     INFO │ 💫 Cycle #6810 | Action=WAIT | Signal=-0.224 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.224 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.224 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, FeynmanPath, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:01:57.511  WARNING │ ⏱️ LATENCY [update] 69.3ms (threshold: 20ms)
+[DubaiMatrixASI] 18:01:57.779    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 18:01:58.025    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 18:01:58.954    DEBUG │ ⚖️ RR ADJUST: Expanding target to 115.54 points to meet alpha floor.
+[DubaiMatrixASI] 18:02:03.092     INFO │ 💫 Cycle #6840 | Action=WAIT | Signal=-0.257 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.257 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[8]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:11.358     INFO │ 💫 Cycle #6870 | Action=WAIT | Signal=-0.254 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.254 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[8]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, FeynmanPath, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:19.037     INFO │ 💫 Cycle #6900 | Action=WAIT | Signal=-0.233 | Coherence=0.48 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.233 COHERENCE=0.48 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, FeynmanPath, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:26.627     INFO │ 💫 Cycle #6930 | Action=WAIT | Signal=-0.225 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.225 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.225 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[10]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix, FeynmanPath
+  🐻 BEAR[20]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:34.146     INFO │ 💫 Cycle #6960 | Action=WAIT | Signal=-0.229 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: SIGNAL_WEAK(-0.229 < req 0.230)
+  🧬 Quantum: SIGNAL=-0.229 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, FeynmanPath, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:41.902     INFO │ 💫 Cycle #6990 | Action=WAIT | Signal=-0.233 | Coherence=0.49 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-922.43
+  🎯 Reason: WAIT: 
+  🧬 Quantum: SIGNAL=-0.233 COHERENCE=0.49 PHI=0.14
+  🐂 BULL[9]: Supersymmetry, PheromoneFieldAgent, ChartStructureAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, MarketTransition, CandleAnatomyAgent, HexMatrix
+  🐻 BEAR[21]: KripkeSemantics, IntuitionisticLogic, FourierSpectral, QuantumSpin, CppTickEntropyAgent, InformationEntropyAgent, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, LiquidityHeatmapAgent, CppFractalAgent, FVGAgent, HarmonicResonanceAgent, FeynmanPath, LiquidationVacuumAgent, MomentumAgent, SentimentFearGreedAgent, TrendAgent, OnChainPressureAgent, MicrostructureAgent, PriceVelocityAgent
+[DubaiMatrixASI] 18:02:44.268  WARNING │ 🚨 ALERT [HIGH]: Win rate em 8.3% (threshold: 45.0%)
+[DubaiMatrixASI] 18:02:44.269  WARNING │ 🚨 ALERT [CRITICAL]: 9 losses consecutivos!
+[DubaiMatrixASI] 18:02:44.540    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-76,8692
+[DubaiMatrixASI] 18:02:46.250    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 18:02:46.330    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 18:02:46.331    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 18:02:46.339    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 18:02:46.341    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 18:02:46.341    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 18:02:46.342    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-12T21:02:46.342396+00:00
+[DubaiMatrixASI] 18:02:46.343     INFO │ 📈 Trades: 12
+[DubaiMatrixASI] 18:02:46.343     INFO │ 📈 Win Rate: 8.3%
+[DubaiMatrixASI] 18:02:46.343     INFO │ 📈 P&L: $-922.43
+[DubaiMatrixASI] 18:02:47.980     INFO │ 📂 Trade Registry carregado: 33 intenções mapeadas.
+[DubaiMatrixASI] 18:02:48.012    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 18:23:55.564     INFO │ 📂 Trade Registry carregado: 33 intenções mapeadas.
+[DubaiMatrixASI] 18:23:55.616    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 18:26:33.818    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 18:26:33.849     INFO │ 📂 Trade Registry carregado: 33 intenções mapeadas.
+[DubaiMatrixASI] 18:26:33.918    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 132 agentes ativos (Parallel Execution Enabled)
