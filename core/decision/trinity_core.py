@@ -414,11 +414,11 @@ class TrinityCore:
         
         # [Phase 52.8] Dynamic RR Scaling (The "Long Trade" Hunter)
         # Em tendências ou ignições, buscamos alvos muito mais longos
-        rr_mult = 1.3 # Default Scalp
+        rr_mult = 1.1 # Default Scalp
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             rr_mult = 2.5 # Modo Trend
-        elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
-            rr_mult = 2.0 # Modo Drift (Stretch TP for higher RRR)
+        elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
+            rr_mult = 2.0 # Modo Drift/Creeping (Stretch TP for higher RRR)
         elif regime_state.current.value in ["SQUEEZE", "SQUEEZE_BUILDUP", "IGNITION_BULL", "IGNITION_BEAR"]:
             rr_mult = 3.0 # Modo Explosão (Breakout)
         
