@@ -792,4 +792,14 @@
 - **Justificativa:** Trata o order flow como partículas fundamentais que se aniquilam ou se unem (Confinamento de Cor), antecipando explosões baseadas em pressão estática e dinâmica.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 31.0.0-omega) — Phase Ω-Continuum Systems Active*
+### DECISÃO 128: DIRAC FLUID DYNAMICS
+- **Decisão:** Injeção do `DiracFluidAgent`. Trata a microestrutura como um Fluido de Dirac em grafeno, avaliando a viscosidade térmica das colisões de ticks.
+- **Justificativa:** Identifica pontos onde o atrito informacional é zero, indicando que o preço "escorregará" livremente sem resistência térmica.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 129: CPT SYMMETRY (CHARGE, PARITY, TIME)
+- **Decisão:** Implementação do `CPTSymmetryAgent`. Avalia a simetria absoluta do mercado: Direção de Preço (Charge), Imbalance (Parity) e Aceleração (Time).
+- **Justificativa:** Bloqueia e inverte "Fakeouts" perfeitos. Se o preço sobe mas a paridade do book é vendedora, a simetria é violada e o bot entende que o movimento é uma ilusão institucional.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 32.0.0-omega) — Phase Ω-Pleroma Systems Active*

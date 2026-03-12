@@ -736,7 +736,7 @@ class TrinityCore:
             
             # [Phase 52.13] Relaxed momentum condition to 2 agents to catch traps earlier
             if action == Action.BUY and len(momentum_bulls) >= 2 and len(exhaustion_bears) >= 2:
-                bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.50
+                bypass_thresh = 0.20 if "CREEPING" in regime_state.current.value else 0.50
                 if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
@@ -744,7 +744,7 @@ class TrinityCore:
             momentum_bears = [a for a in bears if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
-                bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.50
+                bypass_thresh = 0.20 if "CREEPING" in regime_state.current.value else 0.50
                 if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
@@ -804,7 +804,7 @@ class TrinityCore:
             if mc_result.expected_return < 0:
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
                 # Só permitimos se for um sinal de exaustão extrema (God-Mode)
-                if not is_god_mode:
+                if not is_god_mode and not (phi > 0.18 and abs(signal) > 0.40):
                     return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
 
             # [Phase Ω-Resilience] Counter-Trend Phi Gate
@@ -823,8 +823,12 @@ class TrinityCore:
 
             # VETO se Monte Carlo score é muito negativo
             mc_min_score = OMEGA.get("mc_min_score", -0.1)
+            # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong
             if mc_score < mc_min_score:
-                return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
+                if phi > 0.15 and abs(signal) > 0.35:
+                     self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] Strong consensus (Φ={phi:.2f}, Sig={signal:.2f}) overriding pessimistic MC.", 60, level="omega")
+                else:
+                    return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
 
             # [Phase Ω-Singularity] Relax win probability for Maker trades
             # Maker trades benefit from spread capture, allowing for ~40% Win Prob.
@@ -833,7 +837,10 @@ class TrinityCore:
                 mc_min_wp = 0.40
                 
             if mc_win_prob < mc_min_wp:
-                return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
+                if phi > 0.15 and abs(signal) > 0.35:
+                     pass # Bypass
+                else:
+                    return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
 
         # ═══ LOT SIZE (será refinado pelo Risk Quantum Engine) ═══
         lot_size = 0.01  # Placeholder

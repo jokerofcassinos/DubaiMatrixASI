@@ -107,5 +107,7 @@
 - [x] **Kripke Possible Worlds Logic**: Valida a verdade de um sinal de trading em múltiplos universos perturbados por ruído. A ASI só atira se o sinal for uma 'Verdade Necessária'.
 - [x] **M-Theory Dimensional Convergence**: Unifica 11 dimensões do mercado (preço, volume, imbalance, entropia, etc.) em uma membrana. Exige alinhamento quase absoluto para autorizar agressão.
 - [x] **Quantum Chromodynamics (QCD)**: Associa "Cargas de Cor" a clusters de liquidez. Vermelho (varejo), Verde (baleias), Azul (HFTs), modelando confinamento de energia.
+- [x] **Dirac Fluid Dynamics**: Trata a microestrutura como um Fluido de Dirac em grafeno. Se as colisões de ticks são intensas com entropia baixa, a resistência cai a zero e o movimento flui perfeitamente.
+- [x] **CPT Symmetry (Charge, Parity, Time)**: Valida a simetria absoluta do mercado. Se Preço, Imbalance e Aceleração não convergem simetricamente, é uma "Falsidade Quântica" (Fakeout).
 
-*(Atualizado: 2026-03-12. Versão: 33.0.0-omega+continuum)*
+*(Atualizado: 2026-03-12. Versão: 34.0.0-omega+pleroma)*

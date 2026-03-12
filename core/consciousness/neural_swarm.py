@@ -285,6 +285,11 @@ from core.consciousness.agents.continuum_agents import (
     MTheoryDimensionalAgent, QuantumChromodynamicsAgent
 )
 
+# Phase Ω-Pleroma (Nível 32 - Fluidos de Dirac e Simetria CPT)
+from core.consciousness.agents.pleroma_agents import (
+    DiracFluidAgent, CPTSymmetryAgent
+)
+
 # Byzantine Consensus
 from core.consciousness.byzantine_consensus import ByzantineConsensusManager
 
