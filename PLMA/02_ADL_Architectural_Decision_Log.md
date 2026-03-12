@@ -752,4 +752,34 @@
 - **Justificativa:** A decoerência (colapso da superposição) precede o rompimento direcional. O agente detecta o momento exato em que o enxame "decide" o lado da força antes do preço explodir.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 27.0.0-omega) — Phase Ω-Hyper-Dimension Systems Active*
+### DECISÃO 120: RICCI FLOW SMOOTHING
+- **Decisão:** Injeção do `RicciFlowAgent`. Modela o mercado como uma variedade que busca suavizar curvaturas de volatilidade.
+- **Justificativa:** Picos agudos de preço (curvatura positiva) representam excesso de energia. O Fluxo de Ricci prevê a "difusão" desse excesso, antecipando a reversão à média por necessidade geométrica.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 121: INFORMATION BOTTLENECK COMPRESSION
+- **Decisão:** Implementação do `InformationBottleneckAgent`. Filtra o ruídoredundante para encontrar a compressão ótima da intenção institucional.
+- **Justificativa:** Diferencia movimentos "sinceros" (alta velocidade com baixa entropia) de blefes algorítmicos (alta entropia), aumentando a confiança em rompimentos reais.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 122: GAUGE INVARIANCE ANALYSIS
+- **Decisão:** Injeção do `GaugeInvarianceAgent`. Converte o preço do BTC para referências de Ouro e ETH em tempo real para verificar se o valor é invariante.
+- **Justificativa:** Diferencia rompimentos reais de anomalias locais no par BTCUSD (spoofing específico de par). Se o rompimento não sobrevive à mudança de calibre (referência), é ignorado.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 123: SOLITON WAVE PROPAGATION
+- **Decisão:** Implementação do `SolitonWaveAgent`. Detecta ondas de preço autossustentadas que não perdem energia ao colidir com Order Blocks.
+- **Justificativa:** Identifica movimentos institucionais massivos que "atropelam" a liquidez contrária, permitindo que a ASI cole na cauda de movimentos que não sofrerão dispersão.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 124: KRIPKE POSSIBLE WORLDS SEMANTICS
+- **Decisão:** Injeção do `KripkeSemanticsAgent`. Simula 5 mundos alternativos com perturbações de ruído para verificar se a "Verdade" do sinal é necessária ou apenas contingente.
+- **Justificativa:** Reduz falsos positivos de rompimento em mercados ruidosos. Se o sinal falha em um único "mundo possível", a confiança é zerada, protegendo o capital de sinais frágeis.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 125: INTUITIONISTIC CONSTRUCTIVE PROOF
+- **Decisão:** Implementação do `IntuitionisticLogicAgent`. Rejeita a lógica binária e exige uma prova construtiva (confluência de Preço, Volume e Spread apertado).
+- **Justificativa:** Erradica a incerteza de rompimentos "ocos". O agente só libera o sinal se houver evidência material simultânea de que a barreira de liquidez foi fisicamente vencida.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 30.0.0-omega) — Phase Ω-Metalogic Systems Active*

@@ -102,5 +102,10 @@
 - [x] **Schrödinger Wave Function**: Aplica equação de onda de probabilidade quântica. Se a Energia Cinética (Velocidade) exceder o Potencial (Barreira de Volume), calcula 'Tunelamento Quântico' (breakout). Senão, prevê reflexão total (reversão).
 - [x] **Quantum Zeno Effect**: Detecta paralisia anômala de preço sob alto volume (observação algorítmica constante) antecipando explosões direcionais causadas pelo fim do "pinning" institucional.
 - [x] **Event Horizon Attraction**: Mapeia Buracos Negros de Liquidez. Se o preço cruza o 'Raio de Schwarzschild' (horizonte de eventos), a ASI percebe a atração gravitacional inescapável e veta operar contra a captura dos stops.
+- [x] **Supersymmetry (SUSY) Tracking**: Monitora o acoplamento preço-volume. Se a simetria quebra (preço sobe sem massa), detecta a criação de 'Anti-matéria' e veta rompimentos ocos.
+- [x] **Aethel Fluid Viscosity**: Modela o Order Book como um fluido. Detecta estados de 'Super-fluidez' (viscosidade zero) para antecipar deslizamentos gravitacionais de preço.
+- [x] **Kripke Possible Worlds Logic**: Valida a verdade de um sinal de trading em múltiplos universos perturbados por ruído. A ASI só atira se o sinal for uma 'Verdade Necessária'.
+- [x] **Supersymmetry (SUSY) Tracking**: Monitora o acoplamento preço-volume. Se a simetria quebra (preço sobe sem massa), detecta a criação de 'Anti-matéria' e veta rompimentos ocos.
+- [x] **Aethel Fluid Viscosity**: Modela o Order Book como um fluido. Detecta estados de 'Super-fluidez' (viscosidade zero) para antecipar deslizamentos gravitacionais de preço.
 
-*(Atualizado: 2026-03-12. Versão: 31.0.0-omega+omniverse_matrix)*
+*(Atualizado: 2026-03-12. Versão: 32.0.0-omega+aethel_matrix)*

@@ -255,6 +255,21 @@ from core.consciousness.agents.quantum_field_agents import (
     RicciFlowAgent, InformationBottleneckAgent
 )
 
+# Phase Ω-Quantum (Nível 28 - Teoria de Calibre e Ondas Solitons)
+from core.consciousness.agents.quantum_unification_agents import (
+    GaugeInvarianceAgent, SolitonWaveAgent
+)
+
+# Phase Ω-Metalogic (Nível 29 - Semântica de Kripke e Lógica Intuicionista)
+from core.consciousness.agents.metalogic_agents import (
+    KripkeSemanticsAgent, IntuitionisticLogicAgent
+)
+
+# Phase Ω-Aethel (Nível 30 - Super-Simetria e Viscosidade de Éter)
+from core.consciousness.agents.aethel_agents import (
+    SupersymmetryAgent, AethelViscosityAgent
+)
+
 # Phase Ω-Extreme — Lorentz, QCA, PredatorPrey, EVT (3)
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
@@ -474,6 +489,22 @@ class NeuralSwarm:
             # ═══ HYPER-DIMENSION (Phase Ω-Hyper-Dimension) ═══
             TuringPatternAgent(weight=4.6),
             EigenstateDecoherenceAgent(weight=4.9),
+
+            # ═══ SINGULARITY_V2 (Phase Ω-Singularity) ═══
+            RicciFlowAgent(weight=4.8),
+            InformationBottleneckAgent(weight=4.5),
+
+            # ═══ QUANTUM_UNIFICATION (Phase Ω-Quantum) ═══
+            GaugeInvarianceAgent(weight=4.6),
+            SolitonWaveAgent(weight=4.4),
+
+            # ═══ METALOGIC (Phase Ω-Metalogic) ═══
+            KripkeSemanticsAgent(weight=4.8),
+            IntuitionisticLogicAgent(weight=4.5),
+
+            # ═══ AETHEL (Phase Ω-Aethel) ═══
+            SupersymmetryAgent(weight=4.7),
+            AethelViscosityAgent(weight=4.5),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
