@@ -40,6 +40,7 @@ if %ERRORLEVEL% EQU 0 (
     src\tensor_networks.cpp src\pheromone_field.cpp src\info_geometry.cpp ^
     src\spiking_neuron.cpp src\mean_field_games.cpp src\chaos_detector.cpp ^
     src\liquid_state_engine.cpp src\holographic_matrix.cpp src\omega_extreme.cpp ^
+    src\phd_omega_math.cpp ^
     /Fe:..\asi_core_v2.dll /link /LTCG
     echo ✅ Compilação MSVC concluída!
     goto :done
@@ -57,6 +58,7 @@ if %ERRORLEVEL% EQU 0 (
     src\tensor_networks.cpp src\pheromone_field.cpp src\info_geometry.cpp ^
     src\spiking_neuron.cpp src\mean_field_games.cpp src\chaos_detector.cpp ^
     src\liquid_state_engine.cpp src\holographic_matrix.cpp src\omega_extreme.cpp ^
+    src\phd_omega_math.cpp ^
     -o ..\asi_core_v3.dll
     echo ✅ Compilação G++ concluída!
     goto :done

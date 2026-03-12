@@ -72,9 +72,15 @@ class AethelViscosityAgent(BaseAgent):
         bids = np.array([[b["price"], b["volume"]] for b in book["bids"]], dtype=np.float64)
         asks = np.array([[a["price"], a["volume"]] for a in book["asks"]], dtype=np.float64)
         
+        if len(bids) < 2 or len(asks) < 2:
+            return AgentSignal(self.name, 0.0, 0.0, "INSUFFICIENT_DEPTH", self.weight)
+
+        n_bids = min(5, len(bids))
+        n_asks = min(5, len(asks))
+        
         # Viscosidade = Densidade de volume por ponto de preço
-        bid_viscosity = np.sum(bids[:5, 1]) / (abs(bids[0, 0] - bids[4, 0]) + 1e-6)
-        ask_viscosity = np.sum(asks[:5, 1]) / (abs(asks[0, 0] - asks[4, 0]) + 1e-6)
+        bid_viscosity = np.sum(bids[:n_bids, 1]) / (abs(bids[0, 0] - bids[n_bids-1, 0]) + 1e-6)
+        ask_viscosity = np.sum(asks[:n_asks, 1]) / (abs(asks[0, 0] - asks[n_asks-1, 0]) + 1e-6)
         
         signal = 0.0
         conf = 0.0

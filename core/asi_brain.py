@@ -482,6 +482,21 @@ class ASIBrain:
             is_new = self.performance_tracker.record_trade(record)
             if is_new:
                 new_count += 1
+                
+                # [Phase 69] PhD Level Feedback Loop
+                if net_profit < 0:
+                    # 1. Biological Immunity: Register infection if it was a loss
+                    from core.consciousness.agents.phd_agents import IMMUNITY
+                    IMMUNITY.register_infection(snapshot, abs(net_profit))
+                
+                # 2. Byzantine Consensus: Update consensus weights if we have intent
+                if intent and "agent_signals" in intent:
+                    # O intent salva uma lista de dicts ou objetos AgentSignal
+                    # Precisamos extrair apenas o valor do sinal bruto
+                    raw_signals = [float(s.get("signal", 0.0) if isinstance(s, dict) else getattr(s, 'signal', 0.0)) 
+                                   for s in intent["agent_signals"]]
+                    actual_outcome = 1.0 if net_profit > 0 else -1.0
+                    self.swarm.byzantine.update_consensus(raw_signals, actual_outcome)
             
             # Anti-Ping-Pong
             if is_new and net_profit < 0:

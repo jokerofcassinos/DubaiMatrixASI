@@ -565,6 +565,22 @@ class CppASICore:
         lib.asi_harvest_black_swan.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(ExtremeValueResultC)]
         lib.asi_harvest_black_swan.restype = None
 
+        # ═══ PHD OMEGA MATH (Phase 69) ═══
+        lib.calculate_laser_compression.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_laser_compression.restype = ctypes.c_double
+
+        lib.calculate_navier_stokes_reynolds.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_navier_stokes_reynolds.restype = ctypes.c_double
+
+        lib.calculate_dark_matter_gravity.argtypes = [ctypes.c_double, ctypes.c_double]
+        lib.calculate_dark_matter_gravity.restype = ctypes.c_double
+
+        lib.calculate_aethel_viscosity.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_aethel_viscosity.restype = ctypes.c_double
+
+        lib.detect_soliton_wave.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.detect_soliton_wave.restype = ctypes.c_double
+
     # ═══ HELPER: numpy array → C pointer ═══
     @staticmethod
     def _ptr(arr: np.ndarray):

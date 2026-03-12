@@ -28,6 +28,7 @@ add_library(asi_core SHARED
     src/pheromone_field.cpp
     src/info_geometry.cpp
     src/hyperspace_core.cpp
+    src/phd_omega_math.cpp
 )
 
 # Export symbols no Windows

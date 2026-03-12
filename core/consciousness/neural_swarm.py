@@ -9,6 +9,7 @@
 """
 
 import time
+import numpy as np
 from typing import Optional, List
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -275,6 +276,14 @@ from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
 )
 
+# Phase Ω-Singularity (Nível 24+ PhD Level Consciousness)
+from core.consciousness.agents.phd_agents import (
+    LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent, TCellImmunityAgent
+)
+
+# Byzantine Consensus
+from core.consciousness.byzantine_consensus import ByzantineConsensusManager
+
 # C++ Bridge
 from cpp.asi_bridge import CPP_CORE
 
@@ -301,6 +310,10 @@ class NeuralSwarm:
         # Thread pool para execução paralela (max_workers calibrado para o hardware e número de agentes)
         # [Phase Ω-Eternity] Elevado para 64 para acomodar a explosão demográfica de agentes super-pesados
         self._executor = ThreadPoolExecutor(max_workers=64)
+        
+        # [Phase 69] Byzantine Fault Tolerant Consensus
+        self.byzantine = ByzantineConsensusManager(len(self.agents))
+        
         log.omega(f"🧠 Neural Swarm inicializado: {len(self.agents)} agentes ativos (Parallel Execution Enabled)")
 
     def shutdown(self):
@@ -506,6 +519,12 @@ class NeuralSwarm:
             SupersymmetryAgent(weight=4.7),
             AethelViscosityAgent(weight=4.5),
 
+            # ═══ PHD_LEVEL (Phase Ω-Singularity Phase 69) ═══
+            LaserHedgingAgent(weight=4.5),
+            NavierStokesTurbulenceAgent(weight=4.2),
+            DarkMatterGravityAgent(weight=4.0),
+            TCellImmunityAgent(weight=5.0),
+
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
             ExecutionScalerAgent(),
@@ -533,17 +552,25 @@ class NeuralSwarm:
         # Execução paralela em massa com rastreamento de latência (Phase 42)
         start_time = time.monotonic()
         try:
-            # Aumentamos o timeout para 1.2s para acomodar 54 agentes
+            # Aumentamos o timeout para 1.2s para acomodar 130+ agentes
             results = list(self._executor.map(_run_agent, self.agents, timeout=1.2))
         except TimeoutError:
-            # Diagnóstico de Inconsciência: Identificar qual agente está asfixiando o enxame
-            elapsed = time.monotonic() - start_time
-            log.error(f"💀 NeuralSwarm TIMEOUT após {elapsed:.3f}s! Verificando agentes lentos...")
-            # Fallback seguro: retornar o que foi processado ou lista vazia
+            log.error(f"💀 NeuralSwarm TIMEOUT! Verificando agentes lentos...")
             return []
         
-        # Filtrar None e retornar
+        # Filtrar None
         signals = [r for r in results if r is not None]
+
+        # [Phase 69] BYZANTINE WEIGHT MODULATION
+        # Aplicamos as penalidades de consenso antes de retornar os sinais
+        try:
+            base_weights = np.array([s.weight for s in signals])
+            modulated_weights = self.byzantine.get_modulated_weights(base_weights)
+            
+            for i, s in enumerate(signals):
+                s.weight = modulated_weights[i]
+        except Exception as e:
+            log.error(f"Byzantine modulation falhou: {e}")
 
         # [STIGMERGY] Depositamos feromônio de agressão no nível de preço
         for result in signals:
