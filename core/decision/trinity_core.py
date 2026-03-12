@@ -665,8 +665,9 @@ class TrinityCore:
                                 # Contar quantos picos existem nesse nível (alinhamento)
                                 matches = sum(1 for p in recent_peaks if abs((p - peak)/peak*100) < 0.1)
                                 if matches >= 2: # Topo Duplo ou Triplo
-                                    # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador (> 0.40) ou tem ignição
-                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > 0.40):
+                                    # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador ou tem ignição
+                                    bypass_thresh = 0.25 if "CREEPING" in regime_state.current.value else 0.40
+                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
         # [Phase 52.11] Simétrico: Suporte Horizontal para SELL

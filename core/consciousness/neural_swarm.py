@@ -275,10 +275,14 @@ from core.consciousness.agents.aethel_agents import (
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
 )
-
 # Phase Ω-Singularity (Nível 24+ PhD Level Consciousness)
 from core.consciousness.agents.phd_agents import (
     LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent, TCellImmunityAgent
+)
+
+# Phase Ω-Continuum (Nível 31 - Teoria M e QCD)
+from core.consciousness.agents.continuum_agents import (
+    MTheoryDimensionalAgent, QuantumChromodynamicsAgent
 )
 
 # Byzantine Consensus

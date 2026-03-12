@@ -105,7 +105,7 @@
 - [x] **Supersymmetry (SUSY) Tracking**: Monitora o acoplamento preço-volume. Se a simetria quebra (preço sobe sem massa), detecta a criação de 'Anti-matéria' e veta rompimentos ocos.
 - [x] **Aethel Fluid Viscosity**: Modela o Order Book como um fluido. Detecta estados de 'Super-fluidez' (viscosidade zero) para antecipar deslizamentos gravitacionais de preço.
 - [x] **Kripke Possible Worlds Logic**: Valida a verdade de um sinal de trading em múltiplos universos perturbados por ruído. A ASI só atira se o sinal for uma 'Verdade Necessária'.
-- [x] **Supersymmetry (SUSY) Tracking**: Monitora o acoplamento preço-volume. Se a simetria quebra (preço sobe sem massa), detecta a criação de 'Anti-matéria' e veta rompimentos ocos.
-- [x] **Aethel Fluid Viscosity**: Modela o Order Book como um fluido. Detecta estados de 'Super-fluidez' (viscosidade zero) para antecipar deslizamentos gravitacionais de preço.
+- [x] **M-Theory Dimensional Convergence**: Unifica 11 dimensões do mercado (preço, volume, imbalance, entropia, etc.) em uma membrana. Exige alinhamento quase absoluto para autorizar agressão.
+- [x] **Quantum Chromodynamics (QCD)**: Associa "Cargas de Cor" a clusters de liquidez. Vermelho (varejo), Verde (baleias), Azul (HFTs), modelando confinamento de energia.
 
-*(Atualizado: 2026-03-12. Versão: 32.0.0-omega+aethel_matrix)*
+*(Atualizado: 2026-03-12. Versão: 33.0.0-omega+continuum)*

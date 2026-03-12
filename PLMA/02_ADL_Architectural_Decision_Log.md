@@ -782,4 +782,14 @@
 - **Justificativa:** Erradica a incerteza de rompimentos "ocos". O agente só libera o sinal se houver evidência material simultânea de que a barreira de liquidez foi fisicamente vencida.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 30.0.0-omega) — Phase Ω-Metalogic Systems Active*
+### DECISÃO 126: M-THEORY DIMENSIONAL CONVERGENCE
+- **Decisão:** Injeção do `MTheoryDimensionalAgent`. Unifica 11 dimensões do mercado (Preço, Imbalance, Inércia, Macro, etc.) para detectar membranas de ressonância direcional.
+- **Justificativa:** Ultrapassa a dependência de um único tipo de dado (como volume ou preço). Exige um alinhamento absoluto do campo escalar para operar rompimentos massivos.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 127: QUANTUM CHROMODYNAMICS (QCD)
+- **Decisão:** Implementação do `QuantumChromodynamicsAgent`. Atribui "Cargas de Cor" (Red, Green, Blue) a eventos de liquidez para diferenciar Retail Panic, Whale Absorption e HFT Spoofing.
+- **Justificativa:** Trata o order flow como partículas fundamentais que se aniquilam ou se unem (Confinamento de Cor), antecipando explosões baseadas em pressão estática e dinâmica.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 31.0.0-omega) — Phase Ω-Continuum Systems Active*
