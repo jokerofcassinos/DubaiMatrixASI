@@ -802,4 +802,14 @@
 - **Justificativa:** Bloqueia e inverte "Fakeouts" perfeitos. Se o preço sobe mas a paridade do book é vendedora, a simetria é violada e o bot entende que o movimento é uma ilusão institucional.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 32.0.0-omega) — Phase Ω-Pleroma Systems Active*
+### DECISÃO 130: HAWKES PROCESS (SELF-EXCITATION)
+- **Decisão:** Injeção do `HawkesProcessAgent`. Modela a chegada de ticks como um processo auto-excitante.
+- **Justificativa:** Previne a ASI de comprar topos e vender fundos (Blow-offs). Se a cascata de ordens atinge um pico parabólico e começa a decair, a excitação acabou e a ASI aposta na reversão.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+### DECISÃO 131: ORNSTEIN-UHLENBECK MEAN REVERSION
+- **Decisão:** Implementação do `OrnsteinUhlenbeckAgent`. Modela o preço como uma partícula sujeita a atração elástica para uma média móvel de equilíbrio.
+- **Justificativa:** Diferencia rompimentos reais de estiradas vazias. Se o preço afasta violentamente da média (alta tração elástica) sem justificativa de volume, o agente força a reversão à média.
+- **Data/Status:** ATIVO. (2026-03-12).
+
+*(Atualizado: 2026-03-12. Versão: 34.0.0-omega) — Phase Ω-Stochastic Systems Active*

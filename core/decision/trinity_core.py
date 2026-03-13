@@ -831,8 +831,8 @@ class TrinityCore:
             mc_min_score = OMEGA.get("mc_min_score", -0.1)
             # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong, EXCEPT in low liquidity/choppy OR Counter-Trend
             if mc_score < mc_min_score:
-                if phi > 0.15 and abs(signal) > 0.35 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
-                     self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] Strong consensus (Φ={phi:.2f}, Sig={signal:.2f}) overriding pessimistic MC.", 60, level="omega")
+                if phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
+                     self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] Extreme consensus (Φ={phi:.2f}, Sig={signal:.2f}) overriding pessimistic MC.", 60, level="omega")
                 else:
                     return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
 
@@ -843,7 +843,7 @@ class TrinityCore:
                 mc_min_wp = 0.40
                 
             if mc_win_prob < mc_min_wp:
-                if phi > 0.15 and abs(signal) > 0.35 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
+                if phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
                      pass # Bypass
                 else:
                     return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")

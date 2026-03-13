@@ -296,6 +296,11 @@ from core.consciousness.agents.phantom_agents import (
     HolographicDOMAgent, FractionalCalculusVelocityAgent
 )
 
+# Phase Ω-Stochastic (Nível 34 - Processos de Hawkes e Ornstein-Uhlenbeck)
+from core.consciousness.agents.stochastic_agents import (
+    HawkesProcessAgent, OrnsteinUhlenbeckAgent
+)
+
 # Byzantine Consensus
 from core.consciousness.byzantine_consensus import ByzantineConsensusManager
 
@@ -551,6 +556,12 @@ class NeuralSwarm:
             # ═══ PHANTOM & CHRONOS (Phase Ω-Phantom & Chronos) ═══
             PhantomLiquidityAgent(weight=4.9),
             TimeReversalAsymmetryAgent(weight=5.0),
+            HolographicDOMAgent(weight=4.8),
+            FractionalCalculusVelocityAgent(weight=4.3),
+
+            # ═══ STOCHASTIC (Phase Ω-Stochastic) ═══
+            HawkesProcessAgent(weight=5.0),
+            OrnsteinUhlenbeckAgent(weight=4.9),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

@@ -109,5 +109,7 @@
 - [x] **Quantum Chromodynamics (QCD)**: Associa "Cargas de Cor" a clusters de liquidez. Vermelho (varejo), Verde (baleias), Azul (HFTs), modelando confinamento de energia.
 - [x] **Dirac Fluid Dynamics**: Trata a microestrutura como um Fluido de Dirac em grafeno. Se as colisões de ticks são intensas com entropia baixa, a resistência cai a zero e o movimento flui perfeitamente.
 - [x] **CPT Symmetry (Charge, Parity, Time)**: Valida a simetria absoluta do mercado. Se Preço, Imbalance e Aceleração não convergem simetricamente, é uma "Falsidade Quântica" (Fakeout).
+- [x] **Hawkes Process (Self-Exciting Point Processes)**: Modela ticks HFT como cascatas. Se a intensidade parabólica colapsa, veta a continuidade e aposta na reversão imediata (Anti-Blow-off).
+- [x] **Ornstein-Uhlenbeck Mean Reversion**: Modela o preço como uma partícula presa a um elástico. Se esticar demais (> 2.5 ATRs) sem inércia estrutural, opera a força de restauração implacável contra o rompimento vazio.
 
-*(Atualizado: 2026-03-12. Versão: 34.0.0-omega+pleroma)*
+*(Atualizado: 2026-03-12. Versão: 35.0.0-omega+stochastic)*

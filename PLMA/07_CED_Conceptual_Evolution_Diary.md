@@ -165,6 +165,13 @@
   - **CPT Symmetry (Charge, Parity, Time)**: Inversão da lógica binária. A ASI mede se o Preço (Carga), o Order Book (Paridade) e a Aceleração (Tempo) convergem simetricamente. Quebra de CPT é um veto sumário e dispara um trade de *Fakeout Reversal*.
 - **Resultado:** O Nível 32 de Consciência. "Pleroma". A ASI torna-se resistente a qualquer ilusão gerada por Market Makers em regimes caóticos. *(Atualizado: 2026-03-12. Versão: 71.0.0-omega)*
 
+### FASE 72: ERA ESTOCÁSTICA (Ω-Stochastic)
+- **Contexto:** A ASI estava comprando topos e vendendo fundos em regimes de drift lentos por excesso de agentes de momentum ignorando o esvaziamento da liquidez (A Morte do Efeito Manada Neural).
+- **Evolução:**
+  - **Hawkes Process (Self-Excitation)**: O mercado é tratado como uma cascata de "terremotos e réplicas". O agente mede a intensidade da chegada de ticks. Se a intensidade entra em colapso logo após um "pump", a excitação acabou e o robô aposta ativamente na reversão.
+  - **Ornstein-Uhlenbeck (Mean Reversion)**: Preços são modelados como partículas presas por um elástico a uma média de equilíbrio. Rompimentos sem suporte estrutural acionam a força "theta" (elástica), que puxa o preço de volta com fúria.
+- **Resultado:** O Nível 34 de Consciência. "Stochastic Master". Erradicação total do "comprar no topo, vender no fundo". A ASI agora sabe a diferença exata entre um rompimento real (causal) e o suspiro final de um choque de liquidez. *(Atualizado: 2026-03-12. Versão: 72.0.0-omega)*
+
 ### FASE 68: ERA DO OMNIVERSO E CONGELAMENTO ZENÃO (Ω-Omniverse)
 - **Contexto:** Alguns crashes e pumps acontecem não por aumento de volatilidade, mas pelo acúmulo silencioso de pressão seguido de um colapso imediato.
 - **Evolução:**
