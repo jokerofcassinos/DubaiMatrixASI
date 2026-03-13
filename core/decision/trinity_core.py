@@ -150,6 +150,7 @@ class TrinityCore:
         signal = quantum_state.collapsed_signal
         confidence = quantum_state.confidence
         coherence = quantum_state.coherence
+        phi = quantum_state.phi
         action = Action.WAIT # Default state
 
         # ═══ THRESHOLDS ═══
@@ -273,6 +274,40 @@ class TrinityCore:
         if major_domains < 3 and not is_god_mode:
             dynamic_conf_min *= 1.1 # Aumenta exigência (mais difícil passar)
             self._log_cooldown("ECHO_CHAMBER", f"⚠️ [ECHO CHAMBER] Signal supported by only {major_domains} domains. Raising conf threshold to {dynamic_conf_min:.2f}", 120)
+
+        # [Phase Ω-Pleroma] TREND ALIGNMENT GUARDRAILS
+        # In creeping regimes, the trend is the master. Fading is dangerous.
+        is_creeping_bull = "BULL" in regime_state.current.value
+        is_creeping_bear = "BEAR" in regime_state.current.value
+        
+        # Test tentative directions
+        tentative_is_counter = False
+        if signal > 0 and is_creeping_bear: tentative_is_counter = True
+        elif signal < 0 and is_creeping_bull: tentative_is_counter = True
+
+        # 1. Dynamic Signal Penalization for Counter-Trend
+        if tentative_is_counter:
+            # Penaliza sinais contra a inércia do regime
+            signal *= 0.3 # Redução drástica de força
+            confidence *= 0.6 # Exige muito mais certeza
+            self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying heavy suppression.", 60)
+
+        # 2. Hard Veto for Weak Counter-Trend
+        if tentative_is_counter:
+            # Exigências de elite para apostar contra o regime (Fading)
+            # Em TRENDING/CREEPING, só operamos contra a maré se houver uma convergência absoluta
+            phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.35
+            sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.60
+            
+            if phi < phi_min_counter or abs(signal) < sig_min_counter:
+                return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter} & Sig>{sig_min_counter} to fade {regime_state.current.value})")
+
+            # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK
+            # Se vamos contra a maré, a inércia imediata (tick_velocity) JÁ DEVE ter virado.
+            # Não tentamos 'adivinhar' o topo; esperamos a primeira martelada de volta.
+            tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+            if (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
+                 return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
 
         # ═══ DECISÃO ═══
         if not is_god_mode:
