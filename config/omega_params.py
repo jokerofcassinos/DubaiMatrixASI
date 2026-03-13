@@ -256,7 +256,7 @@ class OmegaParameterSpace:
                         "Habilita modo RELAXED (redução de veto PnL)")
         self._register("drift_aggression_mult", 1.25, 1.0, 2.0,
                         "Multiplicador de agressividade em regime DRIFTING")
-        self._register("god_mode_entropy_threshold", 0.85, 0.50, 0.95,
+        self._register("god_mode_entropy_threshold", 0.93, 0.90, 0.99,
                         "Threshold de Entropia para God-Mode Reversal")
 
         # ═══ PHASE 51: Ω-ALPHA SURGE (ALPHA EXTRACTION) ═══
