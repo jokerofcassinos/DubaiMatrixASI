@@ -311,7 +311,8 @@ class SniperExecutor:
         expected_commission = final_lot * comm_per_lot
         
         # [Phase 37] Margin Safety Buffer: Previne rejeição por milésimos ou volatilidade
-        safety_buffer = OMEGA.get("margin_safety_buffer", 0.10)
+        # [Phase Ω-Integrity] Buffer aumentado para 15% para suportar Hydra Parallelization
+        safety_buffer = OMEGA.get("margin_safety_buffer", 0.15)
         usable_margin = (free_margin - expected_commission) * (1.0 - safety_buffer)
 
         if required_margin is not None and free_margin > 0:
@@ -502,86 +503,83 @@ class SniperExecutor:
             if delay_sec > 0:
                 time.sleep(delay_sec)
                 
-            use_limit = decision.metadata.get("limit_execution", False)
-            current_tick = self.bridge.get_tick() # Re-checar tick p/ precisão HFT
-            if not current_tick:
-                return {"success": False, "error": "No tick"}
+            def _execute_core():
+                use_limit = decision.limit_order
+                current_tick = self.bridge.get_tick()
+                if not current_tick:
+                    return {"success": False, "error": "No tick"}
 
-            if use_limit:
-                tick_bid = current_tick["bid"]
-                tick_ask = current_tick["ask"]
-                spread = tick_ask - tick_bid
-                
-                jitter_points = decision.metadata.get("jitter_offset", 0.0)
-                random_jitter = jitter_points * (0.5 + np.random.random())
-                jitter_price = random_jitter * point
-                
-                # [Phase 52.3] Robust Price Validation:
-                # MT5 rules: BUY LIMIT < Bid, SELL LIMIT > Ask.
-                # Adding a safety buffer of (stops_level + 100) points for HFT.
-                hft_buffer = (stops_level + 100) * point
-                is_invalid_limit = False
-                
-                # [Phase Ω-Apocalypse] Ignition-Aware Price Optimization
-                # If we have V-PULSE (high momentum) or GOD-MODE, we want immediate execution
-                # but still trying to keep "Maker" status if possible.
-                # Reduce the offset distance from current price.
-                aggression_mult = 0.15 if (has_ignition or is_god_mode) else 1.0
-                
-                if decision.action.value == "BUY":
-                    # Preço limite deve estar ABAIXO do Bid
-                    # [Phase 52.3] Added dynamic spread multiplier
-                    dist_offset = (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread) * aggression_mult
-                    limit_price = tick_bid - hft_buffer - dist_offset
-                    limit_price -= jitter_price
-                    # Se, por lag, o preço limite ficou acima ou muito perto do Bid -> MARKET
-                    if limit_price >= tick_bid - (10 * point):
-                        is_invalid_limit = True
+                if use_limit:
+                    tick_bid = current_tick["bid"]
+                    tick_ask = current_tick["ask"]
+                    spread = tick_ask - tick_bid
+                    
+                    jitter_points = decision.metadata.get("jitter_offset", 0.0)
+                    random_jitter = jitter_points * (0.5 + np.random.random())
+                    jitter_price = random_jitter * point
+                    
+                    hft_buffer = (stops_level + 10) * point
+                    is_invalid_limit = False
+                    
+                    aggression_mult = 0.15 if (has_ignition or is_god_mode) else 1.0
+                    
+                    if decision.action.value == "BUY":
+                        dist_offset = (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread) * aggression_mult
+                        limit_price = tick_bid - hft_buffer - dist_offset
+                        limit_price -= jitter_price
+                        if limit_price >= tick_bid - (2 * point):
+                            is_invalid_limit = True
+                    else:
+                        dist_offset = (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread) * aggression_mult
+                        limit_price = tick_ask + hft_buffer + dist_offset
+                        limit_price += jitter_price
+                        if limit_price <= tick_ask + (2 * point):
+                            is_invalid_limit = True
+
+                    if is_invalid_limit:
+                        log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price:.2f} too risky. Executing MARKET for slot {i+1}.")
+                        return self.bridge.send_market_order(
+                            action=decision.action.value,
+                            lot=chunk_lot,
+                            sl=decision.stop_loss,
+                            tp=decision.take_profit,
+                            comment=f"ASI_HFT_TAKER_{i+1}/{num_nodes}"
+                        )
+
+                    res = self.bridge.send_limit_order(
+                        action=decision.action.value,
+                        lot=chunk_lot,
+                        sl=decision.stop_loss,
+                        tp=decision.take_profit,
+                        comment=f"ASI_MAKER_{i+1}/{num_nodes}",
+                        price=limit_price
+                    )
+                    
+                    if res and not res.get("success") and "10015" in str(res.get("error", "")):
+                        log.warning(f"⚠️ [LIMIT_REJECTED] Error 10015 for slot {i+1}. Immediate Market Fallback triggered.")
+                        return self.bridge.send_market_order(
+                            action=decision.action.value, lot=chunk_lot,
+                            sl=decision.stop_loss, tp=decision.take_profit,
+                            comment=f"ASI_FALLBACK_{i+1}/{num_nodes}"
+                        )
+                    return res
                 else:
-                    # Preço limite deve estar ACIMA do Ask
-                    dist_offset = (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread) * aggression_mult
-                    limit_price = tick_ask + hft_buffer + dist_offset
-                    limit_price += jitter_price
-                    # Se o preço limite ficou abaixo ou muito perto do Ask -> MARKET
-                    if limit_price <= tick_ask + (10 * point):
-                        is_invalid_limit = True
-
-                if is_invalid_limit:
-                    log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price:.2f} too risky. Executing MARKET for slot {i+1}.")
                     return self.bridge.send_market_order(
                         action=decision.action.value,
                         lot=chunk_lot,
                         sl=decision.stop_loss,
                         tp=decision.take_profit,
-                        comment=f"ASI_HFT_TAKER_{i+1}/{num_nodes}"
+                        comment=f"ASI_TAKER_{i+1}/{num_nodes}"
                     )
 
-                res = self.bridge.send_limit_order(
-                    action=decision.action.value,
-                    lot=chunk_lot,
-                    sl=decision.stop_loss,
-                    tp=decision.take_profit,
-                    comment=f"ASI_MAKER_{i+1}/{num_nodes}",
-                    price=limit_price
-                )
-                
-                # [Phase 52.2] Emergency Fallback for 10015
-                if res and not res.get("success") and "10015" in str(res.get("error", "")):
-                    log.warning(f"⚠️ [LIMIT_REJECTED] Error 10015 for slot {i+1}. Immediate Market Fallback triggered.")
-                    return self.bridge.send_market_order(
-                        action=decision.action.value, lot=chunk_lot,
-                        sl=decision.stop_loss, tp=decision.take_profit,
-                        comment=f"ASI_FALLBACK_{i+1}/{num_nodes}"
-                    )
-                return res
-            else:
-                return self.bridge.send_market_order(
-                    action=decision.action.value,
-                    lot=chunk_lot,
-                    sl=decision.stop_loss,
-                    tp=decision.take_profit,
-                    comment=f"ASI_TAKER_{i+1}/{num_nodes}"
-                )
+            res = _execute_core()
+            
+            # [Phase Ω-Integrity] Dynamic Slot Shrinking
+            if res and not res.get("success") and "10019" in str(res.get("retcode", "")):
+                log.warning(f"🚨 [MARGIN_STRIKE] Slot {i+1} falhou por margem (10019). Solicitando redução de 50% p/ próximos.")
+                decision.metadata["margin_throttle"] = True
+            
+            return res
 
 
         # Mapeamento paralelo via ThreadPool com delays P-Brane

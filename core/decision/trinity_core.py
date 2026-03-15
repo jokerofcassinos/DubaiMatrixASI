@@ -111,6 +111,10 @@ class TrinityCore:
         has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
         is_god_mode = snapshot.metadata.get("god_mode_active", False)
         is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
+        
+        # [Phase 73] Navier-Stokes Ignition Logic
+        v_pulse_intensity = snapshot.metadata.get("v_pulse_capacitor", 0.0)
+        is_lethal_ignition = has_ignition and v_pulse_intensity > 0.8
 
         # [PHASE 50] Strike Flag
         strike_flag = ""
@@ -139,8 +143,8 @@ class TrinityCore:
                 take_profit=0,
                 lot_size=0,
                 regime=regime_state.current.value,
-                reasoning=f"PARADIGM SHIFT: KL Divergence {kl_div:.4f} > threshold. Kinetic exhaustion confirmed.",
-                metadata={"emergency_close": True}
+                reasoning=f"PARADIGM_SHIFT_CLOSE: KL Divergence {kl_div:.4f} > threshold. Kinetic exhaustion confirmed.",
+                metadata={"emergency_close": True, "paradigm_shift": True}
             )
 
         # ═══ QUANTUM STATE CHECK ═══
@@ -180,25 +184,27 @@ class TrinityCore:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
         elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-            # [PHASE Ω-ANTI-FRAGILITY] Drifting/Compression regimes are noisy.
-            # [EPA - Entropy Phase-Attractor]: If entropy is low and we have v-pulse/ignition, we relax thresholds.
-            # In Phase 48, we reduce the 'mult' from 1.5x to 1.1x if ignition is confirmed.
+            # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa
+            # Se houver V-Pulse ou PHI alto, relaxamos os limiares que causam "WAIT" excessivo
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+            phi_score = quantum_state.phi
             
-            if quantum_state.entropy < 0.6 and (limit_mode or has_ignition):
-                mult = 1.02 if has_ignition else 1.05  # Omega Attraction: Ignition sovereign
+            if has_ignition or phi_score > 0.25:
+                 mult = 0.95 # Relaxa ao invés de apertar
+                 dynamic_conf_min *= 0.85
+                 self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { 'IGNITION' if has_ignition else 'HIGH_PHI' } (Conf Min: {dynamic_conf_min:.2f})", 60)
             else:
-                mult = 1.10 if quantum_state.phi > 0.3 else 1.15 # Reduced from 1.25
-                
-            dynamic_buy_thresh *= mult
-            dynamic_sell_thresh *= mult
-            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05) # Relaxed from 1.1
+                 mult = 1.10 if quantum_state.phi > 0.3 else 1.15
+                 dynamic_buy_thresh *= mult
+                 dynamic_sell_thresh *= mult
+                 dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
 
-        elif regime_state.current.value in ["HIGH_VOL_CHAOS", "CHOPPY"]:
-            # Em caos e chop, a exigência de sinal é muito mais estrita
-            dynamic_buy_thresh *= 1.5
-            dynamic_sell_thresh *= 1.5
-            dynamic_conf_min = min(0.95, dynamic_conf_min * 1.2)
+        elif regime_state.current == MarketRegime.PARADIGM_SHIFT:
+            # Em mudança de paradigma, somos ultra-conservadores
+            dynamic_buy_thresh *= 1.8
+            dynamic_sell_thresh *= 1.8
+            dynamic_conf_min = min(0.98, dynamic_conf_min * 1.3)
+            self._log_cooldown("paradigm_shift_gate", f"🛡️ [PARADIGM SHIFT] Extreme filters active (Conf Min: {dynamic_conf_min:.2f})", 60)
 
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
         if limit_mode:
@@ -299,17 +305,35 @@ class TrinityCore:
             phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.35
             sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.60
             
+            # [Phase 73] Ignition Sovereignty: Se houver ignição, relaxamos os thresholds de veto de tendência
+            ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if has_ignition else 1.0
+            phi_min_counter *= ign_mult
+            sig_min_counter *= ign_mult
+            
             if phi < phi_min_counter or abs(signal) < sig_min_counter:
-                return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter} & Sig>{sig_min_counter} to fade {regime_state.current.value})")
+                return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter:.2f} & Sig>{sig_min_counter:.2f} to fade {regime_state.current.value})")
 
             # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK
             # Se vamos contra a maré, a inércia imediata (tick_velocity) JÁ DEVE ter virado.
             # Não tentamos 'adivinhar' o topo; esperamos a primeira martelada de volta.
             tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
-            if (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
+            
+            # [Phase 73] Ignition Sovereignty: Se houver ignição letal, ignoramos o veto de continuidade
+            if is_lethal_ignition:
+                pass
+            elif (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
                  return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
 
-        # ═══ DECISÃO ═══
+        # [Phase 73] PNL Veto Sovereignty: Lethal Ignition bypasses Java PnL Veto if high intensity
+        # [Phase Ω-NEXUS] Hign Conviction Bypass
+        is_lethal_strike = quantum_state.confidence > 0.92 and quantum_state.phi > 0.35
+        
+        if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
+            if is_lethal_ignition or is_lethal_strike or is_god_mode:
+                self._log_cooldown("PNL_SOVEREIGNTY", f"🔥 [PNL SOVEREIGNTY] Bypassing JAVA_PNL_VETO due to { 'LETHAL_STRIKE' if is_lethal_strike else 'IGNITION/GOD' } (Conf: {quantum_state.confidence:.2f})", 30)
+                pass
+            else:
+                return self._wait("JAVA_PNL_VETO (Negative Expectancy Detected)")
         if not is_god_mode:
             if signal >= dynamic_buy_thresh and confidence >= dynamic_conf_min:
                 action = Action.BUY
@@ -392,10 +416,18 @@ class TrinityCore:
         # [Phase 50] Resonance Bypass
         if is_phi_resonance:
             phi_threshold = 0.01 # Near-zero threshold for resonance
+        
+        # [Phase Ω-Apocalypse] Hardened Ignition Floor
+        # Se houver ignição mas a entropia for alta, exigimos Φ mais robusto
+        if has_ignition:
+            if entropy > 0.85:
+                phi_threshold = max(phi_threshold, 0.15)
+            else:
+                phi_threshold = max(phi_threshold, 0.08)
             
         # [Phase 50] God-Mode Reversal & Resonance Bypass
         if phi < phi_threshold and not is_god_mode_phi: # God-Mode Reversal bypasses this veto
-            self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f})", 60)
+            self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f} | Pulse={has_ignition})", 60)
             return self._wait("INCOHERENCE_VETO")
 
         # ═══ VETO 04: CHAOS SHIELD ═══
@@ -403,6 +435,20 @@ class TrinityCore:
         if chaos_regime:
             self._log_cooldown("CHAOS_VETO", "🛡️ VETO: CHAOS_SHIELD (Market dynamics is too unstable)", 30)
             return self._wait("CHAOS_VETO")
+            
+        # ═══ VETO 04.5: INFORMATION ENTROPIC VACUUM (Ph.D. Level) ═══
+        # Se estamos em drift e a entropia é baixíssima com 0 inércia = Robôs negociando com robôs
+        is_drifting = regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY"]
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode:
+            self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia). Avoiding chop.", 60)
+            return self._wait("ENTROPIC_VACUUM_VETO")
+
+        # ═══ VETO 04.6: PHI IGNORANCE (Soberania do Presente) ═══
+        # Se Φ é baixíssimo mas o V-Pulse é alto, a microetapa ignora o macro (Phase PhD)
+        phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
+        if phi < phi_ignore and has_v_pulse and not is_phi_resonance:
+             self._log_cooldown("PHI_IGNORANCE", f"⚡ [SOBERANIA DO PRESENTE] Φ={phi:.2f} is weak but V-Pulse is active. Bypassing PHI threshold for 3 candles.", 30, level="omega")
+             phi_threshold = 0.01 # Bypassa o veto de PHI no TrinityCore
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
@@ -466,6 +512,15 @@ class TrinityCore:
         if "ENTANGLEMENT" in agent_reasons:
             rr_mult += 1.5 # Macro alignment justifies huge targets
             self._log_cooldown("ENTANGLEMENT_BOOST", f"🌌 [OMNISCIENCE] Macro Entanglement Detected. TP Multiplier boosted to {rr_mult:.2f}x", 60)
+            
+        # [Phase 52: FAT-TAIL / LEVY FLIGHT]
+        # Aqui abolimos o "scalp" e adotamos a assimetria brutal 1:10+
+        is_fat_tail = "LEVY_FLIGHT_DETECTED" in agent_reasons or "SINGULARITY_COLLAPSE" in agent_reasons
+        if is_fat_tail or is_god_mode:
+            fat_tail_base = OMEGA.get("fat_tail_rr_mult", 10.0)
+            # Aciona a multiplicacao extrema
+            rr_mult = fat_tail_base + (phi * 2.5) # Ate 12.5x
+            self._log_cooldown("FAT_TAIL_HARVESTING", f"☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para {rr_mult:.2f}x", 60, level="omega")
 
         if action == Action.BUY:
             # SL: O maior entre (Mínima dos últimos 10 candles + buffer) e (Preço - sl_mult * Fast_ATR)
@@ -504,34 +559,47 @@ class TrinityCore:
         point_val = sym_info.get("point", 1.0) if sym_info else 1.0
         contract_size = sym_info.get("trade_contract_size", 1.0) if sym_info else 1.0
         
-        # Estimate dynamic commission per lot from bridge
-        # We don't have direct access to bridge here, but we can use the value from OMEGA or assume a default
-        # Ideally, we should have the dynamic_comm in snapshot metadata.
-        comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 15.0)
-        min_net_profit = OMEGA.get("min_profit_per_ticket", 60.0)
+        # [Phase 74] FTMO Alignment: Use safe baseline if metadata is missing
+        comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", OMEGA.get("commission_per_lot", 50.0))
+        min_net_profit = OMEGA.get("min_profit_per_ticket", 80.0)
         
         # Profit in points needed to cover commission + target (assuming 1 lot for ratio check)
         # [Phase 52.6] Calibração de Alvo Realista:
         # Se Φ é alto (>0.3), relaxamos o piso de lucro p/ não perder movimentos rápidos.
         dynamic_min_profit = min_net_profit
+        
+        # [Phase Ω-EPISTEMIC SINGULARITY] Dynamic Alpha Floor
+        # Discount based on Phi and V-Pulse
         if phi > 0.3:
-            dynamic_min_profit *= 0.7 # 30% de desconto no piso se há alta integração
+            dynamic_min_profit *= 0.8 # 20% discount
             
+        if has_v_pulse:
+            alpha_relaxation = OMEGA.get("v_pulse_alpha_relaxation", 0.50)
+            dynamic_min_profit *= alpha_relaxation
+            self._log_cooldown("V_PULSE_ALPHA", f"⚡ [V-PULSE ALPHA] Reducing min net profit target by { (1-alpha_relaxation)*100:.0f}% due to ignition.", 30, level="omega")
+
+        # [Phase PhD] Quantum Tunneling Alpha Sovereignty
+        # Se o agente de tunelamento detectou fuga de liquidez, o lucro mínimo cai drasticamente
+        is_tunneling = "TUNNELING" in agent_reasons
+        if is_tunneling:
+             dynamic_min_profit = 10.0 # Alpha Floor de sobrevivência apenas
+             self._log_cooldown("TUNNELING_ALPHA", "🍩 [TUNNELING ALPHA] Liquidity leakage detected. Minimal profit floor enabled.", 30, level="omega")
+
         # O divisor era contract_size que na FTMO BTCUSD costuma vir zuado (ex: 1.0 ou 100.0)
         # Vamos assumir que 1 lote = 1 bitcoin de variação direta no PnL.
         min_points_needed = (comm_per_lot + dynamic_min_profit)
         
         if reward < min_points_needed:
             # Se for God-Mode ou Ressonância, engolimos o trade mesmo assim.
-            if is_god_mode or is_phi_resonance:
+            if is_god_mode or is_phi_resonance or is_tunneling:
                  self._log_cooldown("REWARD_BYPASS", f"👹 [OMEGA IGNITION] Bypassing REWARD_TOO_SMALL ({reward:.2f} < {min_points_needed:.2f})", 30, level="omega")
             else:
                 # [Phase Ω-Apocalypse] TP Elastic Expansion
                 # If the ATR-based TP is too small to cover fees, we stretch it to meet the floor.
-                # We allow stretching up to 2.5x ATR to avoid missing perfect setups due to a $2 difference.
-                expanded_tp_points = min_points_needed * 1.02 # Add a 2% safety buffer
+                expanded_tp_points = min_points_needed + (5.0 * point_val) # Add a small safety buffer
                 
-                if expanded_tp_points < (atr * 2.5):
+                max_stretch = fast_atr * OMEGA.get("max_tp_stretch_atr", 5.0) # Use fast_atr for HFT
+                if expanded_tp_points < max_stretch:
                     reward = expanded_tp_points
                     if action == Action.BUY:
                         take_profit = price + reward
@@ -539,9 +607,14 @@ class TrinityCore:
                         take_profit = price - reward
                     
                     rr_ratio = reward / risk if risk > 0 else 0
-                    self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.2f} points to meet alpha floor.", 60, level="debug")
+                    self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.2f} points p/ Alpha Floor (Comm=${comm_per_lot:.1f} Target=${dynamic_min_profit:.1f})", 60, level="info")
                 else:
-                    return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block)")
+                    # [Phase PhD] Final Strike Bypass: Se temos colapso de entropia ou vácuo topológico, o lucro é secundário à certeza.
+                    is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
+                    if is_phd_strike:
+                         self._log_cooldown("PHD_STRIKE_BYPASS", f"🎯 [PHD STRIKE] Bypassing Reward/ATR Veto for high-conviction singularity strike (R={reward:.2f} < Min={min_points_needed:.2f}).", 30, level="omega")
+                    else:
+                        return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block {max_stretch:.2f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
         
@@ -702,7 +775,10 @@ class TrinityCore:
                                 if matches >= 2: # Topo Duplo ou Triplo
                                     # [Phase Ω-Eschaton] Ignorar veto se sinal é avassalador ou tem ignição
                                     bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
-                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
+                                    # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
+                                    if abs(quantum_state.raw_signal) > 0.50:
+                                        pass # Muro de contenção irrelevante perante a desintegração física
+                                    elif not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
         # [Phase 52.11] Simétrico: Suporte Horizontal para SELL
@@ -726,7 +802,10 @@ class TrinityCore:
                                 matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
                                 if matches >= 2: # Fundo Duplo ou Triplo
                                     bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
-                                    if not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
+                                    # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
+                                    if abs(quantum_state.raw_signal) > 0.50:
+                                        pass # A gravidade quântica engolirá o suporte
+                                    elif not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
 
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
@@ -878,7 +957,11 @@ class TrinityCore:
                 mc_min_wp = 0.40
                 
             if mc_win_prob < mc_min_wp:
-                if phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
+                mc_ev = getattr(mc_result, "expected_value", 0.0)
+                # [Phase Ω-Thermodynamic] EV Asymmetry Bypass
+                if mc_ev > 1.5 and mc_win_prob >= 0.32:
+                     pass # Fat-Tail Asymmetry: Assume WR<40% if Expected Value is massive.
+                elif phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
                      pass # Bypass
                 else:
                     return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
@@ -1006,6 +1089,17 @@ class TrinityCore:
             if self._last_loss_time > 0 and (now - self._last_loss_time) < 300: # 5 minutos de trava
                 return f"ANTI_PING_PONG ({300 - (now - self._last_loss_time):.0f}s rem)"
  
+        # [Phase Ω-Apocalypse] Climax Velocity Guard
+        candles_m1 = snapshot.candles.get("M1")
+        if candles_m1 and len(candles_m1["close"]) >= 2:
+            last_delta = abs(snapshot.price - candles_m1.get("close")[-2])
+            atr_m5 = self._get_current_atr(snapshot)
+            if atr_m5 > 0:
+                climax_velocity = last_delta / atr_m5
+                if climax_velocity > OMEGA.get("climax_velocity_threshold", 4.0) and \
+                   regime_state.current.value not in ["LIQUIDATION_CASCADE", "HIGH_VOL_CHAOS"]:
+                    return f"CLIMAX_VELOCITY_VETO (Vel={climax_velocity:.2f} > 4.0 ATR)"
+
         return None  # Sem veto
 
     def _get_current_atr(self, snapshot) -> float:

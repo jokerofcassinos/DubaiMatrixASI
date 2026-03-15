@@ -68,7 +68,7 @@ class PositionManager:
         Analisa posições abertas e ordens pendentes.
         """
         # 1. GESTÃO DE ORDENS PENDENTES (LIMITS)
-        self._manage_pending_orders()
+        self._manage_pending_orders(snapshot.price, snapshot.atr)
 
         # 2. GESTÃO DE POSIÇÕES ABERTAS
         positions = self.bridge.get_open_positions()
@@ -307,25 +307,31 @@ class PositionManager:
             if ticket not in self._closing_tickets:
                 self._close_with_notify(ticket, direction)
 
-    def _manage_pending_orders(self):
-        """Cancela ordens pendentes que não foram executadas e expiraram (Phase Ω-Eternity)."""
+    def _manage_pending_orders(self, current_price: float, atr: float):
+        """Cancela ordens pendentes que não foram executadas e expiraram ou estão fora de preço (Phase Ω-Apocalypse)."""
         pending = self.bridge.get_pending_orders()
         if not pending:
             return
 
         now = time.time()
         for order in pending:
-            # O MT5 retorna setup_time em epoch local/server. 
-            # Se a ordem LIMIT está lá há mais de 30 segundos, ela é lixo e polui o book.
+            ticket = order.get('ticket')
             setup_time = order.get('time', now)
+            order_price = order.get('price_open', 0.0)
 
-            # Sanity check: se setup_time for muito grande (futuro), ignorar
+            # O MT5 retorna setup_time em epoch local/server. 
             if setup_time > now + 3600: setup_time = now
 
-            if now - setup_time > 30: # Reduzido de 120s -> 30s para HFT Sniper
-                ticket = order.get('ticket')
+            # GC 1: Tempo de Vida (30s)
+            is_stale = (now - setup_time > 30)
+            
+            # GC 2: Slippage Residual (Preço fugiu mais de 1.5 ATR)
+            price_runaway = (abs(current_price - order_price) > atr * 1.5) if atr > 0 else False
+
+            if is_stale or price_runaway:
                 if ticket:
-                    log.omega(f"🧹 GC: Cancelando ordem LIMIT pendente e antiga #{ticket} ({int(now-setup_time)}s)")
+                    reason = "STALE" if is_stale else f"RUNAWAY({abs(current_price-order_price):.1f} pts)"
+                    log.omega(f"🧹 GC: Cancelando ordem LIMIT #{ticket} - Reason: {reason}")
                     self.bridge.cancel_pending_order(ticket)
     def _cleanup_tracking(self, current_tickets: List[int]):
         """Remove estados de tickets que não existem mais."""

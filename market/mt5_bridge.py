@@ -207,16 +207,10 @@ class MT5Bridge:
             except ConnectionResetError:
                 log.warning("⚠️ Socket resetado pela contraparte (MT5/EA).")
                 self._ea_connected = False
-                self.client_socket = None
-            except Exception as e:
-                if self._socket_running:
-                    log.error(f"❌ Erro no streaming do socket: {e}")
-                    if self.client_socket:
-                        self.client_socket.close()
-                    self.client_socket = None
-                    self._ea_connected = False
                 # [Phase 50] HFT Heartbeat: Reconnect ultra-veloz para minimizar tempo cego
-                time.sleep(0.05) 
+                if not self._ea_connected and self._socket_running:
+                    log.warning("🔄 HFT BRIDGE: Tentando reconexão ultra-veloz...")
+                time.sleep(0.01) # Reduzido p/ 10ms p/ HFT resilience
 
     def _handle_socket_data(self, data: str):
         """Processa ticks e resultados vindos do EA via socket."""
@@ -277,12 +271,18 @@ class MT5Bridge:
             
         try:
             msg = cmd + "\n"
-            self.client_socket.sendall(msg.encode('utf-8'))
+            data = msg.encode('utf-8')
+            sent = self.client_socket.send(data)
+            if sent < len(data):
+                log.warning(f"⚠️ Socket Partial Send: {sent}/{len(data)} bytes. Latency spike detected.")
             return True
-        except Exception as e:
-            log.error(f"Erro ao enviar comando socket: {e}")
+        except (socket.error, BrokenPipeError) as se:
+            log.error(f"❌ HFT SOCKET FAIL: {se}. Marking EA disconnected.")
             self._ea_connected = False
             self.client_socket = None
+            return False
+        except Exception as e:
+            log.error(f"❌ Erro inesperado ao enviar comando socket: {e}")
             return False
 
     def disconnect(self):

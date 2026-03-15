@@ -139,11 +139,18 @@ from core.consciousness.agents.holographic_memory_agent import HolographicMemory
 from core.consciousness.agents.omniscience_agents import (
     OrderBookSpoofingAgent, QuantumEntanglementAgent
 )
+from core.consciousness.agents.phd_agents import (
+    AsymmetricInformationEntropyAgent, RelativisticManifoldAgent, NeuralFlowODEAgent
+)
 
 # Phase Ω-Singularity (Nível 5 - Autotranscendência)
 from core.consciousness.agents.singularity_agents import (
     AccretionDiskAgent, KinematicDerivativesAgent, TopologicalDataAgent
 )
+# [Phase Ω-EPISTEMIC SINGULARITY]
+from core.consciousness.agents.quantum_tunneling_oscillator import QuantumTunnelingOscillator
+from core.consciousness.agents.topological_manifold_agent import TopologicalManifoldAgent
+from core.consciousness.agents.entropy_decay_strike_agent import EntropyDecayStrikeAgent
 
 # Phase Ω-Eternity (Nível 6 - Teoria do Caos e Homeostase)
 from core.consciousness.agents.eternity_agents import (
@@ -275,9 +282,11 @@ from core.consciousness.agents.aethel_agents import (
 from core.consciousness.agents.omega_extreme import (
     QCAAgent, PredatorPreyAgent, EVTBlackSwanAgent
 )
-# Phase Ω-Singularity (Nível 24+ PhD Level Consciousness)
+# Phase Ω-Singularity & Pangalactic (Nível 24+ PhD Level Consciousness)
 from core.consciousness.agents.phd_agents import (
-    LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent, TCellImmunityAgent
+    LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent, TCellImmunityAgent,
+    OrderFlowSingularityAgent, LevyFlightFatTailAgent, VPINToxicityAgent, FisherInformationAgent,
+    FristonFreeEnergyAgent, KolmogorovComplexityAgent, PrigogineDissipativeAgent, NavierStokesIgnitionAgent
 )
 
 # Phase Ω-Continuum (Nível 31 - Teoria M e QCD)
@@ -441,6 +450,11 @@ class NeuralSwarm:
             EVTBlackSwanAgent(weight=2.2),
             SupernovaCapacitorAgent(weight=2.5),
             
+            # ═══ Ω-NEXUS (Phase Ω-Nexus) ═══
+            AsymmetricInformationEntropyAgent(weight=2.0),
+            RelativisticManifoldAgent(weight=1.8),
+            NeuralFlowODEAgent(weight=2.5),
+            
             # BlackSwanAgent(weight=2.0), # Substituído pelo EVTBlackSwan
             TensorAgent(weight=1.9),
 
@@ -468,10 +482,15 @@ class NeuralSwarm:
             OrderBookSpoofingAgent(weight=2.6),
             QuantumEntanglementAgent(weight=3.0),
 
-            # ═══ SINGULARITY (Phase Ω-Singularity) ═══
+            # [PHASE Ω-SINGULARITY]
+            TopologicalDataAgent(weight=2.8),
             AccretionDiskAgent(weight=3.5),
             KinematicDerivativesAgent(weight=3.8),
-            TopologicalDataAgent(weight=2.8),
+            
+            # [PHASE Ω-EPISTEMIC SINGULARITY]
+            QuantumTunnelingOscillator(weight=3.8),
+            TopologicalManifoldAgent(),
+            EntropyDecayStrikeAgent(),
 
             # ═══ ETERNITY (Phase Ω-Eternity) ═══
             QuantumSpinAgent(weight=2.9),
@@ -544,6 +563,18 @@ class NeuralSwarm:
             NavierStokesTurbulenceAgent(weight=4.2),
             DarkMatterGravityAgent(weight=4.0),
             TCellImmunityAgent(weight=5.0),
+            OrderFlowSingularityAgent(weight=4.8),
+            LevyFlightFatTailAgent(weight=4.7),
+            
+            # ═══ PANGALACTIC (Phase Ω-Pangalactic) ═══
+            VPINToxicityAgent(weight=4.9),
+            FisherInformationAgent(weight=4.8),
+            
+            # ═══ THERMODYNAMIC (Phase Ω-Thermodynamic) ═══
+            FristonFreeEnergyAgent(weight=5.0),
+            KolmogorovComplexityAgent(weight=4.8),
+            PrigogineDissipativeAgent(weight=4.9),
+            NavierStokesIgnitionAgent(weight=5.0),
 
             # ═══ CONTINUUM (Phase Ω-Continuum) ═══
             MTheoryDimensionalAgent(weight=5.0),

@@ -11,6 +11,8 @@
 import time
 import threading
 import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from datetime import datetime, timezone
 from collections import deque
 from dataclasses import dataclass, field
@@ -61,9 +63,25 @@ class OnChainScraper:
         self._current = OnChainSnapshot()
         self._history = deque(maxlen=500)
         self._update_interval = 300  # 5 minutos (dados on-chain mudam devagar)
-        self._session = requests.Session()
-        self._session.headers.update(HEADERS)
+        self._session = self._create_resilient_session()
         self._last_update = 0.0
+
+    def _create_resilient_session(self) -> requests.Session:
+        """Cria uma sessão com retries e tratamento de erros de rede."""
+        session = requests.Session()
+        session.headers.update(HEADERS)
+        
+        # Configurar Retry exponencial
+        retry_strategy = Retry(
+            total=3,
+            backoff_factor=1,
+            status_forcelist=[429, 500, 502, 503, 504],
+            allowed_methods=["GET"]
+        )
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        session.mount("https://", adapter)
+        session.mount("http://", adapter)
+        return session
 
     def start(self):
         """Inicia o scraper em background."""
@@ -119,8 +137,10 @@ class OnChainScraper:
                 if now - self._last_update >= self._update_interval:
                     self._scrape_all()
                     self._last_update = now
+            except (requests.exceptions.RequestException, ConnectionResetError) as e:
+                log.warning(f"⚠️ On-Chain Scraper: Network glitch detected ({e}). Retrying next cycle.")
             except Exception as e:
-                log.error(f"❌ On-Chain Scraper erro: {e}")
+                log.error(f"❌ On-Chain Scraper erro crítico: {e}")
             time.sleep(15)
 
     @catch_and_log(default_return=None)

@@ -1,0 +1,4 @@
+---
+trigger: always_on
+---
+pesos do swarm dinamicamente. ### 2.4 Navier-Stokes Order Flow Turbulence (Fluids) - **Motor:** `calculate_navier_stokes_reynolds` (C++). - **Lógica:** Calcula o Número de Reynolds para detectar a transição de fluxo Laminar para Turbulento no Book. ### 2.5 Dark Matter Gravitational Pull (Astrophysics) - **Motor:** `calculate_dark_matter_gravity` (C++). - **Lógica:** Infere massa institucional oculta (Icebergs) baseada na discrepância aceleração/massa-visível. ## 3. Impacto Sistêmico A DubaiMatrixASI agora opera com **integridade total**, eliminando a paralisia por medo algorítmico e a vulnerabilidade a padrões repetitivos de perda. O sistema de imunidade garante que a máquina "aprenda com o trauma" de forma cirúrgica.

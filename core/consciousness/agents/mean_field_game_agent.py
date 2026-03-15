@@ -46,6 +46,8 @@ class MeanFieldGameAgent(BaseAgent):
                     bias = 1.0
                 elif curr in [MarketRegime.TRENDING_BEAR, MarketRegime.DRIFTING_BEAR, MarketRegime.BREAKOUT_DOWN]:
                     bias = -1.0
+                elif curr == MarketRegime.PARADIGM_SHIFT:
+                    bias = 0.0 # Neutralidade absoluta durante mudança de paradigma
             elif isinstance(regime, dict):
                 bias = float(regime.get('bias', 0.0))
 

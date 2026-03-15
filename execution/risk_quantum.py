@@ -63,8 +63,8 @@ class RiskQuantumEngine:
         atr = snapshot.indicators.get("M1_atr_14", [price * 0.001])[0] / (snapshot.digits_mult if hasattr(snapshot, 'digits_mult') else 1)
         
         # [Phase Ω-Resilience] Commission-Aware Math:
-        comm_per_lot = commission_per_lot
-        min_target_pts = OMEGA.get("min_profit_points", 300)
+        comm_per_lot = OMEGA.get("commission_per_lot", 50.0)
+        min_target_pts = OMEGA.get("min_profit_per_ticket", 80.0)
         point = (snapshot.symbol_info.get("point", 0.01) if snapshot and snapshot.symbol_info else 0.01)
         
         baseline_move = max(min_target_pts * point + comm_per_lot, atr * 0.75) 
@@ -90,16 +90,18 @@ class RiskQuantumEngine:
                 max_growth = growth
                 best_leverage = leverage
 
-        if max_growth < 0:
+        if max_growth < -0.1: # [Phase Ω-Integrity] Aumentado threshold para reduzir falsos-negativos de ruína
             log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f}. Reducing exposure.")
             if snapshot and hasattr(snapshot, 'metadata'):
                 snapshot.metadata["non_ergodic_ruin"] = True
-            risk_fraction = 0.001
+            risk_fraction = 0.005 # Aumentado de 0.001 para permitir strike mínimo
         else:
             if snapshot and hasattr(snapshot, 'metadata'):
                 snapshot.metadata["non_ergodic_ruin"] = False
             sl_pct = stop_loss_distance / price if price > 0 else 0.01
-            risk_fraction = best_leverage * sl_pct
+            # [Phase Ω-Resilience] Min Growth Floor: Garantir exposição mínima em alta confiança
+            effective_leverage = max(best_leverage, 1.0 if confidence > 0.8 else 0.0)
+            risk_fraction = effective_leverage * sl_pct
             log.omega(f"📊 NON-ERGODIC OPTIMIZATION: Max Growth {max_growth:.6f} @ {best_leverage}x Leverage. Risk Fraction: {risk_fraction:.4f}")
 
         # 3. ═══ [OMEGA-CLASS] ITO CALCULUS REFINEMENT (Volatility Tax) ═══

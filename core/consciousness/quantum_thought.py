@@ -426,9 +426,17 @@ class QuantumThoughtEngine:
             raw_signal *= 0.5 # Asfixia a força da decisão se não há harmonia
             v_pulse_reasoning_append += " [!LOW_COHERENCE_DAMPENING!]"
         
-        # ═══ 4. CONSCIOUSNESS METRICS (Φ) — Phase Ω-Extreme ═══
+        # ═══════════════════════════════════════════════════
+        #  PHASE Ω-APOCALYPSE: ENTROPY-SIGNAL DIVERGENCE VETO
+        # ═══════════════════════════════════════════════════
+        # Se a entropia é extrema mas a integração (Φ) é baixa, 
+        # o sinal é ruído puro, não convicção.
         phi_metrics = CPP_CORE.calculate_phi(valid_signals)
         phi_val = phi_metrics["phi"] if phi_metrics else 0.0
+        
+        if system_entropy > 0.85 and phi_val < 0.10:
+            raw_signal *= 0.1 # Esmagamento de 90% do sinal ruidoso
+            v_pulse_reasoning_append += " [!ENTROPY_DIVERGENCE_VETO!]"
         
         # ═══ 5. COHERENCE BOOST & COLLAPSE POLICY ═══
         # Se a coerência é alta (>0.7), damos um boost na confiança (Efeito Enxame)
@@ -446,8 +454,12 @@ class QuantumThoughtEngine:
         # [OMEGA REFINEMENT] Natural Collapse Check
         # O estado colapsa naturalmente se tiver confiança E sinal suficientes.
         # [PHASE 48]: Se v_pulse_detected, o colapso é forçado com thresholds relaxados.
+        # [PHASE Ω-APOCALYPSE]: Φ Floor mandatório (0.08) para colapso em ignição.
+        phi_floor = 0.08 if v_pulse_detected else 0.0
+        
         natural_collapse = (avg_confidence >= (confidence_min_val * 0.8 if v_pulse_detected else confidence_min_val)) and \
-                           (abs(raw_signal) >= (buy_threshold * 0.7 if v_pulse_detected else buy_threshold))
+                           (abs(raw_signal) >= (buy_threshold * 0.7 if v_pulse_detected else buy_threshold)) and \
+                           (phi_val >= phi_floor)
 
         if natural_collapse:
             collapsed_signal = raw_signal

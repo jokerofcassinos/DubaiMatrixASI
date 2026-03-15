@@ -230,8 +230,8 @@ if __name__ == "__main__":
 
     # ═══ CONFIGURAR AQUI AS CREDENCIAIS MT5 ═══
     asi.start(
-        login=1512759888,       # Seu login MT5 (ex: 12345678)
-        password="PiE@1V!@q52X87",    # Sua senha MT5
-        server="FTMO-Demo",      # Seu servidor MT5 (ex: "MetaQuotes-Demo")
+        login=1521217759,       # Seu login MT5 (ex: 12345678)
+        password="6!2Pp*?6Ec@?BN",    # Sua senha MT5
+        server="FTMO-Demo2",      # Seu servidor MT5 (ex: "MetaQuotes-Demo")
         path='C:\\Program Files\\FTMO Global Markets MT5 Terminal\\terminal64.exe',              # A ASI hookará magicamente no MT5 que já está aberto!
     )

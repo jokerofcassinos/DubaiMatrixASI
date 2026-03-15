@@ -35,6 +35,7 @@ class MarketRegime(Enum):
     DRIFTING_BEAR = "DRIFTING_BEAR"
     LIQUIDITY_HUNT = "LIQUIDITY_HUNT"
     MEAN_REVERTING = "MEAN_REVERTING"
+    PARADIGM_SHIFT = "PARADIGM_SHIFT"
     UNKNOWN = "UNKNOWN"
 
 
@@ -80,6 +81,7 @@ class RegimeDetector:
         MarketRegime.DRIFTING_BEAR:   1.1,   # Sangramento lento
         MarketRegime.LIQUIDITY_HUNT:  0.3,   # Manipulação de stops
         MarketRegime.MEAN_REVERTING:  0.6,   # Ping-pong de algoritmos
+        MarketRegime.PARADIGM_SHIFT:  0.25,  # Observação defensiva
         MarketRegime.UNKNOWN:         0.5,
     }
 
@@ -155,7 +157,7 @@ class RegimeDetector:
         features["entropy"] = entropy if isinstance(entropy, (int, float)) else 3.0
 
         # ═══ Classificação baseada em regras multi-feature ═══
-        regime, confidence, reasoning = self._classify_regime(features)
+        regime, confidence, reasoning = self._classify_regime(features, snapshot)
 
         # ═══ Detectar transição ═══
         transition_prob = self._estimate_transition_probability(regime, features)
@@ -247,6 +249,12 @@ class RegimeDetector:
                     return MarketRegime.BREAKOUT_DOWN
             
             # Se for regime de Drift e o pulso for na mesma direção, mas muito forte, confirma ignição
+            # [Phase Ω-Apocalypse] Squeeze Exit Detection
+            if self._current_regime == MarketRegime.SQUEEZE_BUILDUP:
+                bb_width_list = snapshot.indicators.get("M5_bb_width", [0.0])
+                if len(bb_width_list) > 1 and bb_width_list[-1] > bb_width_list[-2] * 1.5:
+                    return MarketRegime.BREAKOUT_UP if price_delta_m1 > 0 else MarketRegime.BREAKOUT_DOWN
+
             if tick_velocity > 45.0:
                 if price_delta_m1 > 0 and self._current_regime == MarketRegime.CREEPING_BULL:
                     return MarketRegime.BREAKOUT_UP
@@ -255,12 +263,23 @@ class RegimeDetector:
 
         return None
 
-    def _classify_regime(self, f: dict) -> Tuple[MarketRegime, float, str]:
+    def _classify_regime(self, f: dict, snapshot) -> Tuple[MarketRegime, float, str]:
         """Classifica o regime baseado em features."""
+        
+        # ═══ [PHASE Ω-EPISTEMIC] PARADIGM SHIFT DETECTION ═══
+        kl_div = snapshot.metadata.get("kl_divergence", 0.0)
+        if kl_div > 1.5:  # Threshold cirúrgico para mudança de paradigma
+            return MarketRegime.PARADIGM_SHIFT, min(1.0, kl_div / 5.0), \
+                   f"PARADIGM_SHIFT: KL_DIV={kl_div:.4f} (Information Geometry Breach)"
+        
         reasons = []
 
         # HIGH VOL CHAOS — sobrecarrega tudo apenas se ATR for muito extremo
         if f["atr_pct"] > 3.0 and f["entropy"] > 4.5:
+            # [Phase Ω-Apocalypse] Blow-off Climax detection
+            jounce = snapshot.metadata.get("jounce", 0.0)
+            if abs(jounce) > 5.0: # Aceleração da aceleração colapsando ou explodindo
+                 return MarketRegime.HIGH_VOL_CHAOS, 0.98, "CLIMAX_BLOW_OFF (High Jounce + Chaos)"
             return MarketRegime.HIGH_VOL_CHAOS, 0.9, "ATR_EXTREME + HIGH_ENTROPY"
 
         # BREAKOUT — BB squeeze + volume spike

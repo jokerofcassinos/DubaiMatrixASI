@@ -1,9 +1,3 @@
----
-trigger: always_on
----
-
-meu template e parametros de indicadores do mt5 grafico são esses:
-
 <chart>
 id=0
 symbol=

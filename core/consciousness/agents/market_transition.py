@@ -46,6 +46,9 @@ class MarketTransitionAgent(BaseAgent):
             # Se estamos em tendência e vamos para Mean Reversion, sinal contrário à tendência
             if current == MarketRegime.TRENDING_BULL: signal = -0.5
             elif current == MarketRegime.TRENDING_BEAR: signal = 0.5
+        elif predicted == MarketRegime.PARADIGM_SHIFT:
+            # Transição para Paradigm Shift é um sinal de exaustão extrema
+            signal = -np.sign(regime_state.bias) * 0.7 if hasattr(regime_state, 'bias') else 0.0
             
         confidence = prob # A confiança é a própria probabilidade de transição
         

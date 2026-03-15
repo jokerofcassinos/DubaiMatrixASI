@@ -109,11 +109,11 @@ class OmegaParameterSpace:
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
-        self._register("trinity_min_rr_ratio", 1.6, 1.2, 2.5,
+        self._register("trinity_min_rr_ratio", 1.2, 0.8, 2.5,
                         "RR Ratio mínimo no TrinityCore")
-        self._register("mc_min_score", -0.30, -0.80, 0.50,
+        self._register("mc_min_score", -0.35, -0.80, 0.50,
                         "Score mínimo do Monte Carlo para aprovar trade")
-        self._register("mc_min_win_prob", 0.42, 0.25, 0.55,
+        self._register("mc_min_win_prob", 0.32, 0.20, 0.55,
                         "Win Probability mínima do Monte Carlo")
 
         # ═══ RISK PARAMETERS ═══
@@ -121,17 +121,17 @@ class OmegaParameterSpace:
                         "% do saldo por posição")
         self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
-        self._register("stop_loss_atr_mult", 0.55, 0.1, 3.0,
+        self._register("stop_loss_atr_mult", 1.50, 0.1, 5.0,
                         "Multiplicador ATR para stop loss")
-        self._register("take_profit_atr_mult", 1.3, 0.3, 5.0,
+        self._register("take_profit_atr_mult", 2.50, 0.3, 10.0,
                         "Multiplicador ATR para take profit")
         self._register("trailing_stop_atr_mult", 0.6, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
-        self._register("commission_per_lot", 32.0, 0.0, 100.0,
-                        "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD")
-        self._register("min_profit_per_ticket", 20.0, 10.0, 60.0,
+        self._register("commission_per_lot", 50.0, 0.0, 150.0,
+                        "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD ($50.0)")
+        self._register("min_profit_per_ticket", 80.0, 10.0, 200.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
-        self._register("min_commission_reward_ratio", 1.5, 1.0, 5.0,
+        self._register("min_commission_reward_ratio", 2.5, 1.0, 10.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
                         "Multiplicador de cobertura de comissão para Smart TP")
@@ -256,14 +256,46 @@ class OmegaParameterSpace:
                         "Habilita modo RELAXED (redução de veto PnL)")
         self._register("drift_aggression_mult", 1.25, 1.0, 2.0,
                         "Multiplicador de agressividade em regime DRIFTING")
-        self._register("god_mode_entropy_threshold", 0.93, 0.90, 0.99,
+        self._register("god_mode_entropy_threshold", 0.89, 0.80, 0.99,
                         "Threshold de Entropia para God-Mode Reversal")
 
         # ═══ PHASE 51: Ω-ALPHA SURGE (ALPHA EXTRACTION) ═══
         self._register("kinematic_v_pulse_relaxation", 2.5, 1.0, 5.0,
                         "Multiplicador de relaxação ATR durante V-Pulse/Ignition")
+        self._register("ignition_sovereignty_mult", 0.40, 0.1, 1.0,
+                        "Multiplicador de soberania da ignição (reduz thresholds de veto)")
         self._register("god_mode_rr_min", 0.35, 0.1, 1.5,
                         "RR Ratio mínimo reduzido para God-Mode Reversal (Panic Absorption)")
+
+        # ═══ PHASE 52: FAT-TAIL HARVESTING & LEVY FLIGHTS ═══
+        self._register("fat_tail_rr_mult", 10.0, 5.0, 25.0,
+                        "Multiplicador insano de Take Profit para eventos de cauda longa (1:10+)")
+        self._register("levy_flight_kurtosis_threshold", 5.0, 2.0, 15.0,
+                        "Excesso de curtose necessário para aprovar Voo de Lévy e expansão Fat-Tail")
+                        
+        # ═══ PHASE 53: PANGALACTIC (SQUEEZE ANTICIPATION) ═══
+        self._register("vpin_toxicity_limit", 0.75, 0.50, 0.95,
+                        "Nível de toxicidade no Order Flow (VPIN) para decretar Flash Crash / Squeeze")
+        self._register("fisher_critical_collapse", 0.05, 0.01, 0.15,
+                        "Limiar estatístico para atestar colapso termo-dinâmico da informação paramétrica")
+
+        # ═══ PHASE Ω-THERMODYNAMIC (AGI TRANSITION) ═══
+        self._register("friston_surprise_threshold", 3.0, 1.5, 6.0,
+                        "Limiar de Energia Livre (Erro Preditivo) para decretar Paradigm Shift institucional")
+        self._register("kolmogorov_compression_ratio", 0.35, 0.1, 0.6,
+                        "Ratio de compressão algorítmica de fluxo para detectar robôs institucionais limpos")
+        self._register("prigogine_entropy_saturation", 0.90, 0.70, 0.98,
+                        "Saturação entrópica indicando falência de estrutura dissipativa (Bifurcação Climática)")
+
+        # ═══ PHASE Ω-EPISTEMIC SINGULARITY (PhD Evolution) ═══
+        self._register("weight_quantum_tunneling", 1.25, 0.1, 3.5,
+                        "Peso do agente Quantum Tunneling Oscillator")
+        self._register("max_tp_stretch_atr", 5.0, 1.0, 15.0,
+                        "Máximo alongamento de TP (em ATR) para cobrir o Alpha Floor")
+        self._register("phi_ignorance_threshold", 0.15, 0.05, 0.30,
+                        "Nível de Φ abaixo do qual a microestrutura ignora o macro (Soberania do Presente)")
+        self._register("v_pulse_alpha_relaxation", 0.50, 0.1, 1.0,
+                        "Multiplicador de redução do Alpha Floor durante V-Pulse (0.50 = 50% de desconto)")
 
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,

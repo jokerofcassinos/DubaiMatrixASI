@@ -65,7 +65,7 @@ class TCellImmunitySystem:
         self._recalculate_matrices()
         log.warning(f"🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado ({len(self.antigens)} patógenos).")
 
-    def is_infected(self, snapshot, threshold: float = 2.5) -> bool:
+    def is_infected(self, snapshot, threshold: float = 1.8) -> bool:
         """Verifica se o snapshot atual é similar a uma 'infeção' (loss) passada."""
         if not self.antigens or self.inv_cov_matrix is None:
             return False
@@ -77,7 +77,13 @@ class TCellImmunitySystem:
         try:
             d = distance.mahalanobis(current_genotype, self.mean_vector, self.inv_cov_matrix)
             if d < threshold:
-                log.omega(f"🛡️ T-Cell VETO: Patógeno detectado (Distância={d:.2f} < {threshold}).")
+                import time
+                if not hasattr(self, '_last_log_time'):
+                    self._last_log_time = 0
+                now = time.time()
+                if now - self._last_log_time > 60:
+                    log.omega(f"🛡️ T-Cell VETO: Patógeno detectado (Distância={d:.2f} < {threshold}).")
+                    self._last_log_time = now
                 return True
         except:
             pass
