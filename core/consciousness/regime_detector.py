@@ -27,6 +27,7 @@ class MarketRegime(Enum):
     CHOPPY = "CHOPPY"
     BREAKOUT_UP = "BREAKOUT_UP"
     BREAKOUT_DOWN = "BREAKOUT_DOWN"
+    HFT_BREAKDOWN = "HFT_BREAKDOWN"
     HIGH_VOL_CHAOS = "HIGH_VOL_CHAOS"
     LOW_LIQUIDITY = "LOW_LIQUIDITY"
     # Phase 24: High-Fidelity Micro Regimes
@@ -73,6 +74,7 @@ class RegimeDetector:
         MarketRegime.CHOPPY:          0.3,   # Muito conservador em chop
         MarketRegime.BREAKOUT_UP:     1.5,   # Agressivo em breakout
         MarketRegime.BREAKOUT_DOWN:   1.5,
+        MarketRegime.HFT_BREAKDOWN:   1.8,   # Agressividade Máxima em Breakdown (Strike)
         MarketRegime.HIGH_VOL_CHAOS:  0.2,   # Mínimo em caos
         MarketRegime.LOW_LIQUIDITY:   0.4,   # Conservador em baixa liquidez
         # Phase 24 Additions
@@ -210,6 +212,22 @@ class RegimeDetector:
         closes = np.array(candles_m1["close"], dtype=np.float64)
         tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
         
+        # [PHASE Ω-BREAKDOWN] HFT Acceleration Detection
+        # Detecta quando o preço "some" (liquidity vacuum)
+        if len(closes) >= 3:
+            v1 = closes[-1] - closes[-2]
+            v2 = closes[-2] - closes[-3]
+            acceleration = v1 - v2 # Aceleração (Jerk proxy)
+            
+            # Se a aceleração negativa é brutal (> 1.0 ATR) e a velocidade é negativa
+            atr_m5_list = snapshot.indicators.get("M5_atr_14")
+            current_atr = atr_m5_list[-1] if atr_m5_list is not None and len(atr_m5_list) > 0 else 1.0
+            
+            if v1 < 0 and acceleration < -current_atr * 1.0 and abs(tick_velocity) > 25.0:
+                 # Se estamos em CREEPING_BULL, isso é um "Breakdown" iminente
+                 if self._current_regime == MarketRegime.CREEPING_BULL:
+                      return MarketRegime.HFT_BREAKDOWN
+
         # 1. Delta Instantâneo (V-Shape)
         # Se os últimos 2 candles M1 anularam a queda dos 3 anteriores
         if len(closes) >= 5:
@@ -246,6 +264,9 @@ class RegimeDetector:
             
             if price_delta_m1 < 0:
                 if self._current_regime == MarketRegime.TRENDING_BULL or self._current_regime == MarketRegime.CREEPING_BULL:
+                    # Se for violento o suficiente, vira Breakdown
+                    if abs(price_delta_m1) > current_atr * 0.8:
+                        return MarketRegime.HFT_BREAKDOWN
                     return MarketRegime.BREAKOUT_DOWN
             
             # Se for regime de Drift e o pulso for na mesma direção, mas muito forte, confirma ignição

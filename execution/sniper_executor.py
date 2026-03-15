@@ -254,13 +254,17 @@ class SniperExecutor:
         # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
         # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime
         is_resonance = decision.metadata.get("phi_resonance", False)
+        phi = decision.metadata.get("phi", 0.0)
         base_max_slots = int(OMEGA.get("max_order_splits", 5.0))
 
         # [Phase 52] Ruin Protection for Hydra
         # Se o Risk Engine detectou ruína não-ergódica, desativamos a Hydra para proteger o capital.
         is_ruin = snapshot.metadata.get("non_ergodic_ruin", False)
+        
+        # [Phase Ω-Coherence] Enforcement
+        hydra_phi_gate = OMEGA.get("hydra_min_phi_threshold", 0.25)
 
-        if (decision.confidence > 0.85 or is_resonance) and not is_ruin:
+        if (decision.confidence > 0.85 or is_resonance) and not is_ruin and phi >= hydra_phi_gate:
             # Extrema convicção ou Ressonância -> Ativar Hydra Mode
             hydra_multiplier = 3
             if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:  

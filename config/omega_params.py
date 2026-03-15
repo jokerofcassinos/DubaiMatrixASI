@@ -238,6 +238,10 @@ class OmegaParameterSpace:
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
+        self._register("hydra_min_phi_threshold", 0.25, 0.05, 0.95,
+                        "Nível mínimo de Φ necessário para autorizar HYDRA MODE (Phase Ω-Coherence)")
+        self._register("unknown_regime_phi_gate", 0.15, 0.05, 0.50,
+                        "Nível mínimo de Φ necessário para autorizar trades em regime UNKNOWN (Phase Ω-Coherence)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,
                         "Habilita a dilatação temporal relativística do loop de consciência")
         self._register("evt_tail_threshold", 2.50, 2.0, 5.0,

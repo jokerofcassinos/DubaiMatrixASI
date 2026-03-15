@@ -44,6 +44,7 @@ class Decision:
     lot_size: float            # Tamanho do lote
     regime: str                # Regime de mercado
     reasoning: str             # Explicação completa
+    limit_order: bool = False  # [PHASE Ω-SINGULARITY]
     veto_reason: str = ""      # Se vetado, razão
     risk_reward_ratio: float = 0.0
     metadata: dict = None      # Metadados extras (Phase Ω-Extreme)
@@ -206,6 +207,13 @@ class TrinityCore:
             dynamic_conf_min = min(0.98, dynamic_conf_min * 1.3)
             self._log_cooldown("paradigm_shift_gate", f"🛡️ [PARADIGM SHIFT] Extreme filters active (Conf Min: {dynamic_conf_min:.2f})", 60)
 
+        # [Phase Ω-Coherence] UNKNOWN Regime Veto
+        if regime_state.current.value == "UNKNOWN":
+            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.15)
+            if phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
+                self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
+                return self._wait("UNKNOWN_REGIME_INCOHERENCE")
+
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
         if limit_mode:
             dynamic_conf_min *= 0.90
@@ -252,6 +260,12 @@ class TrinityCore:
                     action = Action.BUY if god_signal > 0 else Action.SELL
                     confidence = 0.99
                     signal = god_signal
+                    
+                    # [Phase Ω-Coherence] God-Mode Coherence Verification
+                    # Even in God-Mode, we need a TINY bit of coherence (0.05) to ensure it's not pure tick noise
+                    if phi < 0.05:
+                        self._log_cooldown("GOD_MODE_NOISE_VETO", f"⚠️ VETO: GOD_MODE_NOISE (Φ={phi:.3f} is too low even for reversal).", 30)
+                        return self._wait("GOD_MODE_NOISE")
                     # reasoning and other variables will be populated below as the function continues
         
         # ═══ 3.6 ORTHOGONAL CONVERGENCE (Echo Chamber Penalty) ═══
@@ -285,6 +299,7 @@ class TrinityCore:
         # In creeping regimes, the trend is the master. Fading is dangerous.
         is_creeping_bull = "BULL" in regime_state.current.value
         is_creeping_bear = "BEAR" in regime_state.current.value
+        is_breakdown = regime_state.current == MarketRegime.HFT_BREAKDOWN
         
         # Test tentative directions
         tentative_is_counter = False
@@ -292,8 +307,8 @@ class TrinityCore:
         elif signal < 0 and is_creeping_bull: tentative_is_counter = True
 
         # 1. Dynamic Signal Penalization for Counter-Trend
-        if tentative_is_counter:
-            # Penaliza sinais contra a inércia do regime
+        if tentative_is_counter and not (is_breakdown or is_lethal_ignition):
+            # Penaliza sinais contra a inércia do regime (Menos se houver Breakdown ou Ignição Letal)
             signal *= 0.3 # Redução drástica de força
             confidence *= 0.6 # Exige muito mais certeza
             self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying heavy suppression.", 60)
@@ -305,8 +320,8 @@ class TrinityCore:
             phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.35
             sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.60
             
-            # [Phase 73] Ignition Sovereignty: Se houver ignição, relaxamos os thresholds de veto de tendência
-            ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if has_ignition else 1.0
+            # [Phase 73] Ignition Sovereignty: Se houver ignição ou BREAKDOWN, relaxamos agressivamente
+            ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if (has_ignition or is_breakdown) else 1.0
             phi_min_counter *= ign_mult
             sig_min_counter *= ign_mult
             
@@ -318,8 +333,8 @@ class TrinityCore:
             # Não tentamos 'adivinhar' o topo; esperamos a primeira martelada de volta.
             tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
             
-            # [Phase 73] Ignition Sovereignty: Se houver ignição letal, ignoramos o veto de continuidade
-            if is_lethal_ignition:
+            # [Phase 73] Ignition Sovereignty: Se houver ignição letal ou BREAKDOWN, ignoramos o veto de continuidade
+            if is_lethal_ignition or is_breakdown:
                 pass
             elif (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
                  return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
@@ -984,6 +999,7 @@ class TrinityCore:
         decision = Decision(
             action=action,
             confidence=confidence,
+            phi=phi,
             signal_strength=signal,
             entry_price=price,
             stop_loss=stop_loss,
@@ -993,14 +1009,26 @@ class TrinityCore:
             reasoning=reasoning,
             risk_reward_ratio=rr_ratio,
             metadata={
-                "phi": quantum_state.phi if quantum_state else 0.0,
+                "phi": phi,
+                "is_god_mode": is_god_mode,
+                "is_phi_resonance": is_phi_resonance,
+                "is_tunneling": is_tunneling,
+                "is_hydra": is_hydra_mode,
+                "pnl_prediction": pnl_prediction,
+                "entropy": entropy,
+                "coherence": coherence,
+                "rr_ratio": rr_ratio,
+                "v_pulse_detected": has_v_pulse,
                 "quantum_metadata": quantum_state.metadata if quantum_state else {}
             }
         )
         
         # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
         limit_mode = OMEGA.get("limit_execution_mode", 0.0)
-        if limit_mode > 0.5 and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]:
+        is_limit_regime = regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]
+        
+        if limit_mode > 0.5 and is_limit_regime:
+            decision.limit_order = True
             decision.metadata["limit_execution"] = True
             decision.metadata["jitter_offset"] = OMEGA.get("p_brane_jitter_offset_points", 0.0)
 
