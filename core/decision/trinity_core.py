@@ -183,16 +183,16 @@ class TrinityCore:
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
-        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL"]:
-            # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa
+        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN"]:
+            # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
             # Se houver V-Pulse ou PHI alto, relaxamos os limiares que causam "WAIT" excessivo
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
             phi_score = quantum_state.phi
             
-            if has_ignition or phi_score > 0.25:
-                 mult = 0.95 # Relaxa ao invés de apertar
-                 dynamic_conf_min *= 0.85
-                 self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { 'IGNITION' if has_ignition else 'HIGH_PHI' } (Conf Min: {dynamic_conf_min:.2f})", 60)
+            if has_ignition or phi_score > 0.25 or regime_state.current == MarketRegime.HFT_BREAKDOWN:
+                 mult = 0.90 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.95
+                 dynamic_conf_min *= 0.80 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.85
+                 self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { regime_state.current.value } (Conf Min: {dynamic_conf_min:.2f})", 60)
             else:
                  mult = 1.10 if quantum_state.phi > 0.3 else 1.15
                  dynamic_buy_thresh *= mult
