@@ -21,3 +21,951 @@
 [DubaiMatrixASI] 16:18:15.967    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
 [DubaiMatrixASI] 16:18:15.983    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
 [DubaiMatrixASI] 16:18:16.156    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 16:18:17.067    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $46.5
+[DubaiMatrixASI] 16:18:17.154    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:18:17.742    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9211)
+[DubaiMatrixASI] 16:18:17.766    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006422
+[DubaiMatrixASI] 16:18:17.782    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:18:17.803  WARNING │ ⏱️ LATENCY [think] 1805.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:18:19.053  WARNING │ ⏱️ LATENCY [update] 29.7ms (threshold: 20ms)
+[DubaiMatrixASI] 16:18:19.712  WARNING │ ⏱️ LATENCY [think] 1036.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:18:20.276    ERROR │ 💀 NeuralSwarm TIMEOUT! Verificando agentes lentos...
+[DubaiMatrixASI] 16:18:20.315  WARNING │ ⏱️ LATENCY [think] 1429.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:18:23.485    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.52 < 1.8).
+[DubaiMatrixASI] 16:18:26.410    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-29,2181
+[DubaiMatrixASI] 16:18:26.439    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.16 < 1.8).
+[DubaiMatrixASI] 16:18:27.367  WARNING │ ⏱️ LATENCY [update] 78.7ms (threshold: 20ms)
+[DubaiMatrixASI] 16:18:35.331    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:18:35.355  WARNING │ ⏱️ LATENCY [think] 1172.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:18:37.930    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.70 < 1.8).
+[DubaiMatrixASI] 16:18:39.827    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:18:39.857  WARNING │ ⏱️ LATENCY [think] 1087.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:18:42.617    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=0.96 < 1.8).
+[DubaiMatrixASI] 16:18:47.878  WARNING │ 🚨 ALERT [HIGH]: Win rate em 37.5% (threshold: 45.0%)
+[DubaiMatrixASI] 16:18:47.901  WARNING │ 🚨 ALERT [CRITICAL]: 8 losses consecutivos!
+[DubaiMatrixASI] 16:18:47.919    OMEGA │ ⚡ 🧬 Gen #28: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.9803
+[DubaiMatrixASI] 16:18:47.964    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0318)
+[DubaiMatrixASI] 16:18:47.966    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006592
+[DubaiMatrixASI] 16:18:48.651    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,895.41 -> $100,369.32
+[DubaiMatrixASI] 16:18:48.761    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:18:49.541    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 9 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:18:49.570  WARNING │ ⏱️ LATENCY [think] 1700.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:19:14.638    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7233)
+[DubaiMatrixASI] 16:19:14.655    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006256
+[DubaiMatrixASI] 16:19:16.156    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1275.0032 Gen=6
+[DubaiMatrixASI] 16:19:16.159    OMEGA │ ⚡ 🧬 Gen #6: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:19:16.176    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4716)
+[DubaiMatrixASI] 16:19:16.178    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006682
+[DubaiMatrixASI] 16:19:16.815    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $49.38932389571633 -> $46.5
+[DubaiMatrixASI] 16:19:16.848    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,369.32 -> $100,000.00
+[DubaiMatrixASI] 16:19:16.872    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:19:17.071    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:19:23.776    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.47 < 1.8).
+[DubaiMatrixASI] 16:19:26.482    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.38 < 1.8).
+[DubaiMatrixASI] 16:19:42.750    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.39 < 1.8).
+[DubaiMatrixASI] 16:19:52.965    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:20:06.547    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0877)
+[DubaiMatrixASI] 16:20:06.548    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006049
+[DubaiMatrixASI] 16:20:07.500    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:20:09.446    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.77 < 1.8).
+[DubaiMatrixASI] 16:20:13.385  WARNING │ ⏱️ LATENCY [think] 1399.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:20:13.438  WARNING │ ⏱️ LATENCY [think] 1451.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:20:23.867    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.36 < 1.8).
+[DubaiMatrixASI] 16:20:30.642    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6475)
+[DubaiMatrixASI] 16:20:30.643    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007473
+[DubaiMatrixASI] 16:20:31.432    OMEGA │ ⚡ 🧬 Gen #28: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:20:31.479    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3045)
+[DubaiMatrixASI] 16:20:31.497    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007486
+[DubaiMatrixASI] 16:20:31.984    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,369.32 -> $100,000.00
+[DubaiMatrixASI] 16:20:32.003    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:20:32.155    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:20:47.385    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7614)
+[DubaiMatrixASI] 16:20:47.386    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.197136
+[DubaiMatrixASI] 16:21:09.844    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.67 < 1.8).
+[DubaiMatrixASI] 16:21:23.868    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.57 < 1.8).
+[DubaiMatrixASI] 16:21:25.795    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:21:27.400    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5572)
+[DubaiMatrixASI] 16:21:27.418    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007248
+[DubaiMatrixASI] 16:21:46.192    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3082)
+[DubaiMatrixASI] 16:21:46.204    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006128
+[DubaiMatrixASI] 16:21:47.111    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:21:47.138  WARNING │ ⏱️ LATENCY [think] 1001.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:21:48.393    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:21:52.299    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3933)
+[DubaiMatrixASI] 16:21:52.328    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006686
+[DubaiMatrixASI] 16:21:53.288    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:21:53.311  WARNING │ ⏱️ LATENCY [think] 1050.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:22:03.076    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1275.0032 Gen=1
+[DubaiMatrixASI] 16:22:03.077    OMEGA │ ⚡ 🧬 Gen #1: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:22:03.079    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7268)
+[DubaiMatrixASI] 16:22:03.080    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007509
+[DubaiMatrixASI] 16:22:03.481    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $13.94624351155504 -> $46.5
+[DubaiMatrixASI] 16:22:03.510    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:22:03.646    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:22:13.700    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.75 < 1.8).
+[DubaiMatrixASI] 16:22:46.395    OMEGA │ ⚡ 🧬 Gen #29: 3 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:22:46.455    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1509)
+[DubaiMatrixASI] 16:22:46.471    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005760
+[DubaiMatrixASI] 16:22:46.940    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,369.32 -> $100,000.00
+[DubaiMatrixASI] 16:22:46.964    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:22:47.149    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:22:50.159    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 1.8).
+[DubaiMatrixASI] 16:22:50.305    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.79 < 1.8).
+[DubaiMatrixASI] 16:22:58.241    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:22:59.105    OMEGA │ ⚡ 🧬 Gen #7: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:22:59.166    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6021)
+[DubaiMatrixASI] 16:22:59.173    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.205614
+[DubaiMatrixASI] 16:22:59.789    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $58.01383839901682 -> $46.5
+[DubaiMatrixASI] 16:22:59.843    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:23:00.088    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:23:00.106  WARNING │ ⏱️ LATENCY [think] 1005.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:23:10.169    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.6179)
+[DubaiMatrixASI] 16:23:10.171    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007486
+[DubaiMatrixASI] 16:23:13.884    OMEGA │ ⚡ 🛡️ T-Cell VETO: Patógeno detectado (Distância=1.67 < 1.8).
+[DubaiMatrixASI] 16:23:16.446    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0455)
+[DubaiMatrixASI] 16:23:16.468    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007478
+[DubaiMatrixASI] 16:23:18.569    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0003|EV:-3,9268
+[DubaiMatrixASI] 16:23:26.507    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:23:30.359    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:24:04.135    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6705)
+[DubaiMatrixASI] 16:24:04.146    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006992
+[DubaiMatrixASI] 16:24:11.243    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2665)
+[DubaiMatrixASI] 16:24:11.245    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006136
+[DubaiMatrixASI] 16:24:12.229  WARNING │ ⏱️ LATENCY [think] 1014.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:24:27.112    OMEGA │ ⚡ 🧬 Gen #29: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:24:27.175    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7749)
+[DubaiMatrixASI] 16:24:27.191    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.242560
+[DubaiMatrixASI] 16:24:27.747    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:24:27.969    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:24:28.571    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5469)
+[DubaiMatrixASI] 16:24:28.573    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006585
+[DubaiMatrixASI] 16:24:29.814    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:24:29.816  WARNING │ ⏱️ LATENCY [think] 1260.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:24:49.119    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:25:03.358    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:25:03.441  WARNING │ ⏱️ LATENCY [think] 1136.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:25:07.541    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:25:21.737    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5073)
+[DubaiMatrixASI] 16:25:21.746    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006502
+[DubaiMatrixASI] 16:25:24.076    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5467)
+[DubaiMatrixASI] 16:25:24.099    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007395
+[DubaiMatrixASI] 16:25:41.782    OMEGA │ ⚡ 🧬 Gen #2: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:25:41.800    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3465)
+[DubaiMatrixASI] 16:25:41.801    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006224
+[DubaiMatrixASI] 16:25:42.175    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:25:42.349    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:26:00.086    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:26:16.968    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:26:34.463    OMEGA │ ⚡ 🧬 Gen #8: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:26:34.474    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2249)
+[DubaiMatrixASI] 16:26:34.475    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007408
+[DubaiMatrixASI] 16:26:34.878    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:26:35.081    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:26:37.094    OMEGA │ ⚡ 🧬 Gen #30: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:26:37.159    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9471)
+[DubaiMatrixASI] 16:26:37.173    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006823
+[DubaiMatrixASI] 16:26:38.282    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:26:38.304    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:26:38.472    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:26:38.478  WARNING │ ⏱️ LATENCY [think] 1389.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:26:41.086    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:26:52.117    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7657)
+[DubaiMatrixASI] 16:26:52.139    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005797
+[DubaiMatrixASI] 16:26:58.579    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5219)
+[DubaiMatrixASI] 16:26:58.580    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006892
+[DubaiMatrixASI] 16:27:27.941    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:27:44.897    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.5325)
+[DubaiMatrixASI] 16:27:44.916    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006004
+[DubaiMatrixASI] 16:27:45.778    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:27:53.603    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0760)
+[DubaiMatrixASI] 16:27:53.604    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006328
+[DubaiMatrixASI] 16:28:02.762    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=11.9043)
+[DubaiMatrixASI] 16:28:02.779    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006136
+[DubaiMatrixASI] 16:28:13.229    OMEGA │ ⚡ 🧬 Gen #30: 4 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:28:14.480  WARNING │ ⏱️ LATENCY [think] 1401.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:28:14.808    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:28:15.085    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.6598)
+[DubaiMatrixASI] 16:28:15.103    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006936
+[DubaiMatrixASI] 16:28:15.104    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:28:15.133  WARNING │ ⏱️ LATENCY [think] 1915.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:28:34.351  WARNING │ ⏱️ LATENCY [think] 1068.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:28:55.885    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3120)
+[DubaiMatrixASI] 16:28:55.902    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006324
+[DubaiMatrixASI] 16:28:56.478    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:29:10.855    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3805)
+[DubaiMatrixASI] 16:29:10.877    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006884
+[DubaiMatrixASI] 16:29:14.240    OMEGA │ ⚡ 🧬 Gen #3: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:29:14.280    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0283)
+[DubaiMatrixASI] 16:29:14.289    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006141
+[DubaiMatrixASI] 16:29:14.818    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:29:14.963    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:29:15.512    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:29:22.885  WARNING │ ⏱️ LATENCY [update] 45.4ms (threshold: 20ms)
+[DubaiMatrixASI] 16:29:29.114    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2542)
+[DubaiMatrixASI] 16:29:29.136    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006322
+[DubaiMatrixASI] 16:29:48.523    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:29:49.944    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:29:49.953  WARNING │ ⏱️ LATENCY [think] 1261.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:30:08.565    OMEGA │ ⚡ 🧬 Gen #9: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:30:08.624    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.6716)
+[DubaiMatrixASI] 16:30:08.637    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005935
+[DubaiMatrixASI] 16:30:09.318    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:30:10.038    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:30:10.166  WARNING │ ⏱️ LATENCY [think] 1047.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:30:10.200  WARNING │ ⏱️ LATENCY [think] 1642.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:30:27.332    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1973)
+[DubaiMatrixASI] 16:30:27.333    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006570
+[DubaiMatrixASI] 16:30:27.314    OMEGA │ ⚡ 🧬 Gen #31: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:30:27.358    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.9169)
+[DubaiMatrixASI] 16:30:27.369    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006589
+[DubaiMatrixASI] 16:30:28.314    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:30:28.523    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:30:28.587    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:30:28.571  WARNING │ ⏱️ LATENCY [think] 1267.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:30:28.591  WARNING │ ⏱️ LATENCY [think] 1262.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:30:45.304    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.6135)
+[DubaiMatrixASI] 16:30:45.305    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.236460
+[DubaiMatrixASI] 16:30:45.847    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:31:21.183    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3180)
+[DubaiMatrixASI] 16:31:21.184    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006931
+[DubaiMatrixASI] 16:31:23.699    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:31:23.734  WARNING │ ⏱️ LATENCY [think] 1081.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:31:26.320    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:31:42.581    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7228)
+[DubaiMatrixASI] 16:31:42.609    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007421
+[DubaiMatrixASI] 16:31:45.990    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.5255)
+[DubaiMatrixASI] 16:31:46.003    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006186
+[DubaiMatrixASI] 16:32:01.918    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:32:04.400    OMEGA │ ⚡ 🧬 Gen #31: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:32:04.414    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1021)
+[DubaiMatrixASI] 16:32:04.432    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006533
+[DubaiMatrixASI] 16:32:05.338    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:32:05.532    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:32:05.556  WARNING │ ⏱️ LATENCY [think] 1175.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:32:05.706  WARNING │ ⏱️ LATENCY [think] 1030.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:32:22.269    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:32:31.418  WARNING │ ⏱️ LATENCY [think] 1036.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:32:43.089    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0994)
+[DubaiMatrixASI] 16:32:43.117    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007396
+[DubaiMatrixASI] 16:33:03.379    OMEGA │ ⚡ 🧬 Gen #4: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:33:03.398    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5314)
+[DubaiMatrixASI] 16:33:03.399    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006641
+[DubaiMatrixASI] 16:33:03.846    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:33:04.021    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:33:09.422    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9398)
+[DubaiMatrixASI] 16:33:09.440    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006429
+[DubaiMatrixASI] 16:33:09.896    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:33:09.936  WARNING │ ⏱️ LATENCY [think] 1034.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:33:10.450    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:33:10.480  WARNING │ ⏱️ LATENCY [think] 1072.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:33:29.120    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1226)
+[DubaiMatrixASI] 16:33:29.144    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006816
+[DubaiMatrixASI] 16:33:40.930    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:33:57.363    OMEGA │ ⚡ 🧬 Gen #10: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:33:57.411    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7118)
+[DubaiMatrixASI] 16:33:57.422    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006632
+[DubaiMatrixASI] 16:33:58.400    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:33:58.443    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:33:58.609    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:33:58.643  WARNING │ ⏱️ LATENCY [think] 1283.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:34:16.037    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=9.3810)
+[DubaiMatrixASI] 16:34:16.053    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.241015
+[DubaiMatrixASI] 16:34:25.320    OMEGA │ ⚡ 🧬 Gen #32: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:34:25.341    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4401)
+[DubaiMatrixASI] 16:34:25.342    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007399
+[DubaiMatrixASI] 16:34:25.818    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:34:25.970    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:34:44.316    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8723)
+[DubaiMatrixASI] 16:34:44.317    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006317
+[DubaiMatrixASI] 16:34:45.784    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:34:45.796  WARNING │ ⏱️ LATENCY [think] 1500.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:34:46.174    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:34:46.210  WARNING │ ⏱️ LATENCY [think] 1449.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:35:09.709    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:35:09.957    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1207)
+[DubaiMatrixASI] 16:35:09.974    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006381
+[DubaiMatrixASI] 16:35:26.912    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9069)
+[DubaiMatrixASI] 16:35:26.913    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006648
+[DubaiMatrixASI] 16:35:28.420    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:35:34.157  WARNING │ ⏱️ LATENCY [update] 26.3ms (threshold: 20ms)
+[DubaiMatrixASI] 16:35:43.003    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.6999)
+[DubaiMatrixASI] 16:35:43.031    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006495
+[DubaiMatrixASI] 16:35:43.686  WARNING │ ⏱️ LATENCY [update] 219.3ms (threshold: 20ms)
+[DubaiMatrixASI] 16:35:59.448  WARNING │ ⏱️ LATENCY [update] 21.9ms (threshold: 20ms)
+[DubaiMatrixASI] 16:36:04.753    OMEGA │ ⚡ 🧬 Gen #32: 4 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:36:04.756    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5197)
+[DubaiMatrixASI] 16:36:04.778    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007349
+[DubaiMatrixASI] 16:36:05.170    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:36:05.392    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:36:22.576    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:36:24.354    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8709)
+[DubaiMatrixASI] 16:36:24.363    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007249
+[DubaiMatrixASI] 16:36:24.409    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:36:28.431  WARNING │ ⏱️ LATENCY [update] 59.0ms (threshold: 20ms)
+[DubaiMatrixASI] 16:36:41.848    OMEGA │ ⚡ 🧬 Gen #5: 14 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:36:41.861    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1222)
+[DubaiMatrixASI] 16:36:41.861    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007019
+[DubaiMatrixASI] 16:36:42.739    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:36:42.758    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:36:42.900    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:36:42.934  WARNING │ ⏱️ LATENCY [think] 1091.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:37:02.283    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0775)
+[DubaiMatrixASI] 16:37:02.284    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006513
+[DubaiMatrixASI] 16:37:02.343    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:37:20.593  WARNING │ ⏱️ LATENCY [update] 22.3ms (threshold: 20ms)
+[DubaiMatrixASI] 16:37:21.980    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7699)
+[DubaiMatrixASI] 16:37:21.981    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006567
+[DubaiMatrixASI] 16:37:38.763    OMEGA │ ⚡ 🧬 Gen #11: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:37:38.817    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6431)
+[DubaiMatrixASI] 16:37:38.829    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007419
+[DubaiMatrixASI] 16:37:39.362    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $43.18505582687887 -> $46.5
+[DubaiMatrixASI] 16:37:39.400    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:37:39.695    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:37:53.901    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7749)
+[DubaiMatrixASI] 16:37:53.917    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006738
+[DubaiMatrixASI] 16:38:01.348  WARNING │ ⏱️ LATENCY [think] 1488.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:38:01.621  WARNING │ ⏱️ LATENCY [think] 1393.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:38:11.910  WARNING │ ⏱️ LATENCY [update] 22.5ms (threshold: 20ms)
+[DubaiMatrixASI] 16:38:13.985    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:38:14.104  WARNING │ ⏱️ LATENCY [think] 1067.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:38:22.368    OMEGA │ ⚡ 🧬 Gen #33: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:38:22.402    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2846)
+[DubaiMatrixASI] 16:38:22.415    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007514
+[DubaiMatrixASI] 16:38:22.866    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:38:23.062    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:38:38.429    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:38:43.708    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2999)
+[DubaiMatrixASI] 16:38:43.742    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006595
+[DubaiMatrixASI] 16:38:57.494    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.6779)
+[DubaiMatrixASI] 16:38:57.495    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006984
+[DubaiMatrixASI] 16:39:07.870    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6709)
+[DubaiMatrixASI] 16:39:07.880    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006340
+[DubaiMatrixASI] 16:39:43.037    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4955)
+[DubaiMatrixASI] 16:39:43.058    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006030
+[DubaiMatrixASI] 16:39:44.555  WARNING │ ⏱️ LATENCY [think] 1562.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:39:44.735  WARNING │ ⏱️ LATENCY [think] 1406.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:39:44.819  WARNING │ ⏱️ LATENCY [think] 1420.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:40:03.285    OMEGA │ ⚡ 🧬 Gen #33: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:40:03.313    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2542)
+[DubaiMatrixASI] 16:40:03.314    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006993
+[DubaiMatrixASI] 16:40:03.786    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:40:03.962    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:40:09.950    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9696)
+[DubaiMatrixASI] 16:40:09.968    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006481
+[DubaiMatrixASI] 16:40:10.908    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:40:10.914  WARNING │ ⏱️ LATENCY [think] 1001.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:40:20.112    OMEGA │ ⚡ 🧬 Gen #6: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:40:20.160    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=7.4558)
+[DubaiMatrixASI] 16:40:20.170    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.239942
+[DubaiMatrixASI] 16:40:20.567    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:40:20.714    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:40:59.413    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3468)
+[DubaiMatrixASI] 16:40:59.423    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006567
+[DubaiMatrixASI] 16:41:14.297    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:41:18.050    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9319)
+[DubaiMatrixASI] 16:41:18.056    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006663
+[DubaiMatrixASI] 16:41:19.536  WARNING │ ⏱️ LATENCY [think] 1505.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:41:19.562  WARNING │ ⏱️ LATENCY [think] 1558.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:41:21.068    OMEGA │ ⚡ 🧬 Gen #12: 11 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:41:21.113    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9984)
+[DubaiMatrixASI] 16:41:21.122    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006336
+[DubaiMatrixASI] 16:41:21.555    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:41:21.720    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:41:31.561    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.7740)
+[DubaiMatrixASI] 16:41:31.567    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.153218
+[DubaiMatrixASI] 16:41:33.777  WARNING │ ⏱️ LATENCY [think] 1007.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:41:41.059    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:42:16.256    OMEGA │ ⚡ 🧬 Gen #34: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:42:16.318    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9325)
+[DubaiMatrixASI] 16:42:16.331    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006556
+[DubaiMatrixASI] 16:42:16.853    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $17.45112946643612 -> $46.5
+[DubaiMatrixASI] 16:42:16.932    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:42:17.148    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:42:36.139    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.9145)
+[DubaiMatrixASI] 16:42:36.162    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007502
+[DubaiMatrixASI] 16:42:38.693    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8733)
+[DubaiMatrixASI] 16:42:38.716    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006957
+[DubaiMatrixASI] 16:42:44.752    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.7490)
+[DubaiMatrixASI] 16:42:44.753    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007303
+[DubaiMatrixASI] 16:42:45.639    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:42:58.830    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:43:01.391    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:43:16.180    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:43:27.078  WARNING │ ⏱️ LATENCY [update] 120.5ms (threshold: 20ms)
+[DubaiMatrixASI] 16:43:36.646    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5658)
+[DubaiMatrixASI] 16:43:36.663    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005905
+[DubaiMatrixASI] 16:43:54.647    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0570)
+[DubaiMatrixASI] 16:43:54.648    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006633
+[DubaiMatrixASI] 16:43:57.512    OMEGA │ ⚡ 🧬 Gen #7: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:43:57.567    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.9830)
+[DubaiMatrixASI] 16:43:57.578    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.224830
+[DubaiMatrixASI] 16:43:58.001    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:43:58.151    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:44:02.915    OMEGA │ ⚡ 🧬 Gen #34: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:44:02.970    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1570)
+[DubaiMatrixASI] 16:44:02.985    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006965
+[DubaiMatrixASI] 16:44:03.530    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $124.85709278264224 -> $46.5
+[DubaiMatrixASI] 16:44:03.600    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:44:03.850    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:44:16.849    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:44:35.676    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:44:42.179    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:44:49.595    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:44:54.906    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5595)
+[DubaiMatrixASI] 16:44:54.919    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.241345
+[DubaiMatrixASI] 16:44:55.993  WARNING │ ⏱️ LATENCY [think] 1130.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:45:07.582    OMEGA │ ⚡ 🧬 Gen #13: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:45:07.629    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4243)
+[DubaiMatrixASI] 16:45:07.641    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007543
+[DubaiMatrixASI] 16:45:08.034    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:45:08.184    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:45:10.896    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.0732)
+[DubaiMatrixASI] 16:45:10.897    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006112
+[DubaiMatrixASI] 16:45:15.529  WARNING │ ⏱️ LATENCY [think] 1010.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:45:20.582    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.0587)
+[DubaiMatrixASI] 16:45:20.603    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.242967
+[DubaiMatrixASI] 16:45:28.408  WARNING │ ⏱️ LATENCY [think] 1113.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:45:28.735  WARNING │ ⏱️ LATENCY [think] 1133.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:45:48.921    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:46:14.761    OMEGA │ ⚡ 🧬 Gen #35: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:46:14.811    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.8649)
+[DubaiMatrixASI] 16:46:14.822    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007467
+[DubaiMatrixASI] 16:46:15.832    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:46:15.864    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:46:16.119    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:46:16.139  WARNING │ ⏱️ LATENCY [think] 1382.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:46:23.268    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:46:23.406    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7206)
+[DubaiMatrixASI] 16:46:23.407    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.258972
+[DubaiMatrixASI] 16:46:25.661    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5026)
+[DubaiMatrixASI] 16:46:25.679    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006597
+[DubaiMatrixASI] 16:46:26.668    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:46:26.671  WARNING │ ⏱️ LATENCY [think] 1036.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:46:37.335  WARNING │ ⏱️ LATENCY [update] 22.5ms (threshold: 20ms)
+[DubaiMatrixASI] 16:46:45.666    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8764)
+[DubaiMatrixASI] 16:46:45.688    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007421
+[DubaiMatrixASI] 16:46:57.378  WARNING │ ⏱️ LATENCY [think] 1138.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:47:22.324    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:47:38.022    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6320)
+[DubaiMatrixASI] 16:47:38.044    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006965
+[DubaiMatrixASI] 16:47:40.481    OMEGA │ ⚡ 🧬 Gen #8: 4 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:47:40.514    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0492)
+[DubaiMatrixASI] 16:47:40.524    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006238
+[DubaiMatrixASI] 16:47:40.889    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:47:41.037    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:47:45.745    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2924)
+[DubaiMatrixASI] 16:47:45.747    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007276
+[DubaiMatrixASI] 16:47:58.728    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:48:03.938    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:48:04.792    OMEGA │ ⚡ 🧬 Gen #35: 17 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:48:04.838    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5402)
+[DubaiMatrixASI] 16:48:04.866    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.243472
+[DubaiMatrixASI] 16:48:05.731    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:48:05.768    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:48:05.966    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:48:05.975  WARNING │ ⏱️ LATENCY [think] 1188.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:48:38.385    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:48:51.664    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7093)
+[DubaiMatrixASI] 16:48:51.676    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006513
+[DubaiMatrixASI] 16:48:52.591    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:48:52.694  WARNING │ ⏱️ LATENCY [think] 1068.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:48:55.882    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3367)
+[DubaiMatrixASI] 16:48:55.904    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007298
+[DubaiMatrixASI] 16:48:57.687    OMEGA │ ⚡ 🧬 Gen #14: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:48:57.736    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1994)
+[DubaiMatrixASI] 16:48:57.746    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006632
+[DubaiMatrixASI] 16:48:58.189    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:48:58.349    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:49:00.246    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:49:05.344    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:49:08.608  WARNING │ ⏱️ LATENCY [update] 34.3ms (threshold: 20ms)
+[DubaiMatrixASI] 16:49:22.603    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.0363)
+[DubaiMatrixASI] 16:49:22.618    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006786
+[DubaiMatrixASI] 16:49:35.707  WARNING │ ⏱️ LATENCY [think] 1644.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:49:35.881  WARNING │ ⏱️ LATENCY [think] 1447.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:49:43.310    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:50:04.045    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4271)
+[DubaiMatrixASI] 16:50:04.062    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007234
+[DubaiMatrixASI] 16:50:11.372    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0712)
+[DubaiMatrixASI] 16:50:11.373    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006992
+[DubaiMatrixASI] 16:50:12.902    OMEGA │ ⚡ 🧬 Gen #36: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:50:12.948    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0575)
+[DubaiMatrixASI] 16:50:12.966    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006515
+[DubaiMatrixASI] 16:50:13.492    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:50:13.646    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:50:14.919  WARNING │ ⏱️ LATENCY [think] 1077.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:50:23.250    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:50:38.728    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3129)
+[DubaiMatrixASI] 16:50:38.729    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006913
+[DubaiMatrixASI] 16:50:41.950  WARNING │ ⏱️ LATENCY [think] 1020.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:50:59.518  WARNING │ ⏱️ LATENCY [update] 39.4ms (threshold: 20ms)
+[DubaiMatrixASI] 16:51:06.322    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:51:11.462    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:51:15.868    OMEGA │ ⚡ 🧬 Gen #9: 11 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:51:15.925    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.8707)
+[DubaiMatrixASI] 16:51:15.937    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007363
+[DubaiMatrixASI] 16:51:16.356    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:51:16.511    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:51:18.647    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:51:18.650  WARNING │ ⏱️ LATENCY [think] 1165.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:51:23.474    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.1792)
+[DubaiMatrixASI] 16:51:23.476    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.149690
+[DubaiMatrixASI] 16:51:29.988    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2808)
+[DubaiMatrixASI] 16:51:30.009    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006418
+[DubaiMatrixASI] 16:51:52.725    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:51:56.397    OMEGA │ ⚡ 🧬 Gen #36: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:51:56.451    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.8132)
+[DubaiMatrixASI] 16:51:56.465    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006746
+[DubaiMatrixASI] 16:51:57.050    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:51:57.238    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:52:26.423    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5293)
+[DubaiMatrixASI] 16:52:26.425    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006123
+[DubaiMatrixASI] 16:52:33.395    OMEGA │ ⚡ 🧬 Gen #15: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:52:33.431    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2807)
+[DubaiMatrixASI] 16:52:33.448    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006517
+[DubaiMatrixASI] 16:52:34.542    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:52:34.563    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $97.97084742379117 -> $46.5
+[DubaiMatrixASI] 16:52:34.608    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:52:34.876    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:52:34.918  WARNING │ ⏱️ LATENCY [think] 1527.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:52:46.312    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4294)
+[DubaiMatrixASI] 16:52:46.339    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.246779
+[DubaiMatrixASI] 16:52:47.265    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:52:47.281  WARNING │ ⏱️ LATENCY [think] 1019.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:52:53.645    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:53:12.235    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.4165)
+[DubaiMatrixASI] 16:53:12.251    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007338
+[DubaiMatrixASI] 16:53:21.776    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:53:38.228    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4185)
+[DubaiMatrixASI] 16:53:38.240    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006044
+[DubaiMatrixASI] 16:53:46.186    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.1471)
+[DubaiMatrixASI] 16:53:46.197    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007432
+[DubaiMatrixASI] 16:54:02.419    OMEGA │ ⚡ 🧬 Gen #37: 4 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:54:02.457    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.9269)
+[DubaiMatrixASI] 16:54:02.477    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.225192
+[DubaiMatrixASI] 16:54:02.893    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:54:03.048    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:54:05.034    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:54:05.037  WARNING │ ⏱️ LATENCY [think] 1085.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:54:22.238    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:54:27.601    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.0769)
+[DubaiMatrixASI] 16:54:27.621    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007443
+[DubaiMatrixASI] 16:54:28.948    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:54:28.973  WARNING │ ⏱️ LATENCY [think] 1417.4ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:54:35.768  WARNING │ ⏱️ LATENCY [update] 21.6ms (threshold: 20ms)
+[DubaiMatrixASI] 16:54:50.748    OMEGA │ ⚡ 🧬 Gen #10: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:54:50.794    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4147)
+[DubaiMatrixASI] 16:54:50.807    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.204198
+[DubaiMatrixASI] 16:54:51.649    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:54:51.682    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:54:51.825    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:54:51.829  WARNING │ ⏱️ LATENCY [think] 1084.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:54:59.470    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7862)
+[DubaiMatrixASI] 16:54:59.494    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007402
+[DubaiMatrixASI] 16:55:20.469    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1801)
+[DubaiMatrixASI] 16:55:20.485    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007516
+[DubaiMatrixASI] 16:55:35.254  WARNING │ ⏱️ LATENCY [update] 162.1ms (threshold: 20ms)
+[DubaiMatrixASI] 16:55:35.348  WARNING │ ⏱️ LATENCY [update] 29.8ms (threshold: 20ms)
+[DubaiMatrixASI] 16:55:36.513    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:55:45.920    OMEGA │ ⚡ 🧬 Gen #37: 10 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:55:45.943    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4367)
+[DubaiMatrixASI] 16:55:45.944    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007456
+[DubaiMatrixASI] 16:55:46.446    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:55:46.595    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:55:59.736    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:55:59.768  WARNING │ ⏱️ LATENCY [think] 1025.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:56:03.726    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.0782)
+[DubaiMatrixASI] 16:56:03.738    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.233030
+[DubaiMatrixASI] 16:56:06.269    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:56:06.296  WARNING │ ⏱️ LATENCY [think] 1048.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:56:11.917    OMEGA │ ⚡ 🧬 Gen #16: 13 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:56:11.922    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.5114)
+[DubaiMatrixASI] 16:56:11.923    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006079
+[DubaiMatrixASI] 16:56:12.779    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:56:12.994    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:56:13.023  WARNING │ ⏱️ LATENCY [think] 1114.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:56:22.152    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:56:37.186    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7548)
+[DubaiMatrixASI] 16:56:37.187    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006594
+[DubaiMatrixASI] 16:57:01.884    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4753)
+[DubaiMatrixASI] 16:57:01.886    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006675
+[DubaiMatrixASI] 16:57:05.481    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:57:14.390    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.2678)
+[DubaiMatrixASI] 16:57:14.412    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.214234
+[DubaiMatrixASI] 16:57:23.048    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.5315)
+[DubaiMatrixASI] 16:57:23.049    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007520
+[DubaiMatrixASI] 16:57:35.154    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:57:35.160  WARNING │ ⏱️ LATENCY [think] 1063.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:57:41.987    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:57:52.181    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:57:54.129    OMEGA │ ⚡ 🧬 Gen #38: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:57:54.194    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.9971)
+[DubaiMatrixASI] 16:57:54.205    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007266
+[DubaiMatrixASI] 16:57:54.873    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:57:55.755    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:57:55.796  WARNING │ ⏱️ LATENCY [think] 1681.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:57:55.858  WARNING │ ⏱️ LATENCY [think] 1013.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:58:20.040    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9378)
+[DubaiMatrixASI] 16:58:20.041    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006821
+[DubaiMatrixASI] 16:58:27.787    OMEGA │ ⚡ 🧬 Gen #11: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:58:27.849    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3469)
+[DubaiMatrixASI] 16:58:27.864    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006148
+[DubaiMatrixASI] 16:58:28.725    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:58:28.888    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:58:28.925  WARNING │ ⏱️ LATENCY [think] 1141.8ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:58:36.889    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0928)
+[DubaiMatrixASI] 16:58:36.901    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006564
+[DubaiMatrixASI] 16:58:37.901    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 16:58:37.910  WARNING │ ⏱️ LATENCY [think] 1069.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:58:44.275    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:58:45.723  WARNING │ ⏱️ LATENCY [update] 49.4ms (threshold: 20ms)
+[DubaiMatrixASI] 16:59:10.286    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:59:12.488    ERROR │ 💀 EXCEPTION in [_scrape_fear_greed]: ConnectionError: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 16:59:12.572    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8956)
+[DubaiMatrixASI] 16:59:12.590    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006978
+[DubaiMatrixASI] 16:59:13.569    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:59:13.581  WARNING │ ⏱️ LATENCY [think] 1051.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 16:59:18.265    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 16:59:24.684    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 16:59:36.891    OMEGA │ ⚡ 🧬 Gen #38: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:59:36.954    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.0656)
+[DubaiMatrixASI] 16:59:36.969    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006433
+[DubaiMatrixASI] 16:59:37.470    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:59:37.736    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 16:59:42.176    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.5630)
+[DubaiMatrixASI] 16:59:42.193    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006605
+[DubaiMatrixASI] 16:59:50.572    OMEGA │ ⚡ 🧬 Gen #17: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 16:59:50.591    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.6770)
+[DubaiMatrixASI] 16:59:50.620    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006127
+[DubaiMatrixASI] 16:59:50.986    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 16:59:51.162    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:00:09.837    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:00:45.795  WARNING │ ⏱️ LATENCY [update] 20.6ms (threshold: 20ms)
+[DubaiMatrixASI] 17:00:49.501    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:00:52.887    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.0209)
+[DubaiMatrixASI] 17:00:52.887    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006012
+[DubaiMatrixASI] 17:00:53.810    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:00:54.168    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.7301)
+[DubaiMatrixASI] 17:00:54.185    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007517
+[DubaiMatrixASI] 17:00:55.389    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:00:55.393  WARNING │ ⏱️ LATENCY [think] 1279.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:01:00.200  WARNING │ ⏱️ LATENCY [think] 1091.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:01:02.205    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:02.557    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:02.583    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:02.861    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.82). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 17:01:02.869    OMEGA │ ⚡ ☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para 10.05x
+[DubaiMatrixASI] 17:01:02.882    OMEGA │ ⚡ 👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: 0.35)
+[DubaiMatrixASI] 17:01:02.883    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 6.15 (x2.5)
+[DubaiMatrixASI] 17:01:02.955    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:03.017    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:03.405    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:03.421    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:03.723    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:03.754    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_DOWN (conf=0.90)
+[DubaiMatrixASI] 17:01:03.784    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:04.232    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:04.297    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:01:04.737    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.02, E=0.82). Bypassing Incoherence Veto.
+[DubaiMatrixASI] 17:01:04.740    OMEGA │ ⚡ ☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para 12.45x
+[DubaiMatrixASI] 17:01:04.741    OMEGA │ ⚡ 👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: 0.95)
+[DubaiMatrixASI] 17:01:04.743    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 4.97 (x4.167083533857497)
+[DubaiMatrixASI] 17:01:05.056    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8529)
+[DubaiMatrixASI] 17:01:05.078    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007328
+[DubaiMatrixASI] 17:01:40.230    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:01:45.992    OMEGA │ ⚡ 🧬 Gen #39: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:01:46.024    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.9683)
+[DubaiMatrixASI] 17:01:46.025    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006218
+[DubaiMatrixASI] 17:01:46.461    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:01:46.653    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:02:04.898    OMEGA │ ⚡ 🧬 Gen #12: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:02:04.931    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5920)
+[DubaiMatrixASI] 17:02:04.932    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006302
+[DubaiMatrixASI] 17:02:05.318    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:02:05.483    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:02:10.972    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.5890)
+[DubaiMatrixASI] 17:02:10.984    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006493
+[DubaiMatrixASI] 17:02:15.887    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7605)
+[DubaiMatrixASI] 17:02:15.888    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006494
+[DubaiMatrixASI] 17:02:23.728    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:02:25.404    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:02:30.490    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:02:35.058    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_UP (conf=0.90)
+[DubaiMatrixASI] 17:02:35.345    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 6.15 (x2.5)
+[DubaiMatrixASI] 17:02:35.478    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:02:35.639    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_UP (conf=0.90)
+[DubaiMatrixASI] 17:02:36.089    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:02:36.842    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_UP (conf=0.90)
+[DubaiMatrixASI] 17:02:36.894    OMEGA │ ⚡ 🌊 REGIME CHANGE → BREAKOUT_UP (conf=0.90)
+[DubaiMatrixASI] 17:02:37.274    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 4.97 (x4.167083533857497)
+[DubaiMatrixASI] 17:02:37.277    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:02:37.422    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 17:02:56.954  WARNING │ ⏱️ LATENCY [think] 1067.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:03:05.054    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6476)
+[DubaiMatrixASI] 17:03:05.056    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006927
+[DubaiMatrixASI] 17:03:14.848    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:03:21.487    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.4636)
+[DubaiMatrixASI] 17:03:21.488    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006092
+[DubaiMatrixASI] 17:03:31.128    OMEGA │ ⚡ 🧬 Gen #39: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:03:31.189    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.2383)
+[DubaiMatrixASI] 17:03:31.192    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006723
+[DubaiMatrixASI] 17:03:31.764    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:03:32.199    OMEGA │ ⚡ 🧬 Gen #18: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:03:32.214    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:03:32.247    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2105)
+[DubaiMatrixASI] 17:03:32.264    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006537
+[DubaiMatrixASI] 17:03:32.268  WARNING │ ⏱️ LATENCY [think] 1145.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:03:32.776    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:03:33.658    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:03:33.708  WARNING │ ⏱️ LATENCY [think] 1520.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:04:00.869    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:04:07.220    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0003|EV:-3,9268
+[DubaiMatrixASI] 17:04:13.700    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0004|EV:-3,9268
+[DubaiMatrixASI] 17:04:13.730  WARNING │ ⏱️ LATENCY [think] 1064.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:04:26.228    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0254)
+[DubaiMatrixASI] 17:04:26.229    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006754
+[DubaiMatrixASI] 17:04:37.354    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9380)
+[DubaiMatrixASI] 17:04:37.356    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006936
+[DubaiMatrixASI] 17:04:50.877    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6745)
+[DubaiMatrixASI] 17:04:50.895    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006897
+[DubaiMatrixASI] 17:04:52.117    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:04:52.130  WARNING │ ⏱️ LATENCY [think] 1301.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:04:57.861    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3422)
+[DubaiMatrixASI] 17:04:57.884    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006706
+[DubaiMatrixASI] 17:05:02.381  WARNING │ ⏱️ LATENCY [update] 23.4ms (threshold: 20ms)
+[DubaiMatrixASI] 17:05:27.191  WARNING │ ⏱️ LATENCY [update] 50.4ms (threshold: 20ms)
+[DubaiMatrixASI] 17:05:38.772    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0003|EV:-3,9268
+[DubaiMatrixASI] 17:05:49.101    OMEGA │ ⚡ 🧬 Gen #40: 13 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:05:49.168    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4829)
+[DubaiMatrixASI] 17:05:49.192    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006120
+[DubaiMatrixASI] 17:05:50.408    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 17:05:50.427    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:05:50.572    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:05:50.597  WARNING │ ⏱️ LATENCY [think] 1502.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:05:56.403    OMEGA │ ⚡ 🧬 Gen #13: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:05:56.462    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5975)
+[DubaiMatrixASI] 17:05:56.476    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006436
+[DubaiMatrixASI] 17:05:57.000    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:05:57.156    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:06:00.238    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:06:07.484    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4302)
+[DubaiMatrixASI] 17:06:07.496    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007228
+[DubaiMatrixASI] 17:06:18.028    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8593)
+[DubaiMatrixASI] 17:06:18.029    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006153
+[DubaiMatrixASI] 17:06:25.593    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:07:07.096    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3021)
+[DubaiMatrixASI] 17:07:07.097    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005946
+[DubaiMatrixASI] 17:07:09.208    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3067)
+[DubaiMatrixASI] 17:07:09.214    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.199311
+[DubaiMatrixASI] 17:07:10.573    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:07:10.596  WARNING │ ⏱️ LATENCY [think] 1419.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:07:19.399    OMEGA │ ⚡ 🧬 Gen #19: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:07:19.459  WARNING │ ⏱️ LATENCY [update] 22.6ms (threshold: 20ms)
+[DubaiMatrixASI] 17:07:19.459    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.4586)
+[DubaiMatrixASI] 17:07:19.476    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006154
+[DubaiMatrixASI] 17:07:20.061    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:07:20.214    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:07:27.280    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:07:34.013    OMEGA │ ⚡ 🧬 Gen #40: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:07:34.083    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7256)
+[DubaiMatrixASI] 17:07:34.104    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006683
+[DubaiMatrixASI] 17:07:35.240    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:07:35.281    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $101.72626473297662 -> $46.5
+[DubaiMatrixASI] 17:07:35.348    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:07:35.626    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:07:35.648  WARNING │ ⏱️ LATENCY [think] 1644.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:07:56.953    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:08:21.858    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.1418)
+[DubaiMatrixASI] 17:08:21.859    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006601
+[DubaiMatrixASI] 17:08:24.897    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3142)
+[DubaiMatrixASI] 17:08:24.909    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007250
+[DubaiMatrixASI] 17:08:32.748    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.7761)
+[DubaiMatrixASI] 17:08:32.750    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007586
+[DubaiMatrixASI] 17:08:40.193    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 17:08:51.374    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5046)
+[DubaiMatrixASI] 17:08:51.376    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006075
+[DubaiMatrixASI] 17:09:03.536    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:09:13.326    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 17:09:29.234    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:09:36.349    OMEGA │ ⚡ 🧬 Gen #14: 12 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:09:36.364    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7564)
+[DubaiMatrixASI] 17:09:36.364    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006645
+[DubaiMatrixASI] 17:09:36.806    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:09:36.950    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:09:41.728    OMEGA │ ⚡ 🧬 Gen #41: 15 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:09:41.795    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0813)
+[DubaiMatrixASI] 17:09:41.813    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006653
+[DubaiMatrixASI] 17:09:42.286    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:09:42.501    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:09:47.878    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.6867)
+[DubaiMatrixASI] 17:09:47.879    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006161
+[DubaiMatrixASI] 17:10:04.655  WARNING │ ⏱️ LATENCY [update] 82.3ms (threshold: 20ms)
+[DubaiMatrixASI] 17:10:11.371    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2150)
+[DubaiMatrixASI] 17:10:11.392    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005579
+[DubaiMatrixASI] 17:10:14.663    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:10:17.982  WARNING │ ⏱️ LATENCY [update] 63.5ms (threshold: 20ms)
+[DubaiMatrixASI] 17:10:41.304    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:10:50.184    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.5394)
+[DubaiMatrixASI] 17:10:50.208    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006246
+[DubaiMatrixASI] 17:10:50.566    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:10:50.569  WARNING │ ⏱️ LATENCY [think] 1015.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:10:54.187  WARNING │ ⏱️ LATENCY [update] 22.1ms (threshold: 20ms)
+[DubaiMatrixASI] 17:10:54.974  WARNING │ ⏱️ LATENCY [update] 92.8ms (threshold: 20ms)
+[DubaiMatrixASI] 17:10:59.995    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0962)
+[DubaiMatrixASI] 17:11:00.002    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.249478
+[DubaiMatrixASI] 17:11:00.682    OMEGA │ ⚡ 🧬 Gen #20: 7 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:11:00.694    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5675)
+[DubaiMatrixASI] 17:11:00.696    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006460
+[DubaiMatrixASI] 17:11:01.556    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:11:01.597    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:11:01.743    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:11:01.750  WARNING │ ⏱️ LATENCY [think] 1073.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:11:28.084    OMEGA │ ⚡ 🧬 Gen #41: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:11:28.097    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3027)
+[DubaiMatrixASI] 17:11:28.109    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006549
+[DubaiMatrixASI] 17:11:28.566    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:11:28.741    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:11:45.761    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:12:02.188    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4286)
+[DubaiMatrixASI] 17:12:02.189    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007443
+[DubaiMatrixASI] 17:12:13.038    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.4568)
+[DubaiMatrixASI] 17:12:13.039    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006975
+[DubaiMatrixASI] 17:12:16.268    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.5138)
+[DubaiMatrixASI] 17:12:16.291    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006362
+[DubaiMatrixASI] 17:12:17.243    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:12:17.257  WARNING │ ⏱️ LATENCY [think] 1035.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:12:20.625  WARNING │ ⏱️ LATENCY [update] 20.6ms (threshold: 20ms)
+[DubaiMatrixASI] 17:12:25.595    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:12:31.599    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:13:06.022  WARNING │ ⏱️ LATENCY [update] 27.9ms (threshold: 20ms)
+[DubaiMatrixASI] 17:13:10.432  WARNING │ ⏱️ LATENCY [update] 55.5ms (threshold: 20ms)
+[DubaiMatrixASI] 17:13:14.611    OMEGA │ ⚡ 🧬 Gen #15: 3 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:13:14.666    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9842)
+[DubaiMatrixASI] 17:13:14.676    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006362
+[DubaiMatrixASI] 17:13:15.570    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:13:15.589    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:13:15.731    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:13:15.735  WARNING │ ⏱️ LATENCY [think] 1135.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:13:25.181    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.6186)
+[DubaiMatrixASI] 17:13:25.199    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.134812
+[DubaiMatrixASI] 17:13:32.095    OMEGA │ ⚡ 🧬 Gen #42: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:13:32.139    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.6528)
+[DubaiMatrixASI] 17:13:32.149    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006260
+[DubaiMatrixASI] 17:13:32.609    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $61.62396316579267 -> $46.5
+[DubaiMatrixASI] 17:13:32.649    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:13:32.842    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:13:52.122    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:13:54.710  WARNING │ ⏱️ LATENCY [update] 25.5ms (threshold: 20ms)
+[DubaiMatrixASI] 17:14:00.327    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.7391)
+[DubaiMatrixASI] 17:14:00.328    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006996
+[DubaiMatrixASI] 17:14:01.641    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 17:14:01.644  WARNING │ ⏱️ LATENCY [think] 1333.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:14:05.180    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:14:29.210    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9509)
+[DubaiMatrixASI] 17:14:29.222    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006504
+[DubaiMatrixASI] 17:14:40.784  WARNING │ ⏱️ LATENCY [update] 25.8ms (threshold: 20ms)
+[DubaiMatrixASI] 17:14:40.915    OMEGA │ ⚡ 🧬 Gen #21: 6 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:14:40.969    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1189)
+[DubaiMatrixASI] 17:14:40.991    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006411
+[DubaiMatrixASI] 17:14:41.497    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:14:41.713    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:14:48.402    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:14:49.641    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8195)
+[DubaiMatrixASI] 17:14:49.654    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006305
+[DubaiMatrixASI] 17:15:17.709    OMEGA │ ⚡ 🧬 Gen #42: 5 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:15:17.758    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.8455)
+[DubaiMatrixASI] 17:15:17.779    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007442
+[DubaiMatrixASI] 17:15:18.312    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:15:18.502    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:15:25.907  WARNING │ ⏱️ LATENCY [update] 54.1ms (threshold: 20ms)
+[DubaiMatrixASI] 17:15:28.457    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:15:37.256    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:15:38.464    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:15:38.467  WARNING │ ⏱️ LATENCY [think] 1000.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:15:43.512    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.4877)
+[DubaiMatrixASI] 17:15:43.528    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006430
+[DubaiMatrixASI] 17:15:55.606    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1274)
+[DubaiMatrixASI] 17:15:55.607    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006970
+[DubaiMatrixASI] 17:16:06.819    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4028)
+[DubaiMatrixASI] 17:16:06.837    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006936
+[DubaiMatrixASI] 17:16:20.355    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:16:32.635  WARNING │ ⏱️ LATENCY [update] 48.5ms (threshold: 20ms)
+[DubaiMatrixASI] 17:16:32.850  WARNING │ ⏱️ LATENCY [update] 20.2ms (threshold: 20ms)
+[DubaiMatrixASI] 17:16:36.088    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.3673)
+[DubaiMatrixASI] 17:16:36.111    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006448
+[DubaiMatrixASI] 17:16:56.137    OMEGA │ ⚡ 🧬 Gen #16: 8 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:16:56.185    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2507)
+[DubaiMatrixASI] 17:16:56.194    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.109087
+[DubaiMatrixASI] 17:16:56.585    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:16:56.789    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:17:05.587    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0003|EV:-3,9268
+[DubaiMatrixASI] 17:17:08.442    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8834)
+[DubaiMatrixASI] 17:17:08.460    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006315
+[DubaiMatrixASI] 17:17:09.439    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0002|EV:-3,9268
+[DubaiMatrixASI] 17:17:09.441  WARNING │ ⏱️ LATENCY [think] 1048.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:17:15.473    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:17:26.977    OMEGA │ ⚡ 🧬 Gen #43: 10 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:17:26.993    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3711)
+[DubaiMatrixASI] 17:17:26.997    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006912
+[DubaiMatrixASI] 17:17:27.484    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:17:27.652    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:17:50.115  WARNING │ ⏱️ LATENCY [think] 1063.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:17:58.482    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:18:00.490    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1793)
+[DubaiMatrixASI] 17:18:00.500    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007501
+[DubaiMatrixASI] 17:18:04.092  WARNING │ ⏱️ LATENCY [update] 49.9ms (threshold: 20ms)
+[DubaiMatrixASI] 17:18:19.592    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.3829)
+[DubaiMatrixASI] 17:18:19.604    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007544
+[DubaiMatrixASI] 17:18:31.891    OMEGA │ ⚡ 🧬 Gen #22: 10 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:18:31.960    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.1200)
+[DubaiMatrixASI] 17:18:31.974    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007414
+[DubaiMatrixASI] 17:18:32.456    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:18:32.686    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:18:35.015  WARNING │ ⏱️ LATENCY [think] 1031.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:18:35.089  WARNING │ ⏱️ LATENCY [think] 1112.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:18:45.597  WARNING │ ⏱️ LATENCY [update] 20.1ms (threshold: 20ms)
+[DubaiMatrixASI] 17:18:56.197    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:18:56.696    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.3662)
+[DubaiMatrixASI] 17:18:56.702    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007460
+[DubaiMatrixASI] 17:18:57.783    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:18:57.799  WARNING │ ⏱️ LATENCY [think] 1171.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:18:59.161  WARNING │ ⏱️ LATENCY [think] 1018.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:19:06.684    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:19:26.551    OMEGA │ ⚡ 🧬 Gen #43: 10 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:19:26.568    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.9259)
+[DubaiMatrixASI] 17:19:26.569    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006115
+[DubaiMatrixASI] 17:19:27.145    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:19:27.335    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:19:38.857    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.6759)
+[DubaiMatrixASI] 17:19:38.874    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006845
+[DubaiMatrixASI] 17:19:39.708  WARNING │ ⏱️ LATENCY [update] 20.1ms (threshold: 20ms)
+[DubaiMatrixASI] 17:19:40.013    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:19:40.025  WARNING │ ⏱️ LATENCY [think] 1212.6ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:19:56.280    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.2672)
+[DubaiMatrixASI] 17:19:56.282    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005995
+[DubaiMatrixASI] 17:20:13.582  WARNING │ ⏱️ LATENCY [think] 1073.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:20:17.100    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.9959)
+[DubaiMatrixASI] 17:20:17.123    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007519
+[DubaiMatrixASI] 17:20:25.904  WARNING │ ⏱️ LATENCY [update] 30.2ms (threshold: 20ms)
+[DubaiMatrixASI] 17:20:37.207    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:20:38.073    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:20:38.109  WARNING │ ⏱️ LATENCY [think] 1071.0ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:20:53.257    OMEGA │ ⚡ 🧬 Gen #17: 9 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:20:53.305    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.4599)
+[DubaiMatrixASI] 17:20:53.316    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.239204
+[DubaiMatrixASI] 17:20:53.599    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1660)
+[DubaiMatrixASI] 17:20:53.600    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007439
+[DubaiMatrixASI] 17:20:53.689    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:20:53.866    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:20:54.705    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0001|EV:-3,9268
+[DubaiMatrixASI] 17:20:54.715  WARNING │ ⏱️ LATENCY [think] 1144.9ms (threshold: 1000ms)
+[DubaiMatrixASI] 17:21:13.996    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-3,9268
+[DubaiMatrixASI] 17:21:18.262    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8727)
+[DubaiMatrixASI] 17:21:18.283    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006612
+[DubaiMatrixASI] 17:21:35.965  WARNING │ ⏱️ LATENCY [update] 21.9ms (threshold: 20ms)
+[DubaiMatrixASI] 17:21:38.975    OMEGA │ ⚡ 🧬 Gen #44: 10 mutações aplicadas | Tipo=uniform | Fitness=-1275.0032
+[DubaiMatrixASI] 17:21:39.015    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7649)
+[DubaiMatrixASI] 17:21:39.021    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006352
+[DubaiMatrixASI] 17:21:39.718    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).
+[DubaiMatrixASI] 17:21:40.181    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 26 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-98.17
+[DubaiMatrixASI] 17:21:40.220  WARNING │ ⏱️ LATENCY [think] 1250.4ms (threshold: 1000ms)
