@@ -152,6 +152,12 @@ class SelfOptimizer:
                     log.omega(f"🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL={fisher['kl_div']:.4f})")
                     mutation_intensity = fisher.get('nat_grad', 1.0) * 0.1
                     log.omega(f"🧬 Natural Gradient Step applied: {mutation_intensity:.6f}")
+                    
+                    # [PHASE Ω-STABILITY] Metadata Injection
+                    if snapshot:
+                        snapshot.metadata["kl_divergence"] = fisher['kl_div']
+                        snapshot.metadata["fisher_metric"] = fisher
+                    
                     self._last_omega_log = now_log
 
         return result

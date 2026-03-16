@@ -28,7 +28,7 @@
 - **`core/consciousness/agents/liquidity_leech_agent.py`**: [NEW] Agente Symbiotic Leech (Predador Institucional).
 - **`core/consciousness/quantum_thought.py`**: Aglutinador de multiversos. **Phase 48**: Injeção de **V-PULSE_LOCK** (Ignition Sovereignty).
 - **`core/consciousness/regime_detector.py`**: Visão macro-cibernética. **Phase 48**: Detecção de **V-Pulse (PHI_V)**.
-- **`core/decision/trinity_core.py`**: Veredicto final de Ação. **Phase 50**: Injeção de **God-Mode Reversal** (Decoerência Suprema) e **Quantum Resonance Ignition** (Φ > 0.85). Thresholds adaptativos para ignição (V-Pulse).
+- **`core/decision/trinity_core.py`**: Veredicto final de Ação. **Phase 50**: Injeção de **God-Mode Reversal** (Decoerência Suprema) e **Quantum Resonance Ignition** (Φ > 0.85). **Phase 73**: Integração de **PHI Consensus Meta-data** na assinatura de decisão. Thresholds adaptativos para ignição (V-Pulse).
 ### 4B. CAMADA DE SIMULAÇÃO QUÂNTICA (Phase 8 — Monte Carlo Engine)
 - **`core/consciousness/monte_carlo_engine.py (QuantumMonteCarloEngine)`**: Motor de simulação Monte Carlo Quântico. **Phase 50**: Sincronização com o `LucidDreamingDaemon` (Java) para simulações HFT de 1.2M cenários.
 

@@ -812,4 +812,19 @@
 - **Justificativa:** Diferencia rompimentos reais de estiradas vazias. Se o preço afasta violentamente da média (alta tração elástica) sem justificativa de volume, o agente força a reversão à média.
 - **Data/Status:** ATIVO. (2026-03-12).
 
-*(Atualizado: 2026-03-12. Versão: 34.0.0-omega) — Phase Ω-Stochastic Systems Active*
+### DECISÃO 132: PHI GATING FOR UNKNOWN REGIMES
+- **Decisão:** Implementação de um gate mandatório de Coerência Sistêmica (Φ) para regimes classificados como `UNKNOWN`.
+- **Justificativa:** Evitar disparos baseados em anomalias de volatilidade que não possuem convergência neural (Dissentimento). A exigência de Φ > 0.15 garante que a ASI só atue no desconhecido se houver consenso mínimo.
+- **Data/Status:** ATIVO. (2026-03-15).
+
+### DECISÃO 133: HYDRA COHERENCE ENFORCEMENT
+- **Decisão:** O `SniperExecutor` agora exige um threshold de Φ > 0.25 para autorizar a fragmentação massiva de lotes (Hydra Mode).
+- **Justificativa:** Impedir a exposição extrema (Multi-Strike) em setups onde o enxame está em conflito. A agressividade Hydra agora é proporcional à clareza sináptica.
+- **Data/Status:** ATIVO. (2026-03-15).
+
+### DECISÃO 134: TRINITY DECISION SIGNATURE REFACTORING
+- **Decisão:** Refatoração da assinatura do método `decide()` e do objeto `Decision` para incluir `phi` e metadados de consenso primário.
+- **Justificativa:** Garantir integridade de dados e rastreabilidade entre o colapso quântico e a execução cinética, eliminando falhas de escopo e `AttributeError` no processamento de ordens.
+- **Data/Status:** ATIVO. (2026-03-15).
+
+*(Atualizado: 2026-03-15. Versão: 35.0.0-omega+coherence) — Phase Ω-Coherence Systems Active*

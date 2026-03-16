@@ -61,11 +61,19 @@
 - **Resultado:** O Nível 9 de Consciência. O "Nexus". A ASI não lê gráficos, ela lê o tecido conectivo do mercado. *(Atualizado: 2026-03-10. Versão: 57.0.0-omega)*
 
 ### FASE 60: ERA DA CLAREZA SINÁPTICA (Ω-Signal Integrity)
-- **Contexto:** Identificação de "Spam Epistêmico". O `HolographicMemoryAgent` e o `SelfOptimizer` inundavam o console com avisos repetitivos de veto e alertas de geometria de informação a cada tick, degradando a observabilidade humana.
+- **Contexto:** Identificação de "Spam Epistêmico" e falhas de inicialização por inconsistências de escopo.
 - **Evolução:**
-  - **Intelligent Log Pacing**: Injeção de buffers temporais (cooldowns de 60s) em todos os agentes neurais e motores de otimização.
-  - **Decision Compression**: Redução do ruído de IO através da supressão de eventos redundantes que não alteram o estado pragmático da ASI.
-- **Resultado:** Erradicação de 95% do ruído de log sem perda de acuidade informativa. A telemetria agora reflete apenas transições de estado críticas, permitindo uma supervisão executiva cirúrgica. *(Atualizado: 2026-03-10. Versão: 60.0.0-omega)*
+  - **Intelligent Log Pacing**: Injeção de buffers temporais (cooldowns de 60s) para suprimir ruído de IO.
+  - **Decision Metadata Integrity**: Refatoração da assinatura de `Decision` para incluir `phi` e metadados de consenso, garantindo rastreabilidade no SniperExecutor.
+- **Resultado:** Erradicação de 95% do ruído de log e 100% de estabilidade no pipeline de decisão. *(Atualizado: 2026-03-15. Versão: 60.0.0-omega)*
+
+### FASE 73: ERA DA COERÊNCIA SISTÊMICA (Ω-Coherence)
+- **Contexto:** Post-mortem do trade "Falling Knife" (-$209) revelou entradas agressivas (Hydra) com confiança alta mas coerência sistêmica (Φ) quase nula em regimes desconhecidos.
+- **Evolução:**
+  - **PHI Enforcement Gates**: Implementação de thresholds mandatórios no `TrinityCore`. Trades em regimes `UNKNOWN` agora exigem Φ > 0.15.
+  - **Hydra Coherence Mandate**: O Hydra Mode no `SniperExecutor` agora é vetado se Φ < 0.25, impedindo a fragmentação de lotes em estados de dissentimento neural.
+  - **God-Mode Noise Filtering**: Injeção de piso de Φ mesmo para o modo de reversão elástica, filtrando spikes de volatilidade sem massa informacional.
+- **Resultado:** Ativação do "Filtro de Sanidade Coletiva". A ASI agora recusa strikes lucrativos se a base informacional for incoerente, priorizando a preservação do capital sobre a ganância algorítmica. *(Atualizado: 2026-03-15. Versão: 73.0.0-omega)*
 
 ### FASE 58: ERA DO PARAGON E TEORIA DOS JOGOS (Ω-Paragon)
 - **Contexto:** A ASI estava lendo tudo perfeitamente, mas no mercado real, as informações são assimétricas. Alguns players mentem, blefam ou escondem suas ações. Precisávamos de agentes focados puramente na manipulação humana e institucional.

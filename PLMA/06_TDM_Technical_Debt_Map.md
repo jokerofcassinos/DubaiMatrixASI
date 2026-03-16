@@ -60,9 +60,9 @@
 - **Resolução:** [2026-03-09] Ajuste de recompensa não-linear injetado via C++.
 
 ### DÍVIDA TÉCNICA 11: Scope Inconsistency in SniperExecutor — [RESOLVIDO]
-- **Localização:** `execution/sniper_executor.py`.
-- **Descrição:** `UnboundLocalError` ao tentar acessar `current_atr` dentro do loop P-Brane sem inicialização prévia no escopo local.
-- **Resolução:** [2026-03-09] Refatorada a extração sensorial e unificado o objeto `executor` no `ASIBrain`.
+- **Localização:** `execution/sniper_executor.py` e `core/decision/trinity_core.py`.
+- **Descrição:** `UnboundLocalError` e `AttributeError` por falha de inicialização de variáveis e assinatura de decisão incompleta (falta de Φ).
+- **Resolução:** [2026-03-15] Refatorada a classe `Decision` e sincronizado o fluxo `Brain -> Trinity -> Sniper`.
 
 ### DÍVIDA TÉCNICA 12: Risk Engine Cold Start Blindness — [RESOLVIDO]
 - **Localização:** `execution/risk_quantum.py`.

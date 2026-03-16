@@ -162,6 +162,7 @@ class PositionManager:
         exhaustion = flow_analysis.get("exhaustion", {})
         absorption = flow_analysis.get("absorption", {})
         climax_score = flow_analysis.get("volume_zscore", 0.0)
+        phi_val = snapshot.metadata.get("phi_last", 0.0) # Assume PHI injection or 0
 
         # ═══ ANALISAR CADA GRUPO (STRIKE) ═══
         for g_key, g_data in groups.items():
@@ -196,16 +197,29 @@ class PositionManager:
             reason = ""
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 0: HALF-WAY BREAKEVEN PROTECTION (Phase Ω)
+            #  TRIGGER 0: PROXIMITY & SMART TP (Phase Ω)
+            # ═══════════════════════════════════════════════════
+            # Calculamos o alvo teórico em $ para este strike
+            # Usamos o primeiro ticket do grupo como referência de preço/TP
+            ref_pos = g_tickets[0]
+            target_profit = abs(ref_pos.get('tp', 0) - ref_pos.get('price_open', ref_pos.get('open_price', 0))) * lot_scale
+            
+            # [PHASE Ω-PROXIMITY] TP Front-Running Logic
+            # Se o preço atual está muito perto do TP (utilizando progressão do lucro)
+            profit_progress = total_profit / target_profit if target_profit > 0 else 0
+            is_proximity_zone = profit_progress > OMEGA.get("proximity_trailing_threshold", 0.90)
+
+            # ═══════════════════════════════════════════════════
+            #  TRIGGER 1: HALF-WAY BREAKEVEN PROTECTION (Legacy)
             # ═══════════════════════════════════════════════════
             # Se atingimos 50% do alvo, mas o mercado reverteu para o preço de entrada,
             # saímos no 0x0 para não transformar um quase-gain em loss total.
-            target_profit = abs(g_tickets[0].get('tp', 0) - g_tickets[0].get('price_open', 0)) * lot_scale
-            if not state.get("breakeven_active", False) and total_profit > (target_profit * 0.5):
+            if not state.get("breakeven_active", False) and profit_progress > 0.5:
                 state["breakeven_active"] = True
                 log.omega(f"🛡️ [HALF-WAY PROTECTION] Strike {anchor_ticket} atingiu 50% do alvo. Breakeven armado.")
 
-            if state.get("breakeven_active", False) and total_profit <= 5.0: # Buffer de $5 p/ taxas
+            if state.get("breakeven_active", False) and total_profit <= 10.0 and not is_proximity_zone: 
+                # Buffer de $10. Só dispara se NÃO estivermos na zona de TP (onde o proximity strike manda)
                 should_close = True
                 reason = "HALF_WAY_BREAKEVEN_PROTECTION (Returned to entry after 50% progress)"
 
@@ -231,23 +245,51 @@ class PositionManager:
             if peak > dynamic_peak_floor:
                 # [Phase Ω-Singularity] Trailing Stop Absoluto.
                 # Calculamos o threshold com base no PICO (Peak) e não no lucro atual.
-                if peak > dynamic_peak_floor * 2.0:
+                
+                # [OMISCIENCE RELAXATION] PHI-Based Expansion
+                phi_relax = 1.0 + (phi_val * OMEGA.get("smart_tp_phi_relaxation_mult", 0.5))
+                
+                if is_proximity_zone:
+                    # Trava de lucro ultra-agressiva na zona de morte
+                    lock_threshold = OMEGA.get("proximity_lock_threshold", 0.05) * phi_relax
+                    reason_prefix = "PROXIMITY_STRIKE"
+                elif peak > dynamic_peak_floor * 2.0:
                     # Quantum Tunneling Trailing (Permite 25% de pullback em grandes runs)
-                    curvature_adj = max(0, climax_score - 1.5) * 0.03
-                    lock_threshold = max(0.05, 0.25 - curvature_adj) 
+                    curvature_adj = max(0, climax_score - 2.5) * 0.03 # More tolerant to volume climax in big runs
+                    lock_threshold = max(0.05, (0.25 - curvature_adj) * phi_relax) 
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
                 elif peak > dynamic_peak_floor * 1.5:
-                    curvature_adj = max(0, climax_score - 2.0) * 0.02
-                    lock_threshold = max(0.05, 0.15 - curvature_adj)
+                    curvature_adj = max(0, climax_score - 3.0) * 0.02
+                    lock_threshold = max(0.05, (0.15 - curvature_adj) * phi_relax)
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
-                    lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult
+                    lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult * phi_relax
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
                 
                 # Trava de Segurança Absoluta (Nunca deixar o lucro cair abaixo de 1.0x do Noise Shield depois de bater no alvo)
                 trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
                 
                 if total_profit <= trailing_stop_profit:
                     should_close = True
-                    reason = f"RIEMANNIAN_TRAILING_STOP (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Curv={climax_score:.1f})"
+                    reason = f"{reason_prefix} (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Φ_Relax={phi_relax:.2f}, Curv={climax_score:.1f}, Progress={profit_progress:.1%})"
+
+                # ═══════════════════════════════════════════════════
+                #  ADVANCED ASI LAYERS (KDS & OFAE)
+                # ═══════════════════════════════════════════════════
+                if not should_close and is_proximity_zone:
+                    # 1. Kinematic Deceleration Sensor (KDS)
+                    # Se velocity caiu drásticamente perto do alvo
+                    velocity_score = flow_analysis.get("velocity_score", 0.0)
+                    if abs(velocity_score) < 0.2 and abs(flow_signal) < 0.1:
+                        should_close = True
+                        reason = f"KDS_VELOCITY_BURN (Velocity={velocity_score:.2f} near TP)"
+                    
+                    # 2. Order Flow Absorption Exit (OFAE)
+                    # Se há sinais de absorção pesada na cara do TP
+                    if (absorption.get("detected", False) and climax_score > 3.0):
+                        should_close = True
+                        reason = f"OFAE_FRONT_RUN (Absorption detected at TP boundary)"
 
             # ═══════════════════════════════════════════════════════════
             #  SOFT TRIGGERS: Só ativam se o Noise Shield foi rompido
@@ -285,11 +327,16 @@ class PositionManager:
                         # [Phase Ω-Chronos] VETO DO TIME DECAY
                         # Se o fluxo subjacente ainda está a nosso favor, ignoramos o tempo!
                         is_flow_favorable = (g_is_buy and flow_signal > 0.25) or (not g_is_buy and flow_signal < -0.25)
-                        if is_flow_favorable:
-                            max_stag_time *= 4.0 # Damos 4x mais tempo se a inércia ainda empurra
+                        
+                        regime = snapshot.regime.value if hasattr(snapshot.regime, 'value') else str(snapshot.regime)
+                        is_trend = "TRENDING" in regime or "IGNITION" in regime
+                        
+                        if is_flow_favorable or is_trend:
+                            persistence = OMEGA.get("trend_persistence_buffer", 2.0)
+                            max_stag_time *= persistence # Damos mais tempo se a inércia ainda empurra ou regime é trend
                             
                         if stag_time >= max_stag_time:
-                            should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f})"
+                            should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f} | R={regime})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:

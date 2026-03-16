@@ -99,6 +99,9 @@ class SniperExecutor:
         current_minute = now_dt.minute
         current_second = now_dt.second
         
+        # [PHASE Ω-STABILITY] Execution Intent Capture (Latency Guard)
+        execution_intent_time = time.time()
+        
         if decision.action == Action.WAIT:
             # Ativar Sonar se estivermos em WAIT mas com volatilidade interessante
             self._maybe_sonar_probe(snapshot)
@@ -480,6 +483,17 @@ class SniperExecutor:
         )
 
         # 4.3. Parallel Order Dispatch (Phase 40/42)
+        # [PHASE Ω-STABILITY] LATENCY KILL-SWITCH
+        # Se o tempo entre a decisão do TrinityCore e o dispatch passar de 400ms, abortamos.
+        # A latência é o veneno do Alpha. No HFT, 400ms é o fim da oportunidade.
+        now_pre_dispatch = time.time()
+        decision_latency_ms = (now_pre_dispatch - execution_intent_time) * 1000.0
+        
+        # Tolerance: 400ms (Adjustable via OMEGA or hard-coded for extreme safety)
+        if decision_latency_ms > 400.0:
+            log.error(f"💀 [LATENCY_ABORT] Decision execution stale ({decision_latency_ms:.1f}ms > 400ms). Striking aborted to prevent slippage ruin.")
+            return None
+            
         current_tick = self.bridge.get_tick()
         if not current_tick:
             log.error("❌ Falha crítica: Impossível obter tick para execução HFT")

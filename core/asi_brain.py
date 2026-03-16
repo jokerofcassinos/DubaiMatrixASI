@@ -188,6 +188,7 @@ class ASIBrain:
         snapshot.metadata["macro_bias"] = self.macro_scraper.macro_bias
         snapshot.metadata["pnl_prediction"] = self._last_pnl_prediction
         snapshot.metadata["dynamic_commission_per_lot"] = OMEGA.get("commission_per_lot", 32.0)
+        snapshot.metadata["phi_last"] = 0.0 # Will be updated after quantum thought
 
         # ═══ 5. ANÁLISE NEURAL — Enxame de agentes ═══
         agent_signals = self.neural_swarm.analyze(snapshot, flow_analysis, regime_state=regime_state)
@@ -200,6 +201,7 @@ class ASIBrain:
             regime_weight=regime_aggression,
             v_pulse_detected=snapshot.metadata.get("v_pulse_detected", False)
         )
+        snapshot.metadata["phi_last"] = quantum_state.phi
 
         # ═══ 6. DECISÃO — Trinity Core ═══
         decision = self.trinity_core.decide(

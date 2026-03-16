@@ -167,6 +167,12 @@ class OmegaParameterSpace:
                         "Drawdown de lucro permitido p/ gains < $50 (0.15 = 15% max evaporação)")
         self._register("smart_tp_lock_threshold_high", 0.10, 0.01, 0.30,
                         "Drawdown de lucro permitido p/ gains > $50 (0.10 = 10% max evaporação)")
+        self._register("tp_placement_scalar", 0.97, 0.80, 1.0,
+                        "Escalar para encurtar o TP e garantir execução (0.97 = 97% do TP original)")
+        self._register("proximity_trailing_threshold", 0.90, 0.70, 0.98,
+                        "Threshold de proximidade do TP para ativar trailing agressivo")
+        self._register("proximity_lock_threshold", 0.05, 0.01, 0.15,
+                        "Drawdown de lucro permitido na zona de proximidade do TP")
 
 
         # ═══ AGENT WEIGHT DEFAULTS ═══
@@ -234,7 +240,7 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.015, 0.005, 0.5,
+        self._register("phi_min_threshold", 0.150, 0.050, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
@@ -258,8 +264,8 @@ class OmegaParameterSpace:
                         "Threshold de Φ (PHI) para ativar Quantum Resonance Ignition")
         self._register("pnl_relaxed_mode", 1.0, 0.0, 1.0,
                         "Habilita modo RELAXED (redução de veto PnL)")
-        self._register("drift_aggression_mult", 1.25, 1.0, 2.0,
-                        "Multiplicador de agressividade em regime DRIFTING")
+        self._register("drift_aggression_mult", 0.60, 0.30, 2.0,
+                        "Multiplicador de agressividade em regime DRIFTING/CREEPING")
         self._register("god_mode_entropy_threshold", 0.89, 0.80, 0.99,
                         "Threshold de Entropia para God-Mode Reversal")
 
@@ -298,8 +304,18 @@ class OmegaParameterSpace:
                         "Máximo alongamento de TP (em ATR) para cobrir o Alpha Floor")
         self._register("phi_ignorance_threshold", 0.15, 0.05, 0.30,
                         "Nível de Φ abaixo do qual a microestrutura ignora o macro (Soberania do Presente)")
+        self._register("phi_symmetry_guard_enabled", 1.0, 0.0, 1.0,
+                        "[Phase Ω-Extreme] Ativa proteção contra divergência extrema enxame/sinal")
+        self._register("exhaustion_signal_min", 0.55, 0.35, 0.95,
+                        "[Phase Ω-Extreme] Elevado de 0.35 para 0.55 para evitar falsos positivos")
         self._register("v_pulse_alpha_relaxation", 0.50, 0.1, 1.0,
                         "Multiplicador de redução do Alpha Floor durante V-Pulse (0.50 = 50% de desconto)")
+
+        # ═══ PHASE Ω-EXIT: DYNAMIC TREND PERSISTENCE ═══
+        self._register("smart_tp_phi_relaxation_mult", 0.5, 0.1, 2.0,
+                        "Multiplicador de relaxação do Profit Lock baseado no nível de Φ (Consciência)")
+        self._register("trend_persistence_buffer", 2.0, 1.0, 5.0,
+                        "Multiplicador de persistência temporal em tendências confirmadas")
 
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,

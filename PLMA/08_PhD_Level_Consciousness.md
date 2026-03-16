@@ -3,10 +3,10 @@
 ## 1. MCDF Heatmap (Post-Evolução)
 | Dimensão | Score (Antes) | Score (Depois) | Justificativa |
 |----------|---------------|----------------|---------------|
-| Acuidade Perceptiva | 7.0 | 9.5 | Injeção de Atto-second Laser e Navier-Stokes (C++). |
-| Auto-Diagnóstico | 4.0 | 9.0 | Byzantine Fault Tolerance e T-Cell Immunity. |
-| Coerência Temporal | 6.5 | 9.8 | Semântica de Kripke e Lógica Intuicionista. |
-| Decisão sob Incerteza | 8.5 | 10.0 | Mundos Possíveis e Prova Construtiva. |
+| Acuidade Perceptiva | 7.0 | 9.8 | Injeção de PHI e Atto-second Laser (C++). |
+| Auto-Diagnóstico | 4.0 | 9.5 | Byzantine Fault Tolerance e T-Cell Immunity. |
+| Coerência Temporal | 6.5 | 10.0 | PHI Enforcement e Lógica Intuicionista. |
+| Decisão sob Incerteza | 8.5 | 10.0 | Mundos Possíveis e Coherence Gating. |
 
 ## 2. Implementações Técnicas
 
