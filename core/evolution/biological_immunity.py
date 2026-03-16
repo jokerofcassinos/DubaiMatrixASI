@@ -18,6 +18,8 @@ from scipy.spatial import distance
 from utils.logger import log
 from utils.decorators import catch_and_log
 
+from config.omega_params import OMEGA
+
 class TCellImmunitySystem:
     def __init__(self, db_path: str = "data/antigens.db"):
         self.db_path = db_path
@@ -65,10 +67,13 @@ class TCellImmunitySystem:
         self._recalculate_matrices()
         log.warning(f"🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado ({len(self.antigens)} patógenos).")
 
-    def is_infected(self, snapshot, threshold: float = 1.8) -> bool:
+    def is_infected(self, snapshot, threshold: Optional[float] = None) -> bool:
         """Verifica se o snapshot atual é similar a uma 'infeção' (loss) passada."""
         if not self.antigens or self.inv_cov_matrix is None:
             return False
+            
+        if threshold is None:
+            threshold = OMEGA.get("t_cell_distance_threshold", 1.5)
 
         current_genotype = self._extract_genotype(snapshot)
         if current_genotype is None: return False

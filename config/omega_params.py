@@ -149,6 +149,10 @@ class OmegaParameterSpace:
         # ═══ REGIME PARAMETERS ═══
         self._register("regime_sensitivity", 0.30, 0.10, 0.70,
                         "Sensibilidade a mudanças de regime")
+        self._register("paradigm_shift_threshold", 0.75, 0.50, 2.0,
+                        "Threshold de KL Divergence p/ travar motor (Menor = Mais sensível)")
+        self._register("climax_velocity_threshold", 2.2, 1.5, 6.0,
+                        "Múltiplo de ATR M5 p/ Veto de Clímax (Menor = Mais protetor)")
         self._register("trend_regime_aggression", 1.2, 0.5, 2.0,
                         "Multiplicador de agressividade em regime trending")
         self._register("range_regime_aggression", 0.7, 0.3, 1.5,
@@ -272,6 +276,8 @@ class OmegaParameterSpace:
         # ═══ PHASE 51: Ω-ALPHA SURGE (ALPHA EXTRACTION) ═══
         self._register("kinematic_v_pulse_relaxation", 2.5, 1.0, 5.0,
                         "Multiplicador de relaxação ATR durante V-Pulse/Ignition")
+        self._register("t_cell_distance_threshold", 1.5, 0.5, 3.5,
+                        "Distância de Mahalanobis mínima p/ Veto T-Cell (Menor = Mais sensível)")
         self._register("ignition_sovereignty_mult", 0.40, 0.1, 1.0,
                         "Multiplicador de soberania da ignição (reduz thresholds de veto)")
         self._register("god_mode_rr_min", 0.35, 0.1, 1.5,

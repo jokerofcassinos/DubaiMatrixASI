@@ -133,7 +133,9 @@ class TrinityCore:
         # [PHASE Ω-STABILITY] ABSOLUTE KL-VETO: Information Geometry Paradigm Shift
         kl_div = snapshot.metadata.get("kl_divergence", 0.0)
         current_price = snapshot.price
-        if kl_div > 1.5:
+        kl_veto_thresh = OMEGA.get("paradigm_shift_threshold", 0.75) * 2.0 # Hard halt is double the close threshold
+        
+        if kl_div > kl_veto_thresh:
             return Decision(
                 action=Action.WAIT,
                 confidence=0.0,
@@ -143,14 +145,14 @@ class TrinityCore:
                 take_profit=0,
                 lot_size=0,
                 regime="PARADIGM_SHIFT",
-                reasoning=f"WAIT: PARADIGM_SHIFT VETO (KL={kl_div:.2f} > 1.5) - Information Geometry Breach",
+                reasoning=f"WAIT: PARADIGM_SHIFT VETO (KL={kl_div:.2f} > {kl_veto_thresh:.2f}) - Information Geometry Breach",
                 metadata={"kl_div": kl_div}
             )
         
         # [Phase 51] PARADIGM SHIFT CLOSE (Omniscience Exit)
         # Se a geometria da informação (KL Divergence) mostrar que o movimento exauriu
         kl_div = snapshot.metadata.get("kl_divergence", 0.0)
-        if kl_div > OMEGA.get("paradigm_shift_threshold", 0.85):
+        if kl_div > OMEGA.get("paradigm_shift_threshold", 0.75):
             log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
             return Decision(
                 action=Action.WAIT, # No novo sinal, mas o PositionManager deve ler o sinal de CLOSE
@@ -186,6 +188,16 @@ class TrinityCore:
         dynamic_sell_thresh = base_sell_threshold
         dynamic_conf_min = base_confidence_min
 
+        # 0. [Phase Ω-Resilience] Loss-Adaptive Defense
+        # Se estamos em uma sequência de perdas, a ASI entra em modo de 'trincheira'.
+        losses = asi_state.consecutive_losses if asi_state else 0
+        if losses >= 3:
+            defense_mult = 1.0 + (min(losses, 10) * 0.1) # Ate 2.0x
+            dynamic_buy_thresh *= defense_mult
+            dynamic_sell_thresh *= defense_mult
+            dynamic_conf_min = min(0.99, dynamic_conf_min * (1.0 + (losses * 0.05)))
+            self._log_cooldown("LOSS_DEFENSE", f"🛡️ [LOSS DEFENSE] Consecutive Losses: {losses}. Multiplier applied: {defense_mult:.2f}x (Conf Min: {dynamic_conf_min:.2f})", 60, level="warning")
+
         # 1. Ajuste pelo PnL Predictor
         pnl_pred = snapshot.metadata.get("pnl_prediction")
         if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
@@ -201,7 +213,7 @@ class TrinityCore:
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
-        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "UNKNOWN", "LOW_LIQUIDITY", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN"]:
+        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN"]:
             # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
             # Se houver V-Pulse ou PHI alto, relaxamos os limiares que causam "WAIT" excessivo
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
@@ -216,6 +228,14 @@ class TrinityCore:
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
                  dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
+        
+        elif regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
+            # [Phase Ω-Lockdown] Em regime desconhecido ou perigoso, LOCKDOWN total.
+            # Não permitimos relaxamento do NEXUS. Elevamos exigência.
+            dynamic_conf_min = min(0.98, dynamic_conf_min * 1.4)
+            dynamic_buy_thresh *= 1.2
+            dynamic_sell_thresh *= 1.2
+            self._log_cooldown("UNKNOWN_LOCKDOWN", f"🛡️ [UNKNOWN LOCKDOWN] Hardened filters for {regime_state.current.value} (Conf Min: {dynamic_conf_min:.2f})", 60)
 
         elif regime_state.current == MarketRegime.PARADIGM_SHIFT:
             # Em mudança de paradigma, somos ultra-conservadores
@@ -230,6 +250,14 @@ class TrinityCore:
             if phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
                 self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                 return self._wait("UNKNOWN_REGIME_INCOHERENCE")
+        
+        # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
+        # Em regimes de creeping, spikes de velocidade sem Φ alto são exaustão retail.
+        is_creeping = "CREEPING" in regime_state.current.value
+        tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
+        if is_creeping and tick_vel_abs > 12.0 and phi < 0.45 and not is_god_mode:
+            self._log_cooldown("CHEAP_SPIKE_VETO", f"🛡️ [CHEAP SPIKE VETO] Velocity surge ({tick_vel_abs:.1f}) without structural coherence (Φ={phi:.2f} < 0.45). This is a retail trap.", 60)
+            return self._wait("CHEAP_SPIKE_VETO")
 
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
         if limit_mode:
@@ -352,6 +380,19 @@ class TrinityCore:
                 dynamic_buy_thresh = OMEGA.get("exhaustion_signal_min", 0.55)
                 dynamic_sell_thresh = -dynamic_buy_thresh
                 self._log_cooldown("EXHAUSTION_SOVEREIGNTY_LOG", f"⚡ [EXHAUSTION] Sovereignty ACTIVE (Entropy: {entropy:.2f}). Thresholds relaxed to {dynamic_buy_thresh:.2f} for fading.", 60)
+
+            # ═══════════════════════════════════════════════════
+            # [Phase Ω-Burst] BURST IGNITION SENSOR (BIS)
+            # ═══════════════════════════════════════════════════
+            # Se a velocidade é violenta na direção do sinal, relaxamos Φ
+            # para capturar a singularidade antes que a estrutura se forme.
+            tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
+            is_high_energy_surge = (signal > 0.35 and tick_vel > 15.0) or (signal < -0.35 and tick_vel < -15.0)
+            
+            if is_high_energy_surge:
+                # [Phase Ω-Singularity] Capture the burst
+                has_exhaustion_sovereignty = True # Reaproveita o bypass de Veto
+                self._log_cooldown("BURST_IGNITION", f"🔥 [BURST IGNITION] High velocity detected ({tick_vel:.1f}). Bypassing structural gates.", 30, level="omega")
 
         # 1. Dynamic Signal Penalization for Counter-Trend
         if tentative_is_counter and not (is_breakdown or is_lethal_ignition or has_exhaustion_sovereignty):
@@ -477,6 +518,7 @@ class TrinityCore:
              is_phi_resonance = True
              
         # [Phase 50] God-Mode Reversal & Resonance Bypass
+        is_god_mode_phi = False
         if (phi < 0.2 and entropy > entropy_thresh) or is_god_mode:
             # [Phase Ω-Extreme] PHI-Symmetry Guard
             # Se mais de 60% dos agentes estão na direção OPOSTA ao sinal, o God-Mode é bloqueado.
@@ -1042,7 +1084,8 @@ class TrinityCore:
             if mc_result.expected_return < 0:
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
                 # Só permitimos se for um sinal de exaustão extrema (God-Mode)
-                if not is_god_mode and not (phi > 0.18 and abs(signal) > 0.40):
+                # [Phase Ω-Lockdown] Hardened bypass to phi > 0.40
+                if not is_god_mode and not (phi > 0.40 and abs(signal) > 0.60):
                     return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
 
             # [Phase Ω-Resilience] Counter-Trend Phi Gate
@@ -1080,11 +1123,15 @@ class TrinityCore:
                 mc_min_wp = 0.40
                 
             if mc_win_prob < mc_min_wp:
-                mc_ev = getattr(mc_result, "expected_value", 0.0)
+                # FIX: mc_result.expected_return instead of expected_value
+                mc_ev_val = getattr(mc_result, "expected_return", 0.0)
                 # [Phase Ω-Thermodynamic] EV Asymmetry Bypass
-                if mc_ev > 1.5 and mc_win_prob >= 0.32:
+                # [Phase Ω-Lockdown] Enforce requirements in UNKNOWN/CHOPPY
+                is_safe_regime = regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"]
+                
+                if mc_ev_val > 1.5 and mc_win_prob >= 0.32 and is_safe_regime:
                      pass # Fat-Tail Asymmetry: Assume WR<40% if Expected Value is massive.
-                elif phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
+                elif phi > 0.45 and abs(signal) > 0.65 and is_safe_regime and not is_counter_trend:
                      pass # Bypass
                 else:
                     return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
@@ -1179,6 +1226,25 @@ class TrinityCore:
             if sym_info and sym_info.get("spread", 0) > max_spread:
                 return f"SPREAD_HIGH_ABSOLUTE({sym_info['spread']}>{max_spread})"
 
+        # 2. T-CELL IMMUNITY SYSTEM (Antigen Detection)
+        if hasattr(self, 't_cell') and self.t_cell.is_infected(snapshot):
+            # [Phase Ω-Burst] T-Cell Singularity Bypass
+            # Se houver ignição letal, God-Mode ou Burst confirmado, ignoramos o veto imunitário
+            # pois movimentos de alta energia frequentemente mimetizam padrões de falha.
+            # Nota: O sinal/action são calculados no decide(), mas aqui temos acesso ao snapshot (velocity)
+            tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
+            is_burst_vel = abs(tick_vel) > 15.0
+            
+            # Recalcular is_lethal_ignition localmente para o veto
+            v_intensity = snapshot.metadata.get("v_pulse_capacitor", 0.0)
+            lethal = (snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected) and v_intensity > 0.8
+            
+            if lethal or snapshot.metadata.get("god_mode_active", False) or is_burst_vel:
+                self._log_cooldown("TCELL_BYPASS", f"⚡ [T-CELL BYPASS] Ignoring pathogen match due to High-Energy Singularity (Vel={tick_vel:.1f})", 60)
+                pass
+            else:
+                return "T-CELL_VETO (Pathogen detected)"
+
         # 2. Circuit breaker ativo
         if asi_state and asi_state.circuit_breaker_active:
             return "CIRCUIT_BREAKER_ACTIVE"
@@ -1231,9 +1297,10 @@ class TrinityCore:
             atr_m5 = self._get_current_atr(snapshot)
             if atr_m5 > 0:
                 climax_velocity = last_delta / atr_m5
-                if climax_velocity > OMEGA.get("climax_velocity_threshold", 4.0) and \
+                climax_thresh = OMEGA.get("climax_velocity_threshold", 2.2)
+                if climax_velocity > climax_thresh and \
                    regime_state.current.value not in ["LIQUIDATION_CASCADE", "HIGH_VOL_CHAOS"]:
-                    return f"CLIMAX_VELOCITY_VETO (Vel={climax_velocity:.2f} > 4.0 ATR)"
+                    return f"CLIMAX_VELOCITY_VETO (Vel={climax_velocity:.2f} > {climax_thresh:.2f} ATR)"
 
         return None  # Sem veto
 
