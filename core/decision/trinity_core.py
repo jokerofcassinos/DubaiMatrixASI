@@ -83,6 +83,11 @@ class TrinityCore:
         self._last_sl_mult = 0.0
         self._last_regime = ""
         self._last_loss_time = 0.0  # [PHASE Ω-ANTI-FRAGILITY] Initialization
+        
+        # [PHASE Ω-PHD] Alpha Extraction (Entropy Bridge)
+        self._signal_history = []  # List of last 20 signals
+        self.entropy_bridge_active = False
+        self._kl_history = []      # [Phase Ω-PhD-4] KL Velocity tracking
 
     @ast_self_heal
     @catch_and_log(default_return=None)
@@ -133,29 +138,48 @@ class TrinityCore:
         # [PHASE Ω-STABILITY] ABSOLUTE KL-VETO: Information Geometry Paradigm Shift
         kl_div = snapshot.metadata.get("kl_divergence", 0.0)
         current_price = snapshot.price
-        kl_veto_thresh = OMEGA.get("paradigm_shift_threshold", 0.75) * 2.0 # Hard halt is double the close threshold
         
-        if kl_div > kl_veto_thresh:
+        # [Phase Ω-PhD-4] Ω-KL-Velocity Guard (Curvature of Information)
+        self._kl_history.append(kl_div)
+        if len(self._kl_history) > 10: self._kl_history.pop(0)
+        
+        kl_velocity = 0.0
+        if len(self._kl_history) >= 2:
+            kl_velocity = abs(self._kl_history[-1] - self._kl_history[-2])
+            kl_vel_thresh = OMEGA.get("kl_velocity_threshold", 0.15)
+            
+            # Se a geometria da informação está mudando rápido demais (Shock), vetamos.
+            # Isso evita entrar no "olho do furacão" de uma mudança de paradigma instável.
+            if kl_velocity > kl_vel_thresh and not v_pulse_detected:
+                self._log_cooldown("KL_VELOCITY_VETO", f"🛡️ [Ω-KL-VELOCITY] Information Shock ({kl_velocity:.3f} > {kl_vel_thresh:.2f}). Waiting for geometry stability.", 60)
+                return self._wait("KL_VELOCITY_VETO")
+
+        # [PHASE Ω-SINGULARITY] Recalibration: 0.75 -> 0.95 (Absolute limit 1.5 -> 1.9)
+        kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
+        kl_veto_thresh = kl_base_thresh * 2.0 
+        
+        # [Phase Ω-PhD] NEW: Soft-Veto Check. 
+        # Hard Veto moved to extreme 5.0x threshold. In-between values reduce lot size via RiskEngine.
+        kl_extreme_thresh = kl_base_thresh * 5.0
+        if kl_div > kl_extreme_thresh:
             return Decision(
                 action=Action.WAIT,
-                confidence=0.0,
+                confidence=1.0,
                 signal_strength=0.0,
-                entry_price=current_price,
+                entry_price=snapshot.price,
                 stop_loss=0,
                 take_profit=0,
                 lot_size=0,
-                regime="PARADIGM_SHIFT",
-                reasoning=f"WAIT: PARADIGM_SHIFT VETO (KL={kl_div:.2f} > {kl_veto_thresh:.2f}) - Information Geometry Breach",
+                regime=regime_state.current.value,
+                reasoning=f"WAIT: PARADIGM_SHIFT VETO (KL={kl_div:.2f} > {kl_extreme_thresh:.2f}) - Information Chaos",
                 metadata={"kl_div": kl_div}
             )
         
         # [Phase 51] PARADIGM SHIFT CLOSE (Omniscience Exit)
-        # Se a geometria da informação (KL Divergence) mostrar que o movimento exauriu
-        kl_div = snapshot.metadata.get("kl_divergence", 0.0)
-        if kl_div > OMEGA.get("paradigm_shift_threshold", 0.75):
+        if kl_div > kl_base_thresh:
             log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
             return Decision(
-                action=Action.WAIT, # No novo sinal, mas o PositionManager deve ler o sinal de CLOSE
+                action=Action.WAIT,
                 confidence=1.0,
                 signal_strength=0.0,
                 entry_price=snapshot.price,
@@ -182,21 +206,48 @@ class TrinityCore:
         base_sell_threshold = OMEGA.get("sell_threshold")
         base_confidence_min = OMEGA.get("confidence_min")
         
+        # [Phase Ω-PhD] Ω-Entropy Bridge (Temporal Convergence)
+        # Persistence as a substitute for Intensity
+        self._signal_history.append(signal)
+        if len(self._signal_history) > 20: self._signal_history.pop(0)
+        
+        is_convergent = False
+        if len(self._signal_history) >= 20:
+            variance = np.var(self._signal_history)
+            # [Phase Ω-PhD-4] Ω-Entropy-Convergence Filter
+            # Stable signals (low variance) are required for the Bridge to activate.
+            convergence_thresh = OMEGA.get("entropy_convergence_threshold", 0.002)
+            if variance < convergence_thresh:
+                if (signal > 0 and signal > 0.9 * base_buy_threshold) or \
+                   (signal < 0 and signal < 0.9 * base_sell_threshold):
+                    is_convergent = True
+                    self._log_cooldown("ENTROPY_BRIDGE", f"🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var={variance:.5f}) below threshold.", 60)
+            
+            # [Phase Ω-PhD-2] Φ-Resonance Scaling: Stability as a substitute for Energy
+            # If the signal is geometrically stable, we don't need a high-energy information collapse (Phi).
+            self.entropy_bridge_active = is_convergent # Export flag for later use
+
+            # [Phase Ω-PhD-3] Ω-Kinetic-Symmetry Gate (Exhaustion Detection)
+            # Persistence (Time) must be matched by Kinetic Energy (Velocity/ATR Ratio)
+            # If we are stable but the 'heartbeat' (tick velocity) is fading, it's a trap.
+            self.kinetic_exhaustion = False
+            if is_convergent:
+                tick_vel = abs(snapshot.metadata.get("tick_velocity", 0.0))
+                # Se a velocidade é baixíssima (< 15) durante um signal-bridge, 
+                # a inércia sumiu e o 'creep' morreu.
+                if tick_vel < 12.0:
+                    self.kinetic_exhaustion = True
+                    self._log_cooldown("KINETIC_EXHAUSTION", f"⚠️ [Ω-KINETIC EXHAUSTION] Stability detected but Velocity ({tick_vel:.1f}) is too low for entry.", 60)
+        else:
+            self.entropy_bridge_active = False
+            self.kinetic_exhaustion = False
+        
         # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
         # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
         dynamic_buy_thresh = base_buy_threshold
         dynamic_sell_thresh = base_sell_threshold
         dynamic_conf_min = base_confidence_min
 
-        # 0. [Phase Ω-Resilience] Loss-Adaptive Defense
-        # Se estamos em uma sequência de perdas, a ASI entra em modo de 'trincheira'.
-        losses = asi_state.consecutive_losses if asi_state else 0
-        if losses >= 3:
-            defense_mult = 1.0 + (min(losses, 10) * 0.1) # Ate 2.0x
-            dynamic_buy_thresh *= defense_mult
-            dynamic_sell_thresh *= defense_mult
-            dynamic_conf_min = min(0.99, dynamic_conf_min * (1.0 + (losses * 0.05)))
-            self._log_cooldown("LOSS_DEFENSE", f"🛡️ [LOSS DEFENSE] Consecutive Losses: {losses}. Multiplier applied: {defense_mult:.2f}x (Conf Min: {dynamic_conf_min:.2f})", 60, level="warning")
 
         # 1. Ajuste pelo PnL Predictor
         pnl_pred = snapshot.metadata.get("pnl_prediction")
@@ -213,9 +264,14 @@ class TrinityCore:
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
-        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN"]:
+        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN", "CREEPING_BULL", "CREEPING_BEAR"]:
             # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
-            # Se houver V-Pulse ou PHI alto, relaxamos os limiares que causam "WAIT" excessivo
+            # [Phase Ω-PhD-3] Creep Maturity Veto
+            # Se o regime dura muito tempo (> 80 barras) sem ignição, ele está "podre".
+            if "CREEPING" in regime_state.current.value and regime_state.duration_bars > 80:
+                self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {regime_state.current.value} is too old ({regime_state.duration_bars} bars). High risk of Reversal.", 60)
+                return self._wait("CREEP_MATURITY_VETO")
+
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
             phi_score = quantum_state.phi
             
@@ -251,12 +307,19 @@ class TrinityCore:
                 self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                 return self._wait("UNKNOWN_REGIME_INCOHERENCE")
         
-        # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
-        # Em regimes de creeping, spikes de velocidade sem Φ alto são exaustão retail.
-        is_creeping = "CREEPING" in regime_state.current.value
+        # [Phase Ω-Singularity] QUANTUM MOMENTUM IGNITION (QMI)
+        # Treat Energy (Velocity) as a substitute for Coherence (PHI) during Breakouts
+        is_breakout = "BREAKOUT" in regime_state.current.value or regime_state.current == MarketRegime.HFT_BREAKDOWN
         tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
-        if is_creeping and tick_vel_abs > 12.0 and phi < 0.45 and not is_god_mode:
-            self._log_cooldown("CHEAP_SPIKE_VETO", f"🛡️ [CHEAP SPIKE VETO] Velocity surge ({tick_vel_abs:.1f}) without structural coherence (Φ={phi:.2f} < 0.45). This is a retail trap.", 60)
+        is_qmi_active = is_breakout and tick_vel_abs > 25.0 and abs(signal) > 0.40
+        phi_req = 0.20 if is_qmi_active else 0.45
+
+        # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
+        is_creeping = "CREEPING" in regime_state.current.value
+        if (is_creeping or is_breakout) and tick_vel_abs > 12.0 and phi < phi_req and not is_god_mode:
+            reason = "QMI_INSUFFICIENT" if is_qmi_active else "CHEAP_SPIKE"
+            self._log_cooldown(f"{reason}_VETO", f"🛡️ [{reason} VETO] Velocity surge ({tick_vel_abs:.1f}) without structural coherence (Φ={phi:.2f} < req {phi_req:.2f}).", 60)
+            return self._wait(f"{reason}_VETO")
             return self._wait("CHEAP_SPIKE_VETO")
 
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
@@ -439,6 +502,14 @@ class TrinityCore:
             if is_lethal_ignition or is_lethal_strike or is_god_mode:
                 self._log_cooldown("PNL_SOVEREIGNTY", f"🔥 [PNL SOVEREIGNTY] Bypassing JAVA_PNL_VETO due to { 'LETHAL_STRIKE' if is_lethal_strike else 'IGNITION/GOD' } (Conf: {quantum_state.confidence:.2f})", 30)
                 pass
+            if tentative_is_counter and has_exhaustion_sovereignty:
+                pass
+            elif self.entropy_bridge_active and pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
+                # [Phase Ω-PhD-2] PnL Expectancy Smoothing for Creeping Alpha
+                # We allow a small bypass if the signal was authorized by the Entropy Bridge
+                # but the Java predictor (optimized for energy) doesn't see the expectancy yet.
+                self._log_cooldown("PNL_SMOOTHING", "🧬 [Ω-PNL SMOOTHING] Overriding negative expectancy due to Entropy Bridge stability.", 60)
+                pass
             else:
                 return self._wait("JAVA_PNL_VETO (Negative Expectancy Detected)")
                 
@@ -450,14 +521,21 @@ class TrinityCore:
                 dynamic_sell_thresh = -dynamic_buy_thresh
                 dynamic_conf_min = 0.70 # Relax confidence for bifurcation strikes
             
-            if signal >= dynamic_buy_thresh and confidence >= (dynamic_conf_min - 1e-6):
+            # [Phase Ω-PhD] Ω-Entropy Bridge Check
+            buy_cond = (signal >= dynamic_buy_thresh or (is_convergent and signal > 0)) and not self.kinetic_exhaustion
+            sell_cond = (signal <= dynamic_sell_thresh or (is_convergent and signal < 0)) and not self.kinetic_exhaustion
+            
+            if self.kinetic_exhaustion:
+                return self._wait("KINETIC_EXHAUSTION_VETO (Stable but Decelerating)")
+
+            if buy_cond and confidence >= (dynamic_conf_min - 1e-6):
                 action = Action.BUY
-            elif signal <= dynamic_sell_thresh and confidence >= (dynamic_conf_min - 1e-6):
+            elif sell_cond and confidence >= (dynamic_conf_min - 1e-6):
                 action = Action.SELL
             else:
                 reasons = []
-                if signal > 0 and signal < dynamic_buy_thresh: reasons.append(f"BUY_SIGNAL_WEAK({signal:.3f}<{dynamic_buy_thresh:.3f})")
-                if signal < 0 and signal > dynamic_sell_thresh: reasons.append(f"SELL_SIGNAL_WEAK({signal:.3f}>{dynamic_sell_thresh:.3f})")
+                if signal > 0 and not buy_cond: reasons.append(f"BUY_SIGNAL_WEAK({signal:.3f}<{dynamic_buy_thresh:.3f})")
+                if signal < 0 and not sell_cond: reasons.append(f"SELL_SIGNAL_WEAK({signal:.3f}>{dynamic_sell_thresh:.3f})")
                 if confidence < (dynamic_conf_min - 1e-6): reasons.append(f"CONF_WEAK({confidence:.3f}<{dynamic_conf_min:.2f})")
                 return self._wait(f"NO_CONVERGENCE: {' | '.join(reasons)}")
         
@@ -475,6 +553,13 @@ class TrinityCore:
         # O valor de Φ natural varia com a energia do mercado. 
         # Exigir Φ=0.4 em mercados "Drifting" causa paralisia infinita.
         dynamic_phi_min = phi_min
+        
+        # [Phase Ω-PhD-2] Φ-Resonance Scaling
+        if self.entropy_bridge_active:
+            # Stability (Entropy Bridge) is a substitute for Energy (Phi)
+            # We relax the Phi requirement by 80% (Resonance Mode)
+            dynamic_phi_min *= 0.20
+            self._log_cooldown("PHI_RESONANCE", f"🧠 [Ω-PHI RESONANCE] Scaling Phi-Gate to {dynamic_phi_min:.4f} for stable drift.", 60)
 
         # 1. Ajuste por Regime
         if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
@@ -580,11 +665,14 @@ class TrinityCore:
         regime = regime_state.current
         phi_score = quantum_state.phi
         if regime in [MarketRegime.CREEPING_BULL, MarketRegime.DRIFTING_BEAR]:
-            phi_gate = max(phi_gate, 0.35) 
+            # [Phase Ω-PhD-2] Apply resonance scaling to the legacy gate as well
+            phi_gate = max(phi_gate, 0.35)
+            if self.entropy_bridge_active:
+                phi_gate *= 0.10
         elif regime in [MarketRegime.HIGH_VOL_CHAOS, MarketRegime.LIQUIDITY_HUNT]:
             phi_gate = max(phi_gate, 0.50)
             
-        if phi_score < phi_gate and not has_exhaustion_sovereignty:
+        if phi_score < (phi_gate - 1e-6) and not has_exhaustion_sovereignty:
             return self._wait(f"SIGNAL_FRAGILE(Φ={phi_score:.2f} < {phi_gate:.2f})")
         
         phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
@@ -594,7 +682,8 @@ class TrinityCore:
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
-            if quantum_state.confidence < 0.95:  # Só ignora o veto se a certeza do enxame for quase absoluta
+            # [Phase Ω-PhD-2] Entropy Bridge bypasses PnL Expectancy check
+            if not self.entropy_bridge_active and quantum_state.confidence < 0.95:
                 return self._wait("JAVA_PNL_VETO (Negative Expectancy Detected)")
 
         is_hydra_mode = False
@@ -676,29 +765,18 @@ class TrinityCore:
         if action == Action.BUY:
             # SL: O maior entre (Mínima dos últimos 10 candles - buffer) e (Preço - sl_mult * Fast_ATR)
             # Nota: para BUY, subtraímos o buffer da mínima
-            structural_sl = np.min(m1_lows) - struct_buffer if len(m1_lows) > 0 else (price - fast_atr * sl_mult)
+            if isinstance(m1_lows, (np.ndarray, list)) and len(m1_lows) > 0:
+                structural_sl = float(np.min(m1_lows)) - struct_buffer
+            else:
+                structural_sl = float(price - fast_atr * sl_mult)
             
             # Garantir distanciamento mínimo de segurança (Resilience Floor)
-            safe_sl_floor = price - min_sl_dist
-            stop_loss = min(structural_sl, safe_sl_floor) # Escolhe o mais conservador (mais longe)
+            safe_sl_floor = float(price - min_sl_dist)
+            stop_loss = min(structural_sl, safe_sl_floor) 
             
-            # Garantir que o SL não seja ABSURDAMENTE longo (Cap de Segurança)
-            stop_loss = max(stop_loss, price - fast_atr * 1.5)
-            
-            # TP Dinâmico (Phase 52.8)
-            risk_dist = abs(price - stop_loss)
-            tp_scalar = OMEGA.get("tp_placement_scalar", 0.97)
-            take_profit = price + (risk_dist * rr_mult * tp_scalar)
-        else:
-            # SL: O menor entre (Máxima dos últimos 10 candles + buffer) e (Preço + sl_mult * Fast_ATR)
-            structural_sl = np.max(m1_highs) + struct_buffer if len(m1_highs) > 0 else (price + fast_atr * sl_mult)
-            
-            # Safe SL Floor p/ SELL
-            safe_sl_floor = price + min_sl_dist
-            stop_loss = max(structural_sl, safe_sl_floor) # Mais longe
             
             # Cap de segurança
-            stop_loss = min(stop_loss, price + fast_atr * 1.5)
+            stop_loss = min(float(stop_loss), float(price) + float(fast_atr) * 1.5)
             
             # TP Dinâmico (Phase 52.8)
             risk_dist = abs(price - stop_loss)
@@ -709,14 +787,14 @@ class TrinityCore:
         max_dist_tp = 1500.0
         max_dist_sl = 350.0 # Stop alargado para sobreviver à volatilidade extrema do BTC
 
-        if abs(price - take_profit) > max_dist_tp:
-            take_profit = price + (max_dist_tp if action == Action.BUY else -max_dist_tp)
-        if abs(price - stop_loss) > max_dist_sl:
-            stop_loss = price - (max_dist_sl if action == Action.BUY else -max_dist_sl)
+        if abs(float(price) - float(take_profit)) > float(max_dist_tp):
+            take_profit = float(price) + (float(max_dist_tp) if action == Action.BUY else -float(max_dist_tp))
+        if abs(float(price) - float(stop_loss)) > float(max_dist_sl):
+            stop_loss = float(price) - (float(max_dist_sl) if action == Action.BUY else -float(max_dist_sl))
         # ═══ RISK/REWARD CHECK ═══
-        risk = abs(price - stop_loss)
-        reward = abs(take_profit - price)
-        rr_ratio = reward / risk if risk > 0 else 0
+        risk = abs(float(price) - float(stop_loss))
+        reward = abs(float(take_profit) - float(price))
+        rr_ratio = reward / risk if float(risk) > 0 else 0
 
         # [Phase Ω-Resilience] Commission-Aware RR:
         # Check if reward covers commission + min profit target
@@ -1030,7 +1108,7 @@ class TrinityCore:
 
         # ═══ 4. MONTE CARLO VALIDATION ═══
         # Simula 5000 universos paralelos para validar o trade
-        volatility_est = atr / max(price, 1) * np.sqrt(252)  # Anualizar
+        volatility_est = float(atr) / max(float(price), 1.0) * np.sqrt(252)  # Anualizar
         # [Phase 47] Drift Decoupling: Se houve ignição ou explosão de ticks, 
         # forçamos um drift agressivo para o Monte Carlo não ser pessimista.
         forced_drift = None
@@ -1039,7 +1117,7 @@ class TrinityCore:
         
         if has_ignition or tick_velocity > 35.0:
             # Mu = sigma * 5.0 (Ito Acceleration)
-            forced_drift = (atr / max(price, 1)) * 5.0 * (1.0 if action == Action.BUY else -1.0)
+            forced_drift = (float(atr) / max(float(price), 1.0)) * 5.0 * (1.0 if action == Action.BUY else -1.0)
             self._log_cooldown("forced_drift", f"🚀 [IGNITION DRIFT] Applying forced drift of {forced_drift:+.4f} due to {'V-Pulse' if has_ignition else 'Velocity Burst'}", 60)
 
         mc_result = self.monte_carlo.simulate_trade(
@@ -1087,6 +1165,11 @@ class TrinityCore:
                 # [Phase Ω-Lockdown] Hardened bypass to phi > 0.40
                 if not is_god_mode and not (phi > 0.40 and abs(signal) > 0.60):
                     return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
+
+            # [Phase Ω-PhD-3] MC-Score Floor
+            # O mc_score pondera WP, EV e CVaR. Um valor < -0.25 indica um trade intrinsecamente "sujo".
+            if mc_score < -0.25 and not is_god_mode:
+                return self._wait(f"MC_SCORE_FLOOR_VETO ({mc_score:.3f} < -0.25) - High Probability of Chaos")
 
             # [Phase Ω-Resilience] Counter-Trend Phi Gate
             # Se a ordem é BUY em regime BEAR, ou SELL em regime BULL, exigimos Φ muito maior.

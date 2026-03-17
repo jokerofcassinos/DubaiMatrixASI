@@ -139,6 +139,24 @@ class RiskQuantumEngine:
                 risk_fraction *= 0.5
                 log.debug("🛡️ [ORDER FLOW RISK] Pressão compradora intensa detectada. Cortando lote pela metade.")
 
+            # [Phase Ω-PhD] Soft-KL Risk Scaling (Information Geometry)
+            kl_div = snapshot.metadata.get("kl_divergence", 0.0)
+            kl_base = OMEGA.get("paradigm_shift_threshold", 0.95)
+            if kl_div > kl_base:
+                # Gaussian decay: Multiplier = exp(-(KL/base)^2)
+                kl_mult = float(np.exp(-((kl_div / kl_base) ** 2)))
+                risk_fraction *= kl_mult
+                log.omega(f"🧬 [SOFT-KL SCALING] KL={kl_div:.2f} > {kl_base:.2f}. Reducing risk by {(1-kl_mult)*100:.1f}%.")
+
+            # [Phase Ω-PhD-4] Ω-Structural Expectancy Sizing (Ghost Veto)
+            if OMEGA.get("structural_expectancy_sizing_enabled", 1.0) > 0.5:
+                pnl_pred = snapshot.metadata.get("pnl_prediction", "STABLE")
+                # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse), asfixiamos o lote.
+                is_lethal = snapshot.metadata.get("v_pulse_detected", False) or snapshot.metadata.get("god_mode_active", False)
+                if "NEGATIVE_EXPECTANCY" in pnl_pred and not is_lethal:
+                    log.omega(f"🛡️ [Ω-STRUCTURAL SIZING] Negative Expectancy ({pnl_pred}). Ghost Veto: lot_size=0.")
+                    return 0.0 # Anulação via retorno zero
+
         # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0
         if confidence >= 0.70:
@@ -156,6 +174,16 @@ class RiskQuantumEngine:
                 point_value = contract_size * point
 
         lot_size = balance * risk_fraction / (stop_loss_distance * point_value) if stop_loss_distance > 0 else MIN_LOT_SIZE
+
+        # 7. [Phase Ω-Infrastructure] Margin Level Guard (Anti-Stop-Out)
+        if snapshot and snapshot.account:
+            margin_level = snapshot.account.get("margin_level", 1000.0)
+            if margin_level < 150.0:
+                log.warning(f"🚨 [MARGIN GUARD] Critical Level {margin_level:.2f}% < 150%. Locking lot to MIN_LOT.")
+                lot_size = MIN_LOT_SIZE
+            elif margin_level < 200.0:
+                log.warning(f"⚠️ [MARGIN GUARD] Caution Level {margin_level:.2f}% < 200%. Reducing lot by 50%.")
+                lot_size *= 0.5
 
         # Hard Exposure Ceiling
         exposure_ratio = OMEGA.get("exposure_ceiling_balance_ratio", 2000.0)

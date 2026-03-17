@@ -101,7 +101,7 @@ class OmegaParameterSpace:
         """Inicializa todos os parâmetros Omega com valores default."""
 
         # ═══ DECISION PARAMETERS ═══
-        self._register("buy_threshold", 0.20, 0.05, 0.95,
+        self._register("buy_threshold", 0.18, 0.05, 0.95,
                         "Score mínimo para decisão BUY")
         self._register("sell_threshold", -0.20, -0.95, -0.05,
                         "Score mínimo para decisão SELL (negativo)")
@@ -149,7 +149,7 @@ class OmegaParameterSpace:
         # ═══ REGIME PARAMETERS ═══
         self._register("regime_sensitivity", 0.30, 0.10, 0.70,
                         "Sensibilidade a mudanças de regime")
-        self._register("paradigm_shift_threshold", 0.75, 0.50, 2.0,
+        self._register("paradigm_shift_threshold", 0.95, 0.50, 2.0,
                         "Threshold de KL Divergence p/ travar motor (Menor = Mais sensível)")
         self._register("climax_velocity_threshold", 2.2, 1.5, 6.0,
                         "Múltiplo de ATR M5 p/ Veto de Clímax (Menor = Mais protetor)")
@@ -302,6 +302,14 @@ class OmegaParameterSpace:
                         "Ratio de compressão algorítmica de fluxo para detectar robôs institucionais limpos")
         self._register("prigogine_entropy_saturation", 0.90, 0.70, 0.98,
                         "Saturação entrópica indicando falência de estrutura dissipativa (Bifurcação Climática)")
+        
+        # ═══ PHASE Ω-PhD-4: INFORMATION GEOMETRY & PHASE TRANSITIONS ═══
+        self._register("kl_velocity_threshold", 0.15, 0.05, 0.50,
+                        "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
+        self._register("entropy_convergence_threshold", 0.002, 0.0005, 0.01,
+                        "Variância máxima do sinal (Entropy Bridge) p/ confirmar convergência de informação")
+        self._register("structural_expectancy_sizing_enabled", 1.0, 0.0, 1.0,
+                        "Habilita o Ghost-Veto via lot_size=0 baseado na expectância do JAVA PnL Predictor")
 
         # ═══ PHASE Ω-EPISTEMIC SINGULARITY (PhD Evolution) ═══
         self._register("weight_quantum_tunneling", 1.25, 0.1, 3.5,

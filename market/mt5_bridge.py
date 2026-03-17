@@ -183,6 +183,9 @@ class MT5Bridge:
                     continue
 
             try:
+                if not self.client_socket or not self._socket_running:
+                    continue
+                    
                 self.client_socket.settimeout(1.0)
                 # Socket needs a small timeout so the while loop checks self._socket_running
                 raw_data = self.client_socket.recv(4096)
@@ -264,26 +267,36 @@ class MT5Bridge:
             self._ea_connected = True
             pass
 
-    def send_socket_command(self, cmd: str):
-        """Envia comando de trading diretamente para o EA via socket."""
+    def send_socket_command(self, cmd: str, retry_count: int = 1):
+        """Envia comando de trading diretamente para o EA via socket com auto-reparo."""
         if not self.client_socket or not self._ea_connected:
-            return False
+            # Tentar um warming rápido se estivermos tentando enviar um comando crítico
+            if not self._ea_connected and "PING" not in cmd:
+               log.debug("🔄 Socket EA offline. Tentando warming antes do comando.")
+               self._start_socket_server() 
             
-        try:
-            msg = cmd + "\n"
-            data = msg.encode('utf-8')
-            sent = self.client_socket.send(data)
-            if sent < len(data):
-                log.warning(f"⚠️ Socket Partial Send: {sent}/{len(data)} bytes. Latency spike detected.")
-            return True
-        except (socket.error, BrokenPipeError) as se:
-            log.error(f"❌ HFT SOCKET FAIL: {se}. Marking EA disconnected.")
-            self._ea_connected = False
-            self.client_socket = None
-            return False
-        except Exception as e:
-            log.error(f"❌ Erro inesperado ao enviar comando socket: {e}")
-            return False
+        for attempt in range(retry_count + 1):
+            try:
+                if not self.client_socket: return False
+                msg = cmd + "\n"
+                data = msg.encode('utf-8')
+                self.client_socket.sendall(data) # sendall garante envio completo ou erro
+                return True
+            except (socket.error, BrokenPipeError) as se:
+                if attempt < retry_count:
+                    log.warning(f"🔄 HFT SOCKET RETRY ({attempt+1}): {se}. Tentando ressuscitar túnel...")
+                    self.client_socket = None
+                    self._ea_connected = False
+                    time.sleep(0.01) # 10ms wait
+                    continue
+                else:
+                    log.error(f"❌ HFT SOCKET FAIL: {se}. Falling back to Native API.")
+                    self._ea_connected = False
+                    self.client_socket = None
+                    return False
+            except Exception as e:
+                log.error(f"❌ Erro inesperado ao enviar comando socket: {e}")
+                return False
 
     def disconnect(self):
         """Desconecta do MT5 gracefully."""

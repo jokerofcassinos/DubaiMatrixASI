@@ -483,6 +483,10 @@ class SniperExecutor:
         )
 
         # 4.3. Parallel Order Dispatch (Phase 40/42)
+        # [PHASE Ω-STABILITY] Socket Warming (Heartbeat)
+        # Send a tiny PING to ensure the tunnel is open and the EA thread is awake
+        self.bridge.send_socket_command("PING", retry_count=0)
+
         # [PHASE Ω-STABILITY] LATENCY KILL-SWITCH
         # Se o tempo entre a decisão do TrinityCore e o dispatch passar de 400ms, abortamos.
         # A latência é o veneno do Alpha. No HFT, 400ms é o fim da oportunidade.
