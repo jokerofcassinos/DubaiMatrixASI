@@ -202,6 +202,7 @@ class ASIBrain:
             v_pulse_detected=snapshot.metadata.get("v_pulse_detected", False)
         )
         snapshot.metadata["phi_last"] = quantum_state.phi
+        snapshot.metadata["raw_signal"] = quantum_state.raw_signal
 
         # ═══ 6. DECISÃO — Trinity Core ═══
         decision = self.trinity_core.decide(
@@ -276,7 +277,7 @@ class ASIBrain:
                     )
 
         # ═══ 8. MONITORAR POSIÇÕES ABERTAS (POSITION MANAGER / SMART TP) ═══
-        self.position_manager.monitor_positions(snapshot, flow_analysis)
+        self.position_manager.monitor_positions(snapshot, flow_analysis, quantum_state=quantum_state)
 
         # ═══ 8B. GRAVAR MEMÓRIA EPISÓDICA (a cada 60 ciclos) ═══
         if self._cycle_count % 60 == 0:
@@ -315,7 +316,8 @@ class ASIBrain:
                     
                     account_balance = snapshot.account.get("balance", 0.0) if snapshot.account else 0.0
                     is_relaxed = "true" if self.self_optimizer._is_relaxed_mode else "false"
-                    msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}:{is_relaxed}\n"
+                    risk_frac = OMEGA.get("risk_fraction_per_trade", 0.05)
+                    msg = f"UPDATE:{account_balance}:{win_rate}:{avg_win}:{avg_loss}:{is_relaxed}:{risk_frac}\n"
                     s.sendall(msg.encode('utf-8'))
                     
                     resp = s.recv(1024).decode('utf-8').strip()

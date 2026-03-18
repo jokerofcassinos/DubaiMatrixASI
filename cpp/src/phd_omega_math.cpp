@@ -88,4 +88,15 @@ extern "C" {
         }
         return (consistency_score >= 1.5) ? sign_persistence : 0.0; 
     }
+
+    // [Ω-PHD-69] Byzantine Consensus Penalty Calculation
+    __declspec(dllexport) void calculate_byzantine_penalties(
+        double* agent_errors, int count, double* out_penalties) {
+        
+        for (int i = 0; i < count; ++i) {
+            // Penalidade exponencial: p = exp(-error * 2)
+            out_penalties[i] = std::exp(-agent_errors[i] * 2.0);
+            if (out_penalties[i] < 0.05) out_penalties[i] = 0.05;
+        }
+    }
 }

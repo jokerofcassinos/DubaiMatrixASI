@@ -671,7 +671,7 @@ class MT5Bridge:
         return {
             "success": True,
             "ticket": result.order,
-            "price": result.price,
+            "price": result.price if result.price > 0 else price,
             "volume": result.volume,
             "action": action,
             "status": "PENDING_LIMIT"

@@ -21,6 +21,7 @@ class AgentSignal:
     reasoning: str
     weight: float = 1.0
     timeframe: str = ""
+    metadata: dict = None  # [Phase Ω-Extreme] Extra data for PhD sensors
 
     @property
     def weighted_signal(self) -> float:

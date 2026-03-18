@@ -7,101 +7,60 @@
 """
 
 import numpy as np
+from typing import Optional, Dict, Any
 from core.consciousness.agents.base import BaseAgent, AgentSignal
+from cpp.asi_bridge import CPP_CORE
+from utils.decorators import catch_and_log
 
 class SingularSpectrumAnalysisAgent(BaseAgent):
     """
     [Phase Ω-Eschaton] Singular Spectrum Analysis (SSA).
-    Aplica decomposição de valores singulares (SVD) na matriz de trajetória do preço.
-    Em vez de usar médias móveis (que têm atraso), o SSA extrai o autovetor principal
-    (o verdadeiro "sinal" limpo de ruído HFT) no tempo zero. Se o sinal puro
-    vira antes do preço sujo, antecipamos a reversão.
     """
     def __init__(self, weight=4.8):
         super().__init__("SingularSpectrumAnalysis", weight)
-        self.window_length = 10 # L
+        self.window_length = 10
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         candles_m1 = snapshot.candles.get("M1")
-        # Precisamos de 30 velas para uma matriz de trajetória razoável
         if not candles_m1 or len(candles_m1["close"]) < 30:
             return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
 
         closes = np.array(candles_m1["close"], dtype=np.float64)[-30:]
-        
-        # 1. Embedding (Construção da Matriz de Trajetória X)
         N = len(closes)
         L = self.window_length
         K = N - L + 1
         X = np.column_stack([closes[i:i+L] for i in range(K)])
         
-        # 2. SVD (Decomposição de Valores Singulares)
         try:
             U, Sigma, VT = np.linalg.svd(X)
-        except np.linalg.LinAlgError:
-            return AgentSignal(self.name, 0.0, 0.0, "SVD_CONVERGENCE_ERROR", self.weight)
+            X_elem = Sigma[0] * np.outer(U[:, 0], VT[0, :])
+            pure_trend = np.zeros(N)
+            counts = np.zeros(N)
+            for i in range(L):
+                for j in range(K):
+                    pure_trend[i+j] += X_elem[i, j]
+                    counts[i+j] += 1
+            pure_trend /= counts
             
-        # 3. Reconstrução do Sinal Principal (1º Autovetor = Tendência Primária Oculta)
-        # Aproximação de rank 1
-        X_elem = Sigma[0] * np.outer(U[:, 0], VT[0, :])
-        
-        # Diagonal averaging para reconstruir a série temporal da tendência pura
-        pure_trend = np.zeros(N)
-        counts = np.zeros(N)
-        for i in range(L):
-            for j in range(K):
-                pure_trend[i+j] += X_elem[i, j]
-                counts[i+j] += 1
-        pure_trend /= counts
-        
-        signal = 0.0
-        conf = 0.0
-        reason = "SSA_NEUTRAL"
-        
-        # Analisar a derivada da tendência pura nos últimos 3 períodos
-        # A derivada do SSA muda de direção ANTES da média móvel
-        derivative = np.diff(pure_trend[-4:])
-        
-        if derivative[-1] > 0 and derivative[-2] < 0:
-            # Ponto de inflexão de alta detectado na matemática espectral
-            signal = 1.0
-            conf = 0.95
-            reason = "SSA_BULL_INFLECTION (Clean Spectrum Reversal)"
-        elif derivative[-1] < 0 and derivative[-2] > 0:
-            # Ponto de inflexão de baixa
-            signal = -1.0
-            conf = 0.95
-            reason = "SSA_BEAR_INFLECTION (Clean Spectrum Reversal)"
-        else:
-            # Se não há inflexão, seguir a tendência principal purificada
-            if derivative[-1] > 0:
-                signal = 1.0
-                conf = 0.85
-                reason = "SSA_BULL_TREND"
-            elif derivative[-1] < 0:
-                signal = -1.0
-                conf = 0.85
-                reason = "SSA_BEAR_TREND"
-
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
+            derivative = np.diff(pure_trend[-4:])
+            if derivative[-1] > 0 and derivative[-2] < 0:
+                return AgentSignal(self.name, 1.0, 0.95, "SSA_BULL_INFLECTION", self.weight)
+            elif derivative[-1] < 0 and derivative[-2] > 0:
+                return AgentSignal(self.name, -1.0, 0.95, "SSA_BEAR_INFLECTION", self.weight)
+            else:
+                return AgentSignal(self.name, np.sign(derivative[-1]), 0.85, "SSA_TREND", self.weight)
+        except:
+            return AgentSignal(self.name, 0.0, 0.0, "SSA_ERROR", self.weight)
 
 
 class RandomMatrixTheoryAgent(BaseAgent):
     """
     [Phase Ω-Eschaton] Teoria de Matrizes Aleatórias (RMT).
-    Aplica princípios da Física Quântica (Níveis de energia de núcleos pesados)
-    para o Order Book. Compara os autovalores empíricos da matriz de correlação 
-    do book com a distribuição teórica de Marchenko-Pastur.
-    Se um autovalor escapa da distribuição, é sinal INSTITUCIONAL.
-    Se todos estão dentro, é ruído de mercado (HFT noise) e operamos mean-reversion.
     """
     def __init__(self, weight=4.2):
         super().__init__("RandomMatrixTheory", weight)
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
-        # Precisamos de profundidade histórica do book. 
-        # Como não armazenamos o book completo ao longo do tempo aqui, 
-        # faremos uma aproximação usando a variação de volume/preço nas últimas 15 velas.
         candles_m1 = snapshot.candles.get("M1")
         if not candles_m1 or len(candles_m1["close"]) < 20:
             return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
@@ -111,45 +70,65 @@ class RandomMatrixTheoryAgent(BaseAgent):
         l = np.array(candles_m1["low"], dtype=np.float64)[-20:]
         v = np.array(candles_m1["tick_volume"], dtype=np.float64)[-20:]
         
-        # Matriz de observações (4 variáveis, 19 observações de retorno)
         ret_c = np.diff(np.log(c))
         ret_h = np.diff(np.log(h))
         ret_l = np.diff(np.log(l))
         ret_v = np.diff(np.log(v + 1e-6))
         
-        M = np.vstack([ret_c, ret_h, ret_l, ret_v])
-        
-        # Matriz de Correlação Empírica
         try:
+            M = np.vstack([ret_c, ret_h, ret_l, ret_v])
             corr_matrix = np.corrcoef(M)
             eigenvalues, _ = np.linalg.eigh(corr_matrix)
-        except Exception:
-            return AgentSignal(self.name, 0.0, 0.0, "MATH_ERROR", self.weight)
+            max_eigenvalue = np.max(eigenvalues)
             
-        max_eigenvalue = np.max(eigenvalues)
+            if max_eigenvalue > 2.8:
+                trend = c[-1] - c[-5]
+                return AgentSignal(self.name, np.sign(trend), 0.95, f"RMT_INSTITUTIONAL (E={max_eigenvalue:.2f})", self.weight)
+            else:
+                vel = c[-1] - c[-2]
+                return AgentSignal(self.name, -np.sign(vel), 0.85, f"RMT_NOISE_FADING (E={max_eigenvalue:.2f})", self.weight)
+        except:
+            return AgentSignal(self.name, 0.0, 0.0, "RMT_ERROR", self.weight)
+
+class ByzantineConsensusAgent(BaseAgent):
+    """
+    [Ω-PHD] Byzantine Fault Tolerant Consensus Agent.
+    """
+    def __init__(self, weight: float = 5.0):
+        super().__init__("ByzantineConsensus", weight)
         
-        signal = 0.0
-        conf = 0.0
-        reason = "RMT_NOISE"
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
         
-        # O limite teórico de Marchenko-Pastur para este ratio é em torno de 1.8 a 2.5
-        # Se max_eigenvalue > 3.0, o sistema está sendo governado por um "Fator Comum" massivo
-        # ou seja, Manipulação Institucional Centralizada.
-        if max_eigenvalue > 2.8:
-            # Existe uma força externa quebrando a aleatoriedade natural do mercado.
-            # O mercado está "ensaiado" (Scripted). Acompanhamos a inércia primária.
-            trend = c[-1] - c[-5]
-            if trend != 0:
-                signal = np.sign(trend)
-                conf = 0.95
-                reason = f"RMT_INSTITUTIONAL_COMMON_FACTOR (Eigenval={max_eigenvalue:.2f})"
-        else:
-            # O mercado está em estado de passeios aleatórios estritos.
-            # Ideal para "Fading" (Reversão à Média).
-            vel = c[-1] - c[-2]
-            if vel != 0:
-                signal = -np.sign(vel)
-                conf = 0.85
-                reason = f"RMT_RANDOM_NOISE_FADING (Eigenval={max_eigenvalue:.2f})"
-                
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
+        hit_rates = kwargs.get("agent_hit_rates", {})
+        if not hit_rates: return None
+        
+        agent_names = list(hit_rates.keys())
+        errors = np.array([1.0 - hit_rates[name] for name in agent_names], dtype=np.float64)
+        
+        try:
+            penalties = np.zeros(len(errors), dtype=np.float64)
+            CPP_CORE.calculate_byzantine_penalties(errors, penalties)
+            
+            raw_signals = kwargs.get("swarm_raw_signals", [])
+            weighted_sum = 0.0
+            weight_total = 0.0
+            
+            for sig in raw_signals:
+                if sig.agent_name in agent_names:
+                    idx = agent_names.index(sig.agent_name)
+                    p = penalties[idx]
+                    weighted_sum += sig.signal * sig.confidence * p
+                    weight_total += sig.confidence * p
+            
+            if weight_total > 0:
+                final_sig = weighted_sum / weight_total
+                return AgentSignal(
+                    self.name, np.sign(final_sig), min(0.99, abs(final_sig) * 1.5), 
+                    f"Byzantine Consensus reached (Nodes: {len(errors)})", 
+                    self.weight
+                )
+            return None
+        except:
+            return None

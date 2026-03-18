@@ -136,14 +136,15 @@ class TrinityCore:
         # Detecta colapso estrutural (Singularidade) via decaimento de entropia.
         tec_active = False
         tec_entropy = 1.0
-        signal = quantum_state.raw_signal if hasattr(quantum_state, 'raw_signal') else 0.0
+        signal = float(getattr(quantum_state, 'raw_signal', 0.0) or 0.0)
         # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - Moved to TOP to avoid UnboundLocalError
-        riemannian_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "RiemannianRicci"), None)
-        is_geodesic_flow = riemannian_signal and "GEODESIC_FLOW" in riemannian_signal.reasoning
+        agent_signals = getattr(quantum_state, 'agent_signals', []) if quantum_state else []
+        riemannian_signal = next((s for s in agent_signals if s.agent_name == "RiemannianRicci"), None)
+        is_geodesic_flow = riemannian_signal and "GEODESIC_FLOW" in (getattr(riemannian_signal, 'reasoning', "") or "")
         
         # [Phase Ω-PhD-8] Ghost-Order-Inference (Predatory Sweep Bypass)
-        ghost_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "GhostOrderInference"), None)
-        is_ghost_sweep = ghost_signal and "GHOST_SWEEP_DETECTED" in ghost_signal.reasoning
+        ghost_signal = next((s for s in agent_signals if s.agent_name == "GhostOrderInference"), None)
+        is_ghost_sweep = ghost_signal and "GHOST_SWEEP_DETECTED" in (getattr(ghost_signal, 'reasoning', "") or "")
 
         try:
             shannon = snapshot.metadata.get("shannon_entropy", 0.9)
@@ -276,12 +277,16 @@ class TrinityCore:
                 if tick_vel < k_floor:
                     # [Phase Ω-PhD-5] Ignition Sovereignty: Lethal V-Pulse, TEC or high Phi overrides kinetic floor
                     # [Phase Ω-PhD-7] Geodesic Sovereignty: Fluxo laminar ignora floor cinemático
-                    phi_override = phi > 0.20 or is_tec_sovereign or is_geodesic_flow
+                    # [Phase Ω-PhD-Next] Topological Braiding Sovereignty
+                    is_braided = any((getattr(s, 'metadata', {}) or {}).get("is_braided") for s in agent_signals if s.agent_name == "TopologicalBraiding")
+                    # [Phase Ω-Extreme] Stable Convergence (Bridge) overrides floor with minimal Phi
+                    phi_override = phi > 0.20 or is_tec_sovereign or is_geodesic_flow or is_braided or (is_convergent and phi > 0.04)
+                    
                     if not is_lethal_ignition and not phi_override:
                         self.kinetic_exhaustion = True
                         self._log_cooldown("KINETIC_EXHAUSTION", f"⚠️ [Ω-KINETIC EXHAUSTION] Stability detected but Velocity ({tick_vel:.1f}) is below floor ({k_floor:.1f}).", 60)
                     elif phi_override:
-                        ov_reason = "GEODESIC" if is_geodesic_flow else ("PHI" if phi > 0.20 else "TEC")
+                        ov_reason = "BRAIDED" if is_braided else ("GEODESIC" if is_geodesic_flow else ("PHI" if phi > 0.20 else "TEC"))
                         self._log_cooldown("KINETIC_OVERRIDE", f"🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via {ov_reason} Sovereignty (Φ={phi:.2f} | Geo={is_geodesic_flow}).", 60, level="omega")
         else:
             self.entropy_bridge_active = False
@@ -331,13 +336,16 @@ class TrinityCore:
             # [Phase Ω-PhD-3] Creep Maturity Veto
             # [Phase Ω-PhD-5] Dynamic Threshold + Ignition Bypass
             c_thresh = OMEGA.get("creep_maturity_threshold", 150.0)
-            if "CREEPING" in regime_state.current.value and regime_state.duration_bars > c_thresh:
+            current_regime_val = str(getattr(regime_state.current, 'value', regime_state.current))
+            duration = int(getattr(regime_state, 'duration_bars', 0) or 0)
+            
+            if "CREEPING" in current_regime_val and duration > c_thresh:
                 # SE houver ignição letal, ignoramos o veto de maturidade (Phase Ω-PhD-5)
                 if is_lethal_ignition:
-                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-IGNITION BYPASS] Stale regime ({regime_state.duration_bars} bars) overridden by Lethal Ignition.", 60, level="omega")
+                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-IGNITION BYPASS] Stale regime ({duration} bars) overridden by Lethal Ignition.", 60, level="omega")
                     self.last_decision_bypassed = True
                 else:
-                    self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {regime_state.current.value} is too old ({regime_state.duration_bars} bars).", 60)
+                    self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {current_regime_val} is too old ({duration} bars).", 60)
                     return self._wait("CREEP_MATURITY_VETO")
 
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
@@ -351,7 +359,8 @@ class TrinityCore:
                  mult = 1.10 if quantum_state.phi > 0.3 else 1.15
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
-                 dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
+                 if not self.entropy_bridge_active:
+                     dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
         
         elif regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
             # [Phase Ω-Lockdown] Em regime desconhecido ou perigoso, LOCKDOWN total.
@@ -650,7 +659,7 @@ class TrinityCore:
             self.last_decision_bypassed = True 
 
         # 1. Ajuste por Regime
-        if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
+        if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
             dynamic_phi_min *= 0.25  # Mais permissivo em drifting regimes para capturar reversões lentas
         elif regime_state.current.value in ["CHOPPY", "UNKNOWN", "LOW_LIQUIDITY"]:
             dynamic_phi_min *= 0.35  # Baixa volatilidade = menor necessidade de integração complexa
@@ -743,11 +752,15 @@ class TrinityCore:
         # Se estamos em drift e a entropia é baixíssima com 0 inércia = Robôs negociando com robôs
         is_drifting = regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY"]
         # [Phase Ω-PhD-7] Geodesic Flow bypasses Vacuum: Fluxo laminar programático é legítimo.
-        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and phi < 0.25 and not is_geodesic_flow:
+        # [Phase Ω-Aethel] Topological Protection Bypass
+        is_topologically_protected = any(s.agent_name in ["ChernSimonsTopological", "BraidTopology"] and abs(s.signal) > 0.8 for s in agent_signals)
+        
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and phi < 0.25 and not (is_geodesic_flow or is_topologically_protected):
             self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia + Φ={phi:.2f} < 0.25). Avoiding chop.", 60)
             return self._wait("ENTROPIC_VACUUM_VETO")
-        elif is_geodesic_flow and is_drifting and entropy < 0.45:
-            self._log_cooldown("VACUUM_GEODESIC", f"☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent={entropy:.2f}).", 60, level="omega")
+        elif (is_geodesic_flow or is_topologically_protected) and is_drifting and entropy < 0.45:
+            reason = "Geodesic Flow" if is_geodesic_flow else "Topological Protection"
+            self._log_cooldown("VACUUM_GEODESIC", f"☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via {reason} (Ent={entropy:.2f}).", 60, level="omega")
 
         # ═══ VETO 04.6: PHI IGNORANCE (Soberania do Presente) ═══
         # Se Φ é baixíssimo
@@ -1101,15 +1114,21 @@ class TrinityCore:
         ema_9 = snapshot.indicators.get("M5_ema_9")
         if ema_9 is not None and len(ema_9) > 0 and atr > 0:
             dist_from_mean = (snapshot.price - ema_9[-1]) / atr
+            
+            # PhD Immunity: Se agentes de campo ou escala estão em ressonância, ignoramos o estiramento
+            phd_protection = any(s.agent_name in ["RGScalingInvariance", "ChernSimonsTopological", "BraidTopology"] and abs(s.signal) > 0.85 for s in agent_signals)
+            # Cascade Bypass: Em quedas verticais ou drifts estáveis, o estiramento é o motor do lucro
+            is_cascade = regime_state.current.value in ["LIQUIDATION_CASCADE", "DRIFTING_BEAR", "DRIFTING_BULL"]
+            
             # Se preço > 2 ATRs da média E sinal é BUY -> Perigo de Blow-off
-            if action == Action.BUY and dist_from_mean > 2.0:
+            if action == Action.BUY and dist_from_mean > 2.0 and not (phd_protection or is_cascade):
                 # Se não houver uma ignição genuína comprovada por volume institucional
                 v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
                 vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
                 if vol_ratio < 3.0: # Volume não justifica o estiramento
                     return self._wait(f"KINEMATIC_DECOUPLING_BUY (Price too far from mean: {dist_from_mean:.1f}xATR)")
             # Simétrico para SELL
-            elif action == Action.SELL and dist_from_mean < -2.0:
+            elif action == Action.SELL and dist_from_mean < -2.0 and not (phd_protection or is_cascade):
                 v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
                 vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
                 if vol_ratio < 3.0:
@@ -1172,13 +1191,19 @@ class TrinityCore:
                             if abs(dist_to_valley) < 0.08:
                                 matches = sum(1 for v in recent_valleys if abs((v - valley)/valley*100) < 0.1)
                                 if matches >= 2: # Fundo Duplo ou Triplo
-                                    bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
-                                    # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
-                                    if abs(quantum_state.raw_signal) > 0.50:
-                                        pass # A gravidade quântica engolirá o suporte
-                                    elif not (has_ignition or is_god_mode or is_ghost_sweep or abs(quantum_state.raw_signal) > bypass_thresh):
-                                        return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
+                                     bypass_thresh = 0.15 if "CREEPING" in regime_state.current.value else 0.40
 
+                                     # [PHASE Ω-SINGULARITY] Quantum Tunneling & Event Horizon Bypass
+                                     is_drifting_bear = "DRIFTING_BEAR" in regime_state.current.value or "LIQUIDATION" in regime_state.current.value
+                                     is_event_horizon = is_drifting_bear and matches >= 4
+
+                                     # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
+                                     if abs(quantum_state.raw_signal) > 0.50:
+                                         pass # A gravidade quântica engolirá o suporte
+                                     elif is_event_horizon:
+                                         pass # Bypass absoluto: A barreira fadigou e o horizonte de eventos atrai o preço (Tunneling)
+                                     elif not (has_ignition or is_god_mode or is_ghost_sweep or abs(quantum_state.raw_signal) > bypass_thresh):
+                                         return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
         # Prevents selling the exact bottom of a liquidity hunt (wick) or buying the exact top.
         candles_m1 = snapshot.candles.get("M1")
@@ -1214,9 +1239,12 @@ class TrinityCore:
                 return self._wait(f"ELITE_DIVERGENCE_VETO (Swarm={swarm_direction}, Elite_Sum={elite_direction_sum})")
 
         # [Phase Ω-Apocalypse] VETO 10.5: MOMENTUM EXHAUSTION DIVERGENCE
-        # Se os agentes de Momentum/Velocidade estão empolgados, mas os de
-        # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
-        if not (is_god_mode or is_tec_sovereign):
+        # PhD Immunity: Se agentes Omega estão em consenso, ignoramos divergências visuais
+        phd_names = ["RiemannianManifoldAgent", "InformationGeometryAgent", "QuantumSuperpositionAgent", "RGScalingInvariance", "BraidTopology"]
+        phd_excited = any(s.agent_name in phd_names and abs(s.signal) > 0.7 for s in agent_signals)
+        is_drifting = "DRIFTING" in regime_state.current.value
+        
+        if not (is_god_mode or is_tec_sovereign or phd_excited or is_drifting):
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             
@@ -1287,17 +1315,18 @@ class TrinityCore:
                     rr_ratio = reward / risk if risk > 0 else 0
 
             # [Phase Ω-Singularity] Monte Carlo Hard Veto: Expected Value (EV)
+            is_drifting = "DRIFTING" in regime_state.current.value or "LIQUIDATION" in regime_state.current.value
             if mc_result.expected_return < 0:
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
-                # Só permitimos se for um sinal de exaustão extrema (God-Mode)
-                # [Phase Ω-Lockdown] Hardened bypass to phi > 0.40
-                if not is_god_mode and not (phi > 0.40 and abs(signal) > 0.60):
+                # Só permitimos se for um sinal de exaustão extrema (God-Mode) ou Drift estável com consenso.
+                if not is_god_mode and not (phi > 0.35 and abs(signal) > 0.50 and is_drifting):
                     return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
 
             # [Phase Ω-PhD-3] MC-Score Floor
             # O mc_score pondera WP, EV e CVaR. Um valor < -0.25 indica um trade intrinsecamente "sujo".
             if mc_score < -0.25 and not is_god_mode:
-                return self._wait(f"MC_SCORE_FLOOR_VETO ({mc_score:.3f} < -0.25) - High Probability of Chaos")
+                if not (phi > 0.40 and abs(signal) > 0.60 and is_drifting):
+                    return self._wait(f"MC_SCORE_FLOOR_VETO ({mc_score:.3f} < -0.25) - High Probability of Chaos")
 
             # [Phase Ω-Resilience] Counter-Trend Phi Gate
             # Se a ordem é BUY em regime BEAR, ou SELL em regime BULL, exigimos Φ muito maior.

@@ -7,16 +7,17 @@
 """
 
 import numpy as np
+import math
+from typing import Dict, Any, Optional
 from core.consciousness.agents.base import BaseAgent, AgentSignal
+from cpp.asi_bridge import CPP_CORE
+from utils.decorators import catch_and_log
 
 class CausalCounterfactualAgent(BaseAgent):
     """
     [Phase Ω-Genesis] Raciocínio Contrafactual (Inferência Causal).
-    O que o preço seria se um determinado choque de volume não tivesse ocorrido?
-    Calcula o 'Preço Orgânico' (Baseline) versus o 'Preço Manipulado' (Choque).
-    Se a divergência for muito alta, a ASI aposta na volta imediata ao orgânico.
     """
-    def __init__(self, weight=4.2): # Peso colossal: Baseado em causalidade real
+    def __init__(self, weight=4.2):
         super().__init__("CausalCounterfactual", weight)
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
@@ -27,8 +28,6 @@ class CausalCounterfactualAgent(BaseAgent):
         closes = np.array(candles_m1["close"], dtype=np.float64)
         volumes = np.array(candles_m1["tick_volume"], dtype=np.float64)
         
-        # 1. Identificar o "Preço Orgânico" (Média ponderada por volume estável)
-        # Removemos os outliers de volume (choques) para calcular o orgânico
         vol_mean = np.mean(volumes)
         vol_std = np.std(volumes)
         organic_mask = volumes < (vol_mean + vol_std)
@@ -36,39 +35,30 @@ class CausalCounterfactualAgent(BaseAgent):
         if not np.any(organic_mask):
             return AgentSignal(self.name, 0.0, 0.0, "NO_ORGANIC_DATA", self.weight)
             
-        # O preço orgânico é a tendência sem os picos de volume institucional
         organic_trend = np.polyval(np.polyfit(np.arange(len(closes))[organic_mask], closes[organic_mask], 1), len(closes)-1)
         
         current_price = closes[-1]
         divergence = current_price - organic_trend
         
-        # 2. Identificar a "Intencionalidade" (Volume anormal recente)
         recent_vol = np.mean(volumes[-3:])
         vol_shock = recent_vol / (vol_mean + 1e-6)
         
-        atr = snapshot.indicators.get("M5_atr_14", [20.0])[-1]
+        atr = snapshot.metadata.get("atr_m5", 20.0)
         
         signal = 0.0
         conf = 0.0
         reason = "CAUSAL_EQUILIBRIUM"
         
-        # Se houve um choque de volume (Alguém agiu) E o preço divergiu muito do orgânico
         if vol_shock > 2.5 and abs(divergence) > atr * 1.0:
-            # Temos um desvio causal. A 'Causa' foi o choque de volume.
-            # Qual a probabilidade do mercado sustentar esse desvio?
-            # Se a aceleração (v-pulse) está caindo, a causa está morrendo.
             tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
-            
-            if tick_velocity < 20.0: # A energia da agressão acabou, mas o preço ficou 'pendurado'
-                # Sinal de reversão contrafactual: "Se a agressão parou, o preço deve voltar"
+            if tick_velocity < 20.0: 
                 signal = -np.sign(divergence)
                 conf = 0.92
-                reason = f"CAUSAL_REVERSION (Div={divergence:.1f}, Shock={vol_shock:.1f}x)"
+                reason = f"CAUSAL_REVERSION"
             else:
-                # A agressão continua. É uma mudança de patamar orgânico real.
                 signal = np.sign(divergence)
                 conf = 0.85
-                reason = f"CAUSAL_MOMENTUM (New organic level forming)"
+                reason = f"CAUSAL_MOMENTUM"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
 
@@ -76,10 +66,6 @@ class CausalCounterfactualAgent(BaseAgent):
 class IntentionalityDecompositionAgent(BaseAgent):
     """
     [Phase Ω-Genesis] Decomposição de Intencionalidade Institucional.
-    Separa ordens PASSIVAS (Absorção) de ordens ATIVAS (Agressão).
-    Mapeia a 'Vontade' do mercado. Se o preço sobe mas a 'Vontade de Venda'
-    (absorção no Ask) é maior que a 'Vontade de Compra', o movimento é uma 
-    armadilha de exaustão.
     """
     def __init__(self, weight=4.0):
         super().__init__("IntentDecomposition", weight)
@@ -89,26 +75,146 @@ class IntentionalityDecompositionAgent(BaseAgent):
         if not orderflow:
             return AgentSignal(self.name, 0.0, 0.0, "NO_ORDERFLOW", self.weight)
             
-        imbalance = orderflow.get("imbalance", 0.0) # Delta agressivo
-        absorption = orderflow.get("absorption", {}) # Detecção de Icebergs/Paredes
+        imbalance = orderflow.get("imbalance", 0.0)
+        absorption = orderflow.get("absorption", {})
         
         buy_abs = absorption.get("buy_absorption", 0.0)
         sell_abs = absorption.get("sell_absorption", 0.0)
         
-        signal = 0.0
-        conf = 0.0
-        reason = "INTENT_NEUTRAL"
-        
-        # Se há muita agressão de compra (imbalance > 0.6) mas também muita absorção de venda (sell_abs > threshold)
-        # Significa que as baleias estão vendendo passivamente tudo que o varejo compra.
         if imbalance > 0.6 and sell_abs > 0.7:
-            signal = -1.0 # Bearish (Armadilha de Compra)
-            conf = 0.95
-            reason = f"INTENT_DECEPTION_BEAR (Aggressive BUY absorbed by Passive SELL)"
-            
+            return AgentSignal(self.name, -1.0, 0.95, "INTENT_DECEPTION_BEAR", self.weight)
         elif imbalance < -0.6 and buy_abs > 0.7:
-            signal = 1.0 # Bullish (Armadilha de Venda)
-            conf = 0.95
-            reason = f"INTENT_DECEPTION_BULL (Aggressive SELL absorbed by Passive BUY)"
+            return AgentSignal(self.name, 1.0, 0.95, "INTENT_DECEPTION_BULL", self.weight)
             
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
+        return AgentSignal(self.name, 0.0, 0.0, "INTENT_NEUTRAL", self.weight)
+
+class SpectralInformationFluxAgent(BaseAgent):
+    """
+    [Ω-FLUX] Spectral Information Flux.
+    """
+    def __init__(self, weight: float = 4.5):
+        super().__init__("SpectralInformationFlux", weight)
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        history = snapshot.m1_closes[-64:]
+        if len(history) < 32: return None
+        
+        try:
+            flux = CPP_CORE.calculate_spectral_flux(history)
+            
+            if flux > 1.5:
+                direction = np.sign(snapshot.price - history[-10])
+                return AgentSignal(self.name, direction, min(0.99, flux / 3.0), f"Spectral Flux Ignition", self.weight)
+            elif flux < 0.5:
+                return AgentSignal(self.name, 0.0, 0.80, f"Spectral Energy Dissipation", self.weight)
+                
+            return None
+        except:
+            return None
+
+class GeometricBerryCurvatureAgent(BaseAgent):
+    """
+    [Ω-BERRY] Quantum Geometric Tensor & Berry Curvature.
+    """
+    def __init__(self, weight: float = 4.7):
+        super().__init__("GeometricBerryCurvature", weight)
+        self.signal_history = []
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        raw_signals = kwargs.get("swarm_raw_signals", [])
+        if not raw_signals: return None
+        
+        top_agents = sorted(raw_signals, key=lambda x: x.weight, reverse=True)[:8]
+        current_signals = [s.signal for s in top_agents]
+        
+        if len(current_signals) < 2: return None
+        
+        self.signal_history.append(current_signals)
+        if len(self.signal_history) > 20: self.signal_history.pop(0)
+        
+        if len(self.signal_history) < 10: return None
+        
+        try:
+            flat_signals = np.array(self.signal_history).T.flatten()
+            curvature = CPP_CORE.calculate_berry_curvature(flat_signals, len(current_signals), len(self.signal_history))
+            
+            if abs(curvature) > 0.3:
+                direction = np.sign(curvature)
+                return AgentSignal(self.name, direction, min(0.99, abs(curvature) * 2.0), f"Geometric Singularity", self.weight)
+                
+            return None
+        except:
+            return None
+
+class NeuralTransferEntropyAgent(BaseAgent):
+    """
+    [Ω-CAUSALITY] Neural Transfer Entropy (Information Theory).
+    Calculates lead-lag information flow from ETH to BTC.
+    If ETH is leaking information to BTC, we strike in ETH's direction.
+    """
+    def __init__(self, weight: float = 4.9):
+        super().__init__("NeuralTransferEntropy", weight)
+        self.eth_history = []
+        self.btc_history = []
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        eth_price = snapshot.metadata.get("macro_update_eth", 0.0) or snapshot.metadata.get("eth_price", 0.0)
+        if eth_price == 0: return None
+        
+        self.eth_history.append(eth_price)
+        self.btc_history.append(snapshot.price)
+        
+        if len(self.eth_history) > 50:
+            self.eth_history.pop(0)
+            self.btc_history.pop(0)
+            
+        if len(self.eth_history) < 30: return None
+        
+        try:
+            te_eth_to_btc = CPP_CORE.calculate_transfer_entropy(np.array(self.eth_history), np.array(self.btc_history), len(self.eth_history), bins=10)
+            
+            if te_eth_to_btc > 0.15: # High Information Flow
+                eth_trend = np.sign(self.eth_history[-1] - self.eth_history[-10])
+                return AgentSignal(self.name, eth_trend, min(0.99, te_eth_to_btc * 4.0), f"ETH Information Leakage (TE={te_eth_to_btc:.2f})", self.weight)
+                
+            return None
+        except:
+            return None
+
+class KramersKronigDispersiveAgent(BaseAgent):
+    """
+    [Ω-DISPERSION] Kramers-Kronig Dispersive Relation.
+    Detects causality breakdown when volatility (imaginary) decouples from price move (real).
+    Predicts snap-backs in over-extended dispersive states.
+    """
+    def __init__(self, weight: float = 4.4):
+        super().__init__("KramersKronigDispersive", weight)
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        history = snapshot.m1_closes[-20:]
+        if len(history) < 15: return None
+        
+        try:
+            returns = np.diff(np.log(history + 1e-9))
+            susceptibility = CPP_CORE.calculate_kramers_kronig_anomaly(returns)
+            
+            # Ratio < 0.1 means huge volatility with almost zero real price move (Absorption/Exhaustion)
+            if susceptibility < 0.1:
+                direction = -np.sign(snapshot.price - history[0])
+                return AgentSignal(self.name, direction, 0.94, f"Dispersive Causality Breakdown (Ratio={susceptibility:.3f})", self.weight)
+                
+            return None
+        except:
+            return None

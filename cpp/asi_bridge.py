@@ -581,6 +581,55 @@ class CppASICore:
         lib.detect_soliton_wave.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
         lib.detect_soliton_wave.restype = ctypes.c_double
 
+        # ═══ TRANSCENDENCE ENGINES (QED & NLSE) ═══
+        lib.calculate_casimir_force.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double]
+        lib.calculate_casimir_force.restype = ctypes.c_double
+
+        lib.solve_nlse_rogue_wave.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double]
+        lib.solve_nlse_rogue_wave.restype = ctypes.c_double
+
+        # ═══ QUANTUM GRAVITY (Phase Ω-Apocalypse) ═══
+        lib.calculate_eigenvector_centrality.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(ctypes.c_double)]
+        lib.calculate_eigenvector_centrality.restype = None
+
+        # ═══ NON-LINEAR DYNAMICS (Phase Ω-Eternity) ═══
+        lib.calculate_rg_scaling_invariance.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_rg_scaling_invariance.restype = ctypes.c_double
+
+        lib.estimate_attractor_folding.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double]
+        lib.estimate_attractor_folding.restype = ctypes.c_double
+
+        # ═══ TOPOLOGICAL BRAIDING (Phase Ω-Continuum) ═══
+        lib.calculate_braid_index.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_int]
+        lib.calculate_braid_index.restype = ctypes.c_double
+
+        lib.calculate_kaldor_hicks_ratio.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double]
+        lib.calculate_kaldor_hicks_ratio.restype = ctypes.c_double
+
+        # ═══ GEOMETRIC SPECTRAL ANALYSIS (Phase Ω-Genesis) ═══
+        lib.calculate_spectral_flux.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_spectral_flux.restype = ctypes.c_double
+
+        lib.calculate_berry_curvature.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_int]
+        lib.calculate_berry_curvature.restype = ctypes.c_double
+
+        # ═══ QUANTUM FIELD THEORY (Phase Ω-Aethel) ═══
+        lib.calculate_fermi_pressure.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double]
+        lib.calculate_fermi_pressure.restype = ctypes.c_double
+
+        lib.calculate_chern_simons_index.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_chern_simons_index.restype = ctypes.c_double
+
+        # ═══ INFORMATION CAUSALITY (Phase Ω-Genesis) ═══
+        lib.calculate_transfer_entropy.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_int]
+        lib.calculate_transfer_entropy.restype = ctypes.c_double
+
+        lib.calculate_kramers_kronig_anomaly.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int]
+        lib.calculate_kramers_kronig_anomaly.restype = ctypes.c_double
+
+        lib.calculate_byzantine_penalties.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.POINTER(ctypes.c_double)]
+        lib.calculate_byzantine_penalties.restype = None
+
     # ═══ HELPER: numpy array → C pointer ═══
     @staticmethod
     def _ptr(arr: np.ndarray):
@@ -1252,6 +1301,98 @@ class CppASICore:
         if not self._loaded: return 0.0
         v = self._ensure_f64(velocities)
         return self._lib.detect_soliton_wave(self._ptr(v), len(v))
+
+    # ═══ TRANSCENDENCE ENGINES (QED & NLSE) ═══
+
+    def calculate_casimir_force(self, virtual_cancellations: np.ndarray, spread_distance: float) -> float:
+        if not self._loaded: return 0.0
+        v_cancels = self._ensure_f64(virtual_cancellations)
+        return self._lib.calculate_casimir_force(self._ptr(v_cancels), len(v_cancels), ctypes.c_double(spread_distance))
+
+    def solve_nlse_rogue_wave(self, amplitudes: np.ndarray, phases: np.ndarray, nonlinear_coupling: float) -> float:
+        if not self._loaded: return 0.0
+        amps = self._ensure_f64(amplitudes)
+        phs = self._ensure_f64(phases)
+        return self._lib.solve_nlse_rogue_wave(self._ptr(amps), self._ptr(phs), len(amps), ctypes.c_double(nonlinear_coupling))
+
+    # ═══ QUANTUM GRAVITY (Phase Ω-Apocalypse) ═══
+
+    def calculate_eigenvector_centrality(self, price_levels: np.ndarray, volumes: np.ndarray, damping_factor: float = 0.85) -> np.ndarray:
+        if not self._loaded: return np.zeros_like(price_levels)
+        prices = self._ensure_f64(price_levels)
+        vols = self._ensure_f64(volumes)
+        size = len(prices)
+        out_centralities = np.zeros(size, dtype=np.float64)
+        
+        self._lib.calculate_eigenvector_centrality(self._ptr(prices), self._ptr(vols), size, ctypes.c_double(damping_factor), self._ptr(out_centralities))
+        return out_centralities
+
+    # ═══ NON-LINEAR DYNAMICS (Phase Ω-Eternity) ═══
+
+    def calculate_rg_scaling_invariance(self, tick_data: np.ndarray, m1_data: np.ndarray, m5_data: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        t = self._ensure_f64(tick_data)
+        m1 = self._ensure_f64(m1_data)
+        m5 = self._ensure_f64(m5_data)
+        return self._lib.calculate_rg_scaling_invariance(
+            self._ptr(t), len(t), 
+            self._ptr(m1), len(m1), 
+            self._ptr(m5), len(m5)
+        )
+
+    def estimate_attractor_folding(self, prices: np.ndarray, dt: float = 1.0) -> float:
+        if not self._loaded: return 0.0
+        p = self._ensure_f64(prices)
+        return self._lib.estimate_attractor_folding(self._ptr(p), len(p), ctypes.c_double(dt))
+
+    # ═══ TOPOLOGICAL BRAIDING (Phase Ω-Continuum) ═══
+
+    def calculate_braid_index(self, strands: np.ndarray, n_agents: int, lookback: int) -> float:
+        if not self._loaded: return 0.0
+        s = self._ensure_f64(strands)
+        return self._lib.calculate_braid_index(self._ptr(s), n_agents, lookback)
+
+    def calculate_kaldor_hicks_ratio(self, expected_alpha: float, slippage_est: float, spread: float, commission: float) -> float:
+        if not self._loaded: return 1.0
+        return self._lib.calculate_kaldor_hicks_ratio(
+            ctypes.c_double(expected_alpha), 
+            ctypes.c_double(slippage_est), 
+            ctypes.c_double(spread), 
+            ctypes.c_double(commission)
+        )
+
+    # ═══ GEOMETRIC SPECTRAL ANALYSIS (Phase Ω-Genesis) ═══
+
+    def calculate_spectral_flux(self, data: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        d = self._ensure_f64(data)
+        return self._lib.calculate_spectral_flux(self._ptr(d), len(d))
+
+    def calculate_berry_curvature(self, signals: np.ndarray, n_agents: int, n_steps: int) -> float:
+        if not self._loaded: return 0.0
+        s = self._ensure_f64(signals)
+        return self._lib.calculate_berry_curvature(self._ptr(s), n_agents, n_steps)
+
+    # ═══ QUANTUM FIELD THEORY (Phase Ω-Aethel) ═══
+
+    def calculate_fermi_pressure(self, volumes: np.ndarray, temperature: float) -> float:
+        if not self._loaded: return 0.0
+        v = self._ensure_f64(volumes)
+        return self._lib.calculate_fermi_pressure(self._ptr(v), len(v), ctypes.c_double(temperature))
+
+    def calculate_chern_simons_index(self, x: np.ndarray, y: np.ndarray, z: np.ndarray) -> float:
+        if not self._loaded: return 0.0
+        vx = self._ensure_f64(x)
+        vy = self._ensure_f64(y)
+        vz = self._ensure_f64(z)
+        return self._lib.calculate_chern_simons_index(self._ptr(vx), self._ptr(vy), self._ptr(vz), len(vx))
+
+    def calculate_byzantine_penalties(self, errors: np.ndarray, penalties: np.ndarray):
+        if not self._loaded: return
+        e = self._ensure_f64(errors)
+        p = self._ensure_f64(penalties)
+        self._lib.calculate_byzantine_penalties(self._ptr(e), len(e), self._ptr(p))
+        np.copyto(penalties, p)
 
 
 # ═══ SINGLETON ═══

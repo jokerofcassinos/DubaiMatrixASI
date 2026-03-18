@@ -60,11 +60,13 @@ class TestSingularityPivot(unittest.TestCase):
         quantum_state = MagicMock()
         quantum_state.superposition = False
         quantum_state.collapsed_signal = 0.8
+        quantum_state.raw_signal = 0.8 # [Phase Ω-PhD] Added for robustness
         quantum_state.confidence = 0.9
         quantum_state.phi = 0.5
         quantum_state.entropy = 0.1
         quantum_state.coherence = 0.5
         quantum_state.reasoning = "Test"
+        quantum_state.agent_signals = []
         quantum_state.metadata = {"is_god_candidate": False, "bull_agents": ["TrendAgent", "MomentumAgent", "VolumeAgent"]}
         
         asi_state = MagicMock()

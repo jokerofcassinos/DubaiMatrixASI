@@ -304,9 +304,8 @@ class OmegaParameterSpace:
                         "Threshold de curvatura Ricci p/ atrator topológico")
         self._register("kinetic_velocity_floor", 2.0, 0.5, 10.0,
                         "Velocidade mínima de ticks p/ evitar Veto de Exaustão (DRIFT MODE)")
-        self._register("phi_min_threshold", 0.08, 0.01, 0.60,
-                        "Threshold de Consciência (Φ) Integrada Mínima")
-        self._register("kl_velocity_threshold", 1.50, 0.05, 3.00,
+
+        self._register("kl_velocity_threshold", 1.2, 0.5, 3.5,
                         "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
         self._register("lie_symmetry_threshold", 0.1, 0.01, 1.0,
                         "Variância máxima p/ simetria de Lie (Iceberg detection)")
@@ -324,8 +323,7 @@ class OmegaParameterSpace:
                         "Multiplicador agressivo ao negociar contra falso suporte em Drift")
         
         # ═══ PHASE Ω-PhD-4: INFORMATION GEOMETRY & PHASE TRANSITIONS ═══
-        self._register("kl_velocity_threshold", 0.95, 0.05, 1.50,
-                        "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
+
         self._register("entropy_convergence_threshold", 0.002, 0.0005, 0.01,
                         "Variância máxima do sinal (Entropy Bridge) p/ confirmar convergência de informação")
         self._register("structural_expectancy_sizing_enabled", 1.0, 0.0, 1.0,
@@ -334,8 +332,7 @@ class OmegaParameterSpace:
         # ═══ PHASE Ω-PhD-5: THE SINGULARITY PIVOT ═══
         self._register("creep_maturity_threshold", 150.0, 50.0, 500.0,
                         "Número de barras para decretar maturidade (vencimento) de regime CREEPING")
-        self._register("kinetic_velocity_floor", 4.5, 3.0, 25.0,
-                        "Velocidade mínima (tick velocity) para autorizar entradas em regimes estáveis")
+
 
         # ═══ PHASE Ω-PhD-6: TOPOLOGICAL ENTROPY COLLAPSE (TEC) ═══
         self._register("tec_sensitivity", 0.40, 0.10, 0.80,

@@ -30,12 +30,24 @@ class TestPhDAlpha(unittest.TestCase):
         # Sinal: 0.17 (abaixo de 0.18, mas acima de 0.9 * 0.18 = 0.162)
         
         snapshot = MagicMock()
-        snapshot.metadata = {"kl_divergence": 0.0, "tick_velocity": 2.0, "pnl_prediction": "IMPOSSIBLE:NEGATIVE_EXPECTANCY"}
+        snapshot.metadata = {
+            "kl_divergence": 0.0, 
+            "tick_velocity": 2.2, 
+            "pnl_prediction": "STABLE",
+            "v_pulse_detected": False,
+            "v_pulse_capacitor": 0.0,
+            "shannon_entropy": 0.9,
+            "shannon_history": [0.9]*10,
+            "is_braided": False,
+            "god_mode_active": False,
+            "phi_resonance": False
+        }
         snapshot.tick = {"ask": 70000.0, "bid": 69990.0, "last": 70000.0}
         snapshot.price = 70000.0
         snapshot.symbol_info = {"spread": 10, "point": 0.01, "trade_contract_size": 1}
         snapshot.atr = 50.0
         snapshot.indicators = {"M5_atr_14": [50.0], "M1_atr_14": [50.0], "M1_entropy": [0.5]}
+        snapshot.account = {"balance": 100000.0}
         snapshot.candles = {
             "M1": {
                 "low": np.array([69990.0]*10),
@@ -49,18 +61,32 @@ class TestPhDAlpha(unittest.TestCase):
         quantum_state.phi = 0.05 # LATE IGNITION (Previously would fail Φ-Gate 0.15)
         quantum_state.coherence = 0.5
         quantum_state.collapsed_signal = 0.19 # Sinal estável (95% do threshold 0.20)
+        quantum_state.raw_signal = 0.19 # [Phase Ω-PhD] Added for robustness
         quantum_state.confidence = 0.85
         quantum_state.entropy = 0.3
         quantum_state.superposition = False
+        quantum_state.agent_signals = []
         quantum_state.metadata = {"bull_agents": ["A1","A2","A3"], "bear_agents": []}
         
         regime_state = MagicMock()
         regime_state.current = MarketRegime.CREEPING_BULL
+        regime_state.duration_bars = 5
         regime_state.v_pulse_detected = False
         
         asi_state = MagicMock()
         asi_state.circuit_breaker_active = False
         asi_state.consecutive_losses = 0
+        
+        # Mock Monte Carlo to avoid statistical noise in logic test
+        mc_mock = MagicMock()
+        mc_mock.monte_carlo_score = 0.5
+        mc_mock.expected_return = 2.0
+        mc_mock.win_probability = 0.6
+        mc_mock.conditional_var_95 = 0.1
+        mc_mock.optimal_sl_distance = 0
+        mc_mock.optimal_tp_distance = 0
+        mc_mock.simulation_time_ms = 1.0
+        self.trinity.monte_carlo.simulate_trade = MagicMock(return_value=mc_mock)
         
         # Simular 20 ciclos de sinal 0.19 (Variância 0)
         # Note: trinity_core updates _signal_history internally if implementation is correct
@@ -71,7 +97,7 @@ class TestPhDAlpha(unittest.TestCase):
         decision = self.trinity.decide(quantum_state, regime_state, snapshot, asi_state)
         
         if decision.action != Action.BUY:
-            print(f"DEBUG: Action was {decision.action}, Reasoning: {decision.reasoning}")
+            print(f"\nDEBUG FAIL: Action={decision.action} | Reasoning={decision.reasoning}")
             
         self.assertEqual(decision.action, Action.BUY)
         self.assertTrue(self.trinity.entropy_bridge_active)

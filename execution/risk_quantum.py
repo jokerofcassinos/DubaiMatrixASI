@@ -151,21 +151,41 @@ class RiskQuantumEngine:
             # [Phase Ω-PhD-4] Ω-Structural Expectancy Sizing (Ghost Veto)
             if OMEGA.get("structural_expectancy_sizing_enabled", 1.0) > 0.5:
                 pnl_pred = snapshot.metadata.get("pnl_prediction", "STABLE")
-                # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse/KL), asfixiamos o lote.
+                # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse/KL/Drift), asfixiamos o lote.
                 kl_div_current = snapshot.metadata.get("kl_divergence", 0.0)
                 kl_shift = kl_div_current > OMEGA.get("paradigm_shift_threshold", 0.95)
                 
+                # [Phase Ω-Eternity] Drift Regime awareness
+                regime_name = "UNKNOWN"
+                if hasattr(snapshot, 'regime') and snapshot.regime:
+                    if hasattr(snapshot.regime, 'current'):
+                        regime_name = snapshot.regime.current.value
+                    else:
+                        regime_name = str(snapshot.regime)
+                
+                is_stable_drift = "DRIFTING" in regime_name or "LIQUIDATION" in regime_name
+                
+                # [Phase Ω-Inertia] Kinetic Inertia: Se o consenso do enxame é total, bypassamos o pessimismo do Java
+                # No ASIBrain, salvamos Φ em phi_last
+                phi = snapshot.metadata.get("phi_last", 0.0)
+                raw_signal = snapshot.metadata.get("raw_signal", 0.0)
+                is_consensus_absolute = phi > 0.35 and abs(raw_signal) > 0.50
+                
                 is_lethal = (snapshot.metadata.get("v_pulse_detected", False) or 
                              snapshot.metadata.get("god_mode_active", False) or 
+                             is_stable_drift or
+                             is_consensus_absolute or
                              kl_shift)
                              
-                if "NEGATIVE_EXPECTANCY" in pnl_pred and not is_lethal:
-                    log.omega(f"🛡️ [Ω-STRUCTURAL SIZING] Negative Expectancy ({pnl_pred}). Ghost Veto: lot_size=0.")
-                    return 0.0 # Anulação via retorno zero
-                elif "NEGATIVE_EXPECTANCY" in pnl_pred and is_lethal:
-                    log.info(f"🦅 [BAYESIAN PRIOR OVERRIDE] Negative Expectancy bypassed due to Lethal Strike (V-Pulse/KL).")
-                    # Em caso letal com histórico ruim, forçamos exposição mínima em vez do size padrão.
-                    risk_fraction = max(0.005, risk_fraction * 0.5)
+                if "NEGATIVE_EXPECTANCY" in pnl_pred:
+                    if not is_lethal:
+                        log.omega(f"🛡️ [Ω-STRUCTURAL SIZING] Negative Expectancy ({pnl_pred}). Ghost Veto: lot_size=0.")
+                        return 0.0 
+                    else:
+                        log.info(f"🦅 [EXPECTANCY BYPASS] Negative Expectancy bypassed. Reason: " + 
+                                 f"{'Drift' if is_stable_drift else ('Consensus' if is_consensus_absolute else 'Ignition')}")
+                        # Em caso letal com histórico ruim, forçamos exposição mínima.
+                        risk_fraction = max(0.005, risk_fraction * 0.5)
 
          # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0
@@ -187,8 +207,13 @@ class RiskQuantumEngine:
 
         # 7. [Phase Ω-Infrastructure] Margin Level Guard (Anti-Stop-Out)
         if snapshot and snapshot.account:
-            margin_level = snapshot.account.get("margin_level", 1000.0)
-            if margin_level < 150.0:
+            margin_level = snapshot.account.get("margin_level", 0.0)
+            margin = snapshot.account.get("margin", 0.0)
+            
+            # Se a margem é 0, o nível é tecnicamente infinito. MT5 retorna 0.0 neste caso.
+            if margin == 0 or margin_level == 0:
+                pass # Margem livre total
+            elif margin_level < 150.0:
                 log.warning(f"🚨 [MARGIN GUARD] Critical Level {margin_level:.2f}% < 150%. Locking lot to MIN_LOT.")
                 lot_size = MIN_LOT_SIZE
             elif margin_level < 200.0:

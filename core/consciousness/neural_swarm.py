@@ -133,7 +133,9 @@ from core.consciousness.agents.pheromone_field_agent import PheromoneFieldAgent
 
 # Phase Ω-Transcendence
 from core.consciousness.agents.transcendence_agents import (
-    RiemannianManifoldAgent, InformationGeometryAgent, QuantumSuperpositionAgent
+    RiemannianManifoldAgent, InformationGeometryAgent, QuantumSuperpositionAgent,
+    CasimirEffectAgent, InformationBottleneckMetaAgent, RogueWaveNLSEAgent,
+    AutocatalyticHypercycleMetaAgent, HolographicEntanglementAgent
 )
 from core.consciousness.agents.holographic_memory_agent import HolographicMemoryAgent
 from core.consciousness.agents.omniscience_agents import (
@@ -184,12 +186,14 @@ from core.consciousness.agents.ghost_inference_agent import GhostOrderInferenceA
 
 # Phase Ω-Eternity (Nível 6 - Teoria do Caos e Homeostase)
 from core.consciousness.agents.eternity_agents import (
-    QuantumSpinAgent, CyberneticHomeostasisAgent, ChaosFractalDimensionAgent
+    QuantumSpinAgent, CyberneticHomeostasisAgent, ChaosFractalDimensionAgent,
+    RGScalingInvariance, StrangeAttractorFoldingAgent,
+    BraidTopologyAgent, KaldorHicksEfficiencyAgent
 )
 
 # Phase Ω-Apocalypse (Nível 7 - Inteligência Predatória Hostil)
 from core.consciousness.agents.apocalypse_agents import (
-    DarkPoolArbitrageAgent, OptionGammaSqueezeAgent
+    DarkPoolArbitrageAgent, OptionGammaSqueezeAgent, TCellWeaponizedAgent
 )
 
 # Phase Ω-Apotheosis (Nível 8 - Inteligência Cósmica & Bio-Cibernética)
@@ -220,7 +224,9 @@ from core.consciousness.agents.illuminati_agents import (
 
 # Phase Ω-Genesis (Nível 13 - Inferência Causal e Contrafactual)
 from core.consciousness.agents.genesis_agents import (
-    CausalCounterfactualAgent, IntentionalityDecompositionAgent
+    CausalCounterfactualAgent, IntentionalityDecompositionAgent,
+    SpectralInformationFluxAgent, GeometricBerryCurvatureAgent,
+    NeuralTransferEntropyAgent, KramersKronigDispersiveAgent
 )
 
 # Phase Ω-Architect (Nível 14 - Centralidade de Autovetores e Bait-Layering)
@@ -255,7 +261,7 @@ from core.consciousness.agents.synapse_agents import (
 
 # Phase Ω-Eschaton (Nível 20 - Espectro Singular e Matrizes Aleatórias)
 from core.consciousness.agents.eschaton_agents import (
-    SingularSpectrumAnalysisAgent, RandomMatrixTheoryAgent
+    SingularSpectrumAnalysisAgent, RandomMatrixTheoryAgent, ByzantineConsensusAgent
 )
 
 # Phase Ω-Tensor (Nível 21 - Mecânica Relativística e criticalidade)
@@ -290,7 +296,8 @@ from core.consciousness.agents.hyper_dimension_agents import (
 
 # Phase Ω-Singularity (Nível 27 - Fluxo de Ricci e Gargalo de Informação)
 from core.consciousness.agents.quantum_field_agents import (
-    RicciFlowAgent, InformationBottleneckAgent
+    RicciFlowAgent, InformationBottleneckAgent,
+    DiracFermiPressureAgent, ChernSimonsTopologicalAgent
 )
 
 # Phase Ω-Quantum (Nível 28 - Teoria de Calibre e Ondas Solitons)
@@ -508,6 +515,12 @@ class NeuralSwarm:
             RiemannianManifoldAgent(weight=2.5),
             InformationGeometryAgent(weight=2.2),
             QuantumSuperpositionAgent(weight=2.4),
+            CasimirEffectAgent(weight=2.8),
+            InformationBottleneckMetaAgent(weight=3.1),
+            RogueWaveNLSEAgent(weight=2.9),
+            AutocatalyticHypercycleMetaAgent(weight=3.5),
+            HolographicEntanglementAgent(weight=3.0),
+            
             HolographicMemoryAgent(weight=3.0),
             OrderBookSpoofingAgent(weight=2.6),
             QuantumEntanglementAgent(weight=3.0),
@@ -526,10 +539,15 @@ class NeuralSwarm:
             QuantumSpinAgent(weight=2.9),
             CyberneticHomeostasisAgent(weight=2.7),
             ChaosFractalDimensionAgent(weight=3.2),
+            RGScalingInvariance(weight=4.5),
+            StrangeAttractorFoldingAgent(weight=4.2),
+            BraidTopologyAgent(weight=4.8),
+            KaldorHicksEfficiencyAgent(weight=3.5),
 
             # ═══ APOCALYPSE (Phase Ω-Apocalypse) ═══
             DarkPoolArbitrageAgent(weight=3.5),
             OptionGammaSqueezeAgent(weight=3.8),
+            TCellWeaponizedAgent(weight=5.0),
 
             # ═══ APOTHEOSIS (Phase Ω-Apotheosis) ═══
             MorphogeneticResonanceAgent(weight=3.3),
@@ -559,6 +577,8 @@ class NeuralSwarm:
             # ═══ GENESIS (Phase Ω-Genesis) ═══
             CausalCounterfactualAgent(weight=4.2),
             IntentionalityDecompositionAgent(weight=4.0),
+            SpectralInformationFluxAgent(weight=4.5),
+            GeometricBerryCurvatureAgent(weight=4.7),
 
             # ═══ ARCHITECT (Phase Ω-Architect) ═══
             EigenvectorCentralityAgent(weight=4.1),
@@ -572,9 +592,16 @@ class NeuralSwarm:
             TuringPatternAgent(weight=4.6),
             EigenstateDecoherenceAgent(weight=4.9),
 
+            # ═══ ESCHATON (Phase Ω-Eschaton) ═══
+            SingularSpectrumAnalysisAgent(weight=4.8),
+            RandomMatrixTheoryAgent(weight=4.2),
+            ByzantineConsensusAgent(weight=5.0),
+
             # ═══ SINGULARITY_V2 (Phase Ω-Singularity) ═══
             RicciFlowAgent(weight=4.8),
             InformationBottleneckAgent(weight=4.5),
+            DiracFermiPressureAgent(weight=4.3),
+            ChernSimonsTopologicalAgent(weight=4.9),
 
             # ═══ QUANTUM_UNIFICATION (Phase Ω-Quantum) ═══
             GaugeInvarianceAgent(weight=4.6),

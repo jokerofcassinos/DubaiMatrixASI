@@ -62,7 +62,7 @@ class PositionManager:
         self._last_nuke_log_time = {} # anchor_ticket -> float
         self._close_attempt_time = {} # ticket -> float (diagnostic)
     @catch_and_log(default_return=None)
-    def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict):
+    def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict, quantum_state=None):
         """
         Rotina principal de monitoramento chamada a cada ciclo pela ASIBrain.
         Analisa posições abertas e ordens pendentes.
@@ -337,6 +337,18 @@ class PositionManager:
                             
                         if stag_time >= max_stag_time:
                             should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f} | R={regime})"
+
+                # ═══════════════════════════════════════════════════
+                #  TRIGGER 6: THERMODYNAMIC BIFURCATION (Prigogine)
+                # ═══════════════════════════════════════════════════
+                if not should_close and quantum_state:
+                    prigogine_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "PrigogineDissipative"), None)
+                    if prigogine_signal and prigogine_signal.confidence > 0.85:
+                        # Se o sinal aponta contra a posição (Bifurcação Detectada)
+                        if (g_is_buy and prigogine_signal.signal < 0) or (not g_is_buy and prigogine_signal.signal > 0):
+                            # Se já temos algum lucro ou o drawdown é aceitável, ejetamos antes do colapso
+                            should_close = True
+                            reason = f"PRIGOGINE_BIFURCATION (Entropy saturation reversal detected | Conf: {prigogine_signal.confidence:.2f})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:

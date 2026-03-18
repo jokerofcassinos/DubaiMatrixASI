@@ -444,3 +444,32 @@ ASI_API void asi_solve_lotka_volterra(double dt, double alpha, double beta, doub
 // Black Swan Harvester: Extreme Value Theory (EVT)
 ASI_API void asi_harvest_black_swan(const double* extreme_ticks, int len, double threshold, 
                                      ExtremeValueResult* out);
+
+// -----------------------------------------------------------
+//  PHD OMEGA MATH & TRANSCENDENCE
+// -----------------------------------------------------------
+ASI_API double calculate_laser_compression(const double* energy_window, int len);
+ASI_API double calculate_navier_stokes_reynolds(const double* velocities, const double* densities, int len);
+ASI_API double calculate_dark_matter_gravity(double acceleration, double visible_mass);
+ASI_API double calculate_aethel_viscosity(const double* vwap_deltas, int len);
+ASI_API double detect_soliton_wave(const double* velocities, int len);
+ASI_API double calculate_casimir_force(const double* virtual_cancellations, int size, double spread_distance);
+ASI_API double solve_nlse_rogue_wave(const double* amplitudes, const double* phases, int size, double nonlinear_coupling);
+
+ASI_API void calculate_eigenvector_centrality(double* price_levels, double* volumes, int size, double damping_factor, double* out_centralities);
+
+ASI_API double calculate_rg_scaling_invariance(double* tick_data, int tick_size, double* m1_data, int m1_size, double* m5_data, int m5_size);
+ASI_API double estimate_attractor_folding(double* prices, int size, double dt);
+
+ASI_API double calculate_braid_index(double* strands, int n_agents, int lookback);
+ASI_API double calculate_kaldor_hicks_ratio(double expected_alpha, double slippage_est, double spread, double commission);
+
+ASI_API double calculate_spectral_flux(double* data, int size);
+ASI_API double calculate_berry_curvature(double* signals, int n_agents, int n_steps);
+ASI_API void calculate_byzantine_penalties(double* agent_errors, int count, double* out_penalties);
+
+ASI_API double calculate_fermi_pressure(double* volumes, int size, double temperature);
+ASI_API double calculate_chern_simons_index(double* x, double* y, double* z, int size);
+
+ASI_API double calculate_transfer_entropy(double* x_data, double* y_data, int size, int bins);
+ASI_API double calculate_kramers_kronig_anomaly(double* returns, int size);

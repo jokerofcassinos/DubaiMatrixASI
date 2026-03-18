@@ -29,6 +29,19 @@ add_library(asi_core SHARED
     src/info_geometry.cpp
     src/hyperspace_core.cpp
     src/phd_omega_math.cpp
+    src/chaos_detector.cpp
+    src/holographic_matrix.cpp
+    src/liquid_state_engine.cpp
+    src/mean_field_games.cpp
+    src/omega_extreme.cpp
+    src/omega_transcendence.cpp
+    src/eigenvector_centrality.cpp
+    src/rg_attractor_engine.cpp
+    src/braid_topology.cpp
+    src/spectral_geometry.cpp
+    src/quantum_field_theory.cpp
+    src/information_causality.cpp
+    src/spiking_neuron.cpp
 )
 
 # Export symbols no Windows

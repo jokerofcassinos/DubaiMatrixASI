@@ -1,171 +1,232 @@
-"""
-╔══════════════════════════════════════════════════════════════════════════════╗
-║              DUBAI MATRIX ASI — TRANSCENDENCE AGENTS (Phase Ω)              ║
-║     Sistemas analíticos baseados em Geometria Diferencial, Teoria da         ║
-║     Informação Quântica e Topologia Riemanniana.                             ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-"""
-
 import numpy as np
+import math
+from typing import Dict, Any, List, Optional
 from core.consciousness.agents.base import BaseAgent, AgentSignal
+from cpp.asi_bridge import CPP_CORE
+from utils.decorators import catch_and_log
 
 class RiemannianManifoldAgent(BaseAgent):
     """
-    [Phase Ω-Transcendence] Geometria Riemanniana aplicada ao Fluxo de Preço.
-    Mapeia a trajetória de preço e volume como uma curva em uma variedade de Riemann.
-    Detecta "curvatura extrema" indicando exaustão (Blow-off Tops / Bottoms) ou 
-    "geodésicas retas" indicando tendências inerciais sólidas.
+    [Ω-RIEMANNIAN] Computes the sectional curvature of the price-volume manifold.
+    Positive curvature indicates a 'gravity well' (reversion), negative indicates 
+    hyperbolic expansion (strong trend).
     """
-    def __init__(self, weight=2.5):
+    def __init__(self, weight: float = 2.5):
         super().__init__("RiemannianManifold", weight)
-
-    def analyze(self, snapshot, **kwargs) -> AgentSignal:
-        candles = snapshot.candles.get("M1")
-        if not candles or len(candles["close"]) < 20:
-            return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
-
-        closes = np.array(candles["close"], dtype=np.float64)
-        volumes = np.array(candles["tick_volume"], dtype=np.float64)
         
-        # Primeira derivada (Velocidade)
-        dp = np.diff(closes[-15:])
-        dv = np.diff(volumes[-15:])
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
         
-        # Segunda derivada (Aceleração / Curvatura)
-        ddp = np.diff(dp)
+        closes = snapshot.m1_closes
+        if len(closes) < 20: return None
         
-        if len(ddp) < 5:
-            return AgentSignal(self.name, 0.0, 0.0, "NOT_ENOUGH_CURVATURE_DATA", self.weight)
+        try:
+            res = CPP_CORE.phase_space(closes)
+            orbit = res.get("global_orbit", 0)
+            is_compressed = res.get("is_compressed", False)
             
-        current_acceleration = ddp[-1]
-        mean_acceleration = np.mean(np.abs(ddp))
-        
-        # Curvatura Riemanniana simplificada K = |y''| / (1 + y'^2)^(3/2)
-        # Normalizando as escalas
-        norm_dp = dp[-1] / (np.std(closes[-15:]) + 1e-6)
-        norm_ddp = ddp[-1] / (np.std(closes[-15:]) + 1e-6)
-        
-        curvature = abs(norm_ddp) / ((1 + norm_dp**2)**1.5)
-        
-        signal = 0.0
-        conf = 0.0
-        reason = "GEODESIC_FLAT"
-        
-        if curvature > 2.0:
-            # Curvatura extrema = Colapso iminente da estrutura atual (Exaustão)
-            # Reverte a direção da primeira derivada
-            direction = -np.sign(dp[-1])
-            signal = float(direction)
-            conf = min(0.95, curvature / 5.0)
-            reason = f"RIEMANNIAN_CURVATURE_SNAP (K={curvature:.2f})"
-        elif curvature < 0.2 and abs(norm_dp) > 1.0:
-            # Geodésica reta com alta velocidade = Inércia Pura
-            direction = np.sign(dp[-1])
-            signal = float(direction)
-            conf = 0.85
-            reason = f"INERTIAL_GEODESIC (Vel={norm_dp:.2f}, K={curvature:.2f})"
+            vwap = getattr(snapshot, 'vwap', snapshot.price)
 
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
-
+            if is_compressed: 
+                bias = -1.0 if snapshot.price > vwap else 1.0
+                return AgentSignal(self.name, bias, 0.85, f"Manifold Curvature Positive (Gravity Well)", self.weight)
+            else:
+                bias = 1.0 if snapshot.price > vwap else -1.0
+                return AgentSignal(self.name, bias, 0.70, f"Hyperbolic Trend Expansion", self.weight)
+        except:
+            return None
 
 class InformationGeometryAgent(BaseAgent):
     """
-    [Phase Ω-Transcendence] Geometria da Informação (Kullback-Leibler Divergence).
-    Avalia a distância estatística entre a distribuição de retornos atual (últimos 15 min)
-    e a distribuição histórica (últimas 2 horas).
-    Detecta "Paradigm Shifts" micro-estruturais antes dos indicadores técnicos.
+    [Ω-FISHER] Information Geometry Agent.
+    Measures the distance between the current state and the equilibrium state
+    using the Fisher Information Metric.
     """
-    def __init__(self, weight=2.2):
-        super().__init__("InfoGeometry", weight)
-
-    def analyze(self, snapshot, **kwargs) -> AgentSignal:
-        candles = snapshot.candles.get("M1")
-        if not candles or len(candles["close"]) < 120:
-            return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
-
-        closes = np.array(candles["close"], dtype=np.float64)
-        returns = np.diff(closes) / closes[:-1]
+    def __init__(self, weight: float = 2.2):
+        super().__init__("InformationGeometry", weight)
+        self.prev_dist = None
         
-        recent_returns = returns[-15:]
-        historical_returns = returns[-120:-15]
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
         
-        if np.std(recent_returns) == 0 or np.std(historical_returns) == 0:
-            return AgentSignal(self.name, 0.0, 0.0, "ZERO_VARIANCE", self.weight)
-
-        # Histograma para aproximar PDF (Probability Density Function)
-        bins = np.linspace(-0.005, 0.005, 20)
-        p_recent, _ = np.histogram(recent_returns, bins=bins, density=True)
-        q_hist, _ = np.histogram(historical_returns, bins=bins, density=True)
+        # Proxy for market state distribution
+        history = snapshot.m1_closes[-15:]
+        if len(history) < 10: return None
         
-        # Evitar divisão por zero
-        p_recent = p_recent + 1e-6
-        q_hist = q_hist + 1e-6
+        returns = np.diff(np.log(history + 1e-9))
+        curr_dist = np.histogram(returns, bins=10, range=(-0.005, 0.005), density=True)[0]
         
-        # Normalizar
-        p_recent /= np.sum(p_recent)
-        q_hist /= np.sum(q_hist)
-        
-        # KL Divergence (Distância de p para q)
-        kl_div = np.sum(p_recent * np.log(p_recent / q_hist))
-        
-        signal = 0.0
-        conf = 0.0
-        reason = f"KL_DIVERGENCE_NORMAL ({kl_div:.4f})"
-        
-        # Se a divergência for extrema, houve um paradigm shift.
-        if kl_div > 1.5:
-            # O regime mudou. A direção favorece o desvio da média histórica.
-            mean_recent = np.mean(recent_returns)
-            mean_hist = np.mean(historical_returns)
-            direction = np.sign(mean_recent - mean_hist)
+        if self.prev_dist is None:
+            self.prev_dist = curr_dist
+            return None
             
-            signal = float(direction)
-            conf = min(0.99, kl_div / 4.0)
-            reason = f"PARADIGM_SHIFT_DETECTED (KL={kl_div:.2f})"
-        
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
-
+        try:
+            metrics = CPP_CORE.calculate_fisher_metric(self.prev_dist, curr_dist)
+            self.prev_dist = curr_dist
+            
+            kl_div = metrics.get("kl_div", 0)
+            if kl_div > 2.5: # Extreme Paradigm Shift
+                return AgentSignal(self.name, 0.0, 0.99, f"Information Geometry Paradigm Shift (KL: {kl_div:.2f})", self.weight)
+                
+            return AgentSignal(self.name, 0.0, 0.1, f"Metric Stability (KL: {kl_div:.2f})", self.weight)
+        except:
+            return None
 
 class QuantumSuperpositionAgent(BaseAgent):
     """
-    [Phase Ω-Transcendence] Detecção de Superposição de Estados.
-    Mede a coerência de fase entre múltiplos timeframes (M1, M5, M15).
-    Se os timeframes estão em superposição destrutiva (conflito), emite alerta.
-    Se estão em interferência construtiva (harmonia), emite sinal de colapso de onda.
+    [Ω-SCHRODINGER] Models the market as a superposition of states.
+    Uses the Schrodinger Wave Function to calculate the probability of tunneling
+    through price barriers.
     """
-    def __init__(self, weight=2.4):
+    def __init__(self, weight: float = 2.4):
         super().__init__("QuantumSuperposition", weight)
-
-    def analyze(self, snapshot, **kwargs) -> AgentSignal:
-        phases = []
-        for tf in ["M1", "M5", "M15"]:
-            candles = snapshot.candles.get(tf)
-            if candles and len(candles["close"]) >= 3:
-                closes = np.array(candles["close"], dtype=np.float64)
-                roc = (closes[-1] - closes[-3]) / closes[-3]
-                phases.append(np.sign(roc) * min(abs(roc) * 1000, 1.0))
-                
-        if len(phases) < 3:
-            return AgentSignal(self.name, 0.0, 0.0, "LACK_OF_DIMENSIONS", self.weight)
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        history = snapshot.m1_closes
+        if len(history) < 20: return None
+        
+        target = snapshot.price * 1.001 
+        
+        try:
+            res = CPP_CORE.calculate_feynman_path(
+                history, target, time_horizon=60.0, liquidity_friction=0.5
+            )
             
-        # Calcula interferência
-        interference = sum(phases)
-        
-        signal = 0.0
-        conf = 0.0
-        reason = "WAVE_SUPERPOSITION_CHAOTIC"
-        
-        if abs(interference) > 2.2:
-            # Interferência construtiva (M1, M5, M15 alinhados)
-            signal = np.sign(interference)
-            conf = 0.90
-            reason = f"CONSTRUCTIVE_WAVE_COLLAPSE (Int={interference:.2f})"
-        elif abs(interference) < 0.5:
-            # Destrutiva - reverter para a tendência do M15 (Timeframe pai)
-            tf_father = phases[-1]
-            if abs(tf_father) > 0.5:
-                signal = np.sign(tf_father)
-                conf = 0.65
-                reason = f"DESTRUCTIVE_SUPERPOSITION_FALLBACK_TO_M15"
+            interference = res.get("interference", 0)
+            if abs(interference) > 0.8: 
+                sig = 1.0 if interference > 0 else -1.0
+                return AgentSignal(self.name, sig, 0.92, f"Constructive Quantum Interference", self.weight)
                 
-        return AgentSignal(self.name, signal, conf, reason, self.weight)
+            return AgentSignal(self.name, 0.0, 0.2, f"Quantum Decoherence", self.weight)
+        except:
+            return None
+
+class CasimirEffectAgent(BaseAgent):
+    """
+    [Ω-QED] Quantum Electrodynamics of Order Flow.
+    """
+    def __init__(self, weight: float = 2.8):
+        super().__init__("CasimirEffect", weight)
+        self.history_cancels = []
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        spread = snapshot.spread
+        fluctuation = snapshot.metadata.get("tick_velocity", 0.0) 
+        
+        self.history_cancels.append(abs(fluctuation))
+        if len(self.history_cancels) > 20: self.history_cancels.pop(0)
+            
+        if len(self.history_cancels) < 10 or spread == 0:
+            return None
+            
+        try:
+            cancels_arr = np.array(self.history_cancels, dtype=np.float64)
+            force = CPP_CORE.calculate_casimir_force(cancels_arr, float(spread))
+            
+            vwap = getattr(snapshot, 'vwap', snapshot.price)
+            bias = 1.0 if snapshot.price > vwap else -1.0
+            
+            if force > 1000.0:
+                return AgentSignal(self.name, bias, min(1.0, force / 5000.0), f"Casimir Vacuum Collapse (Force: {force:.1f})", self.weight)
+            return None
+        except:
+            return None
+
+class InformationBottleneckMetaAgent(BaseAgent):
+    """ [Ω-MDL] Information Bottleneck Theory. """
+    def __init__(self, weight: float = 3.1):
+        super().__init__("InformationBottleneckMeta", weight)
+        self.compression_ratio = 0.75
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        raw_signals = kwargs.get("swarm_raw_signals", [])
+        if not raw_signals: return None
+        
+        entropy = snapshot.metadata.get("tick_entropy", 0.5)
+        
+        if entropy > 0.85: # Over-noisy environment
+            # Filter the consensus
+            filtered_signal = np.mean([s.signal for s in raw_signals if s.confidence < 0.90])
+            if not np.isnan(filtered_signal):
+                return AgentSignal(self.name, filtered_signal, 0.95, "MDL_NOISE_COMPRESSION_ACTIVE", self.weight)
+        
+        return None
+
+class RogueWaveNLSEAgent(BaseAgent):
+    """ [Ω-WAVE] Gross-Pitaevskii Rogue Waves. """
+    def __init__(self, weight: float = 2.9):
+        super().__init__("RogueWaveNLSE", weight)
+        self.amplitudes = []
+        self.phases = []
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        vol = snapshot.metadata.get("tick_velocity", 0.0)
+        phase = math.atan2(vol, 1.0)
+        
+        self.amplitudes.append(abs(vol))
+        self.phases.append(phase)
+        if len(self.amplitudes) > 30:
+            self.amplitudes.pop(0)
+            self.phases.pop(0)
+        if len(self.amplitudes) < 15: return None
+        try:
+            rogue_prob = CPP_CORE.solve_nlse_rogue_wave(np.array(self.amplitudes), np.array(self.phases), 1.5)
+            if rogue_prob > 50.0:
+                sig = 1.0 if np.mean(self.phases[-3:]) > 0 else -1.0
+                return AgentSignal(self.name, sig, 0.99, f"NLSE Rogue Wave imminent (Prob: {rogue_prob:.1f})", self.weight)
+            return None
+        except: return None
+
+class AutocatalyticHypercycleMetaAgent(BaseAgent):
+    """ [Ω-ORIGIN] Autocatalytic Hypercycles. """
+    def __init__(self, weight: float = 3.5):
+        super().__init__("AutocatalyticHypercycle", weight)
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        hit_rates = kwargs.get("agent_hit_rates", {})
+        if not hit_rates: return None
+        elite_count = sum(1 for rate in hit_rates.values() if rate > 0.85)
+        if elite_count >= 3:
+            return AgentSignal(self.name, 0.0, 0.99, f"Hypercycle Active ({elite_count} elite nodes)", self.weight)
+        return None
+
+class HolographicEntanglementAgent(BaseAgent):
+    """ [Ω-HOLOGRAPHY] Ryu-Takayanagi Entanglement. """
+    def __init__(self, weight: float = 3.0):
+        super().__init__("HolographicEntanglement", weight)
+        self.btc_history = []
+        self.macro_history = []
+        
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        macro_bias = snapshot.metadata.get("macro_bias", 0.0) 
+        
+        self.btc_history.append(snapshot.price)
+        self.macro_history.append(macro_bias)
+        if len(self.btc_history) > 20:
+            self.btc_history.pop(0)
+            self.macro_history.pop(0)
+        if len(self.btc_history) < 10: return None
+        
+        corr = np.corrcoef(self.btc_history, self.macro_history)[0, 1]
+        if math.isnan(corr): corr = 0.0
+        
+        if abs(corr) < 0.15: # Disconnected from reality
+            # Fade the BTC move
+            trend = self.btc_history[-1] - self.btc_history[-5]
+            sig = -1.0 if trend > 0 else 1.0
+            return AgentSignal(self.name, sig, 0.90, f"Holographic Disconnection (Corr: {corr:.2f})", self.weight)
+            
+        return None
