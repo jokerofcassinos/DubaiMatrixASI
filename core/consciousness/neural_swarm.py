@@ -140,17 +140,47 @@ from core.consciousness.agents.omniscience_agents import (
     OrderBookSpoofingAgent, QuantumEntanglementAgent
 )
 from core.consciousness.agents.phd_agents import (
-    AsymmetricInformationEntropyAgent, RelativisticManifoldAgent, NeuralFlowODEAgent
+    AsymmetricInformationEntropyAgent, RelativisticManifoldAgent, NeuralFlowODEAgent,
+    LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent,
+    TCellImmunityAgent, OrderFlowSingularityAgent, LevyFlightFatTailAgent,
+    VPINToxicityAgent, FisherInformationAgent, FristonFreeEnergyAgent,
+    KolmogorovComplexityAgent, PrigogineDissipativeAgent, NavierStokesIgnitionAgent,
+    RiemannianManifoldGaussianAgent, QuantumDirectionalInferenceAgent
 )
+from core.consciousness.agents.fluid_dynamics.karman_vortex_agent import KarmanVortexWakeAgent
 
 # Phase Ω-Singularity (Nível 5 - Autotranscendência)
 from core.consciousness.agents.singularity_agents import (
     AccretionDiskAgent, KinematicDerivativesAgent, TopologicalDataAgent
 )
+
+# Phase Ω-PhD-7+: Advanced Mathematical Manifolds
+from core.consciousness.agents.riemannian_ricci_agent import RiemannianRicciAgent
+from core.consciousness.agents.lie_symmetry_agent import LieSymmetryAgent
+from core.consciousness.agents.kolmogorov_inertia_agent import KolmogorovInertiaAgent
+from core.consciousness.agents.ghost_inference_agent import GhostOrderInferenceAgent
+from core.consciousness.agents.continuum_agents import MTheoryDimensionalAgent, QuantumChromodynamicsAgent
+from core.consciousness.agents.pleroma_agents import DiracFluidAgent
+
+# Phase Ω-Aethel
+from core.consciousness.agents.aethel_agents import SupersymmetryAgent, AethelViscosityAgent
+
+# Phase Ω-Quantum Field & Unification
+from core.consciousness.agents.quantum_field_agents import RicciFlowAgent, InformationBottleneckAgent
+from core.consciousness.agents.quantum_unification_agents import GaugeInvarianceAgent, SolitonWaveAgent
+
+# Phase Ω-Metalogic
+from core.consciousness.agents.metalogic_agents import KripkeSemanticsAgent, IntuitionisticLogicAgent
 # [Phase Ω-EPISTEMIC SINGULARITY]
 from core.consciousness.agents.quantum_tunneling_oscillator import QuantumTunnelingOscillator
 from core.consciousness.agents.topological_manifold_agent import TopologicalManifoldAgent
 from core.consciousness.agents.entropy_decay_strike_agent import EntropyDecayStrikeAgent
+
+# [PHASE Ω-PhD-7/8] Sub-Atomic Agents
+from core.consciousness.agents.riemannian_ricci_agent import RiemannianRicciAgent
+from core.consciousness.agents.kolmogorov_inertia_agent import KolmogorovInertiaAgent
+from core.consciousness.agents.lie_symmetry_agent import LieSymmetryAgent
+from core.consciousness.agents.ghost_inference_agent import GhostOrderInferenceAgent
 
 # Phase Ω-Eternity (Nível 6 - Teoria do Caos e Homeostase)
 from core.consciousness.agents.eternity_agents import (
@@ -284,9 +314,9 @@ from core.consciousness.agents.omega_extreme import (
 )
 # Phase Ω-Singularity & Pangalactic (Nível 24+ PhD Level Consciousness)
 from core.consciousness.agents.phd_agents import (
-    LaserHedgingAgent, NavierStokesTurbulenceAgent, DarkMatterGravityAgent, TCellImmunityAgent,
-    OrderFlowSingularityAgent, LevyFlightFatTailAgent, VPINToxicityAgent, FisherInformationAgent,
-    FristonFreeEnergyAgent, KolmogorovComplexityAgent, PrigogineDissipativeAgent, NavierStokesIgnitionAgent
+    VPINToxicityAgent, FisherInformationAgent,
+    FristonFreeEnergyAgent, KolmogorovComplexityAgent, PrigogineDissipativeAgent, NavierStokesIgnitionAgent,
+    RiemannianManifoldGaussianAgent, QuantumDirectionalInferenceAgent
 )
 
 # Phase Ω-Continuum (Nível 31 - Teoria M e QCD)
@@ -575,6 +605,16 @@ class NeuralSwarm:
             KolmogorovComplexityAgent(weight=4.8),
             PrigogineDissipativeAgent(weight=4.9),
             NavierStokesIgnitionAgent(weight=5.0),
+            RiemannianManifoldGaussianAgent(weight=5.2),
+            QuantumDirectionalInferenceAgent(weight=5.5),
+
+            # ═══ Ω-PhD-7: TOPOLOGICAL MANIFOLDS (TLM) ═══
+            RiemannianRicciAgent(weight=4.5),
+            LieSymmetryAgent(weight=4.6),
+
+            # ═══ Ω-PhD-8: KOLMOGOROV ALGORITHMIC ALPHA (KAA) ═══
+            KolmogorovInertiaAgent(weight=4.8),
+            GhostOrderInferenceAgent(weight=4.8),
 
             # ═══ CONTINUUM (Phase Ω-Continuum) ═══
             MTheoryDimensionalAgent(weight=5.0),
@@ -593,6 +633,7 @@ class NeuralSwarm:
             # ═══ STOCHASTIC (Phase Ω-Stochastic) ═══
             HawkesProcessAgent(weight=5.0),
             OrnsteinUhlenbeckAgent(weight=4.9),
+            KarmanVortexWakeAgent(),
 
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),

@@ -1,0 +1,31 @@
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)
+ERROR:DubaiMatrixASI:KarmanVortexWakeAgent Exception: AgentSignal.__init__() got an unexpected keyword argument 'metadata'
+Traceback (most recent call last):
+  File "D:\DubaiMatrixASI\core\consciousness\agents\fluid_dynamics\karman_vortex_agent.py", line 78, in process
+    return AgentSignal(
+        agent_name=self.name,
+    ...<3 lines>...
+        metadata={"vortex_freq": freq, "phase": current_phase}
+    )
+TypeError: AgentSignal.__init__() got an unexpected keyword argument 'metadata'
+
+OMEGA:DubaiMatrixASI:\u26a1 \u26a1 C++ ASI Core carregado: D:\DubaiMatrixASI\asi_core_v3.dll
+INFO:DubaiMatrixASI:\U0001f4c2 Trade Registry carregado: 40 intenções mapeadas.
+OMEGA:DubaiMatrixASI:\u26a1 \U0001f9e0 Neural Swarm inicializado: 157 agentes ativos (Parallel Execution Enabled)

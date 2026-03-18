@@ -151,13 +151,23 @@ class RiskQuantumEngine:
             # [Phase Ω-PhD-4] Ω-Structural Expectancy Sizing (Ghost Veto)
             if OMEGA.get("structural_expectancy_sizing_enabled", 1.0) > 0.5:
                 pnl_pred = snapshot.metadata.get("pnl_prediction", "STABLE")
-                # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse), asfixiamos o lote.
-                is_lethal = snapshot.metadata.get("v_pulse_detected", False) or snapshot.metadata.get("god_mode_active", False)
+                # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse/KL), asfixiamos o lote.
+                kl_div_current = snapshot.metadata.get("kl_divergence", 0.0)
+                kl_shift = kl_div_current > OMEGA.get("paradigm_shift_threshold", 0.95)
+                
+                is_lethal = (snapshot.metadata.get("v_pulse_detected", False) or 
+                             snapshot.metadata.get("god_mode_active", False) or 
+                             kl_shift)
+                             
                 if "NEGATIVE_EXPECTANCY" in pnl_pred and not is_lethal:
                     log.omega(f"🛡️ [Ω-STRUCTURAL SIZING] Negative Expectancy ({pnl_pred}). Ghost Veto: lot_size=0.")
                     return 0.0 # Anulação via retorno zero
+                elif "NEGATIVE_EXPECTANCY" in pnl_pred and is_lethal:
+                    log.info(f"🦅 [BAYESIAN PRIOR OVERRIDE] Negative Expectancy bypassed due to Lethal Strike (V-Pulse/KL).")
+                    # Em caso letal com histórico ruim, forçamos exposição mínima em vez do size padrão.
+                    risk_fraction = max(0.005, risk_fraction * 0.5)
 
-        # 5. Tiers de Agressão floor e Circuit Breakers
+         # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0
         if confidence >= 0.70:
             max_risk_pct *= 2.0
@@ -192,6 +202,19 @@ class RiskQuantumEngine:
             log.omega(f"🛡️ EXPOSURE CEILING: Lote {lot_size:.2f} excedeu teto de segurança {max_safe_lots:.2f}. Limitando.")
             lot_size = max_safe_lots
 
+        # [Phase Ω-PhD-5] Micro-Scaling: Redução de 50% em trades que bypassaram regime podre
+        # [Phase Ω-PhD-6] Micro-Scaling: Redução de 25% em trades TEC (Singularidade)
+        # Aplicado após todos os caps para garantir o efeito de exploração segura.
+        if snapshot and hasattr(snapshot, "metadata"):
+            if snapshot.metadata.get("bypassed_stale_regime", False):
+                # Se for TEC, a redução é de 25% (0.75x), se for Stale Regime (PhD-5) é de 50% (0.5x)
+                if snapshot.metadata.get("is_tec_active", False):
+                    lot_size *= 0.75
+                    log.info("🦅 [Ω-MICRO SCALING: TEC] Structural Singularity detected. Reducing lot size by 25% for safe exploration.")
+                else:
+                    lot_size *= 0.5
+                    log.info("🦅 [Ω-MICRO SCALING: STALE] Stale regime bypass detected. Reducing lot size by 50% for safety.")
+
         lot_size = round(lot_size / LOT_STEP) * LOT_STEP
         lot_size = max(MIN_LOT_SIZE, min(MAX_LOT_SIZE, lot_size))
 
@@ -209,6 +232,9 @@ class RiskQuantumEngine:
 
             # 2. Maximum Risk Concentration
             # [Phase 37] Previne exposição excessiva em um único trade
+            if lot_size <= 0:
+                return False, 0.0, "Ghost Veto: Lote nulo ou negativo não permitido."
+            
             risk_pct = (lot_size * 100.0) / (balance / 100.0) if balance > 0 else 0
             max_pos_pct = OMEGA.get("position_size_pct", 10.0)
             

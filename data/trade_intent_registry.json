@@ -1,16 +1,4 @@
 {
-  "ticket_0": {
-    "timestamp": "2026-03-17T18:53:22.540400+00:00",
-    "ticket": 0,
-    "position_id": -1004,
-    "regime": "CREEPING_BULL",
-    "confidence": 0.8373145455825467,
-    "signal_strength": 0.30285176036693373,
-    "coherence": 0.0,
-    "phi": 0.0,
-    "reasoning": "BUY signal=+0.303 conf=0.84 coherence=0.40 regime=CREEPING_BULL ATR=143.38 RR=1.94 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.303 | CONF=0.84 | \u03a6=0.17 | COH=39.62% | BULL: KripkeSemantics, CrossScaleConvergenceAgent, DarkMatterGravity [!LOW_COHERENCE_DAMPENING!] | MC[score=-0.307 WP=37.6% EV=+4.32 CVaR=-72.64 sim=11.7ms]",
-    "symbol": "BTCUSD"
-  },
   "ticket_403222349": {
     "timestamp": "2026-03-16T17:58:47.350584+00:00",
     "ticket": 403222349,
@@ -465,6 +453,30 @@
     "coherence": 0.0,
     "phi": 0.0,
     "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_404113005": {
+    "timestamp": "2026-03-18T00:00:02.902620+00:00",
+    "ticket": 404113005,
+    "position_id": -1000,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.827872659826263,
+    "signal_strength": -0.6314723218109675,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.631 conf=0.83 coherence=0.41 regime=DRIFTING_BEAR ATR=120.92 RR=2.07 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.631 | CONF=0.83 | \u03a6=0.26 | COH=41.00% | BEAR: KripkeSemantics, KolmogorovInertia, FourierSpectral | MC[score=+0.041 WP=48.7% EV=+1.87 CVaR=-160.92 sim=26.7ms]",
+    "symbol": "BTCUSD"
+  },
+  "404113005": {
+    "timestamp": "2026-03-18T00:00:02.902620+00:00",
+    "ticket": 404113005,
+    "position_id": -1000,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.827872659826263,
+    "signal_strength": -0.6314723218109675,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.631 conf=0.83 coherence=0.41 regime=DRIFTING_BEAR ATR=120.92 RR=2.07 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.631 | CONF=0.83 | \u03a6=0.26 | COH=41.00% | BEAR: KripkeSemantics, KolmogorovInertia, FourierSpectral | MC[score=+0.041 WP=48.7% EV=+1.87 CVaR=-160.92 sim=26.7ms]",
     "symbol": "BTCUSD"
   }
 }

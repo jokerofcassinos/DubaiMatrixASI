@@ -84,4 +84,10 @@
 - **Descrição:** Dissociação entre a 'intenção' capturada e o 'histórico' auditado.
 - **Resolução:** [2026-03-09] Implementado `TradeRegistry` e auditoria síncrona de histórico no cérebro.
 
-*(Atualizado: 2026-03-09. Versão: 12.0.0-omega+signal_integrity)*
+### DÍVIDA TÉCNICA 17: PhD Integration (Ω-PhD-7/8/9) — [RESOLVIDO]
+- **Localização:** `core/decision/trinity_core.py` e `tests/test_phd_evolution_v2.py`.
+- **Descrição:** Necessidade de integrar e verificar de forma agressiva os novos agentes de topologia de Riemann, complexidade de Kolmogorov e execução de tunelamento.
+- **Resolução:** [2026-03-17] Implementação dos agentes, injeção de soberania PhD no `TrinityCore` e validação via suíte de testes passando em 100%.
+
+*(Atualizado: 2026-03-17. Versão: 13.0.0-omega+phd_resolved)*
+

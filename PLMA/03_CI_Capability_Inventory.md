@@ -115,4 +115,10 @@
 - [x] **Hawkes Process (Self-Exciting Point Processes)**: Modela ticks HFT como cascatas. Se a intensidade parabólica colapsa, veta a continuidade e aposta na reversão imediata (Anti-Blow-off).
 - [x] **Ornstein-Uhlenbeck Mean Reversion**: Modela o preço como uma partícula presa a um elástico. Se esticar demais (> 2.5 ATRs) sem inércia estrutural, opera a força de restauração implacável contra o rompimento vazio.
 
-*(Atualizado: 2026-03-12. Versão: 35.0.0-omega+stochastic)*
+- [x] **Riemannian Ricci Manifold (Liquidity Attractors)**: Modela a topologia do mercado como uma variedade curvelínea, identificando zonas de gravidade de preço onde os stops institucionais estão concentrados.
+- [x] **Kolmogorov Complexity Sync**: Analisa a entropia algorítmica do fluxo de ordens para distinguir movimentos "artificiais" (programáticos/institucionais) de ruído retail randômico.
+- [x] **Quantum Tunneling Execution**: Capacidade de autorizar "Ghost Entries" (entradas através de paredes de liquidez) ao calcular a probabilidade de falha da barreira versus o momentum cinético.
+- [x] **Triple PhD Sovereignty**: Sistema de bypass hierárquico que permite que sinais de alta confiança geométrica/informacional sobreponham vetos estatísticos conservadores.
+
+*(Atualizado: 2026-03-17. Versão: 36.0.0-omega+phd)*
+

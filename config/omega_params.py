@@ -105,7 +105,7 @@ class OmegaParameterSpace:
                         "Score mínimo para decisão BUY")
         self._register("sell_threshold", -0.20, -0.95, -0.05,
                         "Score mínimo para decisão SELL (negativo)")
-        self._register("confidence_min", 0.70, 0.10, 0.95,
+        self._register("confidence_min", 0.62, 0.10, 0.95,
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
@@ -244,7 +244,7 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.150, 0.050, 0.5,
+        self._register("phi_min_threshold", 0.120, 0.050, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
@@ -268,7 +268,7 @@ class OmegaParameterSpace:
                         "Threshold de Φ (PHI) para ativar Quantum Resonance Ignition")
         self._register("pnl_relaxed_mode", 1.0, 0.0, 1.0,
                         "Habilita modo RELAXED (redução de veto PnL)")
-        self._register("drift_aggression_mult", 0.60, 0.30, 2.0,
+        self._register("drift_aggression_mult", 1.15, 0.30, 2.0,
                         "Multiplicador de agressividade em regime DRIFTING/CREEPING")
         self._register("god_mode_entropy_threshold", 0.89, 0.80, 0.99,
                         "Threshold de Entropia para God-Mode Reversal")
@@ -298,18 +298,50 @@ class OmegaParameterSpace:
         # ═══ PHASE Ω-THERMODYNAMIC (AGI TRANSITION) ═══
         self._register("friston_surprise_threshold", 3.0, 1.5, 6.0,
                         "Limiar de Energia Livre (Erro Preditivo) para decretar Paradigm Shift institucional")
+
+        # ═══ Ω-PhD-7/8/9: TOPOLOGICAL & ALGORITHMIC SOVEREIGNTY ═══
+        self._register("ricci_k_threshold", 2.5, 1.0, 5.0,
+                        "Threshold de curvatura Ricci p/ atrator topológico")
+        self._register("kinetic_velocity_floor", 2.0, 0.5, 10.0,
+                        "Velocidade mínima de ticks p/ evitar Veto de Exaustão (DRIFT MODE)")
+        self._register("phi_min_threshold", 0.08, 0.01, 0.60,
+                        "Threshold de Consciência (Φ) Integrada Mínima")
+        self._register("kl_velocity_threshold", 1.50, 0.05, 3.00,
+                        "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
+        self._register("lie_symmetry_threshold", 0.1, 0.01, 1.0,
+                        "Variância máxima p/ simetria de Lie (Iceberg detection)")
+        self._register("kolmogorov_ratio_threshold", 0.40, 0.20, 0.80,
+                        "Threshold de compressão p/ fluxo programático")
+        self._register("quantum_tunneling_threshold", 0.65, 0.30, 0.95,
+                        "Probabilidade mínima p/ Ghost Entry (Tunneling)")
         self._register("kolmogorov_compression_ratio", 0.35, 0.1, 0.6,
                         "Ratio de compressão algorítmica de fluxo para detectar robôs institucionais limpos")
-        self._register("prigogine_entropy_saturation", 0.90, 0.70, 0.98,
+        self._register("prigogine_entropy_saturation", 0.94, 0.70, 0.98,
                         "Saturação entrópica indicando falência de estrutura dissipativa (Bifurcação Climática)")
+        self._register("ghost_absorption_threshold", 0.85, 0.50, 0.99,
+                        "Pressão de limiar para inferir falsa barreira (Ghost Order / Iceberg Absorption)")
+        self._register("drift_aggression_mult", 1.25, 1.0, 3.0,
+                        "Multiplicador agressivo ao negociar contra falso suporte em Drift")
         
         # ═══ PHASE Ω-PhD-4: INFORMATION GEOMETRY & PHASE TRANSITIONS ═══
-        self._register("kl_velocity_threshold", 0.15, 0.05, 0.50,
+        self._register("kl_velocity_threshold", 0.95, 0.05, 1.50,
                         "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
         self._register("entropy_convergence_threshold", 0.002, 0.0005, 0.01,
                         "Variância máxima do sinal (Entropy Bridge) p/ confirmar convergência de informação")
         self._register("structural_expectancy_sizing_enabled", 1.0, 0.0, 1.0,
                         "Habilita o Ghost-Veto via lot_size=0 baseado na expectância do JAVA PnL Predictor")
+
+        # ═══ PHASE Ω-PhD-5: THE SINGULARITY PIVOT ═══
+        self._register("creep_maturity_threshold", 150.0, 50.0, 500.0,
+                        "Número de barras para decretar maturidade (vencimento) de regime CREEPING")
+        self._register("kinetic_velocity_floor", 4.5, 3.0, 25.0,
+                        "Velocidade mínima (tick velocity) para autorizar entradas em regimes estáveis")
+
+        # ═══ PHASE Ω-PhD-6: TOPOLOGICAL ENTROPY COLLAPSE (TEC) ═══
+        self._register("tec_sensitivity", 0.40, 0.10, 0.80,
+                        "Threshold de queda na entropia (topológica/shannon) para detectar colapso estrutural")
+        self._register("tec_min_v_pulse", 0.30, 0.05, 0.90,
+                        "Energia mínima (V-Pulse) necessária para confirmar Ressonância de Singularidade")
 
         # ═══ PHASE Ω-EPISTEMIC SINGULARITY (PhD Evolution) ═══
         self._register("weight_quantum_tunneling", 1.25, 0.1, 3.5,
@@ -318,9 +350,9 @@ class OmegaParameterSpace:
                         "Máximo alongamento de TP (em ATR) para cobrir o Alpha Floor")
         self._register("phi_ignorance_threshold", 0.15, 0.05, 0.30,
                         "Nível de Φ abaixo do qual a microestrutura ignora o macro (Soberania do Presente)")
-        self._register("phi_symmetry_guard_enabled", 1.0, 0.0, 1.0,
+        self._register("phi_symmetry_guard_enabled", 0.0, 0.0, 1.0,
                         "[Phase Ω-Extreme] Ativa proteção contra divergência extrema enxame/sinal")
-        self._register("exhaustion_signal_min", 0.55, 0.35, 0.95,
+        self._register("exhaustion_signal_min", 0.45, 0.35, 0.95,
                         "[Phase Ω-Extreme] Elevado de 0.35 para 0.55 para evitar falsos positivos")
         self._register("v_pulse_alpha_relaxation", 0.50, 0.1, 1.0,
                         "Multiplicador de redução do Alpha Floor durante V-Pulse (0.50 = 50% de desconto)")

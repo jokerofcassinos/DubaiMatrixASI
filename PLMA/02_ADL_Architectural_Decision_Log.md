@@ -827,4 +827,10 @@
 - **Justificativa:** Garantir integridade de dados e rastreabilidade entre o colapso quântico e a execução cinética, eliminando falhas de escopo e `AttributeError` no processamento de ordens.
 - **Data/Status:** ATIVO. (2026-03-15).
 
-*(Atualizado: 2026-03-15. Versão: 35.0.0-omega+coherence) — Phase Ω-Coherence Systems Active*
+### DECISÃO 135: PHD TRIPLE SOVEREIGNTY INTEGRATION (Ω-PhD-7/8/9)
+- **Decisão:** Implementação de uma camada de soberania hierárquica que bypassa os vetos tradicionais do `Φ-Gate` (TrinityCore) quando os agentes de nível PhD (Riemannian, Kolmogorov, Quantum Tunneling) detectam singularidades de alta confiança.
+- **Justificativa:** Em movimentos institucionais puros (programáticos) ou atratores de liquidez geométrica, os filtros estatísticos baseados em volatilidade e recompensa linear podem atuar como falsos-negativos. A soberania PhD garante que a ASI capture o alpha dessas anomalias físicas.
+- **Data/Status:** ATIVO. (2026-03-17).
+
+*(Atualizado: 2026-03-17. Versão: 36.0.0-omega+phd) — Phase Ω-PhD Triple Sovereignty Active*
+

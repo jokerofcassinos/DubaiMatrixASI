@@ -254,6 +254,11 @@ class SniperExecutor:
             log.warning(f"⚠️ Trade REJEITADO pelo Risk Engine: {reason}")
             return None
 
+        # [Phase Ω-PhD-9] Ghost Veto Abort
+        if final_lot <= 0:
+            log.omega("🛡️ [GHOST VETO ABORT] Lote final é zero. Abortando execução silenciosamente.")
+            return None
+
         # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
         # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime
         is_resonance = decision.metadata.get("phi_resonance", False)
@@ -310,6 +315,10 @@ class SniperExecutor:
                 return None
         
         # 4.2. Margin Check & Maximum Margin Extraction (Phase 37 + Phase 48 Alpha Integrity)
+        # [Phase Ω-PhD-9] Margin Guard for zero lot
+        if final_lot <= 0:
+             return None
+             
         required_margin = self.bridge.calculate_margin(decision.action.value, final_lot, decision.entry_price)
         free_margin = snapshot.account.get("margin_free", 0) # Use margin_free for more accuracy
         

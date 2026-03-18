@@ -21,6 +21,7 @@ from config.omega_params import OMEGA
 from config.settings import (
     EXECUTION_MAX_SPREAD_POINTS, RISK_MAX_CONSECUTIVE_LOSSES
 )
+from execution.quantum_tunneling_execution import QuantumTunnelingExecution
 from utils.logger import log
 from utils.decorators import timed, catch_and_log, ast_self_heal
 from utils.time_tools import TimeEngine
@@ -88,9 +89,11 @@ class TrinityCore:
         self._signal_history = []  # List of last 20 signals
         self.entropy_bridge_active = False
         self._kl_history = []      # [Phase Ω-PhD-4] KL Velocity tracking
+        self.last_decision_bypassed = False  # [Phase Ω-PhD-5] Track if stale regime was bypassed
 
     @ast_self_heal
     @catch_and_log(default_return=None)
+    @timed
     def decide(self, quantum_state: QuantumState,
                regime_state: RegimeState,
                snapshot,
@@ -122,22 +125,52 @@ class TrinityCore:
         v_pulse_intensity = snapshot.metadata.get("v_pulse_capacitor", 0.0)
         is_lethal_ignition = has_ignition and v_pulse_intensity > 0.8
 
-        # [PHASE 50] Strike Flag
-        strike_flag = ""
+        # [Phase Ω-Singularity] Initialize metadata variables to avoid NameError
+        is_tunneling = snapshot.metadata.get("is_tunneling", False)
+        is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
+        pnl_prediction = snapshot.metadata.get("pnl_prediction", "STABLE")
+        entropy = snapshot.metadata.get("entropy", 0.0)
+        coherence = snapshot.metadata.get("coherence", 0.0)
 
-        # ═══ VETO CHECKS (condições de perigo) ═══
-        v_pulse_detected = snapshot.metadata.get("v_pulse_detected", False)
-        veto = self._check_vetos(snapshot, asi_state, regime_state, v_pulse_detected)
-        if veto:
-            self._veto_count += 1
-            # [Phase 51] OMEGA EMERGENCY: Se houver posições mas houver VETO fatal, força fechamento
-            if "SPREAD_ABUSE" in str(veto) or "CHAOS_SHIELD" in str(veto):
-                 log.warning(f"🚨 VETO DETECTED ({veto}) -> TRIGGERING OMEGA CLOSE.")
-            return self._wait(f"VETO: {veto}")
+        # ═══ [Phase Ω-PhD-6] Topological Entropy Collapse (TEC) Sensor ═══
+        # Detecta colapso estrutural (Singularidade) via decaimento de entropia.
+        tec_active = False
+        tec_entropy = 1.0
+        signal = quantum_state.raw_signal if hasattr(quantum_state, 'raw_signal') else 0.0
+        # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - Moved to TOP to avoid UnboundLocalError
+        riemannian_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "RiemannianRicci"), None)
+        is_geodesic_flow = riemannian_signal and "GEODESIC_FLOW" in riemannian_signal.reasoning
         
+        # [Phase Ω-PhD-8] Ghost-Order-Inference (Predatory Sweep Bypass)
+        ghost_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "GhostOrderInference"), None)
+        is_ghost_sweep = ghost_signal and "GHOST_SWEEP_DETECTED" in ghost_signal.reasoning
+
+        try:
+            shannon = snapshot.metadata.get("shannon_entropy", 0.9)
+            v_pulse = snapshot.metadata.get("v_pulse_capacitor", 0.0)
+            shannon_history = snapshot.metadata.get("shannon_history", [])
+            if len(shannon_history) >= 10:
+                avg_past = sum(shannon_history[-10:-1]) / 9
+                shannon_drop = avg_past - shannon
+                sensitivity = OMEGA.get("tec_sensitivity", 0.40)
+                min_energy = OMEGA.get("tec_min_v_pulse", 0.30)
+                if shannon_drop > sensitivity and v_pulse > min_energy:
+                    tec_active = True
+                    tec_entropy = shannon
+                    self._log_cooldown("TEC_RESONANCE", f"⚡ [Ω-TEC RESONANCE] Structural collapse (Drop={shannon_drop:.3f}, Pulse={v_pulse:.2f})", 60, level="omega")
+        except Exception as e:
+            log.warning(f"TEC Sensor Error: {e}")
+
         # [PHASE Ω-STABILITY] ABSOLUTE KL-VETO: Information Geometry Paradigm Shift
         kl_div = snapshot.metadata.get("kl_divergence", 0.0)
         current_price = snapshot.price
+        
+        # [Phase Ω-Singularity] Sovereignty based on extreme paradigm shift
+        kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
+        is_kl_shift_sovereign = kl_div > kl_base_thresh
+
+        # [PHASE Ω-PhD-11] Singularity Sovereignty: Unifica TEC, Lethal Ignition e KL Shift
+        is_tec_sovereign = (tec_active or (is_lethal_ignition and abs(signal) > 0.50) or (is_kl_shift_sovereign and abs(signal) > 0.60)) and abs(signal) > 0.35
         
         # [Phase Ω-PhD-4] Ω-KL-Velocity Guard (Curvature of Information)
         self._kl_history.append(kl_div)
@@ -150,9 +183,12 @@ class TrinityCore:
             
             # Se a geometria da informação está mudando rápido demais (Shock), vetamos.
             # Isso evita entrar no "olho do furacão" de uma mudança de paradigma instável.
-            if kl_velocity > kl_vel_thresh and not v_pulse_detected:
+            # [Phase Ω-PhD-7] Geodesic override: Se o fluxo é laminar (geodésico), o choque é estável.
+            if not is_tec_sovereign and not is_geodesic_flow and kl_velocity > kl_vel_thresh and not has_ignition:
                 self._log_cooldown("KL_VELOCITY_VETO", f"🛡️ [Ω-KL-VELOCITY] Information Shock ({kl_velocity:.3f} > {kl_vel_thresh:.2f}). Waiting for geometry stability.", 60)
                 return self._wait("KL_VELOCITY_VETO")
+            elif is_geodesic_flow and kl_velocity > kl_vel_thresh:
+                 self._log_cooldown("KL_GEODESIC", f"☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel={kl_velocity:.2f}).", 60, level="omega")
 
         # [PHASE Ω-SINGULARITY] Recalibration: 0.75 -> 0.95 (Absolute limit 1.5 -> 1.9)
         kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
@@ -161,7 +197,7 @@ class TrinityCore:
         # [Phase Ω-PhD] NEW: Soft-Veto Check. 
         # Hard Veto moved to extreme 5.0x threshold. In-between values reduce lot size via RiskEngine.
         kl_extreme_thresh = kl_base_thresh * 5.0
-        if kl_div > kl_extreme_thresh:
+        if not is_tec_sovereign and kl_div > kl_extreme_thresh:
             return Decision(
                 action=Action.WAIT,
                 confidence=1.0,
@@ -176,7 +212,7 @@ class TrinityCore:
             )
         
         # [Phase 51] PARADIGM SHIFT CLOSE (Omniscience Exit)
-        if kl_div > kl_base_thresh:
+        if not is_tec_sovereign and kl_div > kl_base_thresh:
             log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
             return Decision(
                 action=Action.WAIT,
@@ -195,6 +231,8 @@ class TrinityCore:
         if quantum_state.superposition:
             return self._wait("SUPERPOSITION (agentes não convergiram)")
 
+        # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - EXTRACTION MOVED TO TOP
+        
         signal = quantum_state.collapsed_signal
         confidence = quantum_state.confidence
         coherence = quantum_state.coherence
@@ -233,22 +271,50 @@ class TrinityCore:
             self.kinetic_exhaustion = False
             if is_convergent:
                 tick_vel = abs(snapshot.metadata.get("tick_velocity", 0.0))
-                # Se a velocidade é baixíssima (< 15) durante um signal-bridge, 
-                # a inércia sumiu e o 'creep' morreu.
-                if tick_vel < 12.0:
-                    self.kinetic_exhaustion = True
-                    self._log_cooldown("KINETIC_EXHAUSTION", f"⚠️ [Ω-KINETIC EXHAUSTION] Stability detected but Velocity ({tick_vel:.1f}) is too low for entry.", 60)
+                # [Phase Ω-PhD-5/8] Dynamic Kinetic Floor (Corrigido fallback hardcoded de 8.0 para 2.0 da config OMEGA)
+                k_floor = OMEGA.get("kinetic_velocity_floor", 2.0)
+                if tick_vel < k_floor:
+                    # [Phase Ω-PhD-5] Ignition Sovereignty: Lethal V-Pulse, TEC or high Phi overrides kinetic floor
+                    # [Phase Ω-PhD-7] Geodesic Sovereignty: Fluxo laminar ignora floor cinemático
+                    phi_override = phi > 0.20 or is_tec_sovereign or is_geodesic_flow
+                    if not is_lethal_ignition and not phi_override:
+                        self.kinetic_exhaustion = True
+                        self._log_cooldown("KINETIC_EXHAUSTION", f"⚠️ [Ω-KINETIC EXHAUSTION] Stability detected but Velocity ({tick_vel:.1f}) is below floor ({k_floor:.1f}).", 60)
+                    elif phi_override:
+                        ov_reason = "GEODESIC" if is_geodesic_flow else ("PHI" if phi > 0.20 else "TEC")
+                        self._log_cooldown("KINETIC_OVERRIDE", f"🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via {ov_reason} Sovereignty (Φ={phi:.2f} | Geo={is_geodesic_flow}).", 60, level="omega")
         else:
             self.entropy_bridge_active = False
             self.kinetic_exhaustion = False
         
         # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
         # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
-        dynamic_buy_thresh = base_buy_threshold
-        dynamic_sell_thresh = base_sell_threshold
-        dynamic_conf_min = base_confidence_min
+        dynamic_buy_thresh = base_buy_threshold if base_buy_threshold is not None else 0.50
+        dynamic_sell_thresh = base_sell_threshold if base_sell_threshold is not None else -0.50
+        dynamic_conf_min = base_confidence_min if base_confidence_min is not None else 0.85
 
+        # [Phase Ω-PhD-10] Supportive Vacuums (SR Abolition)
+        # Se agentes quânticos detectam colapso de onda através do nível de S/R, nós o "abolimos".
+        is_vacuum_abolition = False
+        quantum_dir = next((s for s in quantum_state.agent_signals if s.agent_name == "QuantumDirectionalInference"), None)
+        sr_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "SRAgent"), None)
+        
+        if quantum_dir and sr_signal and abs(quantum_dir.signal) > 0.8:
+            # Se a direção quântica confronta a direção do SR (ex: SR diz Reverte, Quantum diz fura)
+            if np.sign(quantum_dir.signal) != np.sign(sr_signal.signal):
+                is_vacuum_abolition = True
+                self._log_cooldown("SR_ABOLITION", f"🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir={quantum_dir.signal:.2f}).", 60, level="omega")
+                # Reduzimos a exigência de confiança para atravessar o nível
+                dynamic_conf_min *= 0.9
+                # Se o sinal era Seller contra um Support, e Quantum diz Sell, ignoramos o SR.
+                if np.sign(signal) == np.sign(quantum_dir.signal):
+                     dynamic_buy_thresh *= 0.8
+                     dynamic_sell_thresh *= 0.8
 
+        # 2. Ajuste por Regime e [Phase Ω-Singularity] MAKER_ADVANTAGE
+        limit_mode = (regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]) \
+                     and OMEGA.get("limit_execution_mode", 0.0) > 0.5
+        
         # 1. Ajuste pelo PnL Predictor
         pnl_pred = snapshot.metadata.get("pnl_prediction")
         if pnl_pred == "HIGH_PROBABILITY:POSITIVE_EXPECTANCY":
@@ -257,20 +323,22 @@ class TrinityCore:
             dynamic_sell_thresh *= 0.6
             dynamic_conf_min *= 0.8
         
-        # 2. Ajuste por Regime e [Phase Ω-Singularity] MAKER_ADVANTAGE
-        limit_mode = (regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY", "SQUEEZE_BUILDUP"]) \
-                     and OMEGA.get("limit_execution_mode", 0.0) > 0.5
-        
-        if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+        if regime_state.current in [MarketRegime.TRENDING_BULL, MarketRegime.TRENDING_BEAR]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
         elif regime_state.current.value in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN", "CREEPING_BULL", "CREEPING_BEAR"]:
             # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
             # [Phase Ω-PhD-3] Creep Maturity Veto
-            # Se o regime dura muito tempo (> 80 barras) sem ignição, ele está "podre".
-            if "CREEPING" in regime_state.current.value and regime_state.duration_bars > 80:
-                self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {regime_state.current.value} is too old ({regime_state.duration_bars} bars). High risk of Reversal.", 60)
-                return self._wait("CREEP_MATURITY_VETO")
+            # [Phase Ω-PhD-5] Dynamic Threshold + Ignition Bypass
+            c_thresh = OMEGA.get("creep_maturity_threshold", 150.0)
+            if "CREEPING" in regime_state.current.value and regime_state.duration_bars > c_thresh:
+                # SE houver ignição letal, ignoramos o veto de maturidade (Phase Ω-PhD-5)
+                if is_lethal_ignition:
+                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-IGNITION BYPASS] Stale regime ({regime_state.duration_bars} bars) overridden by Lethal Ignition.", 60, level="omega")
+                    self.last_decision_bypassed = True
+                else:
+                    self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {regime_state.current.value} is too old ({regime_state.duration_bars} bars).", 60)
+                    return self._wait("CREEP_MATURITY_VETO")
 
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
             phi_score = quantum_state.phi
@@ -303,7 +371,7 @@ class TrinityCore:
         # [Phase Ω-Coherence] UNKNOWN Regime Veto
         if regime_state.current.value == "UNKNOWN":
             unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.15)
-            if phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
+            if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
                 self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                 return self._wait("UNKNOWN_REGIME_INCOHERENCE")
         
@@ -316,11 +384,10 @@ class TrinityCore:
 
         # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
         is_creeping = "CREEPING" in regime_state.current.value
-        if (is_creeping or is_breakout) and tick_vel_abs > 12.0 and phi < phi_req and not is_god_mode:
+        if not is_tec_sovereign and (is_creeping or is_breakout) and tick_vel_abs > 12.0 and phi < phi_req and not is_god_mode:
             reason = "QMI_INSUFFICIENT" if is_qmi_active else "CHEAP_SPIKE"
             self._log_cooldown(f"{reason}_VETO", f"🛡️ [{reason} VETO] Velocity surge ({tick_vel_abs:.1f}) without structural coherence (Φ={phi:.2f} < req {phi_req:.2f}).", 60)
             return self._wait(f"{reason}_VETO")
-            return self._wait("CHEAP_SPIKE_VETO")
 
         # [MAKER_ADVANTAGE] If using Limit Orders, we can afford lower entry confidence
         if limit_mode:
@@ -371,7 +438,7 @@ class TrinityCore:
                     
                     # [Phase Ω-Coherence] God-Mode Coherence Verification
                     # Even in God-Mode, we need a TINY bit of coherence (0.05) to ensure it's not pure tick noise
-                    if phi < 0.05:
+                    if not is_tec_sovereign and phi < 0.05:
                         self._log_cooldown("GOD_MODE_NOISE_VETO", f"⚠️ VETO: GOD_MODE_NOISE (Φ={phi:.3f} is too low even for reversal).", 30)
                         return self._wait("GOD_MODE_NOISE")
                     # reasoning and other variables will be populated below as the function continues
@@ -399,7 +466,7 @@ class TrinityCore:
         
         # Penaliza a confiança se o sinal vem de menos de 3 domínios diferentes
         major_domains = bull_domains if signal > 0 else bear_domains
-        if major_domains < 3 and not is_god_mode:
+        if not is_tec_sovereign and major_domains < 3 and not is_god_mode:
             dynamic_conf_min *= 1.1 # Aumenta exigência (mais difícil passar)
             self._log_cooldown("ECHO_CHAMBER", f"⚠️ [ECHO CHAMBER] Signal supported by only {major_domains} domains. Raising conf threshold to {dynamic_conf_min:.2f}", 120)
 
@@ -458,17 +525,17 @@ class TrinityCore:
                 self._log_cooldown("BURST_IGNITION", f"🔥 [BURST IGNITION] High velocity detected ({tick_vel:.1f}). Bypassing structural gates.", 30, level="omega")
 
         # 1. Dynamic Signal Penalization for Counter-Trend
-        if tentative_is_counter and not (is_breakdown or is_lethal_ignition or has_exhaustion_sovereignty):
-            # Penaliza sinais contra a inércia do regime (Menos se houver Breakdown ou Ignição Letal ou Exaustão)
-            signal *= 0.3 # Redução drástica de força
-            confidence *= 0.6 # Exige muito mais certeza
-            self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying heavy suppression.", 60)
+        if tentative_is_counter and not (is_breakdown or is_lethal_ignition or has_exhaustion_sovereignty or is_tec_sovereign):
+            # Penaliza sinais contra a inércia do regime (Menos se houver Breakdown ou Ignição Letal ou Exaustão ou TEC)
+            signal *= 0.5 # Redução moderada de força (Plano Ω-Pro)
+            confidence *= 0.7 # Exige mais certeza but not overkill
+            self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying moderate suppression.", 60)
 
         # 2. Hard Veto for Weak Counter-Trend
         if tentative_is_counter:
             # Exigências de elite para apostar contra o regime (Fading)
-            phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.35
-            sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.60
+            phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.20
+            sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.40
             
             # [Phase 73] Ignition Sovereignty
             ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if (has_ignition or is_breakdown) else 1.0
@@ -480,7 +547,7 @@ class TrinityCore:
             phi_min_counter *= ign_mult
             sig_min_counter *= ign_mult
             
-            if phi < phi_min_counter or abs(signal) < sig_min_counter:
+            if not is_tec_sovereign and (phi < phi_min_counter or abs(signal) < sig_min_counter):
                 return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter:.2f} & Sig>{sig_min_counter:.2f} to fade {regime_state.current.value})")
 
             # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK
@@ -488,19 +555,18 @@ class TrinityCore:
             # Não tentamos 'adivinhar' o topo; esperamos a primeira martelada de volta.
             tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
             
-            # [Phase 73] Ignition Sovereignty: Se houver ignição letal, EXAUSTÃO ou BREAKDOWN, ignoramos o veto de continuidade
-            if is_lethal_ignition or is_breakdown or has_exhaustion_sovereignty:
+            # [Phase 73] Ignition Sovereignty: Se houver ignição letal, EXAUSTÃO, BREAKDOWN ou TEC, ignoramos o veto de continuidade
+            if is_lethal_ignition or is_breakdown or has_exhaustion_sovereignty or is_tec_sovereign:
                 pass
             elif (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
                  return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
 
-        # [Phase 73] PNL Veto Sovereignty: Lethal Ignition bypasses Java PnL Veto if high intensity
-        # [Phase Ω-NEXUS] Hign Conviction Bypass
-        is_lethal_strike = quantum_state.confidence > 0.92 and quantum_state.phi > 0.35
-        
+        # [Phase Ω-PhD-6] Singularity Resonance Bypass: Handled at start of decide()
+        # is_tec_sovereign logic removed here to avoid duplication
+
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
-            if is_lethal_ignition or is_lethal_strike or is_god_mode:
-                self._log_cooldown("PNL_SOVEREIGNTY", f"🔥 [PNL SOVEREIGNTY] Bypassing JAVA_PNL_VETO due to { 'LETHAL_STRIKE' if is_lethal_strike else 'IGNITION/GOD' } (Conf: {quantum_state.confidence:.2f})", 30)
+            if is_lethal_ignition or is_lethal_strike or is_god_mode or is_tec_sovereign:
+                self._log_cooldown("PNL_SOVEREIGNTY", f"🔥 [PNL SOVEREIGNTY] Bypassing JAVA_PNL_VETO due to { 'TEC' if is_tec_sovereign else 'LETHAL_STRIKE/IGNITION/GOD' } (Conf: {quantum_state.confidence:.2f})", 30)
                 pass
             if tentative_is_counter and has_exhaustion_sovereignty:
                 pass
@@ -528,18 +594,26 @@ class TrinityCore:
             if self.kinetic_exhaustion:
                 return self._wait("KINETIC_EXHAUSTION_VETO (Stable but Decelerating)")
 
-            if buy_cond and confidence >= (dynamic_conf_min - 1e-6):
+            if (is_tec_sovereign or buy_cond) and (is_tec_sovereign or confidence >= (dynamic_conf_min - 1e-6)):
                 action = Action.BUY
-            elif sell_cond and confidence >= (dynamic_conf_min - 1e-6):
+            elif (is_tec_sovereign or sell_cond) and (is_tec_sovereign or confidence >= (dynamic_conf_min - 1e-6)):
                 action = Action.SELL
             else:
                 reasons = []
                 if signal > 0 and not buy_cond: reasons.append(f"BUY_SIGNAL_WEAK({signal:.3f}<{dynamic_buy_thresh:.3f})")
                 if signal < 0 and not sell_cond: reasons.append(f"SELL_SIGNAL_WEAK({signal:.3f}>{dynamic_sell_thresh:.3f})")
                 if confidence < (dynamic_conf_min - 1e-6): reasons.append(f"CONF_WEAK({confidence:.3f}<{dynamic_conf_min:.2f})")
-                return self._wait(f"NO_CONVERGENCE: {' | '.join(reasons)}")
+                
+                # [Phase Ω-PhD-6] TEC Sovereignty: Skip wait if singularity detected
+                if not is_tec_sovereign:
+                    return self._wait(f"NO_CONVERGENCE: {' | '.join(reasons)}")
         
-        # If we reach here, we have an Action (either from God-Mode or Normal)
+        # [Phase Ω-PhD-6] Singularity Resonance Bypass: Force Action if TEC is active
+        if is_tec_sovereign and not is_god_mode:
+            if signal > 0: action = Action.BUY
+            elif signal < 0: action = Action.SELL
+            
+        # If we reach here, we have an Action (either from God-Mode, normal flow, or TEC)
         strike_flag = f" | [PHASE_50_STRIKE: {action.name}]"
         
         # The rest of the function (calculating SL/TP, RR, MC) will continue using the 'action', 'signal', 'confidence'.
@@ -560,6 +634,20 @@ class TrinityCore:
             # We relax the Phi requirement by 80% (Resonance Mode)
             dynamic_phi_min *= 0.20
             self._log_cooldown("PHI_RESONANCE", f"🧠 [Ω-PHI RESONANCE] Scaling Phi-Gate to {dynamic_phi_min:.4f} for stable drift.", 60)
+
+        # [Phase Ω-PhD-8] Kolmogorov Algorithmic Sync
+        is_programmatic = quantum_state.metadata.get("is_programmatic", False)
+        if is_programmatic:
+            # Se o fluxo é programático, a confiança na estrutura é maior.
+            # Reduzimos a exigência de Φ em 50%.
+            dynamic_phi_min *= 0.50
+            self._log_cooldown("KOLMOGOROV_SYNC", f"🤖 [Ω-KOLMOGOROV SYNC] Flow is programmatic. Scaling Phi-Gate to {dynamic_phi_min:.4f}.", 60)
+
+        # [Phase Ω-PhD-6] TEC Resonance Gate
+        # Se TEC está ativo, o sensor topológico precede o enxame.
+        if tec_active:
+            dynamic_phi_min = 0.01
+            self.last_decision_bypassed = True 
 
         # 1. Ajuste por Regime
         if regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL"]:
@@ -639,22 +727,27 @@ class TrinityCore:
                 phi_threshold = max(phi_threshold, 0.08)
             
         # [Phase 50] God-Mode Reversal & Resonance Bypass
-        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty): # Exhaustion bypasses this veto
-            self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f} | Pulse={has_ignition})", 60)
+        is_ricci_attractor = quantum_state.metadata.get("ricci_attractor", False)
+        
+        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty or is_tec_sovereign or is_ricci_attractor): # PhD-7: Ricci Attractor bypasses Φ-Gate
+            self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f} | TEC={is_tec_sovereign} | RICCI={is_ricci_attractor})", 60)
             return self._wait("INCOHERENCE_VETO")
 
         # ═══ VETO 04: CHAOS SHIELD ═══
         chaos_regime = regime_state.current.value == "HIGH_VOL_CHAOS"
-        if chaos_regime:
+        if not is_tec_sovereign and chaos_regime:
             self._log_cooldown("CHAOS_VETO", "🛡️ VETO: CHAOS_SHIELD (Market dynamics is too unstable)", 30)
             return self._wait("CHAOS_VETO")
             
         # ═══ VETO 04.5: INFORMATION ENTROPIC VACUUM (Ph.D. Level) ═══
         # Se estamos em drift e a entropia é baixíssima com 0 inércia = Robôs negociando com robôs
         is_drifting = regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "LOW_LIQUIDITY"]
-        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode:
-            self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia). Avoiding chop.", 60)
+        # [Phase Ω-PhD-7] Geodesic Flow bypasses Vacuum: Fluxo laminar programático é legítimo.
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and phi < 0.25 and not is_geodesic_flow:
+            self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia + Φ={phi:.2f} < 0.25). Avoiding chop.", 60)
             return self._wait("ENTROPIC_VACUUM_VETO")
+        elif is_geodesic_flow and is_drifting and entropy < 0.45:
+            self._log_cooldown("VACUUM_GEODESIC", f"☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent={entropy:.2f}).", 60, level="omega")
 
         # ═══ VETO 04.6: PHI IGNORANCE (Soberania do Presente) ═══
         # Se Φ é baixíssimo
@@ -666,13 +759,18 @@ class TrinityCore:
         phi_score = quantum_state.phi
         if regime in [MarketRegime.CREEPING_BULL, MarketRegime.DRIFTING_BEAR]:
             # [Phase Ω-PhD-2] Apply resonance scaling to the legacy gate as well
-            phi_gate = max(phi_gate, 0.35)
+            phi_gate = max(phi_gate, 0.20)
             if self.entropy_bridge_active:
                 phi_gate *= 0.10
+                
+        # [Phase Ω-PhD-8] Kolmogorov Sync for legacy gate
+        if is_programmatic:
+            phi_gate *= 0.50
+            
         elif regime in [MarketRegime.HIGH_VOL_CHAOS, MarketRegime.LIQUIDITY_HUNT]:
             phi_gate = max(phi_gate, 0.50)
             
-        if phi_score < (phi_gate - 1e-6) and not has_exhaustion_sovereignty:
+        if not (is_tec_sovereign or has_exhaustion_sovereignty or is_ricci_attractor) and phi_score < (phi_gate - 1e-6):
             return self._wait(f"SIGNAL_FRAGILE(Φ={phi_score:.2f} < {phi_gate:.2f})")
         
         phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
@@ -683,8 +781,11 @@ class TrinityCore:
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
             # [Phase Ω-PhD-2] Entropy Bridge bypasses PnL Expectancy check
-            if not self.entropy_bridge_active and quantum_state.confidence < 0.95:
+            phi_sovereign = phi >= 0.20 or is_tec_sovereign
+            if not (phi_sovereign or self.entropy_bridge_active) and quantum_state.confidence < 0.95:
                 return self._wait("JAVA_PNL_VETO (Negative Expectancy Detected)")
+            elif phi_sovereign:
+                self._log_cooldown("PNL_OVERRIDE", f"🧬 [Ω-PNL OVERRIDE] Bypassing negative expectancy via Consciousness Sovereignty (Φ={phi:.2f}).", 60, level="omega")
 
         is_hydra_mode = False
         if quantum_state.phi >= phi_hydra:
@@ -774,14 +875,37 @@ class TrinityCore:
             safe_sl_floor = float(price - min_sl_dist)
             stop_loss = min(structural_sl, safe_sl_floor) 
             
+            # [PhD-Log] Confirming Action again for final checks
+            action = Action.BUY
             
-            # Cap de segurança
-            stop_loss = min(float(stop_loss), float(price) + float(fast_atr) * 1.5)
+            # TP Dinâmico (Phase 52.8)
+            risk_dist = abs(price - stop_loss)
+            tp_scalar = OMEGA.get("tp_placement_scalar", 0.97)
+            take_profit = price + (risk_dist * rr_mult * tp_scalar)
+        
+        elif action == Action.SELL:
+            # SL: O menor entre (Máxima dos últimos 10 candles + buffer) e (Preço + sl_mult * Fast_ATR)
+            if isinstance(m1_highs, (np.ndarray, list)) and len(m1_highs) > 0:
+                structural_sl = float(np.max(m1_highs)) + struct_buffer
+            else:
+                structural_sl = float(price + fast_atr * sl_mult)
+                
+            # Garantir distanciamento mínimo de segurança (Resilience Floor)
+            safe_sl_floor = float(price + min_sl_dist)
+            stop_loss = max(structural_sl, safe_sl_floor)
             
             # TP Dinâmico (Phase 52.8)
             risk_dist = abs(price - stop_loss)
             tp_scalar = OMEGA.get("tp_placement_scalar", 0.97)
             take_profit = price - (risk_dist * rr_mult * tp_scalar)
+        
+        else:
+            # Se a ação não for BUY nem SELL (ex: WAIT), inicializamos com valores neutros para evitar UnboundLocalError
+            # e retornamos o wait state se necessário, ou deixamos o RR check veta-lo
+            stop_loss = price 
+            take_profit = price
+            if action != Action.WAIT:
+                return self._wait("UNEXPECTED_ACTION_TYPE")
 
         # [Phase 52.8] BTC_STRIKE_CAP: Alargado massivamente para permitir corridas colossais
         max_dist_tp = 1500.0
@@ -867,7 +991,11 @@ class TrinityCore:
             
         if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
              # Maker execution (limit_mode) captures spread, making low RR trades profitable.
-             min_rr = 0.4 if limit_mode else (min_rr * 0.8)
+             # In drifting regimes, we accept even lower RR if Phi is healthy
+             phi_factor = 0.5 if phi > 0.20 else 0.8
+             # [Phase Ω-PhD-7] Geodesic Flow accepts even lower RR (Scalp asimétrico)
+             if is_geodesic_flow: phi_factor = 0.35
+             min_rr = 0.35 if limit_mode else (min_rr * phi_factor)
 
         # [Phase 51] God-Mode RR Rationale
         if is_god_mode:
@@ -1021,7 +1149,7 @@ class TrinityCore:
                                     # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
                                     if abs(quantum_state.raw_signal) > 0.50:
                                         pass # Muro de contenção irrelevante perante a desintegração física
-                                    elif not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
+                                    elif not (has_ignition or is_god_mode or is_ghost_sweep or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_RESISTANCE_VETO (Level={peak:.0f}, Peaks={matches})")
         
         # [Phase 52.11] Simétrico: Suporte Horizontal para SELL
@@ -1048,7 +1176,7 @@ class TrinityCore:
                                     # [Phase Ω-Thermodynamic] Ruin Velocity Bypass
                                     if abs(quantum_state.raw_signal) > 0.50:
                                         pass # A gravidade quântica engolirá o suporte
-                                    elif not (has_ignition or is_god_mode or abs(quantum_state.raw_signal) > bypass_thresh):
+                                    elif not (has_ignition or is_god_mode or is_ghost_sweep or abs(quantum_state.raw_signal) > bypass_thresh):
                                         return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
 
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
@@ -1060,13 +1188,13 @@ class TrinityCore:
             h0, l0 = candles_m1["high"][-1], candles_m1["low"][-1]
             
             # Condição de Venda na mínima (Bear Trap)
-            if action == Action.SELL and not has_exhaustion_sovereignty:
+            if action == Action.SELL and not (has_exhaustion_sovereignty or is_tec_sovereign):
                 # Se o preço caiu forte mas já formou um pavio enorme de absorção
                 if c0 > l0 + (atr_m5 * 0.4): # Pavio inferior de 40% do ATR M5
                     return self._wait(f"LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected {c0 - l0:.1f} points)")
             
             # Condição de Compra na máxima (Bull Trap)
-            elif action == Action.BUY and not has_exhaustion_sovereignty:
+            elif action == Action.BUY and not (has_exhaustion_sovereignty or is_tec_sovereign):
                 # Se o preço subiu forte mas já formou um pavio superior enorme
                 if c0 < h0 - (atr_m5 * 0.4):
                     return self._wait(f"LIQUIDITY_SWEEP_VETO (Bull Trap: Wick rejected {h0 - c0:.1f} points)")
@@ -1075,7 +1203,7 @@ class TrinityCore:
         # Identificamos os 5 agentes com maior peso (Elite), excluindo puros vetos (TCellImmunity)
         directional_elites = [a for a in quantum_state.agent_signals if a.agent_name not in ["TCellImmunity", "KripkeSemantics", "IntuitionisticLogic"]]
         elite_agents = sorted(directional_elites, key=lambda x: x.weight, reverse=True)[:5]
-        if elite_agents and not has_exhaustion_sovereignty:
+        if elite_agents and not (has_exhaustion_sovereignty or is_tec_sovereign):
             elite_direction_sum = float(sum(np.sign(a.signal) for a in elite_agents))
             swarm_direction = float(np.sign(signal)) # 'signal' is already defined as collapsed_signal
             
@@ -1088,7 +1216,7 @@ class TrinityCore:
         # [Phase Ω-Apocalypse] VETO 10.5: MOMENTUM EXHAUSTION DIVERGENCE
         # Se os agentes de Momentum/Velocidade estão empolgados, mas os de
         # Estrutura/Exaustão estão em BEAR, é uma armadilha de topo.
-        if not is_god_mode:
+        if not (is_god_mode or is_tec_sovereign):
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             
@@ -1255,10 +1383,23 @@ class TrinityCore:
                 "entropy": entropy,
                 "coherence": coherence,
                 "rr_ratio": rr_ratio,
+                "is_tec_active": tec_active,
+                "tec_entropy": tec_entropy,
+                "is_tec_active": tec_active,
+                "tec_entropy": tec_entropy,
+                "is_tec_active": tec_active,
+                "tec_entropy": tec_entropy,
                 "v_pulse_detected": has_v_pulse,
-                "quantum_metadata": quantum_state.metadata if quantum_state else {}
+                "quantum_metadata": quantum_state.metadata if quantum_state else {},
+                "bypassed_stale_regime": self.last_decision_bypassed
             }
         )
+        
+        # [Phase Ω-PhD-5] Transmit bypass flag to Risk Engine via snapshot
+        if snapshot and hasattr(snapshot, 'metadata'):
+            snapshot.metadata["bypassed_stale_regime"] = self.last_decision_bypassed
+
+        self.last_decision_bypassed = False # Reset p/ próximo ciclo
         
         # [PHASE Ω-SINGULARITY] Injection of P-Brane Limit Logic
         limit_mode = OMEGA.get("limit_execution_mode", 0.0)
@@ -1289,6 +1430,13 @@ class TrinityCore:
         # 🎯 DECISION REALIZATION
         # (Log movido para SniperExecutor para evitar falsos positivos de 'ghost trading')
         self.last_decision = decision
+        # [Phase Ω-PhD-9] Quantum Tunneling Ghost Entry
+        if decision.action != Action.WAIT:
+            is_ghost_entry = QuantumTunnelingExecution.should_authorize_ghost_entry(snapshot, decision)
+            if is_ghost_entry:
+                decision.reasoning += " | [Ω-GHOST_ENTRY: TUNNELING AUTHORIZED]"
+                decision.metadata["quantum_tunneling"] = True
+                
         return decision
 
     def _check_vetos(self, snapshot, asi_state, regime_state, v_pulse_detected: bool = False) -> Optional[str]:

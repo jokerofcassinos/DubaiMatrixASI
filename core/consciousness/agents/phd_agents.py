@@ -535,3 +535,92 @@ class NeuralFlowODEAgent(BaseAgent):
             reason = f"FLOW_ODE_IGNITION (Drift={drift:.4f}, Accel={accel:.4f})"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
+
+class RiemannianManifoldGaussianAgent(BaseAgent):
+    """
+    [Phase Ω-PhD-10] Riemannian Manifold Geometry.
+    Mapeia (Price, Volume, Time) em uma variedade 3D.
+    Calcula a curvatura Gaussiana para detectar "Gargalos de Singularidade".
+    """
+    def __init__(self, weight=5.2):
+        super().__init__("RiemannianManifold", weight)
+
+    def analyze(self, snapshot, **kwargs) -> AgentSignal:
+        tick_buffer = snapshot.recent_ticks[-50:] if hasattr(snapshot, 'recent_ticks') else []
+        if len(tick_buffer) < 30:
+            return AgentSignal(self.name, 0.0, 0.0, "INSUFFICIENT_MANIFOLD_DATA", self.weight)
+
+        prices = np.array([t.get("last", 0) for t in tick_buffer])
+        volumes = np.array([t.get("volume", 1) for t in tick_buffer])
+        times = np.arange(len(prices))
+
+        # Aproximar Superfície via Diferenças Finitas (Curvatura de Gauss)
+        # K = (fxx*fyy - fxy^2) / (1 + fx^2 + fy^2)^2
+        # Simplificamos fx (derivada preço/tempo) e fy (derivada volume/tempo)
+        fx = np.gradient(prices)
+        fy = np.gradient(volumes)
+        fxx = np.gradient(fx)
+        fyy = np.gradient(fy)
+        fxy = np.gradient(fx) # Aproximação cruzada simplificada
+
+        num = (fxx * fyy - fxy**2)
+        den = (1 + fx**2 + fy**2)**2 + 1e-9
+        curvature = np.mean(num / den)
+
+        signal = 0.0
+        conf = 0.0
+        reason = "FLAT_SPACE"
+
+        # Curvatura Negativa (Hiperbólica): Expansão Divergente (Oportunidade de Breakout)
+        if curvature < -0.05:
+            tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+            signal = np.sign(tick_velocity)
+            conf = min(0.96, abs(curvature) * 10.0)
+            reason = f"HYPERBOLIC_EXPANSION (K={curvature:.4f})"
+        
+        # Curvatura Positiva (Esférica): Contração Convergente (Exaustão/Reverso)
+        elif curvature > 0.05:
+            tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+            signal = -np.sign(tick_velocity)
+            conf = min(0.93, curvature * 8.0)
+            reason = f"SPHERICAL_COMPRESSION (K={curvature:.4f})"
+
+        return AgentSignal(self.name, signal, conf, reason, self.weight)
+
+class QuantumDirectionalInferenceAgent(BaseAgent):
+    """
+    [Phase Ω-PhD-10] Quantum Directional Inference.
+    Usa uma analogia da Equação de Schrödinger para modelar a 'Densidade de Probabilidade' 
+    do preço em direção aos aglomerados de ordens institucionais.
+    """
+    def __init__(self, weight=5.5):
+        super().__init__("QuantumDirectionalInference", weight)
+
+    def analyze(self, snapshot, **kwargs) -> AgentSignal:
+        book = snapshot.book if hasattr(snapshot, 'book') else None
+        if not book or not book.get("bids") or not book.get("asks"):
+            return AgentSignal(self.name, 0.0, 0.0, "NO_WAVE_FUNCTION", self.weight)
+
+        # Mapear "Potenciais de Gravidade" (Liquidez no Book)
+        bids = book["bids"][:10]
+        asks = book["asks"][:10]
+        
+        bid_pot = sum(b.get("volume", 0) / (abs(snapshot.price - b.get("price", 1))**2 + 1e-6) for b in bids)
+        ask_pot = sum(a.get("volume", 0) / (abs(snapshot.price - a.get("price", 1))**2 + 1e-6) for a in asks)
+        
+        # Wavefront Collapse Probability
+        total_pot = bid_pot + ask_pot + 1e-9
+        prob_buy = bid_pot / total_pot
+        prob_sell = ask_pot / total_pot
+        
+        signal = 0.0
+        conf = 0.0
+        
+        if abs(prob_buy - prob_sell) > 0.4: # Desequilíbrio quântico massivo
+            signal = 1.0 if prob_buy > prob_sell else -1.0
+            conf = min(0.99, abs(prob_buy - prob_sell) * 1.5)
+            reason = f"WAVE_FUNCTION_COLLAPSE (B:{prob_buy:.2f} | A:{prob_sell:.2f})"
+        else:
+            reason = "QUANTUM_SUPERPOSITION"
+
+        return AgentSignal(self.name, signal, conf, reason, self.weight)

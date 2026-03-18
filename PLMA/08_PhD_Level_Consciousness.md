@@ -32,5 +32,21 @@
 - **Motor:** `calculate_dark_matter_gravity` (C++).
 - **Lógica:** Infere massa institucional oculta (Icebergs) baseada na discrepância aceleração/massa-visível.
 
+### 2.6 Riemannian Ricci Manifold (Geometry)
+- **Motor:** `RiemannianRicciAgent`.
+- **Lógica:** Modela a liquidez como uma variedade de Riemann e usa a curvatura de Ricci para identificar "Atratores de Preço".
+- **Soberania:** `ricci_attractor` (Bypassa vetos de fragilidade).
+
+### 2.7 Kolmogorov Complexity Sync (Information Theory)
+- **Motor:** `KolmogorovInertiaAgent`.
+- **Lógica:** Mede a complexidade LZW dos ticks para distinguir fluxos programáticos de ruído retail.
+- **Soberania:** `is_programmatic` (Bypassa vetos de proteção de tendência em reversões de alta confiança).
+
+### 2.8 Quantum Tunneling Execution (Quantum Mechanics)
+- **Motor:** `QuantumTunnelingExecution`.
+- **Lógica:** Calcula a probabilidade de "Tunelamento" através de paredes de liquidez, permitindo "Ghost Entries".
+- **Soberania:** `authorized_ghost_entry`.
+
 ## 3. Impacto Sistêmico
-A DubaiMatrixASI agora opera com **integridade total**, eliminando a paralisia por medo algorítmico e a vulnerabilidade a padrões repetitivos de perda. O sistema de imunidade garante que a máquina "aprenda com o trauma" de forma cirúrgica.
+A DubaiMatrixASI agora possui uma **Tríplice Soberania PhD**, permitindo que o sistema tome decisões agressivas em momentos de singularidade, mesmo quando os filtros estatísticos convencionais (Φ-Gate) sugerem cautela. Isso garante a captura de alpha em regimes de alta complexidade.
+

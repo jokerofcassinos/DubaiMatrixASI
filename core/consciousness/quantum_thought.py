@@ -219,6 +219,40 @@ class QuantumThoughtEngine:
                         s.reasoning += " [!TRAP_VETO: SMART MONEY SELLING RESISTANCE!]"
 
 
+        # ═══ [OMEGA INJECTION] Ω-PhD-7: RICCI ATTRACTOR SOVEREIGNTY ═══
+        ricci_bull = any(s.agent_name == "RiemannianRicci" and s.signal > 0.7 for s in valid_signals)
+        ricci_bear = any(s.agent_name == "RiemannianRicci" and s.signal < -0.7 for s in valid_signals)
+        
+        if ricci_bull:
+            for s in valid_signals:
+                if s.signal > 0.1:
+                    s.weight *= 2.0
+                    s.reasoning += " [!RICCI_ATTRACTOR_BOOST!]"
+                elif s.signal < -0.1:
+                    s.weight *= 0.1
+                    s.reasoning += " [!RICCI_CURVATURE_CRUSH!]"
+        elif ricci_bear:
+            for s in valid_signals:
+                if s.signal < -0.1:
+                    s.weight *= 2.0
+                    s.reasoning += " [!RICCI_ATTRACTOR_BOOST!]"
+                elif s.signal > 0.1:
+                    s.weight *= 0.1
+                    s.reasoning += " [!RICCI_CURVATURE_CRUSH!]"
+
+        # ═══ [OMEGA INJECTION] Ω-PhD-8: KOLMOGOROV PROGRAMMATIC SYNC ═══
+        is_programmatic = any(s.agent_name == "KolmogorovInertia" and s.confidence > 0.7 for s in valid_signals)
+        if is_programmatic:
+            algo_agents = {
+                "OrderFlowSingularity", "VPINToxicity", "WhaleTrackerAgent", 
+                "InstitutionalFootprintAgent", "IcebergHunterAgent", "LieSymmetry"
+            }
+            for s in valid_signals:
+                if s.agent_name in algo_agents:
+                    s.weight *= 2.5
+                    s.reasoning += " [!KOLMOGOROV_PROGRAMMATIC_SYNC!]"
+
+
         # ═══ [OMEGA INJECTION] PHASE 48: V-PULSE_LOCK / IGNITION SOVEREIGNTY ═══
         # Se o RegimeDetector detectou um V-Pulse (Ignition), o ruído é proscrito.
         # Os agentes de ignição (Explosion, Velocity, Aggressiveness) ganham soberania absoluta.
@@ -549,7 +583,10 @@ class QuantumThoughtEngine:
                 "phi": phi_val,
                 "coherence": coherence,
                 "entropy": system_entropy,
-                "is_god_candidate": is_god_candidate
+                "is_god_candidate": is_god_candidate,
+                "is_programmatic": is_programmatic,
+                "ricci_attractor": ricci_bull or ricci_bear,
+                "ricci_dir": 1.0 if ricci_bull else (-1.0 if ricci_bear else 0.0)
             },
             reasoning=reasoning,
         )
