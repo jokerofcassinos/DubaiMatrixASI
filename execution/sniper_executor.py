@@ -647,6 +647,10 @@ class SniperExecutor:
 
         # [PHASE Ω-EVOLVE] Register Intents for Amnesia Prevention
         from utils.audit_engine import AUDIT_ENGINE
+        
+        # Gerar um Strike ID único para este conjunto de ordens (Hydra)
+        strike_id = f"S{int(time.time())}_{decision.action.value}"
+        
         for i, res in enumerate(results):
             ticket = res.get("ticket", 0)
             # [Phase 52] Se o ticket é 0 (Async Socket), usamos i como ID temporário
@@ -657,11 +661,12 @@ class SniperExecutor:
                 ticket=ticket,
                 intent=decision,
                 snapshot=snapshot,
-                position_id=temp_pos_id
+                position_id=temp_pos_id,
+                strike_id=strike_id
             )
             
-            # [Ω-AUDIT] Trigger Post-Mortem Capture
-            AUDIT_ENGINE.start_audit(ticket=ticket, decision=decision, snapshot=snapshot)
+            # [Ω-AUDIT] Trigger Post-Mortem Capture (Usando strike_id p/ agrupar)
+            AUDIT_ENGINE.start_audit(ticket=ticket, decision=decision, snapshot=snapshot, strike_id=strike_id)
         # 5. Sucesso!
         self._execution_count += 1
         self._orders_in_candle += 1  # Incrementa o contador do throttle por candle

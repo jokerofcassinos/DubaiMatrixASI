@@ -1,0 +1,19 @@
+{
+    "ticket": 0,
+    "timestamp_entry": 1773945522.3159332,
+    "action": "BUY",
+    "signal": 0.40751554580988475,
+    "confidence": 0.789978850440487,
+    "reasoning": "BUY signal=+0.408 conf=0.79 coherence=0.40 regime=CREEPING_BULL ATR=165.14 RR=1.94 | [PHASE_50_STRIKE: BUY] | Quantum: SIGNAL=+0.408 | CONF=0.79 | \u03a6=0.10 | COH=40.07% | BULL: LiquidStateAgent, SingularSpectrumAnalysis, KripkeSemantics | MC[score=+0.030 WP=47.0% EV=+5.23 CVaR=-166.16 sim=32.2ms]",
+    "regime": "CREEPING_BULL",
+    "lot_size": 0.01,
+    "entry_price": 69709.83,
+    "stop_loss": 69543.67043828832,
+    "take_profit": 70032.17954972066,
+    "snapshot": {
+        "price": 69709.33,
+        "atr": 54.673904279173215,
+        "phi": 0.09522990871023913,
+        "kl_div": 0.0
+    }
+}

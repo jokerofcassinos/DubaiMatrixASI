@@ -427,7 +427,10 @@ class PositionManager:
             
             # [Ω-AUDIT] Finalize Post-Mortem Capture
             from utils.audit_engine import AUDIT_ENGINE
-            AUDIT_ENGINE.end_audit(ticket=ticket, result=result or {"ticket": ticket, "success": False})
+            intent_data = trade_registry.get_intent(position_id=ticket)
+            strike_id = intent_data.get("strike_id") if intent_data else None
+            
+            AUDIT_ENGINE.end_audit(ticket=ticket, result=result or {"ticket": ticket, "success": False}, strike_id=strike_id)
 
             if self._on_close_callback:
                 try:

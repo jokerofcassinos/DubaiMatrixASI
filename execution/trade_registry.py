@@ -65,7 +65,7 @@ class TradeRegistry:
         except Exception as e:
             log.error(f"❌ Erro ao salvar Trade Registry: {e}")
 
-    def register_intent(self, ticket: int, intent: Any, snapshot: Any, position_id: int = 0):
+    def register_intent(self, ticket: int, intent: Any, snapshot: Any, position_id: int = 0, strike_id: Optional[str] = None):
         """
         Registra os metadados de intenção para um novo trade.
         Extrai regime, confiança e PHI dos objetos originais.
@@ -79,7 +79,8 @@ class TradeRegistry:
                 "coherence": getattr(intent, 'coherence', 0.0),
                 "phi": getattr(snapshot, 'phi', 0.0) if snapshot else 0.0,
                 "reasoning": getattr(intent, 'reasoning', ''),
-                "symbol": getattr(snapshot, 'symbol', 'UNKNOWN') if snapshot else 'UNKNOWN'
+                "symbol": getattr(snapshot, 'symbol', 'UNKNOWN') if snapshot else 'UNKNOWN',
+                "strike_id": strike_id
             }
             
             with self._lock:
@@ -96,15 +97,19 @@ class TradeRegistry:
                 # Se temos position_id, indexar também por ele
                 if position_id > 0:
                     self.intents[str(position_id)] = intent_record
+                
+                # Se temos um strike_id, permitimos busca por ele também
+                if strike_id:
+                    self.intents[f"strike_{strike_id}"] = intent_record
 
                 # Limitar tamanho (últimos 5000)
-                if len(self.intents) > 10000:
-                    keys = list(self.intents.keys())[:100]
+                if len(self.intents) > 15000:
+                    keys = list(self.intents.keys())[:500]
                     for k in keys:
                         self.intents.pop(k, None)
 
                 self._save() # [PHASE 48 FIX] Corrigido self.save() -> self._save()
-                log.info(f"💾 Intenção registrada Ticket#{ticket} | Regime={metadata.get('regime')} | Conf={metadata.get('confidence'):.2f}")
+                log.info(f"💾 Intenção registrada Ticket#{ticket} | Strike={strike_id} | Conf={metadata.get('confidence'):.2f}")
         except Exception as e:
             log.error(f"❌ Erro ao registrar intenção: {e}")
 

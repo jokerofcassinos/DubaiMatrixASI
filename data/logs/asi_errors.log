@@ -1,0 +1,6 @@
+[DubaiMatrixASI] 15:34:52.030 CRITICAL │ 🌀 [WORMHOLE TRIGGER] Pos #405864861 BUY em colapso (80.35%). Iniciando Gamma Hedge SELL.
+[DubaiMatrixASI] 15:34:52.031    ERROR │ 💀 EXCEPTION in [think]: TypeError: Decision.__init__() missing 2 required positional arguments: 'signal_strength' and 'lot_size'
+[DubaiMatrixASI] 15:50:06.545 CRITICAL │ 🌀 [WORMHOLE TRIGGER] Pos #405864861 BUY em colapso (83.93%). Iniciando Gamma Hedge SELL.
+[DubaiMatrixASI] 15:50:06.555    ERROR │ 💀 EXCEPTION in [think]: TypeError: Decision.__init__() missing 2 required positional arguments: 'signal_strength' and 'lot_size'
+[DubaiMatrixASI] 15:51:12.192 CRITICAL │ 🌀 [WORMHOLE TRIGGER] Pos #405864847 BUY em colapso (80.30%). Iniciando Gamma Hedge SELL.
+[DubaiMatrixASI] 15:51:12.213    ERROR │ 💀 EXCEPTION in [think]: TypeError: Decision.__init__() missing 2 required positional arguments: 'signal_strength' and 'lot_size'
