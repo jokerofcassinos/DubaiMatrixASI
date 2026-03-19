@@ -791,9 +791,16 @@ class TrinityCore:
         # [Phase Ω-Aethel] Topological Protection Bypass
         is_topologically_protected = any(s.agent_name in ["ChernSimonsTopological", "BraidTopology"] and abs(s.signal) > 0.8 for s in agent_signals)
         
-        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and phi < 0.25 and not (is_geodesic_flow or is_topologically_protected):
+        # [Phase Ω-PhD-15] Coherence-Based Vacuum Bypass
+        # Se o enxame está em harmonia (Coherence > 0.6) e bem integrado (Phi > 0.3), 
+        # confiamos na entrada mesmo com baixa entropia/volatilidade.
+        is_consensus_clear = coherence > 0.60 and phi > 0.30
+        
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and not (is_geodesic_flow or is_topologically_protected or is_consensus_clear):
             self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia + Φ={phi:.2f} < 0.25). Avoiding chop.", 60)
             return self._wait("ENTROPIC_VACUUM_VETO")
+        elif is_consensus_clear and is_drifting and entropy < 0.45:
+             self._log_cooldown("VACUUM_CONSENSUS", f"☄️ [Ω-CONSCIOUSNESS BYPASS] Bypassing Entropic Vacuum via High Coherence ({coherence:.2%}).", 60, level="omega")
         elif (is_geodesic_flow or is_topologically_protected) and is_drifting and entropy < 0.45:
             reason = "Geodesic Flow" if is_geodesic_flow else "Topological Protection"
             self._log_cooldown("VACUUM_GEODESIC", f"☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via {reason} (Ent={entropy:.2f}).", 60, level="omega")

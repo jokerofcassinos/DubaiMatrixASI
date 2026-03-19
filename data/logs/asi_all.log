@@ -1,42 +1,107 @@
-[DubaiMatrixASI] 13:08:05.312     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 13:08:05.312     INFO │ 
+[DubaiMatrixASI] 14:39:49.268     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 14:39:49.269     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 13:08:05.312     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 13:08:05.313     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 13:08:05.313    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 13:08:05.313    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 13:08:05.314    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 13:08:05.314    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 13:08:05.314    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 13:08:05.315    OMEGA │ ⚡ 📅 2026-03-19T16:08:05.315276+00:00
-[DubaiMatrixASI] 13:08:05.315    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 13:08:05.315    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 13:08:05.316     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 13:08:05.318     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 13:08:05.319    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 13:08:05.319     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 13:08:05.319     INFO │    Conta: 1512785888
-[DubaiMatrixASI] 13:08:05.320     INFO │    Servidor: FTMO-Demo
-[DubaiMatrixASI] 13:08:05.320     INFO │    Saldo: $98190.99
-[DubaiMatrixASI] 13:08:05.320     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 13:08:05.321     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 13:08:05.321     INFO │    Spread: 100 points
-[DubaiMatrixASI] 13:08:05.322    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 13:08:05.322     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 13:08:05.323    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69294.28, Bid=69293.28
-[DubaiMatrixASI] 13:08:05.323     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 13:08:05.331     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 13:08:05.332    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 13:08:05.333    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 13:08:05.355    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 13:08:05.358     INFO │ 📂 Carregados 25 trades do histórico. WR=40.0%
-[DubaiMatrixASI] 13:08:05.383    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 13:08:05.389    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 13:08:05.391    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 13:08:05.397    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 13:08:05.398    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
-[DubaiMatrixASI] 13:08:05.398    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 13:08:05.399     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 98190.99, 'equity': 98194.15, 'tick_buffer_size': 1, 'last_tick_ms': 1773947283820}
-[DubaiMatrixASI] 13:08:05.400    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 13:08:05.401    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 13:08:05.430    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 14:39:49.270     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 14:39:49.270     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 14:39:49.271    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 14:39:49.271    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 14:39:49.271    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 14:39:49.272    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 14:39:49.272    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 14:39:49.273    OMEGA │ ⚡ 📅 2026-03-19T17:39:49.273321+00:00
+[DubaiMatrixASI] 14:39:49.273    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 14:39:49.274    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 14:39:49.274     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 14:39:49.277     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 14:39:49.278    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 14:39:49.278     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 14:39:49.279     INFO │    Conta: 1512785888
+[DubaiMatrixASI] 14:39:49.279     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 14:39:49.279     INFO │    Saldo: $97837.84
+[DubaiMatrixASI] 14:39:49.280     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 14:39:49.280     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 14:39:49.280     INFO │    Spread: 168 points
+[DubaiMatrixASI] 14:39:49.281    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 14:39:49.282     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 14:39:49.282    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69507.11, Bid=69505.43
+[DubaiMatrixASI] 14:39:49.283     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 14:39:49.290     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 14:39:49.291    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 14:39:49.293    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 14:39:49.315    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 14:39:49.320     INFO │ 📂 Carregados 29 trades do histórico. WR=37.9%
+[DubaiMatrixASI] 14:39:49.353    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 14:39:49.359    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 14:39:49.360    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 14:39:49.367    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 14:39:49.367    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
+[DubaiMatrixASI] 14:39:49.369    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 14:39:49.371     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 168, 'balance': 97837.84, 'equity': 97837.84, 'tick_buffer_size': 1, 'last_tick_ms': 1773952789824}
+[DubaiMatrixASI] 14:39:49.372    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 14:39:49.374    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 14:39:49.571     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 0.3s / 120.0s remaining.
+[DubaiMatrixASI] 14:39:49.581    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $48.12
+[DubaiMatrixASI] 14:39:49.613    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 14:39:49.636    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222349: Regime=None
+[DubaiMatrixASI] 14:39:49.637    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222354: Regime=None
+[DubaiMatrixASI] 14:39:49.646    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222356: Regime=None
+[DubaiMatrixASI] 14:39:49.647    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222358: Regime=None
+[DubaiMatrixASI] 14:39:49.653    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280856: Regime=None
+[DubaiMatrixASI] 14:39:49.653    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280858: Regime=None
+[DubaiMatrixASI] 14:39:49.654    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280860: Regime=None
+[DubaiMatrixASI] 14:39:49.654    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320070: Regime=None
+[DubaiMatrixASI] 14:39:49.654    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320075: Regime=None
+[DubaiMatrixASI] 14:39:49.655    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320079: Regime=None
+[DubaiMatrixASI] 14:39:49.655    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320080: Regime=None
+[DubaiMatrixASI] 14:39:49.656    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002090: Regime=CREEPING_BULL
+[DubaiMatrixASI] 14:39:49.656    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002092: Regime=CREEPING_BULL
+[DubaiMatrixASI] 14:39:49.656    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002093: Regime=CREEPING_BULL
+[DubaiMatrixASI] 14:39:49.657    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002094: Regime=CREEPING_BULL
+[DubaiMatrixASI] 14:39:49.657    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404040915: Regime=CREEPING_BULL
+[DubaiMatrixASI] 14:39:49.658    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042181: Regime=None
+[DubaiMatrixASI] 14:39:49.658    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042182: Regime=None
+[DubaiMatrixASI] 14:39:49.659    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042184: Regime=None
+[DubaiMatrixASI] 14:39:49.659    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404936917: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 14:39:49.660    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943755: Regime=None
+[DubaiMatrixASI] 14:39:49.660    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943754: Regime=None
+[DubaiMatrixASI] 14:39:49.661    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404958890: Regime=None
+[DubaiMatrixASI] 14:39:49.661    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742044: Regime=None
+[DubaiMatrixASI] 14:39:49.662    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742040: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 14:39:49.663    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405774725: Regime=None
+[DubaiMatrixASI] 14:39:49.663    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405777860: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 14:39:49.664    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793382: Regime=None
+[DubaiMatrixASI] 14:39:49.664    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793384: Regime=None
+[DubaiMatrixASI] 14:39:49.666  WARNING │ 🚨 ALERT [HIGH]: Win rate em 37.9% (threshold: 45.0%)
+[DubaiMatrixASI] 14:39:49.668    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.4368)
+[DubaiMatrixASI] 14:39:49.668    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006921
+[DubaiMatrixASI] 14:39:49.669    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 30 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-2162.16
+[DubaiMatrixASI] 14:39:50.073    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56800)
+[DubaiMatrixASI] 14:39:50.506     INFO │ 🌍 Macro Update: ETH=$2118.22 | BTC/ETH=32.8 | Gold=$4613 | Vol24h=$114.5B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 14:39:51.573     INFO │ ⛓️ On-Chain Update: Mempool=42,166 txs | Fee=3.5 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 14:39:54.124     INFO │ 📊 Sentiment Update: F&G=23 (Extreme Fear) | BTC Dom=56.4% | 24h=-2.92% | Score=-0.490 | Sources=2
+[DubaiMatrixASI] 14:39:56.877     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.367 | Coherence=0.33 | Regime=UNKNOWN | TotalThink=0.0ms | P&L=$-2162.16
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (112s left)
+  🧬 Quantum: SIGNAL=-0.367 COHERENCE=0.33 PHI=0.01
+  🐂 BULL[19]: MacroBiasAgent, TemporalTrend, MomentumAgent, PriceGravityAgent, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, LiquidityGraph, FourierSpectral, HolographicEntanglement, RogueWaveNLSE, FVGAgent, BlackSwanEVT, ChaosRegime, DarkMass, CppFractalAgent, CandleAnatomyAgent, OscillationWaveAgent, OrderBlockAgent
+  🐻 BEAR[20]: SingularSpectrumAnalysis, KripkeSemantics, CrossScaleConvergenceAgent, SpectralInformationFlux, RiemannianRicci, ChaosFractalDim, LiquidationVacuumAgent, RiemannianManifold, QuantumSpin, GameTheoryNashAgent, PressureMatrix, AggressivenessAgent, Thermodynamic, PriceVelocityAgent, MicrostructureAgent, SRAgent, SentimentFearGreedAgent, FeynmanPath, OnChainPressureAgent, HexMatrix
+[DubaiMatrixASI] 14:39:59.583    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 14:40:04.547     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.378 | Coherence=0.34 | Regime=LOW_LIQUIDITY | TotalThink=0.0ms | P&L=$-2162.16
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (104s left)
+  🧬 Quantum: SIGNAL=-0.378 COHERENCE=0.34 PHI=0.06
+  🐂 BULL[19]: MacroBiasAgent, TemporalTrend, MomentumAgent, HexMatrix, AggressivenessAgent, KripkeSemantics, DarkMatterGravity, LiquidityGraph, FourierSpectral, PriceGravityAgent, RogueWaveNLSE, PheromoneFieldAgent, FVGAgent, BlackSwanEVT, ChaosRegime, LiquidStateAgent, CppFractalAgent, LiquidationVacuumAgent, OrderBlockAgent
+  🐻 BEAR[20]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, RandomMatrixTheory, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, PriceVelocityAgent, CandleAnatomyAgent, SRAgent, FeynmanPath, SentimentFearGreedAgent, OnChainPressureAgent, PressureMatrix
+[DubaiMatrixASI] 14:40:12.157     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.039 | Coherence=0.45 | Regime=LOW_LIQUIDITY | TotalThink=0.0ms | P&L=$-2162.16
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (97s left)
+  🧬 Quantum: SIGNAL=-0.039 COHERENCE=0.45 PHI=0.00
+  🐂 BULL[23]: KripkeSemantics, SolitonWave, DarkMatterGravity, LiquidityGraph, FourierSpectral, HolographicEntanglement, RogueWaveNLSE, FVGAgent, LiquidStateAgent, BOSAgent, BlackSwanEVT, ChaosRegime, OrderBlockAgent, CppFractalAgent, PriceGravityAgent, LiquidationVacuumAgent, MomentumAgent, FeynmanPath, AggressivenessAgent, MacroBiasAgent, TemporalTrend, HexMatrix, PriceVelocityAgent
+  🐻 BEAR[19]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, StrangeAttractorFolding, RandomMatrixTheory, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, ChartStructureAgent, CandleAnatomyAgent, SRAgent, OscillationWaveAgent, SentimentFearGreedAgent, OnChainPressureAgent, PressureMatrix
+[DubaiMatrixASI] 14:40:15.821    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 14:40:16.045    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 14:40:16.050    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 14:40:16.060    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 14:40:16.061    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 14:40:16.062    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 14:40:16.063    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-19T17:40:16.062978+00:00
+[DubaiMatrixASI] 14:40:16.064     INFO │ 📈 Trades: 29
+[DubaiMatrixASI] 14:40:16.065     INFO │ 📈 Win Rate: 37.9%
+[DubaiMatrixASI] 14:40:16.066     INFO │ 📈 P&L: $-2162.16

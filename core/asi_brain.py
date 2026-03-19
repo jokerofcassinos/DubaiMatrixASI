@@ -203,6 +203,19 @@ class ASIBrain:
         )
         snapshot.metadata["phi_last"] = quantum_state.phi
         snapshot.metadata["raw_signal"] = quantum_state.raw_signal
+        snapshot.metadata["coherence_last"] = quantum_state.coherence
+        
+        # [Phase Ω-PhD-4] NRO: Extract Manifold Curvature from specialized agents
+        manifold_curvature = 0.0
+        for sig in agent_signals:
+            if sig.agent_name in ["RiemannianManifold", "RiemannianManifoldGaussian"]:
+                # Pega a curvatura da metadata se disponível
+                if sig.metadata and isinstance(sig.metadata, dict):
+                    manifold_curvature = sig.metadata.get("curvature", sig.signal * sig.confidence)
+                else:
+                    manifold_curvature = sig.signal * sig.confidence
+                break
+        snapshot.metadata["manifold_curvature"] = manifold_curvature
 
         # ═══ 6. DECISÃO — Trinity Core ═══
         decision = self.trinity_core.decide(

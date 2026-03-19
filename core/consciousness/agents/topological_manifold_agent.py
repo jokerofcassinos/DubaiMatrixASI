@@ -29,7 +29,7 @@ class TopologicalManifoldAgent(BaseAgent):
         # 2. Mapear Manifold 3D
         # Simplificamos detectando "Vácuos de Inércia" em níveis de preço
         current_price = snapshot.price
-        price_std = np.std(closes)
+        price_std = np.std(closes) + 1e-9
         
         # Zonas de "Buraco": Pouco volume e alta velocidade histórica no nível atual
         historical_density = np.sum(np.exp(-0.5 * ((closes - current_price) / price_std)**2) * inertia)

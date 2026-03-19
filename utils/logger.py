@@ -11,6 +11,7 @@ import logging
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 from config.settings import LOG_DIR, ASI_NAME
+from utils.log_buffer import LOG_BUFFER
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -127,6 +128,9 @@ class ASILogger:
         error_file.setLevel(logging.ERROR)
         error_file.setFormatter(ASIFormatter(use_colors=False))
         self.logger.addHandler(error_file)
+
+        # ═══ Buffer Handler (In-Memory Audit) ═══
+        self.logger.addHandler(LOG_BUFFER)
 
         # Trade counter
         self._trade_count = 0

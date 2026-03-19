@@ -55,7 +55,8 @@ class InformationGeometryAgent(BaseAgent):
         history = snapshot.m1_closes[-15:]
         if len(history) < 10: return None
         
-        returns = np.diff(np.log(history + 1e-9))
+        history_arr = np.array(history, dtype=np.float64)
+        returns = np.diff(np.log(history_arr + 1e-9))
         if np.std(returns) < 1e-12:
             return AgentSignal(self.name, 0.0, 0.0, "Zero Variance in Returns", self.weight)
             

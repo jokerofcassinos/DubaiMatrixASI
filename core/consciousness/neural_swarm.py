@@ -375,9 +375,8 @@ class NeuralSwarm:
     def __init__(self, memory=None, predator_engine=None):
         self.agents: List[BaseAgent] = []
         self._initialize_agents(memory, predator_engine)
-        # Thread pool para execução paralela (max_workers calibrado para o hardware e número de agentes)
-        # [Phase Ω-Eternity] Elevado para 64 para acomodar a explosão demográfica de agentes super-pesados
-        self._executor = ThreadPoolExecutor(max_workers=64)
+        # [Phase Ω-Eternity] Elevado para 128 para acomodar 140+ agentes e evitar contenção
+        self._executor = ThreadPoolExecutor(max_workers=128)
         
         # [Phase 69] Byzantine Fault Tolerant Consensus
         self.byzantine = ByzantineConsensusManager(len(self.agents))
@@ -694,8 +693,8 @@ class NeuralSwarm:
         # Execução paralela em massa com rastreamento de latência (Phase 42)
         start_time = time.monotonic()
         try:
-            # Aumentamos o timeout para 1.2s para acomodar 130+ agentes
-            results = list(self._executor.map(_run_agent, self.agents, timeout=1.2))
+            # [Phase Ω-PhD-15] Aumentamos o timeout para 2.5s para garantir que agentes pesados falem
+            results = list(self._executor.map(_run_agent, self.agents, timeout=2.5))
         except TimeoutError:
             log.error(f"💀 NeuralSwarm TIMEOUT! Verificando agentes lentos...")
             return []

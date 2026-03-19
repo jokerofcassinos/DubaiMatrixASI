@@ -838,5 +838,101 @@
     "phi": 0.0,
     "reasoning": "SELL signal=-0.368 conf=0.85 coherence=0.34 regime=DRIFTING_BEAR ATR=235.40 RR=1.94 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.368 | CONF=0.85 | \u03a6=0.14 | COH=34.45% | BEAR: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.030 WP=47.9% EV=+1.57 CVaR=-281.43 sim=30.5ms]",
     "symbol": "BTCUSD"
+  },
+  "ticket_405793362": {
+    "timestamp": "2026-03-19T16:32:16.660842+00:00",
+    "ticket": 405793362,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8865803499098138,
+    "signal_strength": -0.35655147586084207,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.357 conf=0.89 coherence=0.33 regime=DRIFTING_BEAR ATR=225.28 RR=1.94 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.357 | CONF=0.89 | \u03a6=0.02 | COH=32.96% | BEAR: KripkeSemantics, KolmogorovInertia, Supersymmetry [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.029 WP=47.8% EV=+0.90 CVaR=-279.29 sim=26.5ms]",
+    "symbol": "BTCUSD"
+  },
+  "405793362": {
+    "timestamp": "2026-03-19T16:32:16.660842+00:00",
+    "ticket": 405793362,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8865803499098138,
+    "signal_strength": -0.35655147586084207,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.357 conf=0.89 coherence=0.33 regime=DRIFTING_BEAR ATR=225.28 RR=1.94 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.357 | CONF=0.89 | \u03a6=0.02 | COH=32.96% | BEAR: KripkeSemantics, KolmogorovInertia, Supersymmetry [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.029 WP=47.8% EV=+0.90 CVaR=-279.29 sim=26.5ms]",
+    "symbol": "BTCUSD"
+  },
+  "ticket_405793382": {
+    "timestamp": "2026-03-19T16:32:18.364254+00:00",
+    "ticket": 405793382,
+    "position_id": 405793382,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "405793382": {
+    "timestamp": "2026-03-19T16:32:18.364254+00:00",
+    "ticket": 405793382,
+    "position_id": 405793382,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_405793384": {
+    "timestamp": "2026-03-19T16:32:18.404115+00:00",
+    "ticket": 405793384,
+    "position_id": 405793384,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "405793384": {
+    "timestamp": "2026-03-19T16:32:18.404115+00:00",
+    "ticket": 405793384,
+    "position_id": 405793384,
+    "regime": "None",
+    "confidence": 0.5,
+    "signal_strength": 0.0,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "RECOVERED_INTENT (Original lost during async strike)",
+    "symbol": "BTCUSD"
+  },
+  "ticket_405794236": {
+    "timestamp": "2026-03-19T16:33:17.079868+00:00",
+    "ticket": 405794236,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8627266021068162,
+    "signal_strength": -0.3388799646803533,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.339 conf=0.86 coherence=0.35 regime=DRIFTING_BEAR ATR=228.96 RR=1.94 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.339 | CONF=0.86 | \u03a6=0.07 | COH=35.11% | BEAR: SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.029 WP=47.5% EV=+3.69 CVaR=-272.58 sim=25.6ms]",
+    "symbol": "BTCUSD"
+  },
+  "405794236": {
+    "timestamp": "2026-03-19T16:33:17.079868+00:00",
+    "ticket": 405794236,
+    "position_id": -1004,
+    "regime": "DRIFTING_BEAR",
+    "confidence": 0.8627266021068162,
+    "signal_strength": -0.3388799646803533,
+    "coherence": 0.0,
+    "phi": 0.0,
+    "reasoning": "SELL signal=-0.339 conf=0.86 coherence=0.35 regime=DRIFTING_BEAR ATR=228.96 RR=1.94 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.339 | CONF=0.86 | \u03a6=0.07 | COH=35.11% | BEAR: SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.029 WP=47.5% EV=+3.69 CVaR=-272.58 sim=25.6ms]",
+    "symbol": "BTCUSD"
   }
 }

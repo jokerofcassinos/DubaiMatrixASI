@@ -107,7 +107,7 @@ class EVTBlackSwanAgent(BaseAgent):
         super().__init__("BlackSwanEVT", weight=weight)
         
     def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
-        prices = snapshot.get_recent_prices(500)
+        prices = snapshot.m1_closes
         if len(prices) < 200:
             return None
             

@@ -389,8 +389,12 @@ class PrigogineDissipativeAgent(BaseAgent):
         confidence = 0.0
         
         entropy_saturation = OMEGA.get("prigogine_entropy_saturation", 0.90)
-        entropy_raw = snapshot.indicators.get("M1_entropy")
-        entropy = float(entropy_raw[-1]) if isinstance(entropy_raw, np.ndarray) and len(entropy_raw) > 0 else (float(entropy_raw) if entropy_raw is not None else 0.0)
+        entropy_raw = snapshot.indicators.get("M1_entropy", 0.0)
+        
+        if isinstance(entropy_raw, (list, np.ndarray)):
+            entropy = float(entropy_raw[-1]) if len(entropy_raw) > 0 else 0.0
+        else:
+            entropy = float(entropy_raw) if entropy_raw is not None else 0.0
         
         if entropy > 0:
             # If entropy is absolutely saturated while velocity is dropping

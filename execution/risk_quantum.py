@@ -78,31 +78,32 @@ class RiskQuantumEngine:
         rr = aw / al if al > 0 else 1.0
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══
-        best_leverage = 0.0
-        max_growth = -999.0
-        
-        avg_win_price_pct = aw / price if price > 0 else 0.01
-        avg_loss_price_pct = al / price if price > 0 else 0.01
+        if OMEGA.get("non_ergodic_enabled", True):
+            best_leverage = 0.0
+            max_growth = -999.0
+            
+            avg_win_price_pct = aw / price if price > 0 else 0.01
+            avg_loss_price_pct = al / price if price > 0 else 0.01
 
-        for leverage in [0.5, 1.0, 2.0, 5.0, 10.0]:
-            growth = CPP_CORE.non_ergodic_growth_rate(wr, avg_win_price_pct, avg_loss_price_pct, leverage)
-            if growth > max_growth:
-                max_growth = growth
-                best_leverage = leverage
+            for leverage in [0.5, 1.0, 2.0, 5.0, 10.0]:
+                growth = CPP_CORE.non_ergodic_growth_rate(wr, avg_win_price_pct, avg_loss_price_pct, leverage)
+                if growth > max_growth:
+                    max_growth = growth
+                    best_leverage = leverage
 
-        if max_growth < -0.1: # [Phase Ω-Integrity] Aumentado threshold para reduzir falsos-negativos de ruína
-            log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f}. Reducing exposure.")
-            if snapshot and hasattr(snapshot, 'metadata'):
-                snapshot.metadata["non_ergodic_ruin"] = True
-            risk_fraction = 0.005 # Aumentado de 0.001 para permitir strike mínimo
-        else:
-            if snapshot and hasattr(snapshot, 'metadata'):
-                snapshot.metadata["non_ergodic_ruin"] = False
-            sl_pct = stop_loss_distance / price if price > 0 else 0.01
-            # [Phase Ω-Resilience] Min Growth Floor: Garantir exposição mínima em alta confiança
-            effective_leverage = max(best_leverage, 1.0 if confidence > 0.8 else 0.0)
-            risk_fraction = effective_leverage * sl_pct
-            log.omega(f"📊 NON-ERGODIC OPTIMIZATION: Max Growth {max_growth:.6f} @ {best_leverage}x Leverage. Risk Fraction: {risk_fraction:.4f}")
+            if max_growth < -0.1: # [Phase Ω-Integrity] Aumentado threshold para reduzir falsos-negativos de ruína
+                log.warning(f"⚠️ NON-ERGODIC RUIN DETECTED: Growth Rate {max_growth:.6f}. Reducing exposure.")
+                if snapshot and hasattr(snapshot, 'metadata'):
+                    snapshot.metadata["non_ergodic_ruin"] = True
+                risk_fraction = 0.005 # Aumentado de 0.001 para permitir strike mínimo
+            else:
+                if snapshot and hasattr(snapshot, 'metadata'):
+                    snapshot.metadata["non_ergodic_ruin"] = False
+                sl_pct = stop_loss_distance / price if price > 0 else 0.01
+                # [Phase Ω-Resilience] Min Growth Floor: Garantir exposição mínima em alta confiança
+                effective_leverage = max(best_leverage, 1.0 if confidence > 0.8 else 0.0)
+                risk_fraction = effective_leverage * sl_pct
+                log.omega(f"📊 NON-ERGODIC OPTIMIZATION: Max Growth {max_growth:.6f} @ {best_leverage}x Leverage. Risk Fraction: {risk_fraction:.4f}")
 
         # 3. ═══ [OMEGA-CLASS] ITO CALCULUS REFINEMENT (Volatility Tax) ═══
         if snapshot and hasattr(snapshot, 'indicators'):
@@ -138,7 +139,6 @@ class RiskQuantumEngine:
             elif action == "SELL" and pressure > 0.4:
                 risk_fraction *= 0.5
                 log.debug("🛡️ [ORDER FLOW RISK] Pressão compradora intensa detectada. Cortando lote pela metade.")
-
             # [Phase Ω-PhD] Soft-KL Risk Scaling (Information Geometry)
             kl_div = snapshot.metadata.get("kl_divergence", 0.0)
             kl_base = OMEGA.get("paradigm_shift_threshold", 0.95)
@@ -148,7 +148,8 @@ class RiskQuantumEngine:
                 risk_fraction *= kl_mult
                 log.omega(f"🧬 [SOFT-KL SCALING] KL={kl_div:.2f} > {kl_base:.2f}. Reducing risk by {(1-kl_mult)*100:.1f}%.")
 
-            # [Phase Ω-PhD-4] Ω-Structural Expectancy Sizing (Ghost Veto)
+
+            # [Phase Ω-PhD-4] Ω-Structural Expectancy Sizing (Ghost Veto Evolution)
             if OMEGA.get("structural_expectancy_sizing_enabled", 1.0) > 0.5:
                 pnl_pred = snapshot.metadata.get("pnl_prediction", "STABLE")
                 # Se a expectância é negativa e NÃO é um disparo de alta energia (God-Mode/Pulse/KL/Drift), asfixiamos o lote.
@@ -160,30 +161,45 @@ class RiskQuantumEngine:
                 if hasattr(snapshot, 'regime') and snapshot.regime:
                     if hasattr(snapshot.regime, 'current'):
                         regime_name = snapshot.regime.current.value
+                    elif isinstance(snapshot.regime, str):
+                        regime_name = snapshot.regime
                     else:
                         regime_name = str(snapshot.regime)
                 
-                is_stable_drift = "DRIFTING" in regime_name or "LIQUIDATION" in regime_name
+                is_stable_drift = "DRIFTING" in regime_name or "LIQUIDATION" in regime_name or "SQUEEZE" in regime_name
                 
                 # [Phase Ω-Inertia] Kinetic Inertia: Se o consenso do enxame é total, bypassamos o pessimismo do Java
                 # No ASIBrain, salvamos Φ em phi_last
                 phi = snapshot.metadata.get("phi_last", 0.0)
+                # [Phase Ω-PhD-4] Probabilistic Scaling & Bypass Logic
+                phi = snapshot.metadata.get("phi_last", 0.0)
                 raw_signal = snapshot.metadata.get("raw_signal", 0.0)
-                is_consensus_absolute = phi > 0.35 and abs(raw_signal) > 0.50
                 
+                # Lowered consensus threshold for more agility
+                is_consensus_absolute = phi > 0.30 and abs(raw_signal) > 0.45
+                
+                # [Phase 53] KL Shift / Topology Change
+                kl_shift = snapshot.metadata.get("kl_divergence", 0.0) > (OMEGA.get("paradigm_shift_threshold", 0.95) * 1.5)
+
                 is_lethal = (snapshot.metadata.get("v_pulse_detected", False) or 
                              snapshot.metadata.get("god_mode_active", False) or 
                              is_stable_drift or
                              is_consensus_absolute or
-                             kl_shift)
+                             kl_shift or
+                             confidence > 0.88)
                              
                 if "NEGATIVE_EXPECTANCY" in pnl_pred:
                     if not is_lethal:
-                        log.omega(f"🛡️ [Ω-STRUCTURAL SIZING] Negative Expectancy ({pnl_pred}). Ghost Veto: lot_size=0.")
-                        return 0.0 
+                        # [NRO EVOLUTION] Instead of blocking (return 0), we force a 90% reduction (Safe Exploration)
+                        log.omega(f"🛡️ [NRO: SAFE EXPLORATION] Negative Expectancy ({pnl_pred}) | Φ={phi:.2f}. Reducing risk by 90%.")
+                        risk_fraction *= 0.1 # Reduzimos agressivamente mas mantemos a proporcionalidade NRO
                     else:
-                        log.info(f"🦅 [EXPECTANCY BYPASS] Negative Expectancy bypassed. Reason: " + 
-                                 f"{'Drift' if is_stable_drift else ('Consensus' if is_consensus_absolute else 'Ignition')}")
+                        reason = "Ignition"
+                        if is_stable_drift: reason = "Drift/Squeeze"
+                        elif is_consensus_absolute: reason = "Consensus"
+                        elif confidence > 0.88: reason = "Extreme Confidence"
+                        
+                        log.info(f"🦅 [EXPECTANCY BYPASS] Negative Expectancy ({pnl_pred}) bypassed. Reason: {reason}")
                         # Em caso letal com histórico ruim, forçamos exposição mínima.
                         risk_fraction = max(0.005, risk_fraction * 0.5)
 
@@ -192,8 +208,8 @@ class RiskQuantumEngine:
         if confidence >= 0.70:
             max_risk_pct *= 2.0
 
-        risk_fraction = min(risk_fraction, max_risk_pct)
         risk_fraction = max(0.001, risk_fraction)
+
 
         # 6. Converter para Lote
         point_value = 1.0
@@ -222,10 +238,29 @@ class RiskQuantumEngine:
 
         # Hard Exposure Ceiling
         exposure_ratio = OMEGA.get("exposure_ceiling_balance_ratio", 2000.0)
-        max_safe_lots = balance / max(500.0, exposure_ratio) 
+        max_safe_lots = balance / max(1.0, exposure_ratio) 
         if lot_size > max_safe_lots:
             log.omega(f"🛡️ EXPOSURE CEILING: Lote {lot_size:.2f} excedeu teto de segurança {max_safe_lots:.2f}. Limitando.")
             lot_size = max_safe_lots
+
+        # [Phase Ω-PhD-4] Ω-Neural Risk Orchestration (NRO) - FINAL SCALE
+        if snapshot and hasattr(snapshot, 'metadata'):
+            nro_manifold_sensitivity = OMEGA.get("nro_manifold_sensitivity", 1.25)
+            nro_coherence_weight = OMEGA.get("nro_coherence_weight", 0.85)
+
+            # Manifold-Aware Scaling
+            manifold_curvature = snapshot.metadata.get("manifold_curvature", 0.0)
+            if abs(manifold_curvature) > 0.05:
+                manifold_mult = 1.0 + (abs(manifold_curvature) * nro_manifold_sensitivity)
+                lot_size *= min(2.0, manifold_mult)
+                log.info(f"🌌 [NRO: MANIFOLD] Curvature detected ({manifold_curvature:.3f}). Scaling risk by {manifold_mult:.2f}x.")
+
+            # Coherence Scaling
+            coherence = snapshot.metadata.get("coherence_last", 0.5)
+            if coherence > 0.65:
+                coherence_mult = 1.0 + ((coherence - 0.65) * nro_coherence_weight)
+                lot_size *= min(1.5, coherence_mult)
+                log.info(f"🧠 [NRO: COHERENCE] Swarm resonance detected ({coherence:.2f}). Scaling risk by {coherence_mult:.2f}x.")
 
         # [Phase Ω-PhD-5] Micro-Scaling: Redução de 50% em trades que bypassaram regime podre
         # [Phase Ω-PhD-6] Micro-Scaling: Redução de 25% em trades TEC (Singularidade)

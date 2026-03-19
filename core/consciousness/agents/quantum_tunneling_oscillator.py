@@ -18,6 +18,8 @@ class QuantumTunnelingOscillator(BaseAgent):
         
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         regime = kwargs.get("regime_state")
+        if not regime:
+            return AgentSignal(self.name, 0.0, 0.0, "MISSING_REGIME_STATE", self.weight)
         entropy = snapshot.metadata.get("shannon_entropy", 0.5)
         v_pulse = snapshot.metadata.get("v_pulse", 0.0)
         

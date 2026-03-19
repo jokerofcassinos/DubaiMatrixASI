@@ -138,6 +138,12 @@ class OmegaParameterSpace:
         self._register("margin_safety_buffer", 0.10, 0.01, 0.50,
                         "Percentual de margem livre mantido como reserva (0.10 = 10%)")
 
+        # ═══ NRO (NEURAL RISK ORCHESTRATION) ═══
+        self._register("nro_manifold_sensitivity", 1.25, 0.5, 3.0,
+                        "Sensibilidade à curvatura do manifold para expansão de risco")
+        self._register("nro_coherence_weight", 0.85, 0.2, 1.5,
+                        "Peso da coerência do enxame na modulação de lot size")
+
         # ═══ QUANTUM PARAMETERS ═══
         self._register("quantum_collapse_threshold", 0.80, 0.60, 0.95,
                         "Threshold de colapso do estado quântico")

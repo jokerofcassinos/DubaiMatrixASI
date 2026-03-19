@@ -646,6 +646,7 @@ class SniperExecutor:
             return None
 
         # [PHASE Ω-EVOLVE] Register Intents for Amnesia Prevention
+        from utils.audit_engine import AUDIT_ENGINE
         for i, res in enumerate(results):
             ticket = res.get("ticket", 0)
             # [Phase 52] Se o ticket é 0 (Async Socket), usamos i como ID temporário
@@ -658,6 +659,9 @@ class SniperExecutor:
                 snapshot=snapshot,
                 position_id=temp_pos_id
             )
+            
+            # [Ω-AUDIT] Trigger Post-Mortem Capture
+            AUDIT_ENGINE.start_audit(ticket=ticket, decision=decision, snapshot=snapshot)
         # 5. Sucesso!
         self._execution_count += 1
         self._orders_in_candle += 1  # Incrementa o contador do throttle por candle

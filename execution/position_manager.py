@@ -424,6 +424,11 @@ class PositionManager:
         
         def _exec_close():
             result = self.bridge.close_position(ticket)
+            
+            # [Ω-AUDIT] Finalize Post-Mortem Capture
+            from utils.audit_engine import AUDIT_ENGINE
+            AUDIT_ENGINE.end_audit(ticket=ticket, result=result or {"ticket": ticket, "success": False})
+
             if self._on_close_callback:
                 try:
                     # [Phase 52 Fix] Pass the full result dict (containing profit/ticket)

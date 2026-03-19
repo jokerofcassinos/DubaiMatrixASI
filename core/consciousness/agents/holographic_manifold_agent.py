@@ -17,7 +17,11 @@ class HolographicManifoldAgent(BaseAgent):
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         # Puxar dados da fronteira (últimos 100 ticks)
-        ticks = np.array([t["mid"] for t in snapshot.recent_ticks][-100:], dtype=np.float64)
+        if not snapshot.recent_ticks:
+            return AgentSignal(agent_name=self.name, signal=0.0, confidence=0.0, reasoning="No tick data", weight=1.0)
+            
+        ticks = np.array([t.get("mid", (t.get("bid", 0) + t.get("ask", 0))/2 if "bid" in t else t.get("last", 0)) 
+                         for t in snapshot.recent_ticks][-100:], dtype=np.float64)
         
         # Puxar dados de desequilíbrio (Book)
         # Usamos o delta de volume por nível como vetor de 'bulk'

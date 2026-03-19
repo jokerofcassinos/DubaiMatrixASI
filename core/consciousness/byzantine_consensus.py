@@ -44,13 +44,19 @@ class ByzantineConsensusManager:
         current_errors = (forecasts - outcome)**2
         
         # Média móvel exponencial do erro
-        alpha = 0.1
+        # [Phase Ω-PhD-15] Alpha aumentado para 0.15 para recuperação mais rápida de regimes transitórios
+        alpha = 0.15
         self.brier_scores = (1 - alpha) * self.brier_scores + alpha * current_errors
         
         # Penalidade = 1.0 - Brier Score (Quanto maior o erro, maior a penalidade)
         # Se BS = 0 (perfeito), penalidade = 1.0 (peso total)
         # Se BS = 1 (errado), penalidade = 0.1 (mínimo)
         self.penalties = np.clip(1.0 - self.brier_scores, 0.1, 1.0)
+        
+        # [Phase Ω-PhD-15] Graceful Recovery: Pequeno boost para quem está participando e não está errando
+        # Agentes com erro muito baixo no ciclo atual ganham um bônus de recuperação de fôlego
+        recovery_mask = (current_errors < 0.05) & (self.penalties < 0.95)
+        self.penalties[recovery_mask] = np.minimum(1.0, self.penalties[recovery_mask] + 0.01)
         
         traitor_count = np.sum(self.penalties < 0.5)
         if traitor_count > 0:

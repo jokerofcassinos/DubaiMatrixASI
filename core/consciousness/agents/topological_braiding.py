@@ -36,7 +36,7 @@ class TopologicalBraidingAgent(BaseAgent):
         recent_ticks = snapshot.metadata.get("recent_ticks", [])
         
         if not book or not recent_ticks:
-            return self.signal(0.0, 0.5, "Insufficient depth for braiding analysis")
+            return AgentSignal(agent_name=self.name, signal=0.0, confidence=0.0, reasoning="Insufficient depth for braiding analysis")
 
         # 2. Cálculo de Braiding Coherence
         # Procuramos por clusters de ordens que se 'perseguem' em diferentes níveis

@@ -22,12 +22,17 @@ class SingularSpectrumAnalysisAgent(BaseAgent):
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         candles_m1 = snapshot.candles.get("M1")
-        if not candles_m1 or len(candles_m1["close"]) < 30:
+        # [Phase Ω-PhD-15] Reduzimos o requisito de 30 para 15 candles para evitar silêncio
+        min_len = 15
+        if not candles_m1 or len(candles_m1["close"]) < min_len:
             return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
 
-        closes = np.array(candles_m1["close"], dtype=np.float64)[-30:]
+        # Usar o que estiver disponível até o limite de 30
+        data_len = len(candles_m1["close"])
+        closes = np.array(candles_m1["close"], dtype=np.float64)[-min(30, data_len):]
         N = len(closes)
-        L = self.window_length
+        # Janela dinâmica baseada no tamanho dos dados
+        L = min(self.window_length, N // 2) 
         K = N - L + 1
         X = np.column_stack([closes[i:i+L] for i in range(K)])
         
@@ -62,13 +67,16 @@ class RandomMatrixTheoryAgent(BaseAgent):
 
     def analyze(self, snapshot, **kwargs) -> AgentSignal:
         candles_m1 = snapshot.candles.get("M1")
-        if not candles_m1 or len(candles_m1["close"]) < 20:
+        # [Phase Ω-PhD-15] Reduzimos requisito de 20 para 10 para maior participação
+        min_len = 10
+        if not candles_m1 or len(candles_m1["close"]) < min_len:
             return AgentSignal(self.name, 0.0, 0.0, "NO_DATA", self.weight)
             
-        c = np.array(candles_m1["close"], dtype=np.float64)[-20:]
-        h = np.array(candles_m1["high"], dtype=np.float64)[-20:]
-        l = np.array(candles_m1["low"], dtype=np.float64)[-20:]
-        v = np.array(candles_m1["tick_volume"], dtype=np.float64)[-20:]
+        use_len = min(20, len(candles_m1["close"]))
+        c = np.array(candles_m1["close"], dtype=np.float64)[-use_len:]
+        h = np.array(candles_m1["high"], dtype=np.float64)[-use_len:]
+        l = np.array(candles_m1["low"], dtype=np.float64)[-use_len:]
+        v = np.array(candles_m1["tick_volume"], dtype=np.float64)[-use_len:]
         
         ret_c = np.diff(np.log(c))
         ret_h = np.diff(np.log(h))
