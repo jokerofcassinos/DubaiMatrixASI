@@ -73,6 +73,7 @@ class TrinityCore:
         self._execute_count = 0
         self.monte_carlo = QuantumMonteCarloEngine()
         self._creation_time = time.time()
+        self._startup_timestamp = time.time() # [PHASE Ω-RESILIENCE] Cold Start Guard
         
         # [PHASE Ω-ANTI-FRAGILITY] Ping-Pong State
         self.last_decision = None
@@ -90,6 +91,7 @@ class TrinityCore:
         self.entropy_bridge_active = False
         self._kl_history = []      # [Phase Ω-PhD-4] KL Velocity tracking
         self.last_decision_bypassed = False  # [Phase Ω-PhD-5] Track if stale regime was bypassed
+        self._last_kl_shift_time = 0.0      # [Phase Ω-PhD-14] Track recent paradigm shifts
 
     @ast_self_heal
     @catch_and_log(default_return=None)
@@ -101,6 +103,23 @@ class TrinityCore:
         """
         Toma a decisão final: BUY, SELL ou WAIT.
         """
+        # [PHASE Ω-RESILIENCE] Cold Start Cooldown (120s)
+        elapsed = time.time() - self._startup_timestamp
+        cooldown_period = OMEGA.get("cold_start_cooldown_seconds", 120.0)
+        
+        if elapsed < cooldown_period:
+            if time.time() - self._log_cache.get("cold_start", 0) > 30:
+                log.info(f"⏳ [COLD START COOLDOWN] Syncing conscience: {elapsed:.1f}s / {cooldown_period}s remaining.")
+                self._log_cache["cold_start"] = time.time()
+            return self._wait(f"COLD_START_SYNC_VETO ({int(cooldown_period - elapsed)}s left)")
+
+        # [PHASE Ω-RESILIENCE] Stale Snapshot Veto (Latency Protection)
+        # If the think cycle took too long (like the 28s startup delay), the snapshot is stale.
+        from datetime import datetime, timezone
+        snap_age = (datetime.now(timezone.utc) - snapshot.timestamp).total_seconds()
+        if snap_age > 1.5:
+             return self._wait(f"STALE_SNAPSHOT_VETO ({snap_age:.1f}s age > 1.5s limit)")
+
         if quantum_state is None or regime_state is None:
             return self._wait("NO_DATA")
 
@@ -142,9 +161,17 @@ class TrinityCore:
         riemannian_signal = next((s for s in agent_signals if s.agent_name == "RiemannianRicci"), None)
         is_geodesic_flow = riemannian_signal and "GEODESIC_FLOW" in (getattr(riemannian_signal, 'reasoning', "") or "")
         
-        # [Phase Ω-PhD-8] Ghost-Order-Inference (Predatory Sweep Bypass)
+        # [Phase Ω-PhD-8] Ghost-Order-InFERENCE (Predatory Sweep Bypass)
         ghost_signal = next((s for s in agent_signals if s.agent_name == "GhostOrderInference"), None)
         is_ghost_sweep = ghost_signal and "GHOST_SWEEP_DETECTED" in (getattr(ghost_signal, 'reasoning', "") or "")
+
+        # [Phase Ω-PhD-14] Ricci Singularity (Structural Manifold Reversal)
+        ricci_signal = next((s for s in agent_signals if s.agent_name == "RicciRegime"), None)
+        is_ricci_singularity = ricci_signal and (getattr(ricci_signal, 'metadata', {}) or {}).get("ricci_singularity", False)
+
+        # [Phase Ω-PhD-14] Non-Bonded Repulsion (Van der Waals Reversion)
+        repulsion_signal = next((s for s in agent_signals if s.agent_name == "NonBondedRepulsion"), None)
+        is_repulsion_sovereign = repulsion_signal and abs(getattr(repulsion_signal, 'signal', 0.0)) > 0.8
 
         try:
             shannon = snapshot.metadata.get("shannon_entropy", 0.9)
@@ -213,8 +240,10 @@ class TrinityCore:
             )
         
         # [Phase 51] PARADIGM SHIFT CLOSE (Omniscience Exit)
-        if not is_tec_sovereign and kl_div > kl_base_thresh:
-            log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
+        if kl_div > kl_base_thresh:
+            self._last_kl_shift_time = time.time() # Store shift for sovereignty window
+            if not is_tec_sovereign:
+                log.omega(f"🔮 PARADIGM SHIFT DETECTED (KL={kl_div:.4f}). Exiting current positions preemptively.")
             return Decision(
                 action=Action.WAIT,
                 confidence=1.0,
@@ -542,9 +571,16 @@ class TrinityCore:
 
         # 2. Hard Veto for Weak Counter-Trend
         if tentative_is_counter:
-            # Exigências de elite para apostar contra o regime (Fading)
             phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.20
             sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.40
+            
+            # [Phase Ω-PhD-14] Paradigm Sovereignty Bypass
+            # Following a KL divergence shock, we allow faster counter-trend entries (Tunneling).
+            is_paradigm_sovereign = (time.time() - self._last_kl_shift_time) < 300.0
+            if is_paradigm_sovereign:
+                phi_min_counter *= 0.25 # 0.20 -> 0.05
+                sig_min_counter *= 0.5  # 0.40 -> 0.20
+                self._log_cooldown("PARADIGM_SOVEREIGNTY", f"🌪️ [PARADIGM SOVEREIGNTY] Information Geometry shift detected recently. Relaxing counter-trend gates (Φ={phi_min_counter:.2f}).", 60, level="omega")
             
             # [Phase 73] Ignition Sovereignty
             ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if (has_ignition or is_breakdown) else 1.0
@@ -556,7 +592,7 @@ class TrinityCore:
             phi_min_counter *= ign_mult
             sig_min_counter *= ign_mult
             
-            if not is_tec_sovereign and (phi < phi_min_counter or abs(signal) < sig_min_counter):
+            if not (is_tec_sovereign or is_ricci_singularity or is_repulsion_sovereign) and (phi < phi_min_counter or abs(signal) < sig_min_counter):
                 return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter:.2f} & Sig>{sig_min_counter:.2f} to fade {regime_state.current.value})")
 
             # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK

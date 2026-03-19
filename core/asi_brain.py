@@ -393,8 +393,9 @@ class ASIBrain:
         # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
         # Na primeira vez, forçamos um scan profundo de 30 dias se o histórico estiver muito curto
         if not self._history_synced and self.performance_tracker.total_trades < 100:
-            from_ts = int(time.time() - (86400 * 30))
-            log.omega(f"🔍 [DEEP AUDIT] Sincronização inicial profunda ativada (30 dias).")
+            # [Phase Ω-Optimization] Reduced initial scan from 30 to 7 days to minimize startup latency
+            from_ts = int(time.time() - (86400 * 7))
+            log.omega(f"🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).")
         else:
             from_ts = int(self._last_history_poll)
 
@@ -431,7 +432,7 @@ class ASIBrain:
             entry_deal = next((d for d in pos_deals if d.get('entry') == 0), None)
             
             if not entry_deal:
-                entry_price = 0.0
+                entry_price = final_deal['price'] # Use liquidation/exit price as proxy if entry missing
                 entry_time_val = final_deal['time']
                 is_buy_position = (final_deal.get('type') == "SELL" or final_deal.get('type') == 1)
                 action_str = "BUY" if is_buy_position else "SELL"
@@ -440,6 +441,9 @@ class ASIBrain:
                 entry_time_val = entry_deal['time']
                 is_buy_position = (entry_deal.get('type') == "BUY" or entry_deal.get('type') == 0)
                 action_str = "BUY" if is_buy_position else "SELL"
+            
+            if entry_price == 0:
+                entry_price = final_deal['price']
             
             # Cálculo de P&L Líquido Total
             total_comm = sum(d.get('commission', 0.0) for d in pos_deals)

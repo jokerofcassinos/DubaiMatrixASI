@@ -135,8 +135,10 @@ from core.consciousness.agents.pheromone_field_agent import PheromoneFieldAgent
 from core.consciousness.agents.transcendence_agents import (
     RiemannianManifoldAgent, InformationGeometryAgent, QuantumSuperpositionAgent,
     CasimirEffectAgent, InformationBottleneckMetaAgent, RogueWaveNLSEAgent,
-    AutocatalyticHypercycleMetaAgent, HolographicEntanglementAgent
+    AutocatalyticHypercycleMetaAgent, HolographicEntanglementAgent, RicciFlowRegimeAgent,
+    NonBondedRepulsionAgent
 )
+from core.consciousness.agents.topological_braiding import TopologicalBraidingAgent
 from core.consciousness.agents.holographic_memory_agent import HolographicMemoryAgent
 from core.consciousness.agents.omniscience_agents import (
     OrderBookSpoofingAgent, QuantumEntanglementAgent
@@ -524,6 +526,9 @@ class NeuralSwarm:
             HolographicMemoryAgent(weight=3.0),
             OrderBookSpoofingAgent(weight=2.6),
             QuantumEntanglementAgent(weight=3.0),
+            TopologicalBraidingAgent(),
+            RicciFlowRegimeAgent(weight=3.5),
+            NonBondedRepulsionAgent(weight=3.2),
 
             # [PHASE Ω-SINGULARITY]
             TopologicalDataAgent(weight=2.8),
@@ -598,7 +603,7 @@ class NeuralSwarm:
             ByzantineConsensusAgent(weight=5.0),
 
             # ═══ SINGULARITY_V2 (Phase Ω-Singularity) ═══
-            RicciFlowAgent(weight=4.8),
+            InformationBottleneckAgent(weight=4.5),
             InformationBottleneckAgent(weight=4.5),
             DiracFermiPressureAgent(weight=4.3),
             ChernSimonsTopologicalAgent(weight=4.9),

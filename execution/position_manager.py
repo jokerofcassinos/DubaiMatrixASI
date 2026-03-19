@@ -350,6 +350,15 @@ class PositionManager:
                             should_close = True
                             reason = f"PRIGOGINE_BIFURCATION (Entropy saturation reversal detected | Conf: {prigogine_signal.confidence:.2f})"
 
+                #  TRIGGER 7: NON-BONDED REPULSION (Van der Waals)
+                if not should_close and quantum_state:
+                    rep_signal = next((s for s in quantum_state.agent_signals if s.agent_name == "NonBondedRepulsion"), None)
+                    if rep_signal and abs(rep_signal.signal) > 0.8:
+                        if (g_is_buy and rep_signal.signal < 0) or (not g_is_buy and rep_signal.signal > 0):
+                            should_close = True
+                            rep_pot = (getattr(rep_signal, 'metadata', {}) or {}).get('repulsion', 0.0)
+                            reason = f"NON_BONDED_REPULSION (Potential Rejection | Pot={rep_pot:.1f})"
+
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:
                 symbol = g_data.get('symbol', 'UNKNOWN')

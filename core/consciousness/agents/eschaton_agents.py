@@ -77,6 +77,10 @@ class RandomMatrixTheoryAgent(BaseAgent):
         
         try:
             M = np.vstack([ret_c, ret_h, ret_l, ret_v])
+            # Check for zero variance rows to avoid RuntimeWarning in np.corrcoef
+            if any(np.std(row) < 1e-12 for row in M):
+                return AgentSignal(self.name, 0.0, 0.0, "Zero Variance in Inputs", self.weight)
+                
             corr_matrix = np.corrcoef(M)
             eigenvalues, _ = np.linalg.eigh(corr_matrix)
             max_eigenvalue = np.max(eigenvalues)

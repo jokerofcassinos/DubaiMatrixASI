@@ -56,6 +56,9 @@ class InformationGeometryAgent(BaseAgent):
         if len(history) < 10: return None
         
         returns = np.diff(np.log(history + 1e-9))
+        if np.std(returns) < 1e-12:
+            return AgentSignal(self.name, 0.0, 0.0, "Zero Variance in Returns", self.weight)
+            
         curr_dist = np.histogram(returns, bins=10, range=(-0.005, 0.005), density=True)[0]
         
         if self.prev_dist is None:
@@ -68,9 +71,9 @@ class InformationGeometryAgent(BaseAgent):
             
             kl_div = metrics.get("kl_div", 0)
             if kl_div > 2.5: # Extreme Paradigm Shift
-                return AgentSignal(self.name, 0.0, 0.99, f"Information Geometry Paradigm Shift (KL: {kl_div:.2f})", self.weight)
+                return AgentSignal(self.name, 0.0, 0.99, f"Information Geometry Paradigm Shift (KL: {kl_div:.2f})", self.weight, metadata={"kl_div": kl_div, "paradigm_shift": True})
                 
-            return AgentSignal(self.name, 0.0, 0.1, f"Metric Stability (KL: {kl_div:.2f})", self.weight)
+            return AgentSignal(self.name, 0.0, 0.1, f"Metric Stability (KL: {kl_div:.2f})", self.weight, metadata={"kl_div": kl_div})
         except:
             return None
 
@@ -144,7 +147,7 @@ class InformationBottleneckMetaAgent(BaseAgent):
     def __init__(self, weight: float = 3.1):
         super().__init__("InformationBottleneckMeta", weight)
         self.compression_ratio = 0.75
-        
+
     @catch_and_log(default_return=None)
     def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
         raw_signals = kwargs.get("swarm_raw_signals", [])
@@ -158,6 +161,80 @@ class InformationBottleneckMetaAgent(BaseAgent):
             if not np.isnan(filtered_signal):
                 return AgentSignal(self.name, filtered_signal, 0.95, "MDL_NOISE_COMPRESSION_ACTIVE", self.weight)
         
+        return None
+
+class RicciFlowRegimeAgent(BaseAgent):
+    """
+    [Ω-RICCI] Geometric Market Evolution Agent.
+    Smooths the market manifold using Ricci Flow to detect structural regime changes 
+    before they appear in price filters.
+    """
+    def __init__(self, weight: float = 3.5):
+        super().__init__("RicciRegime", weight)
+        self._history_curvature = []
+
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not CPP_CORE.is_loaded: return None
+        
+        closes = snapshot.m1_closes[-30:]
+        if len(closes) < 20: return None
+        
+        try:
+            # Ricci Flow smoothing simulation via CPP
+            res = CPP_CORE.calculate_ricci_flow(closes, iterations=5, step=0.01)
+            curvature = res.get("scalar_curvature", 0.0)
+            is_singularity = res.get("is_singularity", False)
+            
+            self._history_curvature.append(curvature)
+            if len(self._history_curvature) > 10: self._history_curvature.pop(0)
+            
+            # Singularities or jump in curvature indicates a hidden regime transition
+            if is_singularity or (len(self._history_curvature) >= 2 and abs(curvature - self._history_curvature[-2]) > 0.8):
+                # Positive curvature surge usually precedes a sharp reversal/reversion
+                # Negative curvature surge usually precedes a trend acceleration (Breakout)
+                bias = -1.0 if curvature > 0 else 1.0
+                conf = 0.95
+                return AgentSignal(self.name, bias, conf, f"Ricci Flow Singularity: Manifold Smoothness Collapse (K={curvature:.3f})", self.weight, metadata={"ricci_singularity": True, "curvature": curvature})
+                
+            return AgentSignal(self.name, 0.0, 0.1, f"Ricci Flow Stable (K={curvature:.3f})", self.weight, metadata={"curvature": curvature})
+        except:
+            return None
+
+class NonBondedRepulsionAgent(BaseAgent):
+    """
+    [Ω-CHEMISTRY] Van der Waals Market Repulsion.
+    Detects when price 'repels' from a major liquidity cluster without 
+    physical contact (non-bonded interaction). High-signal for 'Limit Order' reversals.
+    """
+    def __init__(self, weight: float = 3.2):
+        super().__init__("NonBondedRepulsion", weight)
+        self.repulsion_potential = 0.0
+
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        if not snapshot.book: return None
+        
+        # Calculate potential ENERGY at current price vs book clusters
+        bids = snapshot.book.get("bids", [])[:20]
+        asks = snapshot.book.get("asks", [])[:20]
+        
+        # Lennard-Jones Potential approximation
+        p = snapshot.price
+        r_sigma = snapshot.atr * 0.5 # Interaction radius
+        
+        def potential(levels):
+            if not levels: return 0.0
+            return sum( (1.0/(abs(p - l['price'])/r_sigma)**12) - (1.0/(abs(p - l['price'])/r_sigma)**6) for l in levels if p != l['price'])
+
+        bid_pot = potential(bids)
+        ask_pot = potential(asks)
+        
+        diff = bid_pot - ask_pot
+        if abs(diff) > 10.0: # Significant repulsion
+            bias = 1.0 if diff > 0 else -1.0
+            return AgentSignal(self.name, bias, 0.96, f"Van der Waals Repulsion (Pot={diff:.1f})", self.weight, metadata={"repulsion": diff})
+            
         return None
 
 class RogueWaveNLSEAgent(BaseAgent):
@@ -220,7 +297,11 @@ class HolographicEntanglementAgent(BaseAgent):
             self.macro_history.pop(0)
         if len(self.btc_history) < 10: return None
         
-        corr = np.corrcoef(self.btc_history, self.macro_history)[0, 1]
+        if np.std(self.btc_history) < 1e-12 or np.std(self.macro_history) < 1e-12:
+            corr = 0.0
+        else:
+            corr = np.corrcoef(self.btc_history, self.macro_history)[0, 1]
+        
         if math.isnan(corr): corr = 0.0
         
         if abs(corr) < 0.15: # Disconnected from reality
