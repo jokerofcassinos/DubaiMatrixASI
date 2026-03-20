@@ -207,13 +207,17 @@ class MT5Bridge:
                 
             except socket.timeout:
                 continue
-            except ConnectionResetError:
-                log.warning("⚠️ Socket resetado pela contraparte (MT5/EA).")
+            except (OSError, ConnectionResetError) as e:
+                # [Phase Ω-Shutdown Shield] Se o sistema está desligando, ignoramos erros de socket fechado
+                if not self._socket_running:
+                    break
+                    
+                log.warning(f"⚠️ Socket Error: {e}")
                 self._ea_connected = False
                 # [Phase 50] HFT Heartbeat: Reconnect ultra-veloz para minimizar tempo cego
-                if not self._ea_connected and self._socket_running:
+                if self._socket_running:
                     log.warning("🔄 HFT BRIDGE: Tentando reconexão ultra-veloz...")
-                time.sleep(0.01) # Reduzido p/ 10ms p/ HFT resilience
+                time.sleep(0.1) # Pequeno backoff antes de re-tentar
 
     def _handle_socket_data(self, data: str):
         """Processa ticks e resultados vindos do EA via socket."""

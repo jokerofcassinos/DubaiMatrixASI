@@ -290,8 +290,8 @@ class OmegaParameterSpace:
                         "RR Ratio mínimo reduzido para God-Mode Reversal (Panic Absorption)")
 
         # ═══ PHASE 52: FAT-TAIL HARVESTING & LEVY FLIGHTS ═══
-        self._register("fat_tail_rr_mult", 10.0, 5.0, 25.0,
-                        "Multiplicador insano de Take Profit para eventos de cauda longa (1:10+)")
+        self._register("fat_tail_rr_mult", 4.5, 2.0, 15.0,
+                        "Multiplicador agressivo de Take Profit para eventos de cauda (Reduzido p/ Scalp)")
         self._register("levy_flight_kurtosis_threshold", 5.0, 2.0, 15.0,
                         "Excesso de curtose necessário para aprovar Voo de Lévy e expansão Fat-Tail")
                         

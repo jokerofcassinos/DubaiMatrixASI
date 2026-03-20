@@ -902,12 +902,13 @@ class TrinityCore:
             self._log_cooldown("ENTANGLEMENT_BOOST", f"🌌 [OMNISCIENCE] Macro Entanglement Detected. TP Multiplier boosted to {rr_mult:.2f}x", 60)
             
         # [Phase 52: FAT-TAIL / LEVY FLIGHT]
-        # Aqui abolimos o "scalp" e adotamos a assimetria brutal 1:10+
+        # Aqui abolimos o "scalp" e adotamos a assimetria brutal
         is_fat_tail = "LEVY_FLIGHT_DETECTED" in agent_reasons or "SINGULARITY_COLLAPSE" in agent_reasons
         if is_fat_tail or is_god_mode:
-            fat_tail_base = OMEGA.get("fat_tail_rr_mult", 10.0)
+            # [SCALP] Reduced fat_tail_base from 10.0 to 4.5
+            fat_tail_base = OMEGA.get("fat_tail_rr_mult", 4.5)
             # Aciona a multiplicacao extrema
-            rr_mult = fat_tail_base + (phi * 2.5) # Ate 12.5x
+            rr_mult = fat_tail_base + (phi * 1.5) # [SCALP] Reduced phi mult from 2.5 to 1.5
             self._log_cooldown("FAT_TAIL_HARVESTING", f"☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para {rr_mult:.2f}x", 60, level="omega")
 
         # [Phase 52.7] Liquidity-Shield: Regime-Aware Structural Buffers
@@ -936,8 +937,16 @@ class TrinityCore:
             
             # TP Dinâmico (Phase 52.8)
             risk_dist = abs(price - stop_loss)
+            
+            # [PHASE Ω-SCALP] TP Stretch Protection:
+            # Se o SL é largo demais (>2 ATR), limitamos o multiplicador de RR para o TP não ficar inalcançável.
+            effective_rr = rr_mult
+            if risk_dist > 2.0 * fast_atr:
+                effective_rr = min(rr_mult, 1.25)
+                self._log_cooldown("TP_STRETCH_PROTECT", f"🛡️ [TP STRETCH] SL is too wide ({risk_dist/fast_atr:.1f} ATR). Capping RR to {effective_rr}x", 60)
+
             tp_scalar = OMEGA.get("tp_placement_scalar", 0.97)
-            take_profit = price + (risk_dist * rr_mult * tp_scalar)
+            take_profit = price + (risk_dist * effective_rr * tp_scalar)
         
         elif action == Action.SELL:
             # SL: O menor entre (Máxima dos últimos 10 candles + buffer) e (Preço + sl_mult * Fast_ATR)
@@ -952,8 +961,16 @@ class TrinityCore:
             
             # TP Dinâmico (Phase 52.8)
             risk_dist = abs(price - stop_loss)
+            
+            # [PHASE Ω-SCALP] TP Stretch Protection:
+            # Se o SL é largo demais (>2 ATR), limitamos o multiplicador de RR para o TP não ficar inalcançável.
+            effective_rr = rr_mult
+            if risk_dist > 2.0 * fast_atr:
+                effective_rr = min(rr_mult, 1.25)
+                self._log_cooldown("TP_STRETCH_PROTECT", f"🛡️ [TP STRETCH] SL is too wide ({risk_dist/fast_atr:.1f} ATR). Capping RR to {effective_rr}x", 60)
+
             tp_scalar = OMEGA.get("tp_placement_scalar", 0.97)
-            take_profit = price - (risk_dist * rr_mult * tp_scalar)
+            take_profit = price - (risk_dist * effective_rr * tp_scalar)
         
         else:
             # Se a ação não for BUY nem SELL (ex: WAIT), inicializamos com valores neutros para evitar UnboundLocalError

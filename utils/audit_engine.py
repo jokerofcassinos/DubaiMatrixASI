@@ -131,10 +131,46 @@ class QuantumAuditEngine:
             new_folder_name = base_folder + f"_{status}_{int(abs(pnl))}"
             new_audit_dir = os.path.join(os.path.dirname(audit_dir), new_folder_name)
             
-            # 2. Salvar logs capturados no buffer (A cereja do bolo PHD)
-            logs = LOG_BUFFER.get_logs()
+            # 2. Salvar logs capturados no buffer (A cereja do bolo PHD - Filtragem de Ruído)
+            all_logs = LOG_BUFFER.get_logs()
+            filtered_logs = []
+            
+            # [PHASE Ω-AUDIT CLEANUP] 
+            # Mantemos apenas o que importa para a análise PhD:
+            # - Eventos de execução (Action != WAIT)
+            # - Mudanças de regime
+            # - Alertas OMEGA e SIGNAL
+            # - Motivos de WAIT apenas se forem VETO ou SOVEREIGNTY
+            # - Pulamos o "ruído" de ciclos de 1s repetitivos
+            
+            interesting_keywords = [
+                "Action=BUY", "Action=SELL", "Action=CLOSE", "DECISION", "EXECUTADO", 
+                "SINALIZADO", "FECHADO", "Auditoria", "REGIME CHANGE", "VETO", 
+                "GEOMETRY ALERT", "SOVEREIGNTY", "NRO:", "SIGNAL │", "EQUITY_GUARD",
+                "PREVIEW", "Strike=", "ERROR", "WARNING", "PNL", "Profit", "IGNITION"
+            ]
+
+            skip_until_next_interesting = False
+            for line in all_logs:
+                # Se a linha anterior nos mandou pular tudo até o próximo ciclo ou evento
+                if skip_until_next_interesting:
+                    if any(k in line for k in interesting_keywords):
+                        skip_until_next_interesting = False
+                    else:
+                        continue
+
+                # Identificar ciclos de WAIT silenciosos
+                if "Action=WAIT" in line:
+                    if not any(k in line for k in interesting_keywords):
+                        # Se é um WAIT genérico, pulamos ele e as linhas de metadados dele
+                        skip_until_next_interesting = True
+                        continue
+                
+                # Se chegamos aqui, a linha é interessante ou metadado de algo interessante
+                filtered_logs.append(line)
+
             with open(os.path.join(audit_dir, "terminal_logs.txt"), "w", encoding="utf-8") as f:
-                f.write("\n".join(logs))
+                f.write("\n".join(filtered_logs))
             
             # 3. Captura de Tela (Exit)
             screenshot_path = os.path.join(audit_dir, "exit_screenshot.png")
