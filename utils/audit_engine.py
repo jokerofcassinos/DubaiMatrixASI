@@ -150,19 +150,30 @@ class QuantumAuditEngine:
             # 1. Atualizar context com o resultado final
             context = audit_data["context"]
             context["timestamp_exit"] = time.time()
-            context["duration"] = context["timestamp_exit"] - context["timestamp_entry"]
-            context["result"] = result
+            context["duration"] = context["timestamp_exit"] - context.get("timestamp_entry", time.time())
             
-            # Marcar se foi LOSS ou PROFIT
-            pnl = result.get("profit", 0.0)
-            status = "PROFIT" if pnl >= 0 else "LOSS"
+            # [Ω-FIX] Acumular lucro para Strike Hydra
+            new_pnl = result.get("profit", 0.0)
+            if "result" in context and isinstance(context["result"], dict):
+                old_pnl = context["result"].get("profit", 0.0)
+                context["result"]["profit"] = old_pnl + new_pnl
+            else:
+                context["result"] = result
             
-            # Renomear pasta para incluir o resultado
+            # Marcar se foi LOSS ou PROFIT global do strike
+            total_pnl = context["result"].get("profit", 0.0)
+            status = "PROFIT" if total_pnl >= 0 else "LOSS"
+            
+            # [Ω-FIX] Renomear pasta de forma idempotente (sem concatenar infinitamente)
             base_folder = os.path.basename(audit_dir)
-            new_folder_name = base_folder + f"_{status}_{int(abs(pnl))}"
+            # Limpar sufixos anteriores de PROFIT/LOSS se existirem (para Hydra slots subsequentes)
+            import re
+            clean_base = re.sub(r'_(PROFIT|LOSS)_-?\d+$', '', base_folder)
+            
+            new_folder_name = clean_base + f"_{status}_{int(abs(total_pnl))}"
             new_audit_dir = os.path.join(os.path.dirname(audit_dir), new_folder_name)
             
-            # 2. Salvar logs capturados no buffer (A cereja do bolo PHD - Filtragem de Ruído)
+            # 2. Salvar logs capturados no buffer
             all_logs = LOG_BUFFER.get_logs()
             filtered_logs = []
             
@@ -204,6 +215,7 @@ class QuantumAuditEngine:
                 f.write("\n".join(filtered_logs))
             
             # 3. Captura de Tela (Exit)
+            # Salvamos na pasta ATUAL (seja a nova ou a recuperada)
             screenshot_path = os.path.join(audit_dir, "exit_screenshot.png")
             capture_mt5_window(screenshot_path)
             
@@ -211,9 +223,13 @@ class QuantumAuditEngine:
             with open(os.path.join(audit_dir, "lifecycle_context.json"), "w") as f:
                 json.dump(context, f, indent=4)
                 
-            # Renomear diretório final
-            if os.path.exists(audit_dir):
-                os.rename(audit_dir, new_audit_dir)
+            # Renomear diretório final para o novo estado de P&L acumulado
+            if os.path.exists(audit_dir) and audit_dir != new_audit_dir:
+                try:
+                    os.rename(audit_dir, new_audit_dir)
+                    audit_dir = new_audit_dir # Atualizar para logs
+                except Exception as rename_err:
+                    log.warning(f"⚠️ Falha ao renomear auditoria (talvez outro slot travou): {rename_err}")
             
             log.omega(f"🏁 Auditoria Quantum FINALIZADA: {new_folder_name} (P&L: ${pnl:.2f})")
             

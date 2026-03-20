@@ -45,7 +45,13 @@ def capture_mt5_window(output_path: str) -> bool:
             return True
 
         if win32gui:
-            win32gui.EnumWindows(enum_windows_callback, None)
+            try:
+                win32gui.EnumWindows(enum_windows_callback, None)
+            except Exception as e:
+                # [Ω-FIX] O erro 183 (Already exists) ocorre porque paramos a busca retornando False
+                # Se encontramos o HWND, ignoramos o erro.
+                if not hwnd:
+                    log.debug(f"EnumWindows error: {e}")
         
         if not hwnd:
             # Fallback p/ pygetwindow se win32gui falhar em encontrar

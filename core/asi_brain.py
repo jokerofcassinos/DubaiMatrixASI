@@ -364,6 +364,8 @@ class ASIBrain:
                                     if recovery_strike["action"] == "BUY" else 
                                     snapshot.price - (recovery_strike["tp_points"] * snapshot.symbol_info.get("point", 0.01)),
                         confidence=0.99,
+                        signal_strength=1.0, # [Ω-FIX] Mandatory arg for Decision
+                        lot_size=0.01,       # [Ω-FIX] Mandatory arg (recalculated by Sniper)
                         regime=regime_state.current.value,
                         reasoning=recovery_strike["reason"]
                     )
