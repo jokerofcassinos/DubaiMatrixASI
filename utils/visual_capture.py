@@ -12,7 +12,11 @@ try:
 except ImportError:
     win32gui = None
     win32con = None
+import threading
 from utils.logger import log
+
+# [Ω-CAPTURE-LOCK] Previne capturas paralelas e conflitos de EnumWindows
+CAPTURE_LOCK = threading.Lock()
 
 # [Ω-DPI] Enable DPI awareness for accurate screenshot coordinates
 try:
@@ -25,6 +29,10 @@ def capture_mt5_window(output_path: str) -> bool:
     [Ω-AUDIT] Captures the MetaTrader 5 window and saves it to output_path.
     Uses aggressive focus methods for Windows.
     """
+    if not CAPTURE_LOCK.acquire(timeout=5.0):
+        log.warning("⚠️ Capture Lock Timeout: ignorando screenshot para não travar o loop.")
+        return False
+        
     try:
         # 1. Encontrar a janela correta (Priorizando a classe do MT5)
         hwnd = 0
@@ -48,10 +56,11 @@ def capture_mt5_window(output_path: str) -> bool:
             try:
                 win32gui.EnumWindows(enum_windows_callback, None)
             except Exception as e:
-                # [Ω-FIX] O erro 183 (Already exists) ocorre porque paramos a busca retornando False
-                # Se encontramos o HWND, ignoramos o erro.
+                # [Ω-FIX] O erro 183 (Already exists) ocorre frequentemente quando o callback retorna False
+                # para parar a enumeração. Se encontramos o HWND, podemos ignorar qualquer exceção do EnumWindows.
                 if not hwnd:
-                    log.debug(f"EnumWindows error: {e}")
+                    # Somente loga se realmente não encontramos nada, para evitar ruído.
+                    log.debug(f"EnumWindows completed with message: {e}")
         
         if not hwnd:
             # Fallback p/ pygetwindow se win32gui falhar em encontrar
@@ -132,3 +141,10 @@ def capture_mt5_window(output_path: str) -> bool:
     except Exception as e:
         log.error(f"❌ Erro na captura visual do MT5: {e}")
         return False
+    finally:
+        # Garantir liberação do Lock mesmo em caso de erro fatal
+        if CAPTURE_LOCK.locked():
+            try:
+                CAPTURE_LOCK.release()
+            except RuntimeError:
+                pass

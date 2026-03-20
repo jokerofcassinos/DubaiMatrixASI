@@ -1,0 +1,63 @@
+{
+    "strike_id": "S1774023392_SELL",
+    "tickets": [],
+    "timestamp_entry": 1774023392.765214,
+    "action": "SELL",
+    "signal": -0.3892173518838712,
+    "confidence": 0.8740632166516988,
+    "reasoning": "SELL signal=-0.389 conf=0.87 coherence=0.35 regime=UNKNOWN ATR=201.54 RR=1.07 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.389 | CONF=0.87 | \u03a6=0.16 | COH=34.82% | BEAR: SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.051 WP=49.5% EV=+2.91 CVaR=-147.35 sim=13.1ms]",
+    "regime": "UNKNOWN",
+    "lot_size": 0.01,
+    "entry_price": 69909.32,
+    "stop_loss": 70056.67,
+    "take_profit": 69752.09755000002,
+    "swarm_intelligence": {
+        "phi": 0.1600879298984013,
+        "kl_div": 0.0,
+        "bull_agents": [
+            "MacroBiasAgent",
+            "TemporalTrend",
+            "MomentumAgent",
+            "PrigogineDissipative",
+            "StrangeAttractorFolding",
+            "DarkMatterGravity",
+            "FourierSpectral",
+            "RogueWaveNLSE",
+            "CandleAnatomyAgent",
+            "ChaosRegime",
+            "PriceGravityAgent",
+            "CppFractalAgent",
+            "OscillationWaveAgent",
+            "LiquidationVacuumAgent"
+        ],
+        "bear_agents": [
+            "SingularSpectrumAnalysis",
+            "KolmogorovInertia",
+            "Supersymmetry",
+            "SpectralInformationFlux",
+            "RiemannianRicci",
+            "RandomMatrixTheory",
+            "NonBondedRepulsion",
+            "ChaosFractalDim",
+            "HolographicEntanglement",
+            "RiemannianManifold",
+            "PriceVelocityAgent",
+            "QuantumSpin",
+            "GameTheoryNashAgent",
+            "Thermodynamic",
+            "MicrostructureAgent",
+            "ChartStructureAgent",
+            "SentimentFearGreedAgent",
+            "FeynmanPath",
+            "OnChainPressureAgent",
+            "HexMatrix",
+            "AggressivenessAgent",
+            "PressureMatrix"
+        ],
+        "neutral_agents": []
+    },
+    "snapshot": {
+        "price": 69910.04500000001,
+        "atr": 78.219521695294
+    }
+}

@@ -1,29 +1,333 @@
-[DubaiMatrixASI] 12:36:37.057    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 12:36:37.058    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 12:36:37.058    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 12:36:37.058    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 12:36:37.059    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 12:36:37.059    OMEGA │ ⚡ 📅 2026-03-20T15:36:37.059835+00:00
-[DubaiMatrixASI] 12:36:37.060    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 12:36:37.060    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 12:36:37.064    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 12:36:37.067    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 12:36:37.068    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69794.28, Bid=69793.28
-[DubaiMatrixASI] 12:36:37.079    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 12:36:37.081    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 12:36:37.105    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 12:36:37.155    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 12:36:37.156    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 12:36:37.158    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 12:36:37.163    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 12:36:37.164    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
-[DubaiMatrixASI] 12:36:37.165    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 12:36:37.166    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 12:36:37.167    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 12:36:37.216    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 12:36:37.423    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.67
-[DubaiMatrixASI] 12:36:37.576    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 63567)
-[DubaiMatrixASI] 12:36:37.636  WARNING │ 🚨 ALERT [CRITICAL]: 10 losses consecutivos!
-[DubaiMatrixASI] 12:36:37.638    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.6208)
-[DubaiMatrixASI] 12:36:37.638    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006505
-[DubaiMatrixASI] 12:36:37.639    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 104 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-7402.19
+[DubaiMatrixASI] 13:24:44.126    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 13:24:44.127    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 13:24:44.127    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 13:24:44.127    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 13:24:44.128    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 13:24:44.128    OMEGA │ ⚡ 📅 2026-03-20T16:24:44.128600+00:00
+[DubaiMatrixASI] 13:24:44.129    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 13:24:44.129    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 13:24:44.133    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 13:24:44.138    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 13:24:44.139    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=69994.68, Bid=69993.68
+[DubaiMatrixASI] 13:24:44.149    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 13:24:44.151    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 13:24:44.179    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 13:24:44.195    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 13:24:44.212    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 13:24:44.223    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 13:24:44.233    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 13:24:44.234    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
+[DubaiMatrixASI] 13:24:44.237    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 13:24:44.239    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 13:24:44.240    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 13:24:44.472    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,165.93
+[DubaiMatrixASI] 13:24:44.477    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:24:44.499  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (1 patógenos).
+[DubaiMatrixASI] 13:24:44.509  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
+[DubaiMatrixASI] 13:24:44.552  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (2 patógenos).
+[DubaiMatrixASI] 13:24:44.560  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (3 patógenos).
+[DubaiMatrixASI] 13:24:44.569  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (4 patógenos).
+[DubaiMatrixASI] 13:24:44.572    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7663)
+[DubaiMatrixASI] 13:24:44.573    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006382
+[DubaiMatrixASI] 13:24:44.573    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 5 posições auditadas, 4 novos registros finalizados. P&L Líquido Total: $-834.07
+[DubaiMatrixASI] 13:24:45.088    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 61262)
+[DubaiMatrixASI] 13:24:58.756    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 13:25:47.585    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,2883
+[DubaiMatrixASI] 13:25:50.892    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:26:25.284    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.7920)
+[DubaiMatrixASI] 13:26:25.285    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006877
+[DubaiMatrixASI] 13:26:25.309    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.36)
+[DubaiMatrixASI] 13:26:25.562    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:26:49.710    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth -0.000881 @ 0.5x Leverage. Risk Fraction: 0.0021
+[DubaiMatrixASI] 13:26:49.710    OMEGA │ ⚡ 🛡️ [NRO: SAFE EXPLORATION] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,2883) | Φ=0.18. Reducing risk by 90%.
+[DubaiMatrixASI] 13:26:49.713    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=69929.00 SL=70073.15 TP=69775.19 | Φ: 0.18 | CONF: 0.87
+[DubaiMatrixASI] 13:26:51.317    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 69929.00 | 5 tickets gerados | SELL signal=-0.242 conf=0.87 coherence=0.46 regime=UNKNOWN ATR=196.61 RR=1.07 | 
+[DubaiMatrixASI] 13:26:51.318  WARNING │ ⏱️ LATENCY [execute] 1608.6ms (threshold: 400ms)
+[DubaiMatrixASI] 13:26:51.318    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 69929.00 | Φ=0.18 | CONF=0.87 | REGIME=UNKNOWN
+[DubaiMatrixASI] 13:26:51.319    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.242 PHI=0.18
+  🐂 BULL[13]: SingularSpectrumAnalysis, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, RogueWaveNLSE, ChaosRegime, PriceGravityAgent, CppFractalAgent, CandleAnatomyAgent, MacroBiasAgent, TemporalTrend, MomentumAgent, HexMatrix
+  🐻 BEAR[23]: KripkeSemantics, KolmogorovInertia, Supersymmetry, SpectralInformationFlux, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, LiquidationVacuumAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, ChartStructureAgent, LiquidStateAgent, SentimentFearGreedAgent, OnChainPressureAgent, FeynmanPath, PriceVelocityAgent, MicrostructureAgent, AggressivenessAgent
+  🎯 Reason: SELL signal=-0.242 conf=0.87 coherence=0.46 regime=UNKNOWN ATR=196.61 RR=1.07 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.242 | CONF=0.87 | Φ=0.18 | COH=46.08% | BEAR: KripkeSemantics, KolmogorovInertia, Supersymmetry | MC[score=+0.045 WP=49.1% EV=+1.82 CVaR=-144.15 sim=13.0ms]
+[DubaiMatrixASI] 13:26:51.326  WARNING │ ⏱️ LATENCY [think] 1810.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 13:26:52.446    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,3287
+[DubaiMatrixASI] 13:27:01.703    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:27:17.511    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1309.4457 Gen=1
+[DubaiMatrixASI] 13:27:17.525    OMEGA │ ⚡ 🧬 Gen #1: 11 mutações aplicadas | Tipo=uniform | Fitness=-1309.4457
+[DubaiMatrixASI] 13:27:17.706    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,165.93 -> $99,908.19
+[DubaiMatrixASI] 13:27:17.706    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:27:17.709    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 8 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-834.07
+[DubaiMatrixASI] 13:27:55.756    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,2785
+[DubaiMatrixASI] 13:28:07.792    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:28:08.136    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.2153)
+[DubaiMatrixASI] 13:28:08.137    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006615
+[DubaiMatrixASI] 13:28:08.174    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.44)
+[DubaiMatrixASI] 13:28:08.301    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=2.22).
+[DubaiMatrixASI] 13:28:08.318    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=2.2153). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:28:08.421    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:28:58.976    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,2824
+[DubaiMatrixASI] 13:29:29.994    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:29:49.300    OMEGA │ ⚡ 🧬 Gen #2: 9 mutações aplicadas | Tipo=uniform | Fitness=-1309.4457
+[DubaiMatrixASI] 13:29:49.315    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.4065)
+[DubaiMatrixASI] 13:29:49.315    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.244346
+[DubaiMatrixASI] 13:29:49.340    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 13:29:49.456    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=5.41).
+[DubaiMatrixASI] 13:29:49.468    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:29:49.470    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 8 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-834.07
+[DubaiMatrixASI] 13:29:49.567    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:29:58.403    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 13:30:02.201    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,2647
+[DubaiMatrixASI] 13:30:12.450    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.16 | Geo=None).
+[DubaiMatrixASI] 13:30:36.243    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:30:43.055    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 13:30:43.952    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:31:05.412    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,3485
+[DubaiMatrixASI] 13:31:12.653    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.22 | Geo=True).
+[DubaiMatrixASI] 13:31:30.409    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.6961)
+[DubaiMatrixASI] 13:31:30.410    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007382
+[DubaiMatrixASI] 13:31:30.450    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.34)
+[DubaiMatrixASI] 13:31:30.594    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=1.70).
+[DubaiMatrixASI] 13:31:30.595    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=1.6961). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:31:30.691    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:31:36.405    OMEGA │ ⚡ 🛡️ [HALF-WAY PROTECTION] Strike 406761192 atingiu 50% do alvo. Breakeven armado.
+[DubaiMatrixASI] 13:31:36.405    OMEGA │ ⚡ 🛡️ [HALF-WAY PROTECTION] Strike 406761213 atingiu 50% do alvo. Breakeven armado.
+[DubaiMatrixASI] 13:31:37.695    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:32:08.530    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-34,5190
+[DubaiMatrixASI] 13:32:12.723    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.18 | Geo=None).
+[DubaiMatrixASI] 13:32:20.913    OMEGA │ ⚡ 🧬 Gen #3: 10 mutações aplicadas | Tipo=uniform | Fitness=-1309.4457
+[DubaiMatrixASI] 13:32:21.089    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,908.19 -> $100,395.41
+[DubaiMatrixASI] 13:32:21.090    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:32:21.148    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 8 posições auditadas, 3 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:32:41.568    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:33:11.517    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.2686)
+[DubaiMatrixASI] 13:33:11.517    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.213766
+[DubaiMatrixASI] 13:33:11.566    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.85)
+[DubaiMatrixASI] 13:33:11.665    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=4.27).
+[DubaiMatrixASI] 13:33:11.670    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=4.2686). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:33:11.813    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:33:11.850    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:33:12.979    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.14 | Geo=True).
+[DubaiMatrixASI] 13:33:46.841    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:34:14.910    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:34:15.861    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.09 | Geo=True).
+[DubaiMatrixASI] 13:34:52.628    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1262.9449 Gen=4
+[DubaiMatrixASI] 13:34:52.629    OMEGA │ ⚡ 🧬 Gen #4: 8 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:34:52.649    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.8028)
+[DubaiMatrixASI] 13:34:52.658    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006319
+[DubaiMatrixASI] 13:34:52.814    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,395.41 -> $100,000.00
+[DubaiMatrixASI] 13:34:52.815    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:34:52.817    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 8 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:34:54.769    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:34:58.710    OMEGA │ ⚡ 🌊 REGIME CHANGE → LOW_LIQUIDITY (conf=0.60)
+[DubaiMatrixASI] 13:34:59.363    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 13:35:16.000    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.13 | Geo=True).
+[DubaiMatrixASI] 13:35:18.045    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:35:39.144    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 13:35:49.498    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:35:55.387    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:36:07.080    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 13:36:07.130    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth -0.000450 @ 0.5x Leverage. Risk Fraction: 0.0045
+[DubaiMatrixASI] 13:36:07.130    OMEGA │ ⚡ 🛡️ [NRO: SAFE EXPLORATION] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571) | Φ=0.32. Reducing risk by 90%.
+[DubaiMatrixASI] 13:36:07.131    OMEGA │ ⚡ 🐉 HYDRA MODE ACTIVATED! Confidence 0.87 > 0.85 | Max Slots: 15
+[DubaiMatrixASI] 13:36:07.133    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 10 nodes) price=69743.55 SL=70058.09 TP=69362.17 | Φ: 0.32 | CONF: 0.87
+[DubaiMatrixASI] 13:36:07.174    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.49 @ 69745.56 (via socket)
+[DubaiMatrixASI] 13:36:07.175    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.18 @ 69747.10 (via socket)
+[DubaiMatrixASI] 13:36:07.175    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.49 @ 69746.87 (via socket)
+[DubaiMatrixASI] 13:36:07.175    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.83 @ 69746.06 (via socket)
+[DubaiMatrixASI] 13:36:07.175    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.69 @ 69746.64 (via socket)
+[DubaiMatrixASI] 13:36:07.177    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.31 @ 69745.26 (via socket)
+[DubaiMatrixASI] 13:36:07.177    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.83 @ 69746.07 (via socket)
+[DubaiMatrixASI] 13:36:07.178    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.69 @ 69745.91 (via socket)
+[DubaiMatrixASI] 13:36:07.178    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.31 @ 69746.90 (via socket)
+[DubaiMatrixASI] 13:36:07.179    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.18 @ 69745.31 (via socket)
+[DubaiMatrixASI] 13:36:07.475    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771139 @ 69747.1
+[DubaiMatrixASI] 13:36:07.675    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771145 @ 69746.87
+[DubaiMatrixASI] 13:36:07.893    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771147 @ 69746.64
+[DubaiMatrixASI] 13:36:08.108    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771150 @ 69746.06
+[DubaiMatrixASI] 13:36:08.290    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771151 @ 69745.26
+[DubaiMatrixASI] 13:36:08.440    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771154 @ 69746.07
+[DubaiMatrixASI] 13:36:08.769    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=5.00 @ 69746.16 | 10 tickets gerados | SELL signal=-0.403 conf=0.87 coherence=0.36 regime=DRIFTING_BEAR ATR=200.12 RR=1
+[DubaiMatrixASI] 13:36:08.770  WARNING │ ⏱️ LATENCY [execute] 1640.6ms (threshold: 400ms)
+[DubaiMatrixASI] 13:36:08.771    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 69746.16 | Φ=0.32 | CONF=0.87 | REGIME=DRIFTING_BEAR
+[DubaiMatrixASI] 13:36:08.771    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.403 PHI=0.32
+  🐂 BULL[15]: MacroBiasAgent, TemporalTrend, HexMatrix, PriceGravityAgent, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, RogueWaveNLSE, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, DivergenceAgent, FeynmanPath, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[29]: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, EigenvectorCentrality, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, AggressivenessAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, PriceVelocityAgent, MeanFieldGame
+  🎯 Reason: SELL signal=-0.403 conf=0.87 coherence=0.36 regime=DRIFTING_BEAR ATR=200.12 RR=1.21 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.403 | CONF=0.87 | Φ=0.32 | COH=35.58% | BEAR: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.058 WP=50.4% EV=+4.15 CVaR=-314.54 sim=27.7ms]
+[DubaiMatrixASI] 13:36:08.775  WARNING │ ⏱️ LATENCY [think] 1853.3ms (threshold: 1000ms)
+[DubaiMatrixASI] 13:36:08.914    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771157 @ 69746.9
+[DubaiMatrixASI] 13:36:09.123    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771160 @ 69745.91
+[DubaiMatrixASI] 13:36:09.238    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406771162 @ 69745.31
+[DubaiMatrixASI] 13:36:16.252    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.19 | Geo=True).
+[DubaiMatrixASI] 13:36:22.812    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:36:35.268    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.1896)
+[DubaiMatrixASI] 13:36:35.268    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006423
+[DubaiMatrixASI] 13:36:35.315    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.64)
+[DubaiMatrixASI] 13:36:35.456    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=3.19).
+[DubaiMatrixASI] 13:36:35.457    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=3.1896). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:36:35.553    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:36:59.414    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:37:16.315    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.16 | Geo=True).
+[DubaiMatrixASI] 13:37:25.800    OMEGA │ ⚡ 🧬 Gen #5: 9 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:37:26.082    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:37:26.091    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,897.77
+[DubaiMatrixASI] 13:37:26.092    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:37:26.094    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:38:03.592    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:38:16.373    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=2.6755)
+[DubaiMatrixASI] 13:38:16.374    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006969
+[DubaiMatrixASI] 13:38:16.414    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.54)
+[DubaiMatrixASI] 13:38:16.551    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=2.68).
+[DubaiMatrixASI] 13:38:16.560    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=2.6755). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:38:16.658    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:38:16.779    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.20 | Geo=True).
+[DubaiMatrixASI] 13:38:28.934    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 13:38:29.196    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:39:16.863    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.18 | Geo=True).
+[DubaiMatrixASI] 13:39:21.921    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:39:32.344    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:39:57.435    OMEGA │ ⚡ 🧬 Gen #6: 11 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:39:57.436    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=6.7992)
+[DubaiMatrixASI] 13:39:57.437    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.247719
+[DubaiMatrixASI] 13:39:57.478    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 13:39:57.594    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:39:57.631    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:39:57.726    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:40:18.013    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.16 | Geo=None).
+[DubaiMatrixASI] 13:40:24.856    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:40:35.500    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:41:25.230    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via PHI Sovereignty (Φ=0.22 | Geo=False).
+[DubaiMatrixASI] 13:41:27.759    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:41:38.515    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4310)
+[DubaiMatrixASI] 13:41:38.527    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006674
+[DubaiMatrixASI] 13:41:38.559    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.69)
+[DubaiMatrixASI] 13:41:38.714    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:41:38.781    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:42:29.059    OMEGA │ ⚡ 🧬 Gen #7: 8 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:42:29.243    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via PHI Sovereignty (Φ=0.27 | Geo=None).
+[DubaiMatrixASI] 13:42:29.262    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:42:29.287    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:42:41.817    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:42:43.843    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:43:19.540    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=8.0265)
+[DubaiMatrixASI] 13:43:19.546    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007098
+[DubaiMatrixASI] 13:43:19.570    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 13:43:19.788    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:43:29.293    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.21 | Geo=True).
+[DubaiMatrixASI] 13:43:44.979    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:44:05.341    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:44:29.341    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.11 | Geo=False).
+[DubaiMatrixASI] 13:44:48.080    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:45:00.575    OMEGA │ ⚡ 🧬 Gen #8: 12 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:45:00.598    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.5532)
+[DubaiMatrixASI] 13:45:00.601    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007037
+[DubaiMatrixASI] 13:45:00.630    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.71)
+[DubaiMatrixASI] 13:45:00.764    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:45:00.786    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:45:00.846    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:45:08.521    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:45:36.598    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.06 | Geo=False).
+[DubaiMatrixASI] 13:45:51.268    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:46:11.429    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:46:37.969    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.04 | Geo=None).
+[DubaiMatrixASI] 13:46:41.666    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.1999)
+[DubaiMatrixASI] 13:46:41.667    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.223980
+[DubaiMatrixASI] 13:46:41.692    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 13:46:41.920    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:46:54.400    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:47:32.159    OMEGA │ ⚡ 🧬 Gen #9: 12 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:47:32.325    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:47:32.328    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:47:37.856    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:47:45.944    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.13 | Geo=None).
+[DubaiMatrixASI] 13:47:57.561    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:48:22.710    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.2479)
+[DubaiMatrixASI] 13:48:22.722    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007460
+[DubaiMatrixASI] 13:48:22.754    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.65)
+[DubaiMatrixASI] 13:48:22.970    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:48:43.567    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:48:46.084    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.05 | Geo=False).
+[DubaiMatrixASI] 13:49:00.759    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:49:46.239    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.17 | Geo=None).
+[DubaiMatrixASI] 13:49:49.002    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:50:03.746    OMEGA │ ⚡ 🧬 Gen #10: 10 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:50:03.761    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.3193)
+[DubaiMatrixASI] 13:50:03.761    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006477
+[DubaiMatrixASI] 13:50:03.915    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:50:03.922    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:50:03.943    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 17 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-438.66
+[DubaiMatrixASI] 13:50:49.642    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via PHI Sovereignty (Φ=0.20 | Geo=None).
+[DubaiMatrixASI] 13:50:51.130    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:51:07.040    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:51:28.980    OMEGA │ ⚡ 💀 LETHAL CLOSE STRIKE: RIEMANNIAN_TRAILING_STOP (Peak=$520.45, Locked=$426.72, Φ_Relax=1.20, Curv=1.0, Progress=29.3%) | P&L Total: $+204.01 | Lots: 1.81 | Nodes: 5
+[DubaiMatrixASI] 13:51:28.986  WARNING │ Posição 406771139 não encontrada
+[DubaiMatrixASI] 13:51:28.992  WARNING │ Posição 406771151 não encontrada
+[DubaiMatrixASI] 13:51:28.994  WARNING │ Posição 406771154 não encontrada
+[DubaiMatrixASI] 13:51:28.994  WARNING │ Posição 406771157 não encontrada
+[DubaiMatrixASI] 13:51:29.021  WARNING │ Posição 406771162 não encontrada
+[DubaiMatrixASI] 13:51:29.022    OMEGA │ ⚡ 📂 [AUDIT RECOVERY] Recuperando auditoria persistente para S1774024567_SELL...
+[DubaiMatrixASI] 13:51:30.426    ERROR │ ❌ Falha ao finalizar auditoria para ticket 406771139: name 'pnl' is not defined
+[DubaiMatrixASI] 13:51:30.432  WARNING │ ⚠️ Falha ao renomear auditoria (talvez outro slot travou): [WinError 2] O sistema não pode encontrar o arquivo especificado: 'audits\\2026-03-20\\Strike_S1774024567_SELL_SELL_1774024567' -> 'audits\\2026-03-20\\Strike_S1774024567_SELL_SELL_1774024567_PROFIT_0'
+[DubaiMatrixASI] 13:51:30.474    ERROR │ ❌ Falha ao finalizar auditoria para ticket 406771157: name 'pnl' is not defined
+[DubaiMatrixASI] 13:51:44.827    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=5.6315)
+[DubaiMatrixASI] 13:51:44.832    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.242298
+[DubaiMatrixASI] 13:51:44.866    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 13:51:44.990    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=5.63).
+[DubaiMatrixASI] 13:51:45.079    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:51:49.745    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.23 | Geo=True).
+[DubaiMatrixASI] 13:52:06.041    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:52:10.479    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571
+[DubaiMatrixASI] 13:52:14.404    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 13:52:14.442    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth -0.000451 @ 0.5x Leverage. Risk Fraction: 0.0034
+[DubaiMatrixASI] 13:52:14.452    OMEGA │ ⚡ 🛡️ [NRO: SAFE EXPLORATION] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-38,3571) | Φ=0.30. Reducing risk by 90%.
+[DubaiMatrixASI] 13:52:14.460    OMEGA │ ⚡ 🐉 HYDRA MODE ACTIVATED! Confidence 0.86 > 0.85 | Max Slots: 15
+[DubaiMatrixASI] 13:52:14.467    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 10 nodes) price=69621.38 SL=69859.81 TP=69356.15 | Φ: 0.30 | CONF: 0.86
+[DubaiMatrixASI] 13:52:15.913    OMEGA │ ⚡ ✅ TRADE EXECUTADO #3 | SELL lot=5.00 @ 69621.38 | 10 tickets gerados | SELL signal=-0.406 conf=0.86 coherence=0.36 regime=DRIFTING_BEAR ATR=190.13 RR=1
+[DubaiMatrixASI] 13:52:15.914  WARNING │ ⏱️ LATENCY [execute] 1472.2ms (threshold: 400ms)
+[DubaiMatrixASI] 13:52:15.914    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 69621.38 | Φ=0.30 | CONF=0.86 | REGIME=DRIFTING_BEAR
+[DubaiMatrixASI] 13:52:15.914    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.406 PHI=0.30
+  🐂 BULL[16]: PrigogineDissipative, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, RogueWaveNLSE, MacroBiasAgent, TemporalTrend, LiquidStateAgent, StopHunterAgent, ChaosRegime, PremiumDiscountAgent, VolatilityAgent, PriceGravityAgent, StatisticalAgent, ChartStructureAgent, AggressivenessAgent
+  🐻 BEAR[31]: QuantumDirectionalInference, SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, MSSAgent, QuantumSpin, TBSAgent, PressureMatrix, LiquidationVacuumAgent, GameTheoryNashAgent, TrendAgent, Thermodynamic, OscillationWaveAgent, MicrostructureAgent, FeynmanPath, CandleAnatomyAgent, CppFractalAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, HexMatrix, MeanFieldGame
+  🎯 Reason: SELL signal=-0.406 conf=0.86 coherence=0.36 regime=DRIFTING_BEAR ATR=190.13 RR=1.11 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.406 | CONF=0.86 | Φ=0.30 | COH=36.23% | BEAR: QuantumDirectionalInference, SingularSpectrumAnalysis, KolmogorovInertia [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.064 WP=50.6% EV=+6.30 CVaR=-238.43 sim=24.4ms]
+[DubaiMatrixASI] 13:52:15.927  WARNING │ ⏱️ LATENCY [think] 1669.5ms (threshold: 1000ms)
+[DubaiMatrixASI] 13:52:36.938    OMEGA │ ⚡ 🧬 Gen #11: 8 mutações aplicadas | Tipo=uniform | Fitness=-1262.9449
+[DubaiMatrixASI] 13:52:37.167    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $99,897.77 -> $100,214.28
+[DubaiMatrixASI] 13:52:37.167    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:52:37.245    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 9 novos registros finalizados. P&L Líquido Total: $-133.88
+[DubaiMatrixASI] 13:52:49.792    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.10 | Geo=True).
+[DubaiMatrixASI] 13:53:11.661    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:53:15.368    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-8,3675
+[DubaiMatrixASI] 13:53:27.949    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.8669)
+[DubaiMatrixASI] 13:53:27.949    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.141637
+[DubaiMatrixASI] 13:53:28.007    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.37)
+[DubaiMatrixASI] 13:53:28.273    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:53:56.205    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.15 | Geo=None).
+[DubaiMatrixASI] 13:54:18.813    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-8,3675
+[DubaiMatrixASI] 13:54:37.496    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 13:54:58.216    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via TEC Sovereignty (Φ=0.08 | Geo=False).
+[DubaiMatrixASI] 13:55:09.189    OMEGA │ ⚡ 🧬 Gen #12: 13 mutações aplicadas | Tipo=uniform | Fitness=-1269.2549
+[DubaiMatrixASI] 13:55:09.210    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=1.9352)
+[DubaiMatrixASI] 13:55:09.220    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006144
+[DubaiMatrixASI] 13:55:09.258    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.39)
+[DubaiMatrixASI] 13:55:09.460    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,214.28 -> $99,909.50
+[DubaiMatrixASI] 13:55:09.461    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 13:55:09.464    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-133.88
+[DubaiMatrixASI] 13:55:09.511    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:55:22.006    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-8,3675
+[DubaiMatrixASI] 13:55:46.799    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:56:04.468    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.03 | Geo=True).
+[DubaiMatrixASI] 13:56:25.271    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-8,3675
+[DubaiMatrixASI] 13:56:50.371    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=4.0461)
+[DubaiMatrixASI] 13:56:50.372    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007476
+[DubaiMatrixASI] 13:56:50.418    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=0.81)
+[DubaiMatrixASI] 13:56:50.521    OMEGA │ ⚡ ☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel=4.05).
+[DubaiMatrixASI] 13:56:50.522    OMEGA │ ⚡ 🔮 PARADIGM SHIFT DETECTED (KL=4.0461). Exiting current positions preemptively.
+[DubaiMatrixASI] 13:56:50.650    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 13:56:51.265    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 13:57:04.695    OMEGA │ ⚡ 🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via GEODESIC Sovereignty (Φ=0.03 | Geo=True).
+[DubaiMatrixASI] 13:57:28.635    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-8,3675
+[DubaiMatrixASI] 13:57:33.467    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 13:57:33.687    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 13:57:33.687    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 13:57:33.699    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 13:57:33.700    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 13:57:33.700    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 13:57:33.701    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-20T16:57:33.701003+00:00

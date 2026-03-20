@@ -380,7 +380,10 @@ class TrinityCore:
             
             # [Phase Ω-PhD-Next] Hardened Phi Guard for Drift/Creep
             # Se a integração (Φ) é baixa (< 0.35), NÃO relaxamos os filtros, pois o regime é instável.
-            is_low_phi_drift = phi_score < 0.35 and not (has_ignition or is_lethal_ignition)
+            # [Phase Ω-Stability] Integridade Estrutural vs Ignição
+            # Se Φ é muito baixo (<0.25), o 'is_low_phi_drift' permanece ativo MESMO com ignição,
+            # forçando o swarm a ter coerência mínima para validar o momentum.
+            is_low_phi_drift = phi_score < 0.35 and (not (has_ignition or is_lethal_ignition) or phi_score < 0.25)
             
             if (has_ignition or phi_score > 0.35 or regime_state.current == MarketRegime.HFT_BREAKDOWN) and not is_low_phi_drift:
                  mult = 0.90 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.95
@@ -405,7 +408,17 @@ class TrinityCore:
                      # ═══ [PHASE Ω-STRICT] DRIFT_COHERENCE_VETO ═══
                      # Se o regime é instável (Low Phi), NÃO aceitamos entrar com baixa coerência
                      # [Ω-RECOVERY] Se o sinal é forte (>0.40), relaxamos de 0.50 para 0.40
-                     c_req = 0.40 if abs(signal) > 0.40 else 0.50
+                     c_req = 0.30 if abs(signal) > 0.55 else 0.35 if abs(signal) > 0.35 else 0.40 if abs(signal) > 0.20 else 0.50
+                     
+                     # [Ω-STABILITY] Chão de Coerência Absoluto p/ Caos Extremo (Evitar Fakeouts em Φ < 0.15)
+                     if phi_score < 0.15: c_req = max(c_req, 0.45)
+                     
+                     # [Ω-PGC] Phi-Coherence Gradient: Quanto menor o Φ, maior o consenso exigido.
+                     # Se Φ < 0.45, adicionamos uma penalidade proporcional ao c_req.
+                     if phi_score < 0.45:
+                         pgc_penalty = max(0, 0.45 - phi_score)
+                         c_req += pgc_penalty
+                         
                      if coherence < c_req and not (is_tec_sovereign or is_god_mode):
 
                          self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < {c_req:.2f} requirement in Drift/Low-Phi)", 60)
@@ -592,6 +605,18 @@ class TrinityCore:
             signal *= 0.5 # Redução moderada de força (Plano Ω-Pro)
             confidence *= 0.7 # Exige mais certeza but not overkill
             self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying moderate suppression.", 60)
+
+        # ═══ [Ω-KINETIC CONFLICT GUARD] ═══
+        # Se a velocidade instantânea (tick_velocity) está forte no sentido oposto ao sinal,
+        # vetamos a entrada para evitar "correr contra a locomotiva".
+        tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
+        # Threshold de conflito cinemático (12.0)
+        k_conflict_thresh = OMEGA.get("kinetic_conflict_threshold", 12.0)
+        
+        if not is_god_mode and not is_tec_sovereign:
+            if (signal > 0 and tick_vel < -k_conflict_thresh) or (signal < 0 and tick_vel > k_conflict_thresh):
+                self._log_cooldown("KINETIC_CONFLICT", f"🛡️ VETO: KINETIC_CONFLICT (Signal={np.sign(signal)} vs Vel={tick_vel:+.1f}).", 30)
+                return self._wait("KINETIC_CONFLICT_VETO")
 
         # 2. Hard Veto for Weak Counter-Trend
         if tentative_is_counter:
@@ -928,7 +953,7 @@ class TrinityCore:
         if fast_atr <= 0:
             return self._wait("ATR_ZERO")
  
-        sl_mult = OMEGA.get("stop_loss_atr_mult", 0.55)
+        sl_mult = OMEGA.get("stop_loss_atr_mult", 0.45)
         
         # Buscar extremos estruturais (Fractais de M1)
         candles_m1 = snapshot.candles.get("M1")
@@ -968,11 +993,11 @@ class TrinityCore:
         # [Phase 52.7] Liquidity-Shield: Regime-Aware Structural Buffers
         is_transition_regime = regime_state.current.value in ["CREEPING_BULL", "CREEPING_BEAR", "DRIFTING_BULL", "DRIFTING_BEAR", "HIGH_VOL_CHAOS", "LIQUIDATION_CASCADE"]
         
-        # Buffer de liquidez: em regimes rasteiros/caóticos, precisamos de mais "respiro" (Aumentado de 0.4 para 0.65 ATR)
-        struct_buffer = max(35 * point_val, 0.65 * fast_atr) if is_transition_regime else (20 * point_val)
+        # Buffer de liquidez: em regimes rasteiros/caóticos, precisamos de mais "respiro"
+        struct_buffer = max(35 * point_val, 0.45 * fast_atr) if is_transition_regime else (15 * point_val)
         
-        # SL Floor de segurança: não permite stop muito curto em regimes de "wick hunt" (Aumentado de 0.8 para 1.2 ATR)
-        min_sl_dist = 1.2 * fast_atr if is_transition_regime else (0.6 * fast_atr)
+        # SL Floor de segurança: não permite stop muito curto em regimes de "wick hunt"
+        min_sl_dist = 0.9 * fast_atr if is_transition_regime else (0.5 * fast_atr)
 
         if action == Action.BUY:
             # SL: O maior entre (Mínima dos últimos 10 candles - buffer) e (Preço - sl_mult * Fast_ATR)
@@ -1036,7 +1061,7 @@ class TrinityCore:
 
         # [Phase 52.8] BTC_STRIKE_CAP: Alargado massivamente para permitir corridas colossais
         max_dist_tp = 1500.0
-        max_dist_sl = 350.0 # Stop alargado para sobreviver à volatilidade extrema do BTC
+        max_dist_sl = 280.0 # Stop encurtado p/ reduzir drawdown (Ω-Guard)
 
         if abs(float(price) - float(take_profit)) > float(max_dist_tp):
             take_profit = float(price) + (float(max_dist_tp) if action == Action.BUY else -float(max_dist_tp))

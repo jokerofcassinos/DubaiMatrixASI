@@ -6,6 +6,7 @@ from typing import Dict, Any, Optional
 from utils.logger import log
 from utils.log_buffer import LOG_BUFFER
 from utils.visual_capture import capture_mt5_window
+from concurrent.futures import ThreadPoolExecutor
 
 class QuantumAuditEngine:
     """
@@ -19,6 +20,9 @@ class QuantumAuditEngine:
         
         # Cache de contextos de início p/ associar no fim (Exit)
         self._active_audits: Dict[int, Dict[str, Any]] = {}
+        
+        # [Ω-FIX] Executor paralelo para capturas de tela e logs (Não trava o loop HFT)
+        self._audit_pool = ThreadPoolExecutor(max_workers=5, thread_name_prefix="AuditPool")
 
     def start_audit(self, ticket: int, decision: Any, snapshot: Any, strike_id: Optional[str] = None):
         """
@@ -94,10 +98,19 @@ class QuantumAuditEngine:
         except Exception as e:
             log.error(f"❌ Falha ao iniciar auditoria para ticket {ticket}: {e}")
 
-    def end_audit(self, ticket: int, result: Dict[str, Any], strike_id: Optional[str] = None):
         """
         Finaliza a auditoria quando a ordem é fechada.
+        Executa em background para não travar o loop HFT.
         """
+        self._audit_pool.submit(self._end_audit_core, ticket, result, strike_id)
+
+    def _end_audit_core(self, ticket: int, result: Dict[str, Any], strike_id: Optional[str] = None):
+        """
+        O coração da finalização da auditoria (executado em background).
+        """
+        # [Ω-FIX] Pequeno delay para permitir que o MT5 renderize o marcador de saída no chart
+        time.sleep(1.0)
+        
         s_id = strike_id
         
         # Se não temos strike_id, tentamos encontrar pelo ticket no mapa ativo
@@ -173,6 +186,11 @@ class QuantumAuditEngine:
             new_folder_name = clean_base + f"_{status}_{int(abs(total_pnl))}"
             new_audit_dir = os.path.join(os.path.dirname(audit_dir), new_folder_name)
             
+            # [Ω-FIX] Se o diretório alvo já existe (Hydra collision), usamos um sufixo de ticket
+            if os.path.exists(new_audit_dir) and audit_dir != new_audit_dir:
+                 new_folder_name += f"_T{ticket}"
+                 new_audit_dir = os.path.join(os.path.dirname(audit_dir), new_folder_name)
+            
             # 2. Salvar logs capturados no buffer
             all_logs = LOG_BUFFER.get_logs()
             filtered_logs = []
@@ -231,7 +249,7 @@ class QuantumAuditEngine:
                 except Exception as rename_err:
                     log.warning(f"⚠️ Falha ao renomear auditoria (talvez outro slot travou): {rename_err}")
             
-            log.omega(f"🏁 Auditoria Quantum FINALIZADA: {new_folder_name} (P&L: ${pnl:.2f})")
+            log.omega(f"🏁 Auditoria Quantum FINALIZADA: {new_folder_name} (P&L: ${total_pnl:.2f})")
             
         except Exception as e:
             log.error(f"❌ Falha ao finalizar auditoria para ticket {ticket}: {e}")
