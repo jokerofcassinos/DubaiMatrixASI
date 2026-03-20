@@ -17,6 +17,7 @@ class TestKineticPhD(unittest.TestCase):
         # Mock para evitar Veto de Startup nos testes
         import time
         self.trinity._creation_time = time.time() - 1000
+        self.trinity._startup_timestamp = time.time() - 1000
         OMEGA.load()
 
     def test_kinetic_exhaustion_veto(self):
@@ -24,6 +25,8 @@ class TestKineticPhD(unittest.TestCase):
         snapshot = MagicMock()
         # Estabilidade perfeita (Var=0), mas velocidade baixíssima (5.0)
         snapshot.metadata = {"tick_velocity": 5.0, "pnl_prediction": "POSITIVE"}
+        from datetime import datetime, timezone
+        snapshot.timestamp = datetime.now(timezone.utc)
         snapshot.price = 70000.0
         snapshot.atr = 50.0
         snapshot.indicators = {"M1_atr_14": [50.0], "M5_atr_14": [50.0], "M1_entropy": [0.3]}
@@ -62,6 +65,8 @@ class TestKineticPhD(unittest.TestCase):
         """Verifica se VETA regime que durou demais sem ignição."""
         snapshot = MagicMock()
         snapshot.metadata = {"tick_velocity": 50.0} # Velocidade OK
+        from datetime import datetime, timezone
+        snapshot.timestamp = datetime.now(timezone.utc)
         snapshot.price = 70000.0
         snapshot.atr = 50.0
         snapshot.indicators = {"M1_atr_14": [50.0], "M5_atr_14": [50.0], "M1_entropy": [0.3]}
@@ -107,6 +112,8 @@ class TestKineticPhD(unittest.TestCase):
         
         snapshot = MagicMock()
         snapshot.metadata = {"tick_velocity": 50.0, "agent_signals": [], "v_pulse_detected": False, "god_mode_active": False, "phi_resonance": False, "kl_divergence": 0.0}
+        from datetime import datetime, timezone
+        snapshot.timestamp = datetime.now(timezone.utc)
         snapshot.price = 70000.0 
         snapshot.atr = 50.0
         snapshot.point_val = 0.01

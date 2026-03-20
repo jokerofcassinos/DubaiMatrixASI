@@ -146,7 +146,8 @@ class SelfOptimizer:
             p = np.histogram(np.random.normal(0, 1, 1000), bins=50, density=True)[0]
             q = np.histogram(np.random.normal(0.1, 1.2, 1000), bins=50, density=True)[0]
             
-            fisher = CPP_CORE.calculate_fisher_metric(p, q)
+            # fisher = CPP_CORE.calculate_fisher_metric(p, q)
+            fisher = {"kl_div": 0.0, "nat_grad": 1.0} # [Ω-FIX] Disable random placeholder
             if fisher and fisher.get('kl_div', 0) > 0.5:
                 # Pacing de logs OMEGA (60s)
                 now_log = time.time()

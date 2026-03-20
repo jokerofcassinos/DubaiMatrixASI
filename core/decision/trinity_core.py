@@ -219,8 +219,8 @@ class TrinityCore:
             elif is_geodesic_flow and kl_velocity > kl_vel_thresh:
                  self._log_cooldown("KL_GEODESIC", f"☄️ [Ω-GEODESIC SHOCK] Bypassing KL Shock via Geodesic Flow Sovereignty (KL_Vel={kl_velocity:.2f}).", 60, level="omega")
 
-        # [PHASE Ω-SINGULARITY] Recalibration: 0.75 -> 0.95 (Absolute limit 1.5 -> 1.9)
-        kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
+        # [PHASE Ω-SINGULARITY] Recalibration: 0.95 -> 2.5 (Evita saídas falsas até métrica real estável)
+        kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 2.5)
         kl_veto_thresh = kl_base_thresh * 2.0 
         
         # [Phase Ω-PhD] NEW: Soft-Veto Check. 
@@ -302,22 +302,27 @@ class TrinityCore:
             self.kinetic_exhaustion = False
             if is_convergent:
                 tick_vel = abs(snapshot.metadata.get("tick_velocity", 0.0))
-                # [Phase Ω-PhD-5/8] Dynamic Kinetic Floor (Corrigido fallback hardcoded de 8.0 para 2.0 da config OMEGA)
+                # [Phase Ω-PhD-5/8] Dynamic Kinetic Floor (Reset Ω-PhD-Next)
                 k_floor = OMEGA.get("kinetic_velocity_floor", 2.0)
+                
+                # [Ω-PhD-Dynamic] Alpha Scaling: Se houver ressonância ou ignição, relaxamos o floor
+                if phi > 0.40 or is_lethal_ignition or is_tec_sovereign:
+                    k_floor *= 0.5 # Relaxa 50% para capturar explosões iniciais
+                    
                 if tick_vel < k_floor:
                     # [Phase Ω-PhD-5] Ignition Sovereignty: Lethal V-Pulse, TEC or high Phi overrides kinetic floor
                     # [Phase Ω-PhD-7] Geodesic Sovereignty: Fluxo laminar ignora floor cinemático
-                    # [Phase Ω-PhD-Next] Topological Braiding Sovereignty
-                    is_braided = any((getattr(s, 'metadata', {}) or {}).get("is_braided") for s in agent_signals if s.agent_name == "TopologicalBraiding")
                     # [Phase Ω-Extreme] Stable Convergence (Bridge) overrides floor with minimal Phi
+                    # [Ω-PhD-Topological] TEC_SOVEREIGNTY ignore exaustão (Colapso de entropia é prova absoluta)
+                    is_braided = any((getattr(s, 'metadata', {}) or {}).get("is_braided") for s in agent_signals if s.agent_name == "TopologicalBraiding")
                     phi_override = phi > 0.20 or is_tec_sovereign or is_geodesic_flow or is_braided or (is_convergent and phi > 0.04)
                     
                     if not is_lethal_ignition and not phi_override:
                         self.kinetic_exhaustion = True
                         self._log_cooldown("KINETIC_EXHAUSTION", f"⚠️ [Ω-KINETIC EXHAUSTION] Stability detected but Velocity ({tick_vel:.1f}) is below floor ({k_floor:.1f}).", 60)
                     elif phi_override:
-                        ov_reason = "BRAIDED" if is_braided else ("GEODESIC" if is_geodesic_flow else ("PHI" if phi > 0.20 else "TEC"))
-                        self._log_cooldown("KINETIC_OVERRIDE", f"🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via {ov_reason} Sovereignty (Φ={phi:.2f} | Geo={is_geodesic_flow}).", 60, level="omega")
+                        ov_reason = "TEC" if is_tec_sovereign else ("BRAIDED" if is_braided else ("GEODESIC" if is_geodesic_flow else ("PHI" if phi > 0.20 else "BRIDGE")))
+                        self._log_cooldown("KINETIC_OVERRIDE", f"🧠 [Ω-KINETIC OVERRIDE] Bypassing exhaustion via {ov_reason} Sovereignty (Φ={phi:.2f} | Floor_Adj={k_floor:.1f}).", 60, level="omega")
         else:
             self.entropy_bridge_active = False
             self.kinetic_exhaustion = False
@@ -368,8 +373,9 @@ class TrinityCore:
             duration = int(getattr(regime_state, 'duration_bars', 0) or 0)
             
             if "CREEPING" in current_regime_val and duration > c_thresh:
-                if is_lethal_ignition:
-                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-IGNITION BYPASS] Stale regime ({duration} bars) overridden by Lethal Ignition.", 60, level="omega")
+                # [Phase Ω-PhD-Next] Maturity Bypass: If Phi is healthy (>0.02), we trust the trend's integrity regardless of age.
+                if is_lethal_ignition or phi > 0.02:
+                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-MATURITY BYPASS] Stale regime ({duration} bars) overridden by { 'Ignition' if is_lethal_ignition else 'Phi-Integrity' }.", 60, level="omega")
                     self.last_decision_bypassed = True
                 else:
                     self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {current_regime_val} is too old ({duration} bars).", 60)
@@ -390,7 +396,7 @@ class TrinityCore:
                  
                  # [Phase Ω-PhD-Next] Restore Drift relaxation for healthy Phi
                  is_drift = "DRIFTING" in current_regime_val
-                 if is_drift: mult *= 0.65 # Relaxa thresholds em Drift se Φ for saudável
+                 if is_drift: mult *= 0.55 # [PHASE Ω-STRIKE] Relaxed from 0.65 to 0.55 to catch alpha early
                  
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
@@ -414,10 +420,10 @@ class TrinityCore:
                      if phi_score < 0.15: c_req = max(c_req, 0.45)
                      
                      # [Ω-PGC] Phi-Coherence Gradient: Quanto menor o Φ, maior o consenso exigido.
-                     # Se Φ < 0.45, adicionamos uma penalidade proporcional ao c_req.
+                     # [Ω-RECALIBRATION] Multiplicador reduzido de 1.0 para 0.6 para evitar paralisia
                      if phi_score < 0.45:
-                         pgc_penalty = max(0, 0.45 - phi_score)
-                         c_req += pgc_penalty
+                         pgc_penalty = max(0, 0.45 - phi_score) * 0.6
+                         c_req = min(0.65, c_req + pgc_penalty) # Cap em 0.65 para garantir execução
                          
                      if coherence < c_req and not (is_tec_sovereign or is_god_mode):
 
@@ -428,13 +434,14 @@ class TrinityCore:
                  elif not self.entropy_bridge_active:
                      dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
         
-        elif regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
-            # [Phase Ω-Lockdown] Em regime desconhecido ou perigoso, LOCKDOWN total.
-            # Não permitimos relaxamento do NEXUS. Elevamos exigência.
-            dynamic_conf_min = min(0.98, dynamic_conf_min * 1.4)
-            dynamic_buy_thresh *= 1.2
-            dynamic_sell_thresh *= 1.2
-            self._log_cooldown("UNKNOWN_LOCKDOWN", f"🛡️ [UNKNOWN LOCKDOWN] Hardened filters for {regime_state.current.value} (Conf Min: {dynamic_conf_min:.2f})", 60)
+        elif current_regime_val in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
+            # [Phase Ω-Extreme] UNKNOWN Lockdown: Exige confiança avassaladora em regimes nebulosos
+            # [PHASE Ω-STRIKE] Relaxed UNKNOWN multiplier from 1.4 to 1.1 to facilitate faster entries
+            lock_mult = 1.1 if current_regime_val == "UNKNOWN" else 1.2
+            dynamic_conf_min = min(0.98, dynamic_conf_min * lock_mult)
+            dynamic_buy_thresh *= 1.1
+            dynamic_sell_thresh *= 1.1
+            self._log_cooldown("UNKNOWN_LOCKDOWN", f"🕵️ [Ω-LOCKDOWN] Scaling confidence requirement for {current_regime_val} to {dynamic_conf_min:.2f}", 60)
 
         elif regime_state.current == MarketRegime.PARADIGM_SHIFT:
             # Em mudança de paradigma, somos ultra-conservadores
@@ -445,7 +452,7 @@ class TrinityCore:
 
         # [Phase Ω-Coherence] UNKNOWN Regime Veto
         if regime_state.current.value == "UNKNOWN":
-            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.15)
+            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.10)
             if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
                 self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                 return self._wait("UNKNOWN_REGIME_INCOHERENCE")
@@ -582,7 +589,7 @@ class TrinityCore:
                 # [Phase Ω-Singularity] Force thresholds to base-level for fading when bifurcation is clear
                 # Using 0.35 as a safe ceiling for counter-trend entries
                 # [Phase Ω-Extreme] Tightened exhaustion floor
-                dynamic_buy_thresh = OMEGA.get("exhaustion_signal_min", 0.55)
+                dynamic_buy_thresh = OMEGA.get("exhaustion_signal_min", 0.40)
                 dynamic_sell_thresh = -dynamic_buy_thresh
                 self._log_cooldown("EXHAUSTION_SOVEREIGNTY_LOG", f"⚡ [EXHAUSTION] Sovereignty ACTIVE (Entropy: {entropy:.2f}). Thresholds relaxed to {dynamic_buy_thresh:.2f} for fading.", 60)
 
@@ -677,7 +684,7 @@ class TrinityCore:
             # [Phase Ω-Singularity] FINAL OVERRIDE for Exhaustion Sovereignty
             # Exhaustion (Bifurcation) is often a lone signal; we must not let ECHO CHAMBER or other filters block it.
             if tentative_is_counter and has_exhaustion_sovereignty:
-                dynamic_buy_thresh = OMEGA.get("exhaustion_signal_min", 0.55)
+                dynamic_buy_thresh = OMEGA.get("exhaustion_signal_min", 0.40)
                 dynamic_sell_thresh = -dynamic_buy_thresh
                 dynamic_conf_min = 0.70 # Relax confidence for bifurcation strikes
             

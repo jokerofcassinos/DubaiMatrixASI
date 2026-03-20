@@ -256,7 +256,7 @@ class OmegaParameterSpace:
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("hydra_min_phi_threshold", 0.25, 0.05, 0.95,
                         "Nível mínimo de Φ necessário para autorizar HYDRA MODE (Phase Ω-Coherence)")
-        self._register("unknown_regime_phi_gate", 0.15, 0.05, 0.50,
+        self._register("unknown_regime_phi_gate", 0.10, 0.05, 0.50,
                         "Nível mínimo de Φ necessário para autorizar trades em regime UNKNOWN (Phase Ω-Coherence)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,
                         "Habilita a dilatação temporal relativística do loop de consciência")
@@ -309,7 +309,7 @@ class OmegaParameterSpace:
         self._register("ricci_k_threshold", 2.5, 1.0, 5.0,
                         "Threshold de curvatura Ricci p/ atrator topológico")
         self._register("kinetic_velocity_floor", 2.0, 0.5, 10.0,
-                        "Velocidade mínima de ticks p/ evitar Veto de Exaustão (DRIFT MODE)")
+                        "Velocidade mínima de ticks p/ evitar Veto de Exaustão (Reset Ω-PhD-Next)")
 
         self._register("kl_velocity_threshold", 1.2, 0.5, 3.5,
                         "Mínima aceleração de KL Divergence p/ Veto de Paradigm Shift instável")
@@ -355,8 +355,8 @@ class OmegaParameterSpace:
                         "Nível de Φ abaixo do qual a microestrutura ignora o macro (Soberania do Presente)")
         self._register("phi_symmetry_guard_enabled", 0.0, 0.0, 1.0,
                         "[Phase Ω-Extreme] Ativa proteção contra divergência extrema enxame/sinal")
-        self._register("exhaustion_signal_min", 0.45, 0.35, 0.95,
-                        "[Phase Ω-Extreme] Elevado de 0.35 para 0.55 para evitar falsos positivos")
+        self._register("exhaustion_signal_min", 0.40, 0.35, 0.95,
+                        "[Phase Ω-Extreme] Elevado de 0.35 para 0.40 para evitar falsos positivos (Calibração Scalp)")
         self._register("v_pulse_alpha_relaxation", 0.50, 0.1, 1.0,
                         "Multiplicador de redução do Alpha Floor durante V-Pulse (0.50 = 50% de desconto)")
 
