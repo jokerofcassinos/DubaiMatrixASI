@@ -315,6 +315,11 @@ class SniperExecutor:
                 return None
         
         # 4.2. Margin Check & Maximum Margin Extraction (Phase 37 + Phase 48 Alpha Integrity)
+        # ═══ [PHASE Ω-STRICT] HARD MARGIN FLOOR ═══
+        margin_level = snapshot.account.get("margin_level", 0.0) if snapshot.account else 0.0
+        if 0 < margin_level < 180.0:
+            log.critical(f"🛑 [HARD MARGIN FLOOR] Margin Level {margin_level:.2f}% < 180%. Abortando IGNIÇÃO total.")
+            return None
         # [Phase Ω-PhD-9] Margin Guard for zero lot
         if final_lot <= 0:
              return None
@@ -531,6 +536,15 @@ class SniperExecutor:
         min_dist = (stops_level + 30) * point 
 
         def _send_slot(i, chunk_lot, delay_sec):
+            # [PHASE Ω-STRICT] Real-time Inter-slot Margin Check
+            # Se um slot anterior já derrubou a margem, cancelamos os próximos da Hydra.
+            current_acc = self.bridge.get_account_info()
+            if current_acc:
+                m_level = current_acc.get("margin_level", 0.0)
+                if 0 < m_level < 160.0:
+                    log.warning(f"🚨 [HYDRA MARGIN BRAKE] Margin Level {m_level:.2f}% < 160%. Cancelando slot {i+1}.")
+                    return {"success": False, "error": "Margin brake"}
+
             if delay_sec > 0:
                 time.sleep(delay_sec)
                 

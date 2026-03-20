@@ -167,7 +167,7 @@ class OmegaParameterSpace:
                         "Multiplicador de agressividade em regime caótico")
 
         # ═══ PHASE 22 & 23: CONVICTION & SMART TP PARAMETERS ═══
-        self._register("high_conviction_multiplier", 20.0, 1.0, 50.0,
+        self._register("high_conviction_multiplier", 10.0, 1.0, 50.0,
                         "Multiplicador do Lot Size quando Coerência > 0.8 e Confiança > 0.8")
         self._register("smart_tp_micro_reversal_buffer", 20.0, 5.0, 100.0,
                         "Buffer de lucro ($) para ativar saída agressiva por reversão de delta (Reduzido p/ Agilidade)")

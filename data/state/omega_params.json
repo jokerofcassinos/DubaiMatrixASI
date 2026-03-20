@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-20T11:31:29.386865",
+  "saved_at": "2026-03-20T12:38:43.653815",
   "parameters": {
     "buy_threshold": {
       "value": 0.18,
@@ -122,7 +122,7 @@
       "last_mutations": []
     },
     "commission_per_lot": {
-      "value": 45.61,
+      "value": 45.67,
       "default": 50.0,
       "bounds": [
         0.0,
@@ -131,9 +131,9 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-20T11:31:29.386843",
+          "time": "2026-03-20T12:36:37.428991",
           "old": 50.0,
-          "new": 45.61,
+          "new": 45.67,
           "reason": "Phase 49 Auto-Detection"
         }
       ]
@@ -289,8 +289,8 @@
       "last_mutations": []
     },
     "high_conviction_multiplier": {
-      "value": 20.0,
-      "default": 20.0,
+      "value": 10.0,
+      "default": 10.0,
       "bounds": [
         1.0,
         50.0

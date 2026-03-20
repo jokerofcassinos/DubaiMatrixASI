@@ -379,10 +379,10 @@ class TrinityCore:
             phi_score = quantum_state.phi
             
             # [Phase Ω-PhD-Next] Hardened Phi Guard for Drift/Creep
-            # Se a integração (Φ) é baixa (< 0.25), NÃO relaxamos os filtros, pois o regime é instável.
-            is_low_phi_drift = phi_score < 0.25 and not (has_ignition or is_lethal_ignition)
+            # Se a integração (Φ) é baixa (< 0.35), NÃO relaxamos os filtros, pois o regime é instável.
+            is_low_phi_drift = phi_score < 0.35 and not (has_ignition or is_lethal_ignition)
             
-            if (has_ignition or phi_score > 0.25 or regime_state.current == MarketRegime.HFT_BREAKDOWN) and not is_low_phi_drift:
+            if (has_ignition or phi_score > 0.35 or regime_state.current == MarketRegime.HFT_BREAKDOWN) and not is_low_phi_drift:
                  mult = 0.90 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.95
                  
                  # [Phase Ω-PhD-Next] Restore Drift relaxation for healthy Phi
@@ -404,8 +404,11 @@ class TrinityCore:
                      
                      # ═══ [PHASE Ω-STRICT] DRIFT_COHERENCE_VETO ═══
                      # Se o regime é instável (Low Phi), NÃO aceitamos entrar com baixa coerência
-                     if coherence < 0.50 and not (is_tec_sovereign or is_god_mode):
-                         self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < 0.50 requirement in Drift/Low-Phi)", 60)
+                     # [Ω-RECOVERY] Se o sinal é forte (>0.40), relaxamos de 0.50 para 0.40
+                     c_req = 0.40 if abs(signal) > 0.40 else 0.50
+                     if coherence < c_req and not (is_tec_sovereign or is_god_mode):
+
+                         self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < {c_req:.2f} requirement in Drift/Low-Phi)", 60)
                          return self._wait("DRIFT_COHERENCE_WEAK")
                          
                      self._log_cooldown("LOW_PHI_DRIFT_GUARD", f"🛡️ [LOW PHI DRIFT] Incoherence detected (Φ={phi_score:.2f}). Hardening filters (2.5x) and requiring high coherence.", 60)

@@ -45,7 +45,9 @@ class SelfOptimizer:
         self._last_optimization = 0.0
         self._optimization_interval = 600  # 10 minutos
         self._alerts: list = []
+        self._last_alert_times: Dict[str, float] = {} # [Phase Ω-Recovery] Cooldown de alertas
         self._performance_snapshots: list = []
+
         
         # Thresholds de alarme
         self._min_win_rate = 0.45           # Abaixo disso = alarme
@@ -198,7 +200,13 @@ class SelfOptimizer:
             })
 
         for alert in alerts:
-            log.warning(f"🚨 ALERT [{alert['severity']}]: {alert['message']}")
+            # [Phase Ω-Recovery] Filtro de Cooldown de Alertas (15 min)
+            alert_key = f"ALERT_{alert['type']}_{alert['message']}"
+            now = time.time()
+            if now - self._last_alert_times.get(alert_key, 0) > 900:
+                log.warning(f"🚨 ALERT [{alert['severity']}]: {alert['message']}")
+                self._last_alert_times[alert_key] = now
+
 
         return alerts
 

@@ -103,6 +103,11 @@ class PerformanceTracker:
             # Reconstruir curva com o novo âncora
             self._rebuild_equity_curve()
             log.omega(f"📊 BALANCE ANCHOR SYNCHRONIZED: ${old_val:,.2f} -> ${balance:,.2f}")
+    
+    def has_trade(self, position_id: int) -> bool:
+        """Verifica se um trade já foi registrado (O(1))."""
+        return position_id in self._position_index or position_id in self._ticket_index
+
 
     def record_trade(self, trade: TradeRecord):
         """

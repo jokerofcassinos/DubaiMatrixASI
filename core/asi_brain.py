@@ -474,7 +474,10 @@ class ASIBrain:
                 regime_label = intent.get("regime", "UNKNOWN")
                 coherence = intent.get("coherence", 0.0)
                 signal_str = intent.get("signal_strength", 0.0)
-                log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
+                # [Phase Ω-Cleanup] Logar apenas se não estiver no tracker para evitar spam
+                if not self.performance_tracker.has_trade(pos_id):
+                    log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
+
             else:
                 regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")
                 coherence = 0.0
@@ -534,7 +537,14 @@ class ASIBrain:
         if hasattr(self, 'self_optimizer'):
             self.self_optimizer.check_and_optimize(300, snapshot) # Force optimization every reflection window
 
+        # [Phase Ω-Darwin] Sincronização: Manter rastro do último deal para evitar re-scan
+        if deals_by_pos:
+            all_deal_times = [d.get('time', 0) for deals in deals_by_pos.values() for d in deals]
+            if all_deal_times:
+                self._last_history_poll = max(all_deal_times) + 1 # +1s p/ segurança
+
         log.omega(f"🧠 REFLEXÃO CONCLUÍDA: {len(deals_by_pos)} posições auditadas, {new_count} novos registros finalizados. P&L Líquido Total: ${self.state.total_profit:+.2f}")
+
 
     def _get_session_name(self, timestamp: float) -> str:
         """Determina a sessão de mercado baseada na hora (UTC)."""
