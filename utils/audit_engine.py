@@ -108,9 +108,40 @@ class QuantumAuditEngine:
                     break
         
         if not s_id or s_id not in self._active_audits:
-            # Fallback reverso: se o ticket for novo mas as pastas Trade_0 existirem, 
-            # o PositionManager pode estar enviando o ticket real agora.
-            return
+            # [Ω-PERSISTENCE] Fallback: Tentar recuperar o diretório da auditoria no disco
+            # Se o bot reiniciou, o mapa em memória está vazio, mas as pastas Trade_0 existem.
+            if not s_id:
+                # Se não temos s_id, o rastro foi perdido totalmente (restart pesado)
+                return
+
+            # Procurar se existe uma pasta com o strike_id para hoje
+            today = datetime.now().strftime("%Y-%m-%d")
+            base_audit_dir = os.path.join("audits", today)
+            
+            if not os.path.exists(base_audit_dir):
+                return
+                
+            match_dir = None
+            for folder in os.listdir(base_audit_dir):
+                if folder.startswith(f"Strike_{s_id}"):
+                    match_dir = os.path.join(base_audit_dir, folder)
+                    break
+            
+            if match_dir and os.path.exists(os.path.join(match_dir, "lifecycle_context.json")):
+                log.omega(f"📂 [AUDIT RECOVERY] Recuperando auditoria persistente para {s_id}...")
+                try:
+                    with open(os.path.join(match_dir, "lifecycle_context.json"), "r") as f:
+                        recovered_context = json.load(f)
+                    self._active_audits[s_id] = {
+                        "dir": match_dir,
+                        "context": recovered_context,
+                        "tickets": recovered_context.get("tickets", [])
+                    }
+                except Exception as e:
+                    log.error(f"Erro ao recuperar auditoria de {match_dir}: {e}")
+                    return
+            else:
+                return
 
         try:
             audit_data = self._active_audits.pop(s_id)

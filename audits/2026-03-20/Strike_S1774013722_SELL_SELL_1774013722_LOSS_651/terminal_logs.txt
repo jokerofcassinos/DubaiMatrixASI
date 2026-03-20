@@ -1,0 +1,439 @@
+[DubaiMatrixASI] 10:33:20.506     INFO │ 📂 Trade Registry carregado: 185 intenções mapeadas.
+[DubaiMatrixASI] 10:33:20.529    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
+[DubaiMatrixASI] 10:33:22.058     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 10:33:22.058     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 10:33:22.059     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 10:33:22.059     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 10:33:22.060    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 10:33:22.060    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 📅 2026-03-20T13:33:22.062039+00:00
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 10:33:22.063     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 10:33:22.065     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 10:33:22.066    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 10:33:22.066     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 10:33:22.066     INFO │    Conta: 1512785888
+[DubaiMatrixASI] 10:33:22.067     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 10:33:22.067     INFO │    Saldo: $96062.92
+[DubaiMatrixASI] 10:33:22.067     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 10:33:22.067     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 10:33:22.068     INFO │    Spread: 100 points
+[DubaiMatrixASI] 10:33:22.069    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 10:33:22.069     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 10:33:22.069    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70065.56, Bid=70064.56
+[DubaiMatrixASI] 10:33:22.070     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 10:33:22.077     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 10:33:22.078    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 10:33:22.079    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 10:33:22.100    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 10:33:22.104     INFO │ 📂 Carregados 71 trades do histórico. WR=53.5%
+[DubaiMatrixASI] 10:33:22.141    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.142    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.144    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.150    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 10:33:22.151    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
+[DubaiMatrixASI] 10:33:22.151    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 10:33:22.152     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 96062.92, 'equity': 96062.92, 'tick_buffer_size': 1, 'last_tick_ms': 1774024402026}
+[DubaiMatrixASI] 10:33:22.153    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 10:33:22.153    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 10:33:22.186    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 10:33:22.318    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 10:33:22.348     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 0.2s / 120.0s remaining.
+[DubaiMatrixASI] 10:33:22.372    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.61
+[DubaiMatrixASI] 10:33:22.406    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 10:33:22.429    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222349: Regime=None
+[DubaiMatrixASI] 10:33:22.431    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222354: Regime=None
+[DubaiMatrixASI] 10:33:22.431    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222356: Regime=None
+[DubaiMatrixASI] 10:33:22.442    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222358: Regime=None
+[DubaiMatrixASI] 10:33:22.449    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280856: Regime=None
+[DubaiMatrixASI] 10:33:22.449    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280858: Regime=None
+[DubaiMatrixASI] 10:33:22.450    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280860: Regime=None
+[DubaiMatrixASI] 10:33:22.450    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320070: Regime=None
+[DubaiMatrixASI] 10:33:22.451    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320075: Regime=None
+[DubaiMatrixASI] 10:33:22.451    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320079: Regime=None
+[DubaiMatrixASI] 10:33:22.452    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320080: Regime=None
+[DubaiMatrixASI] 10:33:22.452    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002090: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.453    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002092: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.453    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002093: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002094: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404040915: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042181: Regime=None
+[DubaiMatrixASI] 10:33:22.455    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042182: Regime=None
+[DubaiMatrixASI] 10:33:22.455    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042184: Regime=None
+[DubaiMatrixASI] 10:33:22.456    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404936917: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.456    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943755: Regime=None
+[DubaiMatrixASI] 10:33:22.457    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943754: Regime=None
+[DubaiMatrixASI] 10:33:22.458    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404958890: Regime=None
+[DubaiMatrixASI] 10:33:22.458    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742044: Regime=None
+[DubaiMatrixASI] 10:33:22.459    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742040: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.476    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405774725: Regime=None
+[DubaiMatrixASI] 10:33:22.482    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405777860: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.483    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793382: Regime=None
+[DubaiMatrixASI] 10:33:22.501    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793384: Regime=None
+[DubaiMatrixASI] 10:33:22.507    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405862900: Regime=None
+[DubaiMatrixASI] 10:33:22.507    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864847: Regime=None
+[DubaiMatrixASI] 10:33:22.519    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864856: Regime=None
+[DubaiMatrixASI] 10:33:22.525    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864859: Regime=None
+[DubaiMatrixASI] 10:33:22.525    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864861: Regime=None
+[DubaiMatrixASI] 10:33:22.526    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405888197: Regime=None
+[DubaiMatrixASI] 10:33:22.526    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405892604: Regime=None
+[DubaiMatrixASI] 10:33:22.527    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914699: Regime=None
+[DubaiMatrixASI] 10:33:22.527    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914701: Regime=None
+[DubaiMatrixASI] 10:33:22.528    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914706: Regime=None
+[DubaiMatrixASI] 10:33:22.528    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915838: Regime=None
+[DubaiMatrixASI] 10:33:22.529    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915844: Regime=None
+[DubaiMatrixASI] 10:33:22.529    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915851: Regime=None
+[DubaiMatrixASI] 10:33:22.530    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917872: Regime=None
+[DubaiMatrixASI] 10:33:22.530    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917880: Regime=None
+[DubaiMatrixASI] 10:33:22.531    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917891: Regime=None
+[DubaiMatrixASI] 10:33:22.532    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919378: Regime=None
+[DubaiMatrixASI] 10:33:22.533    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919385: Regime=None
+[DubaiMatrixASI] 10:33:22.538    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919391: Regime=None
+[DubaiMatrixASI] 10:33:22.538    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927847: Regime=None
+[DubaiMatrixASI] 10:33:22.539    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927862: Regime=None
+[DubaiMatrixASI] 10:33:22.539    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927871: Regime=None
+[DubaiMatrixASI] 10:33:22.540    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936303: Regime=None
+[DubaiMatrixASI] 10:33:22.541    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936316: Regime=None
+[DubaiMatrixASI] 10:33:22.541    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936323: Regime=None
+[DubaiMatrixASI] 10:33:22.542    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945398: Regime=None
+[DubaiMatrixASI] 10:33:22.542    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945404: Regime=None
+[DubaiMatrixASI] 10:33:22.543    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945410: Regime=None
+[DubaiMatrixASI] 10:33:22.543    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405978849: Regime=None
+[DubaiMatrixASI] 10:33:22.544    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983846: Regime=None
+[DubaiMatrixASI] 10:33:22.544    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983847: Regime=None
+[DubaiMatrixASI] 10:33:22.545    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983848: Regime=None
+[DubaiMatrixASI] 10:33:22.545    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983849: Regime=None
+[DubaiMatrixASI] 10:33:22.546    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452573: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.547    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452590: Regime=None
+[DubaiMatrixASI] 10:33:22.548    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452593: Regime=None
+[DubaiMatrixASI] 10:33:22.548    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452586: Regime=None
+[DubaiMatrixASI] 10:33:22.549    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406459568: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.550    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474914: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.550    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474917: Regime=None
+[DubaiMatrixASI] 10:33:22.551    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474924: Regime=None
+[DubaiMatrixASI] 10:33:22.551    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474920: Regime=None
+[DubaiMatrixASI] 10:33:22.553  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:33:22.555    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 72 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-3937.08
+[DubaiMatrixASI] 10:33:23.156    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 59605)
+[DubaiMatrixASI] 10:33:23.208     INFO │ 🌍 Macro Update: ETH=$2140.69 | BTC/ETH=32.9 | Gold=$4663 | Vol24h=$96.8B | Bias=+0.200 | Sources=3
+[DubaiMatrixASI] 10:33:24.130     INFO │ 📊 Sentiment Update: F&G=11 (Extreme Fear) | BTC Dom=56.5% | 24h=+1.08% | Score=-0.602 | Sources=2
+[DubaiMatrixASI] 10:33:24.408     INFO │ ⛓️ On-Chain Update: Mempool=21,157 txs | Fee=1.0 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 10:33:29.818     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=-0.352 | Coherence=0.35 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (112s left)
+  🧬 Quantum: SIGNAL=-0.352 COHERENCE=0.35 PHI=0.15
+  🐂 BULL[22]: MacroBiasAgent, PriceGravityAgent, SessionDynamics, HexMatrix, PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent, LiquidityHeatmapAgent
+  🐻 BEAR[31]: SingularSpectrumAnalysis, Supersymmetry, SpectralInformationFlux, RandomMatrixTheory, KinematicJounce, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, OnChainPressureAgent, FeynmanPath, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:33:37.450     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=-0.298 | Coherence=0.36 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (104s left)
+  🧬 Quantum: SIGNAL=-0.298 COHERENCE=0.36 PHI=0.11
+  🐂 BULL[25]: PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, LiquidStateAgent, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, MacroBiasAgent, CyberneticHomeostasis, PriceGravityAgent, SessionDynamics, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, FeynmanPath, HexMatrix, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent, LiquidityHeatmapAgent, LiquidationVacuumAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry, SpectralInformationFlux, RandomMatrixTheory, KinematicJounce, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, AggressivenessAgent, OnChainPressureAgent, TrendAgent, MicrostructureAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:33:45.037     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=-0.395 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (97s left)
+  🧬 Quantum: SIGNAL=-0.395 COHERENCE=0.33 PHI=0.18
+  🐂 BULL[21]: SessionDynamics, HexMatrix, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, NonBondedRepulsion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, FeynmanPath, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[32]: SingularSpectrumAnalysis, KolmogorovInertia, Supersymmetry, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, KinematicJounce, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, PriceGravityAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, MicrostructureAgent, OnChainPressureAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:33:52.412     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 30.3s / 120.0s remaining.
+[DubaiMatrixASI] 10:33:52.669     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.397 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (89s left)
+  🧬 Quantum: SIGNAL=-0.397 COHERENCE=0.33 PHI=0.23
+  🐂 BULL[21]: SessionDynamics, HexMatrix, MacroBiasAgent, CandleAnatomyAgent, PrigogineDissipative, OrnsteinUhlenbeck, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, FeynmanPath, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[33]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, Supersymmetry, SpectralInformationFlux, RiemannianRicci, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:34:00.231     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=-0.390 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (81s left)
+  🧬 Quantum: SIGNAL=-0.390 COHERENCE=0.34 PHI=0.15
+  🐂 BULL[19]: SessionDynamics, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[33]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, HexMatrix, PriceVelocityAgent, FeynmanPath, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:34:07.810     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=-0.351 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (74s left)
+  🧬 Quantum: SIGNAL=-0.351 COHERENCE=0.33 PHI=0.06
+  🐂 BULL[25]: PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, SessionDynamics, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, FeynmanPath, CandleAnatomyAgent, HexMatrix, VolatilityAgent, StatisticalAgent, MacroBiasAgent, PriceGravityAgent, ChartStructureAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, Thermodynamic, AggressivenessAgent, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, PriceVelocityAgent, TrendAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:34:12.734  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:34:12.759    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=15.8553)
+[DubaiMatrixASI] 10:34:12.764    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.006496
+[DubaiMatrixASI] 10:34:12.788    OMEGA │ ⚡ 🌊 REGIME CHANGE → PARADIGM_SHIFT (conf=1.00)
+[DubaiMatrixASI] 10:34:13.006    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 10:34:15.402     INFO │ 💫 Cycle #210 | Action=WAIT | Signal=-0.372 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (66s left)
+  🧬 Quantum: SIGNAL=-0.372 COHERENCE=0.33 PHI=0.11
+  🐂 BULL[26]: PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, LiquidStateAgent, RogueWaveNLSE, CyberneticHomeostasis, SessionDynamics, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, LiquidityHeatmapAgent, HexMatrix, PriceGravityAgent, VolatilityAgent, StatisticalAgent, MacroBiasAgent, CandleAnatomyAgent, LiquidationVacuumAgent, ChartStructureAgent
+  🐻 BEAR[32]: QuantumDirectionalInference, SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, EigenvectorCentrality, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, FeynmanPath, CppFractalAgent, AggressivenessAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, OnChainPressureAgent, PressureMatrix, SentimentFearGreedAgent, BOSAgent, MicrostructureAgent, PriceVelocityAgent, MeanFieldGame, TrendAgent, MomentumAgent
+[DubaiMatrixASI] 10:34:22.421    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 10:34:22.463     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 60.4s / 120.0s remaining.
+[DubaiMatrixASI] 10:34:22.970     INFO │ 💫 Cycle #240 | Action=WAIT | Signal=-0.354 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (59s left)
+  🧬 Quantum: SIGNAL=-0.354 COHERENCE=0.33 PHI=0.01
+  🐂 BULL[26]: PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, SessionDynamics, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, CandleAnatomyAgent, LiquidityHeatmapAgent, PriceGravityAgent, VolatilityAgent, StatisticalAgent, MacroBiasAgent, FeynmanPath, LiquidationVacuumAgent, ChartStructureAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, OnChainPressureAgent, HexMatrix, PressureMatrix, SentimentFearGreedAgent, PriceVelocityAgent, BOSAgent, MicrostructureAgent, MeanFieldGame, TrendAgent, MomentumAgent
+[DubaiMatrixASI] 10:34:25.676    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-55,4518
+[DubaiMatrixASI] 10:34:30.644     INFO │ 💫 Cycle #270 | Action=WAIT | Signal=-0.384 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (51s left)
+  🧬 Quantum: SIGNAL=-0.384 COHERENCE=0.33 PHI=0.11
+  🐂 BULL[22]: SessionDynamics, HexMatrix, MacroBiasAgent, CandleAnatomyAgent, PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, PriceGravityAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[30]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, Thermodynamic, AggressivenessAgent, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, FeynmanPath, TrendAgent, PriceVelocityAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:34:38.202     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=-0.349 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (43s left)
+  🧬 Quantum: SIGNAL=-0.349 COHERENCE=0.33 PHI=0.01
+  🐂 BULL[26]: PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, LiquidStateAgent, PheromoneFieldAgent, SessionDynamics, StopHunterAgent, ChaosRegime, DarkMass, PremiumDiscountAgent, CandleAnatomyAgent, LiquidityHeatmapAgent, PriceGravityAgent, VolatilityAgent, StatisticalAgent, MacroBiasAgent, LiquidationVacuumAgent, ChartStructureAgent
+  🐻 BEAR[30]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, FeynmanPath, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, OnChainPressureAgent, HexMatrix, PressureMatrix, SentimentFearGreedAgent, PriceVelocityAgent, BOSAgent, MicrostructureAgent, MeanFieldGame, TrendAgent, MomentumAgent
+[DubaiMatrixASI] 10:34:45.797     INFO │ 💫 Cycle #330 | Action=WAIT | Signal=-0.369 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (36s left)
+  🧬 Quantum: SIGNAL=-0.369 COHERENCE=0.33 PHI=0.05
+  🐂 BULL[23]: SessionDynamics, HexMatrix, PrigogineDissipative, OrnsteinUhlenbeck, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, MacroBiasAgent, CyberneticHomeostasis, CandleAnatomyAgent, StopHunterAgent, ChaosRegime, PriceGravityAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent, LiquidationVacuumAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, Thermodynamic, LiquidStateAgent, FeynmanPath, CppFractalAgent, AggressivenessAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, SentimentFearGreedAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:34:52.648     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 90.5s / 120.0s remaining.
+[DubaiMatrixASI] 10:34:53.358     INFO │ 💫 Cycle #360 | Action=WAIT | Signal=-0.378 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (28s left)
+  🧬 Quantum: SIGNAL=-0.378 COHERENCE=0.34 PHI=0.13
+  🐂 BULL[20]: SessionDynamics, MacroBiasAgent, CandleAnatomyAgent, FeynmanPath, PrigogineDissipative, OrnsteinUhlenbeck, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[31]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, LiquidStateAgent, Thermodynamic, CppFractalAgent, VolumeAgent, HarmonicResonanceAgent, OscillationWaveAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, HexMatrix, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:00.955     INFO │ 💫 Cycle #390 | Action=WAIT | Signal=-0.343 | Coherence=0.36 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (21s left)
+  🧬 Quantum: SIGNAL=-0.343 COHERENCE=0.36 PHI=0.16
+  🐂 BULL[18]: MacroBiasAgent, CandleAnatomyAgent, StatisticalAgent, SessionDynamics, OrnsteinUhlenbeck, KripkeSemantics, StrangeAttractorFolding, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, VolatilityAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[31]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, TrendAgent, Thermodynamic, OscillationWaveAgent, MicrostructureAgent, FeynmanPath, CppFractalAgent, LiquidStateAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, PriceVelocityAgent, OnChainPressureAgent, PriceGravityAgent, HexMatrix, MomentumAgent, AggressivenessAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:03.357  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:35:08.590     INFO │ 💫 Cycle #420 | Action=WAIT | Signal=-0.380 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (13s left)
+  🧬 Quantum: SIGNAL=-0.380 COHERENCE=0.34 PHI=0.14
+  🐂 BULL[20]: SessionDynamics, MacroBiasAgent, FeynmanPath, OrnsteinUhlenbeck, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[31]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidStateAgent, CppFractalAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, AggressivenessAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, HexMatrix, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:16.128     INFO │ 💫 Cycle #450 | Action=WAIT | Signal=-0.377 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: COLD_START_SYNC_VETO (5s left)
+  🧬 Quantum: SIGNAL=-0.377 COHERENCE=0.34 PHI=0.17
+  🐂 BULL[21]: SessionDynamics, MomentumAgent, MacroBiasAgent, FeynmanPath, PrigogineDissipative, OrnsteinUhlenbeck, FractionalCalculusVelocity, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, CandleAnatomyAgent, ChaosRegime, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[32]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, CrossScaleConvergenceAgent, SpectralInformationFlux, RiemannianRicci, SolitonWave, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, AggressivenessAgent, LiquidationVacuumAgent, CppFractalAgent, LiquidStateAgent, PriceGravityAgent, SentimentFearGreedAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:22.213    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 10:35:22.229     INFO │ 🛡️ [LOW PHI DRIFT] Incoherence detected (Φ=0.22). Hardening filters to avoid trap.
+[DubaiMatrixASI] 10:35:22.230     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.65)
+[DubaiMatrixASI] 10:35:22.239     INFO │ 🤖 [Ω-KOLMOGOROV SYNC] Flow is programmatic. Scaling Phi-Gate to 0.0600.
+[DubaiMatrixASI] 10:35:22.244    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 10:35:22.244     INFO │ 🛡️ [TP STRETCH] SL is too wide (7.9 ATR). Capping RR to 1.25x
+[DubaiMatrixASI] 10:35:22.279    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth -0.000397 @ 0.5x Leverage. Risk Fraction: 0.0050
+[DubaiMatrixASI] 10:35:22.280     INFO │ 🦅 [EXPECTANCY BYPASS] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-55,4518) bypassed. Reason: Extreme Confidence
+[DubaiMatrixASI] 10:35:22.281     INFO │ 🌌 [NRO: MANIFOLD] Curvature detected (-0.700). Scaling risk by 1.88x.
+[DubaiMatrixASI] 10:35:22.281     INFO │ 🏦 EQUITY_GUARD: Start Balance do dia definido em $96062.92
+[DubaiMatrixASI] 10:35:22.282   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.402 | CONF: 0.89 | Φ: 0.22
+║ BULL[22]: SessionDynamics, MomentumAgent, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, FractionalCalculusVelocity, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, FeynmanPath, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[33]: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, SolitonWave, EigenvectorCentrality, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, PriceGravityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 5.00 | ATR: 161.97
+║ REASONING: SELL signal=-0.402 conf=0.89 coherence=0.33 regime=DRIFTING_BEAR ATR=161.97 RR=2.80 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.402 | CONF=0.89 | Φ=0.22 | COH=32.72% | BEAR: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.050 WP=49.9% EV=+1.14 CVaR=-350.00 sim=30.2ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 10:35:22.283    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=69833.71 SL=70183.71 TP=68854.57 | Φ: 0.22 | CONF: 0.89
+[DubaiMatrixASI] 10:35:22.314    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 69828.11 (via socket)
+[DubaiMatrixASI] 10:35:22.314    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.72 @ 69828.81 (via socket)
+[DubaiMatrixASI] 10:35:22.314    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 69828.46 (via socket)
+[DubaiMatrixASI] 10:35:22.314    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 69829.51 (via socket)
+[DubaiMatrixASI] 10:35:22.331    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 69829.16 (via socket)
+[DubaiMatrixASI] 10:35:22.421     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013722_SELL | Conf=0.89
+[DubaiMatrixASI] 10:35:22.460     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406521016|69828.81
+[DubaiMatrixASI] 10:35:22.461    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406521016 @ 69828.81
+[DubaiMatrixASI] 10:35:22.617     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406521022|69828.46
+[DubaiMatrixASI] 10:35:22.618    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406521022 @ 69828.46
+[DubaiMatrixASI] 10:35:22.864     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406521032|69828.11
+[DubaiMatrixASI] 10:35:22.865    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406521032 @ 69828.11
+[DubaiMatrixASI] 10:35:23.098     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406521058|69829.51
+[DubaiMatrixASI] 10:35:23.098    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406521058 @ 69829.51
+[DubaiMatrixASI] 10:35:23.316     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406521066|69829.16
+[DubaiMatrixASI] 10:35:23.317    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406521066 @ 69829.16
+[DubaiMatrixASI] 10:35:23.867     INFO │ 📂 Auditoria Quantum iniciada: Strike_S1774013722_SELL_SELL_1774013722 (Strike: S1774013722_SELL)
+[DubaiMatrixASI] 10:35:23.887     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013722_SELL | Conf=0.89
+[DubaiMatrixASI] 10:35:23.899     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013722_SELL | Conf=0.89
+[DubaiMatrixASI] 10:35:23.911     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013722_SELL | Conf=0.89
+[DubaiMatrixASI] 10:35:23.924     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013722_SELL | Conf=0.89
+[DubaiMatrixASI] 10:35:23.925    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 69828.81 | 5 tickets gerados | SELL signal=-0.402 conf=0.89 coherence=0.33 regime=DRIFTING_BEAR ATR=161.97 RR=2
+[DubaiMatrixASI] 10:35:23.925  WARNING │ ⏱️ LATENCY [execute] 1646.4ms (threshold: 400ms)
+[DubaiMatrixASI] 10:35:23.942    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 69828.81 | Φ=0.22 | CONF=0.89 | REGIME=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:23.948    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.402 PHI=0.22
+  🐂 BULL[22]: SessionDynamics, MomentumAgent, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, FractionalCalculusVelocity, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, FeynmanPath, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[33]: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, SolitonWave, EigenvectorCentrality, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, PriceGravityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, HexMatrix, PriceVelocityAgent, MeanFieldGame
+  🎯 Reason: SELL signal=-0.402 conf=0.89 coherence=0.33 regime=DRIFTING_BEAR ATR=161.97 RR=2.80 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.402 | CONF=0.89 | Φ=0.22 | COH=32.72% | BEAR: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.050 WP=49.9% EV=+1.14 CVaR=-350.00 sim=30.2ms]
+[DubaiMatrixASI] 10:35:23.966  WARNING │ ⏱️ LATENCY [think] 1904.1ms (threshold: 1000ms)
+[DubaiMatrixASI] 10:35:24.042    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 10:35:24.169    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #406521022
+[DubaiMatrixASI] 10:35:24.207     INFO │ 💾 Intenção registrada Ticket#406521022 | Strike=None | Conf=0.50
+[DubaiMatrixASI] 10:35:24.208    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #406521032
+[DubaiMatrixASI] 10:35:24.220     INFO │ 💾 Intenção registrada Ticket#406521032 | Strike=None | Conf=0.50
+[DubaiMatrixASI] 10:35:24.221    DEBUG │ 🧠 [MEMORY RECOVERY] Reconstruindo intenção para Position #406521058
+[DubaiMatrixASI] 10:35:24.233     INFO │ 💾 Intenção registrada Ticket#406521058 | Strike=None | Conf=0.50
+[DubaiMatrixASI] 10:35:25.419     INFO │ 💫 Cycle #480 | Action=SELL | Signal=-0.393 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: SELL signal=-0.393 conf=0.88 coherence=0.33 regime=DRIFTING_BEAR ATR=161.97 RR=2.77 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.393 | CONF=0.88 | Φ=0.15 | COH=32.64% | BEAR: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.052 WP=50.0% EV=+2.48 CVaR=-350.00 sim=29.6ms]
+  🧬 Quantum: SIGNAL=-0.393 COHERENCE=0.33 PHI=0.15
+  🐂 BULL[23]: SessionDynamics, HexMatrix, MomentumAgent, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, FractionalCalculusVelocity, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, CandleAnatomyAgent, ChaosRegime, FeynmanPath, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[30]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, SolitonWave, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, PriceGravityAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:25.540     INFO │ 📊 Sentiment Update: F&G=11 (Extreme Fear) | BTC Dom=56.5% | 24h=+0.98% | Score=-0.604 | Sources=2
+[DubaiMatrixASI] 10:35:27.721    DEBUG │ 🔒 Candle Lock: já executou SELL neste candle. Aguardando próximo.
+[DubaiMatrixASI] 10:35:28.740     INFO │ 🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var=0.00002) below threshold.
+[DubaiMatrixASI] 10:35:28.741     INFO │ 🧠 [Ω-PHI RESONANCE] Scaling Phi-Gate to 0.0240 for stable drift.
+[DubaiMatrixASI] 10:35:30.611    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-55,4518
+[DubaiMatrixASI] 10:35:32.995     INFO │ 💫 Cycle #510 | Action=WAIT | Signal=-0.383 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 72.5 points)
+  🧬 Quantum: SIGNAL=-0.383 COHERENCE=0.33 PHI=0.12
+  🐂 BULL[22]: SessionDynamics, HexMatrix, MomentumAgent, MacroBiasAgent, PrigogineDissipative, OrnsteinUhlenbeck, FractionalCalculusVelocity, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicEntanglement, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, CandleAnatomyAgent, ChaosRegime, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[30]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, CrossScaleConvergenceAgent, SpectralInformationFlux, RiemannianRicci, SolitonWave, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, AggressivenessAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, LiquidationVacuumAgent, CppFractalAgent, FeynmanPath, SentimentFearGreedAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, PriceVelocityAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:34.805     INFO │ ⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para 0.44
+[DubaiMatrixASI] 10:35:40.605     INFO │ 💫 Cycle #540 | Action=WAIT | Signal=-0.394 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 97.5 points)
+  🧬 Quantum: SIGNAL=-0.394 COHERENCE=0.34 PHI=0.19
+  🐂 BULL[20]: SessionDynamics, HexMatrix, LiquidStateAgent, MacroBiasAgent, OrnsteinUhlenbeck, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[31]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, SolitonWave, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, FeynmanPath, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:48.223     INFO │ 💫 Cycle #570 | Action=WAIT | Signal=-0.401 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 101.7 points)
+  🧬 Quantum: SIGNAL=-0.401 COHERENCE=0.34 PHI=0.23
+  🐂 BULL[19]: SessionDynamics, MacroBiasAgent, OrnsteinUhlenbeck, StrangeAttractorFolding, RandomMatrixTheory, DarkMatterGravity, AntifragileExhaustion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, LiquidStateAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[34]: QuantumDirectionalInference, SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, EigenvectorCentrality, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, FeynmanPath, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, HexMatrix, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:35:55.662  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:35:55.679    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-6349.9565 Gen=1
+[DubaiMatrixASI] 10:35:55.681    OMEGA │ ⚡ 🧬 Gen #1: 8 mutações aplicadas | Tipo=uniform | Fitness=-6349.9565
+[DubaiMatrixASI] 10:35:55.697    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=0.7315)
+[DubaiMatrixASI] 10:35:55.697    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.005675
+[DubaiMatrixASI] 10:35:55.846    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $99,912.87
+[DubaiMatrixASI] 10:35:55.846    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 10:35:55.847    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222349: Regime=None
+[DubaiMatrixASI] 10:35:55.847    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222354: Regime=None
+[DubaiMatrixASI] 10:35:55.848    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222356: Regime=None
+[DubaiMatrixASI] 10:35:55.848    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222358: Regime=None
+[DubaiMatrixASI] 10:35:55.849    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280856: Regime=None
+[DubaiMatrixASI] 10:35:55.849    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280858: Regime=None
+[DubaiMatrixASI] 10:35:55.849    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280860: Regime=None
+[DubaiMatrixASI] 10:35:55.850    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320070: Regime=None
+[DubaiMatrixASI] 10:35:55.850    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320075: Regime=None
+[DubaiMatrixASI] 10:35:55.850    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320079: Regime=None
+[DubaiMatrixASI] 10:35:55.851    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320080: Regime=None
+[DubaiMatrixASI] 10:35:55.851    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002090: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:35:55.852    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002092: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:35:55.852    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002093: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:35:55.852    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002094: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:35:55.853    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404040915: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:35:55.853    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042181: Regime=None
+[DubaiMatrixASI] 10:35:55.854    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042182: Regime=None
+[DubaiMatrixASI] 10:35:55.854    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042184: Regime=None
+[DubaiMatrixASI] 10:35:55.855    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404936917: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.855    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943755: Regime=None
+[DubaiMatrixASI] 10:35:55.855    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943754: Regime=None
+[DubaiMatrixASI] 10:35:55.872    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404958890: Regime=None
+[DubaiMatrixASI] 10:35:55.877    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742044: Regime=None
+[DubaiMatrixASI] 10:35:55.877    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742040: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.878    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405774725: Regime=None
+[DubaiMatrixASI] 10:35:55.889    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405777860: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.894    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793382: Regime=None
+[DubaiMatrixASI] 10:35:55.900    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793384: Regime=None
+[DubaiMatrixASI] 10:35:55.903    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405862900: Regime=None
+[DubaiMatrixASI] 10:35:55.903    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864847: Regime=None
+[DubaiMatrixASI] 10:35:55.908    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864856: Regime=None
+[DubaiMatrixASI] 10:35:55.909    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864859: Regime=None
+[DubaiMatrixASI] 10:35:55.909    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864861: Regime=None
+[DubaiMatrixASI] 10:35:55.910    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405888197: Regime=None
+[DubaiMatrixASI] 10:35:55.910    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405892604: Regime=None
+[DubaiMatrixASI] 10:35:55.911    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914699: Regime=None
+[DubaiMatrixASI] 10:35:55.911    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914701: Regime=None
+[DubaiMatrixASI] 10:35:55.911    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914706: Regime=None
+[DubaiMatrixASI] 10:35:55.912    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915838: Regime=None
+[DubaiMatrixASI] 10:35:55.912    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915844: Regime=None
+[DubaiMatrixASI] 10:35:55.913    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915851: Regime=None
+[DubaiMatrixASI] 10:35:55.913    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917872: Regime=None
+[DubaiMatrixASI] 10:35:55.913    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917880: Regime=None
+[DubaiMatrixASI] 10:35:55.914    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917891: Regime=None
+[DubaiMatrixASI] 10:35:55.914    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919378: Regime=None
+[DubaiMatrixASI] 10:35:55.915    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919385: Regime=None
+[DubaiMatrixASI] 10:35:55.915    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919391: Regime=None
+[DubaiMatrixASI] 10:35:55.915    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927847: Regime=None
+[DubaiMatrixASI] 10:35:55.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927862: Regime=None
+[DubaiMatrixASI] 10:35:55.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927871: Regime=None
+[DubaiMatrixASI] 10:35:55.916    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936303: Regime=None
+[DubaiMatrixASI] 10:35:55.917    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936316: Regime=None
+[DubaiMatrixASI] 10:35:55.917    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936323: Regime=None
+[DubaiMatrixASI] 10:35:55.918    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945398: Regime=None
+[DubaiMatrixASI] 10:35:55.918    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945404: Regime=None
+[DubaiMatrixASI] 10:35:55.918    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945410: Regime=None
+[DubaiMatrixASI] 10:35:55.919    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405978849: Regime=None
+[DubaiMatrixASI] 10:35:55.919    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983846: Regime=None
+[DubaiMatrixASI] 10:35:55.919    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983847: Regime=None
+[DubaiMatrixASI] 10:35:55.920    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983848: Regime=None
+[DubaiMatrixASI] 10:35:55.920    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983849: Regime=None
+[DubaiMatrixASI] 10:35:55.921    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452573: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.921    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452590: Regime=None
+[DubaiMatrixASI] 10:35:55.921    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452593: Regime=None
+[DubaiMatrixASI] 10:35:55.922    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452586: Regime=None
+[DubaiMatrixASI] 10:35:55.922    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406459568: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.922    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474914: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:35:55.923    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474917: Regime=None
+[DubaiMatrixASI] 10:35:55.923    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474924: Regime=None
+[DubaiMatrixASI] 10:35:55.923    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474920: Regime=None
+[DubaiMatrixASI] 10:35:55.925  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:35:55.927    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 76 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-3937.08
+[DubaiMatrixASI] 10:35:55.927     INFO │ 💫 Cycle #600 | Action=WAIT | Signal=-0.388 | Coherence=0.32 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 124.5 points)
+  🧬 Quantum: SIGNAL=-0.388 COHERENCE=0.32 PHI=0.08
+  🐂 BULL[25]: SessionDynamics, HexMatrix, LiquidStateAgent, MacroBiasAgent, FeynmanPath, QuantumDirectionalInference, OrnsteinUhlenbeck, StrangeAttractorFolding, RandomMatrixTheory, EigenvectorCentrality, DarkMatterGravity, AntifragileExhaustion, NonBondedRepulsion, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, CyberneticHomeostasis, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, StatisticalAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, CrossScaleConvergenceAgent, QuantumSpin, TBSAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, AggressivenessAgent, SentimentFearGreedAgent, LiquidationVacuumAgent, TrendAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PriceGravityAgent, PriceVelocityAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:36:00.098     INFO │ 🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy 0.00 + No Inertia + Φ=0.21 < 0.25). Avoiding chop.
+[DubaiMatrixASI] 10:36:01.172    DEBUG │ ⏳ Anti-metralhadora: cooldown ativo (37s/60s)
+[DubaiMatrixASI] 10:36:03.369     INFO │ 💫 Cycle #630 | Action=WAIT | Signal=-0.390 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 66.6 points)
+  🧬 Quantum: SIGNAL=-0.390 COHERENCE=0.33 PHI=0.09
+  🐂 BULL[24]: SessionDynamics, HexMatrix, AggressivenessAgent, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, StrangeAttractorFolding, DarkMatterGravity, FeynmanPath, HolographicMemory, LiquidStateAgent, RogueWaveNLSE, MacroBiasAgent, CyberneticHomeostasis, PriceGravityAgent, StatisticalAgent, StopHunterAgent, ChaosRegime, DarkMass, DivergenceAgent, VolatilityAgent, LiquidationVacuumAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[26]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, RandomMatrixTheory, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, OscillationWaveAgent, MicrostructureAgent, OnChainPressureAgent, PressureMatrix, PriceVelocityAgent, CandleAnatomyAgent, BOSAgent, TrendAgent, MeanFieldGame, MomentumAgent
+[DubaiMatrixASI] 10:36:26.102     INFO │ 💫 Cycle #720 | Action=WAIT | Signal=-0.405 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 109.1 points)
+  🧬 Quantum: SIGNAL=-0.405 COHERENCE=0.33 PHI=0.19
+  🐂 BULL[21]: SessionDynamics, HexMatrix, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, DarkMatterGravity, HolographicMemory, RogueWaveNLSE, MacroBiasAgent, CyberneticHomeostasis, PriceGravityAgent, PheromoneFieldAgent, StatisticalAgent, ChaosRegime, LiquidStateAgent, AggressivenessAgent, VolatilityAgent, FeynmanPath, ChartStructureAgent, PremiumDiscountAgent, LiquidationVacuumAgent
+  🐻 BEAR[27]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, RandomMatrixTheory, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, PressureMatrix, BOSAgent, GameTheoryNashAgent, TrendAgent, Thermodynamic, MicrostructureAgent, CppFractalAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, MomentumAgent, CandleAnatomyAgent, MeanFieldGame
+[DubaiMatrixASI] 10:36:28.886     INFO │ 🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var=0.00159) below threshold.
+[DubaiMatrixASI] 10:36:28.891     INFO │ 🧠 [Ω-PHI RESONANCE] Scaling Phi-Gate to 0.0240 for stable drift.
+[DubaiMatrixASI] 10:36:33.726    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-55,4518
+[DubaiMatrixASI] 10:36:33.727     INFO │ 💫 Cycle #750 | Action=WAIT | Signal=-0.409 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 124.7 points)
+  🧬 Quantum: SIGNAL=-0.409 COHERENCE=0.33 PHI=0.20
+  🐂 BULL[21]: SessionDynamics, HexMatrix, PriceGravityAgent, OrnsteinUhlenbeck, KripkeSemantics, SolitonWave, CandleAnatomyAgent, DarkMatterGravity, HolographicEntanglement, HolographicMemory, RogueWaveNLSE, MacroBiasAgent, CyberneticHomeostasis, PheromoneFieldAgent, StatisticalAgent, ChaosRegime, AggressivenessAgent, VolatilityAgent, LiquidationVacuumAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[28]: QuantumDirectionalInference, SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, RandomMatrixTheory, EigenvectorCentrality, GammaSqueeze, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, FeynmanPath, CppFractalAgent, SentimentFearGreedAgent, PriceVelocityAgent, OnChainPressureAgent, PressureMatrix, BOSAgent, TrendAgent, MomentumAgent, MeanFieldGame
+[DubaiMatrixASI] 10:36:34.937     INFO │ ⚠️ RR_DIVERGENCE: Líderes desconfiados. Elevando Min RR para 0.44
+[DubaiMatrixASI] 10:36:41.041     INFO │ ⚠️ [TREND ALIGNMENT] Counter-Trend detected (WAIT vs DRIFTING_BEAR). Applying moderate suppression.
+[DubaiMatrixASI] 10:36:46.176  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:37:00.520    OMEGA │ ⚡ 🛡️ [NRO: SAFE EXPLORATION] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-55,4518) | Φ=0.20. Reducing risk by 90%.
+[DubaiMatrixASI] 10:37:00.520  WARNING │ 🚨 [MARGIN GUARD] Critical Level 118.48% < 150%. Locking lot to MIN_LOT.
+[DubaiMatrixASI] 10:37:00.520     INFO │ 🌌 [NRO: MANIFOLD] Curvature detected (-0.700). Scaling risk by 1.88x.
+[DubaiMatrixASI] 10:37:00.521   SIGNAL │ 
+╔══ ⚡ [LIMIT] SELL PREVIEW ══╗
+║ SIGNAL: -0.400 | CONF: 0.88 | Φ: 0.20
+║ BULL[21]: SessionDynamics, HexMatrix, LiquidStateAgent, PriceGravityAgent, MacroBiasAgent, AggressivenessAgent, FeynmanPath, StatisticalAgent, OrnsteinUhlenbeck, RandomMatrixTheory, DarkMatterGravity, HolographicMemory, RogueWaveNLSE, CyberneticHomeostasis, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, ChartStructureAgent, PremiumDiscountAgent
+║ BEAR[26]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+║ REGIME: DRIFTING_BEAR | ADAPTIVE_LOT: 0.02 | ATR: 166.75
+║ REASONING: SELL signal=-0.400 conf=0.88 coherence=0.34 regime=DRIFTING_BEAR ATR=166.75 RR=1.89 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.400 | CONF=0.88 | Φ=0.20 | COH=33.80% | BEAR: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.077 WP=52.2% EV=+5.31 CVaR=-350.00 sim=29.7ms]
+╚══════════════════════════════════╝
+[DubaiMatrixASI] 10:37:00.522    OMEGA │ ⚡ 🎯 DECISION: SELL lot=0.02 (em 1 nodes) price=69999.18 SL=70349.18 TP=69336.06 | Φ: 0.20 | CONF: 0.88
+[DubaiMatrixASI] 10:37:00.523    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.02 @ 69998.35 (via socket)
+[DubaiMatrixASI] 10:37:00.536     INFO │ 💾 Intenção registrada Ticket#0 | Strike=S1774013820_SELL | Conf=0.88
+[DubaiMatrixASI] 10:37:00.832     INFO │ 📩 Resposta EA Socket: LIMIT -> SUCCESS | Data: RESULT|LIMIT|SUCCESS|406524811|69998.35
+[DubaiMatrixASI] 10:37:00.832    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 406524811 @ 69998.35
+[DubaiMatrixASI] 10:37:01.754     INFO │ 📂 Auditoria Quantum iniciada: Strike_S1774013820_SELL_SELL_1774013820 (Strike: S1774013820_SELL)
+[DubaiMatrixASI] 10:37:01.754    OMEGA │ ⚡ ✅ TRADE EXECUTADO #2 | SELL lot=0.02 @ 69998.35 | 1 tickets gerados | SELL signal=-0.400 conf=0.88 coherence=0.34 regime=DRIFTING_BEAR ATR=166.75 RR=1
+[DubaiMatrixASI] 10:37:01.755  WARNING │ ⏱️ LATENCY [execute] 1243.3ms (threshold: 400ms)
+[DubaiMatrixASI] 10:37:01.755    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=0.02 @ 69998.35 | Φ=0.20 | CONF=0.88 | REGIME=DRIFTING_BEAR
+[DubaiMatrixASI] 10:37:01.756    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.400 PHI=0.20
+  🐂 BULL[21]: SessionDynamics, HexMatrix, LiquidStateAgent, PriceGravityAgent, MacroBiasAgent, AggressivenessAgent, FeynmanPath, StatisticalAgent, OrnsteinUhlenbeck, RandomMatrixTheory, DarkMatterGravity, HolographicMemory, RogueWaveNLSE, CyberneticHomeostasis, PheromoneFieldAgent, StopHunterAgent, ChaosRegime, CandleAnatomyAgent, VolatilityAgent, ChartStructureAgent, PremiumDiscountAgent
+  🐻 BEAR[26]: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, GammaSqueeze, FourierSpectral, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, LiquidationVacuumAgent, BOSAgent, GameTheoryNashAgent, PressureMatrix, Thermodynamic, CppFractalAgent, SentimentFearGreedAgent, TrendAgent, PriceVelocityAgent, MicrostructureAgent, OnChainPressureAgent, MomentumAgent, MeanFieldGame
+  🎯 Reason: SELL signal=-0.400 conf=0.88 coherence=0.34 regime=DRIFTING_BEAR ATR=166.75 RR=1.89 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.400 | CONF=0.88 | Φ=0.20 | COH=33.80% | BEAR: SingularSpectrumAnalysis, KripkeSemantics, KolmogorovInertia [!LOW_COHERENCE_DAMPENING!] | MC[score=+0.077 WP=52.2% EV=+5.31 CVaR=-350.00 sim=29.7ms]
+[DubaiMatrixASI] 10:37:01.757  WARNING │ ⏱️ LATENCY [think] 1416.7ms (threshold: 1000ms)
+[DubaiMatrixASI] 10:37:27.917     INFO │ 💫 Cycle #960 | Action=WAIT | Signal=-0.502 | Coherence=0.40 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 124.6 points)
+  🧬 Quantum: SIGNAL=-0.502 COHERENCE=0.40 PHI=0.21
+  🐂 BULL[18]: SessionDynamics, KripkeSemantics, SolitonWave, DarkMatterGravity, LiquidStateAgent, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, MacroBiasAgent, StatisticalAgent, FeynmanPath, ChaosRegime, AggressivenessAgent, OscillationWaveAgent, LiquidationVacuumAgent, ChartStructureAgent, PremiumDiscountAgent, LiquidityHeatmapAgent
+  🐻 BEAR[29]: SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, RandomMatrixTheory, KinematicJounce, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, PriceGravityAgent, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, MicrostructureAgent, OnChainPressureAgent, CppFractalAgent, HexMatrix, SentimentFearGreedAgent, CandleAnatomyAgent, PriceVelocityAgent, PressureMatrix, BOSAgent, TrendAgent, MeanFieldGame, MomentumAgent
+[DubaiMatrixASI] 10:37:29.182    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 10:37:33.205     INFO │ 🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var=0.00178) below threshold.
+[DubaiMatrixASI] 10:37:33.482     INFO │ 🧠 [Ω-PHI RESONANCE] Scaling Phi-Gate to 0.0240 for stable drift.
+[DubaiMatrixASI] 10:37:35.504     INFO │ 💫 Cycle #990 | Action=WAIT | Signal=-0.430 | Coherence=0.42 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-3937.08
+  🎯 Reason: WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 179.8 points)
+  🧬 Quantum: SIGNAL=-0.430 COHERENCE=0.42 PHI=0.24
+  🐂 BULL[17]: KripkeSemantics, SolitonWave, DarkMatterGravity, LiquidStateAgent, HolographicMemory, QuantumEntanglement, RogueWaveNLSE, SessionDynamics, AggressivenessAgent, ChaosRegime, PremiumDiscountAgent, PriceGravityAgent, LiquidityHeatmapAgent, MacroBiasAgent, FeynmanPath, ChartStructureAgent, LiquidationVacuumAgent
+  🐻 BEAR[31]: PrigogineDissipative, PhantomLiquidity, SingularSpectrumAnalysis, KolmogorovInertia, SpectralInformationFlux, RiemannianRicci, StrangeAttractorFolding, RandomMatrixTheory, KinematicJounce, FourierSpectral, NonBondedRepulsion, ChaosFractalDim, HolographicEntanglement, RiemannianManifold, QuantumSpin, TBSAgent, GameTheoryNashAgent, Thermodynamic, OnChainPressureAgent, CppFractalAgent, ExplosionDetectorAgent, HexMatrix, CandleAnatomyAgent, MicrostructureAgent, PressureMatrix, SentimentFearGreedAgent, PriceVelocityAgent, BOSAgent, MeanFieldGame, TrendAgent, MomentumAgent
+[DubaiMatrixASI] 10:37:37.549    OMEGA │ ⚡ 👻 GHOST CLOSURE: Position #406521016 sumiu do rastro (Broker TP/SL detected).

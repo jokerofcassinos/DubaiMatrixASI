@@ -394,13 +394,21 @@ class TrinityCore:
                  dynamic_conf_min *= 0.80 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.85
                  self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { current_regime_val } (Mult: {mult:.2f}, Conf Min: {dynamic_conf_min:.2f})", 60)
             else:
-                 # Se Φ é baixo em Drift, ENDURECEMOS o filtro substancialmente para evitar noise-entry
-                 mult = 1.8 if is_low_phi_drift else 1.10
+                 # [Phase Ω-Extreme] Se Φ é baixo em Drift, endurecemos MUITO o filtro (2.5x)
+                 # Isso exige sinais de altíssima amplitude (> 0.50)
+                 mult = 2.5 if is_low_phi_drift else 1.10
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
                  if is_low_phi_drift:
-                     dynamic_conf_min = min(0.98, dynamic_conf_min * 1.3)
-                     self._log_cooldown("LOW_PHI_DRIFT_GUARD", f"🛡️ [LOW PHI DRIFT] Incoherence detected (Φ={phi_score:.2f}). Hardening filters to avoid trap.", 60)
+                     dynamic_conf_min = min(0.98, dynamic_conf_min * 1.35)
+                     
+                     # ═══ [PHASE Ω-STRICT] DRIFT_COHERENCE_VETO ═══
+                     # Se o regime é instável (Low Phi), NÃO aceitamos entrar com baixa coerência
+                     if coherence < 0.50 and not (is_tec_sovereign or is_god_mode):
+                         self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < 0.50 requirement in Drift/Low-Phi)", 60)
+                         return self._wait("DRIFT_COHERENCE_WEAK")
+                         
+                     self._log_cooldown("LOW_PHI_DRIFT_GUARD", f"🛡️ [LOW PHI DRIFT] Incoherence detected (Φ={phi_score:.2f}). Hardening filters (2.5x) and requiring high coherence.", 60)
                  elif not self.entropy_bridge_active:
                      dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
         
@@ -679,20 +687,33 @@ class TrinityCore:
         
         # [Phase Ω-PhD-Next] Micro-Momentum Alignment Veto (Global)
         # Se os últimos 3 candles de M1 são fortemente BULL (para um sinal SELL) ou vice-versa, vetamos.
-        # Isso impede entrar contra "foguetes" ou "facas caindo" mesmo em regimes favoráveis.
         candles_m1 = snapshot.candles.get("M1")
         momentum_rejection = False
+        v_pulse_detected = False
+        
         if candles_m1 and len(candles_m1["close"]) >= 3:
             closes = candles_m1["close"][-3:]
             opens = candles_m1["open"][-3:]
-            # Verificamos se todos os 3 últimos candles são da cor oposta ao sinal
+            
+            # [Ω-PULSE] V-Pulse anti-entry (Single large candle rejection)
+            last_candle_body = abs(closes[-1] - opens[-1])
+            is_opposing = (action == Action.BUY and closes[-1] < opens[-1]) or (action == Action.SELL and closes[-1] > opens[-1])
+            
+            # Se o último candle foi um susto (corpo > 1.2x ATR) contra a posição, esperamos o próximo
+            if is_opposing and last_candle_body > (snapshot.atr * 1.2) and not is_god_mode:
+                v_pulse_detected = True
+            
+            # Momentum de 3 candles (Clássico)
             if action == Action.BUY: # Queremos ver pelo menos 1 candle verde ou não 3 de queda forte
                 if all(c < o for c, o in zip(closes, opens)): momentum_rejection = True
             elif action == Action.SELL: # Queremos ver pelo menos 1 candle vermelho ou não 3 de alta forte
                 if all(c > o for c, o in zip(closes, opens)): momentum_rejection = True
 
+        if v_pulse_detected:
+             return self._wait("V_PULSE_ANTI_ENTRY_VETO (Large counter-candle detected)")
+             
         if momentum_rejection and not (is_lethal_ignition or is_breakout or is_tec_sovereign or is_god_mode):
-             return self._wait(f"MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)")
+             return self._wait("MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)")
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
         phi_min = OMEGA.get("phi_min_threshold", 0.4)
