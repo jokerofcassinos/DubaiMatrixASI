@@ -12,6 +12,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from market.mt5_bridge import MT5Bridge
 from market.data_engine import MarketSnapshot
+from config.exchange_config import MAGIC_NUMBER
 from config.omega_params import OMEGA
 from utils.logger import log
 from utils.decorators import catch_and_log
@@ -381,22 +382,26 @@ class PositionManager:
         if not pending:
             return
 
-        now = time.time()
+        # [Ω-RESILIENCE] Usar o tempo do servidor (tick) para evitar problemas de fuso horário
+        # Se não houver tick recente, fallback para o tempo local (com sincronização implícita)
+        tick = self.bridge.get_tick()
+        now_server = tick['time'] if tick else time.time()
+        
         for order in pending:
             ticket = order.get('ticket')
-            setup_time = order.get('time', now)
-            order_price = order.get('price_open', 0.0)
-
-            # O MT5 retorna setup_time em epoch local/server. 
-            if setup_time > now + 3600: setup_time = now
+            
+            # [Ω-FILTER] Apenas ordens deste bot (Sovereignty Check)
+            if order.get('magic') != MAGIC_NUMBER:
+                continue
+                
+            setup_time = order.get('time', now_server)
+            order_price = order.get('price', 0.0) # Corrected key from bridge.get_pending_orders
 
             # GC 1: Tempo de Vida (30s Cooldown)
-            age = now - setup_time
+            age = now_server - setup_time
             is_stale = (age > 30)
             
             # GC 2: Slippage Residual (Preço fugiu mais de 1.5 ATR)
-            # [FIX] MT5Bridge returns 'price', not 'price_open' for orders_get
-            order_price = order.get('price', 0.0)
             price_runaway = (abs(current_price - order_price) > atr * 1.5) if (atr > 0 and order_price > 0) else False
 
             # [PHASE Ω-COOLDOWN] CEO Command: 30s minimum life for any limit order
@@ -404,13 +409,49 @@ class PositionManager:
                 if is_stale or price_runaway:
                     if ticket:
                         reason = "STALE" if is_stale else f"RUNAWAY({abs(current_price-order_price):.1f} pts)"
-                        log.omega(f"🧹 GC: Cancelando ordem LIMIT #{ticket} - Reason: {reason}")
+                        log.omega(f"🧹 GC: Cancelando ordem LIMIT #{ticket} - Reason: {reason} | Age: {age:.1f}s")
                         self.bridge.cancel_pending_order(ticket)
     def _cleanup_tracking(self, current_tickets: List[int]):
-        """Remove estados de tickets que não existem mais."""
+        """Remove estados de tickets que não existem mais e detecta fechamentos automáticos (TP/SL)."""
         closed = [t for t in list(self._positions_state.keys()) 
                   if t not in current_tickets and t not in self._closing_tickets]
+        
         for t in closed:
+            # [Ω-AUDIT] Detecção de Ghost Closure (TP/SL via Corretora)
+            # Se o ticket sumiu sem passar pelo set '_closing_tickets', foi fechado fora do bot.
+            log.omega(f"👻 GHOST CLOSURE: Position #{t} sumiu do rastro (Broker TP/SL detected).")
+            
+            try:
+                # 1. Recuperar resultado real via Histórico
+                deals = self.bridge.get_deals_by_position(t)
+                last_deal = deals[-1] if deals else None
+                
+                if last_deal:
+                    result = {
+                        "ticket": t,
+                        "profit": last_deal.get("profit", 0.0),
+                        "close_price": last_deal.get("price", 0.0),
+                        "direction": last_deal.get("type", "UNKNOWN"),
+                        "success": True,
+                        "reason": "AUTO_EXIT_BROKER"
+                    }
+                else:
+                    # Fallback caso o histórico falhe por lag
+                    result = {"ticket": t, "profit": 0.0, "success": True, "reason": "AUTO_EXIT_BROKER_LAG"}
+                
+                # 2. Finalizar Auditoria com captura visual do momento da percepção
+                from utils.audit_engine import AUDIT_ENGINE
+                intent_data = trade_registry.get_intent(position_id=t)
+                strike_id = intent_data.get("strike_id") if intent_data else None
+                AUDIT_ENGINE.end_audit(ticket=t, result=result, strike_id=strike_id)
+                
+                # 3. Disparar callback se houver
+                if self._on_close_callback:
+                    self._on_close_callback(result)
+                    
+            except Exception as e:
+                log.error(f"❌ Erro ao processar auditoria de ghost closure para #{t}: {e}")
+
             if t in self._positions_state: del self._positions_state[t]
             if t in self._close_attempt_time: del self._close_attempt_time[t]
             if t in self._last_nuke_log_time: del self._last_nuke_log_time[t]

@@ -1,123 +1,119 @@
-[DubaiMatrixASI] 09:54:10.133     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 09:54:10.133     INFO │ 
+[DubaiMatrixASI] 10:33:22.058     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 10:33:22.058     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 09:54:10.133     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 09:54:10.134     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 09:54:10.134    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 09:54:10.135    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 09:54:10.135    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 09:54:10.135    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 09:54:10.136    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 09:54:10.136    OMEGA │ ⚡ 📅 2026-03-20T12:54:10.136469+00:00
-[DubaiMatrixASI] 09:54:10.136    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 09:54:10.137    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 09:54:10.137     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 09:54:10.140     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 09:54:10.140    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 09:54:10.141     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 09:54:10.141     INFO │    Conta: 1512785888
-[DubaiMatrixASI] 09:54:10.142     INFO │    Servidor: FTMO-Demo
-[DubaiMatrixASI] 09:54:10.142     INFO │    Saldo: $96639.07
-[DubaiMatrixASI] 09:54:10.142     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 09:54:10.143     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 09:54:10.143     INFO │    Spread: 100 points
-[DubaiMatrixASI] 09:54:10.144    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 09:54:10.144     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 09:54:10.145    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70299.35, Bid=70298.35
-[DubaiMatrixASI] 09:54:10.145     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 09:54:10.157     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 09:54:10.158    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 09:54:10.160    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 09:54:10.176    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 09:54:10.182     INFO │ 📂 Carregados 62 trades do histórico. WR=54.8%
-[DubaiMatrixASI] 09:54:10.209    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 09:54:10.216    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 09:54:10.217    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 09:54:10.224    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 09:54:10.225    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
-[DubaiMatrixASI] 09:54:10.226    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 09:54:10.227     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 96639.07, 'equity': 96639.07, 'tick_buffer_size': 1, 'last_tick_ms': 1774022050022}
-[DubaiMatrixASI] 09:54:10.229    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 09:54:10.230    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 09:54:10.267    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 09:54:10.464     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 0.3s / 120.0s remaining.
-[DubaiMatrixASI] 09:54:10.486    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.61
-[DubaiMatrixASI] 09:54:10.499    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $100,010.61
-[DubaiMatrixASI] 09:54:10.499    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
-[DubaiMatrixASI] 09:54:10.501    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222349: Regime=None
-[DubaiMatrixASI] 09:54:10.501    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222354: Regime=None
-[DubaiMatrixASI] 09:54:10.502    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222356: Regime=None
-[DubaiMatrixASI] 09:54:10.502    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222358: Regime=None
-[DubaiMatrixASI] 09:54:10.502    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280856: Regime=None
-[DubaiMatrixASI] 09:54:10.503    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280858: Regime=None
-[DubaiMatrixASI] 09:54:10.520    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280860: Regime=None
-[DubaiMatrixASI] 09:54:10.531    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320070: Regime=None
-[DubaiMatrixASI] 09:54:10.532    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320075: Regime=None
-[DubaiMatrixASI] 09:54:10.533    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320079: Regime=None
-[DubaiMatrixASI] 09:54:10.544    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320080: Regime=None
-[DubaiMatrixASI] 09:54:10.552    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002090: Regime=CREEPING_BULL
-[DubaiMatrixASI] 09:54:10.552    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002092: Regime=CREEPING_BULL
-[DubaiMatrixASI] 09:54:10.562    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002093: Regime=CREEPING_BULL
-[DubaiMatrixASI] 09:54:10.570    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002094: Regime=CREEPING_BULL
-[DubaiMatrixASI] 09:54:10.571    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404040915: Regime=CREEPING_BULL
-[DubaiMatrixASI] 09:54:10.571    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042181: Regime=None
-[DubaiMatrixASI] 09:54:10.572    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042182: Regime=None
-[DubaiMatrixASI] 09:54:10.572    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042184: Regime=None
-[DubaiMatrixASI] 09:54:10.573    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404936917: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 09:54:10.573    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943755: Regime=None
-[DubaiMatrixASI] 09:54:10.574    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943754: Regime=None
-[DubaiMatrixASI] 09:54:10.575    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404958890: Regime=None
-[DubaiMatrixASI] 09:54:10.575    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742044: Regime=None
-[DubaiMatrixASI] 09:54:10.576    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742040: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 09:54:10.576    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405774725: Regime=None
-[DubaiMatrixASI] 09:54:10.577    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405777860: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 09:54:10.577    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793382: Regime=None
-[DubaiMatrixASI] 09:54:10.578    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793384: Regime=None
-[DubaiMatrixASI] 09:54:10.578    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405862900: Regime=None
-[DubaiMatrixASI] 09:54:10.579    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864847: Regime=None
-[DubaiMatrixASI] 09:54:10.579    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864856: Regime=None
-[DubaiMatrixASI] 09:54:10.580    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864859: Regime=None
-[DubaiMatrixASI] 09:54:10.580    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864861: Regime=None
-[DubaiMatrixASI] 09:54:10.581    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405888197: Regime=None
-[DubaiMatrixASI] 09:54:10.582    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405892604: Regime=None
-[DubaiMatrixASI] 09:54:10.582    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914699: Regime=None
-[DubaiMatrixASI] 09:54:10.583    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914701: Regime=None
-[DubaiMatrixASI] 09:54:10.583    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914706: Regime=None
-[DubaiMatrixASI] 09:54:10.584    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915838: Regime=None
-[DubaiMatrixASI] 09:54:10.584    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915844: Regime=None
-[DubaiMatrixASI] 09:54:10.585    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915851: Regime=None
-[DubaiMatrixASI] 09:54:10.585    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917872: Regime=None
-[DubaiMatrixASI] 09:54:10.585    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917880: Regime=None
-[DubaiMatrixASI] 09:54:10.586    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917891: Regime=None
-[DubaiMatrixASI] 09:54:10.587    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919378: Regime=None
-[DubaiMatrixASI] 09:54:10.587    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919385: Regime=None
-[DubaiMatrixASI] 09:54:10.588    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919391: Regime=None
-[DubaiMatrixASI] 09:54:10.588    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927847: Regime=None
-[DubaiMatrixASI] 09:54:10.589    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927862: Regime=None
-[DubaiMatrixASI] 09:54:10.589    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927871: Regime=None
-[DubaiMatrixASI] 09:54:10.589    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936303: Regime=None
-[DubaiMatrixASI] 09:54:10.590    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936316: Regime=None
-[DubaiMatrixASI] 09:54:10.591    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936323: Regime=None
-[DubaiMatrixASI] 09:54:10.592    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945398: Regime=None
-[DubaiMatrixASI] 09:54:10.592    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945404: Regime=None
-[DubaiMatrixASI] 09:54:10.593    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945410: Regime=None
-[DubaiMatrixASI] 09:54:10.593    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405978849: Regime=None
-[DubaiMatrixASI] 09:54:10.594    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983846: Regime=None
-[DubaiMatrixASI] 09:54:10.594    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983847: Regime=None
-[DubaiMatrixASI] 09:54:10.595    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983848: Regime=None
-[DubaiMatrixASI] 09:54:10.595    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983849: Regime=None
-[DubaiMatrixASI] 09:54:10.596    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452573: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 09:54:10.629    DEBUG │ 📊 Trade Recorded: Pos#406452573 | P&L=$+6.21 | ✅ WIN
-[DubaiMatrixASI] 09:54:10.635    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452590: Regime=None
-[DubaiMatrixASI] 09:54:10.666    DEBUG │ 📊 Trade Recorded: Pos#406452590 | P&L=$+0.01 | ✅ WIN
-[DubaiMatrixASI] 09:54:10.678    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452593: Regime=None
-[DubaiMatrixASI] 09:54:10.697    DEBUG │ 📊 Trade Recorded: Pos#406452593 | P&L=$+6.13 | ✅ WIN
-[DubaiMatrixASI] 09:54:10.697    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452586: Regime=None
-[DubaiMatrixASI] 09:54:10.735    DEBUG │ 📊 Trade Recorded: Pos#406452586 | P&L=$+0.01 | ✅ WIN
-[DubaiMatrixASI] 09:54:10.737    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406459568: Regime=DRIFTING_BEAR
-[DubaiMatrixASI] 09:54:10.767    DEBUG │ 📊 Trade Recorded: Pos#406459568 | P&L=$-1.75 | ❌ LOSS
-[DubaiMatrixASI] 09:54:10.791  WARNING │ 🧬 T-Cell: Novo antígeno registrado. Banco de dados de imunidade atualizado (29 patógenos).
-[DubaiMatrixASI] 09:54:10.792  WARNING │ 🛡️ TrinityCore: LOSS event notified. ANTI-PING-PONG gate armed.
-[DubaiMatrixASI] 09:54:10.796    OMEGA │ ⚡ 🌐 INFORMATION GEOMETRY ALERT: Paradigm Shift Detected (KL=3.4685)
-[DubaiMatrixASI] 09:54:10.797    OMEGA │ ⚡ 🧬 Natural Gradient Step applied: 0.007569
-[DubaiMatrixASI] 09:54:10.797    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 68 posições auditadas, 5 novos registros finalizados. P&L Líquido Total: $-3360.93
+[DubaiMatrixASI] 10:33:22.059     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 10:33:22.059     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 10:33:22.060    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 10:33:22.060    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 10:33:22.061    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 📅 2026-03-20T13:33:22.062039+00:00
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 10:33:22.062    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 10:33:22.063     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 10:33:22.065     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 10:33:22.066    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 10:33:22.066     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 10:33:22.066     INFO │    Conta: 1512785888
+[DubaiMatrixASI] 10:33:22.067     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 10:33:22.067     INFO │    Saldo: $96062.92
+[DubaiMatrixASI] 10:33:22.067     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 10:33:22.067     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 10:33:22.068     INFO │    Spread: 100 points
+[DubaiMatrixASI] 10:33:22.069    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 10:33:22.069     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 10:33:22.069    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70065.56, Bid=70064.56
+[DubaiMatrixASI] 10:33:22.070     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 10:33:22.077     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 10:33:22.078    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 10:33:22.079    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 10:33:22.100    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 10:33:22.104     INFO │ 📂 Carregados 71 trades do histórico. WR=53.5%
+[DubaiMatrixASI] 10:33:22.141    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.142    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.144    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 10:33:22.150    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 10:33:22.151    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 180 agentes ativos
+[DubaiMatrixASI] 10:33:22.151    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 10:33:22.152     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 96062.92, 'equity': 96062.92, 'tick_buffer_size': 1, 'last_tick_ms': 1774024402026}
+[DubaiMatrixASI] 10:33:22.153    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 10:33:22.153    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 10:33:22.186    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 10:33:22.318    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 10:33:22.348     INFO │ ⏳ [COLD START COOLDOWN] Syncing conscience: 0.2s / 120.0s remaining.
+[DubaiMatrixASI] 10:33:22.372    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.61
+[DubaiMatrixASI] 10:33:22.406    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 10:33:22.429    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222349: Regime=None
+[DubaiMatrixASI] 10:33:22.431    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222354: Regime=None
+[DubaiMatrixASI] 10:33:22.431    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222356: Regime=None
+[DubaiMatrixASI] 10:33:22.442    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403222358: Regime=None
+[DubaiMatrixASI] 10:33:22.449    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280856: Regime=None
+[DubaiMatrixASI] 10:33:22.449    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280858: Regime=None
+[DubaiMatrixASI] 10:33:22.450    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403280860: Regime=None
+[DubaiMatrixASI] 10:33:22.450    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320070: Regime=None
+[DubaiMatrixASI] 10:33:22.451    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320075: Regime=None
+[DubaiMatrixASI] 10:33:22.451    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320079: Regime=None
+[DubaiMatrixASI] 10:33:22.452    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #403320080: Regime=None
+[DubaiMatrixASI] 10:33:22.452    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002090: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.453    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002092: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.453    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002093: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404002094: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404040915: Regime=CREEPING_BULL
+[DubaiMatrixASI] 10:33:22.454    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042181: Regime=None
+[DubaiMatrixASI] 10:33:22.455    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042182: Regime=None
+[DubaiMatrixASI] 10:33:22.455    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404042184: Regime=None
+[DubaiMatrixASI] 10:33:22.456    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404936917: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.456    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943755: Regime=None
+[DubaiMatrixASI] 10:33:22.457    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404943754: Regime=None
+[DubaiMatrixASI] 10:33:22.458    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #404958890: Regime=None
+[DubaiMatrixASI] 10:33:22.458    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742044: Regime=None
+[DubaiMatrixASI] 10:33:22.459    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405742040: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.476    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405774725: Regime=None
+[DubaiMatrixASI] 10:33:22.482    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405777860: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.483    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793382: Regime=None
+[DubaiMatrixASI] 10:33:22.501    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405793384: Regime=None
+[DubaiMatrixASI] 10:33:22.507    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405862900: Regime=None
+[DubaiMatrixASI] 10:33:22.507    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864847: Regime=None
+[DubaiMatrixASI] 10:33:22.519    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864856: Regime=None
+[DubaiMatrixASI] 10:33:22.525    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864859: Regime=None
+[DubaiMatrixASI] 10:33:22.525    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405864861: Regime=None
+[DubaiMatrixASI] 10:33:22.526    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405888197: Regime=None
+[DubaiMatrixASI] 10:33:22.526    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405892604: Regime=None
+[DubaiMatrixASI] 10:33:22.527    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914699: Regime=None
+[DubaiMatrixASI] 10:33:22.527    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914701: Regime=None
+[DubaiMatrixASI] 10:33:22.528    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405914706: Regime=None
+[DubaiMatrixASI] 10:33:22.528    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915838: Regime=None
+[DubaiMatrixASI] 10:33:22.529    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915844: Regime=None
+[DubaiMatrixASI] 10:33:22.529    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405915851: Regime=None
+[DubaiMatrixASI] 10:33:22.530    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917872: Regime=None
+[DubaiMatrixASI] 10:33:22.530    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917880: Regime=None
+[DubaiMatrixASI] 10:33:22.531    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405917891: Regime=None
+[DubaiMatrixASI] 10:33:22.532    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919378: Regime=None
+[DubaiMatrixASI] 10:33:22.533    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919385: Regime=None
+[DubaiMatrixASI] 10:33:22.538    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405919391: Regime=None
+[DubaiMatrixASI] 10:33:22.538    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927847: Regime=None
+[DubaiMatrixASI] 10:33:22.539    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927862: Regime=None
+[DubaiMatrixASI] 10:33:22.539    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405927871: Regime=None
+[DubaiMatrixASI] 10:33:22.540    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936303: Regime=None
+[DubaiMatrixASI] 10:33:22.541    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936316: Regime=None
+[DubaiMatrixASI] 10:33:22.541    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405936323: Regime=None
+[DubaiMatrixASI] 10:33:22.542    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945398: Regime=None
+[DubaiMatrixASI] 10:33:22.542    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945404: Regime=None
+[DubaiMatrixASI] 10:33:22.543    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405945410: Regime=None
+[DubaiMatrixASI] 10:33:22.543    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405978849: Regime=None
+[DubaiMatrixASI] 10:33:22.544    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983846: Regime=None
+[DubaiMatrixASI] 10:33:22.544    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983847: Regime=None
+[DubaiMatrixASI] 10:33:22.545    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983848: Regime=None
+[DubaiMatrixASI] 10:33:22.545    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #405983849: Regime=None
+[DubaiMatrixASI] 10:33:22.546    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452573: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.547    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452590: Regime=None
+[DubaiMatrixASI] 10:33:22.548    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452593: Regime=None
+[DubaiMatrixASI] 10:33:22.548    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406452586: Regime=None
+[DubaiMatrixASI] 10:33:22.549    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406459568: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.550    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474914: Regime=DRIFTING_BEAR
+[DubaiMatrixASI] 10:33:22.550    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474917: Regime=None
+[DubaiMatrixASI] 10:33:22.551    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474924: Regime=None
+[DubaiMatrixASI] 10:33:22.551    DEBUG │ 🧠 [MEMORY RECOVERED] Contexto recuperado para Position #406474920: Regime=None
+[DubaiMatrixASI] 10:33:22.553  WARNING │ 🚨 ALERT [CRITICAL]: 5 losses consecutivos!
+[DubaiMatrixASI] 10:33:22.555    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 72 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-3937.08

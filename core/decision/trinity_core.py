@@ -135,8 +135,8 @@ class TrinityCore:
         entropy_thresh = OMEGA.get("god_mode_entropy_threshold", 0.85)
         is_god_mode_phi = False
 
-        # [Phase 51] OMEGA-ALPHA: Ignition & God-Mode Status
         has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        is_breakdown = regime_state.current == MarketRegime.HFT_BREAKDOWN
         is_god_mode = snapshot.metadata.get("god_mode_active", False)
         is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
         
@@ -150,6 +150,7 @@ class TrinityCore:
         pnl_prediction = snapshot.metadata.get("pnl_prediction", "STABLE")
         entropy = snapshot.metadata.get("entropy", 0.0)
         coherence = snapshot.metadata.get("coherence", 0.0)
+        is_low_phi_drift = False # Initialize for global scope
 
         # ═══ [Phase Ω-PhD-6] Topological Entropy Collapse (TEC) Sensor ═══
         # Detecta colapso estrutural (Singularidade) via decaimento de entropia.
@@ -357,19 +358,16 @@ class TrinityCore:
             dynamic_sell_thresh *= 0.6
             dynamic_conf_min *= 0.8
         
+        current_regime_val = str(getattr(regime_state.current, 'value', regime_state.current))
         if regime_state.current in [MarketRegime.TRENDING_BULL, MarketRegime.TRENDING_BEAR]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
-        elif regime_state.current.value in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN", "CREEPING_BULL", "CREEPING_BEAR"]:
+        elif current_regime_val in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN", "CREEPING_BULL", "CREEPING_BEAR"]:
             # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
-            # [Phase Ω-PhD-3] Creep Maturity Veto
-            # [Phase Ω-PhD-5] Dynamic Threshold + Ignition Bypass
             c_thresh = OMEGA.get("creep_maturity_threshold", 150.0)
-            current_regime_val = str(getattr(regime_state.current, 'value', regime_state.current))
             duration = int(getattr(regime_state, 'duration_bars', 0) or 0)
             
             if "CREEPING" in current_regime_val and duration > c_thresh:
-                # SE houver ignição letal, ignoramos o veto de maturidade (Phase Ω-PhD-5)
                 if is_lethal_ignition:
                     self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-IGNITION BYPASS] Stale regime ({duration} bars) overridden by Lethal Ignition.", 60, level="omega")
                     self.last_decision_bypassed = True
@@ -380,15 +378,30 @@ class TrinityCore:
             has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
             phi_score = quantum_state.phi
             
-            if has_ignition or phi_score > 0.25 or regime_state.current == MarketRegime.HFT_BREAKDOWN:
+            # [Phase Ω-PhD-Next] Hardened Phi Guard for Drift/Creep
+            # Se a integração (Φ) é baixa (< 0.25), NÃO relaxamos os filtros, pois o regime é instável.
+            is_low_phi_drift = phi_score < 0.25 and not (has_ignition or is_lethal_ignition)
+            
+            if (has_ignition or phi_score > 0.25 or regime_state.current == MarketRegime.HFT_BREAKDOWN) and not is_low_phi_drift:
                  mult = 0.90 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.95
-                 dynamic_conf_min *= 0.80 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.85
-                 self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { regime_state.current.value } (Conf Min: {dynamic_conf_min:.2f})", 60)
-            else:
-                 mult = 1.10 if quantum_state.phi > 0.3 else 1.15
+                 
+                 # [Phase Ω-PhD-Next] Restore Drift relaxation for healthy Phi
+                 is_drift = "DRIFTING" in current_regime_val
+                 if is_drift: mult *= 0.65 # Relaxa thresholds em Drift se Φ for saudável
+                 
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
-                 if not self.entropy_bridge_active:
+                 dynamic_conf_min *= 0.80 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.85
+                 self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { current_regime_val } (Mult: {mult:.2f}, Conf Min: {dynamic_conf_min:.2f})", 60)
+            else:
+                 # Se Φ é baixo em Drift, ENDURECEMOS o filtro substancialmente para evitar noise-entry
+                 mult = 1.8 if is_low_phi_drift else 1.10
+                 dynamic_buy_thresh *= mult
+                 dynamic_sell_thresh *= mult
+                 if is_low_phi_drift:
+                     dynamic_conf_min = min(0.98, dynamic_conf_min * 1.3)
+                     self._log_cooldown("LOW_PHI_DRIFT_GUARD", f"🛡️ [LOW PHI DRIFT] Incoherence detected (Φ={phi_score:.2f}). Hardening filters to avoid trap.", 60)
+                 elif not self.entropy_bridge_active:
                      dynamic_conf_min = min(0.95, dynamic_conf_min * 1.05)
         
         elif regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
@@ -603,7 +616,7 @@ class TrinityCore:
             # [Phase 73] Ignition Sovereignty: Se houver ignição letal, EXAUSTÃO, BREAKDOWN ou TEC, ignoramos o veto de continuidade
             if is_lethal_ignition or is_breakdown or has_exhaustion_sovereignty or is_tec_sovereign:
                 pass
-            elif (signal > 0 and tick_velocity < -10.0) or (signal < 0 and tick_velocity > 10.0):
+            elif (signal > 0 and tick_velocity < -12.0) or (signal < 0 and tick_velocity > 12.0):
                  return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
 
         # [Phase Ω-PhD-6] Singularity Resonance Bypass: Handled at start of decide()
@@ -633,8 +646,11 @@ class TrinityCore:
                 dynamic_conf_min = 0.70 # Relax confidence for bifurcation strikes
             
             # [Phase Ω-PhD] Ω-Entropy Bridge Check
-            buy_cond = (signal >= dynamic_buy_thresh or (is_convergent and signal > 0)) and not self.kinetic_exhaustion
-            sell_cond = (signal <= dynamic_sell_thresh or (is_convergent and signal < 0)) and not self.kinetic_exhaustion
+            # Se Φ é baixo em Drift, desativamos o bypass de convergência (Bridge) para evitar noise-entry.
+            allow_bridge = not is_low_phi_drift
+            
+            buy_cond = (signal >= dynamic_buy_thresh or (is_convergent and signal > 0 and allow_bridge)) and not self.kinetic_exhaustion
+            sell_cond = (signal <= dynamic_sell_thresh or (is_convergent and signal < 0 and allow_bridge)) and not self.kinetic_exhaustion
             
             if self.kinetic_exhaustion:
                 return self._wait("KINETIC_EXHAUSTION_VETO (Stable but Decelerating)")
@@ -661,8 +677,22 @@ class TrinityCore:
         # If we reach here, we have an Action (either from God-Mode, normal flow, or TEC)
         strike_flag = f" | [PHASE_50_STRIKE: {action.name}]"
         
-        # The rest of the function (calculating SL/TP, RR, MC) will continue using the 'action', 'signal', 'confidence'.
-        # Since is_god_mode is True, some later VETOs (like MC expected return < 0) will be bypassed.
+        # [Phase Ω-PhD-Next] Micro-Momentum Alignment Veto (Global)
+        # Se os últimos 3 candles de M1 são fortemente BULL (para um sinal SELL) ou vice-versa, vetamos.
+        # Isso impede entrar contra "foguetes" ou "facas caindo" mesmo em regimes favoráveis.
+        candles_m1 = snapshot.candles.get("M1")
+        momentum_rejection = False
+        if candles_m1 and len(candles_m1["close"]) >= 3:
+            closes = candles_m1["close"][-3:]
+            opens = candles_m1["open"][-3:]
+            # Verificamos se todos os 3 últimos candles são da cor oposta ao sinal
+            if action == Action.BUY: # Queremos ver pelo menos 1 candle verde ou não 3 de queda forte
+                if all(c < o for c, o in zip(closes, opens)): momentum_rejection = True
+            elif action == Action.SELL: # Queremos ver pelo menos 1 candle vermelho ou não 3 de alta forte
+                if all(c > o for c, o in zip(closes, opens)): momentum_rejection = True
+
+        if momentum_rejection and not (is_lethal_ignition or is_breakout or is_tec_sovereign or is_god_mode):
+             return self._wait(f"MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)")
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
         phi_min = OMEGA.get("phi_min_threshold", 0.4)
@@ -914,11 +944,11 @@ class TrinityCore:
         # [Phase 52.7] Liquidity-Shield: Regime-Aware Structural Buffers
         is_transition_regime = regime_state.current.value in ["CREEPING_BULL", "CREEPING_BEAR", "DRIFTING_BULL", "DRIFTING_BEAR", "HIGH_VOL_CHAOS", "LIQUIDATION_CASCADE"]
         
-        # Buffer de liquidez: em regimes rasteiros/caóticos, precisamos de mais "respiro" (40% do ATR ou 25 pontos)
-        struct_buffer = max(25 * point_val, 0.4 * fast_atr) if is_transition_regime else (15 * point_val)
+        # Buffer de liquidez: em regimes rasteiros/caóticos, precisamos de mais "respiro" (Aumentado de 0.4 para 0.65 ATR)
+        struct_buffer = max(35 * point_val, 0.65 * fast_atr) if is_transition_regime else (20 * point_val)
         
-        # SL Floor de segurança: não permite stop muito curto em regimes de "wick hunt"
-        min_sl_dist = 0.8 * fast_atr if is_transition_regime else (0.5 * fast_atr)
+        # SL Floor de segurança: não permite stop muito curto em regimes de "wick hunt" (Aumentado de 0.8 para 1.2 ATR)
+        min_sl_dist = 1.2 * fast_atr if is_transition_regime else (0.6 * fast_atr)
 
         if action == Action.BUY:
             # SL: O maior entre (Mínima dos últimos 10 candles - buffer) e (Preço - sl_mult * Fast_ATR)
