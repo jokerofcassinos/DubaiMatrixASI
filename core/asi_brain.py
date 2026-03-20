@@ -37,6 +37,7 @@ from config.settings import ASIState, CONSCIOUSNESS_CYCLE_MS
 from config.omega_params import OMEGA
 from utils.logger import log
 from utils.decorators import timed, catch_and_log, ast_self_heal
+from core.decision.shadow_engine import ShadowCounterfactualEngine
 
 
 class ASIBrain:
@@ -111,6 +112,9 @@ class ASIBrain:
         # ═══ ESTADO DA ASI ═══
         self.state = ASIState()
         self.state.load()  # Carregar estado anterior
+        
+        # ═══ PHASE Ω-9: MOTOR CONTRAFACTUAL SOMBRA ═══
+        self.shadow_engine = ShadowCounterfactualEngine()
 
         # Contadores
         self._cycle_count = 0
@@ -288,9 +292,20 @@ class ASIBrain:
                         f"  🐻 BEAR[{len(bear_agents)}]: {bear_str}\n"
                         f"  🎯 Reason: {decision.reasoning}"
                     )
+        elif decision and decision.action == Action.WAIT:
+            # [Phase Ω-9] Registro de Trade Sombra para Oportunidades Vetadas
+            if quantum_state and abs(quantum_state.raw_signal) > 0.15:
+                # Obter ATR (se aplicável), senão assume proxy.
+                atr = float(snapshot.metadata.get("atr", 0.0))
+                # Consideramos a intenção original do sinal antes do WAIT
+                intended_action = Action.BUY if quantum_state.raw_signal > 0 else Action.SELL
+                self.shadow_engine.register_shadow_trade(decision.reasoning, snapshot, quantum_state, intended_action, atr)
 
         # ═══ 8. MONITORAR POSIÇÕES ABERTAS (POSITION MANAGER / SMART TP) ═══
         self.position_manager.monitor_positions(snapshot, flow_analysis, quantum_state=quantum_state)
+        
+        # [Phase Ω-9] Atualizar PnL Virtual das Sombras
+        self.shadow_engine.update_shadow_matrix(snapshot.price)
 
         # ═══ 8B. GRAVAR MEMÓRIA EPISÓDICA (a cada 60 ciclos) ═══
         if self._cycle_count % 60 == 0:

@@ -22,6 +22,10 @@ from core.consciousness.agents.predator import (
 from core.consciousness.agents.chaos import (
     InformationEntropyAgent, PhaseSpaceAttractorAgent, VPINProxyAgent,
     OrderBookEvaporationAgent, CrossScaleConvergenceAgent,
+    MultiScaleFractalResonanceAgent,
+)
+from core.consciousness.agents.elysium_agents import (
+    HiddenMarkovRegimeAgent, FractalStandardDeviationAgent, DarkEnergyMomentumAgent
 )
 from core.consciousness.agents.global_macro import (
     SentimentFearGreedAgent, OnChainPressureAgent, MacroBiasAgent,
@@ -43,6 +47,10 @@ from core.consciousness.agents.smc import (
     BreakOfStructureAgent,
 )
 
+from core.consciousness.agents.omniscience_agents import (
+    OrderBookSpoofingAgent, QuantumEntanglementAgent, OrderFlowShannonSentimentAgent
+)
+
 from core.consciousness.agents.liquid_state_agent import LiquidStateAgent
 
 __all__ = [
@@ -60,6 +68,9 @@ __all__ = [
     # Chaos
     "InformationEntropyAgent", "PhaseSpaceAttractorAgent", "VPINProxyAgent",
     "OrderBookEvaporationAgent", "CrossScaleConvergenceAgent",
+    "MultiScaleFractalResonanceAgent",
+    # Elysium
+    "HiddenMarkovRegimeAgent", "FractalStandardDeviationAgent", "DarkEnergyMomentumAgent",
     # Global Macro
     "SentimentFearGreedAgent", "OnChainPressureAgent", "MacroBiasAgent",
     "WhaleTrackerAgent",
@@ -76,4 +87,6 @@ __all__ = [
     "LiquiditySweepAgent", "MarketStructureShiftAgent", "FairValueGapAgent",
     "LiquidityHeatmapAgent", "OrderBlockAgent", "PremiumDiscountAgent",
     "BreakOfStructureAgent",
+    # Omniscience
+    "OrderBookSpoofingAgent", "QuantumEntanglementAgent", "OrderFlowShannonSentimentAgent",
 ]

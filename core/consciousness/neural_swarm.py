@@ -40,12 +40,18 @@ from core.consciousness.agents.predator import (
     IcebergHunterAgent, StopHunterAgent, InstitutionalFootprintAgent,
     LiquiditySiphonAgent, OrderBookPressureAgent,
 )
+from core.consciousness.agents.spoof_hunter_agent import SpoofHunterAgent
 
 # Phase 12 — Chaos & Quantum Agents (5)
 from core.consciousness.agents.chaos import (
     InformationEntropyAgent, PhaseSpaceAttractorAgent, VPINProxyAgent,
     OrderBookEvaporationAgent, CrossScaleConvergenceAgent,
+    MultiScaleFractalResonanceAgent,
 )
+from core.consciousness.agents.elysium_agents import (
+    HiddenMarkovRegimeAgent, FractalStandardDeviationAgent, DarkEnergyMomentumAgent
+)
+from core.consciousness.agents.topological_agent import PersistentHomologyAgent
 
 # Phase 13 — Global Macro & Whale Agents (4)
 from core.consciousness.agents.global_macro import (
@@ -141,7 +147,7 @@ from core.consciousness.agents.transcendence_agents import (
 from core.consciousness.agents.topological_braiding import TopologicalBraidingAgent
 from core.consciousness.agents.holographic_memory_agent import HolographicMemoryAgent
 from core.consciousness.agents.omniscience_agents import (
-    OrderBookSpoofingAgent, QuantumEntanglementAgent
+    OrderBookSpoofingAgent, QuantumEntanglementAgent, OrderFlowShannonSentimentAgent
 )
 from core.consciousness.agents.phd_agents import (
     AsymmetricInformationEntropyAgent, RelativisticManifoldAgent, NeuralFlowODEAgent,
@@ -408,12 +414,13 @@ class NeuralSwarm:
             ReflexivityAgent(weight=1.3),
             # BlackSwanAgent(weight=2.0), -- Moved to its own section
 
-            # ═══ PREDATOR (Phase 11) ═══
+            # ═══ PREDATOR (Phase 11 & Phase Ω-12) ═══
             IcebergHunterAgent(weight=1.4),
             StopHunterAgent(weight=1.6),
             InstitutionalFootprintAgent(weight=1.5),
             LiquiditySiphonAgent(weight=1.3),
             OrderBookPressureAgent(weight=1.2),
+            SpoofHunterAgent(weight=2.2),
 
             # ═══ CHAOS & QUANTUM (Phase 12) ═══
             InformationEntropyAgent(weight=1.6),
@@ -421,6 +428,18 @@ class NeuralSwarm:
             VPINProxyAgent(weight=1.5),
             OrderBookEvaporationAgent(weight=1.7),
             CrossScaleConvergenceAgent(weight=1.8),
+            MultiScaleFractalResonanceAgent(weight=4.8),
+
+            # ═══ OMNISCIENCE & EXPLORATION (Phase Ω-8) ═══
+            OrderBookSpoofingAgent(weight=2.6),
+            QuantumEntanglementAgent(weight=3.0),
+            OrderFlowShannonSentimentAgent(weight=2.8),
+            
+            # ═══ ELYSIUM (Phase Ω-11) ═══
+            HiddenMarkovRegimeAgent(weight=3.8),
+            FractalStandardDeviationAgent(weight=3.5),
+            DarkEnergyMomentumAgent(weight=4.0),
+            PersistentHomologyAgent(weight=3.8),
 
             # ═══ GLOBAL MACRO & WHALE (Phase 13) ═══
             SentimentFearGreedAgent(weight=1.1),
@@ -646,6 +665,11 @@ class NeuralSwarm:
             # ═══ Ω-PhD-8: KOLMOGOROV ALGORITHMIC ALPHA (KAA) ═══
             KolmogorovInertiaAgent(weight=4.8),
             GhostOrderInferenceAgent(weight=4.8),
+
+            # ═══ Ω-8: EXPLORAÇÃO DO NÃO-EXPLORADO ═══
+            OrderBookSpoofingAgent(weight=2.6),
+            QuantumEntanglementAgent(weight=3.0),
+            OrderFlowShannonSentimentAgent(weight=3.5),
 
             # ═══ CONTINUUM (Phase Ω-Continuum) ═══
             MTheoryDimensionalAgent(weight=5.0),

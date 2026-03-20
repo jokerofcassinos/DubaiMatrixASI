@@ -62,7 +62,21 @@ class OrderFlowMatrix:
         
         # Adaptação para manter interface Python (Type / Strength)
         is_absorption = cpp_result["is_absorption"]
-        absorption = {"detected": is_absorption, "type": "CPP_ABSORPTION" if is_absorption else None, "strength": 0.8 if is_absorption else 0.0}
+        
+        abs_type = None
+        if is_absorption:
+            buy_p = cpp_result["buy_volume"]
+            sell_p = cpp_result["sell_volume"]
+            if buy_p > sell_p * 1.5:
+                # Compras passivamente absorvidas (Iceberg SELL) -> preço vai cair
+                abs_type = "BEARISH_ABSORPTION"
+            elif sell_p > buy_p * 1.5:
+                # Vendas passivamente absorvidas (Iceberg BUY) -> preço vai subir
+                abs_type = "BULLISH_ABSORPTION"
+            else:
+                abs_type = "NEUTRAL_ABSORPTION"
+                
+        absorption = {"detected": is_absorption, "type": abs_type, "strength": 0.8 if is_absorption else 0.0}
         
         is_exhaustion = cpp_result["is_exhaustion"]
         exhaustion = {"detected": is_exhaustion, "type": "CPP_EXHAUSTION" if is_exhaustion else None, "strength": 0.8 if is_exhaustion else 0.0}

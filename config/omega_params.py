@@ -121,6 +121,22 @@ class OmegaParameterSpace:
                         "% do saldo por posição")
         self._register("kelly_fraction", 1.0, 0.10, 1.00,
                         "Fração do Kelly Criterion")
+                        
+        # [Phase Ω-10] QUANTUM KELLY PDF-SIZING
+        self._register("pdf_sizing_steepness", 3.5, 1.0, 10.0,
+                        "Inclinação da expansão geométrica da densidade de risco")
+        self._register("pdf_max_kelly_multiplier", 5.0, 1.0, 20.0,
+                        "Teto máximo de expansão do Kelly (God-Mode / Convergence)")
+        self._register("pdf_micro_lot_threshold", 0.15, 0.05, 0.50,
+                        "Limite de densidade p/ ativar Lot normal vs Micro-Lot")
+
+        # ═══ QUANTUM TWAP PARAMS (PHASE Ω-13) ═══
+        self._register("twap_lot_threshold", 1.5, 0.5, 5.0,
+                        "Tamanho de lote mínimo para desativar a Hydra e disparar o TWAP Assíncrono")
+        self._register("twap_duration_sec", 6.0, 2.0, 30.0,
+                        "Duração alvo (em segundos) que a fragmentação TWAP levará para limpar passivo")
+        self._register("twap_max_chunk", 0.3, 0.05, 1.0,
+                        "Maior fatia permitida (MAX_CHUNK) por milissegundo pelo TWAP")
         self._register("stop_loss_atr_mult", 1.50, 0.1, 5.0,
                         "Multiplicador ATR para stop loss")
         self._register("take_profit_atr_mult", 2.50, 0.3, 10.0,
@@ -190,6 +206,14 @@ class OmegaParameterSpace:
                         "Peso do agente de tendência")
         self._register("weight_momentum", 1.0, 0.1, 3.0,
                         "Peso do agente de momentum")
+        self._register("weight_topological", 3.8, 1.0, 8.0,
+                        "Peso do agente de Homologia Persistente (Betti Holes)")
+        self._register("weight_spoof_hunter", 2.2, 1.0, 5.0,
+                        "Peso do agente caçador de Market Makers (Spoof Variance)")
+        self._register("spoof_velocity_threshold", 30.0, 10.0, 100.0,
+                        "Ticks por segundo mínimos para investigar Spoofing")
+        self._register("spoof_variance_threshold", 0.40, 0.10, 0.90,
+                        "Variância de imbalance mínima para confirmar Fake Wall")
         self._register("weight_volume", 0.8, 0.1, 3.0,
                         "Peso do agente de volume")
         self._register("weight_pattern", 0.7, 0.1, 3.0,

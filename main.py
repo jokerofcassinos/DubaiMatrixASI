@@ -47,6 +47,7 @@ from config.settings import (
 from config.exchange_config import MT5_LOGIN, MT5_PASSWORD, MT5_SERVER, MT5_PATH
 from market.mt5_bridge import MT5Bridge
 from core.asi_brain import ASIBrain
+from core.consciousness.genetic_forge import GeneticForge
 from config.omega_params import OMEGA
 from utils.logger import log
 
@@ -145,6 +146,10 @@ class DubaiMatrixASI:
         # ═══ 2. INICIALIZAR CÉREBRO ═══
         log.info("🧠 Inicializando ASI Brain...")
         self.brain = ASIBrain(self.bridge)
+        
+        # ═══ 2.5 INICIALIZAR FORJA GENÉTICA (Phase Ω-14) ═══
+        self.forge = GeneticForge(bridge=self.bridge, asi_state=self.brain.state, interval_minutes=15)
+        self.forge.start()
 
         # ═══ 3. HEALTH CHECK ═══
         health = self.bridge.health_check()
@@ -208,6 +213,9 @@ class DubaiMatrixASI:
 
         if self.brain:
             self.brain.shutdown()
+            
+        if hasattr(self, 'forge') and self.forge:
+            self.forge.stop()
 
         self.bridge.disconnect()
 

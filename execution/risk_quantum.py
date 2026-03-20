@@ -116,13 +116,53 @@ class RiskQuantumEngine:
                 ito_fraction = ito_sizing / balance if balance > 0 else 0.01
                 risk_fraction = min(risk_fraction, ito_fraction)
 
-        # 4. Conviction Sizing
+        # 4. [Phase Ω-10] QUANTUM KELLY PDF-SIZING
         kelly_fraction = OMEGA.get("kelly_fraction", 0.25)
-        risk_fraction *= (kelly_fraction * 4.0) 
+        base_risk = risk_fraction * (kelly_fraction * 4.0)
+        
+        # Extrair variáveis de fronteira
+        phi = 0.0
+        coherence = confidence
+        raw_signal = 0.0
+        v_pulse = False
+        god_mode = False
+        
+        if snapshot and hasattr(snapshot, "metadata"):
+            phi = snapshot.metadata.get("phi_last", phi)
+            coherence = snapshot.metadata.get("coherence_last", coherence)
+            raw_signal = snapshot.metadata.get("raw_signal", raw_signal)
+            v_pulse = snapshot.metadata.get("v_pulse_detected", False)
+            god_mode = snapshot.metadata.get("god_mode_active", False)
 
-        if confidence >= 0.80:
-            mult = OMEGA.get("high_conviction_multiplier", 2.0)
-            risk_fraction *= mult
+        # PDF Parametrization
+        pdf_steepness = OMEGA.get("pdf_sizing_steepness", 3.5)
+        pdf_max_mult = OMEGA.get("pdf_max_kelly_multiplier", 5.0)
+        pdf_micro_floor = OMEGA.get("pdf_micro_lot_threshold", 0.15)
+        
+        # A densidade de certeza (0.0 a 1.0+) ponderando Coerência, Compressão Fractal (Phi) e Sinal Bruto
+        certainty_density = (coherence * 0.4) + (phi * 0.4) + (min(1.0, abs(raw_signal)) * 0.2)
+        
+        if certainty_density < pdf_micro_floor and not (v_pulse or god_mode):
+            # Choppy / Low confidence: Micro-Lot tracking (reduz o risco para 10% do dimensionado)
+            pdf_multiplier = 0.1
+            log.debug(f"📉 [PDF-SIZING] Density ({certainty_density:.2f}) < Floor. Forçando Micro-Lote.")
+        else:
+            # Expansão Geométrica: e^(k * (x - 0.5)) - Acelera agressivamente acima da densidade média (0.5)
+            x = max(0.0, certainty_density)
+            explosive_growth = float(np.exp(pdf_steepness * (x - 0.5)))
+            
+            pdf_multiplier = max(0.5, min(pdf_max_mult, explosive_growth))
+            
+            # Overrides de Singularidade Temporal
+            if v_pulse:
+                pdf_multiplier = max(pdf_multiplier, pdf_max_mult * 0.8)
+                log.omega(f"🌋 [PDF-SIZING] V-PULSE Detectado! Escalando risco (Mult={pdf_multiplier:.2f}x).")
+            if god_mode:
+                pdf_multiplier = pdf_max_mult
+                log.omega(f"👁️‍🗨️ [PDF-SIZING] GOD-MODE Ativo! Risco em Lote de Colapso (Mult={pdf_multiplier:.2f}x).")
+                
+        risk_fraction = base_risk * pdf_multiplier
+        log.info(f"🧬 [PDF-SIZING] Density={certainty_density:.3f} | Mult={pdf_multiplier:.2f}x | Final Risk={risk_fraction:.5f}")
 
         # [Phase Ω-Transcendence] Dynamic Order Flow Risk Modification
         # Se a pressão do livro de ofertas estiver contra a intenção do trade, reduzimos o risco.

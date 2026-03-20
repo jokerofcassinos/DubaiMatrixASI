@@ -16,6 +16,7 @@ from execution.risk_quantum import RiskQuantumEngine
 from market.mt5_bridge import MT5Bridge
 from concurrent.futures import ThreadPoolExecutor
 from config.settings import ASIState, MAX_SLOTS_PER_CANDLE, EXECUTION_COOLDOWN_MS
+from execution.quantum_twap import QuantumTwapEngine
 from cpp.asi_bridge import CPP_CORE
 import numpy as np
 
@@ -67,6 +68,9 @@ class SniperExecutor:
         
         # Phase 40 — Ultra-Fast Execution Pool
         self._order_pool = ThreadPoolExecutor(max_workers=25)
+        
+        # Phase Ω-13 — Quantum TWAP Router
+        self.twap_engine = QuantumTwapEngine(self.bridge)
         
         # OMEGA-CLASS: Sonar State
         self._last_sonar_time = 0
@@ -258,6 +262,42 @@ class SniperExecutor:
         if final_lot <= 0:
             log.omega("🛡️ [GHOST VETO ABORT] Lote final é zero. Abortando execução silenciosamente.")
             return None
+
+        # ═══════════════════════════════════════════════════════════
+        #  PHASE Ω-13: QUANTUM TWAP INTERCEPTOR
+        # ═══════════════════════════════════════════════════════════
+        twap_threshold = OMEGA.get("twap_lot_threshold", 1.5)
+        if final_lot >= twap_threshold and decision.confidence >= 0.85:
+            log.omega(
+                f"👻 [TWAP INTERCEPTOR] Lote hiper-massivo detectado ({final_lot:.2f} >= {twap_threshold}). "
+                f"Desviando rota para o Motor Furtivo Assíncrono para garantir Zero Slippage."
+            )
+            # Aciona fire-and-forget
+            self.twap_engine.execute_stealth(
+                decision=decision, 
+                total_lot=final_lot, 
+                duration_seconds=OMEGA.get("twap_duration_sec", 6.0),
+                min_chunk=MIN_LOT_SIZE,
+                max_chunk=OMEGA.get("twap_max_chunk", 0.3)
+            )
+            # Atualiza peak balance logicamente (embora as posições abram no background)
+            if balance > asi_state.peak_balance:
+                asi_state.peak_balance = balance
+                
+            self._execution_count += 1
+            self._orders_in_candle += 1
+            self._last_execution_time = datetime.now(timezone.utc)
+            
+            return {
+                "success": True,
+                "tickets": [-1], # TWAP roda assíncrono
+                "price": decision.entry_price, # Teórico
+                "lot": final_lot,
+                "action": decision.action.value,
+                "sl": decision.stop_loss,
+                "tp": decision.take_profit,
+                "reasoning": f"[QUANTUM TWAP] {decision.reasoning}",
+            }
 
         # 4. EXECUTAR! (Order Split & Margin Check) (Phase 26: Hydra Execution)
         # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime

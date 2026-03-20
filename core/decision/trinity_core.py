@@ -303,7 +303,8 @@ class TrinityCore:
             if is_convergent:
                 tick_vel = abs(snapshot.metadata.get("tick_velocity", 0.0))
                 # [Phase Ω-PhD-5/8] Dynamic Kinetic Floor (Reset Ω-PhD-Next)
-                k_floor = OMEGA.get("kinetic_velocity_floor", 2.0)
+                # [Phase Ω-Hard-Lethality] Kinematic sanity cap (3.5): Prevents optimizer from deadlocking the bot.
+                k_floor = min(float(OMEGA.get("kinetic_velocity_floor", 2.0)), 3.5)
                 
                 # [Ω-PhD-Dynamic] Alpha Scaling: Se houver ressonância ou ignição, relaxamos o floor
                 if phi > 0.40 or is_lethal_ignition or is_tec_sovereign:
@@ -373,8 +374,9 @@ class TrinityCore:
             duration = int(getattr(regime_state, 'duration_bars', 0) or 0)
             
             if "CREEPING" in current_regime_val and duration > c_thresh:
-                # [Phase Ω-PhD-Next] Maturity Bypass: If Phi is healthy (>0.02), we trust the trend's integrity regardless of age.
-                if is_lethal_ignition or phi > 0.02:
+                # [Phase Ω-Hard-Lethality] Unconditional Bypass for CREEPING: 
+                # Persistent trends are our alpha source. We override age veto if signal is present.
+                if is_lethal_ignition or abs(signal) > 0.15:
                     self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-MATURITY BYPASS] Stale regime ({duration} bars) overridden by { 'Ignition' if is_lethal_ignition else 'Phi-Integrity' }.", 60, level="omega")
                     self.last_decision_bypassed = True
                 else:

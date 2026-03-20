@@ -12,6 +12,7 @@ from scipy.stats import entropy
 
 from core.consciousness.agents.base import AgentSignal, BaseAgent
 from utils.decorators import catch_and_log
+from cpp.asi_bridge import CPP_CORE
 
 
 class InformationEntropyAgent(BaseAgent):
@@ -266,5 +267,49 @@ class CrossScaleConvergenceAgent(BaseAgent):
             signal = -1.0
             conf = 1.0
             reason = "OMEGA ALIGNMENT (Tick, M1, M5, M15 ALL BEARISH)"
+
+        return AgentSignal(self.name, signal, conf, reason, self.weight)
+
+class MultiScaleFractalResonanceAgent(BaseAgent):
+    """
+    [Phase Ω-8] Ressonância Fractal Multi-Escala.
+    Usa o CPP_CORE para calcular a Dimensão Fractal em 3 timeframes SIMULTANEAMENTE (M1, M5, M15).
+    Se as 3 dimensões entrarem em colapso (<1.35), o mercado se tornou uma linha uni-dimensional (compressão quântica).
+    Se explodirem (>1.65), é caos multi-escalar total.
+    """
+    def __init__(self, weight: float = 4.8):
+        super().__init__("MultiScaleFractalResonance", weight)
+
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kw) -> Optional[AgentSignal]:
+        closes_m1 = snapshot.candles.get("M1", {}).get("close", [])
+        closes_m5 = snapshot.candles.get("M5", {}).get("close", [])
+        closes_m15 = snapshot.candles.get("M15", {}).get("close", [])
+
+        if len(closes_m1) < 64 or len(closes_m5) < 64 or len(closes_m15) < 64:
+            return None
+
+        # Chama C++ Ultra Rápido
+        fd_m1 = CPP_CORE.fractal_dimension(np.array(closes_m1[-64:], dtype=np.float64), 64)
+        fd_m5 = CPP_CORE.fractal_dimension(np.array(closes_m5[-64:], dtype=np.float64), 64)
+        fd_m15 = CPP_CORE.fractal_dimension(np.array(closes_m15[-64:], dtype=np.float64), 64)
+
+        signal = 0.0
+        reason = f"FDs (M1:{fd_m1:.2f}, M5:{fd_m5:.2f}, M15:{fd_m15:.2f})"
+        conf = 0.0
+
+        if fd_m1 < 1.35 and fd_m5 < 1.35 and fd_m15 < 1.35:
+            # Compressão Quântica (Dimensão caindo para reta 1D)
+            # Qual a direção da recta? Pega tendência M15.
+            m15_direction = 1.0 if closes_m15[-1] > closes_m15[-10] else -1.0
+            signal = m15_direction * 1.0
+            conf = 1.0
+            reason = f"RESONANT_FRACTAL_COMPRESSION (1D Line) — M15 Bias: {m15_direction}"
+
+        elif fd_m1 > 1.65 and fd_m5 > 1.65 and fd_m15 > 1.65:
+            # Explosão Entrópica (Dimensão subindo para área 2D)
+            signal = 0.0
+            conf = 1.0 # Confiança máxima de neutralidade
+            reason = f"RESONANT_FRACTAL_CHAOS (2D Noise) — Neutral Veto"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)

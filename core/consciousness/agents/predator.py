@@ -42,15 +42,15 @@ class IcebergHunterAgent(BaseAgent):
         reason = "Iceberg scan neutral"
         conf = 0.0
 
-        # Absorção de compra = alguém absorve vendas passivamente => vai subir
-        if "BUY" in abs_type.upper():
+        # Compras agressivas absorvidas passivamente = Iceberg SELL
+        if abs_type == "BULLISH_ABSORPTION":
             signal = 0.8
-            conf = min(1.0, abs_strength / 5.0)
-            reason = f"ICEBERG BUY detected (strength={abs_strength:.1f}) — Hidden institutional bid"
-        elif "SELL" in abs_type.upper():
+            conf = 0.85
+            reason = f"ICEBERG BUY detected (Passive Institutional Bid absorbing market sells)"
+        elif abs_type == "BEARISH_ABSORPTION":
             signal = -0.8
-            conf = min(1.0, abs_strength / 5.0)
-            reason = f"ICEBERG SELL detected (strength={abs_strength:.1f}) — Hidden institutional offer"
+            conf = 0.85
+            reason = f"ICEBERG SELL detected (Passive Institutional Ask absorbing market buys)"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
 
@@ -167,7 +167,7 @@ class LiquiditySiphonAgent(BaseAgent):
             return None
 
         # Usar imbalance como proxy para drenagem de liquidez
-        imbalance_ratio = orderflow_analysis.get("imbalance_ratio", 0.0)
+        imbalance_ratio = orderflow_analysis.get("imbalance", 0.0)
         delta = orderflow_analysis.get("delta", 0.0)
 
         signal = 0.0
@@ -199,7 +199,7 @@ class OrderBookPressureAgent(BaseAgent):
 
     @catch_and_log(default_return=None)
     def analyze(self, snapshot, **kw) -> Optional[AgentSignal]:
-        book = snapshot.metadata.get("book")
+        book = snapshot.book
         if not book:
             return AgentSignal(self.name, 0.0, 0.0, "No DOM data", self.weight)
 

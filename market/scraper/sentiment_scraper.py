@@ -145,15 +145,18 @@ class SentimentScraper:
     def _scrape_fear_greed(self) -> Optional[dict]:
         """Scrape Fear & Greed Index de alternative.me (API pública gratuita)."""
         url = "https://api.alternative.me/fng/?limit=1&format=json"
-        resp = self._session.get(url, timeout=10)
-        if resp.status_code == 200:
-            data = resp.json()
-            if "data" in data and len(data["data"]) > 0:
-                entry = data["data"][0]
-                return {
-                    "value": float(entry.get("value", 50)),
-                    "label": entry.get("value_classification", "Neutral"),
-                }
+        try:
+            resp = self._session.get(url, timeout=10)
+            if resp.status_code == 200:
+                data = resp.json()
+                if "data" in data and len(data["data"]) > 0:
+                    entry = data["data"][0]
+                    return {
+                        "value": float(entry.get("value", 50)),
+                        "label": entry.get("value_classification", "Neutral"),
+                    }
+        except requests.exceptions.RequestException as e:
+            log.warning(f"📡 Fear&Greed API timeout/error: {e}")
         return None
 
     @catch_and_log(default_return=None)

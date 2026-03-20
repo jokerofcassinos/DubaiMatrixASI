@@ -6,7 +6,9 @@
 """
 
 import numpy as np
+from typing import Optional
 from core.consciousness.agents.base import BaseAgent, AgentSignal
+from utils.decorators import catch_and_log
 
 class OrderBookSpoofingAgent(BaseAgent):
     """
@@ -101,5 +103,83 @@ class QuantumEntanglementAgent(BaseAgent):
                 signal = 1.0 # Compra o fundo
                 conf = 0.90
                 reason = f"FALSE_BEAR_BREAKOUT (Macro divergence={macro_bias:.2f})"
+
+        return AgentSignal(self.name, signal, conf, reason, self.weight)
+
+class OrderFlowShannonSentimentAgent(BaseAgent):
+    """
+    [Phase Ω-8] Entropia de Shannon aplicada ao Fluxo de Ordens Direcional.
+    Mede matematicamente a incerteza do comportamento de fluxo.
+    Calcula a probabilidade do próximo tick baseada na distribuição de Volume Comprador vs Vendedor.
+    """
+    def __init__(self, weight=2.8):
+        super().__init__("OrderFlowShannonSentiment", weight)
+        self.needs_orderflow = False # Computa via snapshot.recent_ticks (TICK DOMAIN)
+
+    @catch_and_log(default_return=None)
+    def analyze(self, snapshot, **kwargs) -> Optional[AgentSignal]:
+        ticks = snapshot.recent_ticks
+        if not ticks or len(ticks) < 100:
+            return AgentSignal(self.name, 0.0, 0.0, "NOT_ENOUGH_TICKS", self.weight)
+
+        # Analisar os últimos 200 ticks de altíssima latência
+        analyze_ticks = ticks[-200:]
+        
+        buy_vol = 0.0
+        sell_vol = 0.0
+        
+        for t in analyze_ticks:
+            try:
+                last = float(t.get("last", 0.0))
+                bid = float(t.get("bid", 0.0))
+                ask = float(t.get("ask", 0.0))
+                vol = float(t.get("volume", 0.0) or t.get("volume_real", 0.0))
+                
+                if last >= ask:
+                    buy_vol += vol
+                elif last <= bid:
+                    sell_vol += vol
+            except (ValueError, TypeError):
+                continue
+
+        total_vol = buy_vol + sell_vol
+        if total_vol <= 0:
+            return AgentSignal(self.name, 0.0, 0.0, "NO_VOLUME", self.weight)
+
+        p_buy = buy_vol / total_vol
+        p_sell = sell_vol / total_vol
+        
+        # Calcular Entropia de Shannon (H) em bits -> máx 1.0 para sistema binário (Buy/Sell)
+        h_buy = -p_buy * np.log2(p_buy) if p_buy > 0 else 0.0
+        h_sell = -p_sell * np.log2(p_sell) if p_sell > 0 else 0.0
+        entropy = h_buy + h_sell
+
+        signal = 0.0
+        conf = 0.0
+        reason = f"SHANNON_ENTROPY: {entropy:.3f} (Balanced)"
+
+        # [Ω-8] COLAPSO DE ENTROPIA
+        # Se entropia cai abaixo de 0.25, a distribuição tá ~95/5. Extrema previsibilidade.
+        if entropy < 0.25:
+            # Fluxo previsível e violento (Sweep Institucional / Tape Ripping)
+            if p_buy > p_sell:
+                signal = 0.90 # Forte sinal de Compra agressiva (Ripping the asks)
+                conf = 1.0 - entropy # Quanto menor a entropia, maior a certeza (max 1.0)
+                reason = f"BUY_SHANNON_COLLAPSE (H={entropy:.3f}, p_buy={p_buy*100:.1f}%)"
+            else:
+                signal = -0.90 # Forte sinal de Venda agressiva (Smashing the bids)
+                conf = 1.0 - entropy
+                reason = f"SELL_SHANNON_COLLAPSE (H={entropy:.3f}, p_sell={p_sell*100:.1f}%)"
+                
+        # [Ω-8] TENDÊNCIA ESTRUTURAL
+        elif entropy < 0.85:
+            if p_buy > p_sell:
+                signal = 0.40
+                conf = 0.70
+                reason = f"BUY_FLOW_TENDENCY (H={entropy:.3f}, p_buy={p_buy*100:.1f}%)"
+            else:
+                signal = -0.40
+                conf = 0.70
+                reason = f"SELL_FLOW_TENDENCY (H={entropy:.3f}, p_sell={p_sell*100:.1f}%)"
 
         return AgentSignal(self.name, signal, conf, reason, self.weight)
