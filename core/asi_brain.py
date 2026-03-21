@@ -310,7 +310,7 @@ class ASIBrain:
             # [Phase Ω-9] Registro de Trade Sombra para Oportunidades Vetadas
             if quantum_state and abs(quantum_state.raw_signal) > 0.15:
                 # Obter ATR (se aplicável), senão assume proxy.
-                atr = float(snapshot.metadata.get("atr", 0.0))
+                atr = float(snapshot.atr)
                 # Consideramos a intenção original do sinal antes do WAIT
                 intended_action = Action.BUY if quantum_state.raw_signal > 0 else Action.SELL
                 self.shadow_engine.register_shadow_trade(decision.reasoning, snapshot, quantum_state, intended_action, atr)

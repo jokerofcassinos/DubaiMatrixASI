@@ -143,6 +143,9 @@ class TrinityCore:
         coherence = getattr(quantum_state, 'coherence', 0.0)
         
         tick_vel = snapshot.metadata.get("tick_velocity", 0.0) if snapshot and hasattr(snapshot, "metadata") else 0.0
+        atr_m5 = self._get_current_atr(snapshot)
+        point_val = snapshot.symbol_info.get("point", 0.00001) if snapshot and snapshot.symbol_info else 0.00001
+        atr = atr_m5 # Backward compatibility
         
         # ═══ [Phase 6.5] Ω-SOVEREIGNTY DETECTION (SRE / EVH) ═══
         # Detectamos estas condições ANTES de qualquer veto para autorizar o strike
@@ -209,11 +212,9 @@ class TrinityCore:
         # Removing redundant calls to prevent shadowing.
 
         # [Phase 48] Metadata Extraction & Initialization (Consistency Fix)
+        # atr_m5 and point_val moved to top to avoid UnboundLocalError in SRE logic.
         sym_info = snapshot.symbol_info
         q_meta = quantum_state.metadata if quantum_state and hasattr(quantum_state, 'metadata') else {}
-        point_val = sym_info.get("point", 0.00001) if sym_info else 0.00001
-        atr_m5 = self._get_current_atr(snapshot)
-        atr = atr_m5 # Backward compatibility for legacy code paths
 
         # [Phase 50] Evolution: Entropy & God-Mode Initialization
         entropy = q_meta.get("entropy", 0)
