@@ -242,12 +242,15 @@ class RegimeDetector:
             max_spread = snapshot.symbol_info.get("spread", 0) if snapshot.symbol_info else 0
             is_liquidity_hole = max_spread > 5000 and tick_velocity > 40.0
             
-            # Se caiu X e subiu > X * 0.8 (V-Recovery)
-            if d3 < 0 and d2 > abs(d3) * 0.8 and (abs(d3) > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
+            # [Ω-PhD-OPTIM] V-Recovery Sensitivity: 0.8 -> 0.6 for high-energy drops
+            recovery_mult = 0.6 if abs(d3) > current_atr * 2.5 else 0.8
+            
+            # Se caiu X e subiu > X * mult (V-Recovery)
+            if d3 < 0 and d2 > abs(d3) * recovery_mult and (abs(d3) > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
                 return MarketRegime.BREAKOUT_UP
 
-            # Se subiu X e caiu > X * 0.8 (V-Reversal Top)
-            if d3 > 0 and d2 < -d3 * 0.8 and (d3 > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
+            # Se subiu X e caiu > X * mult (V-Reversal Top)
+            if d3 > 0 and d2 < -d3 * recovery_mult and (d3 > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
                 return MarketRegime.BREAKOUT_DOWN
 
         # 2. HFT Explosion (Supernova Ignition)

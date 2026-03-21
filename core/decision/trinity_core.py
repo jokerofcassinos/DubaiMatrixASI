@@ -192,6 +192,8 @@ class TrinityCore:
         entropy = snapshot.metadata.get("entropy", 0.0)
         # coherence already initialized at top
         is_low_phi_drift = False # Initialize for global scope
+        # [Ω-PhD-OPTIM] V-Pulse Recovery Sovereignty Detection
+        is_v_pulse_recovery = has_ignition and signal > 0 and ("BEAR" in regime_state.current.value or "CHOPPY" in regime_state.current.value or "UNKNOWN" in regime_state.current.value)
 
         # ═══ [Phase Ω-PhD-6] Topological Entropy Collapse (TEC) Sensor ═══
         # Detecta colapso estrutural (Singularidade) via decaimento de entropia.
@@ -300,7 +302,7 @@ class TrinityCore:
             )
 
         # ═══ QUANTUM STATE CHECK ═══
-        if quantum_state.superposition:
+        if quantum_state.superposition and not is_v_pulse_recovery:
             return self._wait("SUPERPOSITION (agentes não convergiram)")
 
         # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - EXTRACTION MOVED TO TOP
@@ -435,6 +437,11 @@ class TrinityCore:
             # forçando o swarm a ter coerência mínima para validar o momentum.
             is_low_phi_drift = phi_score < 0.35 and (not (has_ignition or is_lethal_ignition) or phi_score < 0.25)
             
+            # [Ω-PhD-OPTIM] Sovereignty Override
+            if is_v_pulse_recovery:
+                is_low_phi_drift = False
+                self._log_cooldown("V_PULSE_SOVEREIGNTY", f"⚡ [Ω-V-PULSE SOVEREIGNTY] Recovery strike authorized (Sig={signal:.2f}). Bypassing low-phi hardening.", 60, level="omega")
+            
             if (has_ignition or phi_score > 0.35 or regime_state.current == MarketRegime.HFT_BREAKDOWN) and not is_low_phi_drift:
                  mult = 0.90 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.95
                  
@@ -469,6 +476,10 @@ class TrinityCore:
                          pgc_penalty = max(0, 0.45 - phi_score) * 0.2
                          c_req = min(0.55, c_req + pgc_penalty) # Cap em 0.60
                          
+                     # [Ω-PhD-OPTIM] Coherence Relaxation for Sovereignty
+                     if is_v_pulse_recovery:
+                         c_req = min(c_req, 0.25)
+                          
                      if coherence < c_req and not (is_tec_sovereign or is_god_mode or (phi_score > 0.18 and coherence > 0.25)):
 
                          self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < {c_req:.2f} requirement in Drift/Low-Phi)", 60)
@@ -512,7 +523,7 @@ class TrinityCore:
 
         # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
         is_creeping = "CREEPING" in regime_state.current.value
-        if not is_tec_sovereign and (is_creeping or is_breakout) and tick_vel_abs > 12.0 and phi < phi_req and not is_god_mode:
+        if not is_tec_sovereign and (is_creeping or is_breakout) and tick_vel_abs > 12.0 and phi < phi_req and not (is_god_mode or is_v_pulse_recovery):
             reason = "QMI_INSUFFICIENT" if is_qmi_active else "CHEAP_SPIKE"
             self._log_cooldown(f"{reason}_VETO", f"🛡️ [{reason} VETO] Velocity surge ({tick_vel_abs:.1f}) without structural coherence (Φ={phi:.2f} < req {phi_req:.2f}).", 60)
             return self._wait(f"{reason}_VETO")
@@ -565,7 +576,7 @@ class TrinityCore:
                     
                     # [Phase Ω-Coherence] God-Mode Coherence Verification
                     # Even in God-Mode, we need a TINY bit of coherence (0.05) to ensure it's not pure tick noise
-                    if not is_tec_sovereign and phi < 0.05:
+                    if not (is_tec_sovereign or is_v_pulse_recovery) and phi < 0.05:
                         self._log_cooldown("GOD_MODE_NOISE_VETO", f"⚠️ VETO: GOD_MODE_NOISE (Φ={phi:.3f} is too low even for reversal).", 30)
                         return self._wait("GOD_MODE_NOISE")
                     # reasoning and other variables will be populated below as the function continues
@@ -710,11 +721,14 @@ class TrinityCore:
         # [Phase Ω-PhD-6] Singularity Resonance Bypass: Handled at start of decide()
         # is_tec_sovereign logic removed here to avoid duplication
 
-        if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
+        if pnl_prediction == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
             if is_lethal_ignition or is_lethal_strike or is_god_mode or is_tec_sovereign:
                 self._log_cooldown("PNL_SOVEREIGNTY", f"🔥 [PNL SOVEREIGNTY] Bypassing JAVA_PNL_VETO due to { 'TEC' if is_tec_sovereign else 'LETHAL_STRIKE/IGNITION/GOD' } (Conf: {quantum_state.confidence:.2f})", 30)
                 pass
-            if tentative_is_counter and has_exhaustion_sovereignty:
+            elif is_v_pulse_recovery and v_pulse_intensity > 0.65:
+                self._log_cooldown("PNL_RECOVERY_BYPASS", f"🔥 [Ω-V-PULSE PNL BYPASS] High intensity recovery (Pulse={v_pulse_intensity:.2f}). Ignoring negative expectancy.", 60, level="omega")
+                pass
+            elif tentative_is_counter and has_exhaustion_sovereignty:
                 pass
             elif self.entropy_bridge_active and pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
                 # [Phase Ω-PhD-2] PnL Expectancy Smoothing for Creeping Alpha
@@ -764,6 +778,8 @@ class TrinityCore:
             
         # If we reach here, we have an Action (either from God-Mode, normal flow, or TEC)
         strike_flag = f" | [PHASE_50_STRIKE: {action.name}]"
+        if is_v_pulse_recovery:
+            strike_flag += " | [Ω-PHOENIX_PULSE: SOVEREIGN]"
         
         # [Phase Ω-PhD-Next] Micro-Momentum Alignment Veto (Global)
         # Se os últimos 3 candles de M1 são fortemente BULL (para um sinal SELL) ou vice-versa, vetamos.
@@ -897,7 +913,7 @@ class TrinityCore:
         # [Phase 50] God-Mode Reversal & Resonance Bypass
         is_ricci_attractor = quantum_state.metadata.get("ricci_attractor", False)
         
-        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty or is_tec_sovereign or is_ricci_attractor): # PhD-7: Ricci Attractor bypasses Φ-Gate
+        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty or is_tec_sovereign or is_ricci_attractor or is_v_pulse_recovery): # PhD-7: Ricci Attractor bypasses Φ-Gate
             self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f} | TEC={is_tec_sovereign} | RICCI={is_ricci_attractor})", 60)
             return self._wait("INCOHERENCE_VETO")
 
@@ -949,7 +965,7 @@ class TrinityCore:
         elif regime in [MarketRegime.HIGH_VOL_CHAOS, MarketRegime.LIQUIDITY_HUNT]:
             phi_gate = max(phi_gate, 0.50)
             
-        if not (is_tec_sovereign or has_exhaustion_sovereignty or is_ricci_attractor) and phi_score < (phi_gate - 1e-6):
+        if not (is_tec_sovereign or has_exhaustion_sovereignty or is_ricci_attractor or is_v_pulse_recovery) and phi_score < (phi_gate - 1e-6):
             return self._wait(f"SIGNAL_FRAGILE(Φ={phi_score:.2f} < {phi_gate:.2f})")
         
         phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
@@ -1555,8 +1571,8 @@ class TrinityCore:
             mc_min_score = OMEGA.get("mc_min_score", -0.1)
             # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong, EXCEPT in low liquidity/choppy OR Counter-Trend
             if mc_score < mc_min_score:
-                if phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend:
-                     self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] Extreme consensus (Φ={phi:.2f}, Sig={signal:.2f}) overriding pessimistic MC.", 60, level="omega")
+                if (phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend) or is_v_pulse_recovery:
+                     self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] { 'V-Pulse Sovereignty' if is_v_pulse_recovery else 'Extreme consensus' } overriding pessimistic MC (Score={mc_score:+.3f}).", 60, level="omega")
                 else:
                     return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
 
