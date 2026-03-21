@@ -246,10 +246,11 @@ class RegimeDetector:
             recovery_mult = 0.6 if abs(d3) > current_atr * 2.5 else 0.8
             
             # [Ω-PhD-2.0] Velocity-Based Ignition: Trigger even earlier if velocity is extreme
-            is_velocity_ignited = tick_velocity > 40.0 and d2 > abs(d3) * 0.4
+            v_ign_thresh = current_atr * 3.5
+            is_velocity_ignited = abs(tick_velocity) > v_ign_thresh and d2 > abs(d3) * 0.3
             
             # Se caiu X e subiu > X * mult (V-Recovery)
-            if d3 < 0 and (d2 > abs(d3) * recovery_mult or is_velocity_ignited) and (abs(d3) > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
+            if d3 < 0 and (d2 > abs(d3) * recovery_mult or (is_velocity_ignited and d2 > 0)) and (abs(d3) > current_atr * 1.5 or is_liquidity_hole) and current_atr > 0:
                 return MarketRegime.BREAKOUT_UP
 
             # Se subiu X e caiu > X * mult (V-Reversal Top)
