@@ -1,44 +1,173 @@
-[DubaiMatrixASI] 16:58:12.215     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
-[DubaiMatrixASI] 16:58:12.216     INFO │ 
+[DubaiMatrixASI] 20:05:34.439     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 20:05:34.440     INFO │ 
 ╔════════════════════════════════════════════════════════════╗
-[DubaiMatrixASI] 16:58:12.216     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
-[DubaiMatrixASI] 16:58:12.216     INFO │ ╚════════════════════════════════════════════════════════════╝
-[DubaiMatrixASI] 16:58:12.217    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 16:58:12.217    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 16:58:12.217    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 16:58:12.218    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 16:58:12.218    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 16:58:12.218    OMEGA │ ⚡ 📅 2026-03-21T19:58:12.218834+00:00
-[DubaiMatrixASI] 16:58:12.219    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 16:58:12.219    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 16:58:12.219     INFO │ 🔗 Conectando ao MetaTrader 5...
-[DubaiMatrixASI] 16:58:12.222     INFO │    Símbolo resolvido: BTCUSD
-[DubaiMatrixASI] 16:58:12.223    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 16:58:12.223     INFO │    Terminal: FTMO Global Markets MT5 Terminal
-[DubaiMatrixASI] 16:58:12.223     INFO │    Conta: 1512837076
-[DubaiMatrixASI] 16:58:12.224     INFO │    Servidor: FTMO-Demo
-[DubaiMatrixASI] 16:58:12.224     INFO │    Saldo: $96526.32
-[DubaiMatrixASI] 16:58:12.225     INFO │    Leverage: 1:100
-[DubaiMatrixASI] 16:58:12.225     INFO │    Símbolo: BTCUSD
-[DubaiMatrixASI] 16:58:12.225     INFO │    Spread: 100 points
-[DubaiMatrixASI] 16:58:12.226    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 16:58:12.227     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
-[DubaiMatrixASI] 16:58:12.227    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70366.37, Bid=70365.37
-[DubaiMatrixASI] 16:58:12.227     INFO │ 🧠 Inicializando ASI Brain...
-[DubaiMatrixASI] 16:58:12.235     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
-[DubaiMatrixASI] 16:58:12.236    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 16:58:12.236    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 16:58:12.260    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 16:58:12.264     INFO │ 📂 Carregados 130 trades do histórico. WR=9.2%
-[DubaiMatrixASI] 16:58:12.314    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 1188 shadow trades abertos na memória.
-[DubaiMatrixASI] 16:58:12.316    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 16:58:12.317    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 16:58:12.318    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 16:58:12.324    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 16:58:12.325    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos
-[DubaiMatrixASI] 16:58:12.326    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 16:58:12.328    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
-[DubaiMatrixASI] 16:58:12.329     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 96526.32, 'equity': 96526.32, 'tick_buffer_size': 1, 'last_tick_ms': 1774133895860}
-[DubaiMatrixASI] 16:58:12.330    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 16:58:12.330    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 16:58:12.400    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 20:05:34.440     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 20:05:34.441     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 20:05:34.441    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 20:05:34.441    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 20:05:34.442    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 20:05:34.442    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 20:05:34.442    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 20:05:34.443    OMEGA │ ⚡ 📅 2026-03-21T23:05:34.443277+00:00
+[DubaiMatrixASI] 20:05:34.443    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 20:05:34.444    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 20:05:34.444     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 20:05:36.836     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 20:05:36.837    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 20:05:36.837     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 20:05:36.837     INFO │    Conta: 1512843310
+[DubaiMatrixASI] 20:05:36.838     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 20:05:36.838     INFO │    Saldo: $100000.00
+[DubaiMatrixASI] 20:05:36.838     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 20:05:36.839     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 20:05:36.839     INFO │    Spread: 0 points
+[DubaiMatrixASI] 20:05:36.840    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 20:05:36.841     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 20:05:36.841    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=0.0, Bid=0.0
+[DubaiMatrixASI] 20:05:36.842     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 20:05:36.852     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 20:05:36.853    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 20:05:36.854    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 20:05:36.878    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 20:05:36.888     INFO │ 📂 Carregados 169 trades do histórico. WR=7.1%
+[DubaiMatrixASI] 20:05:36.945    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 1639 shadow trades abertos na memória.
+[DubaiMatrixASI] 20:05:36.946    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 20:05:36.947    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 20:05:36.949    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 20:05:36.967    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 20:05:36.992    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos
+[DubaiMatrixASI] 20:05:36.993    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 20:05:37.011    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
+[DubaiMatrixASI] 20:05:37.021     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 100000.0, 'equity': 100000.0, 'tick_buffer_size': 1, 'last_tick_ms': 0}
+[DubaiMatrixASI] 20:05:37.033    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 20:05:37.037    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 20:05:37.096    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 20:05:37.247    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 55963)
+[DubaiMatrixASI] 20:05:37.253    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:37.293    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:37.326    OMEGA │ ⚡ 📊 BALANCE ANCHOR SYNCHRONIZED: $100,000.00 -> $104,831.42
+[DubaiMatrixASI] 20:05:37.330  WARNING │ 🚨 ALERT [HIGH]: Win rate em 7.1% (threshold: 45.0%)
+[DubaiMatrixASI] 20:05:37.331  WARNING │ 🚨 ALERT [CRITICAL]: 145 losses consecutivos!
+[DubaiMatrixASI] 20:05:37.350    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 1 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-4831.42
+[DubaiMatrixASI] 20:05:37.536     INFO │ ⚖️ NeuralSwarm: Baixa coerência detectada. Amplificando autoridade da Elite.
+[DubaiMatrixASI] 20:05:37.537    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:37.538    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:37.757    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:37.759    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:37.992    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:38.007     INFO │ 🌍 Macro Update: ETH=$2147.55 | BTC/ETH=32.7 | Gold=$4510 | Vol24h=$48.2B | Bias=+0.100 | Sources=3
+[DubaiMatrixASI] 20:05:38.009    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:38.318    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:38.326    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:38.546    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:38.552    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:38.583     INFO │ ⛓️ On-Chain Update: Mempool=26,972 txs | Fee=1.1 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 20:05:38.738    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:38.762    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:39.001    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:39.003    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:39.278     INFO │ 📊 Sentiment Update: F&G=12 (Extreme Fear) | BTC Dom=56.4% | 24h=-0.48% | Score=-0.618 | Sources=2
+[DubaiMatrixASI] 20:05:39.280    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:39.293    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:39.507    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 20:05:39.520    ERROR │ 💀 EXCEPTION in [decide]: UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+[DubaiMatrixASI] 20:05:39.532    DEBUG │ Traceback (most recent call last):
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 210, in wrapper
+    return func(*args, **kwargs)
+  File "d:\DubaiMatrixASI\utils\decorators.py", line 64, in wrapper
+    result = f(*args, **kwargs)
+  File "d:\DubaiMatrixASI\core\decision\trinity_core.py", line 159, in decide
+    dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+                                                                     ^^^^^^
+UnboundLocalError: cannot access local variable 'atr_m5' where it is not associated with a value
+
+[DubaiMatrixASI] 20:05:39.618    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 20:05:39.618    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 20:05:39.647    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 20:05:39.652    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 20:05:39.657    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 20:05:39.657    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-21T23:05:39.657910+00:00
+[DubaiMatrixASI] 20:05:39.658     INFO │ 📈 Trades: 169
+[DubaiMatrixASI] 20:05:39.658     INFO │ 📈 Win Rate: 7.1%
+[DubaiMatrixASI] 20:05:39.659     INFO │ 📈 P&L: $-4831.42

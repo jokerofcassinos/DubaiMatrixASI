@@ -130,6 +130,7 @@ class TrinityCore:
         tec_entropy = 0.0
         has_v_pulse = False
         strike_flag = ""
+        is_tec_sovereign = False
         # [Phase 48] Metadata Extraction & Initialization (Consistency Fix)
         sym_info = snapshot.symbol_info
         q_meta = quantum_state.metadata if quantum_state and hasattr(quantum_state, 'metadata') else {}
@@ -145,8 +146,23 @@ class TrinityCore:
         
         # ═══ [Phase 6.5] Ω-SOVEREIGNTY DETECTION (SRE / EVH) ═══
         # Detectamos estas condições ANTES de qualquer veto para autorizar o strike
-        is_evh = (abs(signal) > 0.45) and regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY"] and abs(tick_vel) > 5.0
-        is_sre = (signal < -0.3 and tick_vel > 45.0) or (signal > 0.3 and tick_vel < -45.0)
+        is_evh = (abs(signal) > 0.45) and regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY"] and 5.0 < abs(tick_vel) < 30.0
+        
+        # [Phase 7.3] SRE Topological Shield:
+        # Só permitimos a inversão reflexiva se:
+        # 1. Velocidade for extrema (> 45)
+        # 2. O regime for de incerteza (não estamos chaseando trend confirmada)
+        # 3. O preço NÃO estiver esticado demais da média (dist_from_mean < 1.2 ATR)
+        
+        ema_9_list = snapshot.indicators.get("M5_ema_9", [0.0])
+        ema_9 = ema_9_list[-1] if len(ema_9_list) > 0 else 0.0
+        dist_from_mean = (snapshot.price - ema_9) / max(1.0, atr_m5) if (atr_m5 > 0 and ema_9 > 0) else 0.0
+        
+        is_sre_candidate = (signal < -0.3 and tick_vel > 45.0) or (signal > 0.3 and tick_vel < -45.0)
+        is_uncertain_regime = regime_state.current.value in ["UNKNOWN", "CHOPPY", "SQUEEZE", "LOW_LIQUIDITY"]
+        is_topological_safe = abs(dist_from_mean) < 1.2
+        
+        is_sre = is_sre_candidate and is_uncertain_regime and is_topological_safe
 
         # [Phase 6.5] SRE SIGNAL INVERSION: Hunt the Liquidation Cascade
         if is_sre:
@@ -154,7 +170,10 @@ class TrinityCore:
             confidence = 0.99
             is_tec_sovereign = True # Garantir soberania total contra VETOS e PENALIDADES
             strike_flag = " | [Ω-SOROS_REFLEXIVITY: SIGNAL INVERTED]"
-            log.omega(f"👹 [Ω-SRE ACTIVATED] Parasitic Strike authorized. Inverting signal (New Sig={signal:+.2f}).")
+            log.omega(f"👹 [Ω-SRE ACTIVATED] Inverting signal (New Sig={signal:+.2f}) | Dist={dist_from_mean:.2f}xATR")
+        elif is_sre_candidate:
+             reason = "ESTABLISHED_TREND" if not is_uncertain_regime else f"TOPOLOGICAL_STRETCH({dist_from_mean:.1f}xATR)"
+             log.warning(f"🛡️ [SRE SHIELD] Inversion blocked: {reason}. Signal integrity preserved.")
             
         if is_evh:
             is_tec_sovereign = True
@@ -1095,13 +1114,25 @@ class TrinityCore:
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             rr_mult = 2.5 # Modo Trend
         elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
-            rr_mult = 2.0 # Modo Drift/Creeping (Stretch TP for higher RRR)
+            # [Phase 7.2] Regressional Compression: Drift regimes are too slow for 2.0 RR.
+            rr_mult = 1.4 
         elif regime_state.current.value in ["SQUEEZE", "SQUEEZE_BUILDUP", "IGNITION_BULL", "IGNITION_BEAR"]:
             rr_mult = 3.0 # Modo Explosão (Breakout)
         
-        # Ajuste extra por Consciência (Φ)
+        # Ajuste extra por Consciência (Φ) e Coerência
         if phi > 0.25:
-            rr_mult += (phi * 0.5) # Mais integração = mais ambição
+            rr_mult += (phi * 0.4) 
+        
+        # [Phase 7.2] Coherence Dampening: Se o consenso é baixo, o alvo encurta.
+        # Se coherence < 0.6, aplicamos um multiplicador de redução (0.7x até 1.0x)
+        if coherence < 0.60:
+            coherence_damp = 0.7 + (coherence / 0.60) * 0.3
+            rr_mult *= max(0.75, coherence_damp)
+        
+        # [Phase 7.2] Sovereign Caps (SRE/EVH): Garantir lucro rápido em operações "parasitas"
+        if is_tec_sovereign:
+            rr_mult = min(rr_mult, 1.25)
+            self._log_cooldown("SOVEREIGN_TP_CAP", f"🛡️ [Ω-SOVEREIGN CAP] Limiting RR to {rr_mult:.2f} for rapid turnover.", 60)
             
         # [Phase Ω-Omniscience] Quantum Entanglement TP Boost
         agent_reasons = str(q_meta.get("agent_signals", ""))
@@ -1380,11 +1411,14 @@ class TrinityCore:
                 wick_top = h0 - max(o0, c0)
                 wick_bot = min(o0, c0) - l0
                 
-                is_fomo_trap_buy = action == Action.BUY and (wick_top > atr_m5 * 0.25 or c0 < o0)
-                is_fomo_trap_sell = action == Action.SELL and (wick_bot > atr_m5 * 0.25 or c0 > o0)
+                # Phase 7.1: The Anti-FOMO Guard is now an absolute VETO. Do not buy the top of a giant rejected wick.
+                is_fomo_trap_buy = action == Action.BUY and (wick_top > atr_m5 * 0.30 or c0 < o0) and distance > atr_m5 * 0.8
+                is_fomo_trap_sell = action == Action.SELL and (wick_bot > atr_m5 * 0.30 or c0 > o0) and distance > atr_m5 * 0.8
                 
-                if (is_fomo_trap_buy or is_fomo_trap_sell) and not is_god_mode:
-                    self._log_cooldown("FOMO_GUARD", "⚠️ [FOMO GUARD] V-Pulse relaxation blocked due to M1 exhaustion wick/red candle.", 10, level="warning")
+                if is_fomo_trap_buy and not is_god_mode:
+                    return self._wait(f"FOMO_GUARD_BUY_TRAP (Wick={wick_top:.2f} > {atr_m5*0.30:.2f} || Red M1)")
+                elif is_fomo_trap_sell and not is_god_mode:
+                    return self._wait(f"FOMO_GUARD_SELL_TRAP (Wick={wick_bot:.2f} > {atr_m5*0.30:.2f} || Green M1)")
                 else:
                     relaxation = OMEGA.get("kinematic_v_pulse_relaxation", 2.5)
                     kinematic_atr_mult *= relaxation
@@ -1555,7 +1589,7 @@ class TrinityCore:
         
         # [RECALIBRATION 5.2] NÃO podemos bypassar exaustão em DRIFT.
         # Drifts são mercados onde Momentum morre repetidas vezes nas bordas de Suporte/Resistência.
-        if not (is_god_mode or is_tec_sovereign or phd_excited or is_sre):
+        if not (is_god_mode or is_tec_sovereign or phd_excited):
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             

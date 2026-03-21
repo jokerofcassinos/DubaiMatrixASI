@@ -211,69 +211,78 @@ class PositionManager:
             is_proximity_zone = profit_progress > OMEGA.get("proximity_trailing_threshold", 0.90)
 
             # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: HALF-WAY BREAKEVEN PROTECTION (Legacy)
+            #  TRIGGER 1: DUAL-PHASE BREAKEVEN GUARD (Phase 7)
             # ═══════════════════════════════════════════════════
-            # Se atingimos 50% do alvo, mas o mercado reverteu para o preço de entrada,
-            # saímos no 0x0 para não transformar um quase-gain em loss total.
-            if not state.get("breakeven_active", False) and profit_progress > 0.5:
-                state["breakeven_active"] = True
-                log.omega(f"🛡️ [HALF-WAY PROTECTION] Strike {anchor_ticket} atingiu 50% do alvo. Breakeven armado.")
-
-            if state.get("breakeven_active", False) and total_profit <= 10.0 and not is_proximity_zone: 
-                # Buffer de $10. Só dispara se NÃO estivermos na zona de TP (onde o proximity strike manda)
-                should_close = True
-                reason = "HALF_WAY_BREAKEVEN_PROTECTION (Returned to entry after 50% progress)"
-
-            # ═══════════════════════════════════════════════════
-            #  TRIGGER 1: ATOMIC PROFIT DRAWDOWN LOCK (Trailing)
-            # ═══════════════════════════════════════════════════
-            peak = state['peak_profit']
-            atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
             commission_cost = lot_scale * comm_per_lot
             
-            # Floor dinâmico para garantir lucro líquido (Phase 52 Refinement)
-            # [Phase 52.1] Noise Shield: Elevado p/ $50 conforme OMEGA.
+            # Weaponized Breakeven: Arma a guarda se atingiu 35% do TP ou se cobriu comissões confortavelmente
+            min_breakeven_activation = commission_cost * 1.5
+            
+            if not state.get("breakeven_active", False) and (profit_progress > 0.35 or state['peak_profit'] > min_breakeven_activation):
+                state["breakeven_active"] = True
+                log.omega(f"🛡️ [BREAKEVEN GUARD] Peak (${state['peak_profit']:.2f}) passou comissões ou atingiu 35% do alvo. Real Breakeven armado no Strike #{anchor_ticket}.")
+
+            if state.get("breakeven_active", False) and not is_proximity_zone:
+                # O safe_floor DEVE cobrir a comissão e pelo menos o spread/slippage
+                # NADA de sair com "10 dólares", sair com o peso exato da comissão + gordura para o spread da exchange.
+                safe_floor = max(commission_cost * 1.15, 15.0)
+                
+                if total_profit <= safe_floor:
+                    should_close = True
+                    reason = f"TRUE_BREAKEVEN_PROTECTION (Fell to safe floor ${safe_floor:.2f})"
+
+            # ═══════════════════════════════════════════════════
+            #  TRIGGER 1.5: ATOMIC PROFIT DRAWDOWN LOCK (Trailing Multi-Tier)
+            # ═══════════════════════════════════════════════════
+            peak = state['peak_profit']
+            atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
+            
+            # Floor dinâmico macro
             target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 50.0) 
             target_net_profit = lot_scale * target_net_profit_per_lot
-            
             dynamic_peak_floor = commission_cost + target_net_profit
 
-            # [Phase 52.1] Noise Shield Active: 1.5x do floor deve ser atingido 
-            # antes de permitirmos saídas por "ruído" (Momentum/Exaustão). Queremos esticar ganhos.
+            # Noise Shield Active: 1.5x do floor deve ser atingido antes de aceitar "ruído"
             reached_noise_shield = (total_profit >= dynamic_peak_floor * 1.5)
 
+            # --- Multi-Tier Trailing Stop ---
+            trailing_stop_profit = 0.0
+            reason_prefix = ""
+            phi_relax = 1.0 + (phi_val * OMEGA.get("smart_tp_phi_relaxation_mult", 0.5))
+
             if peak > dynamic_peak_floor:
-                # [Phase Ω-Singularity] Trailing Stop Absoluto.
-                # Calculamos o threshold com base no PICO (Peak) e não no lucro atual.
-                
-                # [OMISCIENCE RELAXATION] PHI-Based Expansion
-                phi_relax = 1.0 + (phi_val * OMEGA.get("smart_tp_phi_relaxation_mult", 0.5))
-                
+                # Tier 2 e 3: O pico atingiu o topo! Acima do dynamic_peak_floor.
                 if is_proximity_zone:
-                    # Trava de lucro ultra-agressiva na zona de morte
                     lock_threshold = OMEGA.get("proximity_lock_threshold", 0.05) * phi_relax
                     reason_prefix = "PROXIMITY_STRIKE"
                 elif peak > dynamic_peak_floor * 2.0:
-                    # Quantum Tunneling Trailing (Permite 25% de pullback em grandes runs)
-                    curvature_adj = max(0, climax_score - 2.5) * 0.03 # More tolerant to volume climax in big runs
+                    curvature_adj = max(0, climax_score - 2.5) * 0.03
                     lock_threshold = max(0.05, (0.25 - curvature_adj) * phi_relax) 
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T3)"
                 elif peak > dynamic_peak_floor * 1.5:
                     curvature_adj = max(0, climax_score - 3.0) * 0.02
                     lock_threshold = max(0.05, (0.15 - curvature_adj) * phi_relax)
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T2)"
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult * phi_relax
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP"
+                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T1)"
                 
-                # Trava de Segurança Absoluta (Nunca deixar o lucro cair abaixo de 1.0x do Noise Shield depois de bater no alvo)
+                # Trava de Segurança Absoluta pós-floor (Nunca cai abaixo de 1.0x do floor)
                 trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
                 
-                if total_profit <= trailing_stop_profit:
-                    should_close = True
-                    reason = f"{reason_prefix} (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Φ_Relax={phi_relax:.2f}, Curv={climax_score:.1f}, Progress={profit_progress:.1%})"
+            elif peak > commission_cost * 2.0:
+                # Tier 1 (Early Trailing): O pico está entre as comissões x2 e o floor macro.
+                # Escalonamento agressivo para lucro que ainda não atingiu o ideal, mas é significativo.
+                # Retemos a comissão + buffer + 25% da gordura do topo.
+                lock_value = commission_cost * 1.25 + (peak - commission_cost * 1.25) * 0.25
+                trailing_stop_profit = lock_value
+                reason_prefix = "EARLY_TRAILING_LOCK"
+
+            if not should_close and trailing_stop_profit > 0.0 and total_profit <= trailing_stop_profit:
+                should_close = True
+                reason = f"{reason_prefix} (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Progress={profit_progress:.1%})"
 
                 # ═══════════════════════════════════════════════════
                 #  ADVANCED ASI LAYERS (KDS & OFAE)
@@ -359,6 +368,18 @@ class PositionManager:
                             should_close = True
                             rep_pot = (getattr(rep_signal, 'metadata', {}) or {}).get('repulsion', 0.0)
                             reason = f"NON_BONDED_REPULSION (Potential Rejection | Pot={rep_pot:.1f})"
+
+                # ═══════════════════════════════════════════════════
+                #  TRIGGER 8: DRIFT_TIME_EXHAUSTION (Phase 7.2)
+                # ═══════════════════════════════════════════════════
+                if not should_close:
+                    regime = snapshot.regime.value if hasattr(snapshot.regime, 'value') else str(snapshot.regime)
+                    if "DRIFTING" in regime or "CREEPING" in regime or "CHOPPY" in regime:
+                        trade_age = time.time() - state["start_time"]
+                        # Se a trade mofou por > 20 min (1200s) e já cobriu comissão, ejetamos.
+                        if trade_age > 1200 and total_profit > commission_cost * 1.1:
+                            should_close = True
+                            reason = f"DRIFT_TIME_EXHAUSTION (Age={trade_age/60:.1f}m | Profit=${total_profit:.2f})"
 
             #  EJETAR GRUPO INTEIRO (STRIKE)
             if should_close:
