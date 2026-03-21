@@ -965,7 +965,8 @@ class TrinityCore:
         phi_score = quantum_state.phi
         if regime in [MarketRegime.CREEPING_BULL, MarketRegime.DRIFTING_BEAR]:
             # [Phase Ω-PhD-2] Apply resonance scaling to the legacy gate as well
-            phi_gate = max(phi_gate, 0.20)
+            # [Ω-RECALIBRATION-4.0] Reduced from 0.20 to 0.12 — Phi=0.09-0.15 is normal in DRIFTING_BEAR
+            phi_gate = max(phi_gate, 0.12)
             if self.entropy_bridge_active:
                 phi_gate *= 0.10
                 
@@ -1423,6 +1424,15 @@ class TrinityCore:
                                          pass # A gravidade quântica engolirá o suporte
                                      elif is_event_horizon:
                                          pass # Bypass absoluto: A barreira fadigou e o horizonte de eventos atrai o preço (Tunneling)
+                                     # [Ω-RECALIBRATION-4.0] Overwhelming Bear Consensus Bypass
+                                     bear_cnt = len(quantum_state.metadata.get("bear_agents", []))
+                                     bull_cnt = len(quantum_state.metadata.get("bull_agents", []))
+                                     total_cnt = bear_cnt + bull_cnt
+                                     bear_ratio_hr = bear_cnt / max(1, total_cnt)
+                                     is_bear_overwhelming_hr = bear_ratio_hr > 0.65 and abs(quantum_state.raw_signal) > 0.35
+                                     
+                                     if is_bear_overwhelming_hr:
+                                         pass # [Ω-BEAR GRAVITY] Overwhelming consensus dissolves support
                                      elif not (has_ignition or is_god_mode or is_ghost_sweep or abs(quantum_state.raw_signal) > bypass_thresh):
                                          return self._wait(f"HORIZONTAL_SUPPORT_VETO (Level={valley:.0f}, Valleys={matches})")
         # [Phase Ω-Apocalypse] VETO 9.5: LIQUIDITY SWEEP (V-Reversal Trap)
@@ -1546,7 +1556,8 @@ class TrinityCore:
             if mc_result.expected_return < 0 or (avg_mc_ev < 0 and len(self._mc_ev_history) >= 2):
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
                 # Só permitimos se for um sinal de exaustão extrema (God-Mode) ou Drift estável com consenso.
-                if not is_god_mode and not (phi > 0.35 and abs(signal) > 0.50 and is_drifting):
+                # [Ω-RECALIBRATION-4.0] Relaxed from phi>0.35/sig>0.50 to phi>0.25/sig>0.38
+                if not is_god_mode and not (phi > 0.25 and abs(signal) > 0.38 and is_drifting):
                     if mc_result.expected_return < 0:
                         reason = f"MC_NEGATIVE_EV({mc_result.expected_return:.2f})"
                     else:
@@ -1703,9 +1714,14 @@ class TrinityCore:
         # [PHASE Ω-STRICT] SYNERGY VETO: Integrated Information Theory (Phi)
         if quantum_state and hasattr(quantum_state, 'phi'):
             phi_min = OMEGA.get("min_phi_threshold", 0.08)
+            
+            # [Ω-RECALIBRATION-4.0] Regime-dependent Phi Floor
+            if regime_state and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR", "LOW_LIQUIDITY"]:
+                phi_min = max(0.015, phi_min * 0.25) # Reduces 0.08 to 0.02
+                
             if quantum_state.phi < phi_min and not v_pulse_detected:
                 if time.time() - self._log_cache.get("phi_veto", 0) > 60:
-                    log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min}")
+                    log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f}")
                     self._log_cache["phi_veto"] = time.time()
                 return f"SYNERGY_VETO (Φ={quantum_state.phi:.3f})"
         # 0. Startup Cooldown (Evita trades com sistema "frio")
