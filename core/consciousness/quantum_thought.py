@@ -359,6 +359,45 @@ class QuantumThoughtEngine:
                     s.weight *= 2.5
                     s.reasoning += " [*BOOSTED: REVERSAL_CONVICTION]"
 
+        # ═══ [OMEGA INJECTION] RECALIBRATION 5.0 (PHASE 53): MICRO-SQUEEZE IGNITION ═══
+        # Detecta explosões estruturais intra-candle (M1) que os agentes macroscópicos atrasam para ver.
+        # Se uma vela verde violenta se forma no fundo de um Drift, viramos a mão brutalmente.
+        if snapshot and snapshot.candles and "M1" in snapshot.candles:
+            c_m1 = snapshot.candles["M1"]
+            if len(c_m1["close"]) >= 3:
+                c0, o0 = c_m1["close"][-1], c_m1["open"][-1]
+                l0, h0 = c_m1["low"][-1], c_m1["high"][-1]
+                
+                # Usar ATR para proporcionalidade
+                atr_local = snapshot.metadata.get("atr", 100.0)
+                
+                # Condições de Squeeze de Alta: Vela direcional FORTE ou Pavio de Rejeição FORTE
+                is_bull_squeeze = (c0 - o0) > (atr_local * 0.22) or (c0 - l0) > (atr_local * 0.35)
+                # Condições de Squeeze de Baixa
+                is_bear_squeeze = (o0 - c0) > (atr_local * 0.22) or (h0 - c0) > (atr_local * 0.35)
+                
+                if is_bull_squeeze:
+                    for s in valid_signals:
+                        # Esmaga inércia de baixa
+                        if s.signal < -0.1 and s.agent_name in ["Thermodynamic", "MultiScaleFractalResonance", "RiemannianManifold", "FeynmanPath", "TrendAgent", "MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "MeanFieldGame", "OnChainPressureAgent"]:
+                            s.weight *= 0.02
+                            s.reasoning += " [!MICRO-SQUEEZE: MACRO_BEAR_CRUSHED!]"
+                        # Impulsiona reversão e ignição de alta
+                        elif s.signal > 0.1 and s.agent_name in ["RogueWaveNLSE", "PriceGravityAgent", "QuantumSpin", "LiquidationVacuumAgent", "ExplosionDetectorAgent"]:
+                            s.weight *= 4.0
+                            s.reasoning += " [*MICRO-SQUEEZE: BULL_REVERSAL_BOOST!]"
+                            
+                elif is_bear_squeeze:
+                    for s in valid_signals:
+                        # Esmaga inércia de alta
+                        if s.signal > 0.1 and s.agent_name in ["Thermodynamic", "MultiScaleFractalResonance", "RiemannianManifold", "FeynmanPath", "TrendAgent", "MomentumAgent", "PriceVelocityAgent", "AggressivenessAgent", "MeanFieldGame", "OnChainPressureAgent"]:
+                            s.weight *= 0.02
+                            s.reasoning += " [!MICRO-SQUEEZE: MACRO_BULL_CRUSHED!]"
+                        # Impulsiona reversão de baixa
+                        elif s.signal < -0.1 and s.agent_name in ["RogueWaveNLSE", "PriceGravityAgent", "QuantumSpin", "LiquidationVacuumAgent", "ExplosionDetectorAgent"]:
+                            s.weight *= 4.0
+                            s.reasoning += " [*MICRO-SQUEEZE: BEAR_REVERSAL_BOOST!]"
+
         # ═══ [OMEGA INJECTION] PHASE 52: ANTI-BEAR TRAP PROTECTION ═══
         # Proteção contra vender o 'fundo' ou 'sweep' (O que ocorreu no Cycle #3).
         # Se agentes de estrutura/gravidade estão FORTEMENTE BULLISH, ignoramos sinais de venda de inércia.
