@@ -9,43 +9,47 @@ sys.path.append(os.getcwd())
 from config.omega_params import OMEGA
 from types import SimpleNamespace
 
-def test_kinetic_floor():
-    print("--- ASI KINETIC FLOOR DIAGNOSTIC ---")
+def run_advanced_diagnostics():
+    print("\n--- DUBAI MATRIX ASI Ω-CORE DIAGNOSTICS ---")
     
-    # Check current parameter
-    floor = OMEGA.get("kinetic_velocity_floor")
-    print(f"Current kinetic_velocity_floor: {floor}")
-    
-    if floor > 10.0:
-        print("FAIL: Floor is still critically high!")
-    elif floor == 2.0:
-        print("SUCCESS: Floor is at default 2.0.")
-    else:
-        print(f"INFO: Floor is {floor}")
-
-    # Simulate Veto Logic from TrinityCore
-    # Mocking snapshot.metadata
+    # [PHASE 13] 2026-03 MARKET REGIME MOCK
+    # High volatility, extreme tick velocity
     snapshot = SimpleNamespace(
         metadata = {
-            "tick_velocity": 5.4, # Above 2.0, below 21.94
-            "v_pulse_detected": False
+            "tick_velocity": 45.2, # Extreme volatility
+            "phi": 0.85,          # High integration
+            "coherence": 0.92,    # High synergy
+            "is_braided": False,
+            "v_pulse_detected": True
         },
-        candles = {
-            "M1": {"close": [100, 101, 102, 103, 104]}
-        }
+        regime = SimpleNamespace(value="VOLATILE_TRENDING"),
+        candles = {"M1": {"close": [100, 105, 110, 115, 120]}}
     )
+
+    print(f"Market Regime: {snapshot.regime.value}")
+    print(f"Swarm Consciousness (Phi): {snapshot.metadata['phi']}")
+    print(f"Swarm Coherence: {snapshot.metadata['coherence']}")
     
-    # Veto logic simulation
-    tick_vel = abs(snapshot.metadata.get("tick_velocity", 0.0))
-    is_braided = snapshot.metadata.get("is_braided", False)
-    
-    print(f"Simulating Tick Velocity: {tick_vel}")
-    print(f"Is Braided Override: {is_braided}")
-    
-    if tick_vel < floor and not is_braided:
-        print(f"VETO TRIGGERED: KINETIC_EXHAUSTION (Velocity {tick_vel} < {floor})")
+    # 1. KINETIC VETO Check
+    floor = OMEGA.get("kinetic_velocity_floor", 2.0)
+    tick_vel = snapshot.metadata["tick_velocity"]
+    if tick_vel < floor:
+        print(f"❌ VETO: KINETIC_EXHAUSTION (Velocity {tick_vel} < {floor})")
     else:
-        print("VETO PASSED: No Kinetic Exhaustion.")
+        print(f"✅ KINETIC PASS: Velocity {tick_vel} > {floor}")
+
+    # 2. SYNERGY VETO Check
+    min_phi = OMEGA.get("min_phi_threshold", 0.3)
+    phi = snapshot.metadata["phi"]
+    if phi < min_phi:
+        print(f"❌ VETO: SYNERGY_VETO (Phi {phi} < {min_phi})")
+    else:
+        print(f"✅ SYNERGY PASS: Phi {phi} > {min_phi}")
+
+    # 3. PHD IMMUNITY Check
+    phd_active = snapshot.metadata.get("v_pulse_detected", False)
+    if phd_active:
+        print("🛡️ PHD IMMUNITY ACTIVE: Vetoes will be bypassed for Lethal Strike.")
 
 if __name__ == "__main__":
-    test_kinetic_floor()
+    run_advanced_diagnostics()

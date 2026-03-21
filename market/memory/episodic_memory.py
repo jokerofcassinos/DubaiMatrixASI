@@ -22,8 +22,11 @@ class EpisodicMemory:
     def __init__(self, vector_dim: int = 64, max_episodes: int = 10000):
         self.vector_dim = vector_dim
         self.max_episodes = max_episodes
-        self.database = np.zeros((0, vector_dim), dtype=np.float64)
-        self.metadata = [] # Lista de dicts com o outcome real do episódio
+        # [Phase Ω-Sensory] Pre-allocar p/ evitar O(N) copy do vstack
+        self.database = np.zeros((max_episodes, vector_dim), dtype=np.float64)
+        self.metadata = [None] * max_episodes
+        self.cursor = 0
+        self.is_full = False
 
     def add_episode(self, vector: np.ndarray, outcome_data: dict):
         """Adiciona um 'episódio' (snapshot + o que aconteceu depois)."""
@@ -31,22 +34,29 @@ class EpisodicMemory:
             log.warning(f"⚠️ Vetor de memória com dimensão incorreta: {len(vector)} vs {self.vector_dim}")
             return
 
-        # Concatenar novo vetor
-        self.database = np.vstack([self.database, vector])
-        self.metadata.append(outcome_data)
+        # Inserção O(1) no slot circular
+        self.database[self.cursor] = vector
+        self.metadata[self.cursor] = outcome_data
+        
+        self.cursor += 1
+        if self.cursor >= self.max_episodes:
+            self.cursor = 0
+            self.is_full = True
 
-        # Manter limite
-        if len(self.database) > self.max_episodes:
-            self.database = self.database[-self.max_episodes:]
-            self.metadata = self.metadata[-self.max_episodes:]
+    def _get_active_db(self) -> np.ndarray:
+        """Retorna apenas a parte preenchida da database."""
+        if not self.is_full:
+            return self.database[:self.cursor]
+        return self.database
 
     def recall(self, query_vector: np.ndarray, top_k: int = 5) -> List[dict]:
         """Busca momentos similares no passado."""
-        if len(self.database) == 0:
+        active_db = self._get_active_db()
+        if len(active_db) == 0:
             return []
 
         # Usar busca C++ acelerada
-        db_flat = self.database.flatten()
+        db_flat = active_db.flatten()
         similarities, indices = CPP_CORE.vector_search(query_vector, db_flat, top_k)
 
         results = []

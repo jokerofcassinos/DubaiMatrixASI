@@ -135,27 +135,26 @@ ASI_API void asi_bollinger(const double* close, int len, int period, double num_
         int start = std::max(0, i - period + 1);
         int count = i - start + 1;
         
-        // SMA
-        double sum = 0.0;
-        for (int j = start; j <= i; j++) sum += close[j];
-        double sma = sum / count;
-        middle[i] = sma;
+        // Welford's Algorithm para Estabilidade Numérica
+        double m = 0.0, s_sq = 0.0;
+        for (int j = start; j <= i; j++) {
+            double x = close[j];
+            int k = j - start + 1;
+            double old_m = m;
+            m += (x - m) / k;
+            s_sq += (x - m) * (x - old_m);
+        }
         
-        // Desvio padrão
+        middle[i] = m;
+        
         if (count >= period) {
-            double sq_sum = 0.0;
-            for (int j = start; j <= i; j++) {
-                double diff = close[j] - sma;
-                sq_sum += diff * diff;
-            }
-            double std_dev = std::sqrt(sq_sum / count);
-            
-            upper[i] = sma + num_std * std_dev;
-            lower[i] = sma - num_std * std_dev;
-            width[i] = sma > 0.0 ? (upper[i] - lower[i]) / sma : 0.0;
+            double std_dev = std::sqrt(s_sq / count);
+            upper[i] = m + num_std * std_dev;
+            lower[i] = m - num_std * std_dev;
+            width[i] = m > 0.0 ? (upper[i] - lower[i]) / m : 0.0;
         } else {
-            upper[i] = sma;
-            lower[i] = sma;
+            upper[i] = m;
+            lower[i] = m;
             width[i] = 0.0;
         }
     }
@@ -325,17 +324,16 @@ ASI_API void asi_zscore(const double* data, int len, int window, double* out) {
         int start = std::max(0, i - window + 1);
         int count = i - start + 1;
         
-        double mean = 0.0;
-        for (int j = start; j <= i; j++) mean += data[j];
-        mean /= count;
-        
-        double sq_sum = 0.0;
+        double m = 0.0, s_sq = 0.0;
         for (int j = start; j <= i; j++) {
-            double d = data[j] - mean;
-            sq_sum += d * d;
+            double x = data[j];
+            int k = j - start + 1;
+            double old_m = m;
+            m += (x - m) / k;
+            s_sq += (x - m) * (x - old_m);
         }
-        double std_dev = std::sqrt(sq_sum / count);
         
-        out[i] = std_dev > 1e-10 ? (data[i] - mean) / std_dev : 0.0;
+        double std_dev = std::sqrt(s_sq / count);
+        out[i] = std_dev > 1e-10 ? (data[i] - m) / std_dev : 0.0;
     }
 }

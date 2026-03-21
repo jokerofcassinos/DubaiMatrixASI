@@ -1,9 +1,15 @@
+import os
+import sys
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
+
 from cpp.asi_bridge import CPP_CORE
 import numpy as np
 
 def test_transcendence():
     print("Testing DLL Load...")
-    if not CPP_CORE.is_loaded:
+    if not CPP_CORE._loaded:
         print("FAILED: DLL not loaded.")
         return
 

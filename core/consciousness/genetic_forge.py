@@ -3,7 +3,7 @@ import threading
 import json
 import os
 import random
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 from config.omega_params import OMEGA
 from market.mt5_bridge import MT5Bridge
@@ -24,14 +24,15 @@ class GeneticForge:
         self.asi_state = asi_state
         self.interval_minutes = interval_minutes
         self.running = False
-        self._thread = None
+        self._thread: Optional[threading.Thread] = None
         self.shadow_path = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "data", "audits", "shadow_trades.json")
         
     def start(self):
         if self.running: return
         self.running = True
-        self._thread = threading.Thread(target=self._forge_loop, daemon=True)
-        self._thread.start()
+        t = threading.Thread(target=self._forge_loop, daemon=True)
+        self._thread = t
+        t.start()
         log.omega("🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.")
 
     def stop(self):
@@ -58,7 +59,7 @@ class GeneticForge:
         if os.path.exists(self.shadow_path):
             try:
                 with open(self.shadow_path, "r", encoding="utf-8") as f:
-                    shadow_trades = json.load(f).get("ghosts", [])
+                    shadow_trades = json.load(f)
             except:
                 pass
                 
@@ -107,10 +108,10 @@ class GeneticForge:
             
         # MUTAÇÕES ESPECÍFICAS DE OMEGA AGENTS baseadas em aleatoriedade guiada (Exploration)
         if random.random() < 0.25: # 25% de chance de micro-mutação aleatória no Spoof Hunter
-            current_spoof_wt = OMEGA.get("weight_spoof_hunter", 2.2)
+            current_spoof_wt = float(OMEGA.get("weight_spoof_hunter", 2.2))
             delta = random.uniform(-0.3, +0.3)
-            new_spoof = max(1.0, min(5.0, current_spoof_wt + delta))
-            OMEGA.set("weight_spoof_hunter", round(new_spoof, 2), "GeneticForge: micro-mutação aleatória")
+            new_spoof = float(max(1.0, min(5.0, current_spoof_wt + delta)))
+            OMEGA.set("weight_spoof_hunter", float(round(new_spoof, 2)), "GeneticForge: micro-mutação aleatória")
             mutations.append(f"Spoof_Weight mutou p/ {new_spoof:.2f}")
             mutated = True
             

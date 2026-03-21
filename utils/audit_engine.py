@@ -23,6 +23,10 @@ class QuantumAuditEngine:
         
         # [Ω-FIX] Executor paralelo para capturas de tela e logs (Não trava o loop HFT)
         self._audit_pool = ThreadPoolExecutor(max_workers=5, thread_name_prefix="AuditPool")
+        
+        # [PHASE Ω-STRICT] Disk Bloat Protection: Circular Audit Buffer
+        self.max_audits = 50 
+        self._audit_history = [] 
 
     def start_audit(self, ticket: int, decision: Any, snapshot: Any, strike_id: Optional[str] = None):
         """
@@ -94,6 +98,9 @@ class QuantumAuditEngine:
             }
             
             log.info(f"📂 Auditoria Quantum iniciada: {folder_name} (Strike: {s_id})")
+            
+            # [PHASE Ω-STRICT] Cleanup trigger
+            self._audit_pool.submit(self._cleanup_old_audits)
             
         except Exception as e:
             log.error(f"❌ Falha ao iniciar auditoria para ticket {ticket}: {e}")
@@ -264,6 +271,41 @@ class QuantumAuditEngine:
             
         except Exception as e:
             log.error(f"❌ Falha ao finalizar auditoria para ticket {ticket}: {e}")
+
+    def _cleanup_old_audits(self):
+        """Implementa um buffer circular físico: remove pastas de auditoria mais antigas."""
+        try:
+            import shutil
+            all_audits = []
+            
+            # Percorre a estrutura audits/YYYY-MM-DD/Strike_...
+            if not os.path.exists(self.base_path): return
+            
+            for date_dir in os.listdir(self.base_path):
+                date_path = os.path.join(self.base_path, date_dir)
+                if not os.path.isdir(date_path): continue
+                
+                for audit_dir in os.listdir(date_path):
+                    path = os.path.join(date_path, audit_dir)
+                    if os.path.isdir(path):
+                        # Usa o ctime para ordenação
+                        all_audits.append((os.path.getctime(path), path))
+            
+            # Se exceder o limite, remove os mais antigos
+            if len(all_audits) > self.max_audits:
+                all_audits.sort() # Ordena por tempo (mais antigo primeiro)
+                to_remove = len(all_audits) - self.max_audits
+                
+                for i in range(to_remove):
+                    ctime, path = all_audits[i]
+                    try:
+                        shutil.rmtree(path)
+                        log.debug(f"🧹 AuditEngine: Removida auditoria antiga para poupar disco: {os.path.basename(path)}")
+                    except Exception as e:
+                        log.error(f"Failed to remove old audit {path}: {e}")
+                        
+        except Exception as e:
+            log.error(f"Error during audit cleanup: {e}")
 
 # Singleton
 AUDIT_ENGINE = QuantumAuditEngine()

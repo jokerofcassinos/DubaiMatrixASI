@@ -51,6 +51,12 @@ from core.consciousness.genetic_forge import GeneticForge
 from config.omega_params import OMEGA
 from utils.logger import log
 
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 
 class DubaiMatrixASI:
     """
@@ -175,6 +181,10 @@ class DubaiMatrixASI:
                 # ═══ PENSAR ═══
                 result = self.brain.think()
 
+                # [PHASE Ω-EVOLUTION] Swarm Pruning (Every 1000 cycles)
+                if self.brain._cycle_count % 1000 == 0:
+                    self.brain.neural_swarm.prune_agents(min_accuracy=0.45)
+
                 # ═══ TIMING — Respeitar o intervalo ═══
                 elapsed = time.perf_counter() - cycle_start
                 
@@ -236,10 +246,12 @@ class DubaiMatrixASI:
 if __name__ == "__main__":
     asi = DubaiMatrixASI()
 
-    # ═══ CONFIGURAR AQUI AS CREDENCIAIS MT5 ═══
+    # ═══ SECURE CREDENTIALS ═══
+    # All secrets are now strictly loaded from .env via config/exchange_config.py
+    # to prevent repository exposure.
     asi.start(
-        login=1512837076,       # Seu login MT5 (ex: 12345678)
-        password="fD?g4Ab@D2",    # Sua senha MT5
-        server="FTMO-Demo",      # Seu servidor MT5 (ex: "MetaQuotes-Demo")
-        path='C:\\Program Files\\FTMO Global Markets MT5 Terminal\\terminal64.exe',              # A ASI hookará magicamente no MT5 que já está aberto!
+        login=MT5_LOGIN,
+        password=MT5_PASSWORD,
+        server=MT5_SERVER,
+        path=MT5_PATH
     )

@@ -119,8 +119,8 @@ class OmegaParameterSpace:
         # ═══ RISK PARAMETERS ═══
         self._register("position_size_pct", 50.0, 0.5, 75.0,
                         "% do saldo por posição")
-        self._register("kelly_fraction", 1.0, 0.10, 1.00,
-                        "Fração do Kelly Criterion")
+        self._register("kelly_fraction", 0.5, 0.10, 1.00,
+                        "Fração do Kelly Criterion (Reduzido de 1.0 p/ 0.5 p/ Antifragilidade)")
                         
         # [Phase Ω-10] QUANTUM KELLY PDF-SIZING
         self._register("pdf_sizing_steepness", 3.5, 1.0, 10.0,
@@ -349,8 +349,7 @@ class OmegaParameterSpace:
                         "Saturação entrópica indicando falência de estrutura dissipativa (Bifurcação Climática)")
         self._register("ghost_absorption_threshold", 0.85, 0.50, 0.99,
                         "Pressão de limiar para inferir falsa barreira (Ghost Order / Iceberg Absorption)")
-        self._register("drift_aggression_mult", 1.25, 1.0, 3.0,
-                        "Multiplicador agressivo ao negociar contra falso suporte em Drift")
+
         
         # ═══ PHASE Ω-PhD-4: INFORMATION GEOMETRY & PHASE TRANSITIONS ═══
 

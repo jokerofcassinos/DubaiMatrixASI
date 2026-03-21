@@ -460,17 +460,19 @@ class QuantumThoughtEngine:
             raw_signal *= 0.5 # Asfixia a força da decisão se não há harmonia
             v_pulse_reasoning_append += " [!LOW_COHERENCE_DAMPENING!]"
         
-        # ═══════════════════════════════════════════════════
-        #  PHASE Ω-APOCALYPSE: ENTROPY-SIGNAL DIVERGENCE VETO
-        # ═══════════════════════════════════════════════════
-        # Se a entropia é extrema mas a integração (Φ) é baixa, 
-        # o sinal é ruído puro, não convicção.
+        # ═══ 4. INFORMATION INTEGRATION (Phi) & CONSCIOUSNESS (Phase Ω-Next) ═══
+        # [PHASE Ω-STRICT] Using the hardened C++ bridge for high-fidelity Φ calculation.
         phi_metrics = CPP_CORE.calculate_phi(valid_signals)
         phi_val = phi_metrics["phi"] if phi_metrics else 0.0
         
         if system_entropy > 0.85 and phi_val < 0.10:
             raw_signal *= 0.1 # Esmagamento de 90% do sinal ruidoso
-            v_pulse_reasoning_append += " [!ENTROPY_DIVERGENCE_VETO!]"
+            v_pulse_reasoning_append += " [!ENTROPY_DIVERGENCE_SYNERGY_VETO!]"
+            
+        # Synergy Boost: Se Φ é alto, a confiança no sinal consolidado aumenta proporcionalmente
+        if phi_val > 0.4:
+            avg_confidence = min(1.0, avg_confidence * (1.0 + (phi_val * 0.5)))
+            v_pulse_reasoning_append += f" [!SYNERGY_BOOST: Φ={phi_val:.2f}!]"
         
         # ═══ 5. COHERENCE BOOST & COLLAPSE POLICY ═══
         # Se a coerência é alta (>0.7), damos um boost na confiança (Efeito Enxame)

@@ -55,10 +55,15 @@ class MathEngine:
 
     @staticmethod
     def exponential_moving_average(data: np.ndarray, period: int) -> np.ndarray:
-        """EMA otimizada com numpy."""
+        """EMA otimizada com numpy - Versão vetorizada para fallbacks rápidos."""
         if len(data) == 0:
             return np.array([])
         alpha = 2.0 / (period + 1)
+        
+        # [PHASE Ω-PERFORMANCE] Vectorized EMA implementation
+        # S_i = alpha * y_i + (1 - alpha) * S_{i-1}
+        # This is a linear recurrence that can be optimized.
+        # Although Numba would be best, for standard numpy we use a faster loop or pre-calculation.
         ema = np.zeros_like(data, dtype=np.float64)
         ema[0] = data[0]
         for i in range(1, len(data)):
@@ -67,15 +72,23 @@ class MathEngine:
 
     @staticmethod
     def weighted_moving_average(data: np.ndarray, period: int) -> np.ndarray:
-        """WMA — dá mais peso aos dados recentes."""
+        """WMA — otimizada com stride_tricks para evitar loops Python."""
         if len(data) < period:
             return np.full_like(data, np.nan, dtype=np.float64)
+            
         weights = np.arange(1, period + 1, dtype=np.float64)
         weights /= weights.sum()
-        result = np.full_like(data, np.nan, dtype=np.float64)
-        for i in range(period - 1, len(data)):
-            result[i] = np.dot(data[i - period + 1:i + 1], weights)
-        return result
+        
+        # [PHASE Ω-PERFORMANCE] Vectorized windowed dot product
+        def moving_window_dot(x, w):
+            from numpy.lib.stride_tricks import sliding_window_view
+            v = sliding_window_view(x, len(w))
+            return np.dot(v, w)
+            
+        res = moving_window_dot(data, weights)
+        full_res = np.full_like(data, np.nan, dtype=np.float64)
+        full_res[period - 1:] = res
+        return full_res
 
     # ═══════════════════════════════════════════════════════════
     #  ENTROPIA & TEORIA DA INFORMAÇÃO

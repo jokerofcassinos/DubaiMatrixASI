@@ -106,6 +106,9 @@ class SniperExecutor:
         # [PHASE Ω-STABILITY] Execution Intent Capture (Latency Guard)
         execution_intent_time = time.time()
         
+        # [PHASE 14 FIX] Cache open positions to prevent race conditions and latency
+        open_positions = self.bridge.get_open_positions() or []
+        
         if decision.action == Action.WAIT:
             # Ativar Sonar se estivermos em WAIT mas com volatilidade interessante
             self._maybe_sonar_probe(snapshot)
@@ -176,8 +179,7 @@ class SniperExecutor:
         # ═══ ANTI-METRALHADORA PHASE 2: DISTÂNCIA MÍNIMA DE PREÇO ═══
         # Impede entrada se o preço atual está muito próximo da última entrada
         # RESET: Se não há posições abertas, o ghost-block é irrelevante
-        open_positions_check = self.bridge.get_open_positions() or []
-        if not open_positions_check and self._last_entry_price > 0:
+        if not open_positions and self._last_entry_price > 0:
             self._last_entry_price = 0.0
             self._last_entry_direction = None
         
@@ -199,7 +201,6 @@ class SniperExecutor:
         # ═══ ANTI-METRALHADORA PHASE 3: CONFLITO DIRECIONAL ═══
         # Impede abrir BUY se já tem BUY aberto no mesmo nível, e vice-versa
         dup_dist_atr = OMEGA.get("duplicate_position_distance_atr")
-        open_positions = self.bridge.get_open_positions() or []
         if open_positions:
             for pos in open_positions:
                 pos_type = pos.get("type", -1)  # 0=BUY, 1=SELL no MT5
@@ -337,7 +338,7 @@ class SniperExecutor:
                 log.warning("🛡️ [HYDRA VETO]: Ruína Não-Ergódica detectada. Multiplicador Hydra desativado.")
         # 4.1. Pre-flight Slot Check & Dynamic Capping (Phase 39)
         from config.exchange_config import MAX_OPEN_POSITIONS
-        current_positions = len(self.bridge.get_open_positions() or [])
+        current_positions = len(open_positions)
         
         # Se os novos slots excederem o limite, capsulamos o excesso ao invés de ignorar o sinal
         if current_positions + max_slots > MAX_OPEN_POSITIONS:
@@ -575,7 +576,7 @@ class SniperExecutor:
         # para garantir aceitação durante explosões de volatilidade.
         min_dist = (stops_level + 30) * point 
 
-        def _send_slot(i, chunk_lot, delay_sec):
+        def _send_slot(i, chunk_lot, delay_sec, strike_id_base):
             # [PHASE Ω-STRICT] Real-time Inter-slot Margin Check
             # Se um slot anterior já derrubou a margem, cancelamos os próximos da Hydra.
             current_acc = self.bridge.get_account_info()
@@ -593,6 +594,9 @@ class SniperExecutor:
                 current_tick = self.bridge.get_tick()
                 if not current_tick:
                     return {"success": False, "error": "No tick"}
+
+                # [PHASE Ω-SYNC] Generate unique slot_id for this specific order
+                slot_id = f"{strike_id_base}_{i}"
 
                 if use_limit:
                     tick_bid = current_tick["bid"]
@@ -621,14 +625,18 @@ class SniperExecutor:
                         if limit_price <= tick_ask + (2 * point):
                             is_invalid_limit = True
 
+                    digits = sym_info.get("digits", 5) if sym_info else 5
+                    limit_price = round(limit_price, digits)
+
                     if is_invalid_limit:
-                        log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price:.2f} too risky. Executing MARKET for slot {i+1}.")
+                        log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price} too risky. Executing MARKET for slot {i+1}.")
                         return self.bridge.send_market_order(
                             action=decision.action.value,
                             lot=chunk_lot,
                             sl=decision.stop_loss,
                             tp=decision.take_profit,
-                            comment=f"ASI_HFT_TAKER_{i+1}/{num_nodes}"
+                            comment=f"ASI_HFT_TAKER_{i+1}/{num_nodes}",
+                            strike_id=slot_id
                         )
 
                     res = self.bridge.send_limit_order(
@@ -637,7 +645,8 @@ class SniperExecutor:
                         sl=decision.stop_loss,
                         tp=decision.take_profit,
                         comment=f"ASI_MAKER_{i+1}/{num_nodes}",
-                        price=limit_price
+                        price=limit_price,
+                        strike_id=slot_id
                     )
                     
                     if res and not res.get("success") and "10015" in str(res.get("error", "")):
@@ -645,7 +654,8 @@ class SniperExecutor:
                         return self.bridge.send_market_order(
                             action=decision.action.value, lot=chunk_lot,
                             sl=decision.stop_loss, tp=decision.take_profit,
-                            comment=f"ASI_FALLBACK_{i+1}/{num_nodes}"
+                            comment=f"ASI_FALLBACK_{i+1}/{num_nodes}",
+                            strike_id=slot_id
                         )
                     return res
                 else:
@@ -654,7 +664,8 @@ class SniperExecutor:
                         lot=chunk_lot,
                         sl=decision.stop_loss,
                         tp=decision.take_profit,
-                        comment=f"ASI_TAKER_{i+1}/{num_nodes}"
+                        comment=f"ASI_TAKER_{i+1}/{num_nodes}",
+                        strike_id=slot_id
                     )
 
             res = _execute_core()
@@ -667,8 +678,12 @@ class SniperExecutor:
             return res
 
 
+        # [PHASE Ω-SYNC] Gerar Strike ID antes do disparo paralelo
+        # [PHASE 14 FIX] Use nanosecond precision to avoid collisions in Hydra
+        strike_id = f"S{time.time_ns()}_{decision.action.value}"
+
         # Mapeamento paralelo via ThreadPool com delays P-Brane
-        futures = [self._order_pool.submit(_send_slot, i, lot, delays[i]) for i, lot in enumerate(lot_chunks)]
+        futures = [self._order_pool.submit(_send_slot, i, lot, delays[i], strike_id) for i, lot in enumerate(lot_chunks)]
         
         results = []
         for future in concurrent.futures.as_completed(futures):
@@ -685,11 +700,14 @@ class SniperExecutor:
                         p_sign = 1.0 if decision.action.value == "BUY" else -1.0
                         
                         # Use global CPP_CORE directly (Python 3 closures handle this if not re-assigned)
-                        from cpp.asi_bridge import CPP_CORE as G_CPP_CORE
-                        G_CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
+                        # Ensure types are correct for CTypes
+                        try:
+                            G_CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
+                        except Exception as e:
+                            log.debug(f"Pheromone C-Type conversion failed: {e}")
                     except Exception as pheromone_err:
-                        # Non-critical, just log debug
-                        log.debug(f"Pheromone update failed: {pheromone_err}")
+                        # Non-critical, just log warning if debug level is high
+                        log.debug(f"Pheromone update logic failed: {pheromone_err}")
                 else:
                     log.error(f"❌ Falha ao executar slot")
             except Exception as e:
@@ -702,21 +720,21 @@ class SniperExecutor:
         # [PHASE Ω-EVOLVE] Register Intents for Amnesia Prevention
         from utils.audit_engine import AUDIT_ENGINE
         
-        # Gerar um Strike ID único para este conjunto de ordens (Hydra)
-        strike_id = f"S{int(time.time())}_{decision.action.value}"
-        
         for i, res in enumerate(results):
             ticket = res.get("ticket", 0)
             # [Phase 52] Se o ticket é 0 (Async Socket), usamos i como ID temporário
             # para o Registry não ignorar o registro por falta de ID único.
             temp_pos_id = ticket if ticket > 0 else -(1000 + i) # ID negativo temporário
+            
+            # [PHASE Ω-SYNC] Use unique slot_id for each registration
+            slot_id = f"{strike_id}_{i}"
 
             trade_registry.register_intent(
                 ticket=ticket,
                 intent=decision,
                 snapshot=snapshot,
                 position_id=temp_pos_id,
-                strike_id=strike_id
+                strike_id=slot_id # Unique per slot
             )
             
             # [Ω-AUDIT] Trigger Post-Mortem Capture (Usando strike_id p/ agrupar)

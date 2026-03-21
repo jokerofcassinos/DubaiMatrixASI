@@ -104,10 +104,42 @@ class TrinityCore:
         """
         Toma a decisão final: BUY, SELL ou WAIT.
         """
+        # [PHASE 14 FIX] Canonical Initialization (Anti-UnboundLocalError)
+        action = Action.WAIT
+        signal = 0.0
+        confidence = 0.0
+        coherence = 0.0
+        atr = 0.0
+        rr_ratio = 1.0
+        price = snapshot.price if snapshot else 0.0
+        stop_loss = 0.0
+        take_profit = 0.0
+        lot_size = 0.01
+        mc_score = 0.0
+        mc_win_prob = 0.0
+        mc_ev = 0.0
+        mc_cvar = 0.0
+        mc_reasoning = "N/A"
+        is_god_mode = False
+        is_phi_resonance = False
+        is_tunneling = False
+        is_hydra_mode = False
+        pnl_prediction = "STABLE"
+        entropy = 0.0
+        tec_active = False
+        tec_entropy = 0.0
+        has_v_pulse = False
+        strike_flag = ""
+        phi = 0.0
         # [PHASE Ω-RESILIENCE] Cold Start Cooldown (120s)
         elapsed = time.time() - self._startup_timestamp
         cooldown_period = OMEGA.get("cold_start_cooldown_seconds", 120.0)
         
+        # [PHASE Ω-STABILITY] Structural Veto Gauntlet
+        has_v_pulse = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        veto_reason = self._check_vetos(snapshot, asi_state, regime_state, v_pulse_detected=has_v_pulse, quantum_state=quantum_state)
+        if veto_reason:
+            return self._wait(veto_reason)
         if elapsed < cooldown_period:
             if time.time() - self._log_cache.get("cold_start", 0) > 30:
                 log.info(f"⏳ [COLD START COOLDOWN] Syncing conscience: {elapsed:.1f}s / {cooldown_period}s remaining.")
@@ -147,10 +179,11 @@ class TrinityCore:
         is_breakdown = regime_state.current == MarketRegime.HFT_BREAKDOWN
         is_god_mode = snapshot.metadata.get("god_mode_active", False)
         is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
+        is_lethal_ignition = has_ignition and snapshot.metadata.get("v_pulse_capacitor", 0.0) > 0.8
+        is_lethal_strike = is_lethal_ignition and confidence > 0.85 # [Ω-PhD] Define lethal strike scope
         
         # [Phase 73] Navier-Stokes Ignition Logic
         v_pulse_intensity = snapshot.metadata.get("v_pulse_capacitor", 0.0)
-        is_lethal_ignition = has_ignition and v_pulse_intensity > 0.8
 
         # [Phase Ω-Singularity] Initialize metadata variables to avoid NameError
         is_tunneling = snapshot.metadata.get("is_tunneling", False)
@@ -203,8 +236,8 @@ class TrinityCore:
         current_price = snapshot.price
         
         # [Phase Ω-Singularity] Sovereignty based on extreme paradigm shift
-        kl_base_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
-        is_kl_shift_sovereign = kl_div > kl_base_thresh
+        kl_shift_thresh = OMEGA.get("paradigm_shift_threshold", 0.95)
+        is_kl_shift_sovereign = kl_div > kl_shift_thresh
 
         # [PHASE Ω-PhD-11] Singularity Sovereignty: Unifica TEC, Lethal Ignition e KL Shift
         is_tec_sovereign = (tec_active or (is_lethal_ignition and abs(signal) > 0.50) or (is_kl_shift_sovereign and abs(signal) > 0.60)) and abs(signal) > 0.35
@@ -428,13 +461,13 @@ class TrinityCore:
                      c_req = 0.25 if abs(signal) > 0.55 else 0.30 if abs(signal) > 0.35 else 0.35 if abs(signal) > 0.15 else 0.45
                      
                      # [Ω-STABILITY] Chão de Coerência Absoluto p/ Caos Extremo (Evitar Fakeouts em Φ < 0.10)
-                     if phi_score < 0.10: c_req = max(c_req, 0.40)
+                     if phi_score < 0.10: c_req = max(c_req, 0.28)
                      
                      # [Ω-PGC] Phi-Coherence Gradient: Quanto menor o Φ, maior o consenso exigido.
                      # [Ω-RECALIBRATION] Multiplicador reduzido de 1.0 para 0.6 para evitar paralisia
                      if phi_score < 0.45:
-                         pgc_penalty = max(0, 0.45 - phi_score) * 0.4
-                         c_req = min(0.60, c_req + pgc_penalty) # Cap em 0.60
+                         pgc_penalty = max(0, 0.45 - phi_score) * 0.2
+                         c_req = min(0.55, c_req + pgc_penalty) # Cap em 0.60
                          
                      if coherence < c_req and not (is_tec_sovereign or is_god_mode or (phi_score > 0.18 and coherence > 0.25)):
 
@@ -475,7 +508,7 @@ class TrinityCore:
         is_breakout = "BREAKOUT" in regime_state.current.value or regime_state.current == MarketRegime.HFT_BREAKDOWN
         tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
         is_qmi_active = is_breakout and tick_vel_abs > 25.0 and abs(signal) > 0.40
-        phi_req = 0.20 if is_qmi_active else 0.45
+        phi_req = 0.20 if is_qmi_active else 0.30
 
         # [Phase Ω-Safety] Cheap Spike Filter (Anti-FOMO)
         is_creeping = "CREEPING" in regime_state.current.value
@@ -639,8 +672,8 @@ class TrinityCore:
 
         # 2. Hard Veto for Weak Counter-Trend
         if tentative_is_counter:
-            phi_min_counter = 0.50 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.20
-            sig_min_counter = 0.80 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.40
+            phi_min_counter = 0.30 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.20
+            sig_min_counter = 0.45 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.40
             
             # [Phase Ω-PhD-14] Paradigm Sovereignty Bypass
             # Following a KL divergence shock, we allow faster counter-trend entries (Tunneling).
@@ -763,7 +796,7 @@ class TrinityCore:
              return self._wait("MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)")
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
-        phi_min = OMEGA.get("phi_min_threshold", 0.4)
+        phi_min = OMEGA.get("phi_min_threshold", 0.25) # Normalized for 190 agents
         phi_hydra = OMEGA.get("phi_hydra_threshold", 4.5)
 
         # Calibração Dinâmica de Consciência (Dynamic Incoherence)
@@ -808,14 +841,6 @@ class TrinityCore:
         if quantum_state.confidence > 0.90:
             dynamic_phi_min *= 0.7
 
-        # [Phase 26] Integration with Java PnL Predictor
-        pnl_prediction = snapshot.metadata.get("pnl_prediction", "STABLE")
-        if "NEGATIVE_EXPECTANCY" in pnl_prediction or "DRAWDOWN_RISK" in pnl_prediction:
-            risk_mult = 0.5  # Reduce aggression if math says we are losing edge
-        elif "RELAXED" in pnl_prediction:
-            risk_mult = 1.3  # Even higher conviction in relaxed mode
-        elif pnl_prediction == "STABLE":
-            risk_mult = 1.0
         # 4. Ajuste por Previsão Java PnL Predictor
         pnl_pred = snapshot.metadata.get("pnl_prediction")
         pnl_prediction = pnl_pred if pnl_pred else "STABLE"
@@ -1593,10 +1618,6 @@ class TrinityCore:
                 "rr_ratio": rr_ratio,
                 "is_tec_active": tec_active,
                 "tec_entropy": tec_entropy,
-                "is_tec_active": tec_active,
-                "tec_entropy": tec_entropy,
-                "is_tec_active": tec_active,
-                "tec_entropy": tec_entropy,
                 "v_pulse_detected": has_v_pulse,
                 "quantum_metadata": quantum_state.metadata if quantum_state else {},
                 "bypassed_stale_regime": self.last_decision_bypassed
@@ -1647,11 +1668,19 @@ class TrinityCore:
                 
         return decision
 
-    def _check_vetos(self, snapshot, asi_state, regime_state, v_pulse_detected: bool = False) -> Optional[str]:
+    def _check_vetos(self, snapshot, asi_state, regime_state, v_pulse_detected: bool = False, quantum_state: QuantumState = None) -> Optional[str]:
         """
         Sistema de veto — rejeita trades em condições de perigo.
         NÃO é paralisante: veta apenas em casos claros.
         """
+        # [PHASE Ω-STRICT] SYNERGY VETO: Integrated Information Theory (Phi)
+        if quantum_state and hasattr(quantum_state, 'phi'):
+            phi_min = OMEGA.get("min_phi_threshold", 0.08)
+            if quantum_state.phi < phi_min and not v_pulse_detected:
+                if time.time() - self._log_cache.get("phi_veto", 0) > 60:
+                    log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min}")
+                    self._log_cache["phi_veto"] = time.time()
+                return f"SYNERGY_VETO (Φ={quantum_state.phi:.3f})"
         # 0. Startup Cooldown (Evita trades com sistema "frio")
         uptime = time.time() - self._creation_time
         startup_cooldown = OMEGA.get("startup_cooldown_seconds", 120)  # Default 2 minutos

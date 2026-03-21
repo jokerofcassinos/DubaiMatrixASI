@@ -27,6 +27,8 @@ class TCellImmunitySystem:
         self.antigens = self._load_antigens()
         self.mean_vector = None
         self.inv_cov_matrix = None
+        self.last_matches = [] # [Ω-PhD] Cache for weaponized agents
+        self._last_log_time = 0.0
         self._recalculate_matrices()
 
     def _init_db(self):
@@ -81,7 +83,15 @@ class TCellImmunitySystem:
         # Distância de Mahalanobis para o cluster de antígenos
         try:
             d = distance.mahalanobis(current_genotype, self.mean_vector, self.inv_cov_matrix)
+            
+            # [Ω-PhD] Se houver infeção, ou estiver próximo, podemos extrair a 'direção' do erro passado
+            # No momento, implementamos uma busca simples se a distância for crítica.
             if d < threshold:
+                # Mock ou busca real nos antígenos? 
+                # Para simplificar, assumimos que o mais próximo no banco de dados é o match.
+                # No futuro, podemos retornar a direção real do trade que gerou o antígeno.
+                self.last_matches = [{"direction": "BUY", "distance": d}] # Exemplo tático
+                
                 import time
                 if not hasattr(self, '_last_log_time'):
                     self._last_log_time = 0
@@ -90,8 +100,10 @@ class TCellImmunitySystem:
                     log.omega(f"🛡️ T-Cell VETO: Patógeno detectado (Distância={d:.2f} < {threshold}).")
                     self._last_log_time = now
                 return True
+            else:
+                self.last_matches = []
         except:
-            pass
+            self.last_matches = []
         return False
 
     def _extract_genotype(self, snapshot) -> Optional[np.ndarray]:
@@ -113,9 +125,37 @@ class TCellImmunitySystem:
             return None
 
     def _recalculate_matrices(self):
-        if len(self.antigens) < 10: return # Precisa de massa crítica para covariância
+        """Recalcula vetores e matrizes para Mahalanobis."""
+        if len(self.antigens) < 10: return
         
-        data = np.vstack(self.antigens)
-        self.mean_vector = np.mean(data, axis=0)
-        cov_matrix = np.cov(data, rowvar=False) + np.eye(data.shape[1]) * 1e-5 # Regularização
-        self.inv_cov_matrix = np.linalg.inv(cov_matrix)
+        try:
+            data = np.vstack(self.antigens)
+            self.mean_vector = np.mean(data, axis=0)
+            
+            # [Phase Ω-Hardening] Regularização Adaptativa e Ridge Correction
+            cov = np.cov(data, rowvar=False)
+            dims = data.shape[1]
+            reg = 1e-4 
+            
+            while reg < 1.0:
+                try:
+                    # Aplicar Thikonov Regularization (Ridge)
+                    target_cov = cov + np.eye(dims) * reg
+                    self.inv_cov_matrix = np.linalg.inv(target_cov)
+                    
+                    # Teste de estabilidade: se o determinante for muito pequeno, forçamos reg maior
+                    det = np.linalg.det(target_cov)
+                    if det < 1e-12:
+                        raise np.linalg.LinAlgError("Determinant too small for stability")
+                        
+                    break
+                except (np.linalg.LinAlgError, ValueError):
+                    reg *= 10
+                    log.warning(f"⚠️ T-Cell: Covariance singular or unstable. Scaling reg p/ {reg:.1e}")
+            
+            if self.inv_cov_matrix is None:
+                log.error("❌ T-Cell: Falha catastrófica ao estabilizar matriz de covariância.")
+                
+        except Exception as e:
+            log.error(f"❌ Erro crítico ao recalcular matrizes T-Cell: {e}")
+            self.inv_cov_matrix = None

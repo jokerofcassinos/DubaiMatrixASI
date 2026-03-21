@@ -1,0 +1,289 @@
+# 🧬 DubaiMatrixASI — Relatório PhD Ultra-Avançado (Fases 1-3)
+
+## Fase 1: Anatomia Estrutural do Repositório
+
+### Topologia do Projeto
+
+```mermaid
+graph TB
+    subgraph "ENTRY POINT"
+        MAIN["main.py<br/>246 lines"]
+    end
+    
+    subgraph "CORE (Cérebro)"
+        BRAIN["asi_brain.py<br/>644 lines"]
+        subgraph "Decision"
+            TRINITY["trinity_core.py<br/>~110KB ⚠️"]
+            SHADOW["shadow_engine.py"]
+        end
+        subgraph "Consciousness"
+            SWARM["neural_swarm.py<br/>35K"]
+            QUANTUM["quantum_thought.py<br/>41K"]
+            MC["monte_carlo_engine.py<br/>33K"]
+            REGIME["regime_detector.py<br/>20K"]
+            BYZ["byzantine_consensus.py"]
+            GENETIC["genetic_forge.py"]
+        end
+        subgraph "Agents (81 files)"
+            AGENTS["81 specialized agents<br/>~470KB total"]
+        end
+        subgraph "Evolution"
+            SELFOPT["self_optimizer.py"]
+            MUTENG["mutation_engine.py"]
+            PERFTRK["performance_tracker.py"]
+            BIOIMMUN["biological_immunity.py"]
+        end
+    end
+    
+    subgraph "CONFIG"
+        SETTINGS["settings.py"]
+        OMEGA_P["omega_params.py<br/>90+ live params"]
+        EXCHANGE["exchange_config.py"]
+    end
+    
+    subgraph "EXECUTION"
+        SNIPER["sniper_executor.py<br/>44KB"]
+        POSMGR["position_manager.py<br/>29KB"]
+        RISKQ["risk_quantum.py<br/>23KB"]
+        TRADE_REG["trade_registry.py"]
+    end
+    
+    subgraph "MARKET DATA"
+        MT5BR["mt5_bridge.py<br/>48KB"]
+        DATAENG["data_engine.py<br/>21KB"]
+        OFLOW["orderflow_matrix.py"]
+        SCRAPERS["4 Web Scrapers"]
+        MEMORY["Episodic Memory + NLP"]
+    end
+    
+    subgraph "C++ HPC Core (29 files)"
+        CPPCORE["asi_core.h + 28 engines<br/>~120KB"]
+    end
+    
+    subgraph "External Bridges"
+        MQL5["MQL5 HFT Bridge"]
+        JAVA["Java PnL Predictor"]
+    end
+
+    MAIN --> BRAIN
+    BRAIN --> DATAENG
+    BRAIN --> SWARM
+    BRAIN --> QUANTUM
+    BRAIN --> REGIME
+    BRAIN --> TRINITY
+    BRAIN --> SNIPER
+    BRAIN --> POSMGR
+    SWARM --> AGENTS
+    TRINITY --> MC
+    SNIPER --> RISKQ
+    SNIPER --> MT5BR
+    DATAENG --> MT5BR
+    MT5BR --> MQL5
+    BRAIN --> JAVA
+```
+
+### Inventário Quantitativo Completo
+
+| Subsistema | Arquivos | Linhas (est.) | Bytes | Complexidade |
+|:--|:--:|:--:|:--:|:--:|
+| Entry Point ([main.py](file:///d:/DubaiMatrixASI/main.py)) | 1 | 246 | 12.5K | ⬛⬛⬜⬜⬜ |
+| Core Brain (`core/`) | 2 | ~900 | 67K | ⬛⬛⬛⬜⬜ |
+| Decision Engine | 2 | ~3,500+ | 117K | ⬛⬛⬛⬛⬛ |
+| Consciousness | 6 | ~3,000+ | 138K | ⬛⬛⬛⬛⬛ |
+| Agent Swarm | 82 | ~12,000+ | 470K+ | ⬛⬛⬛⬛⬛ |
+| Execution | 8 | ~2,500+ | 117K | ⬛⬛⬛⬛⬜ |
+| Market/Data | 8 | ~2,500+ | 120K | ⬛⬛⬛⬛⬜ |
+| Evolution | 6 | ~1,200+ | 54K | ⬛⬛⬛⬜⬜ |
+| Config | 3 | ~800 | 48K | ⬛⬛⬛⬜⬜ |
+| Utilities | 12 | ~1,800+ | 86K | ⬛⬛⬜⬜⬜ |
+| C++ Core | 30 | ~3,000+ | 130K | ⬛⬛⬛⬛⬜ |
+| C++ Bridge | 1 | ~1,600 | 65K | ⬛⬛⬛⬛⬜ |
+| MQL5 | 2 | ~500 | 15K | ⬛⬛⬛⬜⬜ |
+| Java | 2 | ~300 | ~10K | ⬛⬛⬜⬜⬜ |
+| Tests | 28 | ~3,000+ | 120K | ⬛⬛⬛⬜⬜ |
+| PLMA Docs | 10 | N/A | 408K | 📖 |
+| **TOTAL** | **~203** | **~35,000+** | **~1.9MB** | |
+
+---
+
+## Fase 2: Análise do Cérebro Central (Core Brain Layer)
+
+### [main.py](file:///d:/DubaiMatrixASI/main.py) — Entry Point (246 linhas)
+
+**Arquitetura:**
+- Classe [DubaiMatrixASI](file:///d:/DubaiMatrixASI/main.py#55-230) encapsula todo o ciclo de vida
+- **Inicialização**: Conecta ao MT5 → Verifica fluxo de dados → Inicializa [ASIBrain](file:///d:/DubaiMatrixASI/core/asi_brain.py#43-644) + `GeneticForge`
+- **Consciousness Loop**: Loop infinito com timing baseado em `CONSCIOUSNESS_CYCLE_MS` (250ms = 4 Hz)
+- **Lorentz Dilation**: Feature relativística que comprime o intervalo do ciclo quando o mercado está "quente" (`dilation > 1`)
+- **Graceful Shutdown**: Signal handlers capturam Ctrl+C; o shutdown salva estado, para scrapers, e mata o Java daemon
+
+> [!WARNING]
+> **Credenciais hardcoded** na linha 241-244 (`login=1512837076`, `password="fD?g4Ab@D2"`). Deveria usar variáveis de ambiente ou vault.
+
+**Health Check**: A cada 200 ciclos (~50s), verifica se o MT5 está vivo e reconecta se necessário.
+
+---
+
+### [asi_brain.py](file:///d:/DubaiMatrixASI/core/asi_brain.py) — Orchestrator (644 linhas)
+
+**Ciclo de Pensamento — 12 Fases por Ciclo:**
+
+```mermaid
+graph LR
+    P[1. Percepção<br/>DataEngine] --> OF[2. OrderFlow<br/>Matrix]
+    OF --> RD[3. Regime<br/>Detection]
+    RD --> EI[4. External<br/>Intelligence]
+    EI --> NS[5. Neural<br/>Swarm]
+    NS --> QC[6. Quantum<br/>Collapse]
+    QC --> TD[7. Trinity<br/>Decision]
+    TD --> EX[8. Execution<br/>Sniper]
+    EX --> PM[9. Position<br/>Monitor]
+    PM --> SP[10. State<br/>Persist]
+    SP --> JP[11. Java PnL<br/>Predictor]
+    JP --> RF[12. Reflection<br/>Phase]
+```
+
+**Subsistemas Inicializados (17 instâncias):**
+
+| # | Subsistema | Tipo | Descrição |
+|:--|:--|:--|:--|
+| 1 | `DataEngine` | Percepção | Coleta e pré-processa dados MT5 |
+| 2 | `OrderFlowMatrix` | Percepção | Análise de fluxo de ordens + book |
+| 3 | `EpisodicMemory` | Memória | Memória vetorial episódica (64 dims) |
+| 4 | `ShadowPredatorEngine` | Counter-AI | Detecção de bots adversários |
+| 5 | `RegimeDetector` | Análise | HMM para detecção de regime |
+| 6 | `NeuralSwarm` | Consciência | Enxame de 81+ agentes |
+| 7 | `QuantumThoughtEngine` | Consciência | Colapso quântico de sinais |
+| 8 | `TrinityCore` | Decisão | Motor de decisão final |
+| 9 | `RiskQuantumEngine` | Risco | Gestão de risco quântica |
+| 10 | `EdgeLLMDistiller` | Inteligência | Destilação de narrativa LLM |
+| 11 | `SniperExecutor` | Execução | Execução de precisão |
+| 12 | `PositionManager` | Execução | Monitoramento de posições abertas |
+| 13 | `SentimentScraper` | Web | Sentimento de mercado |
+| 14 | `OnChainScraper` | Web | Dados on-chain |
+| 15 | `MacroScraper` | Web | Macro econômico |
+| 16 | `PerformanceTracker` | Evolução | Rastreamento de performance |
+| 17 | `SelfOptimizer` | Evolução | Auto-otimização darwiniana |
+
+**Mecanismos de Proteção no [think()](file:///d:/DubaiMatrixASI/core/asi_brain.py#153-405):**
+- **Anti-Metralhadora**: Impede reentrada na mesma direção após close
+- **Pending Order Veto**: Impede duplicação de ordens LIMIT
+- **Ignition Cooldown**: 5s mínimo entre disparos
+- **Shadow Trade Registry**: Registra oportunidades vetadas para análise contrafactual
+- **Wormhole Recovery**: Hedge automático via `RiskQuantumEngine` para posições em perigo
+
+**Reflection Phase (a cada 600 ciclos ≈ 150s):**
+- Audita histórico MT5 via `history_deals_get`
+- Consolida deals por `position_id` (evita fragmentos como trades independentes)
+- Calcula P&L líquido incluindo comissão + swap + fee
+- Alimenta `PerformanceTracker` + `BiologicalImmunity` (T-Cell)
+- Anti-Ping-Pong: Notifica `TrinityCore` de losses recentes
+
+> [!IMPORTANT]
+> **Bug Potencial (linha 546)**: `self.swarm.byzantine.update_consensus()` — o atributo é `self.neural_swarm`, não `self.swarm`. Isso causará `AttributeError` sempre que um trade com intent + `agent_signals` é registrado.
+
+---
+
+## Fase 3: Análise do Sistema de Configuração
+
+### [settings.py](file:///d:/DubaiMatrixASI/config/settings.py) — Global Settings (237 linhas)
+
+**8 Blocos de Parâmetros Estáticos:**
+
+| Bloco | Parâmetros-Chave | Valor | Observação |
+|:--|:--|:--|:--|
+| Loop | `CONSCIOUSNESS_CYCLE_MS` | 250ms | 4 Hz — bom para scalping |
+| Swarm | `SWARM_AGENT_COUNT` | 1000 | ⚠️ Não usado diretamente (agents são classes) |
+| Quantum | `QUANTUM_DIMENSIONS` | 256 | Espaço de análise quântica |
+| Regime | `REGIME_HMM_STATES` | 7 | Estados ocultos do HMM |
+| Trinity | `TRINITY_BUY_THRESHOLD` | 0.70 | ⚠️ Sobrescrito pelo OMEGA (0.15) |
+| Risk | `RISK_MAX_POSITION_PCT` | 25% | Ultra-agressivo |
+| Execution | `EXECUTION_MAX_SPREAD` | 100 pts | |
+| Evolution | `EVOLUTION_BOUNDS` | 8 params | Limites de segurança para mutação |
+
+**Classe [ASIState](file:///d:/DubaiMatrixASI/config/settings.py#121-237):**
+- Estado persistente com JSON serialization
+- Métricas: total_trades, wins/losses, profit, drawdown, agent_weights
+- [update_from_report()](file:///d:/DubaiMatrixASI/config/settings.py#149-162) sincroniza com `PerformanceTracker`
+- Properties computadas: [win_rate](file:///d:/DubaiMatrixASI/config/settings.py#214-219), [avg_win](file:///d:/DubaiMatrixASI/config/settings.py#220-225), [avg_loss](file:///d:/DubaiMatrixASI/config/settings.py#226-231), [profit_factor](file:///d:/DubaiMatrixASI/config/settings.py#232-237)
+
+> [!NOTE]
+> Muitos parâmetros em [settings.py](file:///d:/DubaiMatrixASI/config/settings.py) são **relíquias** que foram sobrescritos pelo sistema `OMEGA`. O [settings.py](file:///d:/DubaiMatrixASI/config/settings.py) serve mais como documentação de valores iniciais do que como fonte efetiva de truth.
+
+---
+
+### [omega_params.py](file:///d:/DubaiMatrixASI/config/omega_params.py) — The Living Brain (478 linhas)
+
+**Arquitetura: Auto-Mutating Parameter Space**
+
+```mermaid
+graph TD
+    OP[OmegaParameter] --> |bounds enforcement| OPS[OmegaParameterSpace]
+    OPS --> |thread-safe singleton| OMEGA["OMEGA (global)"]
+    OMEGA --> |.get()| READ[Todos os subsistemas leem]
+    OMEGA --> |.set() + reason| WRITE[SelfOptimizer / MutationEngine escrevem]
+    OMEGA --> |.save()| DISK[omega_params.json]
+    DISK --> |.load()| OMEGA
+```
+
+**90+ Parâmetros Vivos Organizados em 18 Clusters:**
+
+| Cluster | # Params | Exemplos Críticos |
+|:--|:--:|:--|
+| Decision | 7 | `buy_threshold=0.15`, `confidence_min=0.55` |
+| Risk | 3 | `position_size_pct=50%`, `kelly_fraction=1.0` (Full Kelly!) |
+| Quantum Kelly (Ω-10) | 3 | `pdf_sizing_steepness=3.5`, `pdf_max_kelly_multiplier=5.0` |
+| TWAP (Ω-13) | 3 | `twap_lot_threshold=1.5`, `twap_duration_sec=6s` |
+| SL/TP | 6 | `stop_loss_atr_mult=1.50`, `take_profit_atr_mult=2.50` |
+| Commission | 4 | `commission_per_lot=$50`, `min_profit_per_ticket=$35` |
+| NRO | 2 | `nro_manifold_sensitivity=1.25` |
+| Quantum | 3 | `quantum_collapse_threshold=0.80` |
+| Regime | 6 | `trend_regime_aggression=1.2`, `chaos_regime_aggression=0.3` |
+| Smart TP (22-23) | 8 | `smart_tp_lock_threshold_high=0.10` |
+| Agent Weights | 12 | `weight_topological=3.8` (!), `weight_spoof_hunter=2.2` |
+| Execution | 5 | `max_spread_points=5000`, `startup_cooldown=120s` |
+| Anti-Metralhadora | 5 | `entry_cooldown_seconds=60`, `min_entry_distance_atr=0.7` |
+| Superposition (46) | 5 | `temporal_tunneling_cycles=5` |
+| Extreme (Ω) | 6 | `phi_min_threshold=0.07`, `phi_hydra_threshold=4.5` |
+| Singularity | 5 | `limit_execution_mode=1.0` (Limit Orders habilitadas!) |
+| PhD Topological | 10 | `ricci_k_threshold=2.5`, `lie_symmetry_threshold=0.1` |
+| Exit Management | 2 | `smart_tp_phi_relaxation_mult=0.5` |
+
+> [!CAUTION]
+> **`drift_aggression_mult` está registrado DUAS VEZES** (linhas 301 e 352) com valores diferentes (1.15 vs 1.25). O segundo registro sobrescreve o primeiro silenciosamente. Isso é definitivamente um bug.
+
+> [!WARNING]
+> **Full Kelly `kelly_fraction=1.0`** + **`position_size_pct=50%`** + **`pdf_max_kelly_multiplier=5.0`** = regime de sizing extremamente agressivo. Uma sequência de 3-4 losses pode causar drawdown catastrófico.
+
+---
+
+### [exchange_config.py](file:///d:/DubaiMatrixASI/config/exchange_config.py) — MT5 Config (90 linhas)
+
+- **Símbolo exclusivo**: BTCUSD (com aliases para compatibilidade entre brokers)
+- **7 timeframes**: tick, M1, M5, M15, M30, H1, H4, D1
+- **Primários para decisão**: M1, M5, M15 (típico scalp/HFT)
+- **Execução**: Magic Number 777777, IOC filling (Immediate or Cancel)
+- **Limites**: MAX_LOT=5.0 (FTMO), MAX_OPEN_POSITIONS=200 (HFT Hydra), MIN_LOT=0.01
+- **Sessões**: Asia (00-08), Europe (07-16), US (13-22), Overlap EU/US (13-16)
+
+---
+
+## 🔬 Descobertas Emergentes (Fases 1-3)
+
+### Bugs Confirmados
+1. **`self.swarm` → deveria ser `self.neural_swarm`** em `asi_brain.py:546`
+2. **`drift_aggression_mult` registrado 2x** em [omega_params.py](file:///d:/DubaiMatrixASI/config/omega_params.py) com valores conflitantes
+
+### Technical Debt
+1. Credenciais hardcoded em [main.py](file:///d:/DubaiMatrixASI/main.py)
+2. [settings.py](file:///d:/DubaiMatrixASI/config/settings.py) contém parâmetros vestigiais sobrescritos pelo OMEGA — fonte de confusão
+3. `SWARM_AGENT_COUNT = 1000` nunca é usado — os agents reais são instâncias de classe
+
+### Riscos Arquiteturais
+1. **Full Kelly + agressão máxima** = risco de drawdown. Recomendo cap em `kelly_fraction=0.5`
+2. **Lorentz Dilation** pode fazer o loop rodar mais rápido que o mercado pode processar em condições extremas
+3. **Reflexão Phase apenas a cada 150s** pode deixar a ASI operando sem P&L awareness por ~2.5 minutos
+
+---
+
+> **📊 Status**: Fases 1-3 completas. Próximo: Fase 4 (Trinity Core — o arquivo de 110KB, o coração do sistema).

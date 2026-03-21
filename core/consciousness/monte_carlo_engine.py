@@ -106,6 +106,17 @@ class QuantumMonteCarloEngine:
         "HIGH_VOL_CHAOS":{"drift_mult": 0.0,  "vol_mult": 2.5,  "jump_intensity": 0.10, "jump_mean": 0.0},
         "LOW_LIQUIDITY":  {"drift_mult": 0.0,  "vol_mult": 1.8,  "jump_intensity": 0.03, "jump_mean": 0.0},
         "SQUEEZE":       {"drift_mult": 0.5,  "vol_mult": 2.0,  "jump_intensity": 0.15, "jump_mean": 0.008},
+        
+        # [Phase Ω-PhD] EXTENDED REGIMES
+        "CREEPING_BULL":  {"drift_mult": 0.4,  "vol_mult": 0.4,  "jump_intensity": 0.01, "jump_mean": 0.001},
+        "DRIFTING_BEAR":  {"drift_mult": -0.4, "vol_mult": 0.5,  "jump_intensity": 0.01, "jump_mean": -0.001},
+        "LIQUIDITY_HUNT": {"drift_mult": 0.0,  "vol_mult": 1.2,  "jump_intensity": 0.20, "jump_mean": 0.0},
+        "PARADIGM_SHIFT": {"drift_mult": 0.0,  "vol_mult": 3.0,  "jump_intensity": 0.25, "jump_mean": 0.0},
+        "FLASH_CRASH":    {"drift_mult": -5.0, "vol_mult": 4.0,  "jump_intensity": 0.50, "jump_mean": -0.05},
+        "MELT_UP":       {"drift_mult": 4.0,  "vol_mult": 2.0,  "jump_intensity": 0.30, "jump_mean": 0.03},
+        "MELT_DOWN":     {"drift_mult": -4.0, "vol_mult": 2.0,  "jump_intensity": 0.30, "jump_mean": -0.03},
+        "V_SHAPE_RECOVERY":{"drift_mult": 3.0,  "vol_mult": 1.5,  "jump_intensity": 0.20, "jump_mean": 0.02},
+        "LIQUIDATION_CASCADE": {"drift_mult": -3.5, "vol_mult": 2.5, "jump_intensity": 0.40, "jump_mean": -0.02},
     }
 
     def __init__(self):

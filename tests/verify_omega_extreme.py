@@ -44,6 +44,7 @@ def test_recalibration():
         agent_contributions={},
         agent_signals=[AgentSignal("WhaleTrackerAgent", -0.6, 0.9, 1.0, "Institucional")],
         phi=0.30, # Abaixo do base (0.35) mas deve ser aceito pelo dynamic_phi em DRIFTING
+        metadata={},
         reasoning="Test"
     )
     

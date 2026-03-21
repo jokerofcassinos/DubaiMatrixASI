@@ -21,6 +21,7 @@ from utils.decorators import catch_and_log
 # ═══ STRUCT DEFINITIONS (espelhando asi_core.h) ═══
 
 class TickData(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("bid", ctypes.c_double),
         ("ask", ctypes.c_double),
@@ -31,6 +32,7 @@ class TickData(ctypes.Structure):
     ]
 
 class OrderFlowResult(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("cumulative_delta", ctypes.c_double),
         ("buy_volume", ctypes.c_double),
@@ -43,6 +45,7 @@ class OrderFlowResult(ctypes.Structure):
     ]
 
 class AgentSignal(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("signal", ctypes.c_double),
         ("confidence", ctypes.c_double),
@@ -50,6 +53,7 @@ class AgentSignal(ctypes.Structure):
     ]
 
 class QuantumState(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("raw_signal", ctypes.c_double),
         ("coherence", ctypes.c_double),
@@ -59,6 +63,7 @@ class QuantumState(ctypes.Structure):
     ]
 
 class PhaseSpaceResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("orbit_radius", ctypes.c_double),
         ("global_orbit", ctypes.c_double),
@@ -67,12 +72,14 @@ class PhaseSpaceResultC(ctypes.Structure):
     ]
 
 class SwingResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("index", ctypes.c_int),
         ("price", ctypes.c_double),
     ]
 
 class MonteCarloInputC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("S0", ctypes.c_double),
         ("mu", ctypes.c_double),
@@ -89,6 +96,7 @@ class MonteCarloInputC(ctypes.Structure):
     ]
 
 class MonteCarloOutputC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("win_prob", ctypes.c_double),
         ("expected_return", ctypes.c_double),
@@ -98,6 +106,7 @@ class MonteCarloOutputC(ctypes.Structure):
     ]
 
 class AgentRawSignal(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("signal", ctypes.c_double),
         ("confidence", ctypes.c_double),
@@ -106,18 +115,21 @@ class AgentRawSignal(ctypes.Structure):
     ]
 
 class ConvergenceResult(ctypes.Structure):
+    _pack_ = 8 # Ensure 64-bit alignment parity with MSVC/GCC
     _fields_ = [
         ("final_signal", ctypes.c_double),
         ("final_confidence", ctypes.c_double),
         ("final_coherence", ctypes.c_double),
         ("entropy", ctypes.c_double),
-        ("bull_count", ctypes.c_int),
-        ("bear_count", ctypes.c_int),
-        ("neutral_count", ctypes.c_int),
+        ("bull_count", ctypes.c_int32),
+        ("bear_count", ctypes.c_int32),
+        ("neutral_count", ctypes.c_int32),
+        ("padding", ctypes.c_int32), # Explicit padding for 8-byte boundary
         ("computation_time_ms", ctypes.c_double),
     ]
 
 class HyperspaceOutputC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("confidence_boost", ctypes.c_double),
         ("expected_max_excursion", ctypes.c_double),
@@ -126,6 +138,7 @@ class HyperspaceOutputC(ctypes.Structure):
     ]
 
 class GraphNodeC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("price", ctypes.c_double),
         ("liquidity", ctypes.c_double),
@@ -134,6 +147,7 @@ class GraphNodeC(ctypes.Structure):
     ]
 
 class GraphResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("clusters", GraphNodeC * 50),
         ("cluster_count", ctypes.c_int),
@@ -142,6 +156,7 @@ class GraphResultC(ctypes.Structure):
     ]
 
 class ThermodynamicResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("shannon_entropy", ctypes.c_double),
         ("temperature", ctypes.c_double),
@@ -151,6 +166,7 @@ class ThermodynamicResultC(ctypes.Structure):
     ]
 
 class CausalResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("causal_effect", ctypes.c_double),
         ("counterfactual_loss", ctypes.c_double),
@@ -159,6 +175,7 @@ class CausalResultC(ctypes.Structure):
     ]
 
 class TopologyResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("betti_0", ctypes.c_double),
         ("betti_1", ctypes.c_double),
@@ -168,6 +185,7 @@ class TopologyResultC(ctypes.Structure):
     ]
 
 class TensorResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("entanglement_entropy", ctypes.c_double),
         ("compression_loss", ctypes.c_double),
@@ -176,6 +194,7 @@ class TensorResultC(ctypes.Structure):
     ]
 
 class FisherResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("fisher_information", ctypes.c_double),
         ("natural_gradient_x", ctypes.c_double),
@@ -185,6 +204,7 @@ class FisherResultC(ctypes.Structure):
 
 # PHASE Ω-ONE: SNN
 class SpikeResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("potential", ctypes.c_double),
         ("fired", ctypes.c_int),
@@ -193,6 +213,7 @@ class SpikeResultC(ctypes.Structure):
 
 # PHASE Ω-ONE: MFG
 class MFGResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("optimal_velocity", ctypes.c_double),
         ("crowd_density", ctypes.c_double),
@@ -200,8 +221,17 @@ class MFGResultC(ctypes.Structure):
         ("stability_score", ctypes.c_double),
     ]
 
+# PHASE Ω-EXTREME: Lorentz Clock
+class LorentzClockResultC(ctypes.Structure):
+    _fields_ = [
+        ("internal_time_passed", ctypes.c_double),
+        ("dilation_factor", ctypes.c_double),
+        ("kinetic_energy", ctypes.c_double),
+    ]
+
 # PHASE Ω-ONE: FEYNMAN
 class PathIntegralResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("probability_amplitude_real", ctypes.c_double),
         ("probability_amplitude_imag", ctypes.c_double),
@@ -211,6 +241,7 @@ class PathIntegralResultC(ctypes.Structure):
 
 # PHASE Ω-ONE: CHAOS
 class ChaosResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("lyapunov_exponent", ctypes.c_double),
         ("predictability_limit", ctypes.c_double),
@@ -220,6 +251,7 @@ class ChaosResultC(ctypes.Structure):
 
 # PHASE Ω-CLASS
 class HolographicResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("bulk_pressure", ctypes.c_double),
         ("entanglement_entropy", ctypes.c_double),
@@ -228,15 +260,9 @@ class HolographicResultC(ctypes.Structure):
         ("is_manifold_stable", ctypes.c_int),
     ]
 
-# PHASE Ω-EXTREME
-class LorentzClockResultC(ctypes.Structure):
-    _fields_ = [
-        ("internal_time_passed", ctypes.c_double),
-        ("dilation_factor", ctypes.c_double),
-        ("kinetic_energy", ctypes.c_double),
-    ]
 
 class ConsciousnessResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("phi_value", ctypes.c_double),
         ("coherence_score", ctypes.c_double),
@@ -244,6 +270,7 @@ class ConsciousnessResultC(ctypes.Structure):
     ]
 
 class QCAResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("grid_entropy", ctypes.c_double),
         ("transition_speed", ctypes.c_double),
@@ -251,6 +278,7 @@ class QCAResultC(ctypes.Structure):
     ]
 
 class PredatorPreyResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("predator_biomass", ctypes.c_double),
         ("prey_biomass", ctypes.c_double),
@@ -259,6 +287,7 @@ class PredatorPreyResultC(ctypes.Structure):
     ]
 
 class ExtremeValueResultC(ctypes.Structure):
+    _pack_ = 8
     _fields_ = [
         ("threshold_exceedance", ctypes.c_double),
         ("tail_risk", ctypes.c_double),
@@ -279,30 +308,66 @@ class CppASICore:
         self._load_library()
 
     def _load_library(self):
-        """Tenta carregar a DLL compilada."""
+        """Tenta carregar a DLL compilada com busca dinâmica de dependências."""
         dll_name = "asi_core.dll" if sys.platform == "win32" else "libasi_core.so"
         
-        # Adicionar runtime paths do MSYS2 para resolver dependências (libstdc++, libgcc, etc.)
-        msys2_paths = [
-            r"D:\msys64\ucrt64\bin",
-            r"D:\msys64\mingw64\bin",
-            r"C:\msys64\ucrt64\bin",
-            r"C:\msys64\mingw64\bin",
-        ]
-        for mpath in msys2_paths:
-            if os.path.isdir(mpath):
-                try:
-                    os.add_dll_directory(mpath)
-                except (OSError, AttributeError):
-                    os.environ["PATH"] = mpath + ";" + os.environ.get("PATH", "")
+        # [PHASE Ω-STRICT] Dynamic MSYS2/MinGW DLL Resolution
+        import shutil
+        env_msys = os.getenv("MSYS2_PATH") or os.getenv("MSYS2_ROOT")
+        possible_msys_roots = [env_msys] if env_msys else []
         
-        # Possíveis locais da DLL (Ordem de preferência: Versões novas para hot-swap)
+        # [Phase 14] Dynamic Inference via GCC
+        gcc_path = shutil.which("gcc")
+        if gcc_path:
+            # If gcc is in C:/msys64/mingw64/bin/gcc.exe, root is C:/msys64
+            norm_gcc = gcc_path.replace("\\", "/")
+            if "/bin/gcc" in norm_gcc:
+                parts = norm_gcc.split("/")
+                try:
+                    # Find 'msys64' or similar in the path
+                    for i, part in enumerate(parts):
+                        if "msys" in part.lower():
+                            root = "/".join(parts[:i+1])
+                            if root not in possible_msys_roots:
+                                possible_msys_roots.append(root)
+                            break
+                except: pass
+
+        # Fallbacks (Ordered by probability)
+        for drive in ["C", "D", "E", "F", "G"]:
+            root = f"{drive}:/msys64"
+            if root not in possible_msys_roots:
+                possible_msys_roots.append(root)
+        
+        for root in possible_msys_roots:
+            if not root or not os.path.exists(root):
+                continue
+            
+            # Subdiretórios comuns de binários no MSYS2 (UCRT64 é o padrão moderno)
+            for sub in ["ucrt64/bin", "mingw64/bin", "usr/bin", "bin"]:
+                mpath = os.path.join(root, sub).replace("\\", "/")
+                if os.path.isdir(mpath):
+                    try:
+                        # [PHASE Ω-SECURITY] Persistent DLL injection for Windows
+                        if hasattr(os, "add_dll_directory"):
+                            os.add_dll_directory(mpath)
+                        
+                        # Fallback for older Python or specific environment needs
+                        if mpath not in os.environ.get("PATH", ""):
+                            os.environ["PATH"] = mpath + os.pathsep + os.environ.get("PATH", "")
+                        
+                        log.debug(f"💉 MSYS2 path injected: {mpath}")
+                    except Exception as e:
+                        log.debug(f"Failed to add DLL directory {mpath}: {e}")
+        
+        # Possíveis locais da DLL (Ordem de preferência: Versões novas -> Coração do projeto)
+        base_dir = os.path.dirname(os.path.abspath(__file__))
         search_paths = [
-            os.path.join(os.path.dirname(__file__), "..", "asi_core_v3.dll"), # Versão Ω-Extreme
-            os.path.join(os.path.dirname(__file__), "..", "asi_core_v2.dll"), # Nova versão (Phase 41)
-            os.path.join(os.path.dirname(__file__), "..", dll_name),           # Versão padrão
-            os.path.join(os.path.dirname(__file__), "..", "cpp", "build", "Release", dll_name),
-            os.path.join(os.path.dirname(__file__), "..", "cpp", "build", dll_name),
+            os.path.join(base_dir, "..", "asi_core_v3.dll"),
+            os.path.join(base_dir, "..", dll_name),
+            os.path.join(base_dir, dll_name),
+            os.path.join(base_dir, "build", dll_name),
+            os.path.join(base_dir, "build", "Release", dll_name),
         ]
 
         for path in search_paths:
@@ -311,13 +376,15 @@ class CppASICore:
                 try:
                     self._lib = ctypes.CDLL(abs_path)
                     self._setup_signatures()
-                    # PHASE 41 — Signal Convergence
-                    self._lib.asi_converge_signals.argtypes = [
-                        ctypes.POINTER(AgentRawSignal), ctypes.c_int,
-                        ctypes.c_double, ctypes.c_double,
-                        ctypes.POINTER(ConvergenceResult)
-                    ]
-                    self._lib.asi_converge_signals.restype = None
+                    
+                    # Manual override for signatures not in _setup_signatures
+                    if hasattr(self._lib, "asi_converge_signals"):
+                        self._lib.asi_converge_signals.argtypes = [
+                            ctypes.POINTER(AgentRawSignal), ctypes.c_int,
+                            ctypes.c_double, ctypes.c_double,
+                            ctypes.POINTER(ConvergenceResult)
+                        ]
+                        self._lib.asi_converge_signals.restype = None
                     
                     self._available = True
                     self._loaded = True
@@ -326,7 +393,8 @@ class CppASICore:
                 except Exception as e:
                     log.warning(f"Falha ao carregar C++ DLL de {abs_path}: {e}")
         
-        log.warning("⚠️ C++ ASI Core não encontrado — usando fallback Python (NumPy)")
+        log.critical("⚠️ C++ ASI Core (asi_core.dll) NÃO ENCONTRADO!")
+        log.info("Certifique-se que o módulo foi compilado e está na raiz ou na pasta /cpp")
 
     @property
     def is_loaded(self) -> bool:
@@ -441,6 +509,10 @@ class CppASICore:
         lib.asi_simulate_4096_hyperspace.argtypes = [ctypes.POINTER(ctypes.c_double), ctypes.c_int, ctypes.c_double, ctypes.POINTER(HyperspaceOutputC)]
         lib.asi_simulate_4096_hyperspace.restype = None
 
+        # [Ω-FIX] Lorentz Clock (Phase Ω-Extreme)
+        lib.asi_lorentz_clock_update.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.POINTER(LorentzClockResultC)]
+        lib.asi_lorentz_clock_update.restype = None
+
         # Phase Ω-Next: LGNN & Thermodynamics
         lib.asi_calculate_lgnn.argtypes = [
             ctypes.POINTER(TickData), ctypes.c_int,
@@ -548,9 +620,7 @@ class CppASICore:
         ]
         lib.asi_calculate_chaos.restype = None
 
-        # PHASE Ω-EXTREME
-        lib.asi_lorentz_clock_update.argtypes = [ctypes.c_double, ctypes.c_double, ctypes.c_double, ctypes.POINTER(LorentzClockResultC)]
-        lib.asi_lorentz_clock_update.restype = None
+        # PHASE Ω-EXTREME (Lorentz is already defined above)
 
         lib.asi_calculate_phi.argtypes = [ctypes.POINTER(AgentSignal), ctypes.c_int, ctypes.POINTER(ctypes.c_double), ctypes.POINTER(ConsciousnessResultC)]
         lib.asi_calculate_phi.restype = None
@@ -646,25 +716,59 @@ class CppASICore:
     # ═══════════════════════════════════════════════════════════
 
     def ema(self, close: np.ndarray, period: int) -> np.ndarray:
+        if not self._lib or close is None or len(close) == 0:
+            return np.zeros_like(close) if close is not None else np.array([])
+        
         close = self._ensure_f64(close)
+        # [PHASE Ω-STRICT] Input Validation Guard
+        if np.any(np.isnan(close)) or np.any(np.isinf(close)):
+            log.warning("⚠️ [FFI] NaN/Inf detected in EMA input. Bailing to avoid C++ crash.")
+            return np.zeros_like(close)
+
         out = np.zeros(len(close), dtype=np.float64)
         self._lib.asi_ema(self._ptr(close), len(close), period, self._ptr(out))
         return out
 
     def rsi(self, close: np.ndarray, period: int = 14) -> np.ndarray:
+        if not self._lib or close is None or len(close) == 0:
+            return np.zeros_like(close) if close is not None else np.array([])
+            
         close = self._ensure_f64(close)
+        if np.any(np.isnan(close)) or np.any(np.isinf(close)):
+            log.warning("⚠️ [FFI] NaN/Inf detected in RSI input.")
+            return np.zeros_like(close)
+
         out = np.zeros(len(close), dtype=np.float64)
         self._lib.asi_rsi(self._ptr(close), len(close), period, self._ptr(out))
         return out
 
     def atr(self, high: np.ndarray, low: np.ndarray, close: np.ndarray, period: int = 14) -> np.ndarray:
+        if not self._lib or any(x is None or len(x) == 0 for x in [high, low, close]):
+            return np.zeros_like(close) if close is not None else np.array([])
+            
         high, low, close = self._ensure_f64(high), self._ensure_f64(low), self._ensure_f64(close)
+        
+        # [PHASE Ω-STRICT] Input Validation Guard
+        for arr, name in zip([high, low, close], ["High", "Low", "Close"]):
+            if np.any(np.isnan(arr)) or np.any(np.isinf(arr)):
+                log.warning(f"⚠️ [FFI] NaN/Inf detected in ATR {name} input.")
+                return np.zeros_like(close)
+
         out = np.zeros(len(close), dtype=np.float64)
         self._lib.asi_atr(self._ptr(high), self._ptr(low), self._ptr(close), len(close), period, self._ptr(out))
         return out
 
     def bollinger(self, close: np.ndarray, period: int = 20, num_std: float = 2.0) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        if not self._lib or close is None or len(close) == 0: 
+            z = np.zeros_like(close) if close is not None else np.array([])
+            return z, z, z, z
+            
         close = self._ensure_f64(close)
+        if np.any(np.isnan(close)) or np.any(np.isinf(close)):
+            log.warning("⚠️ [FFI] NaN/Inf detected in Bollinger input.")
+            z = np.zeros_like(close)
+            return z, z, z, z
+
         n = len(close)
         upper = np.zeros(n, dtype=np.float64)
         middle = np.zeros(n, dtype=np.float64)
@@ -675,7 +779,16 @@ class CppASICore:
         return upper, middle, lower, width
 
     def macd(self, close: np.ndarray, fast: int = 12, slow: int = 26, signal: int = 9) -> Tuple[np.ndarray, np.ndarray, np.ndarray]:
+        if not self._lib or close is None or len(close) == 0:
+            z = np.zeros_like(close) if close is not None else np.array([])
+            return z, z, z
+            
         close = self._ensure_f64(close)
+        if np.any(np.isnan(close)) or np.any(np.isinf(close)):
+            log.warning("⚠️ [FFI] NaN/Inf detected in MACD input.")
+            z = np.zeros_like(close)
+            return z, z, z
+
         n = len(close)
         macd_line = np.zeros(n, dtype=np.float64)
         signal_line = np.zeros(n, dtype=np.float64)
@@ -707,6 +820,7 @@ class CppASICore:
     # ═══════════════════════════════════════════════════════════
 
     def process_orderflow(self, ticks: list) -> dict:
+        if not self._lib: return {}
         """Processa lista de dicts de ticks em C++."""
         count = len(ticks)
         if count == 0:
@@ -740,6 +854,7 @@ class CppASICore:
 
     def aggregate_signals(self, signals: list, regime_weight: float = 1.0, 
                           signal_threshold: float = 0.3, coherence_threshold: float = 0.6) -> dict:
+        if not self._lib: return {}
         """Agrega sinais de agentes neurais em C++."""
         count = len(signals)
         if count == 0:
@@ -769,16 +884,20 @@ class CppASICore:
     # ═══════════════════════════════════════════════════════════
 
     def kelly_criterion(self, win_rate: float, avg_win: float, avg_loss: float) -> float:
+        if not self._lib: return 0.5
         return self._lib.asi_kelly_criterion(win_rate, avg_win, avg_loss)
 
     def optimal_lot_size(self, balance: float, risk_pct: float,
                           sl_distance: float, point_value: float) -> float:
+        if not self._lib: return 0.01
         return self._lib.asi_optimal_lot_size(balance, risk_pct, sl_distance, point_value)
 
     def non_ergodic_growth_rate(self, win_rate: float, avg_win_pct: float, avg_loss_pct: float, leverage: float) -> float:
+        if not self._lib: return 0.0
         return self._lib.asi_non_ergodic_growth_rate(win_rate, avg_win_pct, avg_loss_pct, leverage)
 
     def ito_lot_sizing(self, balance: float, win_rate: float, mu: float, sigma: float, dt: float) -> float:
+        if not self._lib: return 0.01
         return self._lib.asi_ito_lot_sizing(balance, win_rate, mu, sigma, dt)
 
     # ═══════════════════════════════════════════════════════════
@@ -786,15 +905,29 @@ class CppASICore:
     # ═══════════════════════════════════════════════════════════
 
     def fractal_dimension(self, data: np.ndarray, max_box: int = 64) -> float:
+        if not self._lib or data is None or len(data) == 0:
+            return 1.5
         data = self._ensure_f64(data)
+        if np.any(np.isnan(data)) or np.any(np.isinf(data)):
+             return 1.5
         return self._lib.asi_fractal_dimension(self._ptr(data), len(data), max_box)
 
     def vpin_proxy(self, open_p: np.ndarray, close: np.ndarray, volume: np.ndarray, lookback: int = 5) -> float:
+        if not self._lib or any(x is None or len(x) == 0 for x in [open_p, close, volume]):
+            return 0.5
         open_p, close, volume = self._ensure_f64(open_p), self._ensure_f64(close), self._ensure_f64(volume)
+        if any(np.any(np.isnan(x)) or np.any(np.isinf(x)) for x in [open_p, close, volume]):
+            return 0.5
         return self._lib.asi_vpin_proxy(self._ptr(open_p), self._ptr(close), self._ptr(volume), len(close), lookback)
 
     def phase_space(self, closes: np.ndarray, lookback: int = 10) -> dict:
+        def_ret = {"orbit_radius": 0.0, "global_orbit": 0.0, "compression_ratio": 1.0, "is_compressed": False}
+        if not self._lib or not self._loaded or closes is None or len(closes) == 0:
+            return def_ret
         closes = self._ensure_f64(closes)
+        if np.any(np.isnan(closes)) or np.any(np.isinf(closes)):
+            return def_ret
+            
         result = PhaseSpaceResultC()
         self._lib.asi_phase_space(self._ptr(closes), len(closes), lookback, ctypes.byref(result))
         return {
@@ -805,18 +938,22 @@ class CppASICore:
         }
 
     def kurtosis(self, data: np.ndarray) -> float:
+        if not self._lib: return 3.0
         data = self._ensure_f64(data)
         return self._lib.asi_kurtosis(self._ptr(data), len(data))
 
     def cross_scale_correlation(self, series_a: np.ndarray, series_b: np.ndarray) -> float:
+        if not self._lib: return 0.0
         series_a, series_b = self._ensure_f64(series_a), self._ensure_f64(series_b)
         return self._lib.asi_cross_scale_correlation(self._ptr(series_a), len(series_a), self._ptr(series_b), len(series_b))
 
     def tick_entropy(self, bids: np.ndarray, bins: int = 10) -> float:
+        if not self._lib: return 0.0
         bids = self._ensure_f64(bids)
         return self._lib.asi_tick_entropy(self._ptr(bids), len(bids), bins)
 
     def find_swings(self, highs: np.ndarray, lows: np.ndarray, lookback: int = 5) -> Tuple[list, list]:
+        if not self._lib: return [], []
         highs = self._ensure_f64(highs)
         lows = self._ensure_f64(lows)
         n = len(highs)
@@ -835,6 +972,7 @@ class CppASICore:
         return sw_highs, sw_lows
 
     def navier_stokes_pressure(self, bid_vols: np.ndarray, ask_vols: np.ndarray) -> Tuple[float, float]:
+        if not self._lib: return 0.5, 0.0
         bid_vols = self._ensure_f64(bid_vols)
         ask_vols = self._ensure_f64(ask_vols)
         ratio = ctypes.c_double(0.0)
@@ -845,10 +983,12 @@ class CppASICore:
         return ratio.value, pressure.value
 
     def calc_micro_variance(self, data: np.ndarray) -> float:
+        if not self._lib: return 0.0
         data = self._ensure_f64(data)
         return self._lib.asi_calc_micro_variance(self._ptr(data), len(data))
 
     def monte_carlo_merton(self, params: dict) -> dict:
+        if not self._lib: return {"win_prob": 0.5, "expected_return": 0.0, "var_95": 0.0, "cvar_95": 0.0, "simulation_time_ms": 0.0}
         inp = MonteCarloInputC()
         inp.S0 = params["S0"]
         inp.mu = params["mu"]
@@ -905,6 +1045,7 @@ class CppASICore:
         }
 
     def simulate_4096_hyperspace(self, closes: np.ndarray, current_volatility: float) -> dict:
+        if not self._lib: return {"confidence_boost": 0.0, "expected_max_excursion": 0.0, "probability_density": 0.0, "hyperspace_time_ms": 0.0}
         closes = self._ensure_f64(closes)
         out = HyperspaceOutputC()
         self._lib.asi_simulate_4096_hyperspace(self._ptr(closes), len(closes), current_volatility, ctypes.byref(out))
@@ -1045,15 +1186,15 @@ class CppASICore:
 
     # ═══ STIGMERGY ═══
     def deposit_pheromone(self, price: float, intensity: float, decay: float = 0.05):
-        if not self._loaded: return
+        if not self._lib: return
         self._lib.asi_deposit_pheromone(price, intensity, decay)
 
     def sense_pheromone(self, price: float) -> float:
-        if not self._loaded: return 0.0
-        return self._lib.asi_lib.asi_sense_pheromone(price)
+        if not self._lib: return 0.0
+        return self._lib.asi_sense_pheromone(price)
 
     def update_pheromones(self, dt: float = 1.0):
-        if not self._loaded: return
+        if not self._lib: return
         self._lib.asi_update_pheromone_field(dt)
 
     @catch_and_log(default_return=None)
@@ -1198,10 +1339,16 @@ class CppASICore:
     # ═══════════════════════════════════════════════════════════
 
     @catch_and_log(default_return=None)
-    def lorentz_clock_update(self, volatility: float, volume: float, physical_dt: float) -> dict:
+    def lorentz_clock_update(self, volatility: float, volume: float, physical_dt: float, market_c_scale: float = 1000.0) -> dict:
         if not self._loaded: return None
         result = LorentzClockResultC()
-        self._lib.asi_lorentz_clock_update(volatility, volume, physical_dt, ctypes.byref(result))
+        self._lib.asi_lorentz_clock_update(
+            ctypes.c_double(volatility), 
+            ctypes.c_double(volume), 
+            ctypes.c_double(physical_dt), 
+            ctypes.c_double(market_c_scale),
+            ctypes.byref(result)
+        )
         return {
             "internal_dt": result.internal_time_passed,
             "dilation": result.dilation_factor,
@@ -1210,7 +1357,7 @@ class CppASICore:
 
     @catch_and_log(default_return=None)
     def calculate_phi(self, signals: list, weights: Optional[np.ndarray] = None) -> dict:
-        if not self._loaded: return None
+        if not self._lib or not self._loaded: return None
         count = len(signals)
         sig_array = (AgentSignal * count)()
         for i, s in enumerate(signals):
@@ -1364,31 +1511,31 @@ class CppASICore:
     # ═══ GEOMETRIC SPECTRAL ANALYSIS (Phase Ω-Genesis) ═══
 
     def calculate_spectral_flux(self, data: np.ndarray) -> float:
-        if not self._loaded: return 0.0
+        if not self._lib: return 0.0
         d = self._ensure_f64(data)
         return self._lib.calculate_spectral_flux(self._ptr(d), len(d))
 
     def calculate_berry_curvature(self, signals: np.ndarray, n_agents: int, n_steps: int) -> float:
-        if not self._loaded: return 0.0
+        if not self._lib: return 0.0
         s = self._ensure_f64(signals)
         return self._lib.calculate_berry_curvature(self._ptr(s), n_agents, n_steps)
 
     # ═══ QUANTUM FIELD THEORY (Phase Ω-Aethel) ═══
 
     def calculate_fermi_pressure(self, volumes: np.ndarray, temperature: float) -> float:
-        if not self._loaded: return 0.0
+        if not self._lib: return 0.0
         v = self._ensure_f64(volumes)
         return self._lib.calculate_fermi_pressure(self._ptr(v), len(v), ctypes.c_double(temperature))
 
     def calculate_chern_simons_index(self, x: np.ndarray, y: np.ndarray, z: np.ndarray) -> float:
-        if not self._loaded: return 0.0
+        if not self._lib: return 0.0
         vx = self._ensure_f64(x)
         vy = self._ensure_f64(y)
         vz = self._ensure_f64(z)
         return self._lib.calculate_chern_simons_index(self._ptr(vx), self._ptr(vy), self._ptr(vz), len(vx))
 
     def calculate_byzantine_penalties(self, errors: np.ndarray, penalties: np.ndarray):
-        if not self._loaded: return
+        if not self._lib: return
         e = self._ensure_f64(errors)
         p = self._ensure_f64(penalties)
         self._lib.calculate_byzantine_penalties(self._ptr(e), len(e), self._ptr(p))

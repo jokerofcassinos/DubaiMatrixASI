@@ -42,15 +42,15 @@ DECISION_CYCLE_MS = 500           # Ciclo de decisão (ms)
 EVOLUTION_CYCLE_SECONDS = 60      # Ciclo de auto-evolução (s)
 
 # ═══════════════════════════════════════════════════════════════
-#  NEURAL SWARM
+#  NEURAL SWARM (LEGACY - Sobrescrito pelo OMEGA)
 # ═══════════════════════════════════════════════════════════════
-SWARM_AGENT_COUNT = 1000          # Número de micro-agentes analíticos
+SWARM_AGENT_COUNT = 1000          # Número de micro-agentes analíticos (Informativo)
 SWARM_MIN_CONFIDENCE = 0.65       # Confiança mínima para um agente emitir sinal
 SWARM_CONVERGENCE_THRESHOLD = 0.75  # % mínimo de agentes concordando para trigger
 SWARM_UNANIMITY_BOOST = 1.5      # Multiplicador quando há unanimidade
 
 # ═══════════════════════════════════════════════════════════════
-#  QUANTUM THOUGHT
+#  QUANTUM THOUGHT (LEGACY - Sobrescrito pelo OMEGA)
 # ═══════════════════════════════════════════════════════════════
 QUANTUM_DIMENSIONS = 256          # Dimensões do espaço quântico de análise
 QUANTUM_SUPERPOSITION_DECAY = 0.95  # Fator de decaimento de superposição

@@ -67,10 +67,14 @@ class ASIBrain:
         self.predator_engine = ShadowPredatorEngine()
         
         self.regime_detector = RegimeDetector()
-        self.neural_swarm = NeuralSwarm(memory=self.memory, predator_engine=self.predator_engine)
         self.quantum_thought = QuantumThoughtEngine()
-        
         self.trinity_core = TrinityCore()
+        
+        self.neural_swarm = NeuralSwarm(
+            memory=self.memory, 
+            predator_engine=self.predator_engine,
+            t_cell=self.trinity_core.t_cell if hasattr(self.trinity_core, 't_cell') else None
+        )
         
         self.risk_engine = RiskQuantumEngine()
         
@@ -205,6 +209,10 @@ class ASIBrain:
             regime_weight=regime_aggression,
             v_pulse_detected=snapshot.metadata.get("v_pulse_detected", False)
         )
+        # [PHASE Ω-EVOLUTION] Swarm Authority Modulation
+        if quantum_state:
+            self.neural_swarm.modulate_authority(quantum_state.coherence)
+            
         snapshot.metadata["phi_last"] = quantum_state.phi
         snapshot.metadata["raw_signal"] = quantum_state.raw_signal
         snapshot.metadata["coherence_last"] = quantum_state.coherence
@@ -543,7 +551,7 @@ class ASIBrain:
                     raw_signals = [float(s.get("signal", 0.0) if isinstance(s, dict) else getattr(s, 'signal', 0.0)) 
                                    for s in intent["agent_signals"]]
                     actual_outcome = 1.0 if net_profit > 0 else -1.0
-                    self.swarm.byzantine.update_consensus(raw_signals, actual_outcome)
+                    self.neural_swarm.byzantine.update_consensus(raw_signals, actual_outcome)
             
             # Anti-Ping-Pong
             if is_new and net_profit < 0:

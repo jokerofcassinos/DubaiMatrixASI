@@ -7,7 +7,9 @@ import sys
 import os
 
 # Add project root to path
-sys.path.append(os.getcwd())
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
 from core.decision.trinity_core import TrinityCore, Action
 from core.consciousness.quantum_thought import QuantumState
@@ -16,6 +18,8 @@ from core.consciousness.regime_detector import RegimeState, MarketRegime
 class TestLiquidityShield(unittest.TestCase):
     def setUp(self):
         self.trinity = TrinityCore()
+        # Bypass cold start
+        self.trinity._startup_timestamp = time.time() - 3600
 
     def test_creeping_bull_sl_expansion(self):
         """Verifica se o SL é expandido em regime CREEPING_BULL."""

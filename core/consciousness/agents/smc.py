@@ -22,8 +22,14 @@ from cpp.asi_bridge import CPP_CORE
 # ═══════════════════════════════════════════════════════════════
 
 def _find_swing_highs_lows(highs, lows, closes, lookback: int = 5):
-    """Identifica Swing Highs e Swing Lows em C++."""
-    return CPP_CORE.find_swings(highs, lows, lookback)
+    """Identifica Swing Highs e Swing Lows. Tenta C++ primeiro, fallback em Python."""
+    try:
+        res = CPP_CORE.find_swings(highs, lows, lookback)
+        if res and len(res[0]) > 0:
+            return res
+    except:
+        pass
+        
     n = len(highs)
     swing_highs = []
     swing_lows = []

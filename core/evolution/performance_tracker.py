@@ -355,7 +355,25 @@ class PerformanceTracker:
             d: data["wins"] / data["total"] if data["total"] > 0 else 0.0
             for d, data in dirs.items()
         }
-
+    def check_ghost_positions(self, active_mt5_tickets: List[int]):
+        """
+        Detecta 'Ghost Positions' — posições que a ASI acha que existem mas o MT5 não.
+        """
+        registered_active = {t.ticket for t in self._trades if not t.exit_time}
+        ghosts = registered_active - set(active_mt5_tickets)
+        
+        if ghosts:
+            for g_ticket in ghosts:
+                log.critical(f"👻 GHOST POSITION DETECTED: Ticket #{g_ticket} missing in MT5!")
+                # [Phase Ω-Hardening] Marcar como fechado em erro para não poluir análise
+                for t in self._trades:
+                    if t.ticket == g_ticket:
+                        t.exit_time = datetime.now(timezone.utc).isoformat()
+                        t.comment += " | GHOST_SYNC_ERROR"
+            self._recalculate_all_metrics()
+            self._save_history()
+            return list(ghosts)
+        return []
     @property
     def recent_stats(self) -> dict:
         """Métricas dos últimos 50 trades para adaptação rápida."""

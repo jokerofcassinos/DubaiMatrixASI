@@ -19,9 +19,9 @@ input int      InpSlippage    = 10;           // Slippage máximo
 int socket_handle = INVALID_HANDLE;
 
 // --- ESTRUTURAS DE COMANDO ---
-void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp);
+void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp, string strike_id);
 void ExecuteSonarProbe(string symbol, string side, double lot, double price, int duration_ms);
-void ExecuteTrade(string action, string symbol, double lot, double sl, double tp);
+void ExecuteTrade(string action, string symbol, double lot, double sl, double tp, string strike_id);
 void ExecuteClose(ulong ticket);
 
 //+------------------------------------------------------------------+
@@ -206,8 +206,9 @@ void ProcessSingleCommand(string cmd)
       double lot = StringToDouble(parts[2 + offset]);
       double sl = StringToDouble(parts[3 + offset]);
       double tp = StringToDouble(parts[4 + offset]);
+      string strike_id = (count > 5 + offset) ? parts[5 + offset] : "";
       
-      ExecuteTrade(trade_action, symbol, lot, sl, tp);
+      ExecuteTrade(trade_action, symbol, lot, sl, tp, strike_id);
      }
    else if(action == "LIMIT")
      {
@@ -218,8 +219,9 @@ void ProcessSingleCommand(string cmd)
       double price = StringToDouble(parts[4]);
       double sl = StringToDouble(parts[5]);
       double tp = StringToDouble(parts[6]);
+      string strike_id = (count > 7) ? parts[7] : "";
       
-      ExecuteLimitOrder(side, symbol, lot, price, sl, tp);
+      ExecuteLimitOrder(side, symbol, lot, price, sl, tp, strike_id);
      }
    else if(action == "SONAR")
      {
@@ -243,7 +245,7 @@ void ProcessSingleCommand(string cmd)
 //+------------------------------------------------------------------+
 //| Executa a Ordem                                                  |
 //+------------------------------------------------------------------+
-void ExecuteTrade(string action, string symbol, double lot, double sl, double tp)
+void ExecuteTrade(string action, string symbol, double lot, double sl, double tp, string strike_id)
   {
    MqlTradeRequest request;
    MqlTradeResult  result;
@@ -274,9 +276,9 @@ void ExecuteTrade(string action, string symbol, double lot, double sl, double tp
    bool success = OrderSend(request, result);
    if(success)
      {
-      string msg = "RESULT|" + action + "|SUCCESS|" + IntegerToString(result.deal) + "|" + DoubleToString(result.price, _Digits) + "\n";
+      string msg = "RESULT|" + action + "|SUCCESS|" + IntegerToString(result.deal) + "|" + DoubleToString(result.price, _Digits) + "|" + strike_id + "\n";
       SendTCP(msg);
-      Print("✅ DEFERIDO: ", result.deal, " @ ", result.price);
+      Print("✅ DEFERIDO: ", result.deal, " @ ", result.price, " | Strike: ", strike_id);
      }
    else
      {
@@ -351,7 +353,7 @@ void ExecuteClose(ulong ticket)
 //+------------------------------------------------------------------+
 //| Execute Limit Order (Phase 30/Singularity)                       |
 //+------------------------------------------------------------------+
-void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp)
+void ExecuteLimitOrder(string side, string symbol, double lot, double price, double sl, double tp, string strike_id)
   {
    MqlTradeRequest request;
    MqlTradeResult  result;
@@ -374,9 +376,9 @@ void ExecuteLimitOrder(string side, string symbol, double lot, double price, dou
    
    if(OrderSend(request, result))
      {
-      string msg = "RESULT|LIMIT|SUCCESS|" + IntegerToString(result.order) + "|" + DoubleToString(price, _Digits) + "\n";
+      string msg = "RESULT|LIMIT|SUCCESS|" + IntegerToString(result.order) + "|" + DoubleToString(price, _Digits) + "|" + strike_id + "\n";
       SendTCP(msg);
-      Print("✅ LIMIT DEFERIDO: ", result.order, " @ ", price);
+      Print("✅ LIMIT DEFERIDO: ", result.order, " @ ", price, " | Strike: ", strike_id);
      }
    else
      {

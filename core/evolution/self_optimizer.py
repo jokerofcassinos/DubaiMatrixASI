@@ -223,25 +223,34 @@ class SelfOptimizer:
         after_fitness = self.mutation_engine._compute_fitness(current_perf)
 
         improved = after_fitness >= before_fitness
-
-        if improved:
-            log.omega(f"✨ MUTAÇÃO VALIDADA — Fitness subiu de {before_fitness:.4f} para {after_fitness:.4f}")
-            # Aquece o sistema (mais flexível a pioras no futuro)
-            self.mutation_engine._exploration_rate = min(0.3, self.mutation_engine._exploration_rate * 1.1)
-        else:
+        
+        if not improved:
             # [Phase Ω-Singularity] Simulated Annealing (Metrópolis-Hastings)
+            # Normalizamos delta_e pela magnitude do fitness original para manter P estável
+            # em diferentes regimes de escala de lucro/drawdown.
             delta_e = after_fitness - before_fitness
-            temperature = max(0.01, self.mutation_engine._exploration_rate * 100) # Ex: 0.15 * 100 = 15
+            scaling_factor = max(1.0, abs(before_fitness))
+            norm_delta_e = delta_e / scaling_factor
             
-            p_accept = np.exp(delta_e / temperature)
+            # Temperatura baseada na taxa de exploração (0.05 a 0.3)
+            temperature = max(0.01, self.mutation_engine._exploration_rate)
+            
+            p_accept = np.exp(norm_delta_e / temperature)
             
             if np.random.random() < p_accept:
-                log.omega(f"🔥 [QUANTUM ANNEALING] Mutação sub-ótima ACEITA (P={p_accept:.2%}) para escapar de mínimo local.")
+                log.omega(f"🔥 [QUANTUM ANNEALING] Mutação sub-ótima ACEITA (P={p_accept:.2%}, ΔE_norm={norm_delta_e:.4f}) para escapar de mínimo local.")
+                improved = True # Tratamos como se tivesse melhorado para manter a mutação
             else:
-                log.omega(f"❌ MUTAÇÃO REJEITADA (P={p_accept:.2%} de aceitar) — Revertendo. Fitness caiu de {before_fitness:.4f} para {after_fitness:.4f}")
+                log.omega(f"❌ MUTAÇÃO REJEITADA (P={p_accept:.2%}) — Revertendo. Fitness caiu de {before_fitness:.4f} para {after_fitness:.4f}")
                 self.mutation_engine.revert_last_mutations()
-                
-            # Resfria o sistema
+
+        if improved:
+            if after_fitness > before_fitness:
+                log.omega(f"✨ MUTAÇÃO VALIDADA — Fitness subiu de {before_fitness:.4f} para {after_fitness:.4f}")
+            # Aquece o sistema se melhorou (mais flexível a pioras no futuro)
+            self.mutation_engine._exploration_rate = min(0.3, self.mutation_engine._exploration_rate * 1.1)
+        else:
+            # Resfria o sistema se falhou e não foi aceito pelo Annealing
             self.mutation_engine._exploration_rate = max(0.05, self.mutation_engine._exploration_rate * 0.9)
 
         self._pre_mutation_performance = None

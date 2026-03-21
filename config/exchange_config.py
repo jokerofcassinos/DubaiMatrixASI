@@ -5,13 +5,29 @@
 ╚══════════════════════════════════════════════════════════════════════════════╝
 """
 
+import os
+from dotenv import load_dotenv
+
+# Carregar variáveis de ambiente do .env
+load_dotenv()
+
 # ═══════════════════════════════════════════════════════════════
 #  MT5 CONNECTION
 # ═══════════════════════════════════════════════════════════════
-MT5_LOGIN = None           # Será configurado pelo CEO
-MT5_PASSWORD = None        # Será configurado pelo CEO
-MT5_SERVER = None          # Será configurado pelo CEO
-MT5_PATH = None            # Caminho do terminal MT5 (ex: "C:/Program Files/MetaTrader 5/terminal64.exe")
+MT5_LOGIN = os.getenv("MT5_LOGIN")
+MT5_PASSWORD = os.getenv("MT5_PASSWORD")
+MT5_SERVER = os.getenv("MT5_SERVER")
+MT5_PATH = os.getenv("MT5_PATH", "") # Path can be optional/empty for default install
+
+# [PHASE 14 SECURITY] Strict Validation
+if not MT5_LOGIN or not MT5_PASSWORD or not MT5_SERVER:
+    print("\n" + "!"*60)
+    print("❌ CRITICAL SECURITY ERROR: Missing MT5 Credentials in .env")
+    print("Ensure MT5_LOGIN, MT5_PASSWORD, and MT5_SERVER are set.")
+    print("!"*60 + "\n")
+    raise SystemExit("Missing critical environment variables.")
+
+MT5_LOGIN = int(MT5_LOGIN)
 MT5_TIMEOUT_MS = 10000     # Timeout de conexão em ms
 
 # ═══════════════════════════════════════════════════════════════

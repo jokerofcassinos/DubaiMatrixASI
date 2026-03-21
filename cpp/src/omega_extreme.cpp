@@ -8,7 +8,7 @@
 //  LORENTZ CLOCK: RELATIVISTIC TIME DILATION
 // ═══════════════════════════════════════════════════════════
 
-void asi_lorentz_clock_update(double volatility, double volume, double physical_dt, LorentzClockResult* out) {
+ASI_API void asi_lorentz_clock_update(double volatility, double volume, double physical_dt, double market_c_scale, LorentzClockResult* out) {
     if (!out) return;
 
     // A "Energia Cinética" do mercado é o motor da dilatação
@@ -18,10 +18,8 @@ void asi_lorentz_clock_update(double volatility, double volume, double physical_
 
     // Constante 'c' do mercado (Velocidade limite de info)
     // Se a energia for muito alta, o tempo dilata.
-    // Usamos um threshold adaptativo para 'c'
-    const double MARKET_C = 1000.0; // Valor de calibração biomecânica
-    
-    double beta = kinetic_energy / MARKET_C;
+    // O market_c_scale deve ser calibrado pelo TrinityCore (~1000.0 default)
+    double beta = kinetic_energy / (market_c_scale + 1e-9);
     if (beta > 0.99) beta = 0.99; // Prevenir singularidade
 
     // Fator Gamma: γ = 1 / sqrt(1 - β²)

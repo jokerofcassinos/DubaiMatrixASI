@@ -47,6 +47,15 @@ class RiskQuantumEngine:
         if balance <= 0 or stop_loss_distance <= 0:
             return MIN_LOT_SIZE
 
+        # [PHASE 14 FIX] Initialize variables to prevent UnboundLocalError
+        risk_fraction = OMEGA.get("risk_fraction_per_trade", 0.05)
+        pnl_pred = "STABLE"
+        is_lethal = False
+        is_stable_drift = False
+        is_consensus_absolute = False
+        kl_shift = False
+        reason = "None"
+
         # Use metrics from asi_state if they are more reliable/recent
         wr = win_rate
         aw = avg_win
@@ -78,6 +87,7 @@ class RiskQuantumEngine:
         rr = aw / al if al > 0 else 1.0
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══
+        risk_fraction = 0.01 # Initializing to prevent UnboundLocalError if non-ergodic is disabled
         if OMEGA.get("non_ergodic_enabled", True):
             best_leverage = 0.0
             max_growth = -999.0

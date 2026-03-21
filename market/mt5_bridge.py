@@ -151,12 +151,18 @@ class MT5Bridge:
             return
             
         try:
+            if self.server_socket:
+                try:
+                    self.server_socket.close()
+                except:
+                    pass
+            
             self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             # Reusar endereço para evitar erro de 'port in use' após restart rápido
             self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server_socket.bind(("127.0.0.1", self.socket_port))
             self.server_socket.listen(1)
-            self.server_socket.settimeout(1.0)
+            self.server_socket.settimeout(2.0)
             
             self._socket_running = True
             self.socket_thread = threading.Thread(target=self._socket_worker, daemon=True)
@@ -179,7 +185,8 @@ class MT5Bridge:
                     continue
                 except Exception as e:
                     if self._socket_running:
-                        log.error(f"Erro ao aceitar conexão socket: {e}")
+                        log.debug(f"Aguardando conexão socket: {e}")
+                    time.sleep(1) # Backoff
                     continue
 
             try:
@@ -253,17 +260,26 @@ class MT5Bridge:
             self._ea_connected = True
 
         elif msg_type == "RESULT":
-            # Formato: RESULT|ACTION|STATUS|TICKET|PRICE
+            # Formato: RESULT|ACTION|STATUS|TICKET|PRICE|STRIKE_ID
             action = parts[1]
             status = parts[2]
-            log.info(f"📩 Resposta EA Socket: {action} -> {status} | Data: {line}")
-            if action == "LIMIT" and status == "SUCCESS":
+            strike_id = parts[5] if len(parts) > 5 else None
+            
+            log.info(f"📩 Resposta EA Socket: {action} -> {status} | Strike: {strike_id}")
+            
+            if status == "SUCCESS":
                 ticket = int(parts[3])
                 price = float(parts[4])
-                log.omega(f"🎯 LIMIT EXECUTADO: Ticket {ticket} @ {price}")
                 
-                # [PHASE Ω-EVOLVE] Sync socket ticket with intent
-                trade_registry.update_ticket(0, ticket)
+                if action in ["BUY", "SELL", "LIMIT"]:
+                    log.omega(f"🎯 {action} EXECUTADO: Ticket {ticket} @ {price} | Strike: {strike_id}")
+                    # [PHASE Ω-SYNC] Sync socket ticket with intent using unique strike_id
+                    if strike_id:
+                        trade_registry.update_ticket_by_strike(strike_id, ticket)
+                    else:
+                        # Fallback for old protocol compatibility
+                        trade_registry.update_ticket(0, ticket)
+            
             elif action == "CLOSE": # [Phase 50] Explicit close confirmation
                 log.omega(f"💀 SOCKET CLOSE CONFIRMED: {status}")
 
@@ -383,6 +399,7 @@ class MT5Bridge:
                 return self._last_socket_tick
 
         # Fallback para API oficial (Lenta)
+        if mt5 is None: return None
         tick = mt5.symbol_info_tick(self.symbol)
         if tick is None:
             return None
@@ -422,6 +439,7 @@ class MT5Bridge:
 
         bars_count = count or BARS_TO_LOAD.get(timeframe, 500)
 
+        if mt5 is None: return None
         rates = mt5.copy_rates_from_pos(self.symbol, tf_code, 0, bars_count)
         if rates is None or len(rates) == 0:
             log.warning(f"Sem dados para {self.symbol} {timeframe}")
@@ -592,7 +610,7 @@ class MT5Bridge:
     def send_limit_order(self, action: str, lot: float,
                          sl: float = 0.0, tp: float = 0.0,
                          comment: str = "ASI_LIMIT", magic: int = None,
-                         price: float = None) -> Optional[dict]:
+                         price: float = None, strike_id: str = "") -> Optional[dict]:
         """
         [Phase Ω-Eternity] Envia ordem Limit para Market Making Quântico.
         Pega a liquidez do spread e evita slippage cobrando do Varejo.
@@ -646,8 +664,8 @@ class MT5Bridge:
             request["tp"] = tp
 
         # [Phase Ω-Speed] Port to HFT Socket Bridge
-        # Command format: "LIMIT|ACTION|SYMBOL|LOT|PRICE|SL|TP"
-        cmd = f"LIMIT|{action.upper()}|{self.symbol}|{lot:.2f}|{price:.5f}|{sl:.5f}|{tp:.5f}"
+        # Command format: "LIMIT|ACTION|SYMBOL|LOT|PRICE|SL|TP|STRIKE_ID"
+        cmd = f"LIMIT|{action.upper()}|{self.symbol}|{lot:.2f}|{price:.5f}|{sl:.5f}|{tp:.5f}|{strike_id}"
         
         if self._ea_connected and self.send_socket_command(cmd):
             log.omega(f"⚡ FAST LIMIT SINALIZADO: {action} {lot} @ {price:.2f} (via socket)")
@@ -701,7 +719,8 @@ class MT5Bridge:
     def send_market_order(self, action: str, lot: float,
                           sl: float = 0.0, tp: float = 0.0,
                           comment: str = "ASI", magic: int = None,
-                          price: float = None, force_check_positions: bool = True
+                          price: float = None, force_check_positions: bool = True,
+                          strike_id: str = "" # [PHASE Ω-SYNC]
                           ) -> Optional[dict]:
         """
         Envia ordem a mercado — a arma principal da ASI.
@@ -767,9 +786,9 @@ class MT5Bridge:
             request["tp"] = tp
 
         # ═══ Phase 43: HFT Socket Open (Priority) ═══
-        # Formato: "ACTION|SYMBOL|LOT|SL|TP" (O MQL5 espera exatamente isso em ProcessSingleCommand)
+        # Formato: "ACTION|SYMBOL|LOT|SL|TP|STRIKE_ID" (O MQL5 espera exatamente isso em ProcessSingleCommand)
         # Notas: sl e tp podem ser 0.
-        cmd = f"{action.upper()}|{self.symbol}|{lot:.2f}|{sl:.2f}|{tp:.2f}"
+        cmd = f"{action.upper()}|{self.symbol}|{lot:.2f}|{sl:.2f}|{tp:.2f}|{strike_id}"
         if self.send_socket_command(cmd):
             # No HFT, não esperamos o ticket/preço real aqui para não travar o loop de disparo
             # O resultado real será processado pelo _handle_socket_data assincronamente
@@ -1138,10 +1157,14 @@ class MT5Bridge:
         
         if total_volume > 0:
             comm_per_lot = total_commission / total_volume
-            # Sanity check: comissões raramente passam de $50 ou são menores que $1
-            return max(1.0, min(50.0, comm_per_lot))
+            # [Phase Ω-Resilience] Commission Sanity:
+            # Em índices (NAS100/US30), a comissão é 0. Não forçamos 1.0 se o volume existe.
+            is_index = any(idx in target_symbol for idx in ["NAS100", "US30", "GER40", "HK50", "SP500", "DE40"])
+            min_comm = 0.0 if (is_index and total_commission == 0) else 1.0
             
-        return 7.0 # Fallback
+            return max(min_comm, min(50.0, comm_per_lot))
+            
+        return 7.0 # Fallback safety
 
     # ═══════════════════════════════════════════════════════════
     #  HEALTH CHECK

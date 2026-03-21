@@ -252,8 +252,8 @@ class DataEngine:
             # Retira ondas residuais como indicadores sintéticos
             snapshot.metadata["reservoir_waves"] = CPP_CORE.read_reservoir_output(10)
 
-            # PHASE Ω-EXTREME: Lorentz Clock Update
-            # Usamos a volatilidade GK recente e o volume do tick
+            # PHASE Ω-EXTREME: Lorentz Clock Update (Bypassed due to unstable C++ memory access)
+            """
             gk_vol = 0.0
             if "M1_gk_vol" in self._indicator_cache:
                 gk_vol = self._indicator_cache["M1_gk_vol"][-1]
@@ -271,6 +271,9 @@ class DataEngine:
                 
                 snapshot.metadata["lorentz_dilation"] = self.lorentz_dilation
                 snapshot.metadata["internal_clock"] = self.internal_clock_total
+            """
+            snapshot.metadata["lorentz_dilation"] = 1.0
+            snapshot.metadata["internal_clock"] = time.time() % 1000.0
 
         # 2. Book de ofertas (Rápido)
         snapshot.book = self.bridge.get_book()

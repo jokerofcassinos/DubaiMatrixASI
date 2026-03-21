@@ -124,6 +124,29 @@ class TradeRegistry:
             
         return intent
 
+    def update_ticket_by_strike(self, strike_id: str, new_ticket: int):
+        """Atualiza o ticket de um registro de intenção usando o strike_id como chave."""
+        with self._lock:
+            strike_key = f"strike_{strike_id}"
+            if strike_key in self.intents:
+                intent_record = self.intents[strike_key]
+                old_ticket = intent_record.get("ticket", 0)
+                
+                # Atualizar o registro
+                intent_record["ticket"] = new_ticket
+                intent_record["position_id"] = new_ticket
+                
+                # Re-indexar por novo ticket
+                self.intents[f"ticket_{new_ticket}"] = intent_record
+                self.intents[str(new_ticket)] = intent_record
+                
+                # Remover indexação antiga pelo ticket 0 se existir
+                if old_ticket == 0:
+                    self.intents.pop("ticket_0", None)
+                
+                self._save()
+                log.omega(f"🔄 SYNC: Strike {strike_id} mapeado para Ticket#{new_ticket}")
+
     def update_ticket(self, old_ticket: int, new_ticket: int):
         """Atualiza o ticket de um registro de intenção pendente."""
         with self._lock:

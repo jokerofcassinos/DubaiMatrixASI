@@ -1,0 +1,164 @@
+# 🧬 DubaiMatrixASI — Relatório PhD (Fase 4: Decision Engine)
+
+## Phase 4: Trinity Core — O Coração Decisório (1797 linhas, 110KB)
+
+### Arquitetura de Decisão (4 Macro-Estágios)
+
+```mermaid
+graph TB
+    subgraph "STAGE 1: Pre-Flight Checks"
+        CS[Cold Start Cooldown<br/>120s]
+        SS[Stale Snapshot Veto<br/>age > 1.5s]
+        KL[KL Velocity Guard<br/>Information Shock]
+        PS[Paradigm Shift<br/>KL Divergence]
+        SUP[Superposition Check<br/>Agents not converged]
+    end
+    
+    subgraph "STAGE 2: Dynamic Threshold Calculus"
+        TH[Base Thresholds<br/>buy=0.15, sell=-0.15]
+        RC[Regime Calibration<br/>15+ regime cases]
+        GM[God-Mode Reversal<br/>Panic Absorption]
+        EX[Exhaustion Sovereignty<br/>Counter-Trend Bypass]
+        EB[Entropy Bridge<br/>Temporal Convergence]
+    end
+    
+    subgraph "STAGE 3: Veto Gauntlet"
+        V1[PHI Consciousness Gate]
+        V2[Chaos Shield]
+        V3[Entropic Vacuum]
+        V4[SL/TP Calculation]
+        V5[Commission-Aware RR]
+        V6[Kinematic Exhaustion]
+        V7[Kinematic Decoupling]
+        V8[Blow-Off Climax]
+        V9[Horizontal SR Veto]
+        V10[Elite Divergence]
+        V11[Monte Carlo Validation<br/>5000 simulations]
+    end
+    
+    subgraph "STAGE 4: Decision Construction"
+        DEC[Build Decision Object]
+        LM[Limit Mode Injection]
+        QT[Quantum Tunneling<br/>Ghost Entry]
+    end
+    
+    CS --> SS --> KL --> PS --> SUP --> TH
+    TH --> RC --> GM --> EX --> EB
+    EB --> V1 --> V2 --> V3 --> V4
+    V4 --> V5 --> V6 --> V7 --> V8
+    V8 --> V9 --> V10 --> V11 --> DEC
+    DEC --> LM --> QT
+```
+
+---
+
+### Inventário Completo de Vetos e Bypasses
+
+| # | Veto Gate | Condição | Bypasses Disponíveis |
+|:--|:--|:--|:--|
+| 0 | COLD_START_SYNC | `uptime < 120s` | V-Pulse Ignition |
+| 1 | STALE_SNAPSHOT | `snap_age > 1.5s` | Nenhum |
+| 2 | KL_VELOCITY | `kl_velocity > threshold` | TEC Sovereign, Geodesic Flow, Ignition |
+| 3 | PARADIGM_SHIFT | `kl_div > 2.5` | TEC Sovereign |
+| 4 | SUPERPOSITION | `agents não convergiram` | Nenhum |
+| 5 | DRIFT_COHERENCE | `coherence < c_req` em Low-Φ | TEC, God-Mode, Φ > 0.18 |
+| 6 | CREEP_MATURITY | `duration > 150 bars` | Ignition, Signal > 0.12 |
+| 7 | UNKNOWN_PHI | `Φ < phi_gate` em UNKNOWN | TEC, Ignition, Ricci |
+| 8 | CHEAP_SPIKE | `vel > 12, Φ < req` | TEC Sovereign |
+| 9 | ECHO_CHAMBER | `< 3 domains` | TEC Sovereign |
+| 10 | TREND_PROTECTION | Counter-trend sem Φ/Signal | TEC, Ricci, Repulsion, Ignition, Exhaustion |
+| 11 | KINETIC_CONFLICT | `vel opposite to signal` | God-Mode, TEC |
+| 12 | MOMENTUM_CONTINUITY | Counter-trend inertia | Ignition, Breakdown, TEC, Exhaustion |
+| 13 | JAVA_PNL | `NEGATIVE_EXPECTANCY` | Ignition, God, TEC, Entropy Bridge |
+| 14 | NO_CONVERGENCE | `signal < threshold` | TEC Sovereign |
+| 15 | V_PULSE_ANTI_ENTRY | Large counter-candle | Nenhum |
+| 16 | MICRO_MOMENTUM | 3 M1 candles oppose | Ignition, Breakout, TEC, God |
+| 17 | PHI GATE (Ω-Extreme) | `Φ < dynamic_phi_min` | Entropy Bridge, TEC, Resonance, Programmatic, God |
+| 18 | CHAOS_SHIELD | `HIGH_VOL_CHAOS` | TEC Sovereign |
+| 19 | ENTROPIC_VACUUM | Low entropy + no velocity | Geodesic, Topological, Consensus |
+| 20 | SIGNAL_FRAGILE | `Φ < phi_gate` | TEC, Exhaustion, Ricci |
+| 21 | PHI_IGNORANCE | `Φ < phi_ignore` + V-Pulse | Resonance bypass |
+| 22 | REWARD_TOO_SMALL | `reward < comm + min_profit` | God, Resonance, Tunneling, PHD Strike, Scalp |
+| 23 | RR_RATIO_LOW | `RR < min_rr` | God, Resonance, Geodesic, Limit Mode |
+| 24 | COMM_REWARD_RATIO | `ratio < min_comm_ratio` | Limit Mode |
+| 25 | SPREAD_TOO_EXPENSIVE | Spread > 25% reward/ATR | Nenhum |
+| 26 | KINEMATIC_EXHAUSTION | Spike > `kinematic_atr_mult` | God, Ignition (V-Pulse relaxation) |
+| 27 | KINEMATIC_DECOUPLING | Price > 2 ATR from EMA | PHD Protection, Cascade |
+| 28 | BLOW_OFF_CLIMAX | Agent detection | Nenhum |
+| 29 | HORIZONTAL_SR | Double/Triple top/bottom | Ignition, God, Ghost Sweep, Signal > 0.50 |
+| 30 | LIQUIDITY_SWEEP | V-reversal trap | Exhaustion Sovereignty, TEC |
+| 31 | ELITE_DIVERGENCE | Top 5 agents vs swarm | Exhaustion Sovereignty, TEC |
+| 32 | MC_NEGATIVE_EV | `expected_return < 0` | God, Drift + high signal |
+| 33 | MC_SCORE_FLOOR | `mc_score < -0.25` | God, Drift + high Φ/signal |
+| 34 | MC_SCORE_LOW | `mc_score < mc_min_score` | Extreme consensus |
+| 35 | MC_WIN_PROB_LOW | `win_prob < min_wp` | Fat-tail asymmetry, Extreme consensus |
+| 36 | COUNTER_TREND_LOW_PHI | Counter-trend + `Φ < 0.18` | Velocity burst, Signal > 0.40 |
+
+---
+
+### Sovranias e Overrides (Hierarchy)
+
+```mermaid
+graph TD
+    TEC["TEC Sovereign<br/>(Topological Entropy Collapse)"] --> |Bypasses 25+ vetos| ALL[Nearly ALL Vetos]
+    GOD["God-Mode Reversal<br/>(Chaos Absorption)"] --> |Bypasses 15+ vetos| MOST[Most Vetos]
+    IGN["Lethal Ignition<br/>(V-Pulse + Intensity)"] --> |Bypasses 10+ vetos| MANY[Many Vetos]
+    EXH["Exhaustion Sovereignty<br/>(Bifurcation)"] --> |Relaxes thresholds| SOME[Trend + MC Vetos]
+    BRIDGE["Entropy Bridge<br/>(Temporal Stability)"] --> |Relaxes PHI gates| PHI[PHI-based Vetos]
+    GEODESIC["Geodesic Flow<br/>(Riemannian)"] --> |Bypasses vacuum + KL| FLOW[Flow Vetos]
+```
+
+---
+
+### SL/TP Construction (Phase 52.7)
+
+- **SL:** `min(structural_sl, safe_sl_floor)` — para BUY: menores M1 últimas 10 velas - buffer
+- **TP:** `price + risk_dist × effective_rr × tp_scalar` — RR dinâmico (1.1x a 15x)
+- **Caps:** SL max = $280, TP max = $1,500
+- **Commission-Aware:** `reward > comm_per_lot + min_profit_per_ticket` ($50 + $35 = **$85 mínimo**)
+- **TP Elastic Expansion:** Se reward < floor, expande TP até `max_tp_stretch_atr` × ATR
+
+---
+
+### Shadow Engine ([shadow_engine.py](file:///d:/DubaiMatrixASI/core/decision/shadow_engine.py), 160 linhas)
+
+Motores de análise contrafactual:
+- Cada veto com `|signal| > 0.15` gera um **Shadow Trade** virtual
+- Rastreia SL/TP teóricos: `SL = 1.5×ATR`, `TP = 3×ATR`
+- Classifica resultado: **FALSE_NEGATIVE** (perdemos dinheiro) ou **TRUE_NEGATIVE** (salvou)
+- Anti-spam: 60s cooldown por assinatura de veto + direção
+- Persiste em `data/audits/shadow_trades.json`
+
+---
+
+## 🔴 Bugs e Problemas Críticos Descobertos
+
+| # | Severidade | Descrição | Localização |
+|:--|:--|:--|:--|
+| 1 | 🔴 **CRITICAL** | `_check_vetos()` é **definido mas NUNCA chamado** em `decide()`. Todos os checks como T-Cell, Circuit Breaker, Spread, Climax Velocity, Weekend, e Anti-Ping-Pong estão **completamente desativados**. | [trinity_core.py:1650](file:///d:/DubaiMatrixASI/core/decision/trinity_core.py#L1650) |
+| 2 | 🟡 **MEDIUM** | Metadata duplicada no Decision: `is_tec_active` e `tec_entropy` aparecem **3x cada** no dict literal. | [trinity_core.py:1594-1599](file:///d:/DubaiMatrixASI/core/decision/trinity_core.py#L1594-L1599) |
+| 3 | 🟡 **MEDIUM** | Variável `is_lethal_strike` usada na linha 681 mas **nunca definida** nesse escopo. Crasharia se `pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY"`. | [trinity_core.py:681](file:///d:/DubaiMatrixASI/core/decision/trinity_core.py#L681) |
+| 4 | 🟢 **LOW** | `risk_mult` calculado (linhas 814-818) mas **nunca utilizado** em nenhum lugar. Dead code. | [trinity_core.py:814](file:///d:/DubaiMatrixASI/core/decision/trinity_core.py#L814) |
+| 5 | 🟡 **MEDIUM** | `kl_base_thresh` definido 2x com valores diferentes: `0.95` (L206) e `2.5` (L231). A segunda sobrescreve a primeira, tornando o threshold de paradigm shift 2.6x mais permissivo do que o nome sugere. | [trinity_core.py:206,231](file:///d:/DubaiMatrixASI/core/decision/trinity_core.py#L206) |
+
+> [!CAUTION]
+> **O Bug #1 é gravíssimo.** O método `_check_vetos()` contém proteções essenciais (T-Cell Immunity, Circuit Breaker, Consecutive Losses, Weekend Guard, Anti-Ping-Pong, Climax Velocity) que **NUNCA EXECUTAM** porque o método não é chamado em `decide()`. Isso significa que o bot opera **sem circuit breaker**, **sem proteção de weekend**, e **sem anti-ping-pong** no TrinityCore.
+
+---
+
+## 📊 Métricas Quantitativas
+
+| Métrica | Valor |
+|:--|:--|
+| Total de linhas | 1,797 |
+| Vetos distintos | 36 |
+| Sovereignty bypasses | 20+ |
+| `if` statements no `decide()` | ~120 |
+| McCabe Complexity (est.) | **>200** (extremamente alto) |
+| Monte Carlo simulations/decision | 5,000 |
+| Agents analisados individualmente | ~15 nomes verificados inline |
+| Regimes com lógica dedicada | 15+ |
+
+---
+
+> **📊 Status**: Fase 4 completa. Próximo: Fase 5 (Consciousness Layer — NeuralSwarm, QuantumThought, Monte Carlo, Regime Detector).

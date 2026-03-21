@@ -6,7 +6,9 @@ import time
 from datetime import datetime, timezone
 
 # Add project root to path
-sys.path.append(os.getcwd())
+parent_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
 from core.decision.trinity_core import TrinityCore, Action, Decision
 from core.consciousness.regime_detector import MarketRegime, RegimeState
@@ -15,8 +17,10 @@ from market.data_engine import MarketSnapshot
 class TestStabilityImprovements(unittest.TestCase):
     def setUp(self):
         self.trinity = TrinityCore()
+    def setUp(self):
+        self.trinity = TrinityCore()
         # Bypassing cold start
-        self.trinity._startup_timestamp = time.time() - 1000
+        self.trinity._startup_timestamp = time.time() - 3600
         
     def test_mc_persistence_filter(self):
         """Verifica se o filtro de persistência do MC veta oscilações estocásticas."""

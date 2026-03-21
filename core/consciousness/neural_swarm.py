@@ -187,10 +187,7 @@ from core.consciousness.agents.topological_manifold_agent import TopologicalMani
 from core.consciousness.agents.entropy_decay_strike_agent import EntropyDecayStrikeAgent
 
 # [PHASE Ω-PhD-7/8] Sub-Atomic Agents
-from core.consciousness.agents.riemannian_ricci_agent import RiemannianRicciAgent
-from core.consciousness.agents.kolmogorov_inertia_agent import KolmogorovInertiaAgent
-from core.consciousness.agents.lie_symmetry_agent import LieSymmetryAgent
-from core.consciousness.agents.ghost_inference_agent import GhostOrderInferenceAgent
+# (Deduplicated: Imports already present in L168-171)
 
 # Phase Ω-Eternity (Nível 6 - Teoria do Caos e Homeostase)
 from core.consciousness.agents.eternity_agents import (
@@ -378,14 +375,18 @@ class NeuralSwarm:
     3. Adicionar instância na lista _initialize_agents() abaixo
     """
 
-    def __init__(self, memory=None, predator_engine=None):
+    def __init__(self, memory=None, predator_engine=None, t_cell=None):
         self.agents: List[BaseAgent] = []
+        self.t_cell = t_cell # [Ω-PhD] Biological Immunity Feedback
         self._initialize_agents(memory, predator_engine)
         # [Phase Ω-Eternity] Elevado para 128 para acomodar 140+ agentes e evitar contenção
         self._executor = ThreadPoolExecutor(max_workers=128)
         
         # [Phase 69] Byzantine Fault Tolerant Consensus
         self.byzantine = ByzantineConsensusManager(len(self.agents))
+        
+        # [Phase Ω-RESILIENCE] Log Cache for spam prevention
+        self._log_cache = {}
         
         log.omega(f"🧠 Neural Swarm inicializado: {len(self.agents)} agentes ativos (Parallel Execution Enabled)")
 
@@ -542,8 +543,6 @@ class NeuralSwarm:
             HolographicEntanglementAgent(weight=3.0),
             
             HolographicMemoryAgent(weight=3.0),
-            OrderBookSpoofingAgent(weight=2.6),
-            QuantumEntanglementAgent(weight=3.0),
             TopologicalBraidingAgent(),
             RicciFlowRegimeAgent(weight=3.5),
             NonBondedRepulsionAgent(weight=3.2),
@@ -587,10 +586,7 @@ class NeuralSwarm:
             BaitAndSwitchDetectorAgent(weight=3.9),
             EvolutionaryNashEquilibriumAgent(weight=3.2),
 
-            # ═══ ELYSIUM (Phase Ω-Elysium) ═══
-            HiddenMarkovRegimeAgent(weight=3.8),
-            FractalStandardDeviationAgent(weight=3.5),
-            DarkEnergyMomentumAgent(weight=4.0),
+            # ═══ ELYSIUM (Phase Ω-Elysium) - Deduplicated ═══
 
             # ═══ ILLUMINATI (Phase Ω-Illuminati) ═══
             ChronosDilationAgent(weight=3.9),
@@ -621,7 +617,6 @@ class NeuralSwarm:
             ByzantineConsensusAgent(weight=5.0),
 
             # ═══ SINGULARITY_V2 (Phase Ω-Singularity) ═══
-            InformationBottleneckAgent(weight=4.5),
             InformationBottleneckAgent(weight=4.5),
             DiracFermiPressureAgent(weight=4.3),
             ChernSimonsTopologicalAgent(weight=4.9),
@@ -666,10 +661,7 @@ class NeuralSwarm:
             KolmogorovInertiaAgent(weight=4.8),
             GhostOrderInferenceAgent(weight=4.8),
 
-            # ═══ Ω-8: EXPLORAÇÃO DO NÃO-EXPLORADO ═══
-            OrderBookSpoofingAgent(weight=2.6),
-            QuantumEntanglementAgent(weight=3.0),
-            OrderFlowShannonSentimentAgent(weight=3.5),
+            # ═══ Ω-8: EXPLORAÇÃO DO NÃO-EXPLORADO - Deduplicated ═══
 
             # ═══ CONTINUUM (Phase Ω-Continuum) ═══
             MTheoryDimensionalAgent(weight=5.0),
@@ -703,6 +695,13 @@ class NeuralSwarm:
         Executa TODOS os agentes EM PARALELO e coleta seus sinais.
         Retorna lista de AgentSignals para o Quantum Thought Engine.
         """
+        # [Ω-PhD] Inject T-Cell toxic memory matches into kwargs for weaponized agents
+        if self.t_cell and "toxic_memory_matches" not in kwargs:
+            # We don't have a direct 'get_matches' method, but we can check if infected
+            # and potentially extract info if the T-Cell system is modified.
+            # For now, we ensure the key exists even if empty to satisfy the agent's .get()
+            kwargs["toxic_memory_matches"] = getattr(self.t_cell, 'last_matches', [])
+            
         # Usar map para reduzir overhead de criação de dict de futuros
         def _run_agent(agent):
             try:
@@ -770,12 +769,53 @@ class NeuralSwarm:
             agent.weight = max(0.1, min(3.0, new_weight))
             log.info(f"⚖️ {agent_name} weight: {old:.2f} → {agent.weight:.2f}")
 
+    def prune_agents(self, min_accuracy: float = 0.45):
+        """
+        [PHASE Ω-EVOLUTION] Agentes com acurácia abaixo do threshold são desativados.
+        Garante que o enxame não seja poluído por ruído de agentes falhos.
+        """
+        original_count = len(self.agents)
+        self.agents = [a for a in self.agents if a.accuracy >= min_accuracy]
+        pruned = original_count - len(self.agents)
+        if pruned > 0:
+            log.warning(f"✂️ NeuralSwarm: {pruned} agentes podados por baixa performance (Acurácia < {min_accuracy:.2%}).")
+
+    def modulate_authority(self, coherence: float):
+        """
+        [PHASE Ω-EVOLUTION] Ajusta os pesos dos agentes baseado na coerência global.
+        Em baixa coerência, agentes de 'Elite' ganham mais peso para resolver conflitos.
+        """
+        if coherence < 0.45:
+            self._log_cooldown("LOW_COHERENCE_MODULATION", "⚖️ NeuralSwarm: Baixa coerência detectada. Amplificando autoridade da Elite.", 120)
+            elite_agents = {
+                "OrderBlockAgent", "LiquidationVacuumAgent", "PriceGravityAgent", 
+                "InstitutionalFootprintAgent", "CrossScaleConvergenceAgent"
+            }
+            for agent in self.agents:
+                if agent.name in elite_agents:
+                    agent.weight = min(5.0, agent.weight * 1.25)
+                else:
+                    agent.weight = max(0.1, agent.weight * 0.9)
+
+    def _log_cooldown(self, key: str, message: str, cooldown_sec: int = 30, level: str = "info"):
+        """Evita spam de logs repetitivos no terminal."""
+        now = time.time()
+        if now - self._log_cache.get(key, 0) > cooldown_sec:
+            if level == "warning":
+                log.warning(message)
+            elif level == "omega":
+                log.omega(message)
+            elif level == "debug":
+                log.debug(message)
+            else:
+                log.info(message)
+            self._log_cache[key] = now
+
     def summary(self) -> dict:
-        """Resumo do swarm."""
+        """Retorna resumo estatístico do enxame."""
         return {
             "total_agents": len(self.agents),
-            "agents": [
-                {"name": a.name, "weight": a.weight, "accuracy": a.accuracy}
-                for a in self.agents
-            ]
+            "active_agents": sum(1 for a in self.agents if a.weight > 0.1),
+            "avg_weight": np.mean([a.weight for a in self.agents]) if self.agents else 0.0,
+            "best_accuracy": max([a.accuracy for a in self.agents]) if self.agents else 0.0
         }
