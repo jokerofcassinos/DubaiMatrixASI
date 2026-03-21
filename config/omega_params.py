@@ -145,7 +145,7 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 50.0, 0.0, 150.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD ($50.0)")
-        self._register("min_profit_per_ticket", 45.0, 5.0, 200.0,
+        self._register("min_profit_per_ticket", 35.0, 5.0, 200.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
         self._register("min_commission_reward_ratio", 1.8, 1.0, 10.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
@@ -274,13 +274,13 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.080, 0.050, 0.5,
+        self._register("phi_min_threshold", 0.070, 0.050, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("hydra_min_phi_threshold", 0.25, 0.05, 0.95,
                         "Nível mínimo de Φ necessário para autorizar HYDRA MODE (Phase Ω-Coherence)")
-        self._register("unknown_regime_phi_gate", 0.10, 0.05, 0.50,
+        self._register("unknown_regime_phi_gate", 0.04, 0.05, 0.50,
                         "Nível mínimo de Φ necessário para autorizar trades em regime UNKNOWN (Phase Ω-Coherence)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,
                         "Habilita a dilatação temporal relativística do loop de consciência")
@@ -373,7 +373,7 @@ class OmegaParameterSpace:
         # ═══ PHASE Ω-EPISTEMIC SINGULARITY (PhD Evolution) ═══
         self._register("weight_quantum_tunneling", 1.25, 0.1, 3.5,
                         "Peso do agente Quantum Tunneling Oscillator")
-        self._register("max_tp_stretch_atr", 5.0, 1.0, 15.0,
+        self._register("max_tp_stretch_atr", 10.0, 1.0, 25.0,
                         "Máximo alongamento de TP (em ATR) para cobrir o Alpha Floor")
         self._register("phi_ignorance_threshold", 0.15, 0.05, 0.30,
                         "Nível de Φ abaixo do qual a microestrutura ignora o macro (Soberania do Presente)")

@@ -98,6 +98,17 @@ class QuantumAuditEngine:
         except Exception as e:
             log.error(f"❌ Falha ao iniciar auditoria para ticket {ticket}: {e}")
 
+    def get_active_audit_path(self, ticket: int) -> Optional[str]:
+        """Retorna o caminho do diretório da auditoria ativa para um ticket."""
+        if not ticket:
+            return None
+        # Buscar nos ativos
+        for sid, data in self._active_audits.items():
+            if ticket in data.get("tickets", set()):
+                return data.get("dir")
+        return None
+
+    def end_audit(self, ticket: int, result: Dict[str, Any], strike_id: Optional[str] = None):
         """
         Finaliza a auditoria quando a ordem é fechada.
         Executa em background para não travar o loop HFT.

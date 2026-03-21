@@ -273,6 +273,12 @@ class ASIBrain:
                         f"REGIME={decision.regime}"
                     )
                     
+                    # [Phase Ω-Stability] Explicit Audit Trace
+                    from utils.audit_engine import AUDIT_ENGINE
+                    audit_dir = AUDIT_ENGINE.get_active_audit_path(execution_result.get('ticket'))
+                    if audit_dir:
+                        log.info(f"📂 [AUDIT TRACE] Detail captured at: {audit_dir}")
+                    
                     self.state.last_trade_time = datetime.now(timezone.utc)
                     self._last_log_times[f"ign_{decision.action.value}"] = now
                     result["executed"] = True

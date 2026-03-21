@@ -239,9 +239,17 @@ class RiskQuantumEngine:
                         elif is_consensus_absolute: reason = "Consensus"
                         elif confidence > 0.88: reason = "Extreme Confidence"
                         
-                        log.info(f"🦅 [EXPECTANCY BYPASS] Negative Expectancy ({pnl_pred}) bypassed. Reason: {reason}")
-                        # Em caso letal com histórico ruim, forçamos exposição mínima.
-                        risk_fraction = max(0.005, risk_fraction * 0.5)
+                        # [Phase Ω-Stability] Stricter bypass during structural overrides
+                        is_stale_bypass = snapshot.metadata.get("bypassed_stale_regime", False)
+                        bypass_threshold = 0.92 if is_stale_bypass else 0.88
+                        
+                        if confidence >= bypass_threshold:
+                            log.info(f"🦅 [EXPECTANCY BYPASS] Negative Expectancy ({pnl_pred}) bypassed. Reason: {reason} (Conf={confidence:.2f})")
+                            # Em caso letal com histórico ruim, forçamos exposição mínima.
+                            risk_fraction = max(0.005, risk_fraction * 0.5)
+                        else:
+                            log.warning(f"🛡️ [EXPECTANCY VETO] Negative Expectancy ({pnl_pred}) | Conf={confidence:.2f} < {bypass_threshold:.2f}. Reducing risk by 90%.")
+                            risk_fraction *= 0.1
 
          # 5. Tiers de Agressão floor e Circuit Breakers
         max_risk_pct = OMEGA.get("position_size_pct", 10.0) / 100.0

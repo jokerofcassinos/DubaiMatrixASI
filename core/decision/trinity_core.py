@@ -90,6 +90,7 @@ class TrinityCore:
         self._signal_history = []  # List of last 20 signals
         self.entropy_bridge_active = False
         self._kl_history = []      # [Phase Ω-PhD-4] KL Velocity tracking
+        self._mc_ev_history = []   # [Phase Ω-Stability] Store last 3 MC EV results
         self.last_decision_bypassed = False  # [Phase Ω-PhD-5] Track if stale regime was bypassed
         self._last_kl_shift_time = 0.0      # [Phase Ω-PhD-14] Track recent paradigm shifts
 
@@ -123,6 +124,13 @@ class TrinityCore:
         if quantum_state is None or regime_state is None:
             return self._wait("NO_DATA")
 
+        # [Phase Ω-Singularity] Core Indicator Extraction (Global Scope)
+        phi = getattr(quantum_state, 'phi', 0.0)
+        phi_score = phi
+        signal = getattr(quantum_state, 'collapsed_signal', 0.0)
+        confidence = getattr(quantum_state, 'confidence', 0.0)
+        coherence = getattr(quantum_state, 'coherence', 0.0)
+
         # [Phase 48] Metadata Extraction & Initialization (Consistency Fix)
         sym_info = snapshot.symbol_info
         q_meta = quantum_state.metadata if quantum_state and hasattr(quantum_state, 'metadata') else {}
@@ -149,14 +157,14 @@ class TrinityCore:
         is_phi_resonance = snapshot.metadata.get("phi_resonance", False)
         pnl_prediction = snapshot.metadata.get("pnl_prediction", "STABLE")
         entropy = snapshot.metadata.get("entropy", 0.0)
-        coherence = snapshot.metadata.get("coherence", 0.0)
+        # coherence already initialized at top
         is_low_phi_drift = False # Initialize for global scope
 
         # ═══ [Phase Ω-PhD-6] Topological Entropy Collapse (TEC) Sensor ═══
         # Detecta colapso estrutural (Singularidade) via decaimento de entropia.
         tec_active = False
         tec_entropy = 1.0
-        signal = float(getattr(quantum_state, 'raw_signal', 0.0) or 0.0)
+        # signal already initialized at top (collapsed_signal)
         # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - Moved to TOP to avoid UnboundLocalError
         agent_signals = getattr(quantum_state, 'agent_signals', []) if quantum_state else []
         riemannian_signal = next((s for s in agent_signals if s.agent_name == "RiemannianRicci"), None)
@@ -264,10 +272,6 @@ class TrinityCore:
 
         # [Phase Ω-PhD-7] Geodesic Flow Extraction (NRM Sovereignty) - EXTRACTION MOVED TO TOP
         
-        signal = quantum_state.collapsed_signal
-        confidence = quantum_state.confidence
-        coherence = quantum_state.coherence
-        phi = quantum_state.phi
         action = Action.WAIT # Default state
 
         # ═══ THRESHOLDS ═══
@@ -365,6 +369,14 @@ class TrinityCore:
             dynamic_conf_min *= 0.8
         
         current_regime_val = str(getattr(regime_state.current, 'value', regime_state.current))
+        
+        # Indicators already extracted at top for Phase Ω Stability
+        
+        has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
+        has_v_pulse = has_ignition
+        is_lethal_ignition = snapshot.metadata.get("is_lethal_strike", False)
+        is_ricci_attractor = "RIEMANNIAN_RICCI" in snapshot.metadata.get("active_attractors", [])
+        
         if regime_state.current in [MarketRegime.TRENDING_BULL, MarketRegime.TRENDING_BEAR]:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
@@ -383,9 +395,6 @@ class TrinityCore:
                     self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {current_regime_val} is too old ({duration} bars).", 60)
                     return self._wait("CREEP_MATURITY_VETO")
 
-            has_ignition = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
-            phi_score = quantum_state.phi
-            
             # [Phase Ω-PhD-Next] Hardened Phi Guard for Drift/Creep
             # Se a integração (Φ) é baixa (< 0.35), NÃO relaxamos os filtros, pois o regime é instável.
             # [Phase Ω-Stability] Integridade Estrutural vs Ignição
@@ -454,10 +463,12 @@ class TrinityCore:
 
         # [Phase Ω-Coherence] UNKNOWN Regime Veto
         if regime_state.current.value == "UNKNOWN":
-            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.10)
-            if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition):
+            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.04)
+            if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition or is_ricci_attractor):
                 self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                 return self._wait("UNKNOWN_REGIME_INCOHERENCE")
+            elif phi >= unknown_phi_gate:
+                 self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓 [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f}).", 60, level="omega")
         
         # [Phase Ω-Singularity] QUANTUM MOMENTUM IGNITION (QMI)
         # Treat Energy (Velocity) as a substitute for Coherence (PHI) during Breakouts
@@ -494,7 +505,6 @@ class TrinityCore:
         is_god_mode = False
         
         tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
-        has_v_pulse = snapshot.metadata.get("v_pulse_detected", False) or regime_state.v_pulse_detected
         is_velocity_burst = tick_velocity > 40.0 or has_v_pulse
         
         is_god_candidate = quantum_state.metadata.get("is_god_candidate", False)
@@ -1124,9 +1134,12 @@ class TrinityCore:
             else:
                 # [Phase Ω-Apocalypse] TP Elastic Expansion
                 # If the ATR-based TP is too small to cover fees, we stretch it to meet the floor.
-                expanded_tp_points = min_points_needed + (5.0 * point_val) # Add a small safety buffer
+                expanded_tp_points = min_points_needed + (3.0 * point_val) # Tighter safety buffer
                 
-                max_stretch = fast_atr * OMEGA.get("max_tp_stretch_atr", 5.0) # Use fast_atr for HFT
+                # [Ω-ADAPTIVE] Stretch cap increases from 5x to 10x for HFT/Low-Vol scalping
+                max_stretch_mult = OMEGA.get("max_tp_stretch_atr", 10.0)
+                max_stretch = fast_atr * max_stretch_mult
+                
                 if expanded_tp_points < max_stretch:
                     reward = expanded_tp_points
                     if action == Action.BUY:
@@ -1135,16 +1148,20 @@ class TrinityCore:
                         take_profit = price - reward
                     
                     rr_ratio = reward / risk if risk > 0 else 0
-                    self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.2f} points p/ Alpha Floor (Comm=${comm_per_lot:.1f} Target=${dynamic_min_profit:.1f})", 60, level="info")
+                    self._log_cooldown("RR_ADJUST", f"⚖️ RR ADJUST: Expanding target to {reward:.2f} points p/ Alpha Floor (Stretch={max_stretch_mult}x ATR)", 60, level="info")
                 else:
                     # [Phase PhD] Final Strike Bypass: Se temos colapso de entropia ou vácuo topológico, o lucro é secundário à certeza.
                     is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
-                    # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é alto ou há V-Pulse
-                    is_aggressive_scalp = (phi > 0.25 and coherence > 0.40) or has_v_pulse
+                    # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é saudável ou há V-Pulse
+                    # Relaxed Phi requirement from 0.25 to 0.15 for aggressive scalp
+                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling
                     
-                    if is_phd_strike or is_aggressive_scalp:
-                         reason = "PHD_STRIKE" if is_phd_strike else "AGGRESSIVE_SCALP"
-                         self._log_cooldown(f"{reason}_BYPASS", f"🎯 [{reason}] Bypassing Alpha Floor for high-conviction strike (R={reward:.2f} < Min={min_points_needed:.2f} | Φ={phi:.2f})", 30, level="omega")
+                    # [Ω-MICRO-ALPHA] If Reward covers fees, we take it if Phi is high
+                    is_micro_alpha = reward > (comm_per_lot * 1.1) and phi > 0.20
+                    
+                    if is_phd_strike or is_aggressive_scalp or is_micro_alpha:
+                         reason = "PHD_STRIKE" if is_phd_strike else "AGGRESSIVE_SCALP" if is_aggressive_scalp else "MICRO_ALPHA"
+                         self._log_cooldown(f"{reason}_BYPASS", f"🎯 [{reason}] Bypassing Alpha Floor (R={reward:.2f} < Min={min_points_needed:.2f} | Φ={phi:.2f})", 30, level="omega")
                     else:
                         return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block {max_stretch:.2f})")
 
@@ -1466,13 +1483,23 @@ class TrinityCore:
                     reward = abs(take_profit - price)
                     rr_ratio = reward / risk if risk > 0 else 0
 
-            # [Phase Ω-Singularity] Monte Carlo Hard Veto: Expected Value (EV)
+            # [Phase Ω-Stability] Monte Carlo Persistence Filter
+            # Stochastic noise in MC can cause flickering. We require the average EV of the last 3 cycles
+            # to be positive, unless it's a lethal ignition or god mode.
+            self._mc_ev_history.append(mc_result.expected_return)
+            if len(self._mc_ev_history) > 3: self._mc_ev_history.pop(0)
+            avg_mc_ev = sum(self._mc_ev_history) / len(self._mc_ev_history)
+
             is_drifting = "DRIFTING" in regime_state.current.value or "LIQUIDATION" in regime_state.current.value
-            if mc_result.expected_return < 0:
+            if mc_result.expected_return < 0 or (avg_mc_ev < 0 and len(self._mc_ev_history) >= 2):
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
                 # Só permitimos se for um sinal de exaustão extrema (God-Mode) ou Drift estável com consenso.
                 if not is_god_mode and not (phi > 0.35 and abs(signal) > 0.50 and is_drifting):
-                    return self._wait(f"MC_NEGATIVE_EV({mc_result.expected_return:.2f}) - Estatística desfavorável")
+                    if mc_result.expected_return < 0:
+                        reason = f"MC_NEGATIVE_EV({mc_result.expected_return:.2f})"
+                    else:
+                        reason = f"MC_STABILITY_VETO(Avg_EV={avg_mc_ev:.2f})"
+                    return self._wait(f"{reason} - Estatística desfavorável")
 
             # [Phase Ω-PhD-3] MC-Score Floor
             # O mc_score pondera WP, EV e CVaR. Um valor < -0.25 indica um trade intrinsecamente "sujo".

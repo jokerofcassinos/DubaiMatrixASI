@@ -3,6 +3,7 @@ import os
 import unittest
 from unittest.mock import MagicMock, patch
 import time
+from datetime import datetime, timezone
 
 # Add project root to path
 sys.path.append(os.getcwd())
@@ -15,8 +16,8 @@ from execution.sniper_executor import SniperExecutor
 class TestOmegaStability(unittest.TestCase):
     def setUp(self):
         self.trinity = TrinityCore()
-        # Mock para evitar Veto de Startup nos testes
-        self.trinity._is_startup_cooldown = MagicMock(return_value=False)
+        # Bypassing cold start cooldown for tests
+        self.trinity._startup_timestamp = time.time() - 1000
         
         # Ensure OMEGA is initialized with our new defaults
         OMEGA.load()
@@ -26,6 +27,7 @@ class TestOmegaStability(unittest.TestCase):
         snapshot = MagicMock()
         snapshot.metadata = {"kl_divergence": 4.5}
         snapshot.price = 70000.0
+        snapshot.timestamp = datetime.now(timezone.utc) # Added
         
         quantum_state = MagicMock()
         regime_state = MagicMock()
@@ -48,6 +50,7 @@ class TestOmegaStability(unittest.TestCase):
         snapshot = MagicMock()
         snapshot.metadata = {"kl_divergence": 0.0}
         snapshot.price = 70000.0
+        snapshot.timestamp = datetime.now(timezone.utc) # Added
         
         # Simular Φ=0.20 (acima do global 0.15, mas abaixo do específico 0.35 para CREEPING)
         quantum_state = MagicMock()
@@ -100,11 +103,16 @@ class TestOmegaStability(unittest.TestCase):
         snapshot.metadata = {}
         snapshot.account = {"balance": 100000.0, "margin_free": 50000.0}
         snapshot.indicators = {}
+        snapshot.timestamp = datetime.now(timezone.utc)
+        snapshot.price = 70000.0
+        snapshot.atr = 100.0
         
         asi_state = MagicMock()
         asi_state.win_rate = 0.6
         asi_state.total_trades = 50
         asi_state.total_profit = 5000.0
+        asi_state.total_wins = 30
+        asi_state.total_losses = 20 # Added
         
         # Simular atraso artificial de 500ms
         # Precisamos de 7 chamadas ao time.time()
