@@ -1311,25 +1311,38 @@ class TrinityCore:
         if candles_m1 and len(candles_m1["close"]) >= 5:
             closures = np.array(candles_m1["close"], dtype=np.float64)
             last_close = closures[-1]
+            c0, o0 = closures[-1], candles_m1["open"][-1]
+            l0, h0 = candles_m1["low"][-1], candles_m1["high"][-1]
             
             kinematic_atr_mult = OMEGA.get("kinematic_exhaustion_atr_mult", 1.8)
 
-            # [Phase 51] Kinematic V-Pulse Relaxation
+            # [Phase 51] Kinematic V-Pulse Relaxation (And RECALIBRATION 5.1 FOMO GUARD)
             if is_god_mode or has_ignition:
-                relaxation = OMEGA.get("kinematic_v_pulse_relaxation", 2.5)
-                kinematic_atr_mult *= relaxation
-                self._log_cooldown("ALPHA_SURGE", f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})", 30, level="omega")
+                # Anti-FOMO Guard: V-Pulse relaxation only applies if the spike is continuously expanding.
+                # If we are already seeing a red candle or a big rejection wick on M1, DO NOT RELAX - it's a Trap.
+                wick_top = h0 - max(o0, c0)
+                wick_bot = min(o0, c0) - l0
+                
+                is_fomo_trap_buy = action == Action.BUY and (wick_top > atr_m5 * 0.25 or c0 < o0)
+                is_fomo_trap_sell = action == Action.SELL and (wick_bot > atr_m5 * 0.25 or c0 > o0)
+                
+                if (is_fomo_trap_buy or is_fomo_trap_sell) and not is_god_mode:
+                    self._log_cooldown("FOMO_GUARD", "⚠️ [FOMO GUARD] V-Pulse relaxation blocked due to M1 exhaustion wick/red candle.", 10, level="warning")
+                else:
+                    relaxation = OMEGA.get("kinematic_v_pulse_relaxation", 2.5)
+                    kinematic_atr_mult *= relaxation
+                    self._log_cooldown("ALPHA_SURGE", f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})", 30, level="omega")
             
             if action == Action.BUY:
                 local_min = np.min(closures[-5:])
                 distance = last_close - local_min
                 if distance > atr_m5 * kinematic_atr_mult:  
-                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr_m5*kinematic_atr_mult:.1f}) | TOP_HUNT_RISK")
+                    return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult:.1f}xATR) | TOP_HUNT_RISK")
             elif action == Action.SELL:
                 local_max = np.max(closures[-5:])
                 distance = local_max - last_close
                 if distance > atr_m5 * kinematic_atr_mult:
-                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult}xATR={atr_m5*kinematic_atr_mult:.1f}) | BOTTOM_HUNT_RISK")
+                    return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult:.1f}xATR) | BOTTOM_HUNT_RISK")
 
         # [Phase 52] VETO 7: KINEMATIC DECOUPLING (Vácuo de Liquidez)
         # Se estamos comprando no topo de um spike parabólico longe da média
@@ -1339,18 +1352,20 @@ class TrinityCore:
             
             # PhD Immunity: Se agentes de campo ou escala estão em ressonância, ignoramos o estiramento
             phd_protection = any(s.agent_name in ["RGScalingInvariance", "ChernSimonsTopological", "BraidTopology"] and abs(s.signal) > 0.85 for s in agent_signals)
-            # Cascade Bypass: Em quedas verticais ou drifts estáveis, o estiramento é o motor do lucro
-            is_cascade = regime_state.current.value in ["LIQUIDATION_CASCADE", "DRIFTING_BEAR", "DRIFTING_BULL"]
+            
+            # Cascade Bypass: Em quedas verticais ou drifts estáveis, o estiramento é o motor do lucro (Apenas a favor da tendência)
+            is_cascade_bull = regime_state.current.value in ["DRIFTING_BULL", "LIQUIDATION_CASCADE_BULL", "HFT_BREAKOUT"]
+            is_cascade_bear = regime_state.current.value in ["LIQUIDATION_CASCADE", "DRIFTING_BEAR", "HFT_BREAKDOWN"]
             
             # Se preço > 2 ATRs da média E sinal é BUY -> Perigo de Blow-off
-            if action == Action.BUY and dist_from_mean > 2.0 and not (phd_protection or is_cascade):
+            if action == Action.BUY and dist_from_mean > 2.0 and not (phd_protection or is_cascade_bull):
                 # Se não houver uma ignição genuína comprovada por volume institucional
                 v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
                 vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
                 if vol_ratio < 3.0: # Volume não justifica o estiramento
                     return self._wait(f"KINEMATIC_DECOUPLING_BUY (Price too far from mean: {dist_from_mean:.1f}xATR)")
             # Simétrico para SELL
-            elif action == Action.SELL and dist_from_mean < -2.0 and not (phd_protection or is_cascade):
+            elif action == Action.SELL and dist_from_mean < -2.0 and not (phd_protection or is_cascade_bear):
                 v_ratio_list = snapshot.indicators.get("M5_volume_ratio", [1.0])
                 vol_ratio = v_ratio_list[-1] if v_ratio_list is not None and len(v_ratio_list) > 0 else 1.0
                 if vol_ratio < 3.0:
@@ -1424,7 +1439,6 @@ class TrinityCore:
                                          pass # A gravidade quântica engolirá o suporte
                                      elif is_event_horizon:
                                          pass # Bypass absoluto: A barreira fadigou e o horizonte de eventos atrai o preço (Tunneling)
-                                     # [Ω-RECALIBRATION-4.0] Overwhelming Bear Consensus Bypass
                                      bear_cnt = len(quantum_state.metadata.get("bear_agents", []))
                                      bull_cnt = len(quantum_state.metadata.get("bull_agents", []))
                                      total_cnt = bear_cnt + bull_cnt
@@ -1475,13 +1489,16 @@ class TrinityCore:
         phd_excited = any(s.agent_name in phd_names and abs(s.signal) > 0.7 for s in agent_signals)
         is_drifting = "DRIFTING" in regime_state.current.value
         
-        if not (is_god_mode or is_tec_sovereign or phd_excited or is_drifting):
+        # [RECALIBRATION 5.2] NÃO podemos bypassar exaustão em DRIFT.
+        # Drifts são mercados onde Momentum morre repetidas vezes nas bordas de Suporte/Resistência.
+        if not (is_god_mode or is_tec_sovereign or phd_excited):
             momentum_bulls = [a for a in bulls if any(x in a for x in ["Velocity", "Momentum", "Aggressiveness", "Trend", "TemporalTrend"])]
             exhaustion_bears = [a for a in bears if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             
             # [Phase 52.13] Relaxed momentum condition to 2 agents to catch traps earlier
             if action == Action.BUY and len(momentum_bulls) >= 2 and len(exhaustion_bears) >= 2:
                 bypass_thresh = 0.20 if "CREEPING" in regime_state.current.value else 0.50
+                bypass_thresh = 0.80 if is_drifting else bypass_thresh # Tolerância zero em drift
                 if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bullish velocity but structural rejection detected)")
             
@@ -1490,6 +1507,7 @@ class TrinityCore:
             exhaustion_bulls = [a for a in bulls if any(x in a for x in ["Exhaustion", "BaitAndSwitch", "CandleAnatomy", "SRAgent", "ChartStructure", "LiquidityGraph", "IntentDecomposition", "BaitLayering", "StopHunter", "OrderBlock", "PremiumDiscount", "HarmonicResonance"])]
             if action == Action.SELL and len(momentum_bears) >= 2 and len(exhaustion_bulls) >= 2:
                 bypass_thresh = 0.20 if "CREEPING" in regime_state.current.value else 0.50
+                bypass_thresh = 0.80 if is_drifting else bypass_thresh # Tolerância zero em drift
                 if abs(quantum_state.raw_signal) < bypass_thresh:
                     return self._wait(f"MOMENTUM_EXHAUSTION_VETO (Bearish velocity but structural support detected)")
 
