@@ -513,11 +513,25 @@ class TrinityCore:
             self._log_cooldown("paradigm_shift_gate", f"🛡️ [PARADIGM SHIFT] Extreme filters active (Conf Min: {dynamic_conf_min:.2f})", 60)
 
         # [Phase Ω-Coherence] UNKNOWN Regime Veto
-        if regime_state.current.value == "UNKNOWN":
+        if regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
             unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.04)
             if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition or is_ricci_attractor):
-                self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
-                return self._wait("UNKNOWN_REGIME_INCOHERENCE")
+                # ═══ [PHASE 6.0] Entropic Vacuum Harvester (EVH) ═══
+                # O mercado está paralisado. Direção macro sumiu. O ruído impera.
+                # Transformamos a inércia em oportunidade puramente matemática.
+                # Se a máquina encontrou uma anomalia microscópica (signal > 0.45) e não há exaustão,
+                # extraímos esse micro-fragmento sem questionar o consenso (Φ nulo ignorado).
+                tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
+                is_entropic_harvest = (abs(signal) > 0.45) and not self.kinetic_exhaustion and tick_vel_abs > 5.0
+                
+                if is_entropic_harvest:
+                    self._log_cooldown("ENTROPIC_HARVESTER", f"🔋 [ENTROPIC VACUUM HARVESTER] Extracting alpha from noise (Sig={signal:.2f}). Bypassing Φ starvation.", 60, level="omega")
+                    is_tec_sovereign = True  # Give local sovereignty 
+                    dynamic_conf_min *= 0.85 # Relax confidence for raw scalping
+                    strike_flag += " | [Ω-ENTROPIC_HARVESTER: SCALP]"
+                else:
+                    self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
+                    return self._wait("UNKNOWN_REGIME_INCOHERENCE")
             elif phi >= unknown_phi_gate:
                  self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓 [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f}).", 60, level="omega")
         
@@ -676,15 +690,31 @@ class TrinityCore:
             confidence *= 0.7 # Exige mais certeza but not overkill
             self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying moderate suppression.", 60)
 
-        # ═══ [Ω-KINETIC CONFLICT GUARD] ═══
+        # ═══ [Ω-KINETIC CONFLICT GUARD & SOROS REFLEXIVITY ENGINE (Phase 6.0)] ═══
         # Se a velocidade instantânea (tick_velocity) está forte no sentido oposto ao sinal,
-        # vetamos a entrada para evitar "correr contra a locomotiva".
+        # vetamos a entrada para evitar "correr contra a locomotiva"...
+        # A MENOS QUE... A velocidade seja TÃO ABSURDA que seja uma Liquidation Cascade / Squeeze.
         tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
         # Threshold de conflito cinemático (12.0)
         k_conflict_thresh = OMEGA.get("kinetic_conflict_threshold", 12.0)
         
         if not is_god_mode and not is_tec_sovereign:
-            if (signal > 0 and tick_vel < -k_conflict_thresh) or (signal < 0 and tick_vel > k_conflict_thresh):
+            # SRE Activation: Velocity > 45 in the opposite direction of a reasonably strong consensus
+            is_soros_squeeze_bull = (signal < -0.3) and (tick_vel > 45.0)  # Bear consensus getting absolutely destroyed
+            is_soros_squeeze_bear = (signal > 0.3) and (tick_vel < -45.0)  # Bull consensus getting absolutely destroyed
+            
+            if is_soros_squeeze_bull or is_soros_squeeze_bear:
+                self._log_cooldown("SOROS_REFLEXIVITY", f"🌌 [SOROS REFLEXIVITY ENGINE] Liquidation cascade inverted. Signal={signal:.2f}, Vel={tick_vel:.1f}. Firing parasitic strike.", 60, level="omega")
+                # Flip the signal to hunt the cascade
+                signal = 1.0 if is_soros_squeeze_bull else -1.0
+                confidence = 0.99
+                is_tec_sovereign = True # Bypass everything else
+                strike_flag += " | [Ω-SOROS_REFLEXIVITY: PARASITIC_HUNT]"
+                
+                # Invalidate trend penalty
+                tentative_is_counter = False
+            
+            elif (signal > 0 and tick_vel < -k_conflict_thresh) or (signal < 0 and tick_vel > k_conflict_thresh):
                 self._log_cooldown("KINETIC_CONFLICT", f"🛡️ VETO: KINETIC_CONFLICT (Signal={np.sign(signal)} vs Vel={tick_vel:+.1f}).", 30)
                 return self._wait("KINETIC_CONFLICT_VETO")
 
@@ -1737,7 +1767,16 @@ class TrinityCore:
             if regime_state and regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR", "LOW_LIQUIDITY"]:
                 phi_min = max(0.015, phi_min * 0.25) # Reduces 0.08 to 0.02
                 
-            if quantum_state.phi < phi_min and not v_pulse_detected:
+            # [Phase 6.0 Bypass] EVH and SRE Sovereignty
+            is_evh = False
+            is_sre = False
+            if quantum_state:
+                sig = getattr(quantum_state, 'collapsed_signal', getattr(quantum_state, 'raw_signal', 0.0))
+                vel = snapshot.metadata.get("tick_velocity", 0.0) if snapshot and hasattr(snapshot, "metadata") else 0.0
+                is_evh = (abs(sig) > 0.45) and regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY"] and abs(vel) > 5.0
+                is_sre = (sig < -0.3 and vel > 45.0) or (sig > 0.3 and vel < -45.0)
+
+            if quantum_state.phi < phi_min and not v_pulse_detected and not (is_evh or is_sre):
                 if time.time() - self._log_cache.get("phi_veto", 0) > 60:
                     log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f}")
                     self._log_cache["phi_veto"] = time.time()
