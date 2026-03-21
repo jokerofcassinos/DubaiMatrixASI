@@ -27,8 +27,12 @@ class SpoofHunterAgent(BaseAgent):
         now = time.time()
         
         # Calcular imbalance instantâneo do L1/L2
-        bids = snapshot.book.get("bids", [])
-        asks = snapshot.book.get("asks", [])
+        book = snapshot.book
+        if not book:
+            return AgentSignal(self.name, 0.0, 0.0, "NO_BOOK_DATA", self.weight)
+
+        bids = book.get("bids", [])
+        asks = book.get("asks", [])
         
         bid_vol = sum(b.get("volume", 0) for b in bids) if bids and isinstance(bids[0], dict) else sum(bids) if bids else 0
         ask_vol = sum(a.get("volume", 0) for a in asks) if asks and isinstance(asks[0], dict) else sum(asks) if asks else 0

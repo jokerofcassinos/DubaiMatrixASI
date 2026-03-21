@@ -40,6 +40,9 @@ class LiquidityLeechAgent(BaseAgent):
                 # Spoofing cria uma "parede fantasma". O preço FOGE da parede.
                 # Se a parede está no BID (Buy wall falsa), o preço vai SUBIR (front-running retail)
                 # Nós sugamos a subida rápida antes da parede sumir.
+                if not snapshot.book:
+                    return AgentSignal(self.name, 0.0, 0.0, "NO_BOOK_DATA", self.weight)
+
                 bids_vol = sum([b['volume'] if isinstance(b, dict) else b[1] for b in snapshot.book.get('bids', [])])
                 asks_vol = sum([a['volume'] if isinstance(a, dict) else a[1] for a in snapshot.book.get('asks', [])])
                 

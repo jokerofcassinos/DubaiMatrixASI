@@ -369,15 +369,15 @@ class TrinityCore:
             # Tendências definidas precisam de menos confiança isolada, a maré já ajuda
             dynamic_conf_min *= 0.85
         elif current_regime_val in ["SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "HFT_BREAKDOWN", "CREEPING_BULL", "CREEPING_BEAR"]:
-            # [PHASE Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
-            c_thresh = OMEGA.get("creep_maturity_threshold", 150.0)
+            # [Phase Ω-NEXUS] Adaptabilidade Radical em Liquidez Baixa ou Breakdown
+            c_thresh = OMEGA.get("creep_maturity_threshold", 300.0) # [SCALP] Increased from 150 to 300
             duration = int(getattr(regime_state, 'duration_bars', 0) or 0)
             
             if "CREEPING" in current_regime_val and duration > c_thresh:
                 # [Phase Ω-Hard-Lethality] Unconditional Bypass for CREEPING: 
                 # Persistent trends are our alpha source. We override age veto if signal is present.
-                if is_lethal_ignition or abs(signal) > 0.15:
-                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-MATURITY BYPASS] Stale regime ({duration} bars) overridden by { 'Ignition' if is_lethal_ignition else 'Phi-Integrity' }.", 60, level="omega")
+                if is_lethal_ignition or abs(signal) > 0.12 or phi_score > 0.15: # [SCALP] Relaxed signal/phi req
+                    self._log_cooldown("CREEP_BYPASS", f"⚡ [Ω-MATURITY BYPASS] Stale regime ({duration} bars) overridden by { 'Ignition' if is_lethal_ignition else 'Structural Integrity' }.", 60, level="omega")
                     self.last_decision_bypassed = True
                 else:
                     self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {current_regime_val} is too old ({duration} bars).", 60)
@@ -416,18 +416,18 @@ class TrinityCore:
                      # ═══ [PHASE Ω-STRICT] DRIFT_COHERENCE_VETO ═══
                      # Se o regime é instável (Low Phi), NÃO aceitamos entrar com baixa coerência
                      # [Ω-RECOVERY] Se o sinal é forte (>0.40), relaxamos de 0.50 para 0.40
-                     c_req = 0.30 if abs(signal) > 0.55 else 0.35 if abs(signal) > 0.35 else 0.40 if abs(signal) > 0.20 else 0.50
+                     c_req = 0.25 if abs(signal) > 0.55 else 0.30 if abs(signal) > 0.35 else 0.35 if abs(signal) > 0.15 else 0.45
                      
-                     # [Ω-STABILITY] Chão de Coerência Absoluto p/ Caos Extremo (Evitar Fakeouts em Φ < 0.15)
-                     if phi_score < 0.15: c_req = max(c_req, 0.45)
+                     # [Ω-STABILITY] Chão de Coerência Absoluto p/ Caos Extremo (Evitar Fakeouts em Φ < 0.10)
+                     if phi_score < 0.10: c_req = max(c_req, 0.40)
                      
                      # [Ω-PGC] Phi-Coherence Gradient: Quanto menor o Φ, maior o consenso exigido.
                      # [Ω-RECALIBRATION] Multiplicador reduzido de 1.0 para 0.6 para evitar paralisia
                      if phi_score < 0.45:
-                         pgc_penalty = max(0, 0.45 - phi_score) * 0.6
-                         c_req = min(0.65, c_req + pgc_penalty) # Cap em 0.65 para garantir execução
+                         pgc_penalty = max(0, 0.45 - phi_score) * 0.4
+                         c_req = min(0.60, c_req + pgc_penalty) # Cap em 0.60
                          
-                     if coherence < c_req and not (is_tec_sovereign or is_god_mode):
+                     if coherence < c_req and not (is_tec_sovereign or is_god_mode or (phi_score > 0.18 and coherence > 0.25)):
 
                          self._log_cooldown("DRIFT_COHERENCE_VETO", f"🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence={coherence:.2f} < {c_req:.2f} requirement in Drift/Low-Phi)", 60)
                          return self._wait("DRIFT_COHERENCE_WEAK")
@@ -1139,8 +1139,12 @@ class TrinityCore:
                 else:
                     # [Phase PhD] Final Strike Bypass: Se temos colapso de entropia ou vácuo topológico, o lucro é secundário à certeza.
                     is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
-                    if is_phd_strike:
-                         self._log_cooldown("PHD_STRIKE_BYPASS", f"🎯 [PHD STRIKE] Bypassing Reward/ATR Veto for high-conviction singularity strike (R={reward:.2f} < Min={min_points_needed:.2f}).", 30, level="omega")
+                    # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é alto ou há V-Pulse
+                    is_aggressive_scalp = (phi > 0.25 and coherence > 0.40) or has_v_pulse
+                    
+                    if is_phd_strike or is_aggressive_scalp:
+                         reason = "PHD_STRIKE" if is_phd_strike else "AGGRESSIVE_SCALP"
+                         self._log_cooldown(f"{reason}_BYPASS", f"🎯 [{reason}] Bypassing Alpha Floor for high-conviction strike (R={reward:.2f} < Min={min_points_needed:.2f} | Φ={phi:.2f})", 30, level="omega")
                     else:
                         return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block {max_stretch:.2f})")
 

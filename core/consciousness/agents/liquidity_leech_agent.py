@@ -19,7 +19,7 @@ class LiquidityLeechAgent(BaseAgent):
     """
 
     def __init__(self):
-        super().__init__(name="LiquidityLeechAgent", category="Predator")
+        super().__init__(name="LiquidityLeechAgent")
         self.priority = 1.0 # Alta prioridade na convergência
 
     def analyze(self, snapshot: MarketSnapshot, flow_analysis: Dict, **kwargs) -> AgentSignal:
@@ -27,7 +27,7 @@ class LiquidityLeechAgent(BaseAgent):
         Analisa a boundary entre o bulk do book e o deslocamento de preço.
         """
         book = snapshot.book
-        if not book:
+        if not book or not book.get("bids") or not book.get("asks"):
             return self._idle()
 
         # 1. Identificar Walls (Spoofing detection logic)
@@ -73,4 +73,4 @@ class LiquidityLeechAgent(BaseAgent):
         )
 
     def _idle(self):
-        return AgentSignal(self.name, 0.0, 0.5, 1.0, "No institutional walls detected.")
+        return AgentSignal(self.name, 0.0, 0.5, "No institutional walls detected.", 1.0)

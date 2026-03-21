@@ -1,38 +1,95 @@
-[DubaiMatrixASI] 20:11:04.304    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 20:11:04.305    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 20:11:04.305    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 20:11:04.306    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 20:11:04.306    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 20:11:04.306    OMEGA │ ⚡ 📅 2026-03-20T23:11:04.306687+00:00
-[DubaiMatrixASI] 20:11:04.307    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 20:11:04.307    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 20:11:04.310    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 20:11:04.313    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 20:11:04.314    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70505.19, Bid=70504.19
-[DubaiMatrixASI] 20:11:04.325    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 20:11:04.327    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 192 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 20:11:04.349    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 20:11:04.386    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 9 shadow trades abertos na memória.
-[DubaiMatrixASI] 20:11:04.391    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 20:11:04.392    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 20:11:04.394    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 20:11:04.400    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 20:11:04.401    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 192 agentes ativos
-[DubaiMatrixASI] 20:11:04.402    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 20:11:04.403    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
-[DubaiMatrixASI] 20:11:04.404    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 20:11:04.405    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 20:11:04.462    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
-[DubaiMatrixASI] 20:11:04.646    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774048264645 criado para VETO [WAIT: COLD_START_SYNC_VETO (119s left)]. Dir: SELL (Sig: -0.33).
-[DubaiMatrixASI] 20:11:04.657    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.35
-[DubaiMatrixASI] 20:11:04.693    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
-[DubaiMatrixASI] 20:11:04.744  WARNING │ 🚨 ALERT [CRITICAL]: 8 losses consecutivos!
-[DubaiMatrixASI] 20:11:04.745    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1287.48
-[DubaiMatrixASI] 20:11:05.100    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 56317)
-[DubaiMatrixASI] 20:11:52.359    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 20:11:52.375    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 20:11:52.376    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 20:11:52.383    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 20:11:52.383    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 20:11:52.384    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 20:11:52.384    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-20T23:11:52.384746+00:00
+[DubaiMatrixASI] 22:37:06.232    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 22:37:06.232    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 22:37:06.233    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 22:37:06.233    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 22:37:06.233    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 22:37:06.234    OMEGA │ ⚡ 📅 2026-03-21T01:37:06.234073+00:00
+[DubaiMatrixASI] 22:37:06.234    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 22:37:06.234    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 22:37:06.238    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 22:37:06.242    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 22:37:06.243    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70610.8, Bid=70609.8
+[DubaiMatrixASI] 22:37:06.254    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 22:37:06.255    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 192 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 22:37:06.278    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 22:37:06.309    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 39 shadow trades abertos na memória.
+[DubaiMatrixASI] 22:37:06.315    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 22:37:06.316    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 22:37:06.317    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 22:37:06.321    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 22:37:06.322    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 192 agentes ativos
+[DubaiMatrixASI] 22:37:06.323    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 22:37:06.324    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
+[DubaiMatrixASI] 22:37:06.326    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 22:37:06.327    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 22:37:06.357    OMEGA │ ⚡ 🌊 REGIME CHANGE → CREEPING_BULL (conf=0.70)
+[DubaiMatrixASI] 22:37:06.550    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057026547 criado para VETO [WAIT: COLD_START_SYNC_VETO (119s left)]. Dir: BUY (Sig: 0.35).
+[DubaiMatrixASI] 22:37:06.568    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $45.35
+[DubaiMatrixASI] 22:37:06.596    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 22:37:06.650  WARNING │ 🚨 ALERT [CRITICAL]: 8 losses consecutivos!
+[DubaiMatrixASI] 22:37:06.652    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1287.48
+[DubaiMatrixASI] 22:37:07.343    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 59810)
+[DubaiMatrixASI] 22:37:28.814    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057048799 criado para VETO [WAIT: COLD_START_SYNC_VETO (97s left)]. Dir: SELL (Sig: -0.16).
+[DubaiMatrixASI] 22:38:09.739    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:38:17.482    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057097475 criado para VETO [WAIT: COLD_START_SYNC_VETO (48s left)]. Dir: BUY (Sig: 0.18).
+[DubaiMatrixASI] 22:38:52.924    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057132918 criado para VETO [WAIT: COLD_START_SYNC_VETO (13s left)]. Dir: SELL (Sig: -0.30).
+[DubaiMatrixASI] 22:39:06.396    OMEGA │ ⚡ ⚡ [Ω-MATURITY BYPASS] Stale regime (474 bars) overridden by Structural Integrity.
+[DubaiMatrixASI] 22:39:06.399    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057146397 criado para VETO [WAIT: DRIFT_COHERENCE_WEAK]. Dir: BUY (Sig: 0.36).
+[DubaiMatrixASI] 22:39:12.934    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:39:38.134    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1964.7201 Gen=1
+[DubaiMatrixASI] 22:39:38.140    OMEGA │ ⚡ 🧬 Gen #1: 9 mutações aplicadas | Tipo=uniform | Fitness=-1964.7201
+[DubaiMatrixASI] 22:39:38.299    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 22:39:38.364    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1287.48
+[DubaiMatrixASI] 22:39:54.460    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 22:40:00.184    OMEGA │ ⚡ 🌊 REGIME CHANGE → SQUEEZE_BUILDUP (conf=0.80)
+[DubaiMatrixASI] 22:40:06.583    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057206581 criado para VETO [WAIT: DRIFT_COHERENCE_WEAK]. Dir: BUY (Sig: 0.37).
+[DubaiMatrixASI] 22:40:16.273    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:40:59.990    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057259988 criado para VETO [WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.177<0.438)]. Dir: BUY (Sig: 0.18).
+[DubaiMatrixASI] 22:41:01.252    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057261250 criado para VETO [WAIT: SUPERPOSITION (agentes não convergiram)]. Dir: BUY (Sig: 0.00).
+[DubaiMatrixASI] 22:41:06.602    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057266598 criado para VETO [WAIT: DRIFT_COHERENCE_WEAK]. Dir: BUY (Sig: 0.20).
+[DubaiMatrixASI] 22:41:12.212    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057272194 criado para VETO [WAIT: DRIFT_COHERENCE_WEAK]. Dir: SELL (Sig: -0.29).
+[DubaiMatrixASI] 22:41:12.655    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057272645 criado para VETO [WAIT: NO_CONVERGENCE: SELL_SIGNAL_WEAK(-0.302>-0.375)]. Dir: SELL (Sig: -0.30).
+[DubaiMatrixASI] 22:41:19.453    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:41:26.895    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 22:41:27.020    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057287016 criado para VETO [WAIT: RR_RATIO_LOW(1.07 < 1.11)]. Dir: SELL (Sig: -0.30).
+[DubaiMatrixASI] 22:41:27.284    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057287281 criado para VETO [WAIT: HORIZONTAL_SUPPORT_VETO (Level=70563, Valleys=17)]. Dir: SELL (Sig: -0.32).
+[DubaiMatrixASI] 22:41:35.356    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 22:41:49.205    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057309183 criado para VETO [WAIT: REWARD_TOO_SMALL_FOR_ALPHA (Reward 81.65 < Min 90.35 & ATR Block 75.58)]. Dir: SELL (Sig: -0.31).
+[DubaiMatrixASI] 22:41:52.259    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057312235 criado para VETO [WAIT: UNKNOWN_REGIME_INCOHERENCE]. Dir: SELL (Sig: -0.27).
+[DubaiMatrixASI] 22:42:06.403    OMEGA │ ⚡ 🧬 [DNA HOT-SWAP] Forja aplicou Otimização Evolutiva em Tempo Real: Threshold subiu p/ 0.184 | Min RR subiu p/ 1.53
+[DubaiMatrixASI] 22:42:08.179    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057328177 criado para VETO [WAIT: UNKNOWN_REGIME_INCOHERENCE]. Dir: BUY (Sig: 0.36).
+[DubaiMatrixASI] 22:42:09.810    OMEGA │ ⚡ 🧬 Gen #2: 10 mutações aplicadas | Tipo=uniform | Fitness=-1964.7201
+[DubaiMatrixASI] 22:42:09.970    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 22:42:10.021    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1287.48
+[DubaiMatrixASI] 22:42:22.569    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:42:39.586    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057359583 criado para VETO [WAIT: MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)]. Dir: BUY (Sig: 0.18).
+[DubaiMatrixASI] 22:42:40.090    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057360082 criado para VETO [WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.192<0.202)]. Dir: BUY (Sig: 0.19).
+[DubaiMatrixASI] 22:43:00.315    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057380308 criado para VETO [WAIT: NO_CONVERGENCE: SELL_SIGNAL_WEAK(-0.195>-0.202)]. Dir: SELL (Sig: -0.19).
+[DubaiMatrixASI] 22:43:01.283    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057381280 criado para VETO [WAIT: HORIZONTAL_SUPPORT_VETO (Level=70563, Valleys=17)]. Dir: SELL (Sig: -0.21).
+[DubaiMatrixASI] 22:43:13.466    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057393463 criado para VETO [WAIT: RR_RATIO_LOW(1.07 < 1.22)]. Dir: SELL (Sig: -0.31).
+[DubaiMatrixASI] 22:43:25.936    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:43:34.812    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057414789 criado para VETO [WAIT: MC_NEGATIVE_EV(-0.97) - Estatística desfavorável]. Dir: SELL (Sig: -0.63).
+[DubaiMatrixASI] 22:43:42.342    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 22:44:01.289    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057441286 criado para VETO [WAIT: HORIZONTAL_SUPPORT_VETO (Level=70563, Valleys=17)]. Dir: SELL (Sig: -0.32).
+[DubaiMatrixASI] 22:44:29.118    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:44:41.575    OMEGA │ ⚡ 🧬 Gen #3: 8 mutações aplicadas | Tipo=uniform | Fitness=-1964.7201
+[DubaiMatrixASI] 22:44:41.737    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 22:44:41.803    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 25 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1287.48
+[DubaiMatrixASI] 22:44:57.214    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057497205 criado para VETO [WAIT: UNKNOWN_REGIME_INCOHERENCE]. Dir: SELL (Sig: -0.35).
+[DubaiMatrixASI] 22:45:00.059    OMEGA │ ⚡ 🌊 REGIME CHANGE → SQUEEZE_BUILDUP (conf=0.80)
+[DubaiMatrixASI] 22:45:00.209    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057500184 criado para VETO [WAIT: NO_CONVERGENCE: SELL_SIGNAL_WEAK(-0.360>-0.460)]. Dir: SELL (Sig: -0.36).
+[DubaiMatrixASI] 22:45:07.245    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=1.00).
+[DubaiMatrixASI] 22:45:13.018  WARNING │ 📡 Fear&Greed API timeout/error: ('Connection aborted.', ConnectionResetError(10054, 'Foi forçado o cancelamento de uma conexão existente pelo host remoto', None, 10054, None))
+[DubaiMatrixASI] 22:45:19.153    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057519144 criado para VETO [WAIT: HORIZONTAL_SUPPORT_VETO (Level=70503, Valleys=21)]. Dir: SELL (Sig: -0.39).
+[DubaiMatrixASI] 22:45:32.354    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-53,6450
+[DubaiMatrixASI] 22:45:47.873    OMEGA │ ⚡ 🌊 REGIME CHANGE → UNKNOWN (conf=0.30)
+[DubaiMatrixASI] 22:45:48.496    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057548476 criado para VETO [WAIT: RR_RATIO_LOW(1.07 < 1.22)]. Dir: SELL (Sig: -0.18).
+[DubaiMatrixASI] 22:46:02.903    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774057562893 criado para VETO [WAIT: NO_CONVERGENCE: SELL_SIGNAL_WEAK(-0.163>-0.202)]. Dir: SELL (Sig: -0.16).
+[DubaiMatrixASI] 22:46:05.170  WARNING │ ⚠️ Socket EA desconectado (Graceful Close).
+[DubaiMatrixASI] 22:46:06.403    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
+[DubaiMatrixASI] 22:46:06.530    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
+[DubaiMatrixASI] 22:46:06.531    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
+[DubaiMatrixASI] 22:46:06.539    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
+[DubaiMatrixASI] 22:46:06.540    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
+[DubaiMatrixASI] 22:46:06.540    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
+[DubaiMatrixASI] 22:46:06.541    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-21T01:46:06.541415+00:00

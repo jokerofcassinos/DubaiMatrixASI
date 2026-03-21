@@ -101,11 +101,11 @@ class OmegaParameterSpace:
         """Inicializa todos os parâmetros Omega com valores default."""
 
         # ═══ DECISION PARAMETERS ═══
-        self._register("buy_threshold", 0.18, 0.05, 0.95,
+        self._register("buy_threshold", 0.15, 0.05, 0.95,
                         "Score mínimo para decisão BUY")
-        self._register("sell_threshold", -0.20, -0.95, -0.05,
+        self._register("sell_threshold", -0.15, -0.95, -0.05,
                         "Score mínimo para decisão SELL (negativo)")
-        self._register("confidence_min", 0.62, 0.10, 0.95,
+        self._register("confidence_min", 0.55, 0.10, 0.95,
                         "Confiança mínima para executar trade")
         self._register("convergence_threshold", 0.40, 0.20, 0.95,
                         "% de agentes que devem concordar")
@@ -145,9 +145,9 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 50.0, 0.0, 150.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD ($50.0)")
-        self._register("min_profit_per_ticket", 80.0, 10.0, 200.0,
+        self._register("min_profit_per_ticket", 45.0, 5.0, 200.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
-        self._register("min_commission_reward_ratio", 2.5, 1.0, 10.0,
+        self._register("min_commission_reward_ratio", 1.8, 1.0, 10.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
         self._register("commission_protection_mult", 1.5, 1.1, 5.0,
                         "Multiplicador de cobertura de comissão para Smart TP")
@@ -274,7 +274,7 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.120, 0.050, 0.5,
+        self._register("phi_min_threshold", 0.080, 0.050, 0.5,
                         "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
