@@ -454,31 +454,38 @@ class TrinityCore:
                  dynamic_conf_min *= 0.80 if regime_state.current == MarketRegime.HFT_BREAKDOWN else 0.85
                  self._log_cooldown("NEXUS_RELAXATION", f"🧠 [PHASE Ω-NEXUS] Relaxing thresholds due to { current_regime_val } (Mult: {mult:.2f}, Conf Min: {dynamic_conf_min:.2f})", 60)
             else:
-                 # [Phase Ω-Extreme] Se Φ é baixo em Drift, endurecemos MUITO o filtro (2.5x)
-                 # Isso exige sinais de altíssima amplitude (> 0.50)
-                 mult = 2.5 if is_low_phi_drift else 1.10
+                 # [Phase Ω-Extreme] Se Φ é baixo em Drift, endurecemos o filtro
+                 # [Ω-RECALIBRATION-3.0] Reduced from 2.5x to 1.8x to avoid total SELL paralysis
+                 mult = 1.8 if is_low_phi_drift else 1.10
                  dynamic_buy_thresh *= mult
                  dynamic_sell_thresh *= mult
                  if is_low_phi_drift:
-                     dynamic_conf_min = min(0.98, dynamic_conf_min * 1.35)
+                     dynamic_conf_min = min(0.98, dynamic_conf_min * 1.25)
                      
                      # ═══ [PHASE Ω-STRICT] DRIFT_COHERENCE_VETO ═══
                      # Se o regime é instável (Low Phi), NÃO aceitamos entrar com baixa coerência
                      # [Ω-RECOVERY] Se o sinal é forte (>0.40), relaxamos de 0.50 para 0.40
-                     c_req = 0.25 if abs(signal) > 0.55 else 0.30 if abs(signal) > 0.35 else 0.35 if abs(signal) > 0.15 else 0.45
+                     # [Ω-RECALIBRATION-3.0] Lowered base thresholds to unlock SELL in DRIFTING_BEAR
+                     c_req = 0.22 if abs(signal) > 0.55 else 0.27 if abs(signal) > 0.35 else 0.32 if abs(signal) > 0.15 else 0.40
                      
                      # [Ω-STABILITY] Chão de Coerência Absoluto p/ Caos Extremo (Evitar Fakeouts em Φ < 0.10)
-                     if phi_score < 0.10: c_req = max(c_req, 0.28)
+                     if phi_score < 0.10: c_req = max(c_req, 0.25)
                      
                      # [Ω-PGC] Phi-Coherence Gradient: Quanto menor o Φ, maior o consenso exigido.
-                     # [Ω-RECALIBRATION] Multiplicador reduzido de 1.0 para 0.6 para evitar paralisia
+                     # [Ω-RECALIBRATION-3.0] Penalty reduced from 0.2 to 0.12 to avoid marginal blocking
                      if phi_score < 0.45:
-                         pgc_penalty = max(0, 0.45 - phi_score) * 0.2
-                         c_req = min(0.55, c_req + pgc_penalty) # Cap em 0.60
+                         pgc_penalty = max(0, 0.45 - phi_score) * 0.12
+                         c_req = min(0.50, c_req + pgc_penalty)
                          
                      # [Ω-PhD-OPTIM] Coherence Relaxation for Sovereignty
                      if is_v_pulse_recovery:
-                         c_req = min(c_req, 0.25)
+                         # Phoenix Strike 2.0: If V-Pulse is extremely high (>0.8), relax drift requirement significantly
+                         c_req = 0.41 if phi < 0.25 else 0.35
+                         if v_pulse_detected:
+                             if regime_state.v_pulse_intensity > 0.8:
+                                 c_req = 0.20
+                             else:
+                                 c_req = 0.25
                           
                      if coherence < c_req and not (is_tec_sovereign or is_god_mode or (phi_score > 0.18 and coherence > 0.25)):
 
@@ -815,7 +822,7 @@ class TrinityCore:
         phi_min = OMEGA.get("phi_min_threshold", 0.25) # Normalized for 190 agents
         phi_hydra = OMEGA.get("phi_hydra_threshold", 4.5)
 
-        # Calibração Dinâmica de Consciência (Dynamic Incoherence)
+        # Calibração Dinâmica de Consciência (Dynamic Incoerência)
         # O valor de Φ natural varia com a energia do mercado. 
         # Exigir Φ=0.4 em mercados "Drifting" causa paralisia infinita.
         dynamic_phi_min = phi_min
@@ -934,10 +941,14 @@ class TrinityCore:
         # Se o enxame está em harmonia (Coherence > 0.6) e bem integrado (Phi > 0.3), 
         # confiamos na entrada mesmo com baixa entropia/volatilidade.
         is_consensus_clear = coherence > 0.60 and phi > 0.30
-        
-        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and not (is_geodesic_flow or is_topologically_protected or is_consensus_clear):
+        # [Ω-RECALIBRATION-3.0] Bypass VACUUM if bear/bull consensus is overwhelming (>65%)
+        bear_ratio = len(quantum_state.metadata.get("bear_agents", [])) / max(1, len(quantum_state.metadata.get("bear_agents", [])) + len(quantum_state.metadata.get("bull_agents", [])))
+        is_overwhelming_consensus = bear_ratio > 0.65 or bear_ratio < 0.35
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and not (is_geodesic_flow or is_topologically_protected or is_consensus_clear or is_overwhelming_consensus):
             self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia + Φ={phi:.2f} < 0.25). Avoiding chop.", 60)
             return self._wait("ENTROPIC_VACUUM_VETO")
+        elif is_overwhelming_consensus and is_drifting and entropy < 0.45:
+            self._log_cooldown("VACUUM_CONSENSUS_BEAR", f"⚡ [Ω-BEAR GRIND BYPASS] Overwhelming consensus ({bear_ratio:.0%} bear). Low entropy = steady grind, not chop.", 60, level="omega")
         elif is_consensus_clear and is_drifting and entropy < 0.45:
              self._log_cooldown("VACUUM_CONSENSUS", f"☄️ [Ω-CONSCIOUSNESS BYPASS] Bypassing Entropic Vacuum via High Coherence ({coherence:.2%}).", 60, level="omega")
         elif (is_geodesic_flow or is_topologically_protected) and is_drifting and entropy < 0.45:

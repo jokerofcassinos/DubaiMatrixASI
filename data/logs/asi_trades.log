@@ -1,49 +1,25 @@
-[DubaiMatrixASI] 12:59:34.707    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 12:59:34.708    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 12:59:34.708    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 12:59:34.709    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 12:59:34.709    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 12:59:34.709    OMEGA │ ⚡ 📅 2026-03-21T15:59:34.709763+00:00
-[DubaiMatrixASI] 12:59:34.710    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 12:59:34.710    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 12:59:34.713    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 12:59:34.717    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 12:59:34.717    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70614.81, Bid=70613.81
-[DubaiMatrixASI] 12:59:34.726    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 12:59:34.727    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 12:59:34.748    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 12:59:34.783    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 476 shadow trades abertos na memória.
-[DubaiMatrixASI] 12:59:34.789    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 12:59:34.790    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 12:59:34.792    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 12:59:34.796    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 12:59:34.797    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos
-[DubaiMatrixASI] 12:59:34.798    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 12:59:34.800    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
-[DubaiMatrixASI] 12:59:34.801    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 12:59:34.801    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 12:59:34.836    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 12:59:34.976    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 61463)
-[DubaiMatrixASI] 12:59:35.020  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.076 < 0.08
-[DubaiMatrixASI] 12:59:35.078    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774108775021 criado para VETO [WAIT: SYNERGY_VETO (Φ=0.076)]. Dir: BUY (Sig: 0.16).
-[DubaiMatrixASI] 12:59:35.090    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $46.0
-[DubaiMatrixASI] 12:59:35.121    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
-[DubaiMatrixASI] 12:59:35.127  WARNING │ 🚨 ALERT [HIGH]: Win rate em 20.0% (threshold: 45.0%)
-[DubaiMatrixASI] 12:59:35.149  WARNING │ 🚨 ALERT [CRITICAL]: 44 losses consecutivos!
-[DubaiMatrixASI] 12:59:35.171    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 61 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-1759.48
-[DubaiMatrixASI] 12:59:36.378    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774108776303 criado para VETO [WAIT: STARTUP_COOLDOWN(2s/120.0s)]. Dir: BUY (Sig: 0.18).
-[DubaiMatrixASI] 12:59:47.541    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Fantasma GST_1774108787503 criado para VETO [WAIT: STARTUP_COOLDOWN(13s/120.0s)]. Dir: SELL (Sig: -0.16).
-[DubaiMatrixASI] 12:59:54.204    OMEGA │ ⚡ ⚡ C++ ASI Core carregado: d:\DubaiMatrixASI\asi_core_v3.dll
-[DubaiMatrixASI] 12:59:54.260  WARNING │ ⚠️ T-Cell: Covariance singular or unstable. Scaling reg p/ 1.0e-03
-[DubaiMatrixASI] 12:59:54.261  WARNING │ ⚠️ T-Cell: Covariance singular or unstable. Scaling reg p/ 1.0e-02
-[DubaiMatrixASI] 12:59:54.292    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 12:59:54.295    OMEGA │ ⚡ ⚡ [Ω-V-PULSE SOVEREIGNTY] Recovery strike authorized (Sig=0.75). Bypassing low-phi hardening.
-[DubaiMatrixASI] 12:59:54.296    OMEGA │ ⚡ ⚡ [V-PULSE] Bypassing Startup Cooldown for immediate strike.
-[DubaiMatrixASI] 12:59:54.298    OMEGA │ ⚡ 👹 [GOD-MODE REVERSAL] — High Entropy Panic/God Candidate (Φ=0.04, E=0.00). Bypassing Incoherence Veto.
-[DubaiMatrixASI] 12:59:54.298    OMEGA │ ⚡ ⚡ [SOBERANIA DO PRESENTE] Φ=0.04 is weak but V-Pulse is active. Bypassing PHI threshold for 3 candles.
-[DubaiMatrixASI] 12:59:54.299    OMEGA │ ⚡ 🧬 [Ω-PNL OVERRIDE] Bypassing negative expectancy via Consciousness Sovereignty (Φ=0.04).
-[DubaiMatrixASI] 12:59:54.300    OMEGA │ ⚡ ☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para 4.56x
-[DubaiMatrixASI] 12:59:54.300    OMEGA │ ⚡ ⚡ [V-PULSE ALPHA] Reducing min net profit target by 50% due to ignition.
-[DubaiMatrixASI] 12:59:54.301    OMEGA │ ⚡ 👹 [GOD-MODE RR] Bypassing RR thresholds for panic absorption (Min RR: 0.35)
-[DubaiMatrixASI] 12:59:54.301    OMEGA │ ⚡ 🚀 [ALPHA SURGE] Relaxing kinematic threshold to 4.50 (x2.5)
-[DubaiMatrixASI] 12:59:54.325    OMEGA │ ⚡ 🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.
+[DubaiMatrixASI] 13:33:37.554    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 13:33:37.555    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 13:33:37.555    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 13:33:37.555    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 13:33:37.556    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 13:33:37.556    OMEGA │ ⚡ 📅 2026-03-21T16:33:37.556466+00:00
+[DubaiMatrixASI] 13:33:37.556    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 13:33:37.557    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 13:33:37.560    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 13:33:37.563    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 13:33:37.564    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=70437.94, Bid=70436.94
+[DubaiMatrixASI] 13:33:37.572    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 13:33:37.573    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 13:33:37.590    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 13:33:37.659    OMEGA │ ⚡ 👻 [SHADOW ENGINE] Inicializado. 606 shadow trades abertos na memória.
+[DubaiMatrixASI] 13:33:37.736    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 13:33:37.777    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 13:33:37.789    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 13:33:37.845    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 13:33:37.851    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 183 agentes ativos
+[DubaiMatrixASI] 13:33:37.851    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 13:33:37.852    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
+[DubaiMatrixASI] 13:33:37.854    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 13:33:37.854    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 13:33:37.904    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
