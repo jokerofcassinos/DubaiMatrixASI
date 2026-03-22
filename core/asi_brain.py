@@ -112,13 +112,12 @@ class ASIBrain:
 
         # ═══ ESTADO DA ASI ═══
         self.state = ASIState()
+        self.state.load()  # Carregar estado anterior
 
         # ═══ PHASE 5: SELF-EVOLUTION ═══
         self.performance_tracker = PerformanceTracker()
-        self.self_optimizer = SelfOptimizer(self.state)
+        self.self_optimizer = SelfOptimizer(self.performance_tracker)
         self.lifecycle_logger = LifecycleLogger()
-        self._initialize()
-        self.state.load()  # Carregar estado anterior
         
         # ═══ PHASE Ω-9: MOTOR CONTRAFACTUAL SOMBRA ═══
         self.shadow_engine = ShadowCounterfactualEngine()

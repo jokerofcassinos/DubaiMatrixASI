@@ -27,9 +27,8 @@ class LifecycleLogger:
         from core.decision.trinity_core import Action
         is_trade = decision and decision.action in [Action.BUY, Action.SELL]
         
-        # [Ω-VALIDATION] Reduzido threshold de Φ para 0.03 para garantir logs visíveis
-        phi = getattr(quantum_state, 'phi', 0)
-        if not is_trade and phi < 0.03: 
+        # [Ω-STRICT] Logar APENAS ordens executadas, conforme ordem do CEO
+        if not is_trade:
             return 
 
         logs = self._get_buffered_logs()
