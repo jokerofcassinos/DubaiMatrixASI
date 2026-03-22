@@ -1,6 +1,6 @@
 {
   "id": "GST_1774230644538",
-  "status": "OPEN",
+  "status": "CLOSED",
   "entry_time": "2026-03-22T22:50:44.538337Z",
   "entry_timestamp": 1774230644.538337,
   "entry_price": 68245.86,
@@ -12,9 +12,9 @@
   "phi": 0.04314472783681344,
   "sl_price": 68151.66097454868,
   "tp_price": 68434.25805090264,
-  "close_time": null,
-  "close_price": null,
-  "result": null,
+  "close_time": "2026-03-22T23:21:20.094462Z",
+  "close_price": 68149.5,
+  "result": "TRUE_NEGATIVE",
   "cycle_code": "CYC001_20260322",
   "candle_pos": "31_1",
   "swarm_intelligence": {

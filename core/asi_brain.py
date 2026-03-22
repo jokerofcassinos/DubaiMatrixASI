@@ -21,7 +21,7 @@ from market.scraper.sentiment_scraper import SentimentScraper
 from market.scraper.onchain_scraper import OnChainScraper
 from market.scraper.macro_scraper import MacroScraper
 from core.consciousness.neural_swarm import NeuralSwarm
-from core.consciousness.quantum_thought import QuantumThoughtEngine
+from core.consciousness.quantum_thought import QuantumThoughtEngine, QuantumState
 from core.consciousness.regime_detector import RegimeDetector
 from market.memory.episodic_memory import EpisodicMemory
 from market.scraper.narrative_distiller import EdgeLLMDistiller
@@ -38,6 +38,7 @@ from config.omega_params import OMEGA
 from utils.logger import log
 from utils.decorators import timed, catch_and_log, ast_self_heal
 from core.decision.shadow_engine import ShadowCounterfactualEngine
+from core.decision.lifecycle_logger import LifecycleLogger
 
 
 class ASIBrain:
@@ -109,12 +110,14 @@ class ASIBrain:
         self.onchain_scraper = OnChainScraper()
         self.macro_scraper = MacroScraper()
 
-        # ═══ PHASE 5: SELF-EVOLUTION ═══
-        self.performance_tracker = PerformanceTracker()
-        self.self_optimizer = SelfOptimizer(self.performance_tracker)
-
         # ═══ ESTADO DA ASI ═══
         self.state = ASIState()
+
+        # ═══ PHASE 5: SELF-EVOLUTION ═══
+        self.performance_tracker = PerformanceTracker()
+        self.self_optimizer = SelfOptimizer(self.state)
+        self.lifecycle_logger = LifecycleLogger()
+        self._initialize()
         self.state.load()  # Carregar estado anterior
         
         # ═══ PHASE Ω-9: MOTOR CONTRAFACTUAL SOMBRA ═══
@@ -163,6 +166,7 @@ class ASIBrain:
         UM CICLO DE PENSAMENTO COMPLETO.
         Chamado pelo loop principal a cada CONSCIOUSNESS_CYCLE_MS.
         """
+        self.lifecycle_logger.start_cycle()
         self._cycle_count += 1
 
         # ═══ 1. PERCEPÇÃO — Coletar dados ═══
@@ -248,7 +252,12 @@ class ASIBrain:
             "regime": regime_state.current.value if regime_state else "UNKNOWN",
             "agents_active": len(agent_signals),
             "reasoning": decision.reasoning if decision else "",
+            "snapshot": snapshot,
+            "quantum": quantum_state
         }
+        
+        # [Ω-LIFECYCLE] Persistir o ciclo completo no log de trades
+        self.lifecycle_logger.end_cycle(self._cycle_count, decision, quantum_state, snapshot)
 
         # ═══ 7. EXECUÇÃO — Se não é WAIT ═══
         if decision and decision.action != Action.WAIT:

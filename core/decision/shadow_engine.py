@@ -267,13 +267,26 @@ class ShadowCounterfactualEngine:
                 closed_count += 1
 
     def _finalize_ghost(self, trade: Dict[str, Any]):
-        """Move o ghost de pendentes para corretos/errados."""
+        """Move o ghost de pendentes para corretos/errados preservando estrutura de Ciclo."""
         try:
-            target_dir = self.corretos_dir if trade["result"] == "TRUE_NEGATIVE" else self.errados_dir
-            new_path = os.path.join(target_dir, f"{trade['id']}.json")
+            target_base = self.corretos_dir if trade["result"] == "TRUE_NEGATIVE" else self.errados_dir
             
-            # Remover campo interno antes de salvar
+            # Extrair subcaminho (Data/Ciclo) do path original
             old_path = trade.pop("_internal_path", None)
+            if not old_path: return
+            
+            # Assumindo estrutura: pendentes/YYYY-MM-DD/cycle_XXX/file.json
+            parts = old_path.replace("\\", "/").split("/")
+            if len(parts) >= 3:
+                date_str = parts[-3]
+                cycle_str = parts[-2]
+                filename = parts[-1]
+                
+                target_dir = os.path.join(target_base, date_str, cycle_str)
+                os.makedirs(target_dir, exist_ok=True)
+                new_path = os.path.join(target_dir, filename)
+            else:
+                new_path = os.path.join(target_base, f"{trade['id']}.json")
             
             with open(new_path, "w", encoding="utf-8") as f:
                 json.dump(trade, f, indent=2, ensure_ascii=False)
