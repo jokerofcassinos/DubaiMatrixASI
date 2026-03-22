@@ -436,6 +436,12 @@ class TrinityCore:
         # [Phase Ω-HVS] High-Voltage Strike (Φ > 0.30) — Soberania Estrutural
         phi_hvs = OMEGA.get("phi_high_voltage_threshold", 0.30)
         is_hvs_sovereign = (phi >= phi_hvs)
+
+        # [Phase Ω-SMS] Structural Manifold Sovereignty (SMS) — Resgate de False Negativos
+        # Se a curvatura é alta (Riemannian) e a energia é alta (Velocity), a estrutura é real mesmo com Φ baixo.
+        manifold_curvature = abs(snapshot.metadata.get("manifold_curvature", 0.0))
+        tick_velocity = abs(snapshot.metadata.get("tick_velocity", 0.0))
+        is_sms_sovereign = (manifold_curvature > 0.08 and tick_velocity > 12.0)
         
         # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
         # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
@@ -589,7 +595,9 @@ class TrinityCore:
 
         # [Phase Ω-Coherence] UNKNOWN Regime Veto
         if regime_state.current.value in ["UNKNOWN", "CHOPPY", "LOW_LIQUIDITY"]:
-            unknown_phi_gate = OMEGA.get("unknown_regime_phi_gate", 0.04)
+            # [Ω-SMS] Alívio Dinâmico de Phi para Soberania de Curvatura
+            unknown_phi_gate = 0.005 if is_sms_sovereign else OMEGA.get("unknown_regime_phi_gate", 0.04)
+            
             if not is_tec_sovereign and phi < unknown_phi_gate and not (has_ignition or is_lethal_ignition or is_ricci_attractor):
                 # ═══ [PHASE 6.0] Entropic Vacuum Harvester (EVH) ═══
                 # O mercado está paralisado. Direção macro sumiu. O ruído impera.
@@ -609,12 +617,15 @@ class TrinityCore:
                     return self._wait("UNKNOWN_REGIME_INCOHERENCE")
             elif phi >= unknown_phi_gate:
                  # [Phase Ω-Extreme] Coherence Check para regimes nebulosos
-                 unknown_c_gate = OMEGA.get("unknown_regime_coherence_gate", 0.65)
+                 # [Ω-SMS] Alívio Dinâmico de Coerência (0.65 -> 0.35)
+                 unknown_c_gate = 0.35 if is_sms_sovereign else OMEGA.get("unknown_regime_coherence_gate", 0.65)
+                 
                  if not is_tec_sovereign and not is_hvs_sovereign and coherence < unknown_c_gate:
                       self._log_cooldown("UNKNOWN_COHERENCE_VETO", f"🛡️ VETO: UNKNOWN_COHERENCE_WEAK (Coherence={coherence:.2f} < {unknown_c_gate:.2f} requirement in {current_regime_val})", 60)
                       return self._wait("UNKNOWN_COHERENCE_WEAK")
                  
-                 self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓 [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f} | Coherence={coherence:.2f}).", 60, level="omega")
+                 sms_tag = " [Ω-SMS]" if is_sms_sovereign else ""
+                 self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓{sms_tag} [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f} | Coherence={coherence:.2f}).", 60, level="omega")
         
         # [Phase Ω-Singularity] QUANTUM MOMENTUM IGNITION (QMI)
         # Treat Energy (Velocity) as a substitute for Coherence (PHI) during Breakouts
@@ -1038,7 +1049,7 @@ class TrinityCore:
         # [Phase 50] God-Mode Reversal & Resonance Bypass
         is_ricci_attractor = quantum_state.metadata.get("ricci_attractor", False)
         
-        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty or is_tec_sovereign or is_ricci_attractor or is_v_pulse_recovery): # PhD-7: Ricci Attractor bypasses Φ-Gate
+        if phi < phi_threshold and not (is_god_mode_phi or has_exhaustion_sovereignty or is_tec_sovereign or is_ricci_attractor or is_v_pulse_recovery or is_sms_sovereign): # PhD-7: Ricci Attractor bypasses Φ-Gate
             self._log_cooldown("PHI_VETO", f"⚠️ VETO: SYSTEM_INCOHERENCE (Φ={phi:.4f} < {phi_threshold:.4f} | TEC={is_tec_sovereign} | RICCI={is_ricci_attractor})", 60)
             return self._wait("INCOHERENCE_VETO")
 
@@ -1095,7 +1106,7 @@ class TrinityCore:
         elif regime in [MarketRegime.HIGH_VOL_CHAOS, MarketRegime.LIQUIDITY_HUNT]:
             phi_gate = max(phi_gate, 0.50)
             
-        if not (is_tec_sovereign or has_exhaustion_sovereignty or is_ricci_attractor or is_v_pulse_recovery) and phi_score < (phi_gate - 1e-6):
+        if not (is_tec_sovereign or has_exhaustion_sovereignty or is_ricci_attractor or is_v_pulse_recovery or is_sms_sovereign) and phi_score < (phi_gate - 1e-6):
             return self._wait(f"SIGNAL_FRAGILE(Φ={phi_score:.2f} < {phi_gate:.2f})")
         
         phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
@@ -1360,7 +1371,7 @@ class TrinityCore:
                     is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
                     # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é saudável ou há V-Pulse
                     # Relaxed Phi requirement from 0.25 to 0.15 for aggressive scalp
-                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling or is_tec_sovereign or is_hvs_sovereign
+                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling or is_tec_sovereign or is_hvs_sovereign or is_sms_sovereign
                     
                     # [Ω-MICRO-ALPHA] If Reward covers fees, we take it if Phi is high
                     is_micro_alpha = reward > (comm_per_lot * 1.1) and phi > 0.20
@@ -1386,9 +1397,9 @@ class TrinityCore:
              min_rr = 0.35 if limit_mode else (min_rr * phi_factor)
 
         # [Phase Ω-HVS] High-Voltage RR Relaxation
-        if is_hvs_sovereign:
+        if is_hvs_sovereign or is_sms_sovereign:
             min_rr = min(min_rr, 0.45)
-            self._log_cooldown("HVS_RR_RELAX", f"⚡ [Ω-HVS RR] Force relaxing min_rr to {min_rr:.2f} due to structural voltage.", 60, level="omega")
+            self._log_cooldown("SMS_RR_RELAX", f"⚡ [Ω-SMS RR] Force relaxing min_rr to {min_rr:.2f} due to structural manifold.", 60, level="omega")
 
         # [Phase 51] God-Mode RR Rationale
         if is_god_mode:
@@ -1408,7 +1419,7 @@ class TrinityCore:
             if "LiquidStateAgent" in top_bears or "PriceGravityAgent" in top_bears:
                 leading_against = True
                 
-        if leading_against and not is_god_mode:
+        if leading_against and not (is_god_mode or is_sms_sovereign):
             # [Phase 52 Refinement] Cap at 1.8 to avoid excessive paralysis
             # Divergence should demand better RRR, but not impossible targets.
             min_rr = min(1.8, min_rr * 1.25) 
@@ -1429,7 +1440,7 @@ class TrinityCore:
             # Ordens limite não pagam o "spread cego" da corretora, elas embolsam o spread.
             # Mitiagação de comissão bruta
             # [Phase Ω-SwingCrash] Crash sovereignty and swing trades bypass commission gate
-            if limit_mode or is_tec_sovereign or is_crash_sovereign or is_swing_active:
+            if limit_mode or is_tec_sovereign or is_crash_sovereign or is_swing_active or is_sms_sovereign:
                 min_comm_ratio = 0.0 # Desliga o veto de comissão para Maker, Strike Soberano, Crash ou Swing
             
             if comm_reward_ratio < min_comm_ratio:
@@ -1744,7 +1755,7 @@ class TrinityCore:
                 # Se o retorno esperado é negativo, a estatística diz que vamos perder dinheiro no longo prazo.
                 # Só permitimos se for um sinal de exaustão extrema (God-Mode) ou Drift estável com consenso.
                 # [Ω-RECALIBRATION-4.0] Relaxed from phi>0.35/sig>0.50 to phi>0.25/sig>0.38
-                if not (is_god_mode or is_tec_sovereign) and not (phi > 0.25 and abs(signal) > 0.38 and is_drifting):
+                if not (is_god_mode or is_tec_sovereign or is_sms_sovereign) and not (phi > 0.25 and abs(signal) > 0.38 and is_drifting):
                     if mc_result.expected_return < 0:
                         reason = f"MC_NEGATIVE_EV({mc_result.expected_return:.2f})"
                     else:
@@ -1753,7 +1764,7 @@ class TrinityCore:
 
             # [Phase Ω-PhD-3] MC-Score Floor
             # O mc_score pondera WP, EV e CVaR. Um valor < -0.25 indica um trade intrinsecamente "sujo".
-            if mc_score < -0.25 and not (is_god_mode or is_tec_sovereign):
+            if mc_score < -0.25 and not (is_god_mode or is_tec_sovereign or is_sms_sovereign):
                 if not (phi > 0.40 and abs(signal) > 0.60 and is_drifting):
                     return self._wait(f"MC_SCORE_FLOOR_VETO ({mc_score:.3f} < -0.25) - High Probability of Chaos")
 
@@ -1780,7 +1791,7 @@ class TrinityCore:
             mc_min_score = OMEGA.get("mc_min_score", -0.1)
             # [Phase Ω-Continuum] Bypass MC if consensus is incredibly strong, EXCEPT in low liquidity/choppy OR Counter-Trend
             if mc_score < mc_min_score:
-                if (phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend) or is_v_pulse_recovery or is_tec_sovereign:
+                if (phi > 0.45 and abs(signal) > 0.65 and regime_state.current.value not in ["LOW_LIQUIDITY", "CHOPPY", "UNKNOWN"] and not is_counter_trend) or is_v_pulse_recovery or is_tec_sovereign or is_sms_sovereign:
                      self._log_cooldown("MC_BYPASS", f"🛡️ [MC BYPASS] { 'V-Pulse Sovereignty' if is_v_pulse_recovery else 'Extreme consensus' } overriding pessimistic MC (Score={mc_score:+.3f}).", 60, level="omega")
                 else:
                     return self._wait(f"MC_SCORE_LOW({mc_score:+.3f}<{mc_min_score}) {mc_reasoning}")
@@ -1802,7 +1813,7 @@ class TrinityCore:
                      pass # Fat-Tail Asymmetry: Assume WR<40% if Expected Value is massive.
                 elif phi > 0.45 and abs(signal) > 0.65 and is_safe_regime and not is_counter_trend:
                      pass # Bypass
-                elif is_tec_sovereign:
+                elif is_tec_sovereign or is_sms_sovereign:
                      pass # SRE / EVH Sovereign Bypass
                 else:
                     return self._wait(f"MC_WIN_PROB_LOW({mc_win_prob:.1%}<{mc_min_wp:.0%}) {mc_reasoning}")
