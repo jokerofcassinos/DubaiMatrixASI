@@ -1915,8 +1915,13 @@ class TrinityCore:
             # [Phase Ω-LETHALITY] Dynamic Phi Relaxation
             # Se o sinal é forte e coerente, a falta de sinergia total não deve paralisar a ASI.
             signal_abs = abs(quantum_state.raw_signal)
-            if signal_abs > 0.25 and quantum_state.coherence > 0.35:
-                phi_min = 0.005 # Relaxamento extremo p/ sinal de alta convicção
+            
+            # [Phase Ω-Thermal-Relief] Se a velocidade é alta, reduzimos exigência de coerência de 0.35 para 0.30
+            tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
+            c_req_for_phi_relax = 0.30 if tick_vel_abs > 12.0 else 0.35
+            
+            if signal_abs > 0.25 and quantum_state.coherence > c_req_for_phi_relax:
+                phi_min = 0.005 # Relaxamento extremo p/ sinal de alta convicção ou alta energia
                 
             # [Phase Ω-SwingCrash] Crash sovereignty bypasses SYNERGY_VETO
             crash_sig_veto = next((s for s in (getattr(quantum_state, 'agent_signals', []) or []) if s.agent_name == "CrashVelocityDetector"), None)

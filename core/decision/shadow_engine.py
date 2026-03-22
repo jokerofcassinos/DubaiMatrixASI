@@ -204,7 +204,13 @@ class ShadowCounterfactualEngine:
             },
             "snapshot": {
                 "regime": str(snapshot.regime.value if hasattr(snapshot.regime, 'value') else (snapshot.regime or "UNKNOWN")),
-                "atr": atr
+                "atr": atr,
+                "metadata": {
+                    "tick_velocity": snapshot.metadata.get("tick_velocity", 0.0),
+                    "v_pulse_detected": snapshot.metadata.get("v_pulse_detected", False),
+                    "shannon_entropy": snapshot.metadata.get("shannon_entropy", 0.0),
+                    "jounce": snapshot.metadata.get("jounce", 0.0)
+                }
             }
         }
 
