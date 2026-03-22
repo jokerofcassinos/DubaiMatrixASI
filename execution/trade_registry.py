@@ -80,7 +80,8 @@ class TradeRegistry:
                 "phi": getattr(snapshot, 'phi', 0.0) if snapshot else 0.0,
                 "reasoning": getattr(intent, 'reasoning', ''),
                 "symbol": getattr(snapshot, 'symbol', 'UNKNOWN') if snapshot else 'UNKNOWN',
-                "strike_id": strike_id
+                "strike_id": strike_id,
+                "custom_metadata": getattr(intent, 'metadata', {})
             }
             
             with self._lock:

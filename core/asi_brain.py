@@ -189,6 +189,8 @@ class ASIBrain:
 
         # ═══ 3. DETECÇÃO DE REGIME ═══
         regime_state = self.regime_detector.detect(snapshot)
+        if regime_state:
+            snapshot.regime = regime_state.current
 
         # ═══ 4. INTELIGÊNCIA EXTERNA — Scrapers ═══
         snapshot.metadata["sentiment_score"] = self.sentiment_scraper.sentiment_score

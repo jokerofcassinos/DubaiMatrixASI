@@ -190,6 +190,18 @@ class PositionManager:
                 state['peak_profit'] = total_profit
                 state['peak_time'] = time.time()
             
+            # [Phase Ω-SwingCrash] Metadata-Aware Relaxation
+            intent = trade_registry.get_intent(position_id=anchor_ticket)
+            custom_meta = (intent.get("custom_metadata") or {}) if intent else {}
+            is_swing = custom_meta.get("is_swing_trade", False)
+            is_crash = custom_meta.get("is_crash_sovereign", False)
+            
+            relaxation_mult = 1.0
+            if is_swing:
+                relaxation_mult *= OMEGA.get("swing_trailing_relaxation", 2.5)
+            elif is_crash:
+                relaxation_mult *= OMEGA.get("crash_trailing_relaxation", 2.0)
+            
             if abs(total_profit - state.get("last_cached_profit", -999)) > 0.01:
                 state["last_cached_profit"] = total_profit
                 state["last_price_change_time"] = time.time()
@@ -243,8 +255,13 @@ class PositionManager:
             atr_val = snapshot.atr if snapshot.atr > 0 else 50.0
             
             # Floor dinâmico macro
-            target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 50.0) 
+            target_net_profit_per_lot = OMEGA.get("min_profit_per_ticket", 25.0) 
             target_net_profit = lot_scale * target_net_profit_per_lot
+            
+            # [Phase Ω-SwingCrash] Scale floor for swing trades to prevent early T1/T2 activation
+            if is_swing:
+                target_net_profit *= OMEGA.get("swing_min_profit_mult", 10.0)
+                
             dynamic_peak_floor = commission_cost + target_net_profit
 
             # Noise Shield Active: 1.5x do floor deve ser atingido antes de aceitar "ruído"
@@ -258,20 +275,20 @@ class PositionManager:
             if peak > dynamic_peak_floor:
                 # Tier 2 e 3: O pico atingiu o topo! Acima do dynamic_peak_floor.
                 if is_proximity_zone:
-                    lock_threshold = OMEGA.get("proximity_lock_threshold", 0.05) * phi_relax
+                    lock_threshold = OMEGA.get("proximity_lock_threshold", 0.05) * phi_relax * relaxation_mult
                     reason_prefix = "PROXIMITY_STRIKE"
                 elif peak > dynamic_peak_floor * 2.0:
                     curvature_adj = max(0, climax_score - 2.5) * 0.03
-                    lock_threshold = max(0.05, (0.25 - curvature_adj) * phi_relax) 
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T3)"
+                    lock_threshold = max(0.05, (0.25 - curvature_adj) * phi_relax * relaxation_mult) 
+                    reason_prefix = f"RIEMANNIAN_TRAILING_STOP (T3{'[RELAX]' if relaxation_mult > 1 else ''})"
                 elif peak > dynamic_peak_floor * 1.5:
                     curvature_adj = max(0, climax_score - 3.0) * 0.02
-                    lock_threshold = max(0.05, (0.15 - curvature_adj) * phi_relax)
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T2)"
+                    lock_threshold = max(0.05, (0.15 - curvature_adj) * phi_relax * relaxation_mult)
+                    reason_prefix = f"RIEMANNIAN_TRAILING_STOP (T2{'[RELAX]' if relaxation_mult > 1 else ''})"
                 else:
                     vol_mult = 1.0 if atr_val < 150 else 0.7 
-                    lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult * phi_relax
-                    reason_prefix = "RIEMANNIAN_TRAILING_STOP (T1)"
+                    lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult * phi_relax * relaxation_mult
+                    reason_prefix = f"RIEMANNIAN_TRAILING_STOP (T1{'[RELAX]' if relaxation_mult > 1 else ''})"
                 
                 # Trava de Segurança Absoluta pós-floor (Nunca cai abaixo de 1.0x do floor)
                 trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
@@ -345,12 +362,14 @@ class PositionManager:
                         regime = snapshot.regime.value if hasattr(snapshot.regime, 'value') else str(snapshot.regime)
                         is_trend = "TRENDING" in regime or "IGNITION" in regime
                         
-                        if is_flow_favorable or is_trend:
+                        if is_flow_favorable or is_trend or is_swing or is_crash:
                             persistence = OMEGA.get("trend_persistence_buffer", 2.0)
+                            if is_swing or is_crash: persistence *= 2.0 # Extra time for structural evolution
                             max_stag_time *= persistence # Damos mais tempo se a inércia ainda empurra ou regime é trend
                             
                         if stag_time >= max_stag_time:
-                            should_close, reason = True, f"TIME_DECAY_LOCK ({stag_time:.1f}s below peak ${peak:.2f} | R={regime})"
+                            label = f"{'SWING' if is_swing else 'CRASH' if is_crash else 'TIME'}_DECAY"
+                            should_close, reason = True, f"{label}_LOCK ({stag_time:.1f}s below peak ${peak:.2f} | R={regime})"
 
                 # ═══════════════════════════════════════════════════
                 #  TRIGGER 6: THERMODYNAMIC BIFURCATION (Prigogine)

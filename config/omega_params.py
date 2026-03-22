@@ -393,6 +393,34 @@ class OmegaParameterSpace:
         self._register("mirror_protocol_enabled", 1.0, 0.0, 1.0,
                         "Se 1.0, inverte ordens (BUY -> SELL, SELL -> BUY) APENAS em regimes CREEPING")
 
+        # ═══ [PHASE Ω-SWINGCRASH] Swing Position Detection ═══
+        self._register("swing_mode_enabled", 1.0, 0.0, 1.0,
+                        "Enable swing position detection (multi-TF structural analysis)")
+        self._register("swing_min_rr_ratio", 3.0, 2.0, 8.0,
+                        "Minimum Risk/Reward ratio for swing trades (structural targets)")
+        self._register("swing_max_tp_distance", 2500.0, 500.0, 5000.0,
+                        "Max TP distance in points for swing trades (wider than scalp cap)")
+        self._register("swing_h1_atr_sl_mult", 1.5, 0.5, 3.0,
+                        "H1 ATR multiplier for swing trade stop loss placement")
+
+        # ═══ [PHASE Ω-SWINGCRASH] Crash/Drop Velocity Detection ═══
+        self._register("crash_detection_enabled", 1.0, 0.0, 1.0,
+                        "Enable crash velocity detection (multi-scale ROC cascade)")
+        self._register("crash_severity_threshold", 0.7, 0.3, 0.95,
+                        "Minimum severity score for crash sovereignty bypass")
+        self._register("crash_cascade_depth_min", 2.0, 1.0, 5.0,
+                        "Minimum broken structural levels to confirm cascade")
+        self._register("crash_roc_threshold", -0.002, -0.01, -0.0005,
+                        "Rate-of-change threshold per timeframe for cascade detection")
+
+        # ═══ [PHASE Ω-SWINGCRASH] Trailing Stop & Exit Relaxation ═══
+        self._register("swing_trailing_relaxation", 2.5, 1.0, 5.0,
+                        "Multiplicador de relaxação do Trailing Stop para Swing Trades (Quanto maior, mais pullback permitido)")
+        self._register("crash_trailing_relaxation", 2.0, 1.0, 5.0,
+                        "Multiplicador de relaxação do Trailing Stop durante Cascatas/Crashes")
+        self._register("swing_min_profit_mult", 10.0, 2.0, 50.0,
+                        "Multiplicador do dynamic_peak_floor para Swing Trades (Evita T1/T2 precoce)")
+
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):
         self._params[name] = OmegaParameter(name, value, min_b, max_b, desc)

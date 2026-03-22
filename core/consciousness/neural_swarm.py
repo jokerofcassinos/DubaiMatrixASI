@@ -352,6 +352,10 @@ from core.consciousness.agents.stochastic_agents import (
     HawkesProcessAgent, OrnsteinUhlenbeckAgent
 )
 
+# Phase Ω-SwingCrash (Nível 35 - Long Position & Drop Detection PhD Systems)
+from core.consciousness.agents.swing_position_agent import SwingPositionDetectorAgent
+from core.consciousness.agents.crash_velocity_agent import CrashVelocityDetectorAgent
+
 # Byzantine Consensus
 from core.consciousness.byzantine_consensus import ByzantineConsensusManager
 
@@ -685,6 +689,10 @@ class NeuralSwarm:
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
             ExecutionScalerAgent(),
+
+            # ═══ Ω-SWING & CRASH (Phase Ω-SwingCrash) ═══
+            SwingPositionDetectorAgent(weight=5.0),
+            CrashVelocityDetectorAgent(weight=5.5),
         ]
         # Remover agentes que não foram inicializados (None)
         self.agents = [a for a in self.agents if a is not None]

@@ -263,6 +263,26 @@ class TrinityCore:
         repulsion_signal = next((s for s in agent_signals if s.agent_name == "NonBondedRepulsion"), None)
         is_repulsion_sovereign = repulsion_signal and abs(getattr(repulsion_signal, 'signal', 0.0)) > 0.8
 
+        # [Phase Ω-SwingCrash] Crash Velocity Detector Extraction
+        crash_signal = next((s for s in agent_signals if s.agent_name == "CrashVelocityDetector"), None)
+        crash_meta = (getattr(crash_signal, 'metadata', {}) or {}) if crash_signal else {}
+        crash_severity = crash_meta.get("crash_severity", 0.0)
+        crash_cascade_depth = crash_meta.get("cascade_depth", 0)
+        is_crash_sovereign = crash_meta.get("is_crash_sovereign", False)
+        if is_crash_sovereign:
+            is_tec_sovereign = True  # Grant sovereignty for veto bypass
+            strike_flag += " | [Ω-CRASH_SOVEREIGNTY: CASCADE_DETECTED]"
+            self._log_cooldown("CRASH_SOVEREIGNTY", f"🌊 [Ω-CRASH SOVEREIGNTY] Structural cascade detected (Severity={crash_severity:.2f}, Depth={crash_cascade_depth}). Bypassing static vetoes.", 30, level="omega")
+
+        # [Phase Ω-SwingCrash] Swing Position Detector Extraction
+        swing_signal = next((s for s in agent_signals if s.agent_name == "SwingPositionDetector"), None)
+        swing_meta = (getattr(swing_signal, 'metadata', {}) or {}) if swing_signal else {}
+        is_swing_trade = swing_meta.get("is_swing_trade", False)
+        swing_type = swing_meta.get("swing_type", "NONE")
+        swing_target = swing_meta.get("target_liquidity_level", 0.0)
+        if is_swing_trade and abs(getattr(swing_signal, 'signal', 0.0)) > 0.3:
+            self._log_cooldown("SWING_DETECTION", f"🎯 [Ω-SWING MODE] {swing_type} detected. Target liquidity at {swing_target:.0f}", 60, level="omega")
+
         try:
             shannon = snapshot.metadata.get("shannon_entropy", 0.9)
             v_pulse = snapshot.metadata.get("v_pulse_capacitor", 0.0)
@@ -1028,7 +1048,7 @@ class TrinityCore:
         # [Ω-RECALIBRATION-3.0] Bypass VACUUM if bear/bull consensus is overwhelming (>65%)
         bear_ratio = len(quantum_state.metadata.get("bear_agents", [])) / max(1, len(quantum_state.metadata.get("bear_agents", [])) + len(quantum_state.metadata.get("bull_agents", [])))
         is_overwhelming_consensus = bear_ratio > 0.65 or bear_ratio < 0.35
-        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and not (is_geodesic_flow or is_topologically_protected or is_consensus_clear or is_overwhelming_consensus):
+        if is_drifting and entropy < 0.45 and abs(snapshot.metadata.get("tick_velocity", 0.0)) < 5.0 and not is_god_mode and not (is_geodesic_flow or is_topologically_protected or is_consensus_clear or is_overwhelming_consensus or is_crash_sovereign):
             self._log_cooldown("VACUUM_VETO", f"🌌 VETO: ENTROPIC_VACUUM (Drift + Low Entropy {entropy:.2f} + No Inertia + Φ={phi:.2f} < 0.25). Avoiding chop.", 60)
             return self._wait("ENTROPIC_VACUUM_VETO")
         elif is_overwhelming_consensus and is_drifting and entropy < 0.45:
@@ -1119,7 +1139,15 @@ class TrinityCore:
         # [Phase 52.8] Dynamic RR Scaling (The "Long Trade" Hunter)
         # Em tendências ou ignições, buscamos alvos muito mais longos
         rr_mult = 1.1 # Default Scalp
-        if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
+        
+        # [Phase Ω-SwingCrash] Swing Mode Override: When structural swing trade detected,
+        # use wider SL/TP targeting structural liquidity levels instead of scalp-level
+        is_swing_active = is_swing_trade and abs(getattr(swing_signal, 'signal', 0.0)) > 0.3 and OMEGA.get("swing_mode_enabled", 1.0) >= 0.5
+        
+        if is_swing_active:
+            rr_mult = OMEGA.get("swing_min_rr_ratio", 3.0)  # Minimum 3:1 RR for swing trades
+            self._log_cooldown("SWING_RR", f"🎯 [Ω-SWING RR] Setting minimum RR={rr_mult:.1f} for {swing_type} swing trade", 60, level="omega")
+        elif regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
             rr_mult = 2.0 # Modo Trend (Conservador)
         elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
             # [Phase 7.2] Regressional Compression: Drift regimes are too slow for 2.0 RR.
@@ -1230,6 +1258,21 @@ class TrinityCore:
         # [Phase 52.8] BTC_STRIKE_CAP: Alargado massivamente para permitir corridas colossais
         max_dist_tp = 1100.0
         max_dist_sl = 220.0 # Stop encurtado p/ reduzir drawdown (Ω-Guard)
+        
+        # [Phase Ω-SwingCrash] Swing Trade TP/SL Expansion
+        if is_swing_active:
+            max_dist_tp = OMEGA.get("swing_max_tp_distance", 2500.0)
+            max_dist_sl = 400.0  # Wider SL for swing trades
+            # If we have a specific liquidity target from the swing agent, use it
+            if swing_target > 0 and action != Action.WAIT:
+                target_dist = abs(price - swing_target)
+                if target_dist > 50.0 and target_dist < max_dist_tp:  # Sanity check
+                    if (action == Action.SELL and swing_target < price) or (action == Action.BUY and swing_target > price):
+                        take_profit = swing_target
+                        reward = abs(take_profit - price)
+                        risk = abs(price - stop_loss)
+                        rr_ratio = reward / risk if risk > 0 else 0
+                        self._log_cooldown("SWING_TP_TARGET", f"🎯 [Ω-SWING TP] Targeting structural liquidity at {swing_target:.0f} (Dist={target_dist:.0f}, RR={rr_ratio:.1f})", 60, level="omega")
 
         if abs(float(price) - float(take_profit)) > float(max_dist_tp):
             take_profit = float(price) + (float(max_dist_tp) if action == Action.BUY else -float(max_dist_tp))
@@ -1366,8 +1409,9 @@ class TrinityCore:
             # [Phase 52.10] Maker Neutralization
             # Ordens limite não pagam o "spread cego" da corretora, elas embolsam o spread.
             # Mitiagação de comissão bruta
-            if limit_mode or is_tec_sovereign:
-                min_comm_ratio = 0.0 # Desliga o veto de comissão para Maker ou Strike Soberano
+            # [Phase Ω-SwingCrash] Crash sovereignty and swing trades bypass commission gate
+            if limit_mode or is_tec_sovereign or is_crash_sovereign or is_swing_active:
+                min_comm_ratio = 0.0 # Desliga o veto de comissão para Maker, Strike Soberano, Crash ou Swing
             
             if comm_reward_ratio < min_comm_ratio:
                 return self._wait(f"COMM_REWARD_RATIO_LOW({comm_reward_ratio:.2f} < {min_comm_ratio:.2f})")
@@ -1784,7 +1828,10 @@ class TrinityCore:
                 "tec_entropy": tec_entropy,
                 "v_pulse_detected": has_v_pulse,
                 "quantum_metadata": quantum_state.metadata if quantum_state else {},
-                "bypassed_stale_regime": self.last_decision_bypassed
+                "bypassed_stale_regime": self.last_decision_bypassed,
+                "is_swing_trade": is_swing_trade,
+                "swing_type": swing_type,
+                "is_crash_sovereign": is_crash_sovereign
             }
         )
         
@@ -1841,22 +1888,39 @@ class TrinityCore:
         if quantum_state and hasattr(quantum_state, 'phi'):
             phi_min = OMEGA.get("min_phi_threshold", 0.08)
             
-            # [Ω-RECALIBRATION-4.0] Regime-dependent Phi Floor
+                # [Ω-RECALIBRATION-4.0] Regime-dependent Phi Floor
             relaxed_regimes = ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR", "LOW_LIQUIDITY", "UNKNOWN", "CHOPPY"]
             if regime_state and regime_state.current.value in relaxed_regimes:
-                # [Phase 6.5] Liberdade total para EVH em vácuo
                 phi_min = max(0.015, phi_min * 0.25) if not is_evh else 0.001
+            
+            # [Phase Ω-LETHALITY] Dynamic Phi Relaxation
+            # Se o sinal é forte e coerente, a falta de sinergia total não deve paralisar a ASI.
+            signal_abs = abs(quantum_state.raw_signal)
+            if signal_abs > 0.25 and quantum_state.coherence > 0.35:
+                phi_min = 0.005 # Relaxamento extremo p/ sinal de alta convicção
                 
-            if quantum_state.phi < phi_min and not v_pulse_detected and not (is_evh or is_sre):
+            # [Phase Ω-SwingCrash] Crash sovereignty bypasses SYNERGY_VETO
+            crash_sig_veto = next((s for s in (getattr(quantum_state, 'agent_signals', []) or []) if s.agent_name == "CrashVelocityDetector"), None)
+            crash_veto_bypass = crash_sig_veto and (getattr(crash_sig_veto, 'metadata', {}) or {}).get("is_crash_sovereign", False)
+            if quantum_state.phi < phi_min and not v_pulse_detected and not (is_evh or is_sre or crash_veto_bypass):
                 if time.time() - self._log_cache.get("phi_veto", 0) > 60:
-                    log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f}")
+                    log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f} (Sig={quantum_state.raw_signal:.2f})")
                     self._log_cache["phi_veto"] = time.time()
                 return f"SYNERGY_VETO (Φ={quantum_state.phi:.3f})"
         # 0. Startup Cooldown (Evita trades com sistema "frio")
         uptime = time.time() - self._creation_time
         startup_cooldown = OMEGA.get("startup_cooldown_seconds", 120)  # Default 2 minutos
-        if uptime < startup_cooldown and not v_pulse_detected:
+        
+        # [Phase Ω-LETHALITY] Startup Cooldown Tolerance
+        # Se for um sinal de ignição forte (High-Energy), permitimos antecipar a entrada.
+        is_ignition_signal = False
+        if quantum_state:
+            is_ignition_signal = abs(quantum_state.raw_signal) > 0.40 and quantum_state.coherence > 0.60
+            
+        if uptime < startup_cooldown and not v_pulse_detected and not is_ignition_signal:
             return f"STARTUP_COOLDOWN({uptime:.0f}s/{startup_cooldown}s)"
+        elif uptime < startup_cooldown and is_ignition_signal:
+            self._log_cooldown("startup_bypass", f"🔥 [Ω-IGNITION] Startup Cooldown Bypassed due to High-Energy Signal (Uptime: {uptime:.0f}s)", 60, level="omega")
 
         # 1. Spread excessivo absoluto
         if snapshot.tick:
