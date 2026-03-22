@@ -37,7 +37,7 @@ ASI_API void asi_lorentz_clock_update(double volatility, double volume, double p
 //  Simplificação algorítmica de Tononi para HFT
 // ═══════════════════════════════════════════════════════════
 
-void asi_calculate_phi(const AgentSignal* signals, int count, 
+ASI_API void asi_calculate_phi(const AgentSignal* signals, int count, 
                                const double* network_weights, ConsciousnessResult* out) {
     if (!out || !signals || count < 2) return;
 
@@ -74,7 +74,7 @@ void asi_calculate_phi(const AgentSignal* signals, int count,
 //  QUANTUM CELLULAR AUTOMATA: LOB TRANSITION
 // ═══════════════════════════════════════════════════════════
 
-void asi_process_qca_grid(const double* bids, const double* asks, int levels, 
+ASI_API void asi_process_qca_grid(const double* bids, const double* asks, int levels, 
                                    double alpha, QCAResult* out) {
     if (!out || !bids || !asks) return;
 
@@ -106,7 +106,7 @@ void asi_process_qca_grid(const double* bids, const double* asks, int levels,
 //  LOTKA-VOLTERRA: PREDATOR-PREY (Ecological Liquidity)
 // ═══════════════════════════════════════════════════════════
 
-void asi_solve_lotka_volterra(double dt, double alpha, double beta, double delta, double gamma,
+ASI_API void asi_solve_lotka_volterra(double dt, double alpha, double beta, double delta, double gamma,
                                       double* in_out_prey, double* in_out_predator, PredatorPreyResult* out) {
     if (!out || !in_out_prey || !in_out_predator) return;
 
@@ -133,7 +133,7 @@ void asi_solve_lotka_volterra(double dt, double alpha, double beta, double delta
 //  BLACK SWAN HARVESTER: EVT (Extreme Value Theory)
 // ═══════════════════════════════════════════════════════════
 
-void asi_harvest_black_swan(const double* extreme_ticks, int len, double threshold, 
+ASI_API void asi_harvest_black_swan(const double* extreme_ticks, int len, double threshold, 
                                      ExtremeValueResult* out) {
     if (!out || !extreme_ticks || len < 5) return;
 

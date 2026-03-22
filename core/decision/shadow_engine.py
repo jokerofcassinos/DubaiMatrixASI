@@ -88,6 +88,19 @@ class ShadowCounterfactualEngine:
         shadow_id = f"GST_{int(time.time()*1000)}"
         signal_val = quantum_state.collapsed_signal
         
+        # [Phase Ω-9] Tentar extrair MC metadata da veto_reason
+        import re
+        mc_match = re.search(r'MC\[(.*?)\]', veto_reason)
+        mc_data = f"MC[{mc_match.group(1)}]" if mc_match else ""
+
+        # [Phase Ω-9] PhD-level metadata extraction
+        bull_agents_list = [s.agent_name for s in quantum_state.agent_signals if s.signal > 0.05]
+        bear_agents_list = [s.agent_name for s in quantum_state.agent_signals if s.signal < -0.05]
+        neutral_agents_list = [s.agent_name for s in quantum_state.agent_signals if -0.05 <= s.signal <= 0.05]
+        
+        avg_conf = sum(s.confidence for s in quantum_state.agent_signals) / max(1, len(quantum_state.agent_signals))
+        confidence = avg_conf * (0.8 + 0.2 * quantum_state.coherence)
+        
         trade = {
             "id": shadow_id,
             "status": "OPEN",
@@ -96,13 +109,24 @@ class ShadowCounterfactualEngine:
             "direction": direction,
             "veto_reason": veto_reason,
             "signal_strength": signal_val,
+            "confidence": confidence,
             "coherence": quantum_state.coherence,
             "phi": quantum_state.phi,
+            "mc_data": mc_data,
             "sl_price": sl_price,
             "tp_price": tp_price,
             "close_time": None,
             "close_price": None,
             "result": None, # "FALSE_NEGATIVE" (Missed Profit), "TRUE_NEGATIVE" (Avoided Loss)
+            "swarm_intelligence": {
+                "bull_agents": bull_agents_list,
+                "bear_agents": bear_agents_list,
+                "neutral_agents": neutral_agents_list
+            },
+            "snapshot": {
+                "regime": snapshot.regime.value if hasattr(snapshot.regime, 'value') else str(snapshot.regime),
+                "atr": atr
+            }
         }
 
         self.shadow_trades.append(trade)

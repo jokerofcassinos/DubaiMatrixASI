@@ -216,15 +216,19 @@ class PositionManager:
             comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
             commission_cost = lot_scale * comm_per_lot
             
-            # Weaponized Breakeven: Arma a guarda se atingiu 35% do TP ou se cobriu comissões confortavelmente
-            min_breakeven_activation = commission_cost * 1.5
+            # [Phase Ω-Fix] O piso seguro deve ser estritamente a comissão + minúscula folga.
+            # Se for fixo em $15, trades fragmentados (0.01 lote) morrerão instantaneamente.
+            safe_floor = max(commission_cost * 1.10, 0.50) # 10% de folga para slippage
+            min_breakeven_activation = max(commission_cost * 1.50, 2.0)
             
-            if not state.get("breakeven_active", False) and (profit_progress > 0.35 or state['peak_profit'] > min_breakeven_activation):
+            # Só armamos o BE via progresso (35% do TP) se o pico atual já permite pagar o safe_floor sem fechar na hora.
+            can_activate_by_progress = (profit_progress > 0.35) and (state['peak_profit'] > safe_floor * 1.05)
+            
+            if not state.get("breakeven_active", False) and (can_activate_by_progress or state['peak_profit'] > min_breakeven_activation):
                 state["breakeven_active"] = True
-                log.omega(f"🛡️ [BREAKEVEN GUARD] Peak (${state['peak_profit']:.2f}) passou comissões ou atingiu 35% do alvo. Real Breakeven armado no Strike #{anchor_ticket}.")
+                log.omega(f"🛡️ [BREAKEVEN GUARD] Peak (${state['peak_profit']:.2f}) cobriu comissões ou alvo proxy. Real Breakeven armado no Strike #{anchor_ticket}.")
 
             if state.get("breakeven_active", False) and not is_proximity_zone:
-                # O safe_floor DEVE cobrir a comissão e pelo menos o spread/slippage
                 # NADA de sair com "10 dólares", sair com o peso exato da comissão + gordura para o spread da exchange.
                 safe_floor = max(commission_cost * 1.15, 15.0)
                 

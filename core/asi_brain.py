@@ -396,7 +396,8 @@ class ASIBrain:
                         signal_strength=1.0, # [Ω-FIX] Mandatory arg for Decision
                         lot_size=0.01,       # [Ω-FIX] Mandatory arg (recalculated by Sniper)
                         regime=regime_state.current.value,
-                        reasoning=recovery_strike["reason"]
+                        reasoning=recovery_strike["reason"],
+                        metadata={"phi": 1.0, "is_god_mode": False, "phi_resonance": False, "is_tunneling": False, "is_hydra": False, "is_tec_active": False}
                     )
                     self.sniper.execute(rec_decision, self.state, snapshot)
 
@@ -505,7 +506,7 @@ class ASIBrain:
                 signal_str = intent.get("signal_strength", 0.0)
                 # [Phase Ω-Cleanup] Logar apenas se não estiver no tracker para evitar spam
                 if not self.performance_tracker.has_trade(pos_id):
-                    log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
+                    pass # log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
 
             else:
                 regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")

@@ -7,8 +7,18 @@
 
 #pragma once
 
+#include <stdint.h>
+#include <stddef.h>
 #include <cstdint>
 #include <cstddef>
+
+
+// Safeguards for LSP environments missing standard headers
+#ifndef _INT64_T_DEFINED
+#define _INT64_T_DEFINED
+typedef long long int64_t;
+typedef unsigned long long uint64_t;
+#endif
 
 // ═══ EXPORT MACRO ═══
 #ifdef _WIN32
@@ -427,7 +437,7 @@ struct ExtremeValueResult {
 };
 
 // LorentzClock: Relativistic Time Dilation
-ASI_API void asi_lorentz_clock_update(double volatility, double volume, double physical_dt, LorentzClockResult* out);
+ASI_API void asi_lorentz_clock_update(double volatility, double volume, double physical_dt, double market_c_scale, LorentzClockResult* out);
 
 // ConsciousnessMetrics: Information Integration (Φ)
 ASI_API void asi_calculate_phi(const AgentSignal* signals, int count, 

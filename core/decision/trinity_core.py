@@ -861,6 +861,13 @@ class TrinityCore:
             elif signal < 0: action = Action.SELL
             
         # If we reach here, we have an Action (either from God-Mode, normal flow, or TEC)
+        # [Phase Ω-Mirror] CEO Override: Mirror Protocol
+        if OMEGA.get("mirror_protocol_enabled", 0.0) >= 0.5 and action != Action.WAIT:
+            if "CREEPING" in regime_state.current.value:
+                action = Action.SELL if action == Action.BUY else Action.BUY
+                signal = -signal
+                strike_flag += " | [Ω-MIRROR_CREEPING_ACTIVE]"
+
         strike_flag += f" | [PHASE_50_STRIKE: {action.name}]"
         if is_v_pulse_recovery:
             strike_flag += " | [Ω-PHOENIX_PULSE: SOVEREIGN]"
@@ -1102,7 +1109,7 @@ class TrinityCore:
         if fast_atr <= 0:
             return self._wait("ATR_ZERO")
  
-        sl_mult = OMEGA.get("stop_loss_atr_mult", 0.45)
+        sl_mult = OMEGA.get("stop_loss_atr_mult", 0.35)
         
         # Buscar extremos estruturais (Fractais de M1)
         candles_m1 = snapshot.candles.get("M1")
@@ -1113,12 +1120,12 @@ class TrinityCore:
         # Em tendências ou ignições, buscamos alvos muito mais longos
         rr_mult = 1.1 # Default Scalp
         if regime_state.current.value in ["TRENDING_BULL", "TRENDING_BEAR"]:
-            rr_mult = 2.5 # Modo Trend
+            rr_mult = 2.0 # Modo Trend (Conservador)
         elif regime_state.current.value in ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
             # [Phase 7.2] Regressional Compression: Drift regimes are too slow for 2.0 RR.
-            rr_mult = 1.4 
+            rr_mult = 1.2 
         elif regime_state.current.value in ["SQUEEZE", "SQUEEZE_BUILDUP", "IGNITION_BULL", "IGNITION_BEAR"]:
-            rr_mult = 3.0 # Modo Explosão (Breakout)
+            rr_mult = 2.2 # Modo Explosão (Breakout)
         
         # Ajuste extra por Consciência (Φ) e Coerência
         if phi > 0.25:
@@ -1145,20 +1152,20 @@ class TrinityCore:
         # Aqui abolimos o "scalp" e adotamos a assimetria brutal
         is_fat_tail = "LEVY_FLIGHT_DETECTED" in agent_reasons or "SINGULARITY_COLLAPSE" in agent_reasons
         if is_fat_tail or is_god_mode:
-            # [SCALP] Reduced fat_tail_base from 10.0 to 4.5
-            fat_tail_base = OMEGA.get("fat_tail_rr_mult", 4.5)
+            # [SCALP] Reduced fat_tail_base from 4.5 to 3.5
+            fat_tail_base = OMEGA.get("fat_tail_rr_mult", 3.5)
             # Aciona a multiplicacao extrema
-            rr_mult = fat_tail_base + (phi * 1.5) # [SCALP] Reduced phi mult from 2.5 to 1.5
+            rr_mult = fat_tail_base + (phi * 1.5) 
             self._log_cooldown("FAT_TAIL_HARVESTING", f"☄️ [FAT-TAIL HARVESTING] Levy Flight / Singularity Detectada. Expandindo TP Scale para {rr_mult:.2f}x", 60, level="omega")
 
         # [Phase 52.7] Liquidity-Shield: Regime-Aware Structural Buffers
         is_transition_regime = regime_state.current.value in ["CREEPING_BULL", "CREEPING_BEAR", "DRIFTING_BULL", "DRIFTING_BEAR", "HIGH_VOL_CHAOS", "LIQUIDATION_CASCADE"]
         
         # Buffer de liquidez: em regimes rasteiros/caóticos, precisamos de mais "respiro"
-        struct_buffer = max(35 * point_val, 0.45 * fast_atr) if is_transition_regime else (15 * point_val)
+        struct_buffer = max(20 * point_val, 0.35 * fast_atr) if is_transition_regime else (10 * point_val)
         
         # SL Floor de segurança: não permite stop muito curto em regimes de "wick hunt"
-        min_sl_dist = 0.9 * fast_atr if is_transition_regime else (0.5 * fast_atr)
+        min_sl_dist = 0.7 * fast_atr if is_transition_regime else (0.4 * fast_atr)
 
         if action == Action.BUY:
             # SL: O maior entre (Mínima dos últimos 10 candles - buffer) e (Preço - sl_mult * Fast_ATR)
@@ -1221,8 +1228,8 @@ class TrinityCore:
                 return self._wait("UNEXPECTED_ACTION_TYPE")
 
         # [Phase 52.8] BTC_STRIKE_CAP: Alargado massivamente para permitir corridas colossais
-        max_dist_tp = 1500.0
-        max_dist_sl = 280.0 # Stop encurtado p/ reduzir drawdown (Ω-Guard)
+        max_dist_tp = 1100.0
+        max_dist_sl = 220.0 # Stop encurtado p/ reduzir drawdown (Ω-Guard)
 
         if abs(float(price) - float(take_profit)) > float(max_dist_tp):
             take_profit = float(price) + (float(max_dist_tp) if action == Action.BUY else -float(max_dist_tp))

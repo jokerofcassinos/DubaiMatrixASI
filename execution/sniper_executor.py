@@ -702,7 +702,7 @@ class SniperExecutor:
                         # Use global CPP_CORE directly (Python 3 closures handle this if not re-assigned)
                         # Ensure types are correct for CTypes
                         try:
-                            G_CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
+                            CPP_CORE._lib.asi_deposit_pheromone(float(p_price), float(p_strength * p_sign), 180.0) # Decay em 180s
                         except Exception as e:
                             log.debug(f"Pheromone C-Type conversion failed: {e}")
                     except Exception as pheromone_err:

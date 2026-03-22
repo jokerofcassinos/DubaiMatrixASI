@@ -1156,15 +1156,20 @@ class MT5Bridge:
                 total_volume += d.volume
         
         if total_volume > 0:
-            comm_per_lot = total_commission / total_volume
+            comm_per_lot_single_leg = total_commission / total_volume
+            # [Phase Ω-Fix] MT5 Deals usually record half the round-trip commission (per deal).
+            # The total round-trip commission is 2x the average deal commission.
+            # Se FTMO BTCUSD cobra $40 round-trip, o deal mostrará $20. 
+            comm_per_lot = comm_per_lot_single_leg * 2.0
+            
             # [Phase Ω-Resilience] Commission Sanity:
             # Em índices (NAS100/US30), a comissão é 0. Não forçamos 1.0 se o volume existe.
             is_index = any(idx in target_symbol for idx in ["NAS100", "US30", "GER40", "HK50", "SP500", "DE40"])
             min_comm = 0.0 if (is_index and total_commission == 0) else 1.0
             
-            return max(min_comm, min(50.0, comm_per_lot))
+            return max(min_comm, min(100.0, comm_per_lot))
             
-        return 7.0 # Fallback safety
+        return 40.0 # Fallback safety for FTMO Crypto (Round trip $40/lot)
 
     # ═══════════════════════════════════════════════════════════
     #  HEALTH CHECK

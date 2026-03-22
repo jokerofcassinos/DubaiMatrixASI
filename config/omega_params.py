@@ -137,15 +137,15 @@ class OmegaParameterSpace:
                         "Duração alvo (em segundos) que a fragmentação TWAP levará para limpar passivo")
         self._register("twap_max_chunk", 0.3, 0.05, 1.0,
                         "Maior fatia permitida (MAX_CHUNK) por milissegundo pelo TWAP")
-        self._register("stop_loss_atr_mult", 1.50, 0.1, 5.0,
+        self._register("stop_loss_atr_mult", 1.20, 0.1, 5.0,
                         "Multiplicador ATR para stop loss")
-        self._register("take_profit_atr_mult", 2.50, 0.3, 10.0,
+        self._register("take_profit_atr_mult", 1.80, 0.3, 10.0,
                         "Multiplicador ATR para take profit")
         self._register("trailing_stop_atr_mult", 0.6, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
         self._register("commission_per_lot", 50.0, 0.0, 150.0,
                         "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD ($50.0)")
-        self._register("min_profit_per_ticket", 35.0, 5.0, 200.0,
+        self._register("min_profit_per_ticket", 25.0, 5.0, 200.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
         self._register("min_commission_reward_ratio", 1.8, 1.0, 10.0,
                         "Ratio mínimo entre Lucro Projetado e Comissão estimada")
@@ -314,7 +314,7 @@ class OmegaParameterSpace:
                         "RR Ratio mínimo reduzido para God-Mode Reversal (Panic Absorption)")
 
         # ═══ PHASE 52: FAT-TAIL HARVESTING & LEVY FLIGHTS ═══
-        self._register("fat_tail_rr_mult", 4.5, 2.0, 15.0,
+        self._register("fat_tail_rr_mult", 3.5, 2.0, 15.0,
                         "Multiplicador agressivo de Take Profit para eventos de cauda (Reduzido p/ Scalp)")
         self._register("levy_flight_kurtosis_threshold", 5.0, 2.0, 15.0,
                         "Excesso de curtose necessário para aprovar Voo de Lévy e expansão Fat-Tail")
@@ -389,6 +389,9 @@ class OmegaParameterSpace:
         self._register("trend_persistence_buffer", 2.0, 1.0, 5.0,
                         "Multiplicador de persistência temporal em tendências confirmadas")
 
+        # ═══ [PHASE Ω-MIRROR] Inversion Protocol ═══
+        self._register("mirror_protocol_enabled", 1.0, 0.0, 1.0,
+                        "Se 1.0, inverte ordens (BUY -> SELL, SELL -> BUY) APENAS em regimes CREEPING")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):
