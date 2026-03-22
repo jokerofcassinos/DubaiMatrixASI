@@ -123,8 +123,9 @@ class ASIBrain:
         # Contadores
         self._cycle_count = 0
         self._last_snapshot = None
+        self._last_nuke_time = 0.0 # [Phase Ω-Resilience] Track last global exit
         self._last_pnl_prediction = "STABLE"
-        self._last_log_times = {} # key -> float
+        self._last_log_times = {} # {key: timestamp}
         self._history_synced = False # [Phase Ω-Darwin]
         self._reflection_interval = 5      # [Phase Ω-Darwin] 5s p/ Sincronização de Histórico
         self._last_reflection_time = time.time()
@@ -191,6 +192,9 @@ class ASIBrain:
         regime_state = self.regime_detector.detect(snapshot)
         if regime_state:
             snapshot.regime = regime_state.current
+        else:
+            from core.consciousness.regime_detector import MarketRegime
+            snapshot.regime = MarketRegime.UNKNOWN
 
         # ═══ 4. INTELIGÊNCIA EXTERNA — Scrapers ═══
         snapshot.metadata["sentiment_score"] = self.sentiment_scraper.sentiment_score
@@ -261,13 +265,22 @@ class ASIBrain:
             # [Phase Ω-Resilience] Ignition Cooldown: Evita spam de tentativas se o mercado estiver 'fast'
             now = time.time()
             cooldown = OMEGA.get("entry_cooldown_seconds", 60.0)
+            
+            # [Phase Ω-Anti-Spam] Nuke Cooldown: Se acabamos de fechar tudo, espere a poeira baixar
+            nuke_cooldown = OMEGA.get("global_nuke_cooldown_seconds", 300.0)
+            since_nuke = now - self.bridge.position_manager._last_nuke_time if hasattr(self.bridge, "position_manager") else 999.0
+            
             last_ign = self._last_log_times.get(f"ign_{decision.action.value}", 0.0)
             
             if already_pending:
                 if now - self._last_log_times.get("ign_bypass", 0) > 30:
                     log.debug(f"⏳ IGNITION Bypassed: Ordem {decision.action.value} já pendente no book.")
                     self._last_log_times["ign_bypass"] = now
-            elif now - last_ign >= 5.0: # Cooldown mínimo de 5s entre tentativas de disparo
+            elif since_nuke < nuke_cooldown:
+                if now - self._last_log_times.get("nuke_veto", 0) > 60:
+                    log.omega(f"🛡️ [NUKE COOLDOWN] Bloqueando re-entrada pós-liquidação ({int(nuke_cooldown - since_nuke)}s restante)")
+                    self._last_log_times["nuke_veto"] = now
+            elif now - last_ign >= cooldown: # [FIX] Agora respeita o cooldown real do OMEGA
                 # 5. EXECUÇÃO (Sniper Strike)
                 execution_result = self.sniper.execute(decision, self.state, snapshot)
                 

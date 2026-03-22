@@ -280,8 +280,8 @@ class MT5Bridge:
                         # Fallback for old protocol compatibility
                         trade_registry.update_ticket(0, ticket)
             
-            elif action == "CLOSE": # [Phase 50] Explicit close confirmation
-                log.omega(f"💀 SOCKET CLOSE CONFIRMED: {status}")
+            elif action == "CLOSE" or action == "CLOSE_ALL": # [Phase Ω] Explicit close confirmation
+                log.omega(f"💀 SOCKET {action} CONFIRMED: {status}")
 
         elif msg_type == "PONG":
             self._ea_connected = True
@@ -928,6 +928,36 @@ class MT5Bridge:
             "direction": p_direction,
             "symbol": self.symbol
         }
+
+    def close_batch(self, symbol: str, direction: str) -> bool:
+        """
+        [Phase Ω-FastNuke] Fecha todas as posições de um símbolo e direção em um único comando.
+        Usa o Socket CLOSE_ALL para agilizar em 1000%.
+        """
+        if not self.connected:
+            return False
+
+        # Converte direção para tipo MT5 (0=BUY, 1=SELL)
+        p_type = 0 if direction.upper() == "BUY" else 1
+        
+        # Tenta via Socket (Caminho Ultra-Rápido)
+        cmd = f"CLOSE_ALL|{symbol}|{p_type}"
+        if self._ea_connected and self.send_socket_command(cmd):
+            log.omega(f"⚡ FAST BATCH CLOSE SINALIZADO: {symbol} {direction} (via socket)")
+            return True
+        
+        # Fallback via API Python (Loop manual - Lento)
+        log.warning(f"⚠️ Socket indisponível para BATCH CLOSE. Usando fallback manual.")
+        positions = self.get_open_positions()
+        if not positions: return True
+        
+        success = True
+        for pos in positions:
+            if pos['symbol'] == symbol and pos['type'] == direction.upper():
+                res = self.close_position(pos['ticket'])
+                if not res or not res.get("success"):
+                    success = False
+        return success
 
     def modify_position(self, ticket: int, sl: float = None,
                         tp: float = None) -> bool:

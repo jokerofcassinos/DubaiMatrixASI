@@ -23,6 +23,7 @@ void ExecuteLimitOrder(string side, string symbol, double lot, double price, dou
 void ExecuteSonarProbe(string symbol, string side, double lot, double price, int duration_ms);
 void ExecuteTrade(string action, string symbol, double lot, double sl, double tp, string strike_id);
 void ExecuteClose(ulong ticket);
+void ExecuteCloseAll(string symbol, int type);
 
 //+------------------------------------------------------------------+
 //| Expert initialization function                                   |
@@ -240,6 +241,13 @@ void ProcessSingleCommand(string cmd)
       ulong ticket = (ulong)StringToInteger(parts[1]);
       ExecuteClose(ticket);
      }
+   else if(action == "CLOSE_ALL")
+     {
+      if(count < 3) return;
+      string symbol = parts[1];
+      int p_type = (int)StringToInteger(parts[2]); // 0=BUY, 1=SELL
+      ExecuteCloseAll(symbol, p_type);
+     }
   }
 
 //+------------------------------------------------------------------+
@@ -417,5 +425,40 @@ void ExecuteSonarProbe(string symbol, string side, double lot, double price, int
    else
      {
       SendTCP("RESULT|SONAR|ERROR|" + IntegerToString(result.retcode) + "\n");
+     }
+  }
+//+------------------------------------------------------------------+
+//| Fechamento em Massa (Lethal Strike Nuke)                         |
+//+------------------------------------------------------------------+
+void ExecuteCloseAll(string symbol, int type)
+  {
+   Print("💀 ASI CLOSE_ALL COMMAND: ", symbol, " Type: ", type);
+   int closed = 0;
+   
+   // Varre posições de trás para frente para evitar pular índices ao fechar
+   for(int i=PositionsTotal()-1; i>=0; i--)
+     {
+      ulong ticket = PositionGetTicket(i);
+      if(PositionSelectByTicket(ticket))
+        {
+         if(PositionGetString(POSITION_SYMBOL) == symbol && 
+            PositionGetInteger(POSITION_TYPE) == type &&
+            (PositionGetInteger(POSITION_MAGIC) == InpMagicNumber || InpMagicNumber == 0))
+           {
+            ExecuteClose(ticket);
+            closed++;
+           }
+        }
+     }
+   
+   if(closed > 0)
+     {
+      SendTCP("RESULT|CLOSE_ALL|SUCCESS|" + IntegerToString(closed) + "\n");
+      Print("✅ CLOSE_ALL EXECUTADO: ", closed, " posições liquidadas.");
+     }
+   else
+     {
+      SendTCP("RESULT|CLOSE_ALL|SUCCESS|0\n");
+      Print("⚠️ CLOSE_ALL: Nenhuma posição encontrada p/ critério.");
      }
   }

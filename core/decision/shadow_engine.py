@@ -203,7 +203,7 @@ class ShadowCounterfactualEngine:
                 "neutral_agents": neutral_agents
             },
             "snapshot": {
-                "regime": str(snapshot.regime.value if hasattr(snapshot.regime, 'value') else snapshot.regime),
+                "regime": str(snapshot.regime.value if hasattr(snapshot.regime, 'value') else (snapshot.regime or "UNKNOWN")),
                 "atr": atr
             }
         }

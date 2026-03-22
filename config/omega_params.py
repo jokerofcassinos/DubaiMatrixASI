@@ -153,6 +153,8 @@ class OmegaParameterSpace:
                         "Multiplicador de cobertura de comissão para Smart TP")
         self._register("margin_safety_buffer", 0.10, 0.01, 0.50,
                         "Percentual de margem livre mantido como reserva (0.10 = 10%)")
+        self._register("global_nuke_cooldown_seconds", 300.0, 30.0, 1800.0,
+                        "Cooldown global após um Strike Nuke (fechamento em massa)")
 
         # ═══ NRO (NEURAL RISK ORCHESTRATION) ═══
         self._register("nro_manifold_sensitivity", 1.25, 0.5, 3.0,
@@ -280,8 +282,9 @@ class OmegaParameterSpace:
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("hydra_min_phi_threshold", 0.25, 0.05, 0.95,
                         "Nível mínimo de Φ necessário para autorizar HYDRA MODE (Phase Ω-Coherence)")
-        self._register("unknown_regime_phi_gate", 0.04, 0.05, 0.50,
-                        "Nível mínimo de Φ necessário para autorizar trades em regime UNKNOWN (Phase Ω-Coherence)")
+        self._register("unknown_regime_phi_gate", 0.12, 0.01, 0.35, "Φ mínimo exigido para trades em regime UNKNOWN")
+        self._register("unknown_regime_coherence_gate", 0.65, 0.15, 0.95, "Coerência mínima exigida para trades em regime UNKNOWN")
+        self._register("phi_high_voltage_threshold", 0.30, 0.15, 0.60, "Threshold de Φ para ativação do High-Voltage Strike (Soberania Estrutural)")
         self._register("lorentz_dilation_enabled", 1.0, 0.0, 1.0,
                         "Habilita a dilatação temporal relativística do loop de consciência")
         self._register("evt_tail_threshold", 2.50, 2.0, 5.0,

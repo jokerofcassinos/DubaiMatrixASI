@@ -433,11 +433,19 @@ class TrinityCore:
             self.entropy_bridge_active = False
             self.kinetic_exhaustion = False
         
+        # [Phase Ω-HVS] High-Voltage Strike (Φ > 0.30) — Soberania Estrutural
+        phi_hvs = OMEGA.get("phi_high_voltage_threshold", 0.30)
+        is_hvs_sovereign = (phi >= phi_hvs)
+        
         # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
         # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
         dynamic_buy_thresh = base_buy_threshold if base_buy_threshold is not None else 0.50
         dynamic_sell_thresh = base_sell_threshold if base_sell_threshold is not None else -0.50
         dynamic_conf_min = base_confidence_min if base_confidence_min is not None else 0.85
+
+        if is_hvs_sovereign:
+            dynamic_conf_min *= 0.90 # Relaxa 10% para sinais de elite
+            self._log_cooldown("HVS_SOVEREIGNTY", f"⚡ [Ω-HVS] High-Voltage Strike active (Φ={phi:.2f} >= {phi_hvs:.2f}). Confidence requirement reduced.", 60, level="omega")
 
         # [Phase Ω-PhD-10] Supportive Vacuums (SR Abolition)
         # Se agentes quânticos detectam colapso de onda através do nível de S/R, nós o "abolimos".
@@ -600,7 +608,13 @@ class TrinityCore:
                     self._log_cooldown("UNKNOWN_PHI_VETO", f"⚠️ VETO: UNKNOWN_REGIME_INCOHERENCE (Φ={phi:.2f} < req {unknown_phi_gate:.2f}). Avoiding blind entries.", 60)
                     return self._wait("UNKNOWN_REGIME_INCOHERENCE")
             elif phi >= unknown_phi_gate:
-                 self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓 [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f}).", 60, level="omega")
+                 # [Phase Ω-Extreme] Coherence Check para regimes nebulosos
+                 unknown_c_gate = OMEGA.get("unknown_regime_coherence_gate", 0.65)
+                 if not is_tec_sovereign and not is_hvs_sovereign and coherence < unknown_c_gate:
+                      self._log_cooldown("UNKNOWN_COHERENCE_VETO", f"🛡️ VETO: UNKNOWN_COHERENCE_WEAK (Coherence={coherence:.2f} < {unknown_c_gate:.2f} requirement in {current_regime_val})", 60)
+                      return self._wait("UNKNOWN_COHERENCE_WEAK")
+                 
+                 self._log_cooldown("UNKNOWN_UNLOCKED", f"🔓 [Ω-SCALP] UNKNOWN unblocked via structural pattern (Φ={phi:.2f} | Coherence={coherence:.2f}).", 60, level="omega")
         
         # [Phase Ω-Singularity] QUANTUM MOMENTUM IGNITION (QMI)
         # Treat Energy (Velocity) as a substitute for Coherence (PHI) during Breakouts
@@ -1346,7 +1360,7 @@ class TrinityCore:
                     is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
                     # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é saudável ou há V-Pulse
                     # Relaxed Phi requirement from 0.25 to 0.15 for aggressive scalp
-                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling or is_tec_sovereign
+                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling or is_tec_sovereign or is_hvs_sovereign
                     
                     # [Ω-MICRO-ALPHA] If Reward covers fees, we take it if Phi is high
                     is_micro_alpha = reward > (comm_per_lot * 1.1) and phi > 0.20
@@ -1370,6 +1384,11 @@ class TrinityCore:
              # [Phase Ω-PhD-7] Geodesic Flow accepts even lower RR (Scalp asimétrico)
              if is_geodesic_flow: phi_factor = 0.35
              min_rr = 0.35 if limit_mode else (min_rr * phi_factor)
+
+        # [Phase Ω-HVS] High-Voltage RR Relaxation
+        if is_hvs_sovereign:
+            min_rr = min(min_rr, 0.45)
+            self._log_cooldown("HVS_RR_RELAX", f"⚡ [Ω-HVS RR] Force relaxing min_rr to {min_rr:.2f} due to structural voltage.", 60, level="omega")
 
         # [Phase 51] God-Mode RR Rationale
         if is_god_mode:

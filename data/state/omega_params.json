@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-22T19:31:47.461462",
+  "saved_at": "2026-03-22T20:00:22.261826",
   "parameters": {
     "buy_threshold": {
       "value": 0.15,
@@ -191,7 +191,7 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-22T19:30:04.180388",
+          "time": "2026-03-22T19:59:22.391081",
           "old": 50.0,
           "new": 44.64,
           "reason": "Phase 49 Auto-Detection"
@@ -234,6 +234,16 @@
       "bounds": [
         0.01,
         0.5
+      ],
+      "mutation_count": 0,
+      "last_mutations": []
+    },
+    "global_nuke_cooldown_seconds": {
+      "value": 300.0,
+      "default": 300.0,
+      "bounds": [
+        30.0,
+        1800.0
       ],
       "mutation_count": 0,
       "last_mutations": []
@@ -769,11 +779,31 @@
       "last_mutations": []
     },
     "unknown_regime_phi_gate": {
-      "value": 0.04,
-      "default": 0.04,
+      "value": 0.12,
+      "default": 0.12,
       "bounds": [
-        0.05,
-        0.5
+        0.01,
+        0.35
+      ],
+      "mutation_count": 0,
+      "last_mutations": []
+    },
+    "unknown_regime_coherence_gate": {
+      "value": 0.65,
+      "default": 0.65,
+      "bounds": [
+        0.15,
+        0.95
+      ],
+      "mutation_count": 0,
+      "last_mutations": []
+    },
+    "phi_high_voltage_threshold": {
+      "value": 0.3,
+      "default": 0.3,
+      "bounds": [
+        0.15,
+        0.6
       ],
       "mutation_count": 0,
       "last_mutations": []

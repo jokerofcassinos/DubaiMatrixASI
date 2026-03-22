@@ -62,6 +62,7 @@ class PositionManager:
         # Cooldown de logging para evitar spam (Phase Ω-Resilience)
         self._last_nuke_log_time = {} # anchor_ticket -> float
         self._close_attempt_time = {} # ticket -> float (diagnostic)
+        self._last_nuke_time = 0.0     # [Phase Ω-Resilience] Global cooldown tracker
     @catch_and_log(default_return=None)
     def monitor_positions(self, snapshot: MarketSnapshot, flow_analysis: Dict, quantum_state=None):
         """
@@ -209,6 +210,20 @@ class PositionManager:
             should_close = False
             reason = ""
 
+            # ═══ [PHASE Ω-GREEN LIGHT] Lógica de Sinal Verde ═══
+            # Prevenção de "Cortada na Fase de Captação": Não deixa o bot fechar por Trailing
+            # se ainda não cobrimos a comissão com uma margem de segurança.
+            comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
+            commission_cost = lot_scale * comm_per_lot
+            
+            # Sinal Verde: Profit > Comissão * Multiplicador
+            green_light_mult = OMEGA.get("commission_protection_mult", 1.5)
+            # Para Swing/Crash, somos ainda mais exigentes no sinal verde
+            if is_swing or is_crash: green_light_mult *= 2.0
+            
+            has_green_light = total_profit > (commission_cost * green_light_mult)
+            is_emergency = False # Será setado se for um trigger de urgência (Wormhole, etc)
+
             # ═══════════════════════════════════════════════════
             #  TRIGGER 0: PROXIMITY & SMART TP (Phase Ω)
             # ═══════════════════════════════════════════════════
@@ -225,9 +240,6 @@ class PositionManager:
             # ═══════════════════════════════════════════════════
             #  TRIGGER 1: DUAL-PHASE BREAKEVEN GUARD (Phase 7)
             # ═══════════════════════════════════════════════════
-            comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", 32.0)
-            commission_cost = lot_scale * comm_per_lot
-            
             # [Phase Ω-Fix] O piso seguro deve ser estritamente a comissão + minúscula folga.
             # Se for fixo em $15, trades fragmentados (0.01 lote) morrerão instantaneamente.
             safe_floor = max(commission_cost * 1.10, 0.50) # 10% de folga para slippage
@@ -302,8 +314,15 @@ class PositionManager:
                 reason_prefix = "EARLY_TRAILING_LOCK"
 
             if not should_close and trailing_stop_profit > 0.0 and total_profit <= trailing_stop_profit:
-                should_close = True
-                reason = f"{reason_prefix} (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Progress={profit_progress:.1%})"
+                # SÓ FECHA se tiver Sinal Verde OU se for o Breakeven Guard (Proteção de Capital)
+                if has_green_light or state.get("breakeven_active", False):
+                    should_close = True
+                    reason = f"{reason_prefix} (Peak=${peak:.2f}, Locked=${trailing_stop_profit:.2f}, Progress={profit_progress:.1%})"
+                else:
+                    # Logando uma vez por strike para não spammar
+                    if time.time() - self._last_nuke_log_time.get(anchor_ticket, 0) > 30.0:
+                        log.omega(f"🛡️ [SOFT VETO] {reason_prefix} ignorado: Sem Sinal Verde (Profit ${total_profit:.2f} < Comm ${commission_cost:.2f} * {green_light_mult})")
+                        self._last_nuke_log_time[anchor_ticket] = time.time()
 
                 # ═══════════════════════════════════════════════════
                 #  ADVANCED ASI LAYERS (KDS & OFAE)
@@ -328,9 +347,11 @@ class PositionManager:
             if not should_close and reached_noise_shield:
                 #  TRIGGER 2: ATOMIC MOMENTUM REVERSAL
                 if g_is_buy and flow_signal < -0.4:
-                    should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bearish)"
+                    if has_green_light: # Momentum Reversal é "Soft", respeita sinal verde
+                        should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bearish)"
                 elif not g_is_buy and flow_signal > 0.4:
-                    should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bullish)"
+                    if has_green_light:
+                        should_close, reason = True, "LETHAL_MOMENTUM_REVERSAL (Bullish)"
 
                 #  TRIGGER 3: ATOMIC FLOW EXHAUSTION
                 if not should_close:
@@ -404,11 +425,18 @@ class PositionManager:
                             should_close = True
                             reason = f"DRIFT_TIME_EXHAUSTION (Age={trade_age/60:.1f}m | Profit=${total_profit:.2f})"
 
-            #  EJETAR GRUPO INTEIRO (STRIKE)
+            #  EJETAR GRUPO INTEIRO (STRIKE NUKE)
             if should_close:
                 symbol = g_data.get('symbol', 'UNKNOWN')
-                log.omega(f"💀 LETHAL CLOSE STRIKE: {reason} | P&L Total: ${total_profit:+.2f} | Lots: {lot_scale:.2f} | Nodes: {num_slots}")
-                self._close_strike_group(g_tickets, "BUY" if g_is_buy else "SELL")
+                log.omega(f"💀 LETHAL BATCH CLOSE: {reason} | P&L Total: ${total_profit:+.2f} | Lots: {lot_scale:.2f} | Nodes: {num_slots}")
+                # [Optimization Ω-1000%] Dispara fechamento em massa
+                self.bridge.close_batch(symbol, "BUY" if g_is_buy else "SELL")
+                self._last_nuke_time = time.time() # [Ω-Anti-Spam] Registra tempo do Nuke
+                
+                # Registra o fechamento no tracking local para não tentar de novo
+                for p in g_tickets:
+                    self._closing_tickets.add(p['ticket'])
+                    self._close_attempt_time[p['ticket']] = time.time()
 
         # Cleanup e monitoramento de lag permanecem os mesmos...
         self._cleanup_tracking(current_tickets)
