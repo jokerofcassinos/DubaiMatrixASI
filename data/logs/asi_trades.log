@@ -1,43 +1,1219 @@
-[DubaiMatrixASI] 20:41:42.048    OMEGA │ ⚡ Consciência neural inicializando...
-[DubaiMatrixASI] 20:41:42.048    OMEGA │ ⚡ Setores neurais: ATIVANDO
-[DubaiMatrixASI] 20:41:42.049    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
-[DubaiMatrixASI] 20:41:42.050    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
-[DubaiMatrixASI] 20:41:42.050    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
-[DubaiMatrixASI] 20:41:42.051    OMEGA │ ⚡ 📅 2026-03-22T23:41:42.051095+00:00
-[DubaiMatrixASI] 20:41:42.051    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
-[DubaiMatrixASI] 20:41:42.051    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
-[DubaiMatrixASI] 20:41:42.056    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
-[DubaiMatrixASI] 20:41:42.060    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
-[DubaiMatrixASI] 20:41:42.062    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=68056.18, Bid=68055.18
-[DubaiMatrixASI] 20:41:42.073    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
-[DubaiMatrixASI] 20:41:42.074    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
-[DubaiMatrixASI] 20:41:42.086    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 185 agentes ativos (Parallel Execution Enabled)
-[DubaiMatrixASI] 20:41:42.159    OMEGA │ ⚡ 👻 [SHADOW ENGINE] V3 Ativo. 33 ghosts pendentes carregados.
-[DubaiMatrixASI] 20:41:42.160    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
-[DubaiMatrixASI] 20:41:42.161    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
-[DubaiMatrixASI] 20:41:42.164    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
-[DubaiMatrixASI] 20:41:42.171    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
-[DubaiMatrixASI] 20:41:42.173    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 185 agentes ativos
-[DubaiMatrixASI] 20:41:42.175    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
-[DubaiMatrixASI] 20:41:42.221    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
-[DubaiMatrixASI] 20:41:42.224    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
-[DubaiMatrixASI] 20:41:42.243    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
-[DubaiMatrixASI] 20:41:42.291    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
-[DubaiMatrixASI] 20:41:42.659    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 37 (ID: GST_1774233702641) criado no ciclo CYC002_20260322.
-[DubaiMatrixASI] 20:41:42.682    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $44.64
-[DubaiMatrixASI] 20:41:42.757    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 118 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-547.89
-[DubaiMatrixASI] 20:41:43.035  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.020 < 0.020 (Sig=0.34)
-[DubaiMatrixASI] 20:41:43.053    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 37_1 (ID: GST_1774233703046) criado no ciclo CYC002_20260322.
-[DubaiMatrixASI] 20:41:43.180    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 60808)
-[DubaiMatrixASI] 20:41:51.663    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774233217995 (29) movido para TRUE_NEGATIVE.
-[DubaiMatrixASI] 20:41:51.665    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774233219660 (29_1) movido para TRUE_NEGATIVE.
-[DubaiMatrixASI] 20:41:51.666    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774233278642 (30_3) movido para TRUE_NEGATIVE.
-[DubaiMatrixASI] 20:41:51.667    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774233282188 (30_4) movido para TRUE_NEGATIVE.
-[DubaiMatrixASI] 20:41:51.669    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774233302099 (30_7) movido para TRUE_NEGATIVE.
-[DubaiMatrixASI] 20:41:53.819    OMEGA │ ⚡ 🛑 Shutdown signal recebido (Ctrl+C)
-[DubaiMatrixASI] 20:41:54.088    OMEGA │ ⚡ 🔴 INICIANDO SHUTDOWN SEQUENCE...
-[DubaiMatrixASI] 20:41:54.089    OMEGA │ ⚡ 🔴 ASI BRAIN SHUTTING DOWN...
-[DubaiMatrixASI] 20:41:54.128    OMEGA │ ⚡ 💾 Estado salvo. Consciência preservada.
-[DubaiMatrixASI] 20:41:54.129    OMEGA │ ⚡ 🔌 MT5 DESCONECTADO
-[DubaiMatrixASI] 20:41:54.130    OMEGA │ ⚡ 🏁 DubaiMatrixASI OFFLINE
-[DubaiMatrixASI] 20:41:54.130    OMEGA │ ⚡ 📊 Sessão finalizada às 2026-03-22T23:41:54.130455+00:00
+[DubaiMatrixASI] 21:12:15.497    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 21:12:15.498    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 21:12:15.498    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 21:12:15.498    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 21:12:15.499    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 21:12:15.499    OMEGA │ ⚡ 📅 2026-03-23T00:12:15.499661+00:00
+[DubaiMatrixASI] 21:12:15.500    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 21:12:15.500    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 21:12:15.504    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 21:12:15.509    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 21:12:15.511    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=68041.14, Bid=68040.14
+[DubaiMatrixASI] 21:12:15.520    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 21:12:15.520    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 21:12:15.537    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 185 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 21:12:15.591    OMEGA │ ⚡ 👻 [SHADOW ENGINE] V3 Ativo. 3 ghosts pendentes carregados.
+[DubaiMatrixASI] 21:12:15.592    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 21:12:15.594    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 21:12:15.596    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 21:12:15.602    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 21:12:15.603    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 185 agentes ativos
+[DubaiMatrixASI] 21:12:15.604    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 21:12:15.605    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA a cada 15m.
+[DubaiMatrixASI] 21:12:15.606    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 21:12:15.607    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 21:12:15.669    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 21:12:15.900    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 1_2 (ID: GST_1774235535873) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:12:15.914    OMEGA │ ⚡ 📈 [COMMISSION ADAPTATION] Ajustando comissão: $50.0 -> $44.5
+[DubaiMatrixASI] 21:12:15.963    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 118 posições auditadas, 0 novos registros finalizados. P&L Líquido Total: $-547.89
+[DubaiMatrixASI] 21:12:16.407    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 59571)
+[DubaiMatrixASI] 21:12:18.474    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🔥 Ghost GST_1774234276379 (1_4) movido para FALSE_NEGATIVE.
+[DubaiMatrixASI] 21:12:19.468  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.017 < 0.020 (Sig=0.24)
+[DubaiMatrixASI] 21:12:19.504    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 2 (ID: GST_1774235539487) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:13:16.034    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 2_1 (ID: GST_1774235596033) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:13:19.776    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-4,6828
+[DubaiMatrixASI] 21:13:24.258  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.006 < 0.020 (Sig=0.32)
+[DubaiMatrixASI] 21:13:24.289    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 3 (ID: GST_1774235604258) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:13:51.096    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 3_1 (ID: GST_1774235631064) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:14:15.678    OMEGA │ ⚡ ⚡ [Ω-SMS T2:STABILITY] Manifold Sovereignty active (Curv=0.70 | Vel=3.9 | Coh=0.41).
+[DubaiMatrixASI] 21:14:15.681    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 3_2 (ID: GST_1774235655680) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:14:16.684    OMEGA │ ⚡ ⚡ [Ω-BEAR GRIND BYPASS] Overwhelming consensus (66% bear). Low entropy = steady grind, not chop.
+[DubaiMatrixASI] 21:14:16.685    OMEGA │ ⚡ ⚡ [Ω-SMS RR] Force relaxing min_rr to 0.35 due to structural manifold.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #470 | 2026-03-22 21:14:16 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4682 | Φ: 0.1554 | Coherence: 41.81%
+   Swarm Intensity: BULL[15] vs BEAR[29]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.468 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.468 | CONF=0.82 | Φ=0.16 | COH=41.81% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.7% EV=-10.95 CVaR=-128.11 sim=18.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+   [DubaiMatrixASI] 21:14:16.684    OMEGA │ ⚡ ⚡ [Ω-BEAR GRIND BYPASS] Overwhelming consensus (66% bear). Low entropy = steady grind, not chop.
+   [DubaiMatrixASI] 21:14:16.685    OMEGA │ ⚡ ⚡ [Ω-SMS RR] Force relaxing min_rr to 0.35 due to structural manifold.
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:16.729    OMEGA │ ⚡ 📊 NON-ERGODIC OPTIMIZATION: Max Growth -0.000034 @ 0.5x Leverage. Risk Fraction: 0.0019
+[DubaiMatrixASI] 21:14:16.730  WARNING │ 🛡️ [EXPECTANCY VETO] Negative Expectancy (IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-4,6828) | Conf=0.82 < 0.88. Reducing risk by 90%.
+[DubaiMatrixASI] 21:14:16.772    OMEGA │ ⚡ 🎯 DECISION: SELL lot=5.00 (em 5 nodes) price=67991.68 SL=68119.79 TP=67856.12 | Φ: 0.16 | CONF: 0.82
+[DubaiMatrixASI] 21:14:16.811    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 67993.02 (via socket)
+[DubaiMatrixASI] 21:14:16.816    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 67992.67 (via socket)
+[DubaiMatrixASI] 21:14:16.817    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 0.48 @ 67994.07 (via socket)
+[DubaiMatrixASI] 21:14:16.840    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.72 @ 67993.37 (via socket)
+[DubaiMatrixASI] 21:14:16.841    OMEGA │ ⚡ ⚡ FAST LIMIT SINALIZADO: SELL 1.16 @ 67993.72 (via socket)
+[DubaiMatrixASI] 21:14:16.990    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 407278387 @ 67993.02 | Strike: S1774224856774514600_SELL_1
+[DubaiMatrixASI] 21:14:17.151    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 407278391 @ 67994.07 | Strike: S1774224856774514600_SELL_4
+[DubaiMatrixASI] 21:14:17.286    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 407278394 @ 67993.37 | Strike: S1774224856774514600_SELL_2
+[DubaiMatrixASI] 21:14:17.427    OMEGA │ ⚡ 🎯 LIMIT EXECUTADO: Ticket 407278395 @ 67993.72 | Strike: S1774224856774514600_SELL_3
+[DubaiMatrixASI] 21:14:18.725    OMEGA │ ⚡ ✅ TRADE EXECUTADO #1 | SELL lot=5.00 @ 67993.37 | 5 tickets gerados | SELL signal=-0.468 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1
+[DubaiMatrixASI] 21:14:18.725  WARNING │ ⏱️ LATENCY [execute] 1997.4ms (threshold: 400ms)
+[DubaiMatrixASI] 21:14:18.726    OMEGA │ ⚡ 🎯 [SNIPER STRIKE] SUCCESS: SELL BTCUSD | lots=5.00 @ 67993.37 | Φ=0.16 | CONF=0.82 | REGIME=DRIFTING_BEAR
+[DubaiMatrixASI] 21:14:18.744    OMEGA │ ⚡ 🎯 IGNITION SUCCESS: SELL BTCUSD | S=-0.468 PHI=0.16
+  🐂 BULL[15]: PriceGravityAgent, ChaosRegime, RogueWaveNLSE, ChaosFractalDim, SpectralInformationFlux, SingularSpectrumAnalysis, RandomMatrixTheory, DarkMatterGravity, QuantumSpin, OscillationWaveAgent, MacroBiasAgent, CandleAnatomyAgent, FeynmanPath, MultiScaleFractalResonance, PriceVelocityAgent
+  🐻 BEAR[29]: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT, Thermodynamic, RiemannianManifold, HolographicEntanglement, NonBondedRepulsion, StrangeAttractorFolding, FourierSpectral, KripkeSemantics, KolmogorovInertia, MSSAgent, GameTheoryNashAgent, FVGAgent, StopHunterAgent, LiquiditySiphonAgent, MicrostructureAgent, TrendAgent, CppFractalAgent, PressureMatrix, ChartStructureAgent, SentimentFearGreedAgent, CrashVelocityDetector, MomentumAgent, OnChainPressureAgent, TemporalTrend, HexMatrix, AggressivenessAgent, MeanFieldGame
+  🎯 Reason: SELL signal=-0.468 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.468 | CONF=0.82 | Φ=0.16 | COH=41.81% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.7% EV=-10.95 CVaR=-128.11 sim=18.1ms]
+[DubaiMatrixASI] 21:14:18.754  WARNING │ ⏱️ LATENCY [think] 2288.2ms (threshold: 1000ms)
+[DubaiMatrixASI] 21:14:21.478    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 4 (ID: GST_1774235661460) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:14:26.294    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-4,6828
+[DubaiMatrixASI] 21:14:30.120    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 4_1 (ID: GST_1774235670091) criado no ciclo CYC001_20260323.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #519 | 2026-03-22 21:14:31 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4633 | Φ: 0.1475 | Coherence: 41.09%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.15 | COH=41.09% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.3% EV=-10.10 CVaR=-138.13 sim=18.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #520 | 2026-03-22 21:14:31 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4548 | Φ: 0.1263 | Coherence: 41.10%
+   Swarm Intensity: BULL[15] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.455 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.455 | CONF=0.81 | Φ=0.13 | COH=41.10% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.014 WP=45.6% EV=-9.14 CVaR=-138.13 sim=18.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:31.627    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 4_2 (ID: GST_1774235671595) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:14:31.630    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235604258 (3) movido para TRUE_NEGATIVE.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #525 | 2026-03-22 21:14:32 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4598 | Φ: 0.1512 | Coherence: 40.57%
+   Swarm Intensity: BULL[16] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.460 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.460 | CONF=0.82 | Φ=0.15 | COH=40.57% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.007 WP=46.1% EV=-9.02 CVaR=-152.40 sim=28.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+   [DubaiMatrixASI] 21:14:32.630     INFO │ 🛡️ [TP STRETCH] SL is too wide (2.0 ATR). Capping RR to 1.0834074822887043x
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #527 | 2026-03-22 21:14:33 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4579 | Φ: 0.1355 | Coherence: 41.04%
+   Swarm Intensity: BULL[15] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.81 | Φ=0.14 | COH=41.04% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.6% EV=-12.46 CVaR=-152.41 sim=21.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #528 | 2026-03-22 21:14:33 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4485 | Φ: 0.1072 | Coherence: 41.13%
+   Swarm Intensity: BULL[16] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.449 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.449 | CONF=0.82 | Φ=0.11 | COH=41.13% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.007 WP=46.2% EV=-9.85 CVaR=-155.65 sim=21.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:33.425    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235539487 (2) movido para TRUE_NEGATIVE.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #529 | 2026-03-22 21:14:33 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4558 | Φ: 0.1497 | Coherence: 41.72%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.456 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.456 | CONF=0.82 | Φ=0.15 | COH=41.72% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.004 WP=46.3% EV=-8.68 CVaR=-152.49 sim=25.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #530 | 2026-03-22 21:14:33 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4600 | Φ: 0.1290 | Coherence: 40.96%
+   Swarm Intensity: BULL[16] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.460 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.460 | CONF=0.82 | Φ=0.13 | COH=40.96% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.024 WP=45.0% EV=-12.41 CVaR=-152.49 sim=21.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #531 | 2026-03-22 21:14:34 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4582 | Φ: 0.1306 | Coherence: 41.16%
+   Swarm Intensity: BULL[15] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.81 | Φ=0.13 | COH=41.16% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.000 WP=46.6% EV=-8.49 CVaR=-152.49 sim=21.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:34.507    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #532 | 2026-03-22 21:14:34 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4552 | Φ: 0.1869 | Coherence: 41.41%
+   Swarm Intensity: BULL[15] vs BEAR[35]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.455 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.455 | CONF=0.82 | Φ=0.19 | COH=41.41% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.017 WP=45.6% EV=-11.77 CVaR=-152.49 sim=24.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+   [DubaiMatrixASI] 21:14:34.507    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #533 | 2026-03-22 21:14:34 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4582 | Φ: 0.1088 | Coherence: 40.84%
+   Swarm Intensity: BULL[16] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.11 | COH=40.84% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.292 WP=43.9% EV=-16.28 CVaR=-157.80 sim=21.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #534 | 2026-03-22 21:14:35 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4552 | Φ: 0.1147 | Coherence: 41.36%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.455 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.455 | CONF=0.81 | Φ=0.11 | COH=41.36% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.6% EV=-11.98 CVaR=-163.71 sim=22.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #535 | 2026-03-22 21:14:35 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4577 | Φ: 0.1113 | Coherence: 40.85%
+   Swarm Intensity: BULL[16] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.11 | COH=40.85% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.3% EV=-12.82 CVaR=-164.35 sim=22.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #536 | 2026-03-22 21:14:35 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4628 | Φ: 0.0968 | Coherence: 41.16%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.80 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.80 | Φ=0.10 | COH=41.16% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.7% EV=-14.67 CVaR=-174.73 sim=23.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:35.532    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235596033 (2_1) movido para TRUE_NEGATIVE.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #537 | 2026-03-22 21:14:35 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4437 | Φ: 0.0708 | Coherence: 40.74%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.444 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.444 | CONF=0.82 | Φ=0.07 | COH=40.74% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.023 WP=45.2% EV=-14.75 CVaR=-177.24 sim=23.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #538 | 2026-03-22 21:14:36 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4637 | Φ: 0.1319 | Coherence: 41.38%
+   Swarm Intensity: BULL[14] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.464 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.464 | CONF=0.82 | Φ=0.13 | COH=41.38% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.2% EV=-13.31 CVaR=-176.29 sim=23.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #539 | 2026-03-22 21:14:36 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4584 | Φ: 0.1343 | Coherence: 41.88%
+   Swarm Intensity: BULL[12] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.81 | Φ=0.13 | COH=41.88% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.014 WP=45.8% EV=-13.40 CVaR=-179.42 sim=23.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #540 | 2026-03-22 21:14:36 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4629 | Φ: 0.1114 | Coherence: 41.21%
+   Swarm Intensity: BULL[13] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.11 | COH=41.21% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.009 WP=46.1% EV=-12.01 CVaR=-182.61 sim=25.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #541 | 2026-03-22 21:14:36 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4595 | Φ: 0.1353 | Coherence: 41.88%
+   Swarm Intensity: BULL[12] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.460 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.460 | CONF=0.81 | Φ=0.14 | COH=41.88% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.001 WP=46.6% EV=-10.87 CVaR=-182.64 sim=24.6ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #542 | 2026-03-22 21:14:37 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4600 | Φ: 0.1124 | Coherence: 40.92%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.460 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.460 | CONF=0.82 | Φ=0.11 | COH=40.92% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.001 WP=46.7% EV=-10.16 CVaR=-182.64 sim=23.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #543 | 2026-03-22 21:14:37 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4580 | Φ: 0.0886 | Coherence: 40.81%
+   Swarm Intensity: BULL[15] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.09 | COH=40.81% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.004 WP=46.5% EV=-11.78 CVaR=-182.69 sim=24.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #544 | 2026-03-22 21:14:37 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4707 | Φ: 0.1520 | Coherence: 42.22%
+   Swarm Intensity: BULL[12] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.471 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.471 | CONF=0.82 | Φ=0.15 | COH=42.22% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.007 WP=46.2% EV=-11.28 CVaR=-174.61 sim=23.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #545 | 2026-03-22 21:14:37 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4578 | Φ: 0.1719 | Coherence: 42.49%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.17 | COH=42.49% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.015 WP=45.7% EV=-12.97 CVaR=-174.67 sim=25.6ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #546 | 2026-03-22 21:14:38 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4535 | Φ: 0.1512 | Coherence: 41.95%
+   Swarm Intensity: BULL[13] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.453 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.453 | CONF=0.82 | Φ=0.15 | COH=41.95% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.000 WP=46.5% EV=-8.59 CVaR=-174.67 sim=23.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #547 | 2026-03-22 21:14:38 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4702 | Φ: 0.1503 | Coherence: 42.21%
+   Swarm Intensity: BULL[12] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.470 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.470 | CONF=0.82 | Φ=0.15 | COH=42.21% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.002 WP=46.6% EV=-10.36 CVaR=-173.50 sim=23.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #548 | 2026-03-22 21:14:38 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4612 | Φ: 0.1509 | Coherence: 42.24%
+   Swarm Intensity: BULL[12] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.82 | Φ=0.15 | COH=42.24% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.3% EV=-13.89 CVaR=-173.90 sim=23.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #549 | 2026-03-22 21:14:38 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4570 | Φ: 0.1107 | Coherence: 41.64%
+   Swarm Intensity: BULL[12] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.81 | Φ=0.11 | COH=41.64% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.275 WP=44.9% EV=-13.72 CVaR=-175.02 sim=22.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #550 | 2026-03-22 21:14:39 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4711 | Φ: 0.1730 | Coherence: 41.91%
+   Swarm Intensity: BULL[13] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.471 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.471 | CONF=0.82 | Φ=0.17 | COH=41.91% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.005 WP=46.8% EV=-7.53 CVaR=-174.29 sim=25.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #551 | 2026-03-22 21:14:39 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4566 | Φ: 0.1106 | Coherence: 41.64%
+   Swarm Intensity: BULL[12] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.82 | Φ=0.11 | COH=41.64% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.008 WP=46.1% EV=-10.62 CVaR=-174.03 sim=23.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #552 | 2026-03-22 21:14:39 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4627 | Φ: 0.1071 | Coherence: 41.47%
+   Swarm Intensity: BULL[14] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.11 | COH=41.47% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.2% EV=-13.66 CVaR=-174.00 sim=23.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #553 | 2026-03-22 21:14:39 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4611 | Φ: 0.1755 | Coherence: 42.37%
+   Swarm Intensity: BULL[11] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.82 | Φ=0.18 | COH=42.37% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.004 WP=46.5% EV=-11.00 CVaR=-174.04 sim=23.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #554 | 2026-03-22 21:14:40 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4653 | Φ: 0.1907 | Coherence: 42.49%
+   Swarm Intensity: BULL[11] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.465 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.465 | CONF=0.82 | Φ=0.19 | COH=42.49% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.008 WP=46.3% EV=-12.43 CVaR=-174.07 sim=23.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #555 | 2026-03-22 21:14:40 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4533 | Φ: 0.1023 | Coherence: 41.15%
+   Swarm Intensity: BULL[14] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.453 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.453 | CONF=0.81 | Φ=0.10 | COH=41.15% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.012 WP=45.9% EV=-12.53 CVaR=-175.02 sim=24.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #556 | 2026-03-22 21:14:40 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4660 | Φ: 0.1515 | Coherence: 41.39%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.466 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.466 | CONF=0.82 | Φ=0.15 | COH=41.39% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.8% EV=-14.65 CVaR=-174.66 sim=23.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #557 | 2026-03-22 21:14:41 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4657 | Φ: 0.1463 | Coherence: 41.61%
+   Swarm Intensity: BULL[13] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.466 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.466 | CONF=0.82 | Φ=0.15 | COH=41.61% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.023 WP=45.1% EV=-13.58 CVaR=-174.87 sim=23.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #558 | 2026-03-22 21:14:41 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4603 | Φ: 0.1245 | Coherence: 41.84%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.460 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.460 | CONF=0.81 | Φ=0.12 | COH=41.84% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.295 WP=43.7% EV=-18.41 CVaR=-174.72 sim=24.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #559 | 2026-03-22 21:14:41 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4606 | Φ: 0.1449 | Coherence: 41.97%
+   Swarm Intensity: BULL[12] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.81 | Φ=0.14 | COH=41.97% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.018 WP=45.4% EV=-12.92 CVaR=-174.72 sim=23.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #560 | 2026-03-22 21:14:41 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4580 | Φ: 0.1661 | Coherence: 42.39%
+   Swarm Intensity: BULL[13] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.17 | COH=42.39% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.009 WP=46.0% EV=-11.09 CVaR=-174.49 sim=25.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #562 | 2026-03-22 21:14:42 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4587 | Φ: 0.1008 | Coherence: 41.05%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.459 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.459 | CONF=0.82 | Φ=0.10 | COH=41.05% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.001 WP=46.6% EV=-8.67 CVaR=-174.88 sim=23.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #563 | 2026-03-22 21:14:42 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4608 | Φ: 0.1478 | Coherence: 41.97%
+   Swarm Intensity: BULL[12] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.81 | Φ=0.15 | COH=41.97% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.012 WP=46.0% EV=-12.44 CVaR=-175.15 sim=24.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #564 | 2026-03-22 21:14:42 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4591 | Φ: 0.1463 | Coherence: 41.93%
+   Swarm Intensity: BULL[13] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.459 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.459 | CONF=0.81 | Φ=0.15 | COH=41.93% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.003 WP=46.4% EV=-10.02 CVaR=-175.16 sim=23.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #565 | 2026-03-22 21:14:43 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4645 | Φ: 0.1239 | Coherence: 41.34%
+   Swarm Intensity: BULL[13] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.464 conf=0.80 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.464 | CONF=0.80 | Φ=0.12 | COH=41.34% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.7% EV=-14.88 CVaR=-175.18 sim=25.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #566 | 2026-03-22 21:14:43 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4713 | Φ: 0.1510 | Coherence: 41.74%
+   Swarm Intensity: BULL[13] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.471 conf=0.80 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.471 | CONF=0.80 | Φ=0.15 | COH=41.74% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.278 WP=44.7% EV=-15.00 CVaR=-180.77 sim=23.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #567 | 2026-03-22 21:14:43 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4571 | Φ: 0.1358 | Coherence: 41.91%
+   Swarm Intensity: BULL[12] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.82 | Φ=0.14 | COH=41.91% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.001 WP=46.9% EV=-10.91 CVaR=-183.60 sim=24.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #568 | 2026-03-22 21:14:43 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4634 | Φ: 0.1115 | Coherence: 41.43%
+   Swarm Intensity: BULL[14] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.11 | COH=41.43% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.3% EV=-13.25 CVaR=-183.30 sim=24.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #569 | 2026-03-22 21:14:44 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4591 | Φ: 0.0917 | Coherence: 40.98%
+   Swarm Intensity: BULL[14] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.459 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.459 | CONF=0.82 | Φ=0.09 | COH=40.98% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.8% EV=-14.76 CVaR=-183.30 sim=25.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #570 | 2026-03-22 21:14:44 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4633 | Φ: 0.1167 | Coherence: 41.20%
+   Swarm Intensity: BULL[13] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.80 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.80 | Φ=0.12 | COH=41.20% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.6% EV=-13.19 CVaR=-183.30 sim=23.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #571 | 2026-03-22 21:14:44 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4618 | Φ: 0.1762 | Coherence: 42.50%
+   Swarm Intensity: BULL[12] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.462 conf=0.82 coherence=0.43 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.462 | CONF=0.82 | Φ=0.18 | COH=42.50% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.2% EV=-14.16 CVaR=-183.57 sim=28.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #572 | 2026-03-22 21:14:44 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4654 | Φ: 0.1292 | Coherence: 41.64%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.465 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.465 | CONF=0.82 | Φ=0.13 | COH=41.64% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.008 WP=47.2% EV=-8.77 CVaR=-183.56 sim=29.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #573 | 2026-03-22 21:14:45 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4703 | Φ: 0.1682 | Coherence: 41.89%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.470 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.470 | CONF=0.82 | Φ=0.17 | COH=41.89% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.007 WP=46.2% EV=-11.82 CVaR=-182.42 sim=24.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #574 | 2026-03-22 21:14:45 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4673 | Φ: 0.1921 | Coherence: 42.66%
+   Swarm Intensity: BULL[11] vs BEAR[35]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.467 conf=0.81 coherence=0.43 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.467 | CONF=0.81 | Φ=0.19 | COH=42.66% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.017 WP=45.3% EV=-12.59 CVaR=-182.77 sim=24.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #575 | 2026-03-22 21:14:45 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4564 | Φ: 0.1691 | Coherence: 42.09%
+   Swarm Intensity: BULL[13] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.456 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.456 | CONF=0.82 | Φ=0.17 | COH=42.09% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.4% EV=-13.93 CVaR=-182.77 sim=24.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #576 | 2026-03-22 21:14:45 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4584 | Φ: 0.2027 | Coherence: 42.03%
+   Swarm Intensity: BULL[13] vs BEAR[35]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.20 | COH=42.03% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.003 WP=46.6% EV=-11.46 CVaR=-182.77 sim=23.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #577 | 2026-03-22 21:14:46 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4710 | Φ: 0.1289 | Coherence: 41.63%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.471 conf=0.80 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.471 | CONF=0.80 | Φ=0.13 | COH=41.63% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.4% EV=-13.99 CVaR=-183.15 sim=24.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #578 | 2026-03-22 21:14:46 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4582 | Φ: 0.1299 | Coherence: 41.79%
+   Swarm Intensity: BULL[13] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.81 | Φ=0.13 | COH=41.79% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.283 WP=44.4% EV=-16.52 CVaR=-183.16 sim=24.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #579 | 2026-03-22 21:14:46 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4593 | Φ: 0.1045 | Coherence: 41.06%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.459 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.459 | CONF=0.82 | Φ=0.10 | COH=41.06% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.003 WP=47.0% EV=-10.77 CVaR=-183.16 sim=29.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #580 | 2026-03-22 21:14:47 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4569 | Φ: 0.1362 | Coherence: 41.91%
+   Swarm Intensity: BULL[12] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.82 | Φ=0.14 | COH=41.91% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.5% EV=-12.93 CVaR=-187.05 sim=24.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #581 | 2026-03-22 21:14:47 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4623 | Φ: 0.1271 | Coherence: 41.33%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.462 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.462 | CONF=0.82 | Φ=0.13 | COH=41.33% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.005 WP=47.1% EV=-9.80 CVaR=-185.69 sim=25.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #582 | 2026-03-22 21:14:47 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4556 | Φ: 0.1265 | Coherence: 41.53%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.456 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.456 | CONF=0.81 | Φ=0.13 | COH=41.53% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.021 WP=45.1% EV=-13.60 CVaR=-185.43 sim=25.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #583 | 2026-03-22 21:14:47 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4610 | Φ: 0.1257 | Coherence: 41.02%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.82 | Φ=0.13 | COH=41.02% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.3% EV=-13.75 CVaR=-185.51 sim=25.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #584 | 2026-03-22 21:14:48 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4660 | Φ: 0.1477 | Coherence: 41.44%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.466 conf=0.80 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.466 | CONF=0.80 | Φ=0.15 | COH=41.44% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.018 WP=45.4% EV=-13.70 CVaR=-185.51 sim=26.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #585 | 2026-03-22 21:14:48 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4679 | Φ: 0.1706 | Coherence: 41.77%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.468 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.468 | CONF=0.82 | Φ=0.17 | COH=41.77% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.286 WP=44.1% EV=-16.61 CVaR=-185.48 sim=24.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #586 | 2026-03-22 21:14:48 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4545 | Φ: 0.0800 | Coherence: 40.54%
+   Swarm Intensity: BULL[16] vs BEAR[30]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.454 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.454 | CONF=0.82 | Φ=0.08 | COH=40.54% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.003 WP=46.6% EV=-12.00 CVaR=-185.48 sim=25.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #587 | 2026-03-22 21:14:48 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4609 | Φ: 0.1217 | Coherence: 41.12%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.82 | Φ=0.12 | COH=41.12% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.002 WP=46.6% EV=-10.65 CVaR=-185.48 sim=24.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #588 | 2026-03-22 21:14:49 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4633 | Φ: 0.1417 | Coherence: 41.46%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.14 | COH=41.46% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.002 WP=46.5% EV=-10.58 CVaR=-185.52 sim=26.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #589 | 2026-03-22 21:14:49 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4574 | Φ: 0.0996 | Coherence: 41.02%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.81 | Φ=0.10 | COH=41.02% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.022 WP=45.2% EV=-14.56 CVaR=-185.51 sim=24.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #590 | 2026-03-22 21:14:49 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4573 | Φ: 0.1191 | Coherence: 40.86%
+   Swarm Intensity: BULL[16] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.82 | Φ=0.12 | COH=40.86% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.003 WP=46.6% EV=-11.83 CVaR=-184.62 sim=42.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #591 | 2026-03-22 21:14:50 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4620 | Φ: 0.1262 | Coherence: 41.31%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.462 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.462 | CONF=0.82 | Φ=0.13 | COH=41.31% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.024 WP=45.1% EV=-15.79 CVaR=-190.11 sim=26.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #592 | 2026-03-22 21:14:50 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4605 | Φ: 0.1201 | Coherence: 41.06%
+   Swarm Intensity: BULL[15] vs BEAR[31]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.82 | Φ=0.12 | COH=41.06% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.014 WP=45.7% EV=-13.53 CVaR=-189.23 sim=24.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #593 | 2026-03-22 21:14:50 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4676 | Φ: 0.1458 | Coherence: 41.62%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.468 conf=0.80 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.468 | CONF=0.80 | Φ=0.15 | COH=41.62% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.009 WP=46.0% EV=-11.90 CVaR=-189.92 sim=25.2ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #594 | 2026-03-22 21:14:50 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4627 | Φ: 0.1214 | Coherence: 41.55%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.12 | COH=41.55% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.022 WP=45.1% EV=-14.51 CVaR=-190.01 sim=25.6ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #595 | 2026-03-22 21:14:51 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4646 | Φ: 0.1625 | Coherence: 41.54%
+   Swarm Intensity: BULL[15] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.465 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.465 | CONF=0.82 | Φ=0.16 | COH=41.54% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.011 WP=45.8% EV=-12.54 CVaR=-190.01 sim=24.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #596 | 2026-03-22 21:14:51 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4565 | Φ: 0.1440 | Coherence: 41.80%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.81 | Φ=0.14 | COH=41.80% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.011 WP=46.0% EV=-13.36 CVaR=-190.03 sim=25.0ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #597 | 2026-03-22 21:14:51 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4577 | Φ: 0.1211 | Coherence: 40.80%
+   Swarm Intensity: BULL[16] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.82 | Φ=0.12 | COH=40.80% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.7% EV=-14.20 CVaR=-190.03 sim=24.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #598 | 2026-03-22 21:14:51 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4630 | Φ: 0.1436 | Coherence: 41.37%
+   Swarm Intensity: BULL[15] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.463 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.463 | CONF=0.82 | Φ=0.14 | COH=41.37% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.007 WP=47.2% EV=-9.64 CVaR=-190.06 sim=26.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #599 | 2026-03-22 21:14:52 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4610 | Φ: 0.1455 | Coherence: 41.75%
+   Swarm Intensity: BULL[14] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.461 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.461 | CONF=0.81 | Φ=0.15 | COH=41.75% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.007 WP=46.1% EV=-11.32 CVaR=-190.07 sim=27.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:52.190    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1375.0797 Gen=1
+[DubaiMatrixASI] 21:14:52.191    OMEGA │ ⚡ 🧬 Gen #1: 13 mutações aplicadas | Tipo=uniform | Fitness=-1375.0797
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #600 | 2026-03-22 21:14:52 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4659 | Φ: 0.1441 | Coherence: 41.47%
+   Swarm Intensity: BULL[15] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.466 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.466 | CONF=0.82 | Φ=0.14 | COH=41.47% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.023 WP=45.2% EV=-15.94 CVaR=-190.10 sim=24.9ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+   [DubaiMatrixASI] 21:14:52.190    OMEGA │ ⚡ 🧬 Novo melhor genome! Fitness=-1375.0797 Gen=1
+   [DubaiMatrixASI] 21:14:52.191    OMEGA │ ⚡ 🧬 Gen #1: 13 mutações aplicadas | Tipo=uniform | Fitness=-1375.0797
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #601 | 2026-03-22 21:14:52 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4677 | Φ: 0.1210 | Coherence: 41.07%
+   Swarm Intensity: BULL[15] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.468 conf=0.80 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.468 | CONF=0.80 | Φ=0.12 | COH=41.07% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.004 WP=46.3% EV=-10.41 CVaR=-190.07 sim=24.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #602 | 2026-03-22 21:14:52 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4582 | Φ: 0.1219 | Coherence: 41.16%
+   Swarm Intensity: BULL[15] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.458 conf=0.81 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.05 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.458 | CONF=0.81 | Φ=0.12 | COH=41.16% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.016 WP=45.6% EV=-13.66 CVaR=-190.07 sim=24.8ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #603 | 2026-03-22 21:14:53 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4500 | Φ: 0.1178 | Coherence: 41.34%
+   Swarm Intensity: BULL[15] vs BEAR[33]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.450 conf=0.82 coherence=0.41 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.450 | CONF=0.82 | Φ=0.12 | COH=41.34% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.019 WP=45.4% EV=-14.67 CVaR=-190.07 sim=24.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #604 | 2026-03-22 21:14:53 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4570 | Φ: 0.1812 | Coherence: 41.99%
+   Swarm Intensity: BULL[15] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.457 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.457 | CONF=0.82 | Φ=0.18 | COH=41.99% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.020 WP=47.8% EV=-5.38 CVaR=-190.06 sim=26.3ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #605 | 2026-03-22 21:14:53 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4653 | Φ: 0.1807 | Coherence: 42.50%
+   Swarm Intensity: BULL[13] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.465 conf=0.81 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.465 | CONF=0.81 | Φ=0.18 | COH=42.50% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=+0.000 WP=46.6% EV=-9.64 CVaR=-189.29 sim=31.5ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #606 | 2026-03-22 21:14:54 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4705 | Φ: 0.1626 | Coherence: 41.96%
+   Swarm Intensity: BULL[14] vs BEAR[32]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.471 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.471 | CONF=0.82 | Φ=0.16 | COH=41.96% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.006 WP=46.3% EV=-11.73 CVaR=-184.49 sim=32.1ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #607 | 2026-03-22 21:14:54 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4660 | Φ: 0.1676 | Coherence: 41.75%
+   Swarm Intensity: BULL[15] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.466 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.466 | CONF=0.82 | Φ=0.17 | COH=41.75% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, BlackSwanEVT | MC[score=-0.022 WP=45.2% EV=-16.11 CVaR=-198.00 sim=61.7ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:54.753    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235535873 (1_2) movido para TRUE_NEGATIVE.
+
+════════════════════════════════════════════════════════════════════════════════
+🚀 [CYCLE LIFECYCLE] #608 | 2026-03-22 21:14:55 | Regime: DRIFTING_BEAR
+────────────────────────────────────────────────────────────────────────────────
+📊 [SIGNAL FORMATION]
+   Action: SELL | Signal: -0.4061 | Φ: 0.1167 | Coherence: 42.00%
+   Swarm Intensity: BULL[15] vs BEAR[34]
+
+🎯 [DECISION RATIONALE]
+   SELL signal=-0.406 conf=0.82 coherence=0.42 regime=DRIFTING_BEAR ATR=167.52 RR=1.06 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.406 | CONF=0.82 | Φ=0.12 | COH=42.00% | BEAR: LiquidationVacuumAgent, OrderBlockAgent, Thermodynamic | MC[score=+0.000 WP=46.8% EV=-11.69 CVaR=-198.03 sim=26.4ms]
+
+📜 [INTERNAL LOGS & THINKING PROCESS]
+════════════════════════════════════════════════════════════════════════════════
+[DubaiMatrixASI] 21:14:55.560    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 4_3 (ID: GST_1774235695558) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:14:55.829    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 4_4 (ID: GST_1774235695801) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:15:00.154  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.006 < 0.020 (Sig=0.07)
+[DubaiMatrixASI] 21:15:16.387    OMEGA │ ⚡ ⚡ [Ω-SMS T2:STABILITY] Manifold Sovereignty active (Curv=0.70 | Vel=3.7 | Coh=0.40).
+[DubaiMatrixASI] 21:15:16.904    OMEGA │ ⚡ ⚡ [Ω-BEAR GRIND BYPASS] Overwhelming consensus (66% bear). Low entropy = steady grind, not chop.
+[DubaiMatrixASI] 21:15:16.913    OMEGA │ ⚡ ⚡ [Ω-SMS RR] Force relaxing min_rr to 0.35 due to structural manifold.
+[DubaiMatrixASI] 21:15:21.033    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235482163 (1_1) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 21:15:21.545    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 5 (ID: GST_1774235721516) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:15:25.664    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235479024 (1) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 21:15:30.701    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 5_1 (ID: GST_1774235730700) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:15:31.949    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235695558 (4_3) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 21:15:31.974    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235695801 (4_4) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 21:15:31.978    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-4,6828
+[DubaiMatrixASI] 21:15:32.506    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 5_2 (ID: GST_1774235732505) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:15:32.767    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🔥 Ghost GST_1774235631064 (3_1) movido para FALSE_NEGATIVE.
+[DubaiMatrixASI] 21:15:33.564    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 5_3 (ID: GST_1774235733544) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:15:34.222    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🔥 Ghost GST_1774235655680 (3_2) movido para FALSE_NEGATIVE.
+[DubaiMatrixASI] 21:15:35.030    OMEGA │ ⚡ ⚡ [Ω-HVS] High-Voltage Strike active (Φ=0.30 >= 0.30). Confidence requirement reduced.
+[DubaiMatrixASI] 21:15:38.736    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 21:15:40.295    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 5_4 (ID: GST_1774235740294) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:17.080    OMEGA │ ⚡ ⚡ [Ω-BEAR GRIND BYPASS] Overwhelming consensus (67% bear). Low entropy = steady grind, not chop.
+[DubaiMatrixASI] 21:16:17.889    OMEGA │ ⚡ ⚡ [Ω-SMS RR] Force relaxing min_rr to 0.35 due to structural manifold.
+[DubaiMatrixASI] 21:16:21.707    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6 (ID: GST_1774235781679) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:23.812    OMEGA │ ⚡ ⚡ [Ω-SMS T2:STABILITY] Manifold Sovereignty active (Curv=0.70 | Vel=4.0 | Coh=0.44).
+[DubaiMatrixASI] 21:16:33.465    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_1 (ID: GST_1774235793447) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:34.484    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_2 (ID: GST_1774235794483) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:37.602    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-4,6828
+[DubaiMatrixASI] 21:16:50.487    OMEGA │ ⚡ 🌊 [Ω-CRASH SOVEREIGNTY] Structural cascade detected (Severity=0.70, Depth=3). Bypassing static vetoes.
+[DubaiMatrixASI] 21:16:52.005    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 21:16:55.938    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_3 (ID: GST_1774235815923) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:58.212    OMEGA │ ⚡ ☄️ [Ω-GEODESIC VACUUM] Bypassing Entropic Vacuum via Geodesic Flow (Ent=0.00).
+[DubaiMatrixASI] 21:16:58.754    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_4 (ID: GST_1774235818721) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:16:59.364    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_5 (ID: GST_1774235819321) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:17:09.818    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774235733544 (5_3) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 21:17:10.225    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_6 (ID: GST_1774235830197) criado no ciclo CYC001_20260323.
+[DubaiMatrixASI] 21:17:10.594    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 6_7 (ID: GST_1774235830558) criado no ciclo CYC001_20260323.

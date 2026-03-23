@@ -438,10 +438,18 @@ class TrinityCore:
         is_hvs_sovereign = (phi >= phi_hvs)
 
         # [Phase Ω-SMS] Structural Manifold Sovereignty (SMS) — Resgate de False Negativos
-        # Se a curvatura é alta (Riemannian) e a energia é alta (Velocity), a estrutura é real mesmo com Φ baixo.
         manifold_curvature = abs(snapshot.metadata.get("manifold_curvature", 0.0))
         tick_velocity = abs(snapshot.metadata.get("tick_velocity", 0.0))
-        is_sms_sovereign = (manifold_curvature > 0.08 and tick_velocity > 12.0)
+        
+        # Tier 1: High Voltage (Ignition) - Relaxed from 12.0 to 10.0
+        is_sms_t1 = (manifold_curvature > 0.08 and tick_velocity > 10.0)
+        # Tier 2: Structural Stability (Accumulation) - Curvature + Coherence
+        is_sms_t2 = (manifold_curvature > 0.15 and coherence > 0.40)
+        
+        is_sms_sovereign = is_sms_t1 or is_sms_t2
+        if is_sms_sovereign:
+            tier = "T1:VOLTAGE" if is_sms_t1 else "T2:STABILITY"
+            self._log_cooldown("SMS_SOVEREIGNTY", f"⚡ [Ω-SMS {tier}] Manifold Sovereignty active (Curv={manifold_curvature:.2f} | Vel={tick_velocity:.1f} | Coh={coherence:.2f}).", 60, level="omega")
         
         # Calibração Dinâmica de Limiares (Dynamic Threshold Calculus)
         # Em mercados com muito volume ou previsões altíssimas, a exigência do limiar se auto-calibra.
