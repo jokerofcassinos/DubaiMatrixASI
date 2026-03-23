@@ -261,6 +261,10 @@ class MT5Bridge:
 
         elif msg_type == "RESULT":
             # Formato: RESULT|ACTION|STATUS|TICKET|PRICE|STRIKE_ID
+            if len(parts) < 3:
+                log.warning(f"⚠️ Resposta EA Socket malformada: {line}")
+                return
+
             action = parts[1]
             status = parts[2]
             strike_id = parts[5] if len(parts) > 5 else None
@@ -268,17 +272,20 @@ class MT5Bridge:
             log.info(f"📩 Resposta EA Socket: {action} -> {status} | Strike: {strike_id}")
             
             if status == "SUCCESS":
-                ticket = int(parts[3])
-                price = float(parts[4])
-                
-                if action in ["BUY", "SELL", "LIMIT"]:
-                    log.omega(f"🎯 {action} EXECUTADO: Ticket {ticket} @ {price} | Strike: {strike_id}")
-                    # [PHASE Ω-SYNC] Sync socket ticket with intent using unique strike_id
-                    if strike_id:
-                        trade_registry.update_ticket_by_strike(strike_id, ticket)
-                    else:
-                        # Fallback for old protocol compatibility
-                        trade_registry.update_ticket(0, ticket)
+                if len(parts) >= 5:
+                    ticket = int(parts[3])
+                    price = float(parts[4])
+                    
+                    if action in ["BUY", "SELL", "LIMIT"]:
+                        log.omega(f"🎯 {action} EXECUTADO: Ticket {ticket} @ {price} | Strike: {strike_id}")
+                        # [PHASE Ω-SYNC] Sync socket ticket with intent using unique strike_id
+                        if strike_id:
+                            trade_registry.update_ticket_by_strike(strike_id, ticket)
+                        else:
+                            # Fallback for old protocol compatibility
+                            trade_registry.update_ticket(0, ticket)
+                else:
+                    log.warning(f"⚠️ Resposta EA Socket SUCCESS sem ticket/preço: {line}")
             
             elif action == "CLOSE" or action == "CLOSE_ALL": # [Phase Ω] Explicit close confirmation
                 log.omega(f"💀 SOCKET {action} CONFIRMED: {status}")

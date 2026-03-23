@@ -9,7 +9,7 @@ sys.path.append(os.getcwd())
 from execution.trade_registry import registry
 
 def test_strike_sync():
-    print("⚡ Testing Strike ID Synchronization...")
+    print("Testing Strike ID Synchronization...")
     
     # 1. Register an intent with a strike_id
     unique_id = int(time.time())

@@ -53,17 +53,27 @@ class QuantumTwapEngine:
         )
         
         # 1. Planejamento das Fatias (Slices)
-        # Queremos fatias aleatórias entre min_chunk e max_chunk
+        # Queremos fatias aleatórias entre min_chunk e max_chunk, mas limitado a 5 no máximo.
+        max_slices_limit = 5
         remaining_lot = total_lot
         slices = []
         
-        while remaining_lot > 0:
+        # [Phase Ω-Limit] CEO Directive: Capping at 5 positions.
+        # Ajustamos o max_chunk dinamicamente para garantir que não estouremos o limite de fatias.
+        effective_max_chunk = max(max_chunk, total_lot / max_slices_limit)
+        
+        while remaining_lot > 0 and len(slices) < max_slices_limit:
             if remaining_lot <= min_chunk:
                 slices.append(remaining_lot)
+                remaining_lot = 0
                 break
-                
-            # Tamanho pseudo-aleatório
-            chunk = random.uniform(min_chunk, min(max_chunk, remaining_lot))
+            
+            # Se for a última fatia permitida, pega o resto
+            if len(slices) == max_slices_limit - 1:
+                chunk = remaining_lot
+            else:
+                # Tamanho pseudo-aleatório balanceado para caber no limite de fatias
+                chunk = random.uniform(remaining_lot / (max_slices_limit - len(slices)), min(effective_max_chunk, remaining_lot))
             
             # Arredondar para o Step size (MIN_LOT_SIZE)
             chunk = round(chunk / MIN_LOT_SIZE) * MIN_LOT_SIZE
@@ -71,6 +81,7 @@ class QuantumTwapEngine:
             
             if chunk >= remaining_lot:
                 slices.append(remaining_lot)
+                remaining_lot = 0
                 break
                 
             slices.append(chunk)

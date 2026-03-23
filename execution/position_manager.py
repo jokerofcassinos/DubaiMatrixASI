@@ -241,12 +241,12 @@ class PositionManager:
             #  TRIGGER 1: DUAL-PHASE BREAKEVEN GUARD (Phase 7)
             # ═══════════════════════════════════════════════════
             # [Phase Ω-Fix] O piso seguro deve ser estritamente a comissão + minúscula folga.
-            # Se for fixo em $15, trades fragmentados (0.01 lote) morrerão instantaneamente.
-            safe_floor = max(commission_cost * 1.10, 0.50) # 10% de folga para slippage
-            min_breakeven_activation = max(commission_cost * 1.50, 2.0)
+            # Removido piso fixo de $15 que matava trades pequenos (0.01-0.10 lotes).
+            safe_floor = max(commission_cost * 1.15, 1.0) # 15% de folga ou $1 min
+            min_breakeven_activation = max(commission_cost * 2.0, 5.0)
             
             # Só armamos o BE via progresso (35% do TP) se o pico atual já permite pagar o safe_floor sem fechar na hora.
-            can_activate_by_progress = (profit_progress > 0.35) and (state['peak_profit'] > safe_floor * 1.05)
+            can_activate_by_progress = (profit_progress > 0.35) and (state['peak_profit'] > safe_floor * 1.5)
             
             if not state.get("breakeven_active", False) and (can_activate_by_progress or state['peak_profit'] > min_breakeven_activation):
                 state["breakeven_active"] = True
@@ -254,8 +254,6 @@ class PositionManager:
 
             if state.get("breakeven_active", False) and not is_proximity_zone:
                 # NADA de sair com "10 dólares", sair com o peso exato da comissão + gordura para o spread da exchange.
-                safe_floor = max(commission_cost * 1.15, 15.0)
-                
                 if total_profit <= safe_floor:
                     should_close = True
                     reason = f"TRUE_BREAKEVEN_PROTECTION (Fell to safe floor ${safe_floor:.2f})"
@@ -454,10 +452,16 @@ class PositionManager:
         if not pending:
             return
 
-        # [Ω-RESILIENCE] Usar o tempo do servidor (tick) para evitar problemas de fuso horário
-        # Se não houver tick recente, fallback para o tempo local (com sincronização implícita)
-        tick = self.bridge.get_tick()
-        now_server = tick['time'] if tick else time.time()
+        # [Ω-RESILIENCE] Obter tempo do servidor para comparar com o tempo da ordem (Broker Time vs Broker Time)
+        # O tick do socket retorna time.time() (local), o que quebra a comparação com o.time_setup (server).
+        # Precisamos forçar a leitura do tempo do terminal via API nativa se possível.
+        import MetaTrader5 as mt5
+        now_server = time.time() # Fallback local
+        
+        if self.bridge.connected and mt5 is not None:
+            last_tick = mt5.symbol_info_tick(self.bridge.symbol)
+            if last_tick:
+                now_server = last_tick.time
         
         for order in pending:
             ticket = order.get('ticket')
@@ -467,17 +471,23 @@ class PositionManager:
                 continue
                 
             setup_time = order.get('time', now_server)
-            order_price = order.get('price', 0.0) # Corrected key from bridge.get_pending_orders
+            order_price = order.get('price', 0.0)
 
-            # GC 1: Tempo de Vida (30s Cooldown)
+            # GC 1: Tempo de Vida (60s Cooldown - Solicitado pelo CEO)
+            # Se now_server < setup_time (fuso horário bizarro), age será negativo, e não cancela.
+            # Se a diferença for muito grande, assumimos que é válida.
             age = now_server - setup_time
-            is_stale = (age > 30)
+            
+            # [Fix Timezone] Se a idade for negativa (Server Time vs Local Time mismatch extremo no fallback),
+            # tentamos usar o time.time() local vs time local estimado.
+            # Mas como mudamos now_server para ser Broker Time, isso deve resolver.
+            
+            is_stale = (age > 60)
             
             # GC 2: Slippage Residual (Preço fugiu mais de 1.5 ATR)
             price_runaway = (abs(current_price - order_price) > atr * 1.5) if (atr > 0 and order_price > 0) else False
 
-            # [PHASE Ω-COOLDOWN] CEO Command: 30s minimum life for any limit order
-            if age > 30:
+            if age > 60:
                 if is_stale or price_runaway:
                     if ticket:
                         reason = "STALE" if is_stale else f"RUNAWAY({abs(current_price-order_price):.1f} pts)"

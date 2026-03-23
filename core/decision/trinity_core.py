@@ -1492,6 +1492,14 @@ class TrinityCore:
             c0, o0 = closures[-1], candles_m1["open"][-1]
             l0, h0 = candles_m1["low"][-1], candles_m1["high"][-1]
             
+            # [Fix Ω-PhD] Pre-calculate distance for FOMO guard
+            if action == Action.BUY:
+                local_min = np.min(closures[-5:])
+                distance = last_close - local_min
+            else:
+                local_max = np.max(closures[-5:])
+                distance = local_max - last_close
+
             kinematic_atr_mult = OMEGA.get("kinematic_exhaustion_atr_mult", 1.8)
 
             # [Phase 51] Kinematic V-Pulse Relaxation (And RECALIBRATION 5.1 FOMO GUARD)
@@ -1514,15 +1522,10 @@ class TrinityCore:
                     kinematic_atr_mult *= relaxation
                     self._log_cooldown("ALPHA_SURGE", f"🚀 [ALPHA SURGE] Relaxing kinematic threshold to {kinematic_atr_mult:.2f} (x{relaxation})", 30, level="omega")
             
-            if action == Action.BUY:
-                local_min = np.min(closures[-5:])
-                distance = last_close - local_min
-                if distance > atr_m5 * kinematic_atr_mult:  
+            if distance > atr_m5 * kinematic_atr_mult:  
+                if action == Action.BUY:
                     return self._wait(f"KINEMATIC_EXHAUSTION_BUY (Spike={distance:.1f} > {kinematic_atr_mult:.1f}xATR) | TOP_HUNT_RISK")
-            elif action == Action.SELL:
-                local_max = np.max(closures[-5:])
-                distance = local_max - last_close
-                if distance > atr_m5 * kinematic_atr_mult:
+                else:
                     return self._wait(f"KINEMATIC_EXHAUSTION_SELL (Spike={distance:.1f} > {kinematic_atr_mult:.1f}xATR) | BOTTOM_HUNT_RISK")
 
         # [Phase 52] VETO 7: KINEMATIC DECOUPLING (Vácuo de Liquidez)

@@ -29,7 +29,7 @@ class MockSnapshot:
         self.account = {"margin_level": 500.0, "margin": 1000.0}
 
 def test_nro_logic():
-    print("🧠 [VERIFICACAO] Testando Neural Risk Orchestration (NRO) - FINAL FIX...")
+    print("[VERIFICACAO] Testando Neural Risk Orchestration (NRO) - FINAL FIX...")
     
     # ═══ MOCK DATA ═══
     mock_params = {
@@ -94,7 +94,7 @@ def test_nro_logic():
         print(f"Lote resultante (Lethal Bypass): {lot3:.3f}")
         assert lot3 >= 0.01, f"Deveria permitir bypass (lot={lot3})"
 
-    print("\n✅ [NRO] Todos os testes de orquestração passaram!")
+    print("\n[NRO] Todos os testes de orquestração passaram!")
 
 if __name__ == "__main__":
     test_nro_logic()

@@ -304,7 +304,9 @@ class SniperExecutor:
         # Hydra & Resonance Logic: Multiplica os slots baseados na confiança e tipo de regime
         is_resonance = decision.metadata.get("phi_resonance", False)
         phi = decision.metadata.get("phi", 0.0)
-        base_max_slots = int(OMEGA.get("max_order_splits", 5.0))
+        
+        # [Phase Ω-Limit] CEO Directive: Cap at 5 positions total.
+        base_max_slots = 5 # Absolute limit
 
         # [Phase 52] Ruin Protection for Hydra
         # Se o Risk Engine detectou ruína não-ergódica, desativamos a Hydra para proteger o capital.
@@ -315,14 +317,11 @@ class SniperExecutor:
 
         if (decision.confidence > 0.85 or is_resonance) and not is_ruin and phi >= hydra_phi_gate:
             # Extrema convicção ou Ressonância -> Ativar Hydra Mode
-            hydra_multiplier = 3
-            if decision.regime in ["TRENDING_BULL", "TRENDING_BEAR", "SQUEEZE_BUILDUP"] or is_resonance:  
-                hydra_multiplier = 5 # Até 25 slots progressivos em modo demente
-
-            max_slots = base_max_slots * hydra_multiplier
+            # [Phase Ω-Limit] Capped at 5 regardless of convicção
+            max_slots = 5
 
             # Libera a metralhadora temporariamente para esta vela
-            self._max_orders_per_candle = 25 # Phase 50: Aumentado para 25 para ressonância total        
+            self._max_orders_per_candle = 5 # CEO Limit: 5 per candle max        
 
             # [PHASE Ω-RESILIENCE] Log Cooldown
             now = time.time()
@@ -333,7 +332,7 @@ class SniperExecutor:
                 self._last_log_times["hydra"] = now
         else:
             max_slots = base_max_slots
-            self._max_orders_per_candle = 2 # Default safety
+            self._max_orders_per_candle = 5 # CEO Limit
             if is_ruin and decision.confidence > 0.85:
                 log.warning("🛡️ [HYDRA VETO]: Ruína Não-Ergódica detectada. Multiplicador Hydra desativado.")
         # 4.1. Pre-flight Slot Check & Dynamic Capping (Phase 39)
@@ -609,27 +608,39 @@ class SniperExecutor:
                     
                     hft_buffer = (stops_level + 10) * point
                     is_invalid_limit = False
+                    # [PHASE Ω-INTEGRITY] Proactive Smart Limit Conversion (Avoid 10015)
+                    # Se o preço limite calculado invadir a zona de execução (Marketable) ou 
+                    # violar o Stops Level, convertemos para Market Order imediatamente.
                     
-                    aggression_mult = 0.15 if (has_ignition or is_god_mode) else 1.0
+                    # Buffer de segurança para garantir aceitação (Spread + Stops)
+                    safety_buffer = (stops_level + 20) * point 
                     
                     if decision.action.value == "BUY":
-                        dist_offset = (abs(np.linspace(-1.5, -0.1, num_nodes)[i]) * spread) * aggression_mult
+                        # BUY LIMIT deve ser ABAIXO do Ask atual. Se for >= Ask - buffer, vira Market.
                         limit_price = tick_bid - hft_buffer - dist_offset
                         limit_price -= jitter_price
-                        if limit_price >= tick_bid - (2 * point):
+                        
+                        # Check de cruzamento de spread (Marketable) ou Proximidade
+                        if limit_price >= (tick_ask - safety_buffer):
                             is_invalid_limit = True
-                    else:
-                        dist_offset = (abs(np.linspace(0.1, 1.5, num_nodes)[i]) * spread) * aggression_mult
+                            log.warning(f"⚡ [SMART CONVERSION] BUY LIMIT {limit_price:.2f} too close/above Ask {tick_ask:.2f}. Converting to MARKET.")
+                            
+                    else: # SELL
+                        # SELL LIMIT deve ser ACIMA do Bid atual. Se for <= Bid + buffer, vira Market.
                         limit_price = tick_ask + hft_buffer + dist_offset
                         limit_price += jitter_price
-                        if limit_price <= tick_ask + (2 * point):
+                        
+                        # Check de cruzamento de spread (Marketable) ou Proximidade
+                        if limit_price <= (tick_bid + safety_buffer):
                             is_invalid_limit = True
+                            log.warning(f"⚡ [SMART CONVERSION] SELL LIMIT {limit_price:.2f} too close/below Bid {tick_bid:.2f}. Converting to MARKET.")
 
                     digits = sym_info.get("digits", 5) if sym_info else 5
                     limit_price = round(limit_price, digits)
 
                     if is_invalid_limit:
-                        log.debug(f"⚡ [HFT_SHIELD] Limit price {limit_price} too risky. Executing MARKET for slot {i+1}.")
+                        # Logica de fallback já existente abaixo
+                        pass
                         return self.bridge.send_market_order(
                             action=decision.action.value,
                             lot=chunk_lot,
