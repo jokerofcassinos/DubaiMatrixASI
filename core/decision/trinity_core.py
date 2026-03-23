@@ -518,12 +518,32 @@ class TrinityCore:
                     self._log_cooldown("CREEP_MATURITY", f"🛡️ [Ω-CREEP MATURITY] Regime {current_regime_val} is too old ({duration} bars).", 60)
                     return self._wait("CREEP_MATURITY_VETO")
 
-            # [Phase Ω-PhD-Next] Hardened Phi Guard for Drift/Creep
-            # Se a integração (Φ) é baixa (< 0.35), NÃO relaxamos os filtros, pois o regime é instável.
-            # [Phase Ω-Stability] Integridade Estrutural vs Ignição
-            # Se Φ é muito baixo (<0.25), o 'is_low_phi_drift' permanece ativo MESMO com ignição,
-            # forçando o swarm a ter coerência mínima para validar o momentum.
-            is_low_phi_drift = phi_score < 0.35 and (not (has_ignition or is_lethal_ignition) or phi_score < 0.25)
+            # [Phase Ω-PhD] Structural Floor Sovereignty Detection
+            # Se agentes de elite estrutural (OrderBlock + Vacuum) já detectaram o fundo/topo,
+            # relaxamos a exigência de Phi/Sinal para permitir a captura da reversão precoce.
+            structural_elite = ["OrderBlockAgent", "LiquidationVacuumAgent"]
+            bull_agents = q_meta.get("bull_agents", [])
+            bear_agents = q_meta.get("bear_agents", [])
+            
+            has_structural_floor = signal > 0 and all(a in bull_agents for a in structural_elite)
+            has_structural_ceiling = signal < 0 and all(a in bear_agents for a in structural_elite)
+
+            # [Phase Ω-PhD] Transitional Recovery Optimization
+            # Se temos ressonância estrutural (OB+Vacuum), a ASI deve ser agressiva para capturar o "fundo" do drift.
+            if has_structural_floor or has_structural_ceiling:
+                # [Ω-PhD-Next] Bypasses generic drift hardening
+                is_low_phi_drift = False
+                
+                # [Ω-PhD-Next] Active Threshold Reduction
+                struct_mult = OMEGA.get("structural_floor_sovereignty_mult", 0.5)
+                dynamic_buy_thresh *= struct_mult
+                dynamic_sell_thresh *= struct_mult
+                dynamic_conf_min = max(0.45, dynamic_conf_min * 0.7) # Alpha floor for confidence
+                
+                self._log_cooldown("STRUCTURAL_RECOVERY_SOVEREIGNTY", f"🧱 [STRUCTURAL RECOVERY] Elite floor detected. Scaling gates (Conf Min: {dynamic_conf_min:.2f}) in {current_regime_val}.", 60, level="omega")
+            else:
+                # Standard Logic
+                is_low_phi_drift = phi_score < 0.35 and (not (has_ignition or is_lethal_ignition) or phi_score < 0.25)
             
             # [Ω-PhD-OPTIM] Sovereignty Override
             if is_v_pulse_recovery:
@@ -823,6 +843,22 @@ class TrinityCore:
             phi_min_counter = 0.30 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.20
             sig_min_counter = 0.45 if "CREEPING" in regime_state.current.value or "TRENDING" in regime_state.current.value else 0.40
             
+            # [Phase Ω-PhD] Structural Floor Sovereignty
+            # Se agentes de elite estrutural (OrderBlock + Vacuum) já detectaram o fundo/topo,
+            # relaxamos a exigência de Phi/Sinal para permitir a captura da reversão precoce.
+            structural_elite = ["OrderBlockAgent", "LiquidationVacuumAgent"]
+            bull_agents = q_meta.get("bull_agents", [])
+            bear_agents = q_meta.get("bear_agents", [])
+            
+            has_structural_floor = signal > 0 and all(a in bull_agents for a in structural_elite)
+            has_structural_ceiling = signal < 0 and all(a in bear_agents for a in structural_elite)
+            
+            if has_structural_floor or has_structural_ceiling:
+                struct_mult = OMEGA.get("structural_floor_sovereignty_mult", 0.5)
+                phi_min_counter *= struct_mult
+                sig_min_counter *= struct_mult
+                self._log_cooldown("STRUCTURAL_FLOOR_SOVEREIGNTY", f"🧱 [STRUCTURAL SOVEREIGNTY] Elite floor agents (OB+Vacuum) aligned. Relaxing counter-trend gates (Sig={sig_min_counter:.2f}).", 60, level="omega")
+
             # [Phase Ω-PhD-14] Paradigm Sovereignty Bypass
             # Following a KL divergence shock, we allow faster counter-trend entries (Tunneling).
             is_paradigm_sovereign = (time.time() - self._last_kl_shift_time) < 300.0

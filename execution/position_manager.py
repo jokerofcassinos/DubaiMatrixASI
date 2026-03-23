@@ -241,7 +241,10 @@ class PositionManager:
             #  TRIGGER 1: DUAL-PHASE BREAKEVEN GUARD (Phase 7)
             # ═══════════════════════════════════════════════════
             # [Phase Ω-Fix] O piso seguro deve ser estritamente a comissão + minúscula folga.
-            # Removido piso fixo de $15 que matava trades pequenos (0.01-0.10 lotes).
+            # FTMO BTCUSD: $40/lote. Se o lucro não paga a comissão, o trade é um 'Phantom Loss'.
+            comm_per_lot = self.bridge.get_dynamic_commission_per_lot()
+            commission_cost = total_volume * comm_per_lot
+            
             safe_floor = max(commission_cost * 1.15, 1.0) # 15% de folga ou $1 min
             min_breakeven_activation = max(commission_cost * 2.0, 5.0)
             
@@ -250,13 +253,13 @@ class PositionManager:
             
             if not state.get("breakeven_active", False) and (can_activate_by_progress or state['peak_profit'] > min_breakeven_activation):
                 state["breakeven_active"] = True
-                log.omega(f"🛡️ [BREAKEVEN GUARD] Peak (${state['peak_profit']:.2f}) cobriu comissões ou alvo proxy. Real Breakeven armado no Strike #{anchor_ticket}.")
+                log.omega(f"🛡️ [BREAKEVEN GUARD] Peak (${state['peak_profit']:.2f}) cobriu comissões (${commission_cost:.2f}). Breakeven armado no Strike #{anchor_ticket}.")
 
             if state.get("breakeven_active", False) and not is_proximity_zone:
-                # NADA de sair com "10 dólares", sair com o peso exato da comissão + gordura para o spread da exchange.
+                # Sair apenas se o lucro cair para o nível da comissão + margem de segurança.
                 if total_profit <= safe_floor:
                     should_close = True
-                    reason = f"TRUE_BREAKEVEN_PROTECTION (Fell to safe floor ${safe_floor:.2f})"
+                    reason = f"TRUE_BREAKEVEN_PROTECTION (Fell to safe floor ${safe_floor:.2f} | Comm=${commission_cost:.2f})"
 
             # ═══════════════════════════════════════════════════
             #  TRIGGER 1.5: ATOMIC PROFIT DRAWDOWN LOCK (Trailing Multi-Tier)

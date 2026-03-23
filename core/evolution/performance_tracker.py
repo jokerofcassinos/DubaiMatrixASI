@@ -120,7 +120,8 @@ class PerformanceTracker:
 
         # [Phase 36] Commission Deduction
         if trade.commission == 0 and trade.profit != 0 and trade.lot_size > 0:
-            comm_per_lot = OMEGA.get("commission_per_lot", 32.0)
+            # [Ω-PhD] FTMO Hard Alignment: BTCUSD Crypto cost is strictly $40/lot round-trip.
+            comm_per_lot = 40.0 if "BTCUSD" in trade.symbol.upper() else OMEGA.get("commission_per_lot", 32.0)
             trade.commission = -(trade.lot_size * comm_per_lot)
             trade.profit += trade.commission 
 

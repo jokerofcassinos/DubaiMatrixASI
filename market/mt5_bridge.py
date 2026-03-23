@@ -1158,29 +1158,32 @@ class MT5Bridge:
             })
         return result
 
-    @catch_and_log(default_return=7.0)
+    @catch_and_log(default_return=40.0)
     def get_dynamic_commission_per_lot(self) -> float:
         """
         [Phase Ω-Resilience] Calcula a comissão média por lote baseada no histórico real.
         Evita valores hardcoded e se adapta a diferentes corretoras/contas.
+        Prioriza $40/lot para FTMO Crypto se o símbolo for BTCUSD.
         """
+        # [Ω-PhD] FTMO Hard Alignment: BTCUSD Crypto cost is strictly $40/lot round-trip.
+        # Muitos servidores demo do MT5 reportam commission=0 nos deals, enganando a ASI.
+        target_symbol = self.symbol.upper()
+        if "BTCUSD" in target_symbol:
+            return 40.0
+
         if not self.connected:
-            return 7.0 # Default FTMO/Standard safety
+            return 40.0 # Default safety
 
         # Pegar deals das últimas 24h
-        to_date = datetime.now() + timedelta(days=1) # Future proof
-        from_date = datetime.now() - timedelta(days=1)
+        to_date = datetime.now() + timedelta(days=1)
+        from_date = datetime.now() - timedelta(days=30) # Scan deeper for stats
         
         deals = mt5.history_deals_get(from_date, to_date)
         if deals is None or len(deals) == 0:
-            # Se não houver trades nas últimas 24h, tenta os últimos 100 deals
-            deals = mt5.history_deals_get(datetime.now() - timedelta(days=30), to_date)
-            if deals is None or len(deals) == 0:
-                return 7.0
+            return 40.0
 
         total_commission = 0.0
         total_volume = 0.0
-        target_symbol = self.symbol.upper()
         
         for d in deals:
             # Filtrar por símbolo manualmente
@@ -1195,18 +1198,15 @@ class MT5Bridge:
         if total_volume > 0:
             comm_per_lot_single_leg = total_commission / total_volume
             # [Phase Ω-Fix] MT5 Deals usually record half the round-trip commission (per deal).
-            # The total round-trip commission is 2x the average deal commission.
-            # Se FTMO BTCUSD cobra $40 round-trip, o deal mostrará $20. 
             comm_per_lot = comm_per_lot_single_leg * 2.0
             
             # [Phase Ω-Resilience] Commission Sanity:
-            # Em índices (NAS100/US30), a comissão é 0. Não forçamos 1.0 se o volume existe.
             is_index = any(idx in target_symbol for idx in ["NAS100", "US30", "GER40", "HK50", "SP500", "DE40"])
             min_comm = 0.0 if (is_index and total_commission == 0) else 1.0
             
             return max(min_comm, min(100.0, comm_per_lot))
             
-        return 40.0 # Fallback safety for FTMO Crypto (Round trip $40/lot)
+        return 40.0 # Fallback safety for FTMO Crypto
 
     # ═══════════════════════════════════════════════════════════
     #  HEALTH CHECK
