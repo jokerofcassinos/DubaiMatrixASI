@@ -1,5 +1,5 @@
 {
-  "saved_at": "2026-03-22T23:01:12.939007",
+  "saved_at": "2026-03-24T17:15:02.805432",
   "parameters": {
     "buy_threshold": {
       "value": 0.15,
@@ -182,7 +182,7 @@
       "last_mutations": []
     },
     "commission_per_lot": {
-      "value": 44.29,
+      "value": 44.0,
       "default": 50.0,
       "bounds": [
         0.0,
@@ -191,9 +191,9 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-22T22:59:31.355461",
+          "time": "2026-03-24T17:13:20.720650",
           "old": 50.0,
-          "new": 44.29,
+          "new": 44.0,
           "reason": "Phase 49 Auto-Detection"
         }
       ]
