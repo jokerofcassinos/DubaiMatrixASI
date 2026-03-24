@@ -1544,3 +1544,33 @@ class CppASICore:
 
 # ═══ SINGLETON ═══
 CPP_CORE = CppASICore()
+
+# [PHASE Ω-PHOENIX] Holographic Neural Profiler C++ Matrix Operations Stub
+class HNPComputeBridge:
+    def __init__(self):
+        self._available = False
+        self._lib = None
+        # In a real environment, this loads a specific .so/.dll for dense matrix operations
+        # Currently acting as a numpy fallback stub for the HNP's State Vector logic.
+
+    def compute_cosine_similarity(self, vec_a: np.ndarray, vec_b: np.ndarray) -> float:
+        """
+        Calcula semelhança de cosseno entre dois tensores de estado.
+        Idealmente será substituível por C++ puro via OpenBLAS/cuBLAS no futuro.
+        """
+        dot = np.dot(vec_a, vec_b)
+        norm_a = np.linalg.norm(vec_a)
+        norm_b = np.linalg.norm(vec_b)
+        
+        if norm_a == 0 or norm_b == 0:
+            return 0.0
+        return float(dot / (norm_a * norm_b))
+
+    def compute_mahalanobis_distance(self, vec: np.ndarray, distribution_mean: np.ndarray, inv_covar: np.ndarray) -> float:
+        """
+        Calcula distância de Mahalanobis para anomalias termodinâmicas no mercado.
+        """
+        delta = vec - distribution_mean
+        return float(np.sqrt(np.dot(np.dot(delta, inv_covar), delta)))
+
+COMPUTE_BRIDGE = HNPComputeBridge()

@@ -243,7 +243,7 @@ class PositionManager:
             # [Phase Ω-Fix] O piso seguro deve ser estritamente a comissão + minúscula folga.
             # FTMO BTCUSD: $40/lote. Se o lucro não paga a comissão, o trade é um 'Phantom Loss'.
             comm_per_lot = self.bridge.get_dynamic_commission_per_lot()
-            commission_cost = total_volume * comm_per_lot
+            commission_cost = lot_scale * comm_per_lot
             
             safe_floor = max(commission_cost * 1.15, 1.0) # 15% de folga ou $1 min
             min_breakeven_activation = max(commission_cost * 2.0, 5.0)

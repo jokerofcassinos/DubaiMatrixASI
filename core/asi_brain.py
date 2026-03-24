@@ -20,6 +20,7 @@ from market.orderflow_matrix import OrderFlowMatrix
 from market.scraper.sentiment_scraper import SentimentScraper
 from market.scraper.onchain_scraper import OnChainScraper
 from market.scraper.macro_scraper import MacroScraper
+from market.scraper.nexus_resonance import NexusScraper
 from core.consciousness.neural_swarm import NeuralSwarm
 from core.consciousness.quantum_thought import QuantumThoughtEngine, QuantumState
 from core.consciousness.regime_detector import RegimeDetector
@@ -109,6 +110,7 @@ class ASIBrain:
         self.sentiment_scraper = SentimentScraper()
         self.onchain_scraper = OnChainScraper()
         self.macro_scraper = MacroScraper()
+        self.nexus_scraper = NexusScraper()
 
         # ═══ ESTADO DA ASI ═══
         self.state = ASIState()
@@ -142,6 +144,7 @@ class ASIBrain:
         self.sentiment_scraper.start()
         self.onchain_scraper.start()
         self.macro_scraper.start()
+        self.nexus_scraper.start()
         
         # Iniciar Java PnLPredictor
         self.java_daemon = None
@@ -199,10 +202,18 @@ class ASIBrain:
             from core.consciousness.regime_detector import MarketRegime
             snapshot.regime = MarketRegime.UNKNOWN
 
+        # [PHASE Ω-PHOENIX] State Vector Generation
+        from core.evolution.state_vector import StateVectorData
+        state_vector = StateVectorData(snapshot)
+        snapshot.metadata["state_vector_hash"] = state_vector.profile_hash
+        snapshot.metadata["state_vector_data"] = state_vector.to_dict()
+
         # ═══ 4. INTELIGÊNCIA EXTERNA — Scrapers ═══
         snapshot.metadata["sentiment_score"] = self.sentiment_scraper.sentiment_score
         snapshot.metadata["network_pressure"] = self.onchain_scraper.network_pressure
         snapshot.metadata["macro_bias"] = self.macro_scraper.macro_bias
+        snapshot.metadata["nexus_resonance"] = self.nexus_scraper.resonance_score
+        snapshot.metadata["nexus_breakouts"] = self.nexus_scraper.breakout_signals
         snapshot.metadata["pnl_prediction"] = self._last_pnl_prediction
         snapshot.metadata["dynamic_commission_per_lot"] = OMEGA.get("commission_per_lot", 32.0)
         snapshot.metadata["phi_last"] = 0.0 # Will be updated after quantum thought
@@ -242,6 +253,16 @@ class ASIBrain:
         decision = self.trinity_core.decide(
             quantum_state, regime_state, snapshot, self.state
         )
+
+        # [PHASE Ω-PHOENIX] Injetar dados genéticos na decisão para o TradeRegistry
+        if decision:
+            if not hasattr(decision, 'metadata') or not decision.metadata:
+                decision.metadata = {}
+            decision.metadata["state_vector_hash"] = snapshot.metadata.get("state_vector_hash", "UNKNOWN")
+            decision.metadata["action_dir"] = decision.action.value
+            if quantum_state:
+                decision.metadata["bull_agents"] = quantum_state.metadata.get("bull_agents", [])
+                decision.metadata["bear_agents"] = quantum_state.metadata.get("bear_agents", [])
 
         result = {
             "cycle": self._cycle_count,
@@ -449,14 +470,12 @@ class ASIBrain:
             OMEGA.set("commission_per_lot", detected_comm, "Phase 49 Auto-Detection")
             OMEGA.save()
         
-        # [Phase Ω-Resilience] Sincronizar saldo inicial para Drawdown real
+        # [Phase Ω-Resilience] Sincronizar saldo da conta sem corromper o deposito inicial (Anchor)
         if snapshot and snapshot.account:
             current_balance = snapshot.account.get('balance', 100000.0)
-            # O saldo inicial real = Saldo Atual - Lucro Total Registrado
-            # Isso garante que a curva de equidade termine exatamente no saldo atual.
-            total_hist_profit = self.performance_tracker.total_profit
-            inferred_initial = current_balance - total_hist_profit
-            self.performance_tracker.set_initial_balance(inferred_initial)
+            # O CEO detectou que a regressão matemática (Anchor = Current - Total_Profit) 
+            # corrompe a visão do capital real caso existam swaps ou slippages indetectáveis no histórico.
+            # Portanto, o initial_balance (Anchor) original de constituição da conta permanece intocável.
         
         # [Phase Ω-Darwin] Sincronização Dinâmica via history_deals_get
         # Na primeira vez, forçamos um scan profundo de 30 dias se o histórico estiver muito curto
@@ -523,18 +542,26 @@ class ASIBrain:
             # [PHASE Ω-EVOLVE] Recuperar contexto
             intent = trade_registry.get_intent(pos_id, ticket=final_deal['ticket'])
             
+            regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")
+            coherence = 0.0
+            signal_str = 0.0
+            
             if intent:
                 regime_label = intent.get("regime", "UNKNOWN")
                 coherence = intent.get("coherence", 0.0)
                 signal_str = intent.get("signal_strength", 0.0)
-                # [Phase Ω-Cleanup] Logar apenas se não estiver no tracker para evitar spam
-                if not self.performance_tracker.has_trade(pos_id):
-                    pass # log.debug(f"🧠 [MEMORY RECOVERED] Contexto recuperado para Position #{pos_id}: Regime={regime_label}")
-
-            else:
-                regime_label = snapshot.regime.value if (snapshot and hasattr(snapshot.regime, 'value')) else str(snapshot.regime if snapshot else "UNKNOWN")
-                coherence = 0.0
-                signal_str = 0.0
+                
+                # [PHASE Ω-PHOENIX] Registrar aprendizado genético
+                custom_meta = intent.get("custom_metadata") or {}
+                sv_hash = custom_meta.get("state_vector_hash", "UNKNOWN")
+                bulls = custom_meta.get("bull_agents", [])
+                bears = custom_meta.get("bear_agents", [])
+                
+                if sv_hash != "UNKNOWN":
+                    from core.evolution.genetic_forge import GENETIC_FORGE
+                    action_dir = custom_meta.get("action_dir", action_str)
+                    is_win = (net_profit > 0)
+                    GENETIC_FORGE.register_trade_outcome(sv_hash, action_dir, is_win, bulls, bears)
 
             record = TradeRecord(
                 ticket=final_deal['ticket'],

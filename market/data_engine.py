@@ -301,6 +301,31 @@ class DataEngine:
         self._snapshot_count += 1
         snapshot._price_history_ref = list(self._price_history) # Fixar histórico para o snapshot
         
+        # [Omega Protocol] Physics Sensors Restoration
+        m1_ent_val = snapshot.indicators.get("M1_entropy")
+        if m1_ent_val is not None:
+             if isinstance(m1_ent_val, (list, np.ndarray)):
+                 snapshot.metadata["shannon_entropy"] = float(m1_ent_val[-1]) if len(m1_ent_val) > 0 else 0.0
+             else:
+                 snapshot.metadata["shannon_entropy"] = float(m1_ent_val)
+        else:
+             snapshot.metadata["shannon_entropy"] = 0.0
+
+        # Jounce (4th derivative proxied via Tick Velocity acceleration)
+        if len(self._tick_history) >= 20:
+             velocities = []
+             ticks = list(self._tick_history)[-20:]
+             for i in range(1, len(ticks)):
+                 dt_msc = ticks[i]["time_msc"] - ticks[i-1]["time_msc"]
+                 if dt_msc > 0:
+                     velocities.append(1000.0 / dt_msc)
+             if len(velocities) >= 4:
+                 a1 = velocities[-1] - velocities[-2]
+                 a2 = velocities[-2] - velocities[-3]
+                 snapshot.metadata["jounce"] = (a1 - a2)
+        else:
+             snapshot.metadata["jounce"] = 0.0
+        
         # [Phase Ω-Resilience] Preserve existing metadata (like dynamic_commission_per_lot)
         snapshot.metadata.update({
             "snapshot_id": self._snapshot_count,

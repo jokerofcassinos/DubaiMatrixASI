@@ -22,6 +22,7 @@ class AgentSignal:
     weight: float = 1.0
     timeframe: str = ""
     metadata: dict = None  # [Phase Ω-Extreme] Extra data for PhD sensors
+    is_pandemic: bool = False
 
     @property
     def weighted_signal(self) -> float:
@@ -31,9 +32,10 @@ class AgentSignal:
 class BaseAgent:
     """Classe base para todos os agentes neurais."""
 
-    def __init__(self, name: str, weight: float = 1.0):
+    def __init__(self, name: str, weight: float = 1.0, is_pandemic: bool = False):
         self.name = name
         self.weight = weight
+        self.is_pandemic = is_pandemic
         self.math = MathEngine()
         self._accuracy_history = []
         self._signal_history = []

@@ -868,7 +868,9 @@ class TrinityCore:
                 self._log_cooldown("PARADIGM_SOVEREIGNTY", f"🌪️ [PARADIGM SOVEREIGNTY] Information Geometry shift detected recently. Relaxing counter-trend gates (Φ={phi_min_counter:.2f}).", 60, level="omega")
             
             # [Phase 73] Ignition Sovereignty
-            ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if (has_ignition or is_breakdown) else 1.0
+            tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+            is_omega_ignition = has_ignition or v_pulse_detected or abs(tick_velocity) > 20.0
+            ign_mult = OMEGA.get("ignition_sovereignty_mult", 0.4) if (is_omega_ignition or is_breakdown) else 1.0
             
             if has_exhaustion_sovereignty:
                 ign_mult *= 0.5 # Relaxamento adicional de exaustão
@@ -877,7 +879,12 @@ class TrinityCore:
             phi_min_counter *= ign_mult
             sig_min_counter *= ign_mult
             
-            if not (is_tec_sovereign or is_ricci_singularity or is_repulsion_sovereign) and (phi < phi_min_counter or abs(signal) < sig_min_counter):
+            # OMEGA PROTOCOL: Absolute bypass of counter-trend veto if ignition is detected
+            if is_omega_ignition:
+                 phi_min_counter = 0.0
+                 sig_min_counter = 0.0
+
+            if not (is_tec_sovereign or is_omega_ignition or is_ricci_singularity or is_repulsion_sovereign) and (phi < phi_min_counter or abs(signal) < sig_min_counter):
                 return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter:.2f} & Sig>{sig_min_counter:.2f} to fade {regime_state.current.value})")
 
             # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK
@@ -924,15 +931,24 @@ class TrinityCore:
             # Se Φ é baixo em Drift, desativamos o bypass de convergência (Bridge) para evitar noise-entry.
             allow_bridge = not is_low_phi_drift
             
+            # OMEGA PROTOCOL: V-Pulse Bypass for NO_CONVERGENCE
+            is_omega_ignition = v_pulse_detected or abs(snapshot.metadata.get("tick_velocity", 0.0)) > 20.0
+            
+            # [PHASE Ω-CREEPING FIX] Relax convergence thresholds in creeping regimes to stop False Negatives
+            if regime_state.current.value in ["CREEPING_BULL", "CREEPING_BEAR"]:
+                dynamic_buy_thresh *= 0.65
+                dynamic_sell_thresh *= 0.65
+                dynamic_conf_min = 0.40
+            
             buy_cond = (signal >= dynamic_buy_thresh or (is_convergent and signal > 0 and allow_bridge)) and not self.kinetic_exhaustion
             sell_cond = (signal <= dynamic_sell_thresh or (is_convergent and signal < 0 and allow_bridge)) and not self.kinetic_exhaustion
             
             if self.kinetic_exhaustion:
                 return self._wait("KINETIC_EXHAUSTION_VETO (Stable but Decelerating)")
 
-            if (is_tec_sovereign or buy_cond) and (is_tec_sovereign or confidence >= (dynamic_conf_min - 1e-6)):
+            if (is_tec_sovereign or is_omega_ignition or buy_cond) and (is_tec_sovereign or is_omega_ignition or confidence >= (dynamic_conf_min - 1e-6)):
                 action = Action.BUY
-            elif (is_tec_sovereign or sell_cond) and (is_tec_sovereign or confidence >= (dynamic_conf_min - 1e-6)):
+            elif (is_tec_sovereign or is_omega_ignition or sell_cond) and (is_tec_sovereign or is_omega_ignition or confidence >= (dynamic_conf_min - 1e-6)):
                 action = Action.SELL
             else:
                 reasons = []
@@ -941,7 +957,7 @@ class TrinityCore:
                 if confidence < (dynamic_conf_min - 1e-6): reasons.append(f"CONF_WEAK({confidence:.3f}<{dynamic_conf_min:.2f})")
                 
                 # [Phase Ω-PhD-6] TEC Sovereignty: Skip wait if singularity detected
-                if not is_tec_sovereign:
+                if not is_tec_sovereign and not is_omega_ignition:
                     return self._wait(f"NO_CONVERGENCE: {' | '.join(reasons)}")
         
         # [Phase Ω-PhD-6] Singularity Resonance Bypass: Force Action if TEC is active
@@ -1077,6 +1093,10 @@ class TrinityCore:
 
         # ═══ VETO 03: SYSTEM INCOHERENCE (PHI) ═══
         phi_threshold = dynamic_phi_min # Use the dynamically calculated phi_min
+        
+        # [PHASE Ω-CREEPING FIX] Massively relax phi_threshold in Creeping Regimes
+        if regime_state.current.value in ["CREEPING_BULL", "CREEPING_BEAR"]:
+            phi_threshold = min(phi_threshold, 0.005)
         
         # [Phase 50] Resonance Bypass
         if is_phi_resonance:
@@ -1432,7 +1452,7 @@ class TrinityCore:
         if is_phi_resonance:
             min_rr *= 0.7  # Relax RR for resonance ignition
             
-        if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL"]:
+        if regime_state.current.value in ["LOW_LIQUIDITY", "UNKNOWN", "CHOPPY", "SQUEEZE_BUILDUP", "DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR"]:
              # Maker execution (limit_mode) captures spread, making low RR trades profitable.
              # In drifting regimes, we accept even lower RR if Phi is healthy
              phi_factor = 0.5 if phi > 0.20 else 0.8
@@ -1700,10 +1720,21 @@ class TrinityCore:
         # Identificamos os 5 agentes com maior peso (Elite), excluindo puros vetos (TCellImmunity)
         directional_elites = [a for a in quantum_state.agent_signals if a.agent_name not in ["TCellImmunity", "KripkeSemantics", "IntuitionisticLogic"]]
         elite_agents = sorted(directional_elites, key=lambda x: x.weight, reverse=True)[:5]
-        if elite_agents and not (has_exhaustion_sovereignty or is_tec_sovereign):
+        
+        # OMEGA PROTOCOL: Superposition bypass
+        tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
+        is_omega_ignition = v_pulse_detected or tick_vel_abs > 15.0
+        
+        if elite_agents and not (has_exhaustion_sovereignty or is_tec_sovereign or is_omega_ignition):
             elite_direction_sum = float(sum(np.sign(a.signal) for a in elite_agents))
             swarm_direction = float(np.sign(signal)) # 'signal' is already defined as collapsed_signal
             
+            # [PHASE Ω-CREEPING FIX] Discount elite divergence logic if it's a creeping regime (Trend following > short-term mean reversions)
+            if regime_state.current.value == "CREEPING_BULL" and swarm_direction > 0:
+                elite_direction_sum += 1.5 # Artificial boost to ignore minor structural bears
+            elif regime_state.current.value == "CREEPING_BEAR" and swarm_direction < 0:
+                elite_direction_sum -= 1.5
+                
             # Se a elite está na direção oposta OU neutra (0), enquanto a manada grita para um lado
             if (swarm_direction > 0 and elite_direction_sum <= 0) or \
                (swarm_direction < 0 and elite_direction_sum >= 0):
@@ -1978,13 +2009,18 @@ class TrinityCore:
             tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
             c_req_for_phi_relax = 0.30 if tick_vel_abs > 12.0 else 0.35
             
+            # OMEGA PROTOCOL: Ignition Sovereignty completely bypasses SYNERGY_VETO
+            is_omega_ignition = v_pulse_detected or tick_vel_abs >= 20.0
+            if is_omega_ignition:
+                phi_min = 0.0
+
             if signal_abs > 0.25 and quantum_state.coherence > c_req_for_phi_relax:
                 phi_min = 0.005 # Relaxamento extremo p/ sinal de alta convicção ou alta energia
                 
             # [Phase Ω-SwingCrash] Crash sovereignty bypasses SYNERGY_VETO
             crash_sig_veto = next((s for s in (getattr(quantum_state, 'agent_signals', []) or []) if s.agent_name == "CrashVelocityDetector"), None)
             crash_veto_bypass = crash_sig_veto and (getattr(crash_sig_veto, 'metadata', {}) or {}).get("is_crash_sovereign", False)
-            if quantum_state.phi < phi_min and not v_pulse_detected and not (is_evh or is_sre or crash_veto_bypass):
+            if quantum_state.phi < phi_min and not v_pulse_detected and not (is_evh or is_sre or crash_veto_bypass or is_omega_ignition):
                 if time.time() - self._log_cache.get("phi_veto", 0) > 60:
                     log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f} (Sig={quantum_state.raw_signal:.2f})")
                     self._log_cache["phi_veto"] = time.time()
@@ -1999,10 +2035,15 @@ class TrinityCore:
         if quantum_state:
             is_ignition_signal = abs(quantum_state.raw_signal) > 0.40 and quantum_state.coherence > 0.60
             
-        if uptime < startup_cooldown and not v_pulse_detected and not is_ignition_signal:
+        # OMEGA PROTOCOL: Bypass absoluto se Tick Velocity for explosiva (> 15) ou V-Pulse detectado
+        tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
+        is_explosive_start = v_pulse_detected or abs(tick_vel) >= 15.0
+            
+        if uptime < startup_cooldown and not is_explosive_start and not is_ignition_signal:
             return f"STARTUP_COOLDOWN({uptime:.0f}s/{startup_cooldown}s)"
-        elif uptime < startup_cooldown and is_ignition_signal:
-            self._log_cooldown("startup_bypass", f"🔥 [Ω-IGNITION] Startup Cooldown Bypassed due to High-Energy Signal (Uptime: {uptime:.0f}s)", 60, level="omega")
+        elif uptime < startup_cooldown and (is_ignition_signal or is_explosive_start):
+            reason_bypass = "V-Pulse/TickVel" if is_explosive_start else "High-Energy Signal"
+            self._log_cooldown("startup_bypass", f"🔥 [Ω-IGNITION] Startup Cooldown Bypassed due to {reason_bypass} (Vel={tick_vel:.1f}, Uptime {uptime:.0f}s)", 60, level="omega")
 
         # 1. Spread excessivo absoluto
         if snapshot.tick:

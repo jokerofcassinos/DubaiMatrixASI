@@ -85,9 +85,24 @@ class QuantumThoughtEngine:
             sentiment_score = snapshot.metadata.get("sentiment_score", 0.0)
 
         # ═══ 1. SUPERPOSIÇÃO — todos os sinais coexistem ═══
-        valid_signals = [s for s in signals if s.confidence > 0.01]
+        all_signals = [s for s in signals if s.confidence > 0.01]
+        valid_signals = [s for s in all_signals if getattr(s, 'is_pandemic', False) == False]
+        pandemic_signals = [s for s in all_signals if getattr(s, 'is_pandemic', False) == True]
+        
         if not valid_signals:
             return self._empty_state("NO_VALID_SIGNALS")
+
+        # [PHASE Ω-PHOENIX] Holographic Genetic Routing
+        # Aplica o multiplicador Bayesiano de cada agente baseado na sua precisão preditiva no State Vector atual
+        sv_hash = snapshot.metadata.get("state_vector_hash", "UNKNOWN") if snapshot else "UNKNOWN"
+        if sv_hash != "UNKNOWN":
+            from core.evolution.genetic_forge import GENETIC_FORGE
+            # Route Real and Pandemic agents
+            for s in valid_signals + pandemic_signals:
+                genetic_multiplier = GENETIC_FORGE.get_synaptic_weight(s.agent_name, sv_hash)
+                if genetic_multiplier != 1.0:
+                    s.weight *= genetic_multiplier
+                    s.reasoning += f" [🧬 GENETIC_ROUTER: x{genetic_multiplier:.1f}]"
 
         # ═══ [OMEGA INJECTION] QUANTUM STRUCTURAL ENTANGLEMENT (Phase 20) ═══
         # A inércia (Momentum) é cega para a topologia (Estrutura).
@@ -268,6 +283,17 @@ class QuantumThoughtEngine:
                     s.weight *= 0.001 # Aniquilação total de sinal contrário
                     s.reasoning += " [!V-PULSE_LOCK: CONTRARY NOISE ANNIHILATED!]"
 
+
+        # ═══ [OMEGA PROTOCOL] HFT TREND ASSASSINATION ═══
+        # In HFT bursts (Tick Velocity > 20), Trend/Momentum agents (past-looking) are assassinated.
+        tick_velocity = snapshot.metadata.get("tick_velocity", 0.0) if snapshot else 0.0
+        is_omega_ignition = v_pulse_detected or abs(tick_velocity) > 20.0
+        
+        if is_omega_ignition:
+            for s in valid_signals:
+                if s.agent_name in ["TrendAgent", "MomentumAgent", "BOSAgent"]:
+                    s.weight *= 0.1 # Assassinato: Reduz força para 10%
+                    s.reasoning += f" [!HFT_ASSASSINATION: Vel={abs(tick_velocity):.1f}!]"
 
         # ═══ [OMEGA INJECTION] KINEMATIC & STRUCTURAL DIVERGENCE (Phase 29/48) ═══
         # [PHASE 48 REFINEMENT]: Soberania de Ignição. 
@@ -617,8 +643,8 @@ class QuantumThoughtEngine:
             agent_signals=valid_signals,
             phi=phi_val,
             metadata={
-                "bull_agents": [s.agent_name for s in sorted_bull],
-                "bear_agents": [s.agent_name for s in sorted_bear],
+                "bull_agents": [s.agent_name for s in sorted_bull] + [s.agent_name for s in pandemic_signals if s.signal > 0],
+                "bear_agents": [s.agent_name for s in sorted_bear] + [s.agent_name for s in pandemic_signals if s.signal < 0],
                 "top_bulls": top_bulls,
                 "top_bears": top_bears,
                 "phi": phi_val,

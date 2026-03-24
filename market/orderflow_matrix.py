@@ -12,6 +12,7 @@ import numpy as np
 from collections import deque
 from typing import Optional, Dict
 from datetime import datetime, timezone
+import time
 
 from utils.math_tools import MathEngine
 from utils.decorators import catch_and_log, asi_safe
@@ -36,6 +37,13 @@ class OrderFlowMatrix:
         self._imbalance_buffer = deque(maxlen=5000)  # Imbalance por tick
         self._absorption_events = deque(maxlen=100)  # Eventos de absorção
         self._exhaustion_events = deque(maxlen=100)  # Eventos de exaustão
+        
+        # LOB (DOM) State Tracking for Neural Sentience (Ω-8)
+        self._prev_bid_total = 0.0
+        self._prev_ask_total = 0.0
+        self._bid_flash_cancels = 0.0
+        self._ask_flash_cancels = 0.0
+        self._last_dom_time = time.time()
 
     # ═══════════════════════════════════════════════════════════
     #  ANÁLISE DE TICK-BY-TICK
@@ -92,6 +100,35 @@ class OrderFlowMatrix:
             older_spread = np.mean(spreads[-20:-10])
             spread_expanding = recent_spread > older_spread * 1.5
 
+        # ═══ PROJECT LEVIATHAN: ICEBERG SONAR ═══
+        ask_vols = {}
+        bid_vols = {}
+        for t in ticks:
+            ask_p = t.get("ask", 0)
+            bid_p = t.get("bid", 0)
+            flags = t.get("flags", 0)
+            vol = t.get("volume", 0)
+            
+            if flags & 32: # Buy aggression hitting Ask
+                ask_vols[ask_p] = ask_vols.get(ask_p, 0) + vol
+            if flags & 64: # Sell aggression hitting Bid
+                bid_vols[bid_p] = bid_vols.get(bid_p, 0) + vol
+                
+        max_ask_absorbed = max(ask_vols.values()) if ask_vols else 0
+        max_bid_absorbed = max(bid_vols.values()) if bid_vols else 0
+        from config.omega_params import OMEGA
+        
+        iceberg_intensity = 0.0
+        hidden_wall = "NONE"
+        threshold = OMEGA.get("iceberg_sonar_threshold", 50.0)
+        
+        if max_ask_absorbed > threshold and max_ask_absorbed > max_bid_absorbed * 1.5:
+            iceberg_intensity = -min(1.0, max_ask_absorbed / (threshold * 3)) # Bearish (Hidden Ask Block)
+            hidden_wall = "HIDDEN_ASK"
+        elif max_bid_absorbed > threshold and max_bid_absorbed > max_ask_absorbed * 1.5:
+            iceberg_intensity = min(1.0, max_bid_absorbed / (threshold * 3))  # Bullish (Hidden Bid Block)
+            hidden_wall = "HIDDEN_BID"
+
         # ═══ Compilar análise ═══
         analysis = {
             "delta": float(current_delta),
@@ -105,11 +142,13 @@ class OrderFlowMatrix:
             "exhaustion": exhaustion,
             "spread_avg": float(avg_spread),
             "spread_expanding": spread_expanding,
+            "iceberg_intensity": float(iceberg_intensity),
+            "hidden_wall": hidden_wall,
             "buy_pressure": cpp_result["buy_volume"],
             "sell_pressure": cpp_result["sell_volume"],
             "tick_count": len(ticks),
             "signal": self._compute_flow_signal(
-                current_delta, avg_imbalance, absorption, exhaustion
+                current_delta, avg_imbalance, absorption, exhaustion, iceberg_intensity
             ),
         }
 
@@ -141,6 +180,30 @@ class OrderFlowMatrix:
         bid_wall = max((b["volume"] for b in bids), default=0)
         ask_wall = max((a["volume"] for a in asks), default=0)
 
+        # ═══ PROJECT NEURAL SENTIENCE: LOB SPOOFING (Flash Cancels) ═══
+        current_time = time.time()
+        time_diff = current_time - getattr(self, '_last_dom_time', current_time)
+        
+        # Calculate drops in volume (cancellations)
+        # If the total drops massive amount instantly, it's a flash cancel + spoofing
+        bid_drop = self._prev_bid_total - bid_total if hasattr(self, '_prev_bid_total') else 0.0
+        ask_drop = self._prev_ask_total - ask_total if hasattr(self, '_prev_ask_total') else 0.0
+        
+        # Only consider drops in very short timeframes (e.g. < 2 seconds) as algorithmic panic
+        # We assume regular traded volume is small compared to huge LOB walls disappearing
+        if time_diff < 2.0 and bid_drop > 25.0: # Arbitrary large size
+            self._bid_flash_cancels += bid_drop
+        if time_diff < 2.0 and ask_drop > 25.0:
+            self._ask_flash_cancels += ask_drop
+            
+        # Decay the accumulation so it resets when panic stops
+        self._bid_flash_cancels *= 0.85
+        self._ask_flash_cancels *= 0.85
+        
+        self._prev_bid_total = bid_total
+        self._prev_ask_total = ask_total
+        self._last_dom_time = current_time
+
         return {
             "book_imbalance": float(imbalance),
             "book_signal": self._classify_imbalance(imbalance),
@@ -148,6 +211,8 @@ class OrderFlowMatrix:
             "ask_total": ask_total,
             "bid_wall_size": bid_wall,
             "ask_wall_size": ask_wall,
+            "bid_flash_cancels": float(self._bid_flash_cancels),
+            "ask_flash_cancels": float(self._ask_flash_cancels),
             "bid_wall_price": next(
                 (b["price"] for b in bids if b["volume"] == bid_wall), 0
             ) if bid_wall > 0 else 0,
@@ -253,7 +318,8 @@ class OrderFlowMatrix:
 
     @asi_safe(min_val=-1.0, max_val=1.0, param_name="flow_signal")
     def _compute_flow_signal(self, delta: float, imbalance: float,
-                              absorption: dict, exhaustion: dict) -> float:
+                              absorption: dict, exhaustion: dict,
+                              iceberg_intensity: float = 0.0) -> float:
         """
         Sinal composto de order flow [-1.0, +1.0].
         Combinação de delta, imbalance, absorção e exaustão.
@@ -284,6 +350,10 @@ class OrderFlowMatrix:
                 signal -= exhaustion["strength"] * 0.1
             elif exhaustion["type"] == "BEAR_EXHAUSTION":
                 signal += exhaustion["strength"] * 0.1
+
+        # Iceberg Sonar anula a direção do delta, porque a absorção vence a intenção
+        if abs(iceberg_intensity) > 0.1:
+            signal += iceberg_intensity * 0.5
 
         return signal
 

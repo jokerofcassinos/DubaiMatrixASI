@@ -66,6 +66,11 @@ class RiskQuantumEngine:
             wr = max(0.3, min(0.9, asi_state.total_wins / asi_state.total_trades))
             aw = asi_state.avg_win
             al = asi_state.avg_loss
+            
+        # [PHASE Ω-AEGIS] Bayesian Priors & Genetic Calibration
+        if snapshot and hasattr(snapshot, "metadata"):
+            genetic_wr = snapshot.metadata.get("genetic_bayesian_winrate", wr)
+            wr = (wr * 0.4) + (genetic_wr * 0.6) # Bayesian blend
         
         # OMEGA-CLASS: Bayesian Priors for Cold Start (Resilience Phase)
         price = snapshot.price if snapshot else 67000.0
@@ -84,7 +89,13 @@ class RiskQuantumEngine:
         # Limit aw to something reasonable to avoid absurd Kelly sizes
         aw = min(aw, balance * 0.05) 
         
-        rr = aw / al if al > 0 else 1.0
+        # [PHASE Ω-AEGIS] Conditional Value-at-Risk (CVaR 95%)
+        # Estimating tail risk beyond nominal Average Loss
+        cvar_95 = al * OMEGA.get("cvar_tail_multiplier", 1.8) + (atr * OMEGA.get("cvar_vol_multiplier", 0.5))
+        
+        # Adjust rr based on CVaR instead of average loss to survive fat tails
+        effective_al = max(al, cvar_95 * 0.5) 
+        rr = aw / effective_al if effective_al > 0 else 1.0
 
         # 2. ═══ [OMEGA-CLASS] NON-ERGODIC GROWTH OPTIMIZATION ═══
         risk_fraction = 0.01 # Initializing to prevent UnboundLocalError if non-ergodic is disabled
@@ -127,8 +138,23 @@ class RiskQuantumEngine:
                 risk_fraction = min(risk_fraction, ito_fraction)
 
         # 4. [Phase Ω-10] QUANTUM KELLY PDF-SIZING
-        kelly_fraction = OMEGA.get("kelly_fraction", 0.25)
-        base_risk = risk_fraction * (kelly_fraction * 4.0)
+        # Dynamic Volatility-Scaled True Kelly
+        true_kelly = wr - ((1.0 - wr) / rr) if rr > 0 else 0.0
+        if true_kelly <= 0:
+            true_kelly = 0.001 # Absolute minimum for exploration
+            
+        # Half-Kelly for safety
+        kelly_fraction_config = min(true_kelly * OMEGA.get("kelly_fraction", 0.5), OMEGA.get("kelly_max_cap", 0.15))
+        
+        # [PHASE Ω-AEGIS] Circuit Breaker de Anomalia de Distribuição
+        if asi_state and asi_state.total_trades >= 10:
+            expected_wr = OMEGA.get("expected_system_winrate", 0.60)
+            wr_std_dev = np.sqrt(expected_wr * (1.0 - expected_wr) / asi_state.total_trades)
+            if wr < (expected_wr - 3 * wr_std_dev):
+                log.critical(f"🛑 [AEGIS] WinRate ({wr:.2%}) fora da distribuição esperada (-3σ). Reduzindo exposição em 80%.")
+                kelly_fraction_config *= 0.2
+        
+        base_risk = risk_fraction * (kelly_fraction_config * 4.0)
         
         # Extrair variáveis de fronteira
         phi = 0.0

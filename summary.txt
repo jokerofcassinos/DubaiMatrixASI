@@ -1,0 +1,264 @@
+--- File: 1_1.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.002)
+Regime: DRIFTING_BEAR
+Phi: 0.002393349777763514
+Tick Vel: 0.8745428525997774 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 16 | Bear Total: 23
+
+--- File: 1.json ---
+Veto Reason: WAIT: STARTUP_COOLDOWN(10s/120.0s)
+Regime: DRIFTING_BEAR
+Phi: 0.06860872340168013
+Tick Vel: 0.0 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 14 | Bear Total: 20
+
+--- File: 2_1.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.017)
+Regime: DRIFTING_BEAR
+Phi: 0.0169277768407815
+Tick Vel: 4.017354973485457 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 21 | Bear Total: 23
+
+--- File: 2_2.json ---
+Veto Reason: WAIT: TREND_PROTECTION_VETO (Requires Φ>0.20 & Sig>0.40 to fade DRIFTING_BEAR)
+Regime: DRIFTING_BEAR
+Phi: 0.05726750564867311
+Tick Vel: 4.232266802099204 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 22
+
+--- File: 2_3.json ---
+Veto Reason: WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.107<0.270) | CONF_WEAK(0.522<0.62)
+Regime: DRIFTING_BEAR
+Phi: 0.05518831697029032
+Tick Vel: 3.9105271390583454 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 22
+
+--- File: 2.json ---
+Veto Reason: WAIT: STARTUP_COOLDOWN(70s/120.0s)
+Regime: DRIFTING_BEAR
+Phi: 0.10422709170474337
+Tick Vel: 4.235493434985175 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 24 | Bear Total: 20
+
+--- File: 3_1.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.000)
+Regime: DRIFTING_BEAR
+Phi: 0.00013666592283851468
+Tick Vel: 4.008658702798043 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent']
+Bull Total: 21 | Bear Total: 23
+
+--- File: 3_2.json ---
+Veto Reason: WAIT: TREND_PROTECTION_VETO (Requires Φ>0.20 & Sig>0.40 to fade DRIFTING_BEAR)
+Regime: DRIFTING_BEAR
+Phi: 0.07945853410619516
+Tick Vel: 3.414134516899966 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 21 | Bear Total: 22
+
+--- File: 3_3.json ---
+Veto Reason: WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.125<0.270) | CONF_WEAK(0.435<0.62)
+Regime: DRIFTING_BEAR
+Phi: 0.03301933538078625
+Tick Vel: 4.095674967234601 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 21 | Bear Total: 23
+
+--- File: 3.json ---
+Veto Reason: WAIT: DRIFT_COHERENCE_WEAK
+Regime: DRIFTING_BEAR
+Phi: 0.0159008312139081
+Tick Vel: 3.4279446044151927 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 23 | Bear Total: 22
+
+--- File: 4_1.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.018)
+Regime: DRIFTING_BEAR
+Phi: 0.018347288899255132
+Tick Vel: 3.9071657419707746 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 23
+
+--- File: 4_2.json ---
+Veto Reason: WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.094<0.270) | CONF_WEAK(0.511<0.62)
+Regime: DRIFTING_BEAR
+Phi: 0.046860529844712555
+Tick Vel: 4.114549045424622 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 21
+
+--- File: 4_3.json ---
+Veto Reason: WAIT: TREND_PROTECTION_VETO (Requires Φ>0.20 & Sig>0.40 to fade DRIFTING_BEAR)
+Regime: DRIFTING_BEAR
+Phi: 0.04615987049501127
+Tick Vel: 4.073651621313346 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 21
+
+--- File: 5_4.json ---
+Veto Reason: WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.104<0.284) | CONF_WEAK(0.540<0.62)
+Regime: DRIFTING_BEAR
+Phi: 0.09455218058402577
+Tick Vel: 4.113533525298231 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 23 | Bear Total: 21
+
+--- File: 5_5.json ---
+Veto Reason: WAIT: TREND_PROTECTION_VETO (Requires Φ>0.20 & Sig>0.40 to fade DRIFTING_BEAR)
+Regime: DRIFTING_BEAR
+Phi: 0.0548898065405969
+Tick Vel: 4.098696614476596 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 21 | Bear Total: 21
+
+--- File: 5_6.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.001)
+Regime: DRIFTING_BEAR
+Phi: 0.0005825038305949952
+Tick Vel: 3.2057446944925307 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 21 | Bear Total: 22
+
+--- File: 6_3.json ---
+Veto Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+Regime: DRIFTING_BEAR
+Phi: 0.026845778152166107
+Tick Vel: 4.080300310102824 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 22 | Bear Total: 20
+
+--- File: 7_1.json ---
+Veto Reason: WAIT: ENTROPIC_VACUUM_VETO
+Regime: LOW_LIQUIDITY
+Phi: 0.10191562272884416
+Tick Vel: 4.029658284977434 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 28 | Bear Total: 17
+
+--- File: 7_2.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: LOW_LIQUIDITY
+Phi: 0.184078235679893
+Tick Vel: 4.040404040404041 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 31 | Bear Total: 17
+
+--- File: 7_3.json ---
+Veto Reason: WAIT: DRIFT_COHERENCE_WEAK
+Regime: DRIFTING_BEAR
+Phi: 0.028452374982320568
+Tick Vel: 3.992972368631209 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: ['TrendAgent', 'MomentumAgent']
+Bull Total: 23 | Bear Total: 23
+
+--- File: 7.json ---
+Veto Reason: WAIT: UNKNOWN_REGIME_INCOHERENCE
+Regime: LOW_LIQUIDITY
+Phi: 0.029392243425806402
+Tick Vel: 3.9812086949597902 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 25 | Bear Total: 20
+
+--- File: 8_1.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: UNKNOWN
+Phi: 0.1489254184116532
+Tick Vel: 3.9910600255427844 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent', 'ExplosionDetectorAgent'] | Bear Keys: []
+Bull Total: 32 | Bear Total: 23
+
+--- File: 8.json ---
+Veto Reason: WAIT: UNKNOWN_REGIME_INCOHERENCE
+Regime: UNKNOWN
+Phi: 0.0670260163361295
+Tick Vel: 3.9178812098417177 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 28 | Bear Total: 23
+
+--- File: 9_1.json ---
+Veto Reason: WAIT: UNKNOWN_REGIME_INCOHERENCE
+Regime: UNKNOWN
+Phi: 0.11336110928223828
+Tick Vel: 4.039098473220777 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 30 | Bear Total: 23
+
+--- File: 9_2.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: UNKNOWN
+Phi: 0.12066182523495614
+Tick Vel: 3.898635477582846 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent', 'ExplosionDetectorAgent'] | Bear Keys: []
+Bull Total: 32 | Bear Total: 26
+
+--- File: 9.json ---
+Veto Reason: WAIT: KINEMATIC_EXHAUSTION_BUY (Spike=375.6 > 1.8xATR) | TOP_HUNT_RISK
+Regime: UNKNOWN
+Phi: 0.31060022272593524
+Tick Vel: 4.013163175214704 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent', 'ExplosionDetectorAgent'] | Bear Keys: []
+Bull Total: 35 | Bear Total: 19
+
+--- File: 10_3.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: UNKNOWN
+Phi: 0.12293258717564129
+Tick Vel: 4.021879021879022 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 30 | Bear Total: 22
+
+--- File: 11_1.json ---
+Veto Reason: WAIT: KINEMATIC_DECOUPLING_BUY (Price too far from mean: 2.4xATR)
+Regime: UNKNOWN
+Phi: 0.14351053420990648
+Tick Vel: 4.081299485756265 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'MacroBiasAgent'] | Bear Keys: ['LiquidationVacuumAgent']
+Bull Total: 28 | Bear Total: 22
+
+--- File: 11_2.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: UNKNOWN
+Phi: 0.1254578387847822
+Tick Vel: 4.0498947027377294 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'MacroBiasAgent'] | Bear Keys: ['LiquidationVacuumAgent']
+Bull Total: 30 | Bear Total: 22
+
+--- File: 11.json ---
+Veto Reason: WAIT: SYNERGY_VETO (Φ=0.002)
+Regime: UNKNOWN
+Phi: 0.00205008630823334
+Tick Vel: 3.9955250119865746 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['TrendAgent', 'MomentumAgent', 'MacroBiasAgent'] | Bear Keys: ['LiquidationVacuumAgent']
+Bull Total: 28 | Bear Total: 28
+
+--- File: 12.json ---
+Veto Reason: WAIT: KINEMATIC_DECOUPLING_BUY (Price too far from mean: 2.6xATR)
+Regime: LOW_LIQUIDITY
+Phi: 0.14842841595931391
+Tick Vel: 4.108801051853069 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 26 | Bear Total: 19
+
+--- File: 13_1.json ---
+Veto Reason: WAIT: KINEMATIC_DECOUPLING_BUY (Price too far from mean: 2.7xATR)
+Regime: UNKNOWN
+Phi: 0.1265334364606177
+Tick Vel: 4.031282754172378 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 28 | Bear Total: 21
+
+--- File: 13.json ---
+Veto Reason: WAIT: UNKNOWN_COHERENCE_WEAK
+Regime: LOW_LIQUIDITY
+Phi: 0.1260766236614358
+Tick Vel: 4.085634907664652 | Ent: 0.0 | Jounce: 0.0 | VPulse: False
+Bull Keys: ['MomentumAgent', 'LiquidationVacuumAgent', 'MacroBiasAgent'] | Bear Keys: []
+Bull Total: 26 | Bear Total: 23
+

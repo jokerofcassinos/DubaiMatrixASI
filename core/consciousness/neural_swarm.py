@@ -211,6 +211,7 @@ from core.consciousness.agents.apotheosis_agents import (
 from core.consciousness.agents.nexus_agents import (
     LiquidityGraphAgent, VectorAutoregressionAgent
 )
+from core.consciousness.agents.nexus_agent import NexusAgent
 
 # Phase Ω-Paragon (Nível 10 - Teoria dos Jogos Evolutiva)
 from core.consciousness.agents.paragon_agents import (
@@ -226,6 +227,11 @@ from core.consciousness.agents.elysium_agents import (
 from core.consciousness.agents.illuminati_agents import (
     ChronosDilationAgent, FourierSpectralAgent, LiquidityVoidMagnetAgent
 )
+from core.consciousness.agents.temporal_geodesic_agent import TemporalGeodesicAgent
+
+# Phase Ω-Sentience & Vidente (Project 7: LOB Panic & Counterfactual Future)
+from core.consciousness.agents.neural_sentience_agent import NeuralSentienceAgent
+from core.consciousness.agents.predictive_vidente_agent import PredictiveVidenteAgent
 
 # Phase Ω-Genesis (Nível 13 - Inferência Causal e Contrafactual)
 from core.consciousness.agents.genesis_agents import (
@@ -584,6 +590,7 @@ class NeuralSwarm:
             # ═══ NEXUS (Phase Ω-Nexus) ═══
             LiquidityGraphAgent(weight=3.6),
             VectorAutoregressionAgent(weight=3.4),
+            NexusAgent(),
 
             # ═══ PARAGON (Phase Ω-Paragon) ═══
             AsymmetricInformationAgent(weight=3.7),
@@ -592,10 +599,11 @@ class NeuralSwarm:
 
             # ═══ ELYSIUM (Phase Ω-Elysium) - Deduplicated ═══
 
-            # ═══ ILLUMINATI (Phase Ω-Illuminati) ═══
+            # ═══ ILLUMINATI (Phase Ω-Illuminati & Chronos) ═══
             ChronosDilationAgent(weight=3.9),
             FourierSpectralAgent(weight=3.4),
             LiquidityVoidMagnetAgent(weight=3.6),
+            TemporalGeodesicAgent(weight=3.8),
 
             # ═══ GENESIS (Phase Ω-Genesis) ═══
             CausalCounterfactualAgent(weight=4.2),
@@ -686,6 +694,10 @@ class NeuralSwarm:
             OrnsteinUhlenbeckAgent(weight=4.9),
             KarmanVortexWakeAgent(),
 
+            # ═══ PROJECT VIDENTE & NEURAL SENTIENCE (Phase 7 - Ω-8/Ω-9) ═══
+            NeuralSentienceAgent(),
+            PredictiveVidenteAgent(weight=5.5),
+
             # ═══ META-SWARM (Phase 26) ═══
             ConfidenceAggregatorAgent(),
             ExecutionScalerAgent(),
@@ -715,17 +727,27 @@ class NeuralSwarm:
             try:
                 # Agentes podem opcionalmente aceitar kwargs específicos
                 if agent.needs_orderflow:
-                    return agent.analyze(snapshot, orderflow_analysis=orderflow_analysis, **kwargs)
-                return agent.analyze(snapshot, **kwargs)
+                    signal = agent.analyze(snapshot, orderflow_analysis=orderflow_analysis, **kwargs)
+                else:
+                    signal = agent.analyze(snapshot, **kwargs)
+                
+                if signal:
+                    signal.is_pandemic = getattr(agent, 'is_pandemic', False)
+                return signal
             except Exception as e:
                 log.error(f"Agent {agent.name} falhou: {e}")
-                return AgentSignal(agent.name, 0.0, 0.0, f"ERROR: {e}", agent.weight)
+                return AgentSignal(agent.name, 0.0, 0.0, f"ERROR: {e}", getattr(agent, 'weight', 1.0))
 
         # Execução paralela em massa com rastreamento de latência (Phase 42)
         start_time = time.monotonic()
         try:
+            # [PHASE Ω-PHOENIX] Genesis Engine Spawns Mutants
+            from core.evolution.genesis_engine import GENESIS
+            pandemic_agents = GENESIS.spawn_mutants(self.agents, snapshot)
+            all_agents = self.agents + pandemic_agents
+            
             # [Phase Ω-PhD-15] Aumentamos o timeout para 2.5s para garantir que agentes pesados falem
-            results = list(self._executor.map(_run_agent, self.agents, timeout=2.5))
+            results = list(self._executor.map(_run_agent, all_agents, timeout=2.5))
         except TimeoutError:
             log.error(f"💀 NeuralSwarm TIMEOUT! Verificando agentes lentos...")
             return []
