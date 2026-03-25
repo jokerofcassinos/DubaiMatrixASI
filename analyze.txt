@@ -1,21 +1,18 @@
-=== ANÁLISE DE FALSOS NEGATIVOS (CYCLE 005) ===
-Total de trades lucrativos vetados: 13
+=== ANÁLISE DE FALSOS NEGATIVOS (CYCLE 001 - 2026-03-25) ===
+Total de trades lucrativos vetados: 9
 
 Top Motivos de Veto:
- - 1 (7.7%): WAIT: SYNERGY_VETO (Φ=0.009)
- - 1 (7.7%): WAIT: STARTUP_COOLDOWN(5s/120.0s)
- - 1 (7.7%): WAIT: STARTUP_COOLDOWN(65s/120.0s)
- - 1 (7.7%): WAIT: TREND_PROTECTION_VETO (Requires Φ>0.30 & Sig>0.45 to fade CREEPING_BULL)
- - 1 (7.7%): WAIT: DRIFT_COHERENCE_WEAK
- - 1 (7.7%): WAIT: RR_RATIO_LOW(1.03 < 1.60)
- - 1 (7.7%): WAIT: SUPERPOSITION (agentes não convergiram)
- - 1 (7.7%): WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.198<0.213)
- - 1 (7.7%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=1.0)
- - 1 (7.7%): WAIT: SYNERGY_VETO (Φ=0.014)
+ - 2 (22.2%): WAIT: MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)
+ - 2 (22.2%): WAIT: COMM_REWARD_RATIO_LOW(3.89 < 4.44)
+ - 1 (11.1%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=2.0)
+ - 1 (11.1%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=0.0)
+ - 1 (11.1%): WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.206<0.410)
+ - 1 (11.1%): WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.296<0.410)
+ - 1 (11.1%): WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 57.7 points)
 
 Detalhes Médios por Veto:
-[WAIT: SYNERGY_VETO (Φ=0.009)...] Sig: 0.000 | Phi: 0.009 | Coh: 0.434
-[WAIT: STARTUP_COOLDOWN(5s/120....] Sig: 0.000 | Phi: 0.038 | Coh: 0.427
-[WAIT: STARTUP_COOLDOWN(65s/120...] Sig: 0.000 | Phi: 0.266 | Coh: 0.376
-[WAIT: TREND_PROTECTION_VETO (R...] Sig: 0.000 | Phi: 0.067 | Coh: 0.430
-[WAIT: DRIFT_COHERENCE_WEAK...] Sig: 0.000 | Phi: 0.011 | Coh: 0.361
+[WAIT: MICRO_MOMENTUM_VETO (Las...] Sig: 0.000 | Phi: 0.091 | Coh: 0.402
+[WAIT: COMM_REWARD_RATIO_LOW(3....] Sig: 0.000 | Phi: 0.111 | Coh: 0.396
+[WAIT: ELITE_DIVERGENCE_VETO (S...] Sig: 0.000 | Phi: 0.124 | Coh: 0.424
+[WAIT: ELITE_DIVERGENCE_VETO (S...] Sig: 0.000 | Phi: 0.055 | Coh: 0.420
+[WAIT: NO_CONVERGENCE: BUY_SIGN...] Sig: 0.000 | Phi: 0.029 | Coh: 0.393

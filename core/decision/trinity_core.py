@@ -1527,7 +1527,7 @@ class TrinityCore:
             # Ordens limite não pagam o "spread cego" da corretora, elas embolsam o spread.
             # Mitiagação de comissão bruta
             # [Phase Ω-SwingCrash] Crash sovereignty and swing trades bypass commission gate
-            if limit_mode or is_tec_sovereign or is_crash_sovereign or is_swing_active or is_sms_sovereign:
+            if limit_mode or is_tec_sovereign or is_crash_sovereign or is_swing_active or is_sms_sovereign or is_omega_sovereign_aligned:
                 min_comm_ratio = 0.0 # Desliga o veto de comissão para Maker, Strike Soberano, Crash ou Swing
             
             if comm_reward_ratio < min_comm_ratio:
@@ -1728,13 +1728,13 @@ class TrinityCore:
             h0, l0 = candles_m1["high"][-1], candles_m1["low"][-1]
             
             # Condição de Venda na mínima (Bear Trap)
-            if action == Action.SELL and not (has_exhaustion_sovereignty or is_tec_sovereign):
+            if action == Action.SELL and not (has_exhaustion_sovereignty or is_tec_sovereign or is_omega_sovereign_aligned):
                 # Se o preço caiu forte mas já formou um pavio enorme de absorção
                 if c0 > l0 + (atr_m5 * 0.4): # Pavio inferior de 40% do ATR M5
                     return self._wait(f"LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected {c0 - l0:.1f} points)")
             
             # Condição de Compra na máxima (Bull Trap)
-            elif action == Action.BUY and not (has_exhaustion_sovereignty or is_tec_sovereign):
+            elif action == Action.BUY and not (has_exhaustion_sovereignty or is_tec_sovereign or is_omega_sovereign_aligned):
                 # Se o preço subiu forte mas já formou um pavio superior enorme
                 if c0 < h0 - (atr_m5 * 0.4):
                     return self._wait(f"LIQUIDITY_SWEEP_VETO (Bull Trap: Wick rejected {h0 - c0:.1f} points)")

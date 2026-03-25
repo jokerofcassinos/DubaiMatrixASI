@@ -4,7 +4,7 @@ import json
 from collections import Counter
 
 # Caminho para os arquivos
-base_path = r"d:\DubaiMatrixASI\data\audits\ghost_trade_audits\errados\2026-03-24\cycle_005"
+base_path = r"d:\DubaiMatrixASI\data\audits\ghost_trade_audits\errados\2026-03-25\cycle_001"
 files = glob.glob(os.path.join(base_path, "*.json"))
 
 veto_reasons = Counter()
@@ -36,7 +36,7 @@ for f in files:
         print(f"Erro ao ler {f}: {e}")
 
 with open(r"d:\DubaiMatrixASI\analyze.txt", "w", encoding="utf-8") as out:
-    out.write(f"=== ANÁLISE DE FALSOS NEGATIVOS (CYCLE 005) ===\n")
+    out.write(f"=== ANÁLISE DE FALSOS NEGATIVOS (CYCLE 001 - 2026-03-25) ===\n")
     out.write(f"Total de trades lucrativos vetados: {total_files}\n")
     out.write("\nTop Motivos de Veto:\n")
     for reason, count in veto_reasons.most_common(10):
