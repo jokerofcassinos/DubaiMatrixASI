@@ -1,39 +1,25 @@
 {
-  "saved_at": "2026-03-24T21:14:23.196119",
+  "saved_at": "2026-03-24T23:00:37.300082",
   "parameters": {
     "buy_threshold": {
-      "value": 0.1575,
+      "value": 0.15,
       "default": 0.15,
       "bounds": [
         0.05,
         0.95
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-24T21:14:16.052673",
-          "old": 0.15,
-          "new": 0.1575,
-          "reason": "GeneticForge: conservadorismo por baixa performance"
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "sell_threshold": {
-      "value": -0.1575,
+      "value": -0.15,
       "default": -0.15,
       "bounds": [
         -0.95,
         -0.05
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-24T21:14:16.052687",
-          "old": -0.15,
-          "new": -0.1575,
-          "reason": "GeneticForge: conservadorismo por baixa performance"
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "confidence_min": {
       "value": 0.55,
@@ -56,21 +42,14 @@
       "last_mutations": []
     },
     "trinity_min_rr_ratio": {
-      "value": 1.32,
+      "value": 1.2,
       "default": 1.2,
       "bounds": [
         0.8,
         2.5
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-24T21:14:16.052693",
-          "old": 1.2,
-          "new": 1.32,
-          "reason": "GeneticForge: conservadorismo por baixa performance"
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "mc_min_score": {
       "value": -0.35,
@@ -203,7 +182,7 @@
       "last_mutations": []
     },
     "commission_per_lot": {
-      "value": 44.0,
+      "value": 44.07,
       "default": 50.0,
       "bounds": [
         0.0,
@@ -212,9 +191,9 @@
       "mutation_count": 1,
       "last_mutations": [
         {
-          "time": "2026-03-24T21:13:57.504270",
+          "time": "2026-03-24T23:00:37.300070",
           "old": 50.0,
-          "new": 44.0,
+          "new": 44.07,
           "reason": "Phase 49 Auto-Detection"
         }
       ]

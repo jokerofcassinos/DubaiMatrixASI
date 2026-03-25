@@ -1,18 +1,21 @@
 === ANÁLISE DE FALSOS NEGATIVOS (CYCLE 001 - 2026-03-25) ===
-Total de trades lucrativos vetados: 9
+Total de trades lucrativos vetados: 60
 
 Top Motivos de Veto:
- - 2 (22.2%): WAIT: MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)
- - 2 (22.2%): WAIT: COMM_REWARD_RATIO_LOW(3.89 < 4.44)
- - 1 (11.1%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=2.0)
- - 1 (11.1%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=0.0)
- - 1 (11.1%): WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.206<0.410)
- - 1 (11.1%): WAIT: NO_CONVERGENCE: BUY_SIGNAL_WEAK(0.296<0.410)
- - 1 (11.1%): WAIT: LIQUIDITY_SWEEP_VETO (Bear Trap: Wick rejected 57.7 points)
+ - 14 (23.3%): WAIT: SUPERPOSITION (agentes não convergiram)
+ - 7 (11.7%): WAIT: MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)
+ - 4 (6.7%): WAIT: TREND_PROTECTION_VETO (Requires Φ>0.30 & Sig>0.45 to fade CREEPING_BULL)
+ - 4 (6.7%): WAIT: DRIFT_COHERENCE_WEAK
+ - 2 (3.3%): WAIT: SIGNAL_FRAGILE(Φ=0.04 < 0.06)
+ - 2 (3.3%): WAIT: ELITE_DIVERGENCE_VETO (Swarm=-1.0, Elite_Sum=2.0)
+ - 2 (3.3%): WAIT: COMM_REWARD_RATIO_LOW(1.57 < 1.80)
+ - 2 (3.3%): WAIT: COMM_REWARD_RATIO_LOW(3.89 < 4.44)
+ - 1 (1.7%): WAIT: NO_CONVERGENCE: SELL_SIGNAL_WEAK(-0.087>-0.193)
+ - 1 (1.7%): WAIT: RR_RATIO_LOW(1.01 < 1.16)
 
 Detalhes Médios por Veto:
-[WAIT: MICRO_MOMENTUM_VETO (Las...] Sig: 0.000 | Phi: 0.091 | Coh: 0.402
-[WAIT: COMM_REWARD_RATIO_LOW(3....] Sig: 0.000 | Phi: 0.111 | Coh: 0.396
-[WAIT: ELITE_DIVERGENCE_VETO (S...] Sig: 0.000 | Phi: 0.124 | Coh: 0.424
-[WAIT: ELITE_DIVERGENCE_VETO (S...] Sig: 0.000 | Phi: 0.055 | Coh: 0.420
-[WAIT: NO_CONVERGENCE: BUY_SIGN...] Sig: 0.000 | Phi: 0.029 | Coh: 0.393
+[WAIT: SUPERPOSITION (agentes n...] Sig: 0.000 | Phi: 0.075 | Coh: 0.384
+[WAIT: MICRO_MOMENTUM_VETO (Las...] Sig: 0.000 | Phi: 0.140 | Coh: 0.352
+[WAIT: TREND_PROTECTION_VETO (R...] Sig: 0.000 | Phi: 0.052 | Coh: 0.379
+[WAIT: DRIFT_COHERENCE_WEAK...] Sig: 0.000 | Phi: 0.040 | Coh: 0.330
+[WAIT: SIGNAL_FRAGILE(Φ=0.04 < ...] Sig: 0.000 | Phi: 0.041 | Coh: 0.335
