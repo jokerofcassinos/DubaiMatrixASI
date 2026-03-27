@@ -101,6 +101,7 @@ class TrinityCore:
         # [PHASE Ω-STRICT] Canonical Initialization (Lint Fix)
         self.kinetic_exhaustion = False
         self.t_cell = TCellImmunitySystem()
+        self.last_velocity = 0.0 # [UMRSI] Momentum Gate
 
     @ast_self_heal
     @catch_and_log(default_return=None)
@@ -138,6 +139,7 @@ class TrinityCore:
         tec_entropy = 0.0
         has_v_pulse = False
         strike_flag = ""
+        sl_atr_mult = 0.0 # [UMRSI] Dynamic SL expansion
         is_tec_sovereign = False
         # [Phase 48] Metadata Extraction & Initialization (Consistency Fix)
         sym_info = snapshot.symbol_info
@@ -223,25 +225,40 @@ class TrinityCore:
         # Expandimos a lógica de inversão para TODOS os regimes onde o preço está exaurido.
         # Se o enxame insiste em BUY no topo (dist > 0.8) ou SELL no fundo (dist < -0.8) de QUALQUER regime, invertemos.
         
-        # Thresholds dinâmicos: Regimes de tendência (BULL/BEAR) exigem exaustão maior (1.2) que Drifts (0.8)
+        # Thresholds dinâmicos: Regimes de tendência (BULL/BEAR) exigem exaustão maior (1.5) que Drifts (0.8)
         is_trend_regime = "BULL" in regime_state.current.value or "BEAR" in regime_state.current.value
-        exhaustion_threshold = 1.2 if is_trend_regime else 0.8
+        exhaustion_threshold = 1.5 if is_trend_regime else 0.8
         
+        # Momentum Gate: Se a velocidade do movimento for extrema (> 1.5x ATR/s), bloqueamos a inversão.
+        # Estamos caçando exaustão, não tentando parar um foguete.
+        is_climax_breakout = abs(self.last_velocity) > 1.5
+        
+        is_umrsi_active = False # Initial state
+
         # Inversão Universal (BUY -> SELL na Exaustão Superior)
-        if signal > 0.3 and dist_from_mean > exhaustion_threshold:
+        if signal > 0.3 and dist_from_mean > exhaustion_threshold and not is_climax_breakout:
             signal = -abs(signal)
+            is_umrsi_active = True
             is_tec_sovereign = True
             confidence = 0.95
+            sl_atr_mult = 2.0  # Dynamic SL Expansion p/ sobreviver ao squeeze final
             strike_flag += f" | [Ω-UMRSI: INVERTED BUY->SELL ({regime_state.current.value})]"
-            log.omega(f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping BUY to SELL in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR)")
+            self._log_cooldown("UMRSI_INVERSION", f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping BUY to SELL in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR | SL Expanded: 2.0xATR)", 30, level="omega")
         
         # Inversão Universal (SELL -> BUY na Exaustão Inferior)
-        elif signal < -0.3 and dist_from_mean < -exhaustion_threshold:
+        elif signal < -0.3 and dist_from_mean < -exhaustion_threshold and not is_climax_breakout:
             signal = abs(signal)
+            is_umrsi_active = True
             is_tec_sovereign = True
             confidence = 0.95
+            sl_atr_mult = 2.0  # Dynamic SL Expansion p/ fôlego extra
             strike_flag += f" | [Ω-UMRSI: INVERTED SELL->BUY ({regime_state.current.value})]"
-            log.omega(f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping SELL to BUY in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR)")
+            self._log_cooldown("UMRSI_INVERSION", f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping SELL to BUY in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR | SL Expanded: 2.0xATR)", 30, level="omega")
+            strike_flag += f" | [Ω-UMRSI: INVERTED SELL->BUY ({regime_state.current.value})]"
+            self._log_cooldown("UMRSI_INVERSION", f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping SELL to BUY in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR | SL Expanded: 2.0xATR)", 30, level="omega")
+        
+        elif is_climax_breakout and abs(dist_from_mean) > exhaustion_threshold:
+            log.warning(f"🛡️ [UMRSI_GATE] Inversion blocked by Momentum Gate: Rocket velocity detected ({abs(self.last_velocity):.2f}).")
             
         if is_evh:
             is_tec_sovereign = True
@@ -1416,7 +1433,9 @@ class TrinityCore:
                 structural_sl = float(price - fast_atr * sl_mult)
             
             # Garantir distanciamento mínimo de segurança (Resilience Floor)
-            safe_sl_floor = float(price - min_sl_dist)
+            # [UMRSI] Se sl_atr_mult foi definido (inversão), usamos ele p/ dar mais respiro.
+            final_sl_mult = sl_atr_mult if sl_atr_mult > 0 else sl_mult
+            safe_sl_floor = float(price - (final_sl_mult * fast_atr))
             stop_loss = min(structural_sl, safe_sl_floor) 
             
             # [PhD-Log] Confirming Action again for final checks
@@ -1498,16 +1517,22 @@ class TrinityCore:
         # [Phase Ω-STRICT] Hard RR Floor: Non-bypassable even for Sovereign (Must be > 1.0)
         # For non-sovereign trades, we enforce a strict 1.50 floor.
         hard_rr_floor = OMEGA.get("hard_min_rr_ratio", 1.50)
-        if rr_ratio < hard_rr_floor and not is_tec_sovereign and not is_god_mode:
+        
+        # [Ω-ABOLITION] UMRSI Sovereign Override: Relaxed RR for exhaustion trades
+        is_umrsi_valid = is_umrsi_active and rr_ratio >= 1.10
+        
+        if rr_ratio < hard_rr_floor and not is_tec_sovereign and not is_god_mode and not is_umrsi_valid:
              return self._wait(f"HARD_RR_VETO (RR={rr_ratio:.2f} < {hard_rr_floor:.2f})")
-        elif rr_ratio < 1.10 and (is_tec_sovereign or is_god_mode):
-             return self._wait(f"SOVEREIGN_RR_VETO (Sovereign/God trades need RR > 1.10, got {rr_ratio:.2f})")
+        elif rr_ratio < 1.10 and (is_tec_sovereign or is_god_mode or is_umrsi_active):
+             return self._wait(f"SOVEREIGN_RR_VETO (Sovereign/God/UMRSI trades need RR > 1.10, got {rr_ratio:.2f})")
 
         # ═══ 5. PHASE Ω-SINGULARITY: ABSOLUTE TREND JAIL (User Request #2688) ═══
-        # Counter-trend trades are strictly forbidden unless Synergy is extreme.
+        # Counter-trend trades are strictly forbidden unless Synergy is extreme or UMRSI is active.
         is_bear_jail = action == Action.BUY and "BEAR" in regime_state.current.value
         is_bull_jail = action == Action.SELL and "BULL" in regime_state.current.value
-        if (is_bear_jail or is_bull_jail) and phi < 0.45:
+        
+        # [Ω-ABOLITION] Grant UMRSI Sovereignty over Trend Jail
+        if (is_bear_jail or is_bull_jail) and phi < 0.45 and not is_umrsi_active:
             return self._wait(f"ABSOLUTE_TREND_JAIL (Vetoed counter-trend in {regime_state.current.value} | Φ={phi:.3f} < 0.45)")
 
         # ═══ 6. PHASE Ω-SINGULARITY: CONTRARIAN INVERSION (User Request #2688) ═══
@@ -2265,14 +2290,8 @@ class TrinityCore:
                 if atr < 15.0: # BTC relaxado para 15 (Phase 32)
                     return "WEEKEND_STAGNANT_MARKET"
             
-        # 6. [PHASE Ω-ANTI-FRAGILITY] Ping-Pong Veto
-        # Impede inversão de mão imediata em regimes instáveis após loss
-        if regime_state.current.value in ["UNKNOWN", "LOW_LIQUIDITY", "CHOPPY"]:
-            # Verificar se houve loss recente (via asi_state ou tracking interno)
-            # Como asi_state.consecutive_losses reseta em win, usamos nosso log interno
-            now = time.time()
-            if self._last_loss_time > 0 and (now - self._last_loss_time) < 300: # 5 minutos de trava
-                return f"ANTI_PING_PONG ({300 - (now - self._last_loss_time):.0f}s rem)"
+        # 6. [PHASE Ω-ANTI-FRAGILITY] Ping-Pong Veto (REMOVED PER CEO ORDER)
+        pass
  
         # [Phase Ω-Apocalypse] Climax Velocity Guard
         candles_m1 = snapshot.candles.get("M1")

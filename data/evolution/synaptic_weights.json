@@ -1,13 +1,13 @@
 {
     "T_UNKNOWN|R_DRIFT|V_MED|E_COMPLEX|VOL_NORMAL": {
         "MeanFieldGame": {
-            "hits": 35,
-            "misses": 36,
+            "hits": 65,
+            "misses": 66,
             "is_pandemic": false
         },
         "PriceGravityAgent": {
             "hits": 0,
-            "misses": 137,
+            "misses": 257,
             "is_pandemic": false
         },
         "CrossScaleConvergenceAgent": {
@@ -22,154 +22,154 @@
         },
         "ChaosRegime": {
             "hits": 0,
-            "misses": 137,
+            "misses": 257,
             "is_pandemic": false
         },
         "LiquidationVacuumAgent": {
             "hits": 0,
-            "misses": 71,
+            "misses": 131,
             "is_pandemic": false
         },
         "LiquidStateAgent": {
             "hits": 0,
-            "misses": 137,
+            "misses": 257,
             "is_pandemic": false
         },
         "FeynmanPath": {
             "hits": 0,
-            "misses": 137,
+            "misses": 257,
             "is_pandemic": false
         },
         "OrderBlockAgent": {
             "hits": 0,
-            "misses": 136,
+            "misses": 256,
             "is_pandemic": false
         },
         "MultiScaleFractalResonance": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "RogueWaveNLSE": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "HolographicEntanglement": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "ChaosFractalDim": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "StrangeAttractorFolding": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "LiquidityGraph": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "NexusAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "FourierSpectral": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "SpectralInformationFlux": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "SingularSpectrumAnalysis": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "KripkeSemantics": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "DarkMatterGravity": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "RiemannianRicci": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "CppTickEntropyAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "TBSAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "PremiumDiscountAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "CppFractalAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "CandleAnatomyAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "FVGAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         },
         "MacroBiasAgent": {
             "hits": 0,
-            "misses": 34,
+            "misses": 64,
             "is_pandemic": false
         }
     },
     "T_UNKNOWN|R_DRIFT|V_MED|E_COMPLEX|VOL_HIGH": {
         "SRAgent": {
-            "hits": 31,
+            "hits": 61,
             "misses": 0,
             "is_pandemic": false
         },
         "MeanFieldGame": {
-            "hits": 31,
+            "hits": 61,
             "misses": 0,
             "is_pandemic": false
         },
         "PriceGravityAgent": {
             "hits": 0,
-            "misses": 31,
+            "misses": 61,
             "is_pandemic": false
         },
         "LiquidationVacuumAgent": {
             "hits": 0,
-            "misses": 31,
+            "misses": 61,
             "is_pandemic": false
         },
         "FeynmanPath": {
             "hits": 0,
-            "misses": 31,
+            "misses": 61,
             "is_pandemic": false
         }
     }

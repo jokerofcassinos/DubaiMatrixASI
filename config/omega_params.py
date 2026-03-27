@@ -145,8 +145,8 @@ class OmegaParameterSpace:
                         "Multiplicador ATR para take profit")
         self._register("trailing_stop_atr_mult", 0.6, 0.2, 2.0,
                         "Multiplicador ATR para trailing stop")
-        self._register("commission_per_lot", 50.0, 0.0, 150.0,
-                        "Comissão estimada por lote (Round Turn, $) - Ajustado p/ FTMO BTCUSD ($50.0)")
+        self._register("commission_per_lot", 42.78, 0.0, 150.0,
+                        "Comissão real por lote (BTCUSD @ FTMO: $42.78)")
         self._register("min_profit_per_ticket", 25.0, 5.0, 200.0,
                         "Lucro líquido mínimo exigido por ordem/ticket ($) - Alvo de lucro real")
         self._register("min_commission_reward_ratio", 1.8, 1.0, 10.0,
@@ -429,6 +429,12 @@ class OmegaParameterSpace:
         # ═══ [PHASE 29] Contrarian Singularity ═══
         self._register("contrarian_singularity_enabled", 1.0, 0.0, 1.0,
                         "Inverte decisões (BUY-SELL) quando o enxame entra em Echo-Chamber contra tendência (User R#2688)")
+
+        # ═══ [PHASE Ω-STRIKE] Sovereign Tenure (User Request - 13:20) ═══
+        self._register("umrsi_sovereign_tenure", 30.0, 5.0, 300.0,
+                        "Duração (segundos) onde o Trailing Stop fica congelado para UMRSI/Sovereign trades (Fase de Captação)")
+        self._register("sovereign_tenure_min_profit_mult", 1.3, 1.0, 5.0,
+                        "Multiplicador de lucro mínimo para romper o congelamento da tenure precocemente")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

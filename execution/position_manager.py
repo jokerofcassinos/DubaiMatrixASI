@@ -174,6 +174,10 @@ class PositionManager:
         climax_score = flow_analysis.get("volume_zscore", 0.0)
         phi_val = snapshot.metadata.get("phi_last", 0.0) # Assume PHI injection or 0
 
+        # --- [Phase Ω-Sovereign] Extract Verified Prices ---
+        bid_price = snapshot.price
+        ask_price = snapshot.metadata.get("ask", bid_price + 0.01) # Spread approximation if ask missing
+        
         # ═══ ANALISAR CADA GRUPO (STRIKE) ═══
         for g_key, g_data in groups.items():
             g_tickets = g_data["tickets"]
@@ -195,6 +199,11 @@ class PositionManager:
                 }
             
             state = self._positions_state[anchor_ticket]
+            
+            # [PHASE Ω-STRIKE] Define price reference consistently
+            # Usar o BID para posições de COMPRA e ASK para posições de VENDA
+            current_price = bid_price if g_is_buy else ask_price
+            
             if total_profit > state['peak_profit']:
                 state['peak_profit'] = total_profit
                 state['peak_time'] = time.time()
@@ -311,8 +320,35 @@ class PositionManager:
                     lock_threshold = OMEGA.get("smart_tp_lock_threshold_low", 0.25) * vol_mult * phi_relax * relaxation_mult
                     reason_prefix = f"RIEMANNIAN_TRAILING_STOP (T1{'[RELAX]' if relaxation_mult > 1 else ''})"
                 
-                # Trava de Segurança Absoluta pós-floor (Nunca cai abaixo de 1.0x do floor)
-                trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
+                # ═══ [PHASE Ω-STRIKE] Sovereign Tenure Guard ═══
+                # Evita fechamento prematuro em trades de exaustão (UMRSI/Sovereign) nos primeiros segundos.
+                is_umrsi = "UMRSI" in (intent.get("reasoning") if intent else "")
+                trade_age = time.time() - state["start_time"]
+                tenure_duration = OMEGA.get("umrsi_sovereign_tenure", 30.0)
+                tenure_min_profit = dynamic_peak_floor * OMEGA.get("sovereign_tenure_min_profit_mult", 1.3)
+                
+                # Cálculo de distância do preço para Tsunami Release
+                # current_price já foi definido acima no loop (BID p/ BUY, ASK p/ SELL)
+                entry_p = state.get("entry_price", current_price)
+                price_dist = abs(current_price - entry_p)
+                
+                is_under_tenure = (is_umrsi or is_crash) and (trade_age < tenure_duration)
+                
+                # [Ω-ELASTIC RELEASE] O bloqueio é rompido se o lucro atingir o threshold elástico
+                # Adicionamos "Tsunami Release": se o preço esticar > 1.5x ATR e o lucro for > 1.3x floor, fecha logo.
+                is_tsunami = total_profit > (dynamic_peak_floor * 1.3) and (price_dist > atr_val * 1.5)
+                
+                if is_under_tenure and total_profit < tenure_min_profit and not is_tsunami:
+                    if time.time() - self._last_nuke_log_time.get(anchor_ticket, 0) > 20.0:
+                        log.omega(f"🛡️ [SOVEREIGN TENURE] Freezing Exit for Strike #{anchor_ticket} (Age={trade_age:.1f}s < {tenure_duration}s | Profit=${total_profit:.2f})")
+                        self._last_nuke_log_time[anchor_ticket] = time.time()
+                    trailing_stop_profit = 0.0 # Desativa o trailing stop neste ciclo
+                else:
+                    if is_tsunami and is_under_tenure:
+                        log.omega(f"🌊 [TSUNAMI RELEASE] Aborting Tenure for Strike #{anchor_ticket} due to High-Velocity Profit Capture (${total_profit:.2f})")
+                    
+                    # Trava de Segurança Absoluta pós-floor (Nunca cai abaixo de 1.0x do floor)
+                    trailing_stop_profit = max(dynamic_peak_floor * 1.0, peak * (1.0 - lock_threshold))
                 
             elif peak > commission_cost * 2.0:
                 # Tier 1 (Early Trailing): O pico está entre as comissões x2 e o floor macro.
