@@ -26,12 +26,27 @@ class PredictiveVidenteAgent(BaseAgent):
             
         price = snapshot.price
         atr = snapshot.atr
-        regime = getattr(snapshot, 'regime', "UNKNOWN")
-        regime_str = str(regime).upper()
         
-        mu = 0.0
-        if "BULL" in regime_str: mu = 0.00015
-        elif "BEAR" in regime_str: mu = -0.00015
+        # [Phase 11] Decoupled Drift Calculation (Mean-Reversion vs Momentum)
+        # Ao invés do regime atrasado, a deriva preditiva (mu) baseia-se na tensão elástica da Média Móvel Rápida.
+        ema_9_list = snapshot.indicators.get("M1_ema_9", [price])
+        ema_9 = ema_9_list[-1] if len(ema_9_list) > 0 else price
+        dist_from_mean = (price - ema_9) / atr if atr > 0 else 0
+        
+        # Se distendido demais (> 2.0 ATR da média curta), o cenário provável é pullback moderado,
+        # MAS a velocidade do tick deve agir como fricção para evitar caçar facas em queda livre.
+        price_vel = snapshot.metadata.get("price_velocity", 0.0) if hasattr(snapshot, "metadata") else 0.0
+        
+        if abs(dist_from_mean) > 2.0:
+            pull = -0.00018 * np.sign(dist_from_mean)
+            inercia = price_vel * 0.000005
+            mu = pull + inercia
+        else:
+            # Segue a inércia micro real
+            mu = (price_vel * 0.00001)
+            
+        # Cap na aceleração
+        mu = max(-0.00025, min(0.00025, mu))
         
         sigma = (atr / price) * 0.5 
         if sigma <= 0 or price <= 0: return AgentSignal(self.name, 0.0, 0.0, "Sigma 0", self.weight)
@@ -73,7 +88,8 @@ class PredictiveVidenteAgent(BaseAgent):
 
     def _log_vision(self, context: str, msg: str, signal: float):
         current = time.time()
-        if current - self._last_log_time > 15.0 or self._last_context != context:
+        # Enforce absolute 15s cooldown even on context switches to avoid terminal flooding
+        if current - self._last_log_time > 15.0:
             logger.omega(f"👁️‍🗨️ [VIDENTE Ω-9] {context} | S:{signal:+.2f} | {msg}")
             self._last_log_time = current
             self._last_context = context

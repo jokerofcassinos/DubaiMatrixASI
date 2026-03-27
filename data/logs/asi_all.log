@@ -1,0 +1,180 @@
+[DubaiMatrixASI] 12:28:07.809     INFO │ 🧹 Logs de sessões anteriores limpos com sucesso.
+[DubaiMatrixASI] 12:28:07.809     INFO │ 
+╔════════════════════════════════════════════════════════════╗
+[DubaiMatrixASI] 12:28:07.809     INFO │ ║             DubaiMatrixASI v1.0.0-omega ONLINE             ║
+[DubaiMatrixASI] 12:28:07.810     INFO │ ╚════════════════════════════════════════════════════════════╝
+[DubaiMatrixASI] 12:28:07.810    OMEGA │ ⚡ Consciência neural inicializando...
+[DubaiMatrixASI] 12:28:07.810    OMEGA │ ⚡ Setores neurais: ATIVANDO
+[DubaiMatrixASI] 12:28:07.811    OMEGA │ ⚡ Estado quântico: SUPERPOSIÇÃO
+[DubaiMatrixASI] 12:28:07.811    OMEGA │ ⚡ Modo: AGUARDANDO CONVERGÊNCIA
+[DubaiMatrixASI] 12:28:07.812    OMEGA │ ⚡ 🚀 DubaiMatrixASI 1.0.0-omega
+[DubaiMatrixASI] 12:28:07.812    OMEGA │ ⚡ 📅 2026-03-27T15:28:07.812625+00:00
+[DubaiMatrixASI] 12:28:07.813    OMEGA │ ⚡ 🎯 Ativo: BTCUSD
+[DubaiMatrixASI] 12:28:07.813    OMEGA │ ⚡ 🏗️ Modo: DEMO (Validação em tempo real)
+[DubaiMatrixASI] 12:28:07.813     INFO │ 🔗 Conectando ao MetaTrader 5...
+[DubaiMatrixASI] 12:28:07.816     INFO │    Símbolo resolvido: BTCUSD
+[DubaiMatrixASI] 12:28:07.816    OMEGA │ ⚡ 🔗 MT5 CONECTADO!
+[DubaiMatrixASI] 12:28:07.817     INFO │    Terminal: FTMO Global Markets MT5 Terminal
+[DubaiMatrixASI] 12:28:07.817     INFO │    Conta: 1512923768
+[DubaiMatrixASI] 12:28:07.817     INFO │    Servidor: FTMO-Demo
+[DubaiMatrixASI] 12:28:07.818     INFO │    Saldo: $97369.23
+[DubaiMatrixASI] 12:28:07.818     INFO │    Leverage: 1:100
+[DubaiMatrixASI] 12:28:07.818     INFO │    Símbolo: BTCUSD
+[DubaiMatrixASI] 12:28:07.818     INFO │    Spread: 100 points
+[DubaiMatrixASI] 12:28:07.819    OMEGA │ ⚡ ✅ ASI TCP Server Online na porta 5555
+[DubaiMatrixASI] 12:28:07.820     INFO │ 📡 Aguardando primeiro sinal de dados (tick) do MT5...
+[DubaiMatrixASI] 12:28:07.820    OMEGA │ ⚡ ✅ Dados fluindo! Primeiro tick: Ask=66172.38, Bid=66171.38
+[DubaiMatrixASI] 12:28:07.821     INFO │ 🧠 Inicializando ASI Brain...
+[DubaiMatrixASI] 12:28:07.822    OMEGA │ ⚡ ⚡ DataEngine Background Worker: ONLINE
+[DubaiMatrixASI] 12:28:07.822     INFO │ [CORE] Sistemas de Percepção DataEngine [ONLINE]
+[DubaiMatrixASI] 12:28:07.844    OMEGA │ ⚡ 🛡️ TrinityCore Integrated Information (Φ) GATE: ENABLED
+[DubaiMatrixASI] 12:28:07.870    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 189 agentes ativos (Parallel Execution Enabled)
+[DubaiMatrixASI] 12:28:07.885     INFO │ 📂 Carregados 38 trades do histórico. WR=31.6%
+[DubaiMatrixASI] 12:28:07.890    OMEGA │ ⚡ 👻 [SHADOW ENGINE] V3 Ativo. 10 ghosts pendentes carregados.
+[DubaiMatrixASI] 12:28:07.891    OMEGA │ ⚡ 📡 Sentiment Scraper: ONLINE
+[DubaiMatrixASI] 12:28:07.892    OMEGA │ ⚡ ⛓️ On-Chain Scraper: ONLINE
+[DubaiMatrixASI] 12:28:07.893    OMEGA │ ⚡ 🌍 Macro Scraper: ONLINE
+[DubaiMatrixASI] 12:28:07.896    OMEGA │ ⚡ ⚡ 🌍 [PROJECT NEXUS] Scraper Cross-Asset INICIADO.
+[DubaiMatrixASI] 12:28:07.901    OMEGA │ ⚡ ☕ Java Enterprise PnLPredictor INICIADO (Daemon na porta 5556)
+[DubaiMatrixASI] 12:28:07.902    OMEGA │ ⚡ 🧠 Neural Swarm inicializado: 189 agentes ativos
+[DubaiMatrixASI] 12:28:07.903    OMEGA │ ⚡ 🧠 ASI BRAIN ONLINE — Todos os setores neurais ativados
+[DubaiMatrixASI] 12:28:07.904    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 53775)
+[DubaiMatrixASI] 12:28:07.905  WARNING │ ⚠️ Socket EA desconectado (Graceful Close).
+[DubaiMatrixASI] 12:28:07.906    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Motor de Mutações Iniciado. Avaliando DNA e auto-geração neural a cada 60s.
+[DubaiMatrixASI] 12:28:07.907     INFO │ 🏥 Health Check: {'connected': True, 'alive': True, 'symbol': 'BTCUSD', 'spread': 100, 'balance': 97369.23, 'equity': 97369.23, 'tick_buffer_size': 1, 'last_tick_ms': 1774636087021}
+[DubaiMatrixASI] 12:28:07.907    OMEGA │ ⚡ ⚡ WARMUP INICIADO — O DataEngine rodará em background para puxar e pre-calcular todo o histórico...
+[DubaiMatrixASI] 12:28:07.908    OMEGA │ ⚡ ⚡ CONSCIÊNCIA ATIVA — Entrando no loop principal
+[DubaiMatrixASI] 12:28:07.959    OMEGA │ ⚡ 🌊 REGIME CHANGE → DRIFTING_BEAR (conf=0.70)
+[DubaiMatrixASI] 12:28:08.005    OMEGA │ ⚡ 🧬 [GENETIC FORGE] Carregado! Operando com 2 Perfis de DNA.
+[DubaiMatrixASI] 12:28:08.006    OMEGA │ ⚡ 🦠 [GENESIS ENGINE] Desperto. Aguardando ciclos de entropia para mutação.
+[DubaiMatrixASI] 12:28:08.117    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 12:28:08.180     INFO │ ⚖️ NeuralSwarm: Baixa coerência detectada. Amplificando autoridade da Elite.
+[DubaiMatrixASI] 12:28:08.215    OMEGA │ ⚡ 🔍 [DEEP AUDIT] Sincronização inicial otimizada (7 dias).
+[DubaiMatrixASI] 12:28:08.360    DEBUG │ 📊 Trade Recorded: Pos#412787302 | P&L=$+28.22 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.392    DEBUG │ 📊 Trade Recorded: Pos#412787311 | P&L=$+19.73 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.406    DEBUG │ 📊 Trade Recorded: Pos#412787325 | P&L=$+20.70 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.439    DEBUG │ 📊 Trade Recorded: Pos#412787336 | P&L=$+12.67 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.453    DEBUG │ 📊 Trade Recorded: Pos#412789519 | P&L=$+40.95 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.463    DEBUG │ 📊 Trade Recorded: Pos#412789536 | P&L=$+42.48 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.498    DEBUG │ 📊 Trade Recorded: Pos#412789544 | P&L=$+56.95 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.532    DEBUG │ 📊 Trade Recorded: Pos#412789591 | P&L=$+59.15 | ✅ WIN
+[DubaiMatrixASI] 12:28:08.540  WARNING │ 🚨 ALERT [HIGH]: Win rate em 43.5% (threshold: 45.0%)
+[DubaiMatrixASI] 12:28:08.546    OMEGA │ ⚡ 🧠 REFLEXÃO CONCLUÍDA: 47 posições auditadas, 8 novos registros finalizados. P&L Líquido Total: $-2630.77
+[DubaiMatrixASI] 12:28:08.730     INFO │ 🛡️ [LOW PHI DRIFT] Incoherence detected (Φ=0.15). Hardening filters (2.5x) and requiring high coherence.
+[DubaiMatrixASI] 12:28:08.730     INFO │ 📈 MAKER_ADVANTAGE: Confidence requirement reduced by 10% (Floor: 0.62)
+[DubaiMatrixASI] 12:28:08.731     INFO │ ⚠️ [TREND ALIGNMENT] Counter-Trend detected (WAIT vs DRIFTING_BEAR). Applying moderate suppression.
+[DubaiMatrixASI] 12:28:08.732    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 34 (ID: GST_1774636088731) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:28:08.915     INFO │ 🌍 Macro Update: ETH=$1992.03 | BTC/ETH=33.2 | Gold=$4538 | Vol24h=$113.2B | Bias=+0.300 | Sources=3
+[DubaiMatrixASI] 12:28:08.934    OMEGA │ ⚡ ✅ Expert Advisor Conectado via Socket: ('127.0.0.1', 53814)
+[DubaiMatrixASI] 12:28:09.045    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 34_1 (ID: GST_1774636088963) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:28:09.868     INFO │ 📊 Sentiment Update: F&G=13 (Extreme Fear) | BTC Dom=56.0% | 24h=-4.16% | Score=-0.675 | Sources=2
+[DubaiMatrixASI] 12:28:09.977     INFO │ ⛓️ On-Chain Update: Mempool=37,452 txs | Fee=1.4 sat/vB | Health=0.80 | Sources=2
+[DubaiMatrixASI] 12:28:11.008     INFO │ 🛡️ VETO: DRIFT_COHERENCE_WEAK (Coherence=0.34 < 0.45 requirement in Drift/Low-Phi)
+[DubaiMatrixASI] 12:28:12.920     INFO │ 🌍 [NEXUS] Ativo correlacionado resolvido: GOLD -> XAUUSD
+[DubaiMatrixASI] 12:28:12.922     INFO │ 🌍 [NEXUS] Ativo correlacionado resolvido: NASDAQ -> US100.cash
+[DubaiMatrixASI] 12:28:12.924     INFO │ 🌍 [NEXUS] Ativo correlacionado resolvido: SP500 -> US500.cash
+[DubaiMatrixASI] 12:28:12.951     INFO │ 🌍 [NEXUS] Ativo correlacionado resolvido: ETH -> ETHUSD
+[DubaiMatrixASI] 12:28:14.561    OMEGA │ ⚡ ⚡ [Ω-SMS T2:STABILITY] Manifold Sovereignty active (Curv=0.70 | Vel=3.6 | Coh=0.43).
+[DubaiMatrixASI] 12:28:14.562     INFO │ ⚠️ [ECHO CHAMBER] Signal supported by only 0 domains. Raising conf threshold to 0.68
+[DubaiMatrixASI] 12:28:15.904     INFO │ 💫 Cycle #30 | Action=WAIT | Signal=+0.263 | Coherence=0.43 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: HARD_PHI_VETO (Φ=0.141 < 0.15)
+  🧬 Quantum: SIGNAL=+0.263 COHERENCE=0.43 PHI=0.14
+  🐂 BULL[1]: DarkMass
+  🐻 BEAR[2]: OrderBlockAgent, MeanFieldGame
+[DubaiMatrixASI] 12:28:16.160     INFO │ 🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var=0.00183) below threshold.
+[DubaiMatrixASI] 12:28:16.952    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 34_2 (ID: GST_1774636096920) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:28:23.543     INFO │ 💫 Cycle #60 | Action=WAIT | Signal=+0.188 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: HARD_PHI_VETO (Φ=0.143 < 0.15)
+  🧬 Quantum: SIGNAL=+0.188 COHERENCE=0.44 PHI=0.14
+  🐂 BULL[1]: DarkMass
+  🐻 BEAR[2]: OrderBlockAgent, MeanFieldGame
+[DubaiMatrixASI] 12:28:25.944    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] Iniciando Recombinação de DNA Neural...
+[DubaiMatrixASI] 12:28:25.973    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] 10,000 sub-agentes virtuais gerados em memória e testados contra histórico imediato.
+[DubaiMatrixASI] 12:28:26.977    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] 99.8% das topologias descartadas por fraqueza. Sobreviventes retidos. Recalibrando Dinâmica de Pesos...
+[DubaiMatrixASI] 12:28:27.093    OMEGA │ ⚡ 🧬 [DNA HOT-SWAP] Forja aplicou Otimização Evolutiva em Tempo Real: Threshold subiu p/ 0.158 | Min RR subiu p/ 1.32 | Agente SpoofHunter (Peso: 2.41)
+[DubaiMatrixASI] 12:28:27.406    OMEGA │ ⚡ 👑 [OMEGA SOVEREIGNTY] Oracle Consensus Override (Vidente/Nexus/Crash). Ignorando fricção estrutural.
+[DubaiMatrixASI] 12:28:28.303   SIGNAL │ 🌐 [NEXUS AGENT] Forte Colinearidade Macro detectada: Φ=+0.31
+[DubaiMatrixASI] 12:28:31.248     INFO │ 💫 Cycle #90 | Action=WAIT | Signal=+0.303 | Coherence=0.38 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.20)
+  🧬 Quantum: SIGNAL=+0.303 COHERENCE=0.38 PHI=0.20
+  🐂 BULL[24]: SRAgent, RogueWaveNLSE, HolographicEntanglement, HolographicMemory, NonBondedRepulsion, ChaosFractalDim, LiquidityGraph, NexusAgent, FourierSpectral, SpectralInformationFlux, EigenvectorCentrality, SingularSpectrumAnalysis, RandomMatrixTheory, DarkMatterGravity, QuantumDirectionalInference, RiemannianRicci, PriceGravityAgent, TBSAgent, PremiumDiscountAgent, CppFractalAgent, CandleAnatomyAgent, ICTAdvanced, MacroBiasAgent, FVGAgent
+  🐻 BEAR[2]: OrderBlockAgent, MeanFieldGame
+[DubaiMatrixASI] 12:28:38.756  WARNING │ 🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ=0.013 < 0.040 (Sig=-0.07)
+[DubaiMatrixASI] 12:28:38.757     INFO │ 💫 Cycle #120 | Action=WAIT | Signal=-0.071 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: SYNERGY_VETO (Φ=0.013)
+  🧬 Quantum: SIGNAL=-0.071 COHERENCE=0.44 PHI=0.01
+  🐂 BULL[2]: SRAgent, PriceGravityAgent
+  🐻 BEAR[2]: OrderBlockAgent, MeanFieldGame
+[DubaiMatrixASI] 12:28:39.180    OMEGA │ ⚡ 🌍 [NEXUS RESONANCE] Força Macroeconômica Φ=+0.41 | Mutações Visíveis: 
+[DubaiMatrixASI] 12:28:46.332     INFO │ 💫 Cycle #150 | Action=WAIT | Signal=+0.406 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.20)
+  🧬 Quantum: SIGNAL=+0.406 COHERENCE=0.34 PHI=0.20
+  🐂 BULL[25]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, LiquidationVacuumAgent, SRAgent, HolographicEntanglement, HolographicMemory, ChaosFractalDim, LiquidityGraph, NexusAgent, FourierSpectral, SpectralInformationFlux, SingularSpectrumAnalysis, KripkeSemantics, DarkMatterGravity, RiemannianRicci, FeynmanPath, TBSAgent, PremiumDiscountAgent, HarmonicResonanceAgent, CppFractalAgent, ICTAdvanced, MacroBiasAgent, FVGAgent, CandleAnatomyAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:28:49.130    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 12:28:53.925     INFO │ 💫 Cycle #180 | Action=WAIT | Signal=+0.023 | Coherence=0.44 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: SUPERPOSITION (agentes não convergiram)
+  🧬 Quantum: SIGNAL=+0.023 COHERENCE=0.44 PHI=0.06
+  🐂 BULL[4]: RogueWaveNLSE, PriceGravityAgent, LiquidationVacuumAgent, SRAgent
+  🐻 BEAR[2]: OrderBlockAgent, MeanFieldGame
+[DubaiMatrixASI] 12:28:58.342   SIGNAL │ 🌐 [NEXUS AGENT] Forte Colinearidade Macro detectada: Φ=+0.35
+[DubaiMatrixASI] 12:29:01.526     INFO │ 💫 Cycle #210 | Action=WAIT | Signal=+0.426 | Coherence=0.32 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: HARD_PHI_VETO (Φ=0.146 < 0.15)
+  🧬 Quantum: SIGNAL=+0.426 COHERENCE=0.32 PHI=0.15
+  🐂 BULL[4]: CrossScaleConvergenceAgent, DarkMass, SRAgent, PriceGravityAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:08.288    DEBUG │ 🧠 [EPISTEMIC MEMORY] Condição Tóxica detectada. Veto Sugerido.
+[DubaiMatrixASI] 12:29:08.871     INFO │ 🛡️ [LOW PHI DRIFT] Incoherence detected (Φ=0.15). Hardening filters (2.5x) and requiring high coherence.
+[DubaiMatrixASI] 12:29:08.872     INFO │ ⚠️ [TREND ALIGNMENT] Counter-Trend detected (WAIT vs DRIFTING_BEAR). Applying moderate suppression.
+[DubaiMatrixASI] 12:29:08.904    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 35 (ID: GST_1774636148877) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:29:09.114    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 35_1 (ID: GST_1774636149099) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:29:09.115     INFO │ 💫 Cycle #240 | Action=WAIT | Signal=+0.360 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: HARD_PHI_VETO (Φ=0.075 < 0.15)
+  🧬 Quantum: SIGNAL=+0.360 COHERENCE=0.34 PHI=0.07
+  🐂 BULL[20]: DarkMass, SRAgent, RogueWaveNLSE, HolographicEntanglement, HolographicMemory, ChaosFractalDim, LiquidityGraph, FourierSpectral, SpectralInformationFlux, SingularSpectrumAnalysis, RandomMatrixTheory, DarkMatterGravity, RiemannianRicci, PriceGravityAgent, TBSAgent, PremiumDiscountAgent, CppFractalAgent, ICTAdvanced, MacroBiasAgent, FVGAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:09.530    OMEGA │ ⚡ 🌍 [NEXUS RESONANCE] Força Macroeconômica Φ=-0.99 | Mutações Visíveis: GOLD 📉
+[DubaiMatrixASI] 12:29:11.861    OMEGA │ ⚡ 🔮 [JAVA PnL PREDICTOR] IMPOSSIBLE:NEGATIVE_EXPECTANCY|SR:0,0000|EV:-57,1907
+[DubaiMatrixASI] 12:29:12.864    OMEGA │ ⚡ 👻 [SHADOW REGISTRY] Ghost 35_2 (ID: GST_1774636152862) criado no ciclo CYC006_20260327.
+[DubaiMatrixASI] 12:29:16.377     INFO │ 🧠 [Ω-ENTROPY BRIDGE] Authorizing stable signal (Var=0.00001) below threshold.
+[DubaiMatrixASI] 12:29:16.966     INFO │ 💫 Cycle #270 | Action=WAIT | Signal=+0.363 | Coherence=0.35 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: HARD_PHI_VETO (Φ=0.134 < 0.15)
+  🧬 Quantum: SIGNAL=+0.363 COHERENCE=0.35 PHI=0.13
+  🐂 BULL[21]: DarkMass, SRAgent, PheromoneFieldAgent, RogueWaveNLSE, HolographicEntanglement, HolographicMemory, ChaosFractalDim, LiquidityGraph, FourierSpectral, SpectralInformationFlux, SingularSpectrumAnalysis, RandomMatrixTheory, DarkMatterGravity, RiemannianRicci, PriceGravityAgent, TBSAgent, PremiumDiscountAgent, CppFractalAgent, ICTAdvanced, MacroBiasAgent, FVGAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:24.596     INFO │ 💫 Cycle #300 | Action=WAIT | Signal=+0.415 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.13)
+  🧬 Quantum: SIGNAL=+0.415 COHERENCE=0.33 PHI=0.13
+  🐂 BULL[6]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, LiquidationVacuumAgent, QuantumSpin, SRAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:27.101    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] Iniciando Recombinação de DNA Neural...
+[DubaiMatrixASI] 12:29:27.105    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] 10,000 sub-agentes virtuais gerados em memória e testados contra histórico imediato.
+[DubaiMatrixASI] 12:29:27.570    OMEGA │ ⚡ 👑 [OMEGA SOVEREIGNTY] Oracle Consensus Override (Vidente/Nexus/Crash). Ignorando fricção estrutural.
+[DubaiMatrixASI] 12:29:28.112    OMEGA │ ⚡ 🧬 [GENESIS ENGINE] 99.8% das topologias descartadas por fraqueza. Sobreviventes retidos. Recalibrando Dinâmica de Pesos...
+[DubaiMatrixASI] 12:29:28.143    OMEGA │ ⚡ 🧬 [DNA HOT-SWAP] Forja aplicou Otimização Evolutiva em Tempo Real: Threshold subiu p/ 0.165 | Min RR subiu p/ 1.45
+[DubaiMatrixASI] 12:29:28.990   SIGNAL │ 🌐 [NEXUS AGENT] Forte Colinearidade Macro detectada: Φ=+0.41
+[DubaiMatrixASI] 12:29:32.258     INFO │ 💫 Cycle #330 | Action=WAIT | Signal=+0.395 | Coherence=0.35 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.22)
+  🧬 Quantum: SIGNAL=+0.395 COHERENCE=0.35 PHI=0.22
+  🐂 BULL[6]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, QuantumSpin, LiquidationVacuumAgent, SRAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:35.659    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774635917037 (31_3) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 12:29:35.661    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774635926041 (31_4) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 12:29:39.796    OMEGA │ ⚡ 🌍 [NEXUS RESONANCE] Força Macroeconômica Φ=-0.67 | Mutações Visíveis: GOLD 📉
+[DubaiMatrixASI] 12:29:40.173     INFO │ 💫 Cycle #360 | Action=WAIT | Signal=+0.418 | Coherence=0.33 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.21)
+  🧬 Quantum: SIGNAL=+0.418 COHERENCE=0.33 PHI=0.21
+  🐂 BULL[6]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, LiquidationVacuumAgent, QuantumSpin, SRAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:47.894     INFO │ 💫 Cycle #390 | Action=WAIT | Signal=+0.397 | Coherence=0.34 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.22)
+  🧬 Quantum: SIGNAL=+0.397 COHERENCE=0.34 PHI=0.22
+  🐂 BULL[28]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, QuantumSpin, LiquidationVacuumAgent, SRAgent, QuantumEntanglement, HolographicEntanglement, HolographicMemory, ChaosFractalDim, LiquidityGraph, FourierSpectral, SpectralInformationFlux, SingularSpectrumAnalysis, SolitonWave, KripkeSemantics, DarkMatterGravity, RiemannianRicci, CppTickEntropyAgent, TBSAgent, PremiumDiscountAgent, VolumeAgent, HarmonicResonanceAgent, CppFractalAgent, LiquidityHeatmapAgent, ICTAdvanced, MacroBiasAgent, FVGAgent
+  🐻 BEAR[1]: MeanFieldGame
+[DubaiMatrixASI] 12:29:52.089    OMEGA │ ⚡ 👻 [SHADOW AUDIT] 🛡️ Ghost GST_1774635961434 (32_1) movido para TRUE_NEGATIVE.
+[DubaiMatrixASI] 12:29:52.866    OMEGA │ ⚡ 🌌 [Ω-SR ABOLITION] Support/Resistance abolished by Quantum Wave Collapse (QDir=-1.00).
+[DubaiMatrixASI] 12:29:56.087     INFO │ 💫 Cycle #420 | Action=WAIT | Signal=+0.392 | Coherence=0.35 | Regime=DRIFTING_BEAR | TotalThink=0.0ms | P&L=$-2630.77
+  🎯 Reason: WAIT: ABSOLUTE_TREND_JAIL: Counter-trend forbidden in DRIFTING_BEAR unless Φ > 0.45 (Got 0.24)
+  🧬 Quantum: SIGNAL=+0.392 COHERENCE=0.35 PHI=0.24
+  🐂 BULL[6]: CrossScaleConvergenceAgent, RogueWaveNLSE, PriceGravityAgent, QuantumSpin, LiquidationVacuumAgent, SRAgent
+  🐻 BEAR[1]: MeanFieldGame

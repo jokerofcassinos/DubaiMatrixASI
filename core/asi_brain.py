@@ -98,8 +98,15 @@ class ASIBrain:
             # Anti-Metralhadora: Impedir reentrada imediata na mesma direção
             # O result contém o ticket e o close_price.
             # A direção vem originalmente do strike. No MT5 Bridge, close_position injeta o profit.
-            # [Phase 52] Precisamos saber se era BUY ou SELL para o bloqueio.
+            # [Phase 25] State sync for Post-Trade Reversal Lock
             direction = result.get("direction", "UNKNOWN")
+            profit = result.get("profit", 0.0)
+            
+            if direction != "UNKNOWN" and profit > 0:
+                self.trinity_core._last_profitable_close_time = time.time()
+                self.trinity_core._last_profitable_close_dir = direction
+                log.omega(f"🔒 [PROFIT LOCK] Win detected ({direction}). Locking reversal for 60s.")
+
             if direction != "UNKNOWN":
                 self.sniper._post_close_direction = direction
                 self.sniper._post_close_candle_count = 0

@@ -99,9 +99,12 @@ class PositionManager:
                 continue
 
             is_buy = (p_type == "BUY")
-            # [Phase Ω-Resilience] Bucket de 1 segundo para agrupar disparos HFT (Reduzido de 5s para Precisão)
-            # Evita que slots de um mesmo strike fiquem órfãos por lag do broker.
-            group_key = (p_symbol, p_type, int(p_time))
+            # [Phase 14] Batch Aggregation Fix
+            # O CEO apontou que se houver 2 posições de tempos diferentes, a mais antiga atinge o TS
+            # e fecha o lote inteiro (close_batch), prejudicando a posição mais nova que não pagou comissão.
+            # Solução: As posições da mesma direção devem ser unificadas em um único 'strike', somando o lucro 
+            # e calculando a comissão sobre o lote total.
+            group_key = (p_symbol, p_type)
             
             # Chama a monitoração topológica de perdas em background (Wormhole Risk Router)
             self.wormhole_router.monitor_event_horizon(pos)
@@ -117,6 +120,11 @@ class PositionManager:
                     "symbol": p_symbol,
                     "lot_total": 0.0
                 }
+            
+            # Atualiza o tempo/preço âncora para o MAIS RECENTE
+            if p_time > groups[group_key]["time"]:
+                groups[group_key]["time"] = p_time
+                groups[group_key]["entry_price"] = p_open
             
             groups[group_key]["tickets"].append(pos)
             groups[group_key]["total_profit"] += p_profit
@@ -450,16 +458,14 @@ class PositionManager:
                 self._close_with_notify(ticket, direction)
 
     def _manage_pending_orders(self, current_price: float, atr: float):
-        """Cancela ordens pendentes que não foram executadas e expiraram ou estão fora de preço (Phase Ω-Apocalypse)."""
+        """[Phase 22] Cancela ordens pendentes que expiraram (60s) ou estão fora de preço."""
         pending = self.bridge.get_pending_orders()
         if not pending:
             return
 
-        # [Ω-RESILIENCE] Obter tempo do servidor para comparar com o tempo da ordem (Broker Time vs Broker Time)
-        # O tick do socket retorna time.time() (local), o que quebra a comparação com o.time_setup (server).
-        # Precisamos forçar a leitura do tempo do terminal via API nativa se possível.
+        # [Phase 22] Tempo do servidor para comparação precisa
         import MetaTrader5 as mt5
-        now_server = time.time() # Fallback local
+        now_server = time.time()
         
         if self.bridge.connected and mt5 is not None:
             last_tick = mt5.symbol_info_tick(self.bridge.symbol)
@@ -468,34 +474,36 @@ class PositionManager:
         
         for order in pending:
             ticket = order.get('ticket')
+            if not ticket:
+                continue
             
-            # [Ω-FILTER] Apenas ordens deste bot (Sovereignty Check)
+            # [Ω-FILTER] Apenas ordens deste bot
             if order.get('magic') != MAGIC_NUMBER:
                 continue
                 
             setup_time = order.get('time', now_server)
             order_price = order.get('price', 0.0)
-
-            # GC 1: Tempo de Vida (60s Cooldown - Solicitado pelo CEO)
-            # Se now_server < setup_time (fuso horário bizarro), age será negativo, e não cancela.
-            # Se a diferença for muito grande, assumimos que é válida.
             age = now_server - setup_time
             
-            # [Fix Timezone] Se a idade for negativa (Server Time vs Local Time mismatch extremo no fallback),
-            # tentamos usar o time.time() local vs time local estimado.
-            # Mas como mudamos now_server para ser Broker Time, isso deve resolver.
+            # [Phase 22 Fix] Se age é negativo (timezone mismatch), recalcular com local time
+            if age < 0:
+                age = time.time() - setup_time
             
-            is_stale = (age > 60)
-            
-            # GC 2: Slippage Residual (Preço fugiu mais de 1.5 ATR)
-            price_runaway = (abs(current_price - order_price) > atr * 1.5) if (atr > 0 and order_price > 0) else False
-
+            # GC 1: UNCONDITIONAL 60s TTL — CEO Directive
+            # Qualquer limit que não preencheu em 60s está morto. Sem exceção.
             if age > 60:
-                if is_stale or price_runaway:
-                    if ticket:
-                        reason = "STALE" if is_stale else f"RUNAWAY({abs(current_price-order_price):.1f} pts)"
-                        log.omega(f"🧹 GC: Cancelando ordem LIMIT #{ticket} - Reason: {reason} | Age: {age:.1f}s")
-                        self.bridge.cancel_pending_order(ticket)
+                reason = f"TTL_EXPIRED (Age={age:.0f}s)"
+                log.omega(f"🧹 GC: Cancelando LIMIT #{ticket} - {reason}")
+                self.bridge.cancel_pending_order(ticket)
+                continue
+            
+            # GC 2: Early Kill — Preço fugiu 0.5 ATR (oportunidade perdida)
+            if atr > 0 and order_price > 0:
+                price_dist = abs(current_price - order_price)
+                if price_dist > atr * 0.5:
+                    reason = f"PRICE_RUNAWAY ({price_dist:.1f}pts > {atr*0.5:.1f}pts)"
+                    log.omega(f"🧹 GC: Cancelando LIMIT #{ticket} - {reason} | Age={age:.0f}s")
+                    self.bridge.cancel_pending_order(ticket)
     def _cleanup_tracking(self, current_tickets: List[int]):
         """Remove estados de tickets que não existem mais e detecta fechamentos automáticos (TP/SL)."""
         closed = [t for t in list(self._positions_state.keys()) 

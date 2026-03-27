@@ -324,26 +324,27 @@ class QuantumThoughtEngine:
                         s.reasoning += f" [!STRUCTURAL DIVERGENCE DAMPENED ({damp_factor})!]"
 
         # ═══ [OMEGA INJECTION] PHASE 33: ADAPTIVE ELASTIC SNAPBACK VETO (Multi-Agent Strain) ═══
-        # Proteção contra vender no fundo absoluto da corda esticada ou comprar no topo exausto.
-        # Mede a tensão elástica combinada de agentes de anomalia, reversão e estrutura.
-        # Se pelo menos 2 agentes do núcleo de estrutura/reversão acendem o alarme (Mesmo que fraco > 0.3),
-        # a tensão do elástico é massiva e o Momentum será asfixiado.
-        snap_bull_agents = sum(1 for s in valid_signals if s.agent_name in ["StatisticalAgent", "PriceGravityAgent", "CandleAnatomyAgent", "PremiumDiscountAgent"] and s.signal > 0.3)
-        snap_bear_agents = sum(1 for s in valid_signals if s.agent_name in ["StatisticalAgent", "PriceGravityAgent", "CandleAnatomyAgent", "PremiumDiscountAgent"] and s.signal < -0.3)
+        # [PHASE 24 FIX]: Skip snapback crushing when regime is BEARISH (let them trend!)
+        is_bear_regime = "BEAR" in snapshot.metadata.get("regime", "") if snapshot else False
+        is_bull_regime = "BULL" in snapshot.metadata.get("regime", "") if snapshot else False
 
-        if snap_bull_agents >= 2:
-            for s in valid_signals:
-                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "MicrostructureAgent", "OscillationWaveAgent"]:
-                    if s.signal < -0.3:  # Tentativa de vender na inércia com o elástico trincando
-                        s.weight *= 0.1  # Esmagamento de 90% da autoridade do momentum
-                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Multi-Agent Strain Up)!]"
+        elastic_agents = ["StatisticalAgent", "PriceGravityAgent", "CandleAnatomyAgent", "PremiumDiscountAgent", "PredictiveVidenteAgent", "DarkMassAgent", "LiquidStateAgent"]
+        snap_bull_agents = sum(1 for s in valid_signals if s.agent_name in elastic_agents and s.signal > 0.3)
+        snap_bear_agents = sum(1 for s in valid_signals if s.agent_name in elastic_agents and s.signal < -0.3)
 
-        if snap_bear_agents >= 2:
+        if snap_bull_agents >= 2 and not is_bear_regime:
             for s in valid_signals:
-                if s.agent_name in ["TrendAgent", "MomentumAgent", "PriceVelocityAgent", "MicrostructureAgent", "OscillationWaveAgent"]:
-                    if s.signal > 0.3:   # Tentativa de comprar na inércia com o elástico trincando
-                        s.weight *= 0.1  # Esmagamento de 90% da autoridade do momentum
-                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Multi-Agent Strain Down)!]"
+                if s.signal < -0.1:  # Tentativa de vender no fundo esticado
+                    if s.agent_name not in ["OrderBlockAgent", "LiquidityHeatmapAgent", "SRAgent"]: # Preserve only structural overhead resistances
+                        s.weight *= 0.05  # Esmagamento de 95% da autoridade de QUALQUER agente vendedor de inércia
+                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Selling the Bottom Crushed)!]"
+
+        if snap_bear_agents >= 2 and not is_bull_regime:
+            for s in valid_signals:
+                if s.signal > 0.1:   # Tentativa de comprar no topo esticado
+                    if s.agent_name not in ["OrderBlockAgent", "LiquidityHeatmapAgent", "SRAgent"]: # Preserve only structural underlying supports
+                        s.weight *= 0.05  # Esmagamento de 95% da autoridade de QUALQUER agente comprador de inércia
+                        s.reasoning += " [!TRAP_VETO: ELASTIC SNAPBACK (Buying the Top Crushed)!]"
 
         # ═══ [OMEGA INJECTION] PHASE 32: DEAD CAT BOUNCE / COUNTER-TREND VETO ═══
         # Impede a ASI de comprar o repique em uma tendência de baixa (Dead Cat Bounce)
@@ -430,7 +431,9 @@ class QuantumThoughtEngine:
         rev_agents = ["OrderBlockAgent", "PriceGravityAgent", "LiquidStateAgent", "LiquidationVacuumAgent"]
         bullish_reversal_intensity = np.mean([s.signal for s in valid_signals if s.agent_name in rev_agents])
         
-        if bullish_reversal_intensity > 0.4:
+        # ═══ [OMEGA INJECTION] PHASE 52: ANTI-BEAR TRAP PROTECTION ═══
+        # [PHASE 24 FIX]: Only apply trap protection if NOT in a bearish drift/trend
+        if bullish_reversal_intensity > 0.4 and not is_bear_regime:
             for s in valid_signals:
                 if s.agent_name in ["TrendAgent", "BOSAgent", "PressureMatrix", "MomentumAgent"]:
                     if s.signal < -0.1:
@@ -600,15 +603,19 @@ class QuantumThoughtEngine:
         # Decision vector (para análise multidimensional)
         decision_vector = np.array([s.weighted_signal for s in valid_signals])
 
-        # ═══ [PHASE 52] METADATA COLLECTION ═══
-        # Capturamos os contribuidores de elite (peso * sinal)
+        # ═══ [PHASE 52/13] METADATA COLLECTION & ECHO CHAMBER FIX ═══
+        # We only count agents with meaningful weight (alive) towards consensus
+        # This prevents mathematically crushed agents (weight < 0.15) from
+        # artificially inflating the "bear_ratio" or "bull_ratio" in TrinityCore.
+        alive_signals = [s for s in valid_signals if s.weight >= 0.15]
+        
         sorted_bull = sorted(
-            [s for s in valid_signals if s.signal > 0], 
+            [s for s in alive_signals if s.signal > 0], 
             key=lambda x: x.weight * x.signal, 
             reverse=True
         )
         sorted_bear = sorted(
-            [s for s in valid_signals if s.signal < 0], 
+            [s for s in alive_signals if s.signal < 0], 
             key=lambda x: x.weight * abs(x.signal), 
             reverse=True
         )

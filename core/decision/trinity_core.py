@@ -25,6 +25,7 @@ from execution.quantum_tunneling_execution import QuantumTunnelingExecution
 from utils.logger import log
 from utils.decorators import timed, catch_and_log, ast_self_heal
 from utils.time_tools import TimeEngine
+from core.evolution.biological_immunity import TCellImmunitySystem
 
 
 class Action(Enum):
@@ -73,7 +74,6 @@ class TrinityCore:
         self._execute_count = 0
         self.monte_carlo = QuantumMonteCarloEngine()
         self._creation_time = time.time()
-        self._startup_timestamp = time.time() # [PHASE Ω-RESILIENCE] Cold Start Guard
         
         # [PHASE Ω-ANTI-FRAGILITY] Ping-Pong State
         self.last_decision = None
@@ -94,6 +94,13 @@ class TrinityCore:
         self.last_decision_bypassed = False  # [Phase Ω-PhD-5] Track if stale regime was bypassed
         self._last_kl_shift_time = 0.0      # [Phase Ω-PhD-14] Track recent paradigm shifts
         self.is_sov_aligned = False         # [Phase Ω-PRO] Omega Sovereignty flag
+        
+        self._last_profitable_close_time = 0.0
+        self._last_profitable_close_dir = None
+        
+        # [PHASE Ω-STRICT] Canonical Initialization (Lint Fix)
+        self.kinetic_exhaustion = False
+        self.t_cell = TCellImmunitySystem()
 
     @ast_self_heal
     @catch_and_log(default_return=None)
@@ -211,6 +218,30 @@ class TrinityCore:
         elif is_sre_candidate:
              reason = "ESTABLISHED_TREND" if not is_uncertain_regime else f"TOPOLOGICAL_STRETCH({dist_from_mean:.1f}xATR)"
              log.warning(f"🛡️ [SRE SHIELD] Inversion blocked: {reason}. Signal integrity preserved.")
+
+        # [Phase Ω-UMRSI] Universal Multi-Regime Signal Inversion
+        # Expandimos a lógica de inversão para TODOS os regimes onde o preço está exaurido.
+        # Se o enxame insiste em BUY no topo (dist > 0.8) ou SELL no fundo (dist < -0.8) de QUALQUER regime, invertemos.
+        
+        # Thresholds dinâmicos: Regimes de tendência (BULL/BEAR) exigem exaustão maior (1.2) que Drifts (0.8)
+        is_trend_regime = "BULL" in regime_state.current.value or "BEAR" in regime_state.current.value
+        exhaustion_threshold = 1.2 if is_trend_regime else 0.8
+        
+        # Inversão Universal (BUY -> SELL na Exaustão Superior)
+        if signal > 0.3 and dist_from_mean > exhaustion_threshold:
+            signal = -abs(signal)
+            is_tec_sovereign = True
+            confidence = 0.95
+            strike_flag += f" | [Ω-UMRSI: INVERTED BUY->SELL ({regime_state.current.value})]"
+            log.omega(f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping BUY to SELL in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR)")
+        
+        # Inversão Universal (SELL -> BUY na Exaustão Inferior)
+        elif signal < -0.3 and dist_from_mean < -exhaustion_threshold:
+            signal = abs(signal)
+            is_tec_sovereign = True
+            confidence = 0.95
+            strike_flag += f" | [Ω-UMRSI: INVERTED SELL->BUY ({regime_state.current.value})]"
+            log.omega(f"🪞 [Ω-UMRSI] Universal Inversion Active: Flipping SELL to BUY in {regime_state.current.value} (Price Exhausted: {dist_from_mean:.2f}xATR)")
             
         if is_evh:
             is_tec_sovereign = True
@@ -223,20 +254,8 @@ class TrinityCore:
         if veto_reason:
             return self._wait(veto_reason)
         
-        # [PHASE Ω-RESILIENCE] Cold Start Cooldown (120s)
-        elapsed = time.time() - self._startup_timestamp
-        cooldown_period = OMEGA.get("cold_start_cooldown_seconds", 120.0)
-        
-        # OMEGA SOVEREIGNTY EXPERIMENTAL BYPASS
-        v_sig_cold = next((s.signal for s in (getattr(quantum_state, 'agent_signals', []) or []) if s.agent_name == "PredictiveVidenteAgent"), 0.0)
-        n_sig_cold = next((s.signal for s in (getattr(quantum_state, 'agent_signals', []) or []) if s.agent_name == "NexusAgent"), 0.0)
-        is_sovereign_cold = (abs(v_sig_cold) > 0.85) or (abs(n_sig_cold) > 0.35 and v_sig_cold * n_sig_cold > 0)
-        
-        if elapsed < cooldown_period and not is_sovereign_cold:
-            if time.time() - self._log_cache.get("cold_start", 0) > 30:
-                log.info(f"⏳ [COLD START COOLDOWN] Syncing conscience: {elapsed:.1f}s / {cooldown_period}s remaining.")
-                self._log_cache["cold_start"] = time.time()
-            return self._wait(f"COLD_START_SYNC_VETO ({int(cooldown_period - elapsed)}s left)")
+        # [PHASE Ω-RESILIENCE] Cold Start Cooldown (REMOVED: CEO DIRECTIVE)
+        pass
 
         # [PHASE Ω-RESILIENCE] Stale Snapshot Veto (Latency Protection)
         # If the think cycle took too long (like the 28s startup delay), the snapshot is stale.
@@ -461,8 +480,6 @@ class TrinityCore:
                     k_floor *= 0.5 # Relaxa 50% para capturar explosões iniciais
                     
                 if tick_vel < k_floor:
-                    # [Phase Ω-PhD-5] Ignition Sovereignty: Lethal V-Pulse, TEC or high Phi overrides kinetic floor
-                    # [Phase Ω-PhD-7] Geodesic Sovereignty: Fluxo laminar ignora floor cinemático
                     # [Phase Ω-Extreme] Stable Convergence (Bridge) overrides floor with minimal Phi
                     # [Ω-PhD-Topological] TEC_SOVEREIGNTY ignore exaustão (Colapso de entropia é prova absoluta)
                     is_braided = any((getattr(s, 'metadata', {}) or {}).get("is_braided") for s in agent_signals if s.agent_name == "TopologicalBraiding")
@@ -840,13 +857,13 @@ class TrinityCore:
             # ═══════════════════════════════════════════════════
             # Se a velocidade é violenta na direção do sinal, relaxamos Φ
             # para capturar a singularidade antes que a estrutura se forme.
-            tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
-            is_high_energy_surge = (signal > 0.35 and tick_vel > 15.0) or (signal < -0.35 and tick_vel < -15.0)
+            price_vel = snapshot.metadata.get("price_velocity", 0.0)
+            is_high_energy_surge = (signal > 0.35 and price_vel > 15.0) or (signal < -0.35 and price_vel < -15.0)
             
             if is_high_energy_surge:
                 # [Phase Ω-Singularity] Capture the burst
                 has_exhaustion_sovereignty = True # Reaproveita o bypass de Veto
-                self._log_cooldown("BURST_IGNITION", f"🔥 [BURST IGNITION] High velocity detected ({tick_vel:.1f}). Bypassing structural gates.", 30, level="omega")
+                self._log_cooldown("BURST_IGNITION", f"🔥 [BURST IGNITION] High directional velocity detected ({price_vel:.1f}). Bypassing structural gates.", 30, level="omega")
 
         # 1. Dynamic Signal Penalization for Counter-Trend
         if tentative_is_counter and not (is_breakdown or is_lethal_ignition or has_exhaustion_sovereignty or is_tec_sovereign):
@@ -856,20 +873,20 @@ class TrinityCore:
             self._log_cooldown("TREND_PENALTY", f"⚠️ [TREND ALIGNMENT] Counter-Trend detected ({action.name} vs {regime_state.current.value}). Applying moderate suppression.", 60)
 
         # ═══ [Ω-KINETIC CONFLICT GUARD & SOROS REFLEXIVITY ENGINE (Phase 6.0)] ═══
-        # Se a velocidade instantânea (tick_velocity) está forte no sentido oposto ao sinal,
+        # Se a velocidade direcional (price_velocity) está forte no sentido oposto ao sinal,
         # vetamos a entrada para evitar "correr contra a locomotiva"...
         # A MENOS QUE... A velocidade seja TÃO ABSURDA que seja uma Liquidation Cascade / Squeeze.
-        tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
+        price_vel = snapshot.metadata.get("price_velocity", 0.0)
         # Threshold de conflito cinemático (12.0)
         k_conflict_thresh = OMEGA.get("kinetic_conflict_threshold", 12.0)
         
         if not is_god_mode and not is_tec_sovereign:
             # SRE Activation: Velocity > 45 in the opposite direction of a reasonably strong consensus
-            is_soros_squeeze_bull = (signal < -0.3) and (tick_vel > 45.0)  # Bear consensus getting absolutely destroyed
-            is_soros_squeeze_bear = (signal > 0.3) and (tick_vel < -45.0)  # Bull consensus getting absolutely destroyed
+            is_soros_squeeze_bull = (signal < -0.3) and (price_vel > 45.0)  # Bear consensus getting absolutely destroyed
+            is_soros_squeeze_bear = (signal > 0.3) and (price_vel < -45.0)  # Bull consensus getting absolutely destroyed
             
             if is_soros_squeeze_bull or is_soros_squeeze_bear:
-                self._log_cooldown("SOROS_REFLEXIVITY", f"🌌 [SOROS REFLEXIVITY ENGINE] Liquidation cascade inverted. Signal={signal:.2f}, Vel={tick_vel:.1f}. Firing parasitic strike.", 60, level="omega")
+                self._log_cooldown("SOROS_REFLEXIVITY", f"🌌 [SOROS REFLEXIVITY ENGINE] Liquidation cascade inverted. Signal={signal:.2f}, Vel={price_vel:.1f}. Firing parasitic strike.", 60, level="omega")
                 # Flip the signal to hunt the cascade
                 signal = 1.0 if is_soros_squeeze_bull else -1.0
                 confidence = 0.99
@@ -879,8 +896,8 @@ class TrinityCore:
                 # Invalidate trend penalty
                 tentative_is_counter = False
             
-            elif (signal > 0 and tick_vel < -k_conflict_thresh) or (signal < 0 and tick_vel > k_conflict_thresh):
-                self._log_cooldown("KINETIC_CONFLICT", f"🛡️ VETO: KINETIC_CONFLICT (Signal={np.sign(signal)} vs Vel={tick_vel:+.1f}).", 30)
+            elif (signal > 0 and price_vel < -k_conflict_thresh) or (signal < 0 and price_vel > k_conflict_thresh):
+                self._log_cooldown("KINETIC_CONFLICT", f"🛡️ VETO: KINETIC_CONFLICT (Signal={np.sign(signal)} vs Vel={price_vel:+.1f}).", 30)
                 return self._wait("KINETIC_CONFLICT_VETO")
 
         # 2. Hard Veto for Weak Counter-Trend
@@ -924,24 +941,36 @@ class TrinityCore:
             phi_min_counter *= ign_mult
             sig_min_counter *= ign_mult
             
-            # OMEGA PROTOCOL: Absolute bypass of counter-trend veto if ignition is detected
+            # [Phase Ω-HARDENING] Sovereignty no longer zeroess out filters
             if is_omega_ignition:
-                 phi_min_counter = 0.0
-                 sig_min_counter = 0.0
+                 phi_min_counter = max(0.12, phi_min_counter * 0.5) # Reduced floor instead of 0.0
+                 sig_min_counter = max(0.20, sig_min_counter * 0.5)
+
+            # [Phase Ω-STRICT] Hard Synergy Floor: Nothing bypasses 0.12 (Base) or 0.15 (Strict)
+            hard_phi_floor = OMEGA.get("hard_phi_floor", 0.15)
+            if phi < hard_phi_floor and not (is_tec_sovereign and phi > 0.10):
+                return self._wait(f"HARD_PHI_VETO (Φ={phi:.3f} < {hard_phi_floor:.2f})")
+
+            # [Phase Ω-TREND_JAIL] Absolute Trend Enforcement
+            # Counter-trend trades are strictly forbidden unless Phi is extreme (>0.45)
+            # This is a non-bypassable sentinel.
+            if tentative_is_counter and not (is_tec_sovereign and phi > 0.40):
+                 if phi < 0.45:
+                      return self._wait(f"ABSOLUTE_TREND_JAIL: Counter-trend forbidden in {regime_state.current.value} unless Φ > 0.45 (Got {phi:.2f})")
 
             if not (is_tec_sovereign or is_omega_ignition or is_ricci_singularity or is_repulsion_sovereign or self.is_sov_aligned) and (phi < phi_min_counter or abs(signal) < sig_min_counter):
                 return self._wait(f"TREND_PROTECTION_VETO (Requires Φ>{phi_min_counter:.2f} & Sig>{sig_min_counter:.2f} to fade {regime_state.current.value})")
 
             # [Phase Ω-Stochastic] MOMENTUM CONTINUITY CHECK
-            # Se vamos contra a maré, a inércia imediata (tick_velocity) JÁ DEVE ter virado.
+            # Se vamos contra a maré, a inércia imediata (price_velocity) JÁ DEVE ter virado.
             # Não tentamos 'adivinhar' o topo; esperamos a primeira martelada de volta.
-            tick_velocity = snapshot.metadata.get("tick_velocity", 0.0)
+            price_velocity = snapshot.metadata.get("price_velocity", 0.0)
             
             # [Phase 73] Ignition Sovereignty: Se houver ignição letal, EXAUSTÃO, BREAKDOWN ou TEC, ignoramos o veto de continuidade
             if is_lethal_ignition or is_breakdown or has_exhaustion_sovereignty or is_tec_sovereign:
                 pass
-            elif (signal > 0 and tick_velocity < -12.0) or (signal < 0 and tick_velocity > 12.0):
-                 return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate tick inertia)")
+            elif (signal > 0 and price_velocity < -5.0) or (signal < 0 and price_velocity > 5.0):
+                 return self._wait(f"MOMENTUM_CONTINUITY_VETO (Action direction contradicts immediate price inertia)")
 
         # [Phase Ω-PhD-6] Singularity Resonance Bypass: Handled at start of decide()
         # is_tec_sovereign logic removed here to avoid duplication
@@ -1010,12 +1039,42 @@ class TrinityCore:
             elif signal < 0: action = Action.SELL
             
         # If we reach here, we have an Action (either from God-Mode, normal flow, or TEC)
-        # [Phase Ω-Mirror] CEO Override: Mirror Protocol
-        if OMEGA.get("mirror_protocol_enabled", 0.0) >= 0.5 and action != Action.WAIT:
-            if "CREEPING" in regime_state.current.value:
-                action = Action.SELL if action == Action.BUY else Action.BUY
-                signal = -signal
-                strike_flag += " | [Ω-MIRROR_CREEPING_ACTIVE]"
+        # [Phase Ω-Mirror] TOXIC PROTOCOL REMOVED (Phase 10)
+        # O Padrão de Mirror destruiu as previsões precisas da microestrutura no regime CREEPING.
+        # NUNCA mais deve ser reativado. O Swarm sabe o que faz.
+
+        # ═══ [PHASE 25] MINIMUM CONSENSUS VETO — NON-BYPASSABLE ═══
+        # No sovereignty can override this. A single agent voting SELL against 20+ bulls
+        # is a NOISE artifact, not institutional conviction. At least 3 agents must agree.
+        bull_agents = q_meta.get("bull_agents", [])
+        bear_agents = q_meta.get("bear_agents", [])
+        
+        if action == Action.BUY:
+            n_supporting = len(bull_agents) if isinstance(bull_agents, list) else 0
+        elif action == Action.SELL:
+            n_supporting = len(bear_agents) if isinstance(bear_agents, list) else 0
+        else:
+            n_supporting = 0
+            
+        min_consensus = OMEGA.get("min_agent_consensus", 3.0)
+        # [Phase Ω-CAP] Consensus restriction: Never exceed 5 agents for normal strikes
+        # prevents the Genetic Forge from over-optimizing into paralysis.
+        min_consensus = min(5.0, min_consensus) 
+        
+        if n_supporting < int(min_consensus) and action != Action.WAIT:
+            return self._wait(f"MINIMUM_CONSENSUS_VETO ({action.name} has only {n_supporting} supporting agents, need {int(min_consensus)})")
+
+        # ═══ [PHASE 25] POST-TRADE REVERSAL LOCK — 60s Direction Lock ═══
+        # After closing a profitable trade, do NOT flip direction within 60 seconds.
+        # This prevents the "take profit then immediately reverse into a loss" pattern.
+        last_close_time = getattr(self, '_last_profitable_close_time', 0.0)
+        last_close_dir = getattr(self, '_last_profitable_close_dir', None)
+        
+        if last_close_dir is not None and (time.time() - last_close_time) < 60.0:
+            if (last_close_dir == "BUY" and action == Action.SELL) or \
+               (last_close_dir == "SELL" and action == Action.BUY):
+                secs_left = 60.0 - (time.time() - last_close_time)
+                return self._wait(f"POST_TRADE_REVERSAL_LOCK (Cannot flip from {last_close_dir} to {action.name} within 60s, {secs_left:.0f}s left)")
 
         strike_flag += f" | [PHASE_50_STRIKE: {action.name}]"
         if is_v_pulse_recovery:
@@ -1048,8 +1107,8 @@ class TrinityCore:
         if v_pulse_detected:
              return self._wait("V_PULSE_ANTI_ENTRY_VETO (Large counter-candle detected)")
              
-        if momentum_rejection and not (is_lethal_ignition or is_breakout or is_tec_sovereign or is_god_mode or self.is_sov_aligned):
-             return self._wait("MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal)")
+        if momentum_rejection and not (is_lethal_ignition or is_breakout or is_tec_sovereign or is_god_mode):
+             return self._wait("MICRO_MOMENTUM_VETO (Last 3 M1 candles strongly oppose signal - Wait for pullback to finish)")
 
         # ═══ PHASE Ω-EXTREME: CONSCIOUSNESS GATES (Φ) ═══
         phi_min = OMEGA.get("phi_min_threshold", 0.25) # Normalized for 190 agents
@@ -1144,7 +1203,7 @@ class TrinityCore:
         
         # [Phase 50] Resonance Bypass
         if is_phi_resonance:
-            phi_threshold = 0.01 # Near-zero threshold for resonance
+            phi_threshold = 0.05 # Minimum synergy even in resonance
         
         # [Phase Ω-Apocalypse] Hardened Ignition Floor
         # Se houver ignição mas a entropia for alta, exigimos Φ mais robusto
@@ -1219,8 +1278,8 @@ class TrinityCore:
         
         phi_ignore = OMEGA.get("phi_ignorance_threshold", 0.15)
         if phi < phi_ignore and has_v_pulse and not is_phi_resonance:
-             self._log_cooldown("PHI_IGNORANCE", f"⚡ [SOBERANIA DO PRESENTE] Φ={phi:.2f} is weak but V-Pulse is active. Bypassing PHI threshold for 3 candles.", 30, level="omega")
-             phi_threshold = 0.01 # Bypassa o veto de PHI no TrinityCore
+             self._log_cooldown("PHI_IGNORANCE", f"⚡ [SOBERANIA DO PRESENTE] Φ={phi:.2f} is weak but V-Pulse is active. Bypassing PHI threshold with safety floor (0.05).", 30, level="omega")
+             phi_threshold = 0.05 # Bypassa o veto de PHI no TrinityCore com piso de segurança
             
         # ═══ VETO PREDITIVO (JAVA PNL PREDICTOR) ═══
         if pnl_pred == "IMPOSSIBLE:NEGATIVE_EXPECTANCY":
@@ -1244,6 +1303,26 @@ class TrinityCore:
             # No modo predador, seguimos estritamente o sinal do ShadowPredator ignorando o ruído
             action = Action.BUY if shadow_signal.signal > 0 else Action.SELL
             confidence = shadow_signal.confidence
+
+        # ═══ PHASE 16: OMEGA REFLEXIVITY PROTOCOL (Smart Mirror) ═══
+        # Intercepts dumb FOMO (Top-Buying/Bottom-Selling) against the macro trend.
+        # If the market pumps violently into a Bear regime (or dumps into a Bull regime) with low Coherence,
+        # it is a Liquidity Trap. Instead of just vetoing, we INVERT the trade to exploit the trap.
+        is_counter_trend = (action == Action.BUY and "BEAR" in regime_state.current.value) or \
+                           (action == Action.SELL and "BULL" in regime_state.current.value)
+        
+        tick_vel_abs = abs(snapshot.metadata.get("tick_velocity", 0.0))
+        is_fomo_velocity = snapshot.metadata.get("v_pulse_detected", False) or tick_vel_abs > 15.0 or abs(signal) > 0.40
+        
+        # We only mirror if it's a confirmed counter-trend FOMO trap WITHOUT Absolute Sovereignty
+        if is_counter_trend and phi < 0.18 and is_fomo_velocity:
+            if not (is_sms_sovereign or is_tec_sovereign or is_god_mode):
+                self._log_cooldown("OMEGA_REFLEXIVITY", f"🪞 [Ω-REFLEXIVITY] Trap Detected! Inverting {action.value} -> {'SELL' if action == Action.BUY else 'BUY'} (Φ={phi:.2f})", 60, level="omega")
+                action = Action.SELL if action == Action.BUY else Action.BUY
+                signal = -signal
+                # Update quantum_state properties dynamically if needed, though 'signal' is local
+                if hasattr(quantum_state, 'raw_signal'): quantum_state.raw_signal = -quantum_state.raw_signal
+                strike_flag += " | [🪞 Ω-MIRRORED]"
 
         # ═══ CALCULAR SL/TP (Phase 52.7: Structural Anchoring) ═══
         tick = snapshot.tick
@@ -1415,6 +1494,48 @@ class TrinityCore:
         risk = abs(float(price) - float(stop_loss))
         reward = abs(float(take_profit) - float(price))
         rr_ratio = reward / risk if float(risk) > 0 else 0
+        
+        # [Phase Ω-STRICT] Hard RR Floor: Non-bypassable even for Sovereign (Must be > 1.0)
+        # For non-sovereign trades, we enforce a strict 1.50 floor.
+        hard_rr_floor = OMEGA.get("hard_min_rr_ratio", 1.50)
+        if rr_ratio < hard_rr_floor and not is_tec_sovereign and not is_god_mode:
+             return self._wait(f"HARD_RR_VETO (RR={rr_ratio:.2f} < {hard_rr_floor:.2f})")
+        elif rr_ratio < 1.10 and (is_tec_sovereign or is_god_mode):
+             return self._wait(f"SOVEREIGN_RR_VETO (Sovereign/God trades need RR > 1.10, got {rr_ratio:.2f})")
+
+        # ═══ 5. PHASE Ω-SINGULARITY: ABSOLUTE TREND JAIL (User Request #2688) ═══
+        # Counter-trend trades are strictly forbidden unless Synergy is extreme.
+        is_bear_jail = action == Action.BUY and "BEAR" in regime_state.current.value
+        is_bull_jail = action == Action.SELL and "BULL" in regime_state.current.value
+        if (is_bear_jail or is_bull_jail) and phi < 0.45:
+            return self._wait(f"ABSOLUTE_TREND_JAIL (Vetoed counter-trend in {regime_state.current.value} | Φ={phi:.3f} < 0.45)")
+
+        # ═══ 6. PHASE Ω-SINGULARITY: CONTRARIAN INVERSION (User Request #2688) ═══
+        # If active, we flip the action (BUY -> SELL) as a radical response to swarm groupthink.
+        if OMEGA.get("contrarian_singularity_enabled", 1.0) > 0.5 and action in [Action.BUY, Action.SELL]:
+            orig_action = action.name
+            action = Action.SELL if action == Action.BUY else Action.BUY
+            
+            # Recalculate SL/TP for the new direction
+            # We must swap risk/reward anchors
+            old_sl = stop_loss
+            old_tp = take_profit
+            
+            # Reset anchors for inversion
+            new_price = float(tick["ask"] if action == Action.BUY else tick["bid"])
+            # A inversion logic simple: Use the same distances as before but in mirror
+            dist_tp = float(abs(price - old_tp))
+            dist_sl = float(abs(price - old_sl))
+            
+            if action == Action.BUY:
+                stop_loss = new_price - dist_sl
+                take_profit = new_price + dist_tp
+            else:
+                stop_loss = new_price + dist_sl
+                take_profit = new_price - dist_tp
+            
+            strike_flag += f" | [Ω-CONTRARIAN_FLIP: {orig_action}->{action.name}]"
+            self._log_cooldown("CONTRARIAN_FLIP", f"🪞 [Ω-CONTRARIAN SINGULARITY] Inverting {orig_action} to {action.name} per High-Level Command.", 30, level="omega")
 
         # [Phase Ω-Resilience] Commission-Aware RR:
         # Check if reward covers commission + min profit target
@@ -1424,7 +1545,7 @@ class TrinityCore:
         
         # [Phase 74] FTMO Alignment: Use safe baseline if metadata is missing
         comm_per_lot = snapshot.metadata.get("dynamic_commission_per_lot", snapshot.metadata.get("commission_per_lot", OMEGA.get("commission_per_lot", 50.0)))
-        min_net_profit = OMEGA.get("min_profit_per_ticket", 80.0)
+        min_net_profit = OMEGA.get("min_profit_per_ticket", 100.0) # Elevado p/ garantir lucro real
         
         # Profit in points needed to cover commission + target (assuming 1 lot for ratio check)
         # [Phase 52.6] Calibração de Alvo Realista:
@@ -1477,17 +1598,10 @@ class TrinityCore:
                 else:
                     # [Phase PhD] Final Strike Bypass: Se temos colapso de entropia ou vácuo topológico, o lucro é secundário à certeza.
                     is_phd_strike = "TOPOLOGICAL" in agent_reasons or "ENTROPY_COLLAPSE" in agent_reasons
-                    # [SCALP] Extreme Scaling Mode: Bypassa Alpha Floor se Phi é saudável ou há V-Pulse
-                    # Relaxed Phi requirement from 0.25 to 0.15 for aggressive scalp
-                    is_aggressive_scalp = (phi > 0.15 and coherence > 0.35) or has_v_pulse or is_tunneling or is_tec_sovereign or is_hvs_sovereign or is_sms_sovereign
-                    
-                    # [Ω-MICRO-ALPHA] If Reward covers fees, we take it if Phi is high
-                    is_micro_alpha = reward > (comm_per_lot * 1.1) and phi > 0.20
-                    
-                    if is_phd_strike or is_aggressive_scalp or is_micro_alpha:
-                         reason = "PHD_STRIKE" if is_phd_strike else "AGGRESSIVE_SCALP" if is_aggressive_scalp else "MICRO_ALPHA"
-                         self._log_cooldown(f"{reason}_BYPASS", f"🎯 [{reason}] Bypassing Alpha Floor (R={reward:.2f} < Min={min_points_needed:.2f} | Φ={phi:.2f})", 30, level="omega")
+                    if is_phd_strike:
+                         self._log_cooldown("PHD_STRIKE_BYPASS", f"🎯 [PHD_STRIKE] Bypassing Alpha Floor (R={reward:.2f} < Min={min_points_needed:.2f} | Φ={phi:.2f})", 30, level="omega")
                     else:
+                        # [Ω-LETHAL] No more cheap profits. Protect the Alpha Floor.
                         return self._wait(f"REWARD_TOO_SMALL_FOR_ALPHA (Reward {reward:.2f} < Min {min_points_needed:.2f} & ATR Block {max_stretch:.2f})")
 
         min_rr = OMEGA.get("trinity_min_rr_ratio", 1.15)
@@ -1896,10 +2010,11 @@ class TrinityCore:
                                (action == Action.SELL and "BULL" in regime_state.current.value)
             
             if is_counter_trend and phi < 0.18:
-                # [Phase Ω-Pleroma] Regime Decoupling: Se a inércia do mercado quebrou violentamente, 
-                # o Regime_Detector (que é atrasado) está mentindo. Bypassamos o veto.
-                if is_velocity_burst or abs(signal) > 0.40:
-                    self._log_cooldown("COUNTER_TREND_BYPASS", f"🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to extreme velocity/signal.", 60, level="omega")
+                # [Phase 15] Pleroma Regime Decoupling Fix
+                # Comprar violentamente contra a tendência num mercado Drift/Bear é armadilha típica (Top-Buying).
+                # Só contornamos se houver Absoluta Soberania Institucional, não apenas velocidade inercial cega.
+                if is_sms_sovereign or is_tec_sovereign or is_god_mode:
+                    self._log_cooldown("COUNTER_TREND_BYPASS", f"🌪️ [REGIME DECOUPLING] Bypassing Counter-Trend Veto due to SOVEREIGNTY (SMS/TEC/GOD).", 60, level="omega")
                 else:
                     return self._wait(f"COUNTER_TREND_LOW_PHI (Φ={phi:.2f} < 0.18) - Sem integração p/ reversão")
 
@@ -2056,12 +2171,13 @@ class TrinityCore:
         """
         # [PHASE Ω-STRICT] SYNERGY VETO: Integrated Information Theory (Phi)
         if quantum_state and hasattr(quantum_state, 'phi'):
-            phi_min = OMEGA.get("min_phi_threshold", 0.08)
+            phi_min = OMEGA.get("min_phi_threshold", 0.10) # Base floor raised from 0.08 to 0.10
             
-                # [Ω-RECALIBRATION-4.0] Regime-dependent Phi Floor
+            # [Ω-RECALIBRATION-4.0] Regime-dependent Phi Floor
             relaxed_regimes = ["DRIFTING_BEAR", "DRIFTING_BULL", "CREEPING_BULL", "CREEPING_BEAR", "LOW_LIQUIDITY", "UNKNOWN", "CHOPPY"]
             if regime_state and regime_state.current.value in relaxed_regimes:
-                phi_min = max(0.015, phi_min * 0.25) if not is_evh else 0.001
+                # [PHASE Ω-HARDENING] Floor raised from 0.015 to 0.04 to avoid noise
+                phi_min = max(0.04, phi_min * 0.4) if not is_evh else 0.01
             
             # [Phase Ω-LETHALITY] Dynamic Phi Relaxation
             # Se o sinal é forte e coerente, a falta de sinergia total não deve paralisar a ASI.
@@ -2084,25 +2200,8 @@ class TrinityCore:
                     log.warning(f"🛡️ [SYNERGY VETO] Swarm Consciousness below threshold: Φ={quantum_state.phi:.3f} < {phi_min:.3f} (Sig={quantum_state.raw_signal:.2f})")
                     self._log_cache["phi_veto"] = time.time()
                 return f"SYNERGY_VETO (Φ={quantum_state.phi:.3f})"
-        # 0. Startup Cooldown (Evita trades com sistema "frio")
-        uptime = time.time() - self._creation_time
-        startup_cooldown = OMEGA.get("startup_cooldown_seconds", 120)  # Default 2 minutos
-        
-        # [Phase Ω-LETHALITY] Startup Cooldown Tolerance
-        # Se for um sinal de ignição forte (High-Energy), permitimos antecipar a entrada.
-        is_ignition_signal = False
-        if quantum_state:
-            is_ignition_signal = abs(quantum_state.raw_signal) > 0.40 and quantum_state.coherence > 0.60
-            
-        # OMEGA PROTOCOL: Bypass absoluto se Tick Velocity for explosiva (> 15) ou V-Pulse detectado
-        tick_vel = snapshot.metadata.get("tick_velocity", 0.0)
-        is_explosive_start = v_pulse_detected or abs(tick_vel) >= 15.0
-            
-        if uptime < startup_cooldown and not is_explosive_start and not is_ignition_signal and not is_sovereign:
-            return f"STARTUP_COOLDOWN({uptime:.0f}s/{startup_cooldown}s)"
-        elif uptime < startup_cooldown and (is_ignition_signal or is_explosive_start):
-            reason_bypass = "V-Pulse/TickVel" if is_explosive_start else "High-Energy Signal"
-            self._log_cooldown("startup_bypass", f"🔥 [Ω-IGNITION] Startup Cooldown Bypassed due to {reason_bypass} (Vel={tick_vel:.1f}, Uptime {uptime:.0f}s)", 60, level="omega")
+        # 0. Startup Cooldown (REMOVED p/ orderm do CEO: LETHAL MODE)
+        pass
 
         # 1. Spread excessivo absoluto
         if snapshot.tick:
@@ -2112,7 +2211,7 @@ class TrinityCore:
                 return f"SPREAD_HIGH_ABSOLUTE({sym_info['spread']}>{max_spread})"
 
         # 2. T-CELL IMMUNITY SYSTEM (Antigen Detection)
-        if hasattr(self, 't_cell') and self.t_cell.is_infected(snapshot):
+        if self.t_cell is not None and self.t_cell.is_infected(snapshot):
             # [Phase Ω-Burst] T-Cell Singularity Bypass
             # Se houver ignição letal, God-Mode ou Burst confirmado, ignoramos o veto imunitário
             # pois movimentos de alta energia frequentemente mimetizam padrões de falha.

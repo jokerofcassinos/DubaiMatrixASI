@@ -1,25 +1,51 @@
 {
-  "saved_at": "2026-03-24T23:00:37.300082",
+  "saved_at": "2026-03-27T12:29:50.843190",
   "parameters": {
     "buy_threshold": {
-      "value": 0.15,
+      "value": 0.16537500000000002,
       "default": 0.15,
       "bounds": [
         0.05,
         0.95
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 2,
+      "last_mutations": [
+        {
+          "time": "2026-03-27T12:28:27.041931",
+          "old": 0.15,
+          "new": 0.1575,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        },
+        {
+          "time": "2026-03-27T12:29:28.127598",
+          "old": 0.1575,
+          "new": 0.16537500000000002,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        }
+      ]
     },
     "sell_threshold": {
-      "value": -0.15,
+      "value": -0.16537500000000002,
       "default": -0.15,
       "bounds": [
         -0.95,
         -0.05
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 2,
+      "last_mutations": [
+        {
+          "time": "2026-03-27T12:28:27.041956",
+          "old": -0.15,
+          "new": -0.1575,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        },
+        {
+          "time": "2026-03-27T12:29:28.127624",
+          "old": -0.1575,
+          "new": -0.16537500000000002,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        }
+      ]
     },
     "confidence_min": {
       "value": 0.55,
@@ -42,14 +68,27 @@
       "last_mutations": []
     },
     "trinity_min_rr_ratio": {
-      "value": 1.2,
+      "value": 1.4520000000000002,
       "default": 1.2,
       "bounds": [
         0.8,
         2.5
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 2,
+      "last_mutations": [
+        {
+          "time": "2026-03-27T12:28:27.041969",
+          "old": 1.2,
+          "new": 1.32,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        },
+        {
+          "time": "2026-03-27T12:29:28.127636",
+          "old": 1.32,
+          "new": 1.4520000000000002,
+          "reason": "GeneticForge: conservadorismo por baixa performance"
+        }
+      ]
     },
     "mc_min_score": {
       "value": -0.35,
@@ -67,6 +106,16 @@
       "bounds": [
         0.2,
         0.55
+      ],
+      "mutation_count": 0,
+      "last_mutations": []
+    },
+    "min_agent_consensus": {
+      "value": 3.0,
+      "default": 3.0,
+      "bounds": [
+        1.0,
+        15.0
       ],
       "mutation_count": 0,
       "last_mutations": []
@@ -182,21 +231,14 @@
       "last_mutations": []
     },
     "commission_per_lot": {
-      "value": 44.07,
+      "value": 50.0,
       "default": 50.0,
       "bounds": [
         0.0,
         150.0
       ],
-      "mutation_count": 1,
-      "last_mutations": [
-        {
-          "time": "2026-03-24T23:00:37.300070",
-          "old": 50.0,
-          "new": 44.07,
-          "reason": "Phase 49 Auto-Detection"
-        }
-      ]
+      "mutation_count": 0,
+      "last_mutations": []
     },
     "min_profit_per_ticket": {
       "value": 25.0,
@@ -469,14 +511,21 @@
       "last_mutations": []
     },
     "weight_spoof_hunter": {
-      "value": 2.2,
+      "value": 2.41,
       "default": 2.2,
       "bounds": [
         1.0,
         5.0
       ],
-      "mutation_count": 0,
-      "last_mutations": []
+      "mutation_count": 1,
+      "last_mutations": [
+        {
+          "time": "2026-03-27T12:28:27.042005",
+          "old": 2.2,
+          "new": 2.41,
+          "reason": "GeneticForge: micro-muta\u00e7\u00e3o aleat\u00f3ria"
+        }
+      ]
     },
     "spoof_velocity_threshold": {
       "value": 30.0,
@@ -619,10 +668,10 @@
       "last_mutations": []
     },
     "startup_cooldown_seconds": {
-      "value": 120.0,
-      "default": 120.0,
+      "value": 0.0,
+      "default": 0.0,
       "bounds": [
-        10.0,
+        0.0,
         600.0
       ],
       "mutation_count": 0,
@@ -749,8 +798,8 @@
       "last_mutations": []
     },
     "phi_min_threshold": {
-      "value": 0.07,
-      "default": 0.07,
+      "value": 0.15,
+      "default": 0.15,
       "bounds": [
         0.05,
         0.5
@@ -1199,11 +1248,11 @@
       "last_mutations": []
     },
     "mirror_protocol_enabled": {
-      "value": 1.0,
-      "default": 1.0,
+      "value": 0.0,
+      "default": 0.0,
       "bounds": [
         0.0,
-        1.0
+        0.0
       ],
       "mutation_count": 0,
       "last_mutations": []
@@ -1314,6 +1363,16 @@
       "bounds": [
         2.0,
         50.0
+      ],
+      "mutation_count": 0,
+      "last_mutations": []
+    },
+    "contrarian_singularity_enabled": {
+      "value": 1.0,
+      "default": 1.0,
+      "bounds": [
+        0.0,
+        1.0
       ],
       "mutation_count": 0,
       "last_mutations": []

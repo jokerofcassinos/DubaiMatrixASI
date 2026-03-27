@@ -48,8 +48,8 @@ class ChaosRegimeAgent(BaseAgent):
             confidence = 0.1 
             reasoning = f"CHAOS DETECTED | Hor: {horizon:.1f}s | Pred: NULL"
         else:
-            # Mercado organizado
-            signal = 1.0 
+            # Mercado organizado — Não gera sinal direcional por si só
+            signal = 0.0 
             confidence = 0.5
             reasoning = f"STABLE FLOW | Hor: {horizon:.1f}s | Pred: HIGH"
 

@@ -1,0 +1,28 @@
+{
+    "strike_id": "S1774615980881044300_SELL",
+    "tickets": [],
+    "timestamp_entry": 1774615980.955857,
+    "action": "SELL",
+    "signal": -0.5703046083788424,
+    "confidence": 0.7873250026400141,
+    "reasoning": "SELL signal=-0.570 conf=0.79 coherence=0.42 regime=DRIFTING_BEAR ATR=145.76 RR=1.16 | [PHASE_50_STRIKE: SELL] | Quantum: SIGNAL=-0.570 | CONF=0.79 | \u03a6=0.28 | COH=41.61% | BEAR: LiquidationVacuumAgent, MeanFieldGame | MC[score=-0.010 WP=45.8% EV=-8.42 CVaR=-142.76 sim=23.0ms]",
+    "regime": "DRIFTING_BEAR",
+    "lot_size": 0.01,
+    "entry_price": 66525.53,
+    "stop_loss": 66668.29,
+    "take_profit": 66360.59,
+    "swarm_intelligence": {
+        "phi": 0.279370706747788,
+        "kl_div": 0.0,
+        "bull_agents": [],
+        "bear_agents": [
+            "LiquidationVacuumAgent",
+            "MeanFieldGame"
+        ],
+        "neutral_agents": []
+    },
+    "snapshot": {
+        "price": 66526.03,
+        "atr": 53.62478859176367
+    }
+}

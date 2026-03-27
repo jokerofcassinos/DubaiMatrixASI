@@ -264,6 +264,33 @@ class SniperExecutor:
             log.omega("🛡️ [GHOST VETO ABORT] Lote final é zero. Abortando execução silenciosamente.")
             return None
 
+        # ═══ [PHASE 52] PREMIUM SIGNATURE LOGGING ═══
+        phi_val = decision.metadata.get("phi", 0.0)
+        q_meta = decision.metadata.get("quantum_metadata", {})
+        
+        # Determine badges
+        is_hydra = decision.metadata.get("hydra_mode", False)
+        is_limit = decision.metadata.get("limit_execution", False)
+        badge = "🐉 [HYDRA]" if is_hydra else ("⚡ [LIMIT]" if is_limit else "🎯 [TAKER]")
+        
+        # Support agents string
+        bull_list = q_meta.get("bull_agents", [])
+        bear_list = q_meta.get("bear_agents", [])
+        bull_str = ", ".join(bull_list) if bull_list else "None"
+        bear_str = ", ".join(bear_list) if bear_list else "None"
+
+        # Multi-line Matrix signature (RESTORED FULL DETAIL)
+        decision_sig = (
+            f"\n╔══ {badge} {decision.action.value} PREVIEW ══╗\n"
+            f"║ SIGNAL: {decision.signal_strength:+.3f} | CONF: {decision.confidence:.2f} | Φ: {phi_val:.2f}\n"
+            f"║ BULL[{len(bull_list)}]: {bull_str}\n"
+            f"║ BEAR[{len(bear_list)}]: {bear_str}\n"
+            f"║ REGIME: {decision.regime} | ADAPTIVE_LOT: {final_lot:.2f} | ATR: {current_atr:.2f}\n"
+            f"║ REASONING: {decision.reasoning}\n"
+            f"╚══════════════════════════════════╝"
+        )
+        log.signal(decision_sig)
+
         # ═══════════════════════════════════════════════════════════
         #  PHASE Ω-13: QUANTUM TWAP INTERCEPTOR
         # ═══════════════════════════════════════════════════════════
@@ -418,31 +445,7 @@ class SniperExecutor:
                         return None # Veto absoluto se a confiança no DAG for alta
         
         # ═══ [PHASE 52] PREMIUM SIGNATURE LOGGING ═══
-        phi_val = decision.metadata.get("phi", 0.0)
-        q_meta = decision.metadata.get("quantum_metadata", {})
-        
-        # Determine badges
-        is_hydra = decision.metadata.get("hydra_mode", False)
-        is_limit = decision.metadata.get("limit_execution", False)
-        badge = "🐉 [HYDRA]" if is_hydra else ("⚡ [LIMIT]" if is_limit else "🎯 [TAKER]")
-        
-        # Support agents string
-        bull_list = q_meta.get("bull_agents", [])
-        bear_list = q_meta.get("bear_agents", [])
-        bull_str = ", ".join(bull_list) if bull_list else "None"
-        bear_str = ", ".join(bear_list) if bear_list else "None"
-
-        # Multi-line Matrix signature (RESTORED FULL DETAIL)
-        decision_sig = (
-            f"\n╔══ {badge} {decision.action.value} PREVIEW ══╗\n"
-            f"║ SIGNAL: {decision.signal_strength:+.3f} | CONF: {decision.confidence:.2f} | Φ: {phi_val:.2f}\n"
-            f"║ BULL[{len(bull_list)}]: {bull_str}\n"
-            f"║ BEAR[{len(bear_list)}]: {bear_str}\n"
-            f"║ REGIME: {decision.regime} | ADAPTIVE_LOT: {final_lot:.2f} | ATR: {current_atr:.2f}\n"
-            f"║ REASONING: {decision.reasoning}\n"
-            f"╚══════════════════════════════════╝"
-        )
-        log.signal(decision_sig)
+        # Moved to execute *before* the TWAP interceptor above.
 
         # Iniciar execução de slots via Membrana P-Brane (Phase Ω-Transcendence)
         # [Phase Ω-Omniscience] Liquidity-Aware Tensor Execution
@@ -458,11 +461,28 @@ class SniperExecutor:
             target_nodes = min(10, max_slots)
             
         num_nodes = target_nodes 
+        
+        # [Phase Ω-HYDRA] Balanced Lot Distribution Logic (CEO FIX)
+        is_homogeneous = OMEGA.get("homogeneous_hydra", True)
+        
         if num_nodes <= 1:
             lot_chunks = [final_lot]
             delays = [0.0]
+        elif is_homogeneous:
+            # Subdividir perfeitamente proporcional
+            base_chunk = round(final_lot / num_nodes, 2)
+            # Arredondar para o step do lote (0.01)
+            base_chunk = max(MIN_LOT_SIZE, round(base_chunk, 2))
+            lot_chunks = [base_chunk] * num_nodes
+            
+            # Ajuste de sobra no primeiro node para garantir que a soma seja exata
+            diff = round(final_lot - sum(lot_chunks), 2)
+            if diff != 0:
+                lot_chunks[0] = max(MIN_LOT_SIZE, round(lot_chunks[0] + diff, 2))
+                
+            delays = [abs(np.random.normal(0.015, 0.005)) for _ in range(num_nodes)]
         else:
-            # 1. Base Estigmérgica
+            # 1. Base Estigmérgica (Fallback para comportamento antigo ou se explicitamente desativado)
             offsets = np.linspace(-2, 2, num_nodes)
             weights = np.exp(-(offsets**2) / 2.0)
             
@@ -537,10 +557,6 @@ class SniperExecutor:
         )
 
         # 4.3. Parallel Order Dispatch (Phase 40/42)
-        # [PHASE Ω-STABILITY] Socket Warming (Heartbeat)
-        # Send a tiny PING to ensure the tunnel is open and the EA thread is awake
-        self.bridge.send_socket_command("PING", retry_count=0)
-
         # [PHASE Ω-STABILITY] LATENCY KILL-SWITCH
         # Se o tempo entre a decisão do TrinityCore e o dispatch passar de 400ms, abortamos.
         # A latência é o veneno do Alpha. No HFT, 400ms é o fim da oportunidade.
@@ -606,6 +622,11 @@ class SniperExecutor:
                     random_jitter = jitter_points * (0.5 + np.random.random())
                     jitter_price = random_jitter * point
                     
+                    tick_size = sym_info.get("trade_tick_size", point) if sym_info else point
+                    if tick_size > 0:
+                        decision.stop_loss = round(decision.stop_loss / tick_size) * tick_size
+                        decision.take_profit = round(decision.take_profit / tick_size) * tick_size
+                    
                     hft_buffer = (stops_level + 10) * point
                     is_invalid_limit = False
                     # [PHASE Ω-INTEGRITY] Proactive Smart Limit Conversion (Avoid 10015)
@@ -613,11 +634,12 @@ class SniperExecutor:
                     # violar o Stops Level, convertemos para Market Order imediatamente.
                     
                     # Buffer de segurança para garantir aceitação (Spread + Stops)
-                    safety_buffer = (stops_level + 20) * point 
+                    # [PHASE 52.1] Hardening: Buffer aumentado p/ 50 pts p/ BTCUSD p/ evitar 10015
+                    safety_buffer = (stops_level + 50) * point 
                     
                     if decision.action.value == "BUY":
                         # BUY LIMIT deve ser ABAIXO do Ask atual. Se for >= Ask - buffer, vira Market.
-                        limit_price = tick_bid - hft_buffer - dist_offset
+                        limit_price = tick_bid - hft_buffer
                         limit_price -= jitter_price
                         
                         # Check de cruzamento de spread (Marketable) ou Proximidade
@@ -627,7 +649,7 @@ class SniperExecutor:
                             
                     else: # SELL
                         # SELL LIMIT deve ser ACIMA do Bid atual. Se for <= Bid + buffer, vira Market.
-                        limit_price = tick_ask + hft_buffer + dist_offset
+                        limit_price = tick_ask + hft_buffer
                         limit_price += jitter_price
                         
                         # Check de cruzamento de spread (Marketable) ou Proximidade
@@ -635,8 +657,15 @@ class SniperExecutor:
                             is_invalid_limit = True
                             log.warning(f"⚡ [SMART CONVERSION] SELL LIMIT {limit_price:.2f} too close/below Bid {tick_bid:.2f}. Converting to MARKET.")
 
+                    tick_size = sym_info.get("trade_tick_size", point) if sym_info else point
+                    if tick_size > 0:
+                        # Normalize price to nearest valid tick step using mathematical round
+                        limit_price = round(limit_price / tick_size) * tick_size
+                    
                     digits = sym_info.get("digits", 5) if sym_info else 5
                     limit_price = round(limit_price, digits)
+                    decision.stop_loss = round(decision.stop_loss, digits)
+                    decision.take_profit = round(decision.take_profit, digits)
 
                     if is_invalid_limit:
                         # Logica de fallback já existente abaixo

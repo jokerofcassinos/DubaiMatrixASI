@@ -633,7 +633,7 @@ class MT5Bridge:
         info = self.get_symbol_info()
         if tick and info:
             point = info.get("point", 0.01)
-            stops_level = info.get("stops_level", 50) * point
+            stops_level = (info.get("stops_level", 50) + 50) * point # Buffer de +50 pts extra p/ segurança 10015
             bid, ask = tick['bid'], tick['ask']
 
             is_invalid = False

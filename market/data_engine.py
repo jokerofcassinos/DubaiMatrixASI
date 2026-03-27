@@ -150,18 +150,17 @@ class DataEngine:
         self.internal_clock_total = 0.0
         self.market_kinetic_energy = 0.0
         
+        self.v_pulse_active = False
+        self._v_pulse_logged = False
+        
         # ═══ BACKGROUND WORKER (Zero-Latency Architecture) ═══
         self._worker_running = True
         self._worker_thread = threading.Thread(target=self._background_worker, daemon=True)
-        
-        # OMEGA-CLASS: Initialize Liquid State Reservoir
-        CPP_CORE.init_reservoir(n_neurons=500, spectral_radius=0.95, connectivity=0.1)
-        # ═══ [PHASE 51] OMEGA-ALPHA ADAPTATION ═══
-        self.v_pulse_capacitor = 0.0     # Carga de ignição (0.0 a 1.0)
+        self._worker_thread.start() # Iniciar worker!
         self.v_pulse_active = False     # Flag de pulso ativo
+        self.v_pulse_capacitor = 0.0    # Carga do capacitor de ignição
         
         log.info("[CORE] Sistemas de Percepção DataEngine [ONLINE]")
-        self._worker_thread.start()
 
     def shutdown(self):
         """Para o worker de background."""
@@ -190,18 +189,26 @@ class DataEngine:
             self._price_history.append(snapshot.tick["mid"])
             
             # OMEGA-CLASS: Perturb Liquid State Reservoir with raw tick
-            # Inputs: [bid, ask, last, volume, spread, velocity, ...]
-            v_sum = list(self._price_history)[-5:] if len(self._price_history) >= 5 else [snapshot.tick["mid"]] * 5
-            velocity = np.diff(v_sum).mean() if len(v_sum) > 1 else 0.0
+            # Inputs: [bid, ask, last, volume, spread, raw_micro_velocity, ...]
             # ═══ [PHASE 47] HFT SENSORY EXPANSION ═══
             last_ticks = list(self._tick_history)[-50:] if self._tick_history else []
             tick_velocity = 0.0
+            kinetic_velocity = 0.0
+            
             if len(last_ticks) > 10:
                 t_delta = last_ticks[-1]["time_msc"] - last_ticks[0]["time_msc"]
                 if t_delta > 0:
-                    tick_velocity = (len(last_ticks) / t_delta) * 1000.0 # Ticks por segundo
+                    t_delta_sec = t_delta / 1000.0
+                    tick_velocity = len(last_ticks) / t_delta_sec # Ticks por segundo
+                    price_diff = last_ticks[-1]["last"] - last_ticks[0]["last"]
+                    kinetic_velocity = price_diff / t_delta_sec # True Kinetic Velocity (Points/sec)
+            
+            # Legacy raw velocity for neural inputs (smallest scale)
+            v_sum = list(self._price_history)[-5:] if len(self._price_history) >= 5 else [snapshot.tick["mid"]] * 5
+            raw_micro_velocity = np.diff(v_sum).mean() if len(v_sum) > 1 else 0.0
             
             snapshot.metadata["tick_velocity"] = tick_velocity
+            snapshot.metadata["price_velocity"] = kinetic_velocity # VERDADEIRA VELOCIDADE DIRECIONAL (Pontos/seg)
             
             # V-Pulse Detection (Pre-emptive)
             regime_state = snapshot.metadata.get("regime_state")
@@ -244,7 +251,7 @@ class DataEngine:
                 snapshot.tick["bid"], snapshot.tick["ask"], 
                 snapshot.tick["last"], snapshot.tick["volume"],
                 snapshot.tick["ask"] - snapshot.tick["bid"], # spread
-                velocity,
+                raw_micro_velocity,
                 np.log(snapshot.tick["volume"] + 1.0)
             ], dtype=np.float64)
             
@@ -286,12 +293,7 @@ class DataEngine:
         # [Phase Ω-Resilience] Dynamic Commission Injection
         snapshot.metadata["dynamic_commission_per_lot"] = self.bridge.get_dynamic_commission_per_lot()
 
-        # [CRITICAL SYNCHRONIZATION OMEGA]
-        # Aguardar que o background worker tenha calculado o primeiro frame.
-        # Sem isso, a ASI operaria às cegas com um cache {} (cego/inconsciente).
-        while not self._indicator_cache and self._worker_running:
-            time.sleep(0.1)
-
+        # [PHASE 23 FIX]: Removed blocking wait for indicators to enable zero-friction boot.
         # 4. Dados pesados (Candles e Indicadores) puxados do CACHE com lock zero-copy
         with self._lock:
             snapshot.candles = dict(self._candle_cache)

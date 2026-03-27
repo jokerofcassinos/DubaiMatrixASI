@@ -115,6 +115,8 @@ class OmegaParameterSpace:
                         "Score mínimo do Monte Carlo para aprovar trade")
         self._register("mc_min_win_prob", 0.32, 0.20, 0.55,
                         "Win Probability mínima do Monte Carlo")
+        self._register("min_agent_consensus", 3.0, 1.0, 15.0,
+                        "Número mínimo de agentes que devem concordar (Hard Floor)")
 
         # ═══ RISK PARAMETERS ═══
         self._register("position_size_pct", 50.0, 0.5, 75.0,
@@ -242,8 +244,8 @@ class OmegaParameterSpace:
                         "Impacto max do spread na volatilidade (0.25 = max 25% do ATR)")
         self._register("entry_urgency", 0.5, 0.1, 1.0,
                         "Urgência de entrada (1.0 = market order sempre)")
-        self._register("startup_cooldown_seconds", 120.0, 10.0, 600.0,
-                        "Cooldown de imersão inicial da ASI após o boot")
+        self._register("startup_cooldown_seconds", 0.0, 0.0, 600.0,
+                        "Cooldown de imersão inicial da ASI após o boot (Set p/ 0 por ordem do CEO)")
 
         # ═══ ANTI-METRALHADORA PARAMETERS ═══
         self._register("entry_cooldown_seconds", 60.0, 10.0, 300.0,
@@ -276,8 +278,8 @@ class OmegaParameterSpace:
                         "Multiplicador de ATR para detectar Climax e asfixiar risco.")
 
         # ═══ PHASE Ω-EXTREME: LORENTZ, PHI, QCA, EVT ═══
-        self._register("phi_min_threshold", 0.070, 0.050, 0.5,
-                        "Nível mínimo de Integração de Informação (Φ) para permitir trade (Reset p/ Sanidade)")
+        self._register("phi_min_threshold", 0.150, 0.050, 0.5,
+                        "Nível mínimo de Integração de Informação (Φ) para permitir trade (Elevado Fase 28)")
         self._register("phi_hydra_threshold", 4.50, 1.50, 10.0,
                         "Threshold de Φ para ativar HYDRA MODE (Convergência Máxima)")
         self._register("hydra_min_phi_threshold", 0.25, 0.05, 0.95,
@@ -393,8 +395,8 @@ class OmegaParameterSpace:
                         "Multiplicador de persistência temporal em tendências confirmadas")
 
         # ═══ [PHASE Ω-MIRROR] Inversion Protocol ═══
-        self._register("mirror_protocol_enabled", 1.0, 0.0, 1.0,
-                        "Se 1.0, inverte ordens (BUY -> SELL, SELL -> BUY) APENAS em regimes CREEPING")
+        self._register("mirror_protocol_enabled", 0.0, 0.0, 0.0,
+                        "DESATIVADO: causou auto-destruição revertendo sinais perfeitos.")
 
         # ═══ [PHASE Ω-SWINGCRASH] Swing Position Detection ═══
         self._register("swing_mode_enabled", 1.0, 0.0, 1.0,
@@ -423,6 +425,10 @@ class OmegaParameterSpace:
                         "Multiplicador de relaxação do Trailing Stop durante Cascatas/Crashes")
         self._register("swing_min_profit_mult", 10.0, 2.0, 50.0,
                         "Multiplicador do dynamic_peak_floor para Swing Trades (Evita T1/T2 precoce)")
+
+        # ═══ [PHASE 29] Contrarian Singularity ═══
+        self._register("contrarian_singularity_enabled", 1.0, 0.0, 1.0,
+                        "Inverte decisões (BUY-SELL) quando o enxame entra em Echo-Chamber contra tendência (User R#2688)")
 
     def _register(self, name: str, value: float, min_b: float, max_b: float,
                   desc: str = ""):

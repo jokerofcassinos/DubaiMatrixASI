@@ -1,0 +1,31 @@
+{
+    "strike_id": "S1774616895500570500_BUY",
+    "tickets": [],
+    "timestamp_entry": 1774616895.5843825,
+    "action": "BUY",
+    "signal": 0.436310549291129,
+    "confidence": 0.6602889149848147,
+    "reasoning": "BUY signal=+0.436 conf=0.66 coherence=0.41 regime=DRIFTING_BEAR ATR=134.74 RR=0.56 | [PHASE_50_STRIKE: BUY] | [\u03a9-BREATH: SL_EXPANDED] | Quantum: SIGNAL=+0.436 | CONF=0.66 | \u03a6=0.07 | COH=40.61% | BULL: OrderBlockAgent, ChaosRegime, PriceGravityAgent | MC[score=-0.351 WP=35.1% EV=-0.20 CVaR=-40.57 sim=6.7ms]",
+    "regime": "DRIFTING_BEAR",
+    "lot_size": 0.01,
+    "entry_price": 66589.32,
+    "stop_loss": 66454.58,
+    "take_profit": 66664.35,
+    "swarm_intelligence": {
+        "phi": 0.0721760919119756,
+        "kl_div": 0.0,
+        "bull_agents": [
+            "OrderBlockAgent",
+            "ChaosRegime",
+            "PriceGravityAgent",
+            "LiquidStateAgent",
+            "FeynmanPath"
+        ],
+        "bear_agents": [],
+        "neutral_agents": []
+    },
+    "snapshot": {
+        "price": 66588.82,
+        "atr": 44.80600349273459
+    }
+}
