@@ -64,29 +64,28 @@ class GitHubOmegaSync:
 
         # 2. Verificar alterações
         status = await self.get_status()
-        if not status:
-            logger.info("✅ Sincronização desnecessária: Repository is Green.")
-            return
+        if status:
+            logger.info("📦 Artefatos detectados para transmutação:")
+            for line in status.splitlines():
+                logger.info(f"  > {line}")
 
-        logger.info("📦 Artefatos detectados para transmutação:")
-        for line in status.splitlines():
-            logger.info(f"  > {line}")
+            # 3. Add e Commit
+            await self._run_git('add', '.')
+            
+            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            commit_msg = f"⚡ SOLÉNN OMEGA UPDATE: {timestamp} | Integrated Uplink & Intelligence Upgraded"
+            
+            logger.info(f"✍️ Forjando commit: '{commit_msg}'")
+            code, _, stderr = await self._run_git('commit', '-m', commit_msg)
+            
+            if code != 0:
+                logger.error(f"Falha no commit: {stderr}")
+                return
+        else:
+            logger.info("✅ Local Tree is Green. Verificando Uplink pendente...")
 
-        # 3. Add e Commit
-        await self._run_git('add', '.')
-        
-        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        commit_msg = f"⚡ SOLÉNN OMEGA UPDATE: {timestamp} | Integrated Uplink & Intelligence Upgraded"
-        
-        logger.info(f"✍️ Forjando commit: '{commit_msg}'")
-        code, _, stderr = await self._run_git('commit', '-m', commit_msg)
-        
-        if code != 0:
-            logger.error(f"Falha no commit: {stderr}")
-            return
-
-        # 4. Push (Uplink)
-        logger.info("🚀 Iniciando propulsão orbital (git push)...")
+        # 4. Push (Uplink Orbital) - Sempre tentar se houver remote
+        logger.info(f"🚀 Iniciando propulsão orbital na branch {self.branch}...")
         code, stdout, stderr = await self._run_git('push', 'origin', self.branch)
         
         if code != 0:
