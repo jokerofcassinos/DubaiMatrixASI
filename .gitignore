@@ -1,0 +1,48 @@
+# [SOLÉNN] Sincronização Omega - Git Ignore
+# -----------------------------------------------------------
+
+# Backup Transmutado (Ignorado conforme Lei 0.2)
+v1_backup/
+
+# Ambientes Virtuais (Higiene de Dependências)
+venv/
+.venv/
+env/
+.env/
+
+# Cache e Compilação
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# IDE e Configurações Locais
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs e Telemetria (Ω-15)
+logs/
+*.log
+tests/logs/
+
+# Artefatos Temporários
+/tmp/
+*.tmp
+*.bak
+
+# Meta-Data ASI
+.gemini/
+.agents/
+.agent/
+.brain/
+C:\Users\pichau\.gemini\antigravity/
+C:\Users\pichau\.gemini\antigravity\brain/
+
+# Outros
+.DS_Store
+Thumbs.db

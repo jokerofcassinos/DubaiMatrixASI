@@ -1,0 +1,1202 @@
+[
+    {
+        "path": ".env",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "CLAUDE.md",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "README.md",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "SKILL.md",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "analysis\\post_mortem_200758.md",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "analyze_errados.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "config\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "config\\exchange_config.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "config\\omega_params.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "config\\settings.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\asi_brain.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\aethel_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\apocalypse_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\apotheosis_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\architect_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\ascension_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\asynchronous_pulse_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\base.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\behavioral.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\black_swan_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\chaos.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\chaos_regime_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\chart_structure.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\classic.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\continuum_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\crash_velocity_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\dark_mass_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\dynamics.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\elysium_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\emanation_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\entropy_decay_strike_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\eschaton_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\eternity_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\feynman_path_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\fluid_dynamics\\karman_vortex_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\genesis_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\ghost_inference_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\global_macro.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\graph_topology_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\hex_matrix.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\holographic_manifold_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\holographic_memory_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\hyper_dimension_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\illuminati_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\kinetics_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\kolmogorov_inertia_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\leech_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\lie_symmetry_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\liquid_state_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\liquidity_leech_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\market_intuition_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\market_transition.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\mean_field_game_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\meta_swarm.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\metalogic_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\neural_sentience_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\nexus_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\nexus_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\omega.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\omega_extreme.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\omniscience_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\omniverse_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\oracle_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\paragon_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\phantom_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\phd_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\pheromone_field_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\physics.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\pleroma_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\predator.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\predictive_vidente_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\pressure_matrix.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\quantum_field_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\quantum_gravity_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\quantum_tunneling_oscillator.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\quantum_unification_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\riemannian_ricci_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\session_dynamics.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\shadow_predator_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\singularity_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\smc.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\sovereignty_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\spoof_hunter_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\stochastic_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\structural_premium.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\supernova_capacitor.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\swing_position_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\synapse_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\temporal_geodesic_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\tensor_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\tensor_matrix_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\thermodynamic_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\topological_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\topological_braiding.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\topological_manifold_agent.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\transcendence_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\void_agents.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\agents\\wyckoff.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\byzantine_consensus.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\genetic_forge.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\monte_carlo_engine.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\neural_swarm.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\quantum_thought.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\consciousness\\regime_detector.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\decision\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\decision\\lifecycle_logger.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\decision\\shadow_engine.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\decision\\trinity_core.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\biological_immunity.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\genesis_engine.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\genetic_forge.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\lucid_dream_client.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\meta_programming.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\mutation_engine.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\performance_tracker.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\self_optimizer.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "core\\evolution\\state_vector.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\asi_bridge.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\build.bat",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\build\\CMakeFiles\\4.2.1\\CMakeSystem.cmake",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\build\\CMakeFiles\\CMakeConfigureLog.yaml",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\build\\CMakeFiles\\cmake.check_cache",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\agent_cluster.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\asi_core.h",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\braid_topology.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\causal_engine.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\chaos_detector.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\eigenvector_centrality.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\entropy_processor.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\holographic_matrix.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\hyperspace_core.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\info_geometry.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\information_causality.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\liquid_state_engine.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\liquidity_graph.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\mean_field_games.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\omega_extreme.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\omega_transcendence.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\orderflow_processor.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\phd_omega_math.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\pheromone_field.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\quantum_field_theory.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\quantum_indicators.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\rg_attractor_engine.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\risk_engine.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\signal_aggregator.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\spectral_geometry.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\spiking_neuron.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\tensor_networks.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\topology_core.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "cpp\\src\\vector_storage.cpp",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\analyze_errados.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\antigens.db",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\evolution\\synaptic_weights.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\logs\\asi_all.log",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\logs\\asi_errors.log",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\logs\\asi_trades.log",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\state\\asi_state.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\state\\omega_params.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\trade_history.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "data\\trade_intent_registry.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "diagnose_activity.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\position_manager.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\quantum_tunneling_execution.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\quantum_twap.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\risk_quantum.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\shadow_predator.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\sniper_executor.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\trade_registry.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "execution\\wormhole_router.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "implementation_plan.md",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\bin\\com\\dubaimatrix\\LucidDreamingDaemon.class",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\bin\\com\\dubaimatrix\\PnLPredictor.class",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\src\\com\\dubaimatrix\\LucidDreamingDaemon.class",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\src\\com\\dubaimatrix\\LucidDreamingDaemon.java",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\src\\com\\dubaimatrix\\PnLPredictor.class",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "java\\src\\com\\dubaimatrix\\PnLPredictor.java",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "main.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\data_engine.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\memory\\episodic_memory.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\memory\\semantic_nlp.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\mt5_bridge.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\orderflow_matrix.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\__init__.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\macro_scraper.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\narrative_distiller.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\nexus_resonance.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\onchain_scraper.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "market\\scraper\\sentiment_scraper.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "mql5\\DubaiMatrixASI_HFT_Bridge.ex5",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "mql5\\DubaiMatrixASI_HFT_Bridge.mq5",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "script.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "v1_inventory_manifest.json",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    },
+    {
+        "path": "verify_all.py",
+        "reconstructed": false,
+        "concept_mapped": false,
+        "version": "v1"
+    }
+]
