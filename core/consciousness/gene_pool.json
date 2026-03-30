@@ -1,0 +1,16 @@
+{
+    "nodes": {
+        "operators": ["+", "-", "*", "/", "LOG", "EXP", "MAX", "MIN", "ABS", "SQRT", "POW2"],
+        "logical": [">", "<", "==", "AND", "OR", "IF-THEN-ELSE"],
+        "indicators": ["RSI", "MACD", "EMA", "SMA", "ATR", "BOLLINGER_U", "BOLLINGER_D", "ROC", "MOMENTUM", "VOLATILITY"],
+        "inputs": ["CLOSE", "OPEN", "HIGH", "LOW", "VOLUME", "IMBALANCE", "SPREAD", "CONFIDENCE", "ORDER_BLOCK_LEVEL"]
+    },
+    "parmeters": {
+        "timeframes": ["1m", "5m", "15m", "1h", "4h"],
+        "periods": [3, 5, 8, 13, 21, 34, 55, 89, 144, 233]
+    },
+    "history": {
+        "hall_of_fame": [],
+        "extinct_genes": []
+    }
+}

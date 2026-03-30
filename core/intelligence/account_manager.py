@@ -59,6 +59,14 @@ class AccountManager:
         """Requests account snapshot from MT5."""
         await self.hftp.send_message(client_id, "POLL_ACCOUNT", {"ts": time.time()})
 
+    def get_balance(self) -> float:
+        """[Ω-V1.4.1] Sovereign Balance."""
+        return self.balance if self.balance > 0 else 100000.0 # Default for bootstrap
+
+    def get_equity(self) -> float:
+        """[Ω-V1.4.1] Sovereign Equity."""
+        return self.equity if self.equity > 0 else 100000.0
+
     def get_risk_snapshot(self) -> Dict[str, float]:
         """[Ω-V1.4.2] Provides margin usage metrics for the Brain."""
         return {
