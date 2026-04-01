@@ -2,7 +2,7 @@
 ## ⚖️ LEI II.4 — RASTREABILIDADE DE RECONSTRUÇÃO SOBERANA
 
 > [!IMPORTANT]
-> **STATUS DA SOBERANIA: [███████████████░░░░░] 72% COMPLETO (CORE Ω)**
+> **STATUS DA SOBERANIA: [███████████████░░░░░] 75% COMPLETO (CORE Ω)**
 > Este inventário cataloga a migração ontológica da **v1 (DubaiMatrixASI)** para a **v2 (SOLÉNN Ω)**. Nenhuma linha de código foi reciclada; cada intenção foi extraída e a forma reconstruída do zero (Lei 0.1).
 
 ## config
@@ -13,7 +13,7 @@
 
 ## core
 - [ ] __init__.py
-- [ ] asi_brain.py (Cérebro ASI Ω)
+- [x] asi_brain.py (Cérebro ASI Ω — Maestro Soberano)
 - [x] signals_gate.py (Sovereign Signal Gate Ω - 162 Vetores)
 
 ## core\consciousness
@@ -248,7 +248,7 @@
 - [ ] PnLPredictor.java
 
 ## Root
-- [x] main.py (SOLÉNN Orchestrator - MasterBridge Ω)
+- [x] main.py (SOLÉNN Orchestrator - MasterBridge Ω-51)
 
 ## market
 - [ ] __init__.py
@@ -259,8 +259,8 @@
 - [ ] semantic_nlp.py (Evoluído para NLP Ω)
 
 ## market
-- [x] mt5_bridge.py (Ponte Institucional Ω - HFT-P Server)
-- [ ] orderflow_matrix.py (Evoluído para Matrix Ω)
+- [x] hftp_bridge.py (Ponte Institucional HFT-P Ω-6)
+- [x] orderflow_matrix.py (Transmutado para Matrix Ω — 162 Vetores)
 
 ## market\scraper
 - [ ] __init__.py

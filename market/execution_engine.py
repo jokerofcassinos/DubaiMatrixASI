@@ -46,7 +46,7 @@ class ExecutionEngine:
         self._is_running = False
         
         # [Ω-ML] Slippage Parameters (Ω-2.1)
-        # Based on Historical Meta-Audit for BTCUSDT Lot size 1.0
+        # Based on Historical Meta-Audit for BTCUSD Lot size 1.0
         self._base_latency_cost = 0.05 # ticks
         self._depth_penalty_coeff = 0.02
 
@@ -162,6 +162,11 @@ class ExecutionEngine:
             
             # [V61] Detection of Equity Slip vs Realized Gain
             self._execution_count += 1
+
+    async def stop(self):
+        """[Ω-TERMINATE] Graceful shutdown of the execution nerves."""
+        self.logger.info("🧬 Execution Engine Ω-6: Entering Hibernation...")
+        self._is_running = False
 
 # --- 162 VETORES DE EXECUÇÃO CONCLUÍDOS | AORTA Ω-6 ATIVA ---
 # SOLÉNN Ω AGORA GOLPEIA COM PRECISÃO DE MICROSSEGUNDOS.

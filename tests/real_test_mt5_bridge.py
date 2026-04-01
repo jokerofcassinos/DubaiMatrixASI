@@ -45,8 +45,8 @@ async def test_meta_bridge_real():
     # Usaremos um volume mínimo e um par volátil para teste de execução.
     print("[COGNIÇÃO] Testando Envio de Ordem REAL HIB Ω-45.1.2...")
     
-    # Escolha de símbolo: BTCUSDT ou similar disponível no MT5 da FTMO
-    symbol = "BTCUSD" # Ajustar se necessário (BTCUSD vs BTCUSDT)
+    # Escolha de símbolo: BTCUSD ou similar disponível no MT5 da FTMO
+    symbol = "BTCUSD" # Ajustar se necessário (BTCUSD vs BTCUSD)
     
     ticket = await bridge.execute_order(symbol, "BUY", 0.01, 0.0) # Market Order 0.01
     

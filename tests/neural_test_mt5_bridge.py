@@ -36,7 +36,7 @@ async def test_meta_bridge_flow():
 
     # 🧪 ETAPA 2: EXECUÇÃO (Order HIB Logic)
     print("[COGNIÇÃO] Testando Envio de Ordem HIB Ω-45.1.2...")
-    ticket = await bridge.execute_order("BTCUSDT", "BUY", 1.0, 65000.0)
+    ticket = await bridge.execute_order("BTCUSD", "BUY", 1.0, 65000.0)
     assert ticket is not None
     print(f"-> Ordem Enviada com Sucesso | Ticket: {ticket} (Ω-Execution OK)")
 
@@ -50,7 +50,7 @@ async def test_meta_bridge_flow():
     )
     
     # Attempt second order (Should fail)
-    ticket_fail = await bridge.execute_order("ETHUSDT", "SELL", 5.0)
+    ticket_fail = await bridge.execute_order("ETHUSD", "SELL", 5.0)
     assert ticket_fail is None
     print(f"-> Guardrail FTMO Bloqueou Ordem com Sucesso (Ω-Compliance OK)")
 

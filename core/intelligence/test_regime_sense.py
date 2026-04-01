@@ -45,7 +45,7 @@ async def run_neural_validation():
         
         snap = MarketSnapshot(
             timestamp=time.time(),
-            symbol="BTCUSDT",
+            symbol="BTCUSD",
             last_price=price,
             ema_fast=price * 1.01,
             ema_slow=price * 0.99,

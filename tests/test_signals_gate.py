@@ -6,7 +6,7 @@ from core.intelligence.signals_gate import SolennSignalGate, MarketRegime, Quant
 
 @dataclass
 class MockSnapshot:
-    symbol: str = "BTCUSDT"
+    symbol: str = "BTCUSD"
     timestamp: float = time.time()
     book_imbalance: float = 0.1
     spread: float = 1.0

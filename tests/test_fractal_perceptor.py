@@ -37,7 +37,7 @@ async def test_multi_scale_alignment(sensor):
         await sensor.ingest(type('Tick', (object,), {'last': val, 'time': 0})())
         
     # 2. Injetar Contexto HTF Bullish
-    sensor.update_context(HTFContext("BTCUSDT", "1H", bias=1.0, hurst=0.6, volatility=0.2))
+    sensor.update_context(HTFContext("BTCUSD", "1H", bias=1.0, hurst=0.6, volatility=0.2))
     
     result = await sensor.perceive()
     

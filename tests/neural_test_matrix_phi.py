@@ -9,7 +9,7 @@ from market.orderflow_matrix import OrderflowMatrix, MatrixSignal
 
 @pytest.fixture
 def matrix():
-    return OrderflowMatrix("BTCUSDT")
+    return OrderflowMatrix("BTCUSD")
 
 @pytest.mark.asyncio
 async def test_matrix_genesis_initialization(matrix):
@@ -99,4 +99,4 @@ async def test_matrix_wash_trading_veto(matrix):
     await matrix.stop()
 
 if __name__ == "__main__":
-    asyncio.run(test_matrix_signal_phi_convergence(OrderflowMatrix("BTCUSDT")))
+    asyncio.run(test_matrix_signal_phi_convergence(OrderflowMatrix("BTCUSD")))

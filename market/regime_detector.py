@@ -32,7 +32,7 @@ class RegimeDetector:
     [Ω-4.3] Fusão Sincronizada (MTF, KG, Veto)
     """
 
-    def __init__(self, symbol: str = "BTCUSDT"):
+    def __init__(self, symbol: str = "BTCUSD"):
         self.symbol = symbol
         self.logger = logging.getLogger(f"SOLENN.Regime.{symbol}")
         self._is_running = False

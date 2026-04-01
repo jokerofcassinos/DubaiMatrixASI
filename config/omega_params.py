@@ -45,8 +45,8 @@ class OmegaParams:
             
             # Execução (Ω-6)
             OmegaParameter("max_order_splits", 3, 1, 15, "Fragmentação máxima de ordens", True),
-            OmegaParameter("take_profit_points", 300, 50, 1500, "Alvo de lucro padrão (BTCUSDT points)"),
-            OmegaParameter("stop_loss_points", 150, 50, 800, "Limite de perda padrão (BTCUSDT points)"),
+            OmegaParameter("take_profit_points", 300, 50, 1500, "Alvo de lucro padrão (BTCUSD points)"),
+            OmegaParameter("stop_loss_points", 150, 50, 800, "Limite de perda padrão (BTCUSD points)"),
         ]
         for p in defaults:
             self.params[p.name] = p

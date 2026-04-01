@@ -18,7 +18,7 @@
 
 // [Ω-V5.5.0] Parameters
 input string   InpHost = "127.0.0.1";
-input int      InpPort = 5555;
+input int      InpPort = 9999;
 input int      InpRes  = 1000; // Telegram refresh ms
 
 CHFTPClient       *hftp_client;
@@ -52,9 +52,15 @@ void OnTick() {
 }
 
 void OnTimer() {
-    // 1. Connection Check & Sync
+    // 1. [Ω-V5.5.2] Automatic Connection Persistence
     if(!hftp_client.IsConnected()) {
-        hftp_client.Connect();
+        static uint last_recon = 0;
+        if(GetTickCount() - last_recon > 3000) {
+            if(hftp_client.Connect()) {
+               Alert("✅ [Ω-SYNC] HFTP-P Matrix Active.");
+            }
+            last_recon = GetTickCount();
+        }
     } else {
         hftp_client.Heartbeat();
         sensors.StreamAccountSnapshot();
@@ -62,16 +68,26 @@ void OnTimer() {
         // 2. [Ω-V5.5.3] Process Commands from SOLÉNN Brain (Python)
         if(hftp_client.Readable()) {
             uchar buf[];
+            ArrayResize(buf, 4096);
             int read = hftp_client.Receive(buf);
             if(read > 0) {
-                // Simplified command parsing [Ω-V5.5.4]
-                // Look for "ORDER" keyword in binary stream
-                string msg = CharArrayToString(buf, 0, read, CP_UTF8);
-                if(StringFind(msg, "ORDER") >= 0) {
-                     // In real PhD scenario, use full binary unpacker. 
-                     // For Phase 5 activation, we use fast-tagging.
-                     Print("📈 [Ω-EA] Received ORDER command from Brain.");
-                     // Trigger dummy order for now or parse real params
+                string raw = CharArrayToString(buf, 0, read, CP_UTF8);
+                Print("📥 [Ω-HFTP-P] Packet Received: ", read, " bytes. Content: ", raw);
+                
+                if(StringFind(raw, "ORDER") >= 0) {
+                    Alert("🔥 [Ω-SOLENN] ORDER SIGNAL DETECTED!");
+                    Print("📈 [Ω-EA] FOUND Signature: ORDER. Action scan...");
+                    
+                    if(StringFind(raw, "BUY") >= 0) {
+                        Alert("🚀 [Ω-EXECUTION] ATTEMPTING BUY 0.01 BTCUSD");
+                        if(CheckPointer(oms) != POINTER_INVALID)
+                            oms.Execute("TEST_B_"+IntegerToString(TimeLocal()), _Symbol, ORDER_TYPE_BUY, 0.01, 0, 0);
+                        else
+                            Print("☢️ [Ω-ERROR] OrderExecutor (oms) is NULL!");
+                    } else if(StringFind(raw, "SELL") >= 0) {
+                        if(CheckPointer(oms) != POINTER_INVALID)
+                            oms.Execute("TEST_S_"+IntegerToString(TimeLocal()), _Symbol, ORDER_TYPE_SELL, 0.01, 0, 0);
+                    }
                 }
             }
         }

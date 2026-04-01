@@ -21,7 +21,7 @@ private:
     CMsgPack m_packer;
 
 public:
-    CHFTPClient(string host="127.0.0.1", int port=5555) {
+    CHFTPClient(string host="127.0.0.1", int port=9999) {
         m_host = host; m_port = port; m_socket = INVALID_HANDLE; m_is_connected = false;
     }
 
@@ -80,7 +80,7 @@ public:
         if(m_is_connected) SendPacket("PONG", IntegerToString((int)TimeCurrent()));
     }
 
-    bool Readable() { return SocketIsReadable(m_socket); }
+    bool Readable() { return (SocketIsReadable(m_socket) != 0); }
     int  Receive(uchar &data[]) { return SocketRead(m_socket, data, 4096, 0); }
     bool IsConnected() { return m_is_connected; }
 };

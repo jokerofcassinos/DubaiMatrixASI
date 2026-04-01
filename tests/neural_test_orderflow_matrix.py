@@ -12,7 +12,7 @@ async def test_matrix_perception_flow():
     VALICAÇÃO INTEGRAL DA VISÃO MATRIX Ω-0
     Protocolo 3-6-9: Decompondo a Realidade (162 Vetores).
     """
-    matrix = OrderflowMatrix("BTCUSDT")
+    matrix = OrderflowMatrix("BTCUSD")
     await matrix.initialize()
     
     # Mock Tick Data (Simulation of Informed Flow)

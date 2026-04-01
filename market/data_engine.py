@@ -18,7 +18,21 @@ class MarketData:
     price: float
     volume: float
     side: str = "TICK"
+    book_imbalance: float = 0.0 # [Ω-0.iv] Para VPIN/Toxicidade
+    spread: float = 0.0
+    vol_gk: float = 0.0 # Garman-Klass Volatilidade
     metadata: Dict[str, Any] = field(default_factory=dict)
+
+@dataclass(frozen=True, slots=True)
+class QuantumState:
+    """[Ω-PHI] O colapso da percepção do enxame em estado escalar."""
+    timestamp: float
+    symbol: str
+    signal: float # [-1.0, 1.0]
+    confidence: float # [0.0, 1.0]
+    coherence: float # [0.0, 1.0]
+    phi: float # Ouroboros Phase
+    imbalance: float = 0.0
 
 class OmniDataEngine:
     """
@@ -101,7 +115,7 @@ class OmniDataEngine:
         if isinstance(raw_msg, dict):
             # Simulation of Binance/Bybit parsing
             return MarketData(
-                symbol=raw_msg.get("s", "BTCUSDT"),
+                symbol=raw_msg.get("s", "BTCUSD"),
                 exchange=exchange,
                 timestamp=int(time.time() * 1e9),
                 price=float(raw_msg.get("p", 0.0)),
@@ -114,6 +128,11 @@ class OmniDataEngine:
         """[V3.1.1] Deep data validation layer."""
         # Range checks, Price Spikes, Timestamp Monotonicity
         return data.price > 0 and data.volume >= 0
+
+    async def stop(self):
+        """[Ω-TERMINATE] Graceful shutdown of the data pipeline."""
+        self.logger.info("🧬 Omni-Data Engine Ω-13: Shutting down Aorta Core...")
+        self._is_running = False
 
     async def _process_loop(self):
         """[Ω-STREAMER] Distribution of normalized data to all consumers."""

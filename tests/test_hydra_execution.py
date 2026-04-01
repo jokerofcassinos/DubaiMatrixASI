@@ -80,7 +80,7 @@ async def test_hydra_execution_flow():
     # 3. Test OMS Registration [Ω-C1]
     intent = OrderIntent(
         trace_id="TR-777",
-        symbol="BTCUSDT",
+        symbol="BTCUSD",
         action="BUY",
         lot=1.0,
         submission_time=time.time()

@@ -20,7 +20,7 @@ class TestPerformanceEvolution(unittest.TestCase):
         
         t1 = TradeOutcome(
             trade_id="TR_001",
-            symbol="BTCUSDT",
+            symbol="BTCUSD",
             action="BUY",
             entry_price=65000.0,
             exit_price=65500.0,

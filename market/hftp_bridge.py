@@ -2,123 +2,225 @@ import asyncio
 import logging
 import msgpack
 import time
-from typing import Dict, Any, Optional, Deque
-from collections import deque
+from typing import Dict, Any, Optional, Deque, List
 
-# [Ω-SOLÉNN] High-Frequency Trading Protocol (HFT-P) Bridge
-# Protocolo 3-6-9: INFRAESTRUTURA HFT-P (Ω-6.1)
-# "A velocidade é a consequência da eliminação do atrito."
+# [Ω-SOLÉNN] High-Frequency Trading Protocol (HFT-P) Bridge Server
+# Protocolo 3-6-9: INFRAESTRUTURA HFT-P (Ω-6.1) — Modo Servidor Soberano
 
 class HFTPBridge:
     """
-    [Ω-HFT-P] Institutional Binary Bridge (Python <-> MQL5/MetaTrader).
+    [Ω-HFT-P] Institutional Binary Bridge Server (Python <-> MQL5/MetaTrader).
+    Operates as the Central Sovereign Server to accept connections from EA Agents.
     Optimized for < 1ms decision-to-wire latency via Proactor I/O.
-    
-    162 VETORES DE INFRAESTRUTURA INTEGRADOS [CONCEITO 1]:
-    [V1.1.1] Conectividade Binária via MessagePack.
-    [V1.1.2] Handshake Pre-auth Zero Latency.
-    [V1.1.9] Thread Affinity & Async Proactor Loop.
     """
 
-    def __init__(self, host: str = "127.0.0.1", port: int = 9999):
+    def __init__(self, host: str = "0.0.0.0", port: int = 9999):
         self.host = host
         self.port = port
         self.logger = logging.getLogger("SOLENN.HFTP")
+        
+        self._server: Optional[asyncio.AbstractServer] = None
         self._writer: Optional[asyncio.StreamWriter] = None
         self._reader: Optional[asyncio.StreamReader] = None
         self._is_connected = False
-        self._loop_task = None
+        self._loop_task: Optional[asyncio.Task] = None
         
-        # [Ω-BUF] Ring Buffer Lock-Free (SPSC Proxy)
+        # [Ω-BUF] Queues for Asynchronous Messaging
         self._outbound_queue: asyncio.Queue = asyncio.Queue(maxsize=100)
         self._inbound_queue: asyncio.Queue = asyncio.Queue(maxsize=100)
         
         # [Ω-MET] Health & Latency Metrics
         self._last_heartbeat = 0.0
-        self._p99_latency_ns = 0
+        self._reconnect_attempts = 0
 
-    async def connect(self):
-        """[V1.1.1] Establishing the Matrix connection (Persistent Warming)."""
+    async def connect(self, timeout: float = 600.0) -> bool:
+        """
+        [Ω-HYPERLISTEN] Actually starts the server and waits for the first connection.
+        We keep the 'connect' name for backward compatibility with SolennOmega.
+        """
         try:
-            self._reader, self._writer = await asyncio.open_connection(self.host, self.port)
+            self.logger.info(f"📡 [Ω-HFT] Starting HFT-P Sovereign Server on {self.host}:{self.port}...")
             
-            # [V1.1.2] Pre-auth Handshake (Zero Latency)
-            handshake = msgpack.packb({"type": "HANDSHAKE", "token": "Ω-SOLENN-ASI-AUTH", "ts": time.time_ns()})
-            self._writer.write(handshake)
-            await self._writer.drain()
+            self._server = await asyncio.start_server(
+                self._handle_client, 
+                self.host, 
+                self.port
+            )
             
-            self._is_connected = True
-            self._loop_task = asyncio.create_task(self._process_loop())
-            self.logger.info(f"⚡ HFTP-P Bridge: Matrix Connected @ {self.host}:{self.port}")
-            return True
+            # Start background task to keep server running
+            # We wrap the server start in an wait condition for the first connection if we want synchronous boot
+            self.logger.info("⏳ [Ω-HFT] Server active. Waiting for MetaTrader 5 Agent to connect...")
+            
+            # Wait for connection or timeout
+            start_time = time.time()
+            while not self._is_connected and (time.time() - start_time) < timeout:
+                await asyncio.sleep(0.5)
+                
+            if self._is_connected:
+                self.logger.info("✅ [Ω-HFT] Connection established with MT5 Agent.")
+                return True
+            else:
+                self.logger.warning("🕒 [Ω-HFT] Connection TIMEOUT. MetaTrader 5 Agent did not connect.")
+                # We return True anyway if server is up? No, return False to signal isolation mode.
+                return False
+                
         except Exception as e:
-            self.logger.error(f"☢️ HFTP-P Handshake Fault: {e}")
+            self.logger.error(f"☢️ [Ω-HFT] Server Start FAIL: {e}")
             return False
+
+    async def _handle_client(self, reader: asyncio.StreamReader, writer: asyncio.StreamWriter):
+        """Processes incoming connection and handles handshake [Ω-V5.5.9]."""
+        if self._is_connected:
+            self.logger.warning("🚫 [Ω-HFT] Rejecting second connection attempt. Only 1 Agent supported.")
+            writer.close()
+            await writer.wait_closed()
+            return
+
+        addr = writer.get_extra_info('peername')
+        self.logger.info(f"🤝 [Ω-HFT] Incoming connection from {addr}. Handshaking...")
+
+        try:
+            # [Ω-HANDSHAKE] Using Unpacker for stream resilience
+            unpacker = msgpack.Unpacker()
+            data = await asyncio.wait_for(reader.read(4096), timeout=5.0)
+            if not data:
+                writer.close()
+                return
+
+            unpacker.feed(data)
+            try:
+                # Get first message from stream
+                msg = next(unpacker)
+                self.logger.info(f"📩 Received Handshake: {msg}")
+                
+                # Check HELLO or AUTH token
+                if msg.get("type") == "HELLO" or msg.get("type") == "HANDSHAKE":
+                    # 2. Send AUTHORIZED ack
+                    ack = msgpack.packb({"status": "AUTHORIZED", "ts": time.time_ns(), "role": "MASTER"})
+                    writer.write(ack)
+                    await writer.drain()
+                    
+                    # 3. Establish Connection
+                    self._reader = reader
+                    self._writer = writer
+                    self._is_connected = True
+                    self._loop_task = asyncio.create_task(self._process_loop())
+                    self.logger.info("⚡ [Ω-SYNC] HFTP-P Matrix Active & Authorized.")
+                else:
+                    self.logger.error("🚫 Handshake rejected: Invalid protocol message.")
+                    writer.close()
+            except Exception as e:
+                self.logger.error(f"☢️ [Ω-HFT] Handshake Parse FAIL: {e}")
+                writer.close()
+
+        except asyncio.TimeoutError:
+            self.logger.error("🚫 Handshake TIMEOUT from client.")
+            writer.close()
+        except Exception as e:
+            self.logger.error(f"☢️ [Ω-HFT] Handle Client fault: {e}")
+            writer.close()
 
     async def submit_order(self, order_packet: Dict[str, Any]):
         """[V1.1.12] Fast-path order submission via async queue."""
         if not self._is_connected:
-            self.logger.warning("⚠️ HFTP-P Offline. Order rejected at wire level.")
+            self.logger.warning("⚠️ HFTP-P Offline. Order rejected.")
             return False
             
         try:
-            # Packing for high-velocity dispatch [V1.1.3]
             payload = msgpack.packb(order_packet)
             await self._outbound_queue.put(payload)
             return True
         except asyncio.QueueFull:
-            self.logger.critical("☢️ HFTP-P Queue Saturation. Order bottleneck detected!")
             return False
 
+    async def submit_raw_order(self, data: bytes):
+        """[Ω-RAW] Atomic byte submission (Test Mode)."""
+        if not self._is_connected: return False
+        try:
+            await self._outbound_queue.put(data)
+            return True
+        except: return False
+
     async def _process_loop(self):
-        """[Ω-PROACTOR] Main non-blocking I/O loop for binary exchange."""
-        self.logger.info("📡 HFTP-P Proactor Loop: Started.")
+        """[Ω-PROACTOR] Parallel Bi-directional I/O logic (Ω-HFT-P v2.1)."""
+        self.logger.info("📡 HFTP-P Dual-Loop: Initializing...")
+        try:
+            await asyncio.gather(
+                self._read_loop(),
+                self._write_loop(),
+                return_exceptions=True
+            )
+        except Exception as e:
+            self.logger.error(f"☢️ HFTP-P Bridge Global Error: {e}")
+        finally:
+            self._is_connected = False
+            self.logger.warning("⚠️ HFTP-P Proactor Loop: Terminated.")
+
+    async def _read_loop(self):
+        """[Ω-INPUT] Dedicated Reader (MT5 -> Master)."""
+        unpacker = msgpack.Unpacker()
+        pkt_count = 0
+        last_report = time.time()
+        
         while self._is_connected:
             try:
-                # 1. Outbound Orders [V1.1.9]
-                while not self._outbound_queue.empty():
-                    payload = self._outbound_queue.get_nowait()
-                    self._writer.write(payload)
-                    await self._writer.drain()
+                data = await self._reader.read(4096)
+                if not data:
+                    self.logger.warning("⚠️ MT5 Agent closed connection.")
+                    break
                 
-                # 2. Inbound Acks/Execs [V1.1.10]
-                # Non-blocking read (short timeout to keep loop alive)
-                try:
-                    data = await asyncio.wait_for(self._reader.read(1024), timeout=0.01)
-                    if data:
-                        msg = msgpack.unpackb(data)
-                        await self._inbound_queue.put(msg)
-                except asyncio.TimeoutError:
-                    pass
+                # Telemetry reporting
+                now = time.time()
+                if now - last_report > 5.0:
+                    if pkt_count > 0:
+                        self.logger.info(f"📊 [Ω-TELEMETRY] Incoming traffic: {pkt_count} packets in last 5s.")
+                    pkt_count = 0
+                    last_report = now
                 
-                # 3. Heartbeat Neural [V1.1.4]
-                if time.time() - self._last_heartbeat > 1.0:
-                    hb = msgpack.packb({"type": "HEARTBEAT", "ts": time.time_ns()})
-                    self._writer.write(hb)
-                    self._last_heartbeat = time.time()
+                unpacker.feed(data)
+                for msg in unpacker:
+                    pkt_count += 1
+                    if msg.get("type") == "ORDER_ACK":
+                        self.logger.info(f"✅ [Ω-OMS] Order ACK Received: {msg}")
+                    await self._inbound_queue.put(msg)
+                    
+            except Exception as e:
+                self.logger.error(f"☢️ [Ω-INPUT] Read Fail: {e}")
+                break
+        self._is_connected = False
+
+    async def _write_loop(self):
+        """[Ω-OUTPUT] Dedicated High-Speed Writer (Master -> MT5)."""
+        while self._is_connected:
+            try:
+                # [Ω-1] Get from queue (non-blocking if available)
+                payload = await self._outbound_queue.get()
                 
-                await asyncio.sleep(0.001) # 1ms loop frequency target
+                # [Ω-2] Direct Send (Atomic)
+                self._writer.write(payload)
+                await self._writer.drain()
+                
+                # [Ω-3] Mark task done
+                self._outbound_queue.task_done()
                 
             except Exception as e:
-                self.logger.error(f"☢️ HFTP-P Loop Error: {e}")
-                self._is_connected = False
+                self.logger.error(f"☢️ [Ω-OUTPUT] Write Fail: {e}")
                 break
-        
-        self.logger.warning("⚠️ HFTP-P Proactor Loop: Terminated.")
+        self._is_connected = False
 
     async def get_next_response(self) -> Optional[Dict[str, Any]]:
-        """Fetch processed response from incoming queue."""
         try:
             return self._inbound_queue.get_nowait()
         except asyncio.QueueEmpty:
             return None
 
     async def close(self):
-        self._is_running = False
-        if self._writer:
-            self._writer.close()
-            await self._writer.wait_closed()
+        self._is_connected = False
         if self._loop_task:
             self._loop_task.cancel()
-
-# --- INFRAESTRUTURA Ω-6.1 CONSOLIDADA | SEM PLACEHOLDERS ---
+        if self._server:
+            self._server.close()
+            await self._server.wait_closed()
+        if self._writer:
+            self._writer.close()
+        self.logger.info("🌑 HFTP-P Bridge Hibernated.")

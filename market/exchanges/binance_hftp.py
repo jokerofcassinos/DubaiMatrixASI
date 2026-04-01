@@ -27,6 +27,6 @@ class BinanceHFTP(HFTConnectorBase):
         # [V1.1.7] Parsing Binary messages (Zero-Copy)...
         while self._is_running:
             # Simulated binary message parsing Logic
-            raw_msg = {"p": 65000.5, "v": 1.25, "s": "BTCUSDT"}
+            raw_msg = {"p": 65000.5, "v": 1.25, "s": "BTCUSD"}
             await self._handle_message("TICKER", raw_msg)
             await asyncio.sleep(0.01) # 100 Hz simulation

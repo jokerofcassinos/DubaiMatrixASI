@@ -39,8 +39,8 @@ class TestBiologicalImmunity:
     @pytest.mark.asyncio
     async def test_vitalidade_reconciliation(self, immunity):
         """V10-V18: Reconciliação de Posição Discrepante."""
-        internal = {"BTCUSDT": 1.0}
-        exchange = {"BTCUSDT": 1.5} # Discrepância de 0.5
+        internal = {"BTCUSD": 1.0}
+        exchange = {"BTCUSD": 1.5} # Discrepância de 0.5
         assert await immunity.reconcile_positions(internal, exchange) is False
 
     # =========================================================================
@@ -66,7 +66,7 @@ class TestBiologicalImmunity:
         """V127: Escudo de Daily Loss (Compliance FTMO)."""
         # Daily loss de 4.5% (Abaixo do limite FTMO de 5%, mas acima do guardrail SOLÉNN)
         account = {"daily_loss_pct": 0.045}
-        order = {"symbol": "BTCUSDT", "type": "BUY"}
+        order = {"symbol": "BTCUSD", "type": "BUY"}
         
         assert await immunity.pre_trade_compliance(order, account) is False
         assert immunity.degradation_level == 5 # Emergency Flatten

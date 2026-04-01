@@ -10,7 +10,7 @@ class TestFractalIngestion(unittest.TestCase):
 
     def test_resampling_integrity(self):
         """[V001-V004] Validates OHLC aggregation."""
-        engine = DataEngine("BTCUSDT")
+        engine = DataEngine("BTCUSD")
         
         # 1. Simulate 305 ticks (5 minutes and 5 seconds total)
         # Using 1-second intervals for test speed
@@ -36,7 +36,7 @@ class TestFractalIngestion(unittest.TestCase):
 
     def test_multitemporal_bias(self):
         """[V021-V027] Validates HTF Trend identification."""
-        engine = DataEngine("BTCUSDT")
+        engine = DataEngine("BTCUSD")
         
         # Start with an uptrend (Close > Open)
         start_ts = 1711800000.0

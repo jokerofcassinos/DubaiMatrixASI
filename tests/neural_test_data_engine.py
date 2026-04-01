@@ -28,7 +28,7 @@ async def test_data_engine_flow():
     
     # 🧪 ETAPA 1: INGESTÃO (Capture & Binary Parsing)
     print("\n[VITALIDADE] Ingerindo Dados Brutos (Binance Mock) Ω-13.1.1...")
-    raw_binance_msg = {"s": "BTCUSDT", "p": "65000.50", "v": "1.25", "m": True}
+    raw_binance_msg = {"s": "BTCUSD", "p": "65000.50", "v": "1.25", "m": True}
     await engine.ingest_raw("BINANCE", raw_binance_msg)
     
     # Wait for processing
@@ -36,7 +36,7 @@ async def test_data_engine_flow():
     
     # 🧪 ETAPA 2: NORMALIZAÇÃO & VALIDAÇÃO (Validation Layer)
     print("[COGNIÇÃO] Testando Normalização e Validação Ω-13.1.4...")
-    raw_bybit_msg = {"s": "ETHUSDT", "p": "3500.25", "v": "10.0", "m": False}
+    raw_bybit_msg = {"s": "ETHUSD", "p": "3500.25", "v": "10.0", "m": False}
     await engine.ingest_raw("BYBIT", raw_bybit_msg)
     
     await asyncio.sleep(0.1)

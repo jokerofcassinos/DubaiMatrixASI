@@ -23,8 +23,8 @@ async def run_full_omega_validation():
     logger.info("🔱 Initiating Phase 7: Trinity Ω & Risk Sanctum Ω Gauntlet...")
     
     # 1. Component Initialization
-    engine = DataEngine("BTCUSDT")
-    regime = RegimeDetector() # Changed from ("BTCUSDT")
+    engine = DataEngine("BTCUSD")
+    regime = RegimeDetector() # Changed from ("BTCUSD")
     trinity = TrinityCore()
     risk = RiskSanctum()
     

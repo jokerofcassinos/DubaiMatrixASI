@@ -27,7 +27,7 @@ async def test_execution_tactic_and_latency():
     # --- FASE 1: RANGING ACCUMULATION (TACTIC: LIMIT) ---
     print("\n[FASE 1] Simulando Ranging (Regime: RANGING_TIGHT, Urgency: 0.2)...")
     regime_range = RegimeState("RANGING_TIGHT", 0.9, 0.05, 0.3, 100, {})
-    oid1 = await engine.execute_trade("BTCUSDT", "BUY", 1.0, regime_range, 0.2)
+    oid1 = await engine.execute_trade("BTCUSD", "BUY", 1.0, regime_range, 0.2)
     
     # [V2.5.37] Verify Tactic: Ranging should favor LIMIT (Maker)
     assert engine._orders[oid1]["type"] == "LIMIT"
@@ -36,7 +36,7 @@ async def test_execution_tactic_and_latency():
     # --- FASE 2: BREAKOUT URGENCY (TACTIC: MARKET) ---
     print("\n[FASE 2] Simulando Breakout (Regime: TRENDING_UP_STRONG, Urgency: 0.85)...")
     regime_trend = RegimeState("TRENDING_UP_STRONG", 0.95, 0.01, 1.2, 50, {})
-    oid2 = await engine.execute_trade("BTCUSDT", "BUY", 1.0, regime_trend, 0.85)
+    oid2 = await engine.execute_trade("BTCUSD", "BUY", 1.0, regime_trend, 0.85)
     
     # [V2.5.37] Verify Tactic: Strong Trend + High Urgency should favor MARKET (Taker)
     assert engine._orders[oid2]["type"] == "MARKET"
