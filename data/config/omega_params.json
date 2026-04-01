@@ -1,0 +1,10 @@
+{
+    "phi_min_threshold": 0.3,
+    "confidence_min": 0.65,
+    "hurst_momentum_threshold": 0.55,
+    "position_size_pct": 75.0,
+    "max_drawdown_limit": 2.0,
+    "max_order_splits": 3,
+    "take_profit_points": 300,
+    "stop_loss_points": 150
+}

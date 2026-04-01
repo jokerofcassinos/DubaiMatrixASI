@@ -22,13 +22,13 @@ private:
 public:
     COrderExecutor(CHFTPClient *client) {
         m_client = client; m_trade.SetExpertMagicNumber(777); 
-        m_trade.SetAsyncMode(False); // Synchronous for precise acknowledgment
+        m_trade.SetAsyncMode(false); // Synchronous for precise acknowledgment
     }
 
     // [Ω-V5.4.1] Order Execution logic from MasterBridge command
     bool Execute(string trace_id, string symbol, int action, double lot, double sl, double tp) {
-        if(!m_client.IsConnected()) return False;
-        bool res = False;
+        if(!m_client.IsConnected()) return false;
+        bool res = false;
 
         if(action == ORDER_TYPE_BUY) res = m_trade.Buy(lot, symbol, 0, sl, tp, trace_id);
         else if(action == ORDER_TYPE_SELL) res = m_trade.Sell(lot, symbol, 0, sl, tp, trace_id);

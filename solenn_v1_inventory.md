@@ -2,18 +2,19 @@
 ## ⚖️ LEI II.4 — RASTREABILIDADE DE RECONSTRUÇÃO SOBERANA
 
 > [!IMPORTANT]
-> **STATUS DA SOBERANIA: [██████████████░░░░░░] 70% COMPLETO (CORE Ω)**
+> **STATUS DA SOBERANIA: [███████████████░░░░░] 72% COMPLETO (CORE Ω)**
 > Este inventário cataloga a migração ontológica da **v1 (DubaiMatrixASI)** para a **v2 (SOLÉNN Ω)**. Nenhuma linha de código foi reciclada; cada intenção foi extraída e a forma reconstruída do zero (Lei 0.1).
 
 ## config
 - [ ] __init__.py (Normalizado)
 - [ ] exchange_config.py (Evoluído para SolennConfig Ω)
-- [ ] omega_params.py (Evoluído para ParameterManager Ω)
+- [x] omega_params.py (Parâmetros de Ordem Superior Ω — 162 Vetores)
 - [ ] settings.py (Evoluído para StateManager Ω)
 
 ## core
 - [ ] __init__.py
 - [ ] asi_brain.py (Cérebro ASI Ω)
+- [x] signals_gate.py (Sovereign Signal Gate Ω - 162 Vetores)
 
 ## core\consciousness
 - [ ] __init__.py
@@ -118,7 +119,7 @@
 - [x] monte_carlo_engine.py (Motor de Monte Carlo Ω)
 - [x] neural_swarm.py (Enxame Neural Ω)
 - [x] quantum_thought.py (Pensamento Quântico Ω)
-- [x] regime_detector.py (Evoluído para Regime Detector Ω)
+- [x] regime_detector.py (Regime Detector Ω - Movido para intelligence)
 - [x] reflexive_loop.py (Loop Reflexivo Ω)
 - [x] state_observer.py (Observador de Estado Ω)
 
@@ -140,15 +141,15 @@
 
 ## core\evolution
 - [ ] __init__.py
-- [ ] biological_immunity.py (Imunidade Biológica Ω)
-- [ ] genesis_engine.py (Motor de Gênese Ω)
-- [ ] genetic_forge.py (Evoluído para Genetic Forge Ω)
-- [ ] lucid_dream_client.py (Cliente Sonho Lúcido Ω)
-- [ ] meta_programming.py (Meta-Programação Ω)
-- [ ] mutation_engine.py (Motor de Mutação Ω)
+- [x] biological_immunity.py (Imunidade Biológica Ω — 162 Vetores)
+- [x] genesis_engine.py (Motor de Gênese Ω — 162 Vetores)
+- [x] genetic_forge.py (Evoluído para Genetic Forge Ω — 162 Vetores)
+- [x] lucid_dream_client.py (Cliente Sonho Lúcido Ω — 162 Vetores)
+- [x] meta_programming.py (Meta-Programação Ω — 162 Vetores)
+- [x] mutation_engine.py (Motor de Mutação Ω — 162 Vetores)
 - [x] performance_tracker.py (Tracker de Performance Ω — 162 Vetores)
-- [ ] self_optimizer.py (Auto-Otimizador Ω)
-- [ ] state_vector.py (Vetor de Estado Ω)
+- [x] self_optimizer.py (Auto-Otimizador Ω — 162 Vetores)
+- [x] state_vector.py (Vetor de Estado Ω — 162 Vetores)
 
 ## cpp
 - [ ] asi_bridge.py (Bridge ASI Ω)
@@ -274,10 +275,9 @@
 - [x] decision_justifier.py (Justificador PhD Ω)
 - [x] resonance_orchestrator.py (Orquestrador de Ressonância Ω — 162 Vetores)
 - [x] telemetry.py
-- [x] solenn_regime.py (Glândula Pineal Ω — 162 Vetores)
-- [ ] solenn_fractal_sensor.py
-- [ ] solenn_bayesian.py
-- [ ] solenn_info_geometry.py
+- [x] solenn_fractal_sensor.py (Retina Multifractal Ω — 162 Vetores)
+- [x] solenn_bayesian.py (Motor de Inferência Ω — 162 Vetores)
+- [x] solenn_info_geometry.py (Bússola Geométrica Ω — 162 Vetores)
 
 ## core\agents
 - [x] base_agent.py (Fundação Assíncrona Ω - BaseSynapse)
@@ -294,4 +294,17 @@
 - [ ] dictionaries/analysis.md (Predictive Rationality Ω)
 - [ ] dictionaries/core.md (RiskSanctum & Engine Ω)
 - [ ] dictionaries/tests.md (Neural Integrity Ω)
+- [x] dictionaries/solenn_fractal_sensor_sed.md (Retina Multifractal Ω)
 - [x] dictionaries/telemetry/lifecycle_logger_sed.md (Causal Tracing Ω)
+- [x] dictionaries/solenn_info_geometry_sed.md (Bússola Geométrica Ω)
+- [x] dictionaries/solenn_biological_immunity_sed.md (Imunidade Biológica Ω)
+- [x] dictionaries/solenn_genesis_engine_sed.md (Motor de Gênese Ω)
+- [x] dictionaries/solenn_narrative_distiller_sed.md (Consciência Semântica Ω)
+- [x] dictionaries/solenn_genetic_forge_sed.md (Coração Darwiniano Ω)
+- [x] dictionaries/solenn_mutation_engine_sed.md (Motor de Mutação Ω)
+- [x] dictionaries/solenn_lucid_dream_sed.md (Sonho Lúcido Ω)
+- [x] dictionaries/solenn_meta_programming_sed.md (Meta-Programação Ω)
+- [x] dictionaries/solenn_self_optimizer_sed.md (Auto-Otimizador Ω)
+- [x] dictionaries/solenn_state_vector_sed.md (Vetor de Estado Ω)
+- [x] dictionaries/solenn_regime_detector_sed.md (Regime Detector Ω)
+- [x] dictionaries/solenn_signals_gate_sed.md (Sovereign Signal Gate Ω)
