@@ -112,7 +112,7 @@ class SolennBrain:
                 veredict: SovereignSignal = await self.gate.evaluate(
                     snapshot=snapshot,
                     quantum_state=q_state,
-                    regime_state=regime_state.identity, # Assuming string match for now
+                    regime_state_identity=regime_state.identity, # Alinhado com Ω-1
                     bayes_conviction=0.9 # High conviction default
                 )
 

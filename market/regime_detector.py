@@ -206,10 +206,18 @@ class RegimeDetector:
         """[V2.1.55] Autocorrelação Lag-1 pré-bifurcação."""
         if len(self._phi_buffer) < 200: return 0.0
         
-        window = list(self._phi_buffer)[-200:]
+        window = np.array(list(self._phi_buffer)[-200:])
         # Rising autocorrelation and variance are indicators of dynamical instability
-        autocorr = float(np.corrcoef(window[:-1], window[1:])[0, 1])
-        sigma = float(np.std(window))
+        # [V2.1.60] Numerical Stability Guardrail (Epsilon protection)
+        w_std = np.std(window)
+        if w_std < 1e-9:
+            autocorr = 0.0
+            sigma = 0.0
+        else:
+            with np.errstate(divide='ignore', invalid='ignore'):
+                corr_matrix = np.corrcoef(window[:-1], window[1:])
+                autocorr = float(corr_matrix[0, 1]) if not np.isnan(corr_matrix[0, 1]) else 0.0
+            sigma = float(w_std)
         
         # [V2.1.63] Score de Proximidade de Transição via Geometria de Estabilidade
         csd_score = np.clip((autocorr + (sigma * 2)) / 3, 0, 1)

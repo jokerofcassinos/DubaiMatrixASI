@@ -17,9 +17,9 @@
 #include <SOLENN\Order_Executor.mqh>
 
 // [Ω-V5.5.0] Parameters
-input string   InpHost = "127.0.0.1";
-input int      InpPort = 9999;
-input int      InpRes  = 1000; // Telegram refresh ms
+input string    InpHost     = "127.0.0.1"; // Matrix Host
+input int       InpPort     = 9888;        // Matrix Port (Ω-9888)
+input int       InpRes      = 1000;        // Heartbeat (ms) refresh ms
 
 CHFTPClient       *hftp_client;
 CTelemetryStreamer *sensors;
@@ -62,32 +62,48 @@ void OnTimer() {
             last_recon = GetTickCount();
         }
     } else {
-        hftp_client.Heartbeat();
+        // [Ω-V5.5.3] Active Pulse (1Hz)
+        if(!hftp_client.Heartbeat()) {
+            Print("☢️ [Ω-HFT] Pulse LOST. Heartbeat fail.");
+        }
         sensors.StreamAccountSnapshot();
         
-        // 2. [Ω-V5.5.3] Process Commands from SOLÉNN Brain (Python)
+        // 2. [Ω-V5.5.4] Process ALL Commands in Buffer (Streaming Mode)
         if(hftp_client.Readable()) {
             uchar buf[];
             ArrayResize(buf, 4096);
             int read = hftp_client.Receive(buf);
             if(read > 0) {
-                string raw = CharArrayToString(buf, 0, read, CP_UTF8);
-                Print("📥 [Ω-HFTP-P] Packet Received: ", read, " bytes. Content: ", raw);
+                hftp_client.UnpackData(buf, read);
                 
-                if(StringFind(raw, "ORDER") >= 0) {
-                    Alert("🔥 [Ω-SOLENN] ORDER SIGNAL DETECTED!");
-                    Print("📈 [Ω-EA] FOUND Signature: ORDER. Action scan...");
+                // Process multiple MsgPack objects in the same read buffer
+                while(hftp_client.GetPacker().Remaining() > 0) {
+                    int members = hftp_client.GetPacker().UnpackMapHeader();
+                    if(members <= 0) break;
                     
-                    if(StringFind(raw, "BUY") >= 0) {
-                        Alert("🚀 [Ω-EXECUTION] ATTEMPTING BUY 0.01 BTCUSD");
-                        if(CheckPointer(oms) != POINTER_INVALID)
-                            oms.Execute("TEST_B_"+IntegerToString(TimeLocal()), _Symbol, ORDER_TYPE_BUY, 0.01, 0, 0);
-                        else
-                            Print("☢️ [Ω-ERROR] OrderExecutor (oms) is NULL!");
-                    } else if(StringFind(raw, "SELL") >= 0) {
-                        if(CheckPointer(oms) != POINTER_INVALID)
-                            oms.Execute("TEST_S_"+IntegerToString(TimeLocal()), _Symbol, ORDER_TYPE_SELL, 0.01, 0, 0);
+                    string type = "";
+                    string action = "";
+                    
+                    for(int i=0; i<members; i++) {
+                        string key = hftp_client.GetPacker().ReadString();
+                        if(key == "type") type = hftp_client.GetPacker().ReadString();
+                        else if(key == "action") action = hftp_client.GetPacker().ReadString();
+                        else {
+                            uchar t = hftp_client.GetPacker().GetType();
+                            if(t == 0xCF) hftp_client.GetPacker().ReadInt();
+                            else if(t == 0xCB) hftp_client.GetPacker().ReadDouble();
+                            else hftp_client.GetPacker().ReadString();
+                        }
                     }
+    
+                    if(type == "ORDER") {
+                        Alert("🔥 [Ω-SOLENN] ORDER SIGNAL: ", action);
+                        if(action == "BUY") oms.Execute("TEST_B", _Symbol, ORDER_TYPE_BUY, 0.01, 0, 0);
+                        else if(action == "SELL") oms.Execute("TEST_S", _Symbol, ORDER_TYPE_SELL, 0.01, 0, 0);
+                    }
+                    
+                    // Check if we reached the end of the current read
+                    if(hftp_client.GetPacker().Remaining() <= 0) break;
                 }
             }
         }
