@@ -19,6 +19,7 @@ class MonteCarloStats:
     lower_95: float = 0.0          # Confidence Interval Lower
     upper_95: float = 0.0          # Confidence Interval Upper
     optimal_f: float = 0.0         # Adjusted Sizing Recommendation
+    final_outcomes: List[float] = field(default_factory=list) # [V105] Sample of final PnLs
     timestamp: float = field(default_factory=time.time)
 
 class MonteCarloEngine:
@@ -116,7 +117,8 @@ class MonteCarloEngine:
             expected_pnl=np.mean(final_equity),
             lower_95=lower_95,
             upper_95=upper_95,
-            optimal_f=optimal_f
+            optimal_f=optimal_f,
+            final_outcomes=final_equity.tolist()[:1000] # Sub-amostragem para performance
         )
         
         # [Ω-C2-V108] Log critical risk alerts
@@ -145,8 +147,8 @@ class MonteCarloEngine:
         while self._is_active:
             try:
                 # [Ω-SYNC] Get real world state from Account Manager
-                balance = account_ref.get_balance()
-                equity = account_ref.get_equity()
+                balance = account_ref.initial_balance
+                equity = account_ref.current_equity
                 
                 await self.run_simulation(balance, equity)
                 

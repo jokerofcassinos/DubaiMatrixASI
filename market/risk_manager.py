@@ -90,6 +90,14 @@ class RiskManager:
         asyncio.create_task(self.run_background_mc())
         self._is_active = True
 
+    def get_balance(self) -> float:
+        """[V11.2] Retorna o saldo inicial do Risk Manager."""
+        return self.initial_balance
+
+    def get_equity(self) -> float:
+        """[V11.2] Retorna a equity atual monitorada."""
+        return self.current_equity
+
     # ==========================================================================
     # CONCEITO 1: DIMENSIONAMENTO ANTIFRÁGIL (SIZING)
     # ==========================================================================

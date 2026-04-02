@@ -14,15 +14,16 @@ log = logging.getLogger("SOLENN.SignalGate")
 @dataclass(frozen=True, slots=True)
 class SovereignSignal:
     """O veredito final da SOLÉNN Ω: Execução ou Rejeição."""
-    timestamp: float
-    symbol: str
-    action: str  # BUY, SELL, NONE
-    confidence: float
-    expected_profit: float
-    tce_cost: float
-    net_ev: float
-    reasoning: str
+    timestamp: float = 0.0
+    symbol: str = "TICK"
+    action: str = "NONE" # BUY, SELL, NONE
+    confidence: float = 0.0
+    expected_profit: float = 0.0
+    tce_cost: float = 0.0
+    net_ev: float = 0.0
+    reasoning: str = ""
     metadata: Dict[str, Any] = field(default_factory=dict)
+    imbalance: float = 0.0 # [V1.2.6] Book imbalance at the time of verdict
 
 class SolennSignalGate(BaseSynapse):
     """
@@ -161,6 +162,7 @@ class SolennSignalGate(BaseSynapse):
             tce_cost=tce,
             net_ev=150.0 - tce,
             reasoning=f"{reason} | {flow_reason}",
+            imbalance=snapshot.book_imbalance,
             metadata={
                 "latency_ms": latency,
                 "regime": regime_state_identity,
@@ -178,7 +180,8 @@ class SolennSignalGate(BaseSynapse):
             expected_profit=0.0,
             tce_cost=0.0,
             net_ev=0.0,
-            reasoning=reason
+            reasoning=reason,
+            imbalance=0.0
         )
 
 # --- 162 VETORES DE INTEGRIDADE NEURAL INTEGRADOS (Ω-1) ---
