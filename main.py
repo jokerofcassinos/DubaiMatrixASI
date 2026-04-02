@@ -57,8 +57,9 @@ from core.intelligence.signals_gate import SolennSignalGate, SovereignSignal
 
 # Executive Organs (Risco e Execução)
 from market.risk_manager import RiskManager
-from market.regime_detector import RegimeDetector
-from market.exchanges.mt5_connector import MetaBridge
+from market.regime_detector import RegimeDetector, RegimeState
+from market.hftp_bridge import HFTPBridge
+from market.execution_engine import ExecutionEngine
 
 # Visual Organ (Dashboard Matrix)
 from core.solenn_terminal import SolennTerminalMatrix
@@ -80,14 +81,19 @@ from config.settings import (
 # ━━━━━━━━━━━━ LOGGING MATRIX REDIRECT ━━━━━━━━━━━━
 
 class MatrixLogHandler(logging.Handler):
-    """ Redireciona logs do Python para o buffer da UI Matrix. """
+    """ Redireciona logs do Python para o buffer da UI Matrix ou stdout se inativa. """
     def emit(self, record):
         try:
             msg = self.format(record)
-            # Remove prefixo de data se houver, pois a UI adiciona timestamp próprio
-            if " | " in msg:
-                msg = msg.split(" | ", 2)[-1]
-            SolennTerminalMatrix.add_log(msg)
+            # Se a UI estiver ativa, enviamos para o buffer tático
+            if SolennTerminalMatrix._ui_active:
+                # Remove prefixo de data se houver para o buffer, pois a UI adiciona próprio
+                clean_msg = msg.split(" | ", 2)[-1] if " | " in msg else msg
+                SolennTerminalMatrix.add_log(clean_msg)
+            else:
+                # Se a UI foi desativada (ex: terminal pequeno), printamos normal no stdout
+                sys.stdout.write(msg + "\n")
+                sys.stdout.flush()
         except Exception:
             self.handleError(record)
 
@@ -150,6 +156,8 @@ class SolennOmega:
 
         # ━━━━ EXECUTIVE ORGANS ━━━━
         self.risk = RiskManager(initial_balance=100_000.0)
+        self.hft_bridge: Optional[HFTPBridge] = None
+        self.execution_engine: Optional[ExecutionEngine] = None
         self.mt5_bridge: Optional[MetaBridge] = None
 
         # ━━━━ CONSCIOUSNESS ORGANS ━━━━
@@ -187,40 +195,30 @@ class SolennOmega:
         log.info("━" * 60)
 
     async def _genesis_mt5(self) -> bool:
-        """[C1-T1.3] Handshake com MetaTrader 5 (FTMO-Demo)."""
+        """[C1-T1.3] Handshake com HFTPBridge (Socket 3-6-9) e Execution Engine."""
         log.info("━" * 60)
-        log.info("  FASE 2: HANDSHAKE MT5 (MetaBridge Ω-45)")
+        log.info("  FASE 2: HANDSHAKE HFT-P Ω-21 (Socket Server)")
         log.info("━" * 60)
-
-        login = FTMO_LOGIN
-        password = FTMO_PASSWORD
-        server = FTMO_SERVER
-
-        if login == 0 or password == "PWD":
-            log.warning("⚠️ Credenciais MT5 não configuradas no .env. Operando em modo OBSERVAÇÃO.")
-            return False
 
         try:
-            self.mt5_bridge = MetaBridge(login=login, password=password, server=server)
-            # Timeout de 15s para o handshake não travar o bot se o MT5 estiver fechado
-            success = await asyncio.wait_for(self.mt5_bridge.initialize(), timeout=15.0)
+            # 1. Inicia o Servidor HFTPBridge (Porta 9888 padrão)
+            self.hft_bridge = HFTPBridge()
+            # connect() não bloqueia e retorna imediatamente após o listen estar ativo
+            await self.hft_bridge.connect()
+            
+            # 2. Inicia o Motor de Execução
+            self.execution_engine = ExecutionEngine(bridge=self.hft_bridge, risk_manager=self.risk)
+            await self.execution_engine.initialize()
+            
+            log.info("📡 [Ω-HFT] HFT-P Sovereign Servers Online (Listening on 0.0.0.0:9888)")
+            log.info("✅ [Ω-EXEC] Execution Engine Aorta Ready.")
+            
+            return True
 
-            if success:
-                log.info(f"✅ MetaBridge CONECTADA: Login {login} @ {server}")
-                asyncio.create_task(self._mt5_equity_sync_loop())
-                return True
-            else:
-                log.error(f"☢️ MetaBridge FALHOU no Handshake. Verifique se o MT5 está aberto.")
-                self.mt5_bridge = None
-                return False
-
-        except asyncio.TimeoutError:
-            log.error("☢️ MT5_HANDSHAKE_TIMEOUT: MetaTrader 5 não respondeu em 15s. Abortando conexão.")
-            self.mt5_bridge = None
-            return False
         except Exception as e:
-            log.error(f"☢️ MT5_BRIDGE_FAULT: {e}")
-            self.mt5_bridge = None
+            log.error(f"☢️ HFTP_BRIDGE_FAULT: {e}")
+            self.hft_bridge = None
+            self.execution_engine = None
             return False
 
     async def _genesis_sensor(self):
@@ -306,7 +304,9 @@ class SolennOmega:
         Binance → Swarm → Reflexive → QuantumCollapse → SignalGate → Risk → MT5
         """
         self._cognitive_ticks += 1
-        log.info(f"🧬 TICKER_RECEIVED: {snapshot.symbol} {snapshot.close:.2f} (Vol: {snapshot.volume:.2f})")
+        if self._cognitive_ticks % 100 == 0:
+            log.info(f"📊 [Ω-TELEMETRY] Processed {self._cognitive_ticks} ticks. Cognitive Pulse Stabilized.")
+        log.debug(f"🧬 TICKER_RECEIVED: {snapshot.symbol} {snapshot.close:.2f} (Vol: {snapshot.volume:.2f})")
         t0 = time.time()
         self.observer.heart_pulse(t0) # Início do monitoramento de homeostase
 
@@ -389,42 +389,37 @@ class SolennOmega:
 
             # ━━━ STEP 7: Decisão de Execução ━━━
             if verdict.action != "NONE":
-                # Risk Validation
-                can_execute = self.risk.validate_execution()
-                if can_execute:
-                    lot_size = self.risk.calculate_optimal_sizing(
-                        regime_state, matrix_confidence=verdict.confidence
+                if self.execution_engine and self.hft_bridge and self.hft_bridge._is_connected:
+                    # ━━━ STEP 5: ENVIAR ORDEM AO HFTP-BRIDGE (Ω-6) ━━━
+                    log.info(f"🚀 [INTENT] Generating order for {verdict.action} {lot_size:.2f} {self.SYMBOL}")
+                    
+                    order_id = await self.execution_engine.execute_trade(
+                        symbol=self.SYMBOL,
+                        side=verdict.action,
+                        lots=lot_size,
+                        regime=regime_state,
+                        matrix_urgency=verdict.confidence
                     )
-                    if lot_size > 0 and self.mt5_bridge is not None:
-                        # ━━━ STEP 5: ENVIAR ORDEM AO MT5 ━━━
-                        ticket = await self.mt5_bridge.execute_order(
-                            symbol=self.SYMBOL,
-                            side=verdict.action,
-                            volume=lot_size,
-                        )
-                        if ticket:
-                            self._trades_executed += 1
-                            log.info(
-                                f"🚀 [Ω-EXEC] {verdict.action} {self.SYMBOL} | "
-                                f"Lots: {lot_size:.2f} | Ticket: #{ticket} | "
-                                f"NetEV: ${verdict.net_ev:.2f} | "
-                                f"Confidence: {verdict.confidence:.4f}"
-                            )
-                        else:
-                            self._trades_rejected += 1
-                            log.warning(f"⚠️ [Ω-REJECT] MT5 rejeitou ordem: {verdict.action} {lot_size}")
-                    elif lot_size > 0:
-                        # Modo observação (sem MT5)
-                        self._trades_rejected += 1
+                    
+                    if order_id:
+                        self._trades_executed += 1
                         log.info(
-                            f"👁️ [OBSERVE] {verdict.action} {self.SYMBOL} | "
-                            f"Lots: {lot_size:.2f} | NetEV: ${verdict.net_ev:.2f} | "
-                            f"(MT5 Offline — modo observação)"
+                            f"✅ [Ω-EXEC] Order {order_id} DISPATCHED. | "
+                            f"Action: {verdict.action} | Size: {lot_size:.2f} | "
+                            f"Conf: {verdict.confidence:.4f}"
                         )
                     else:
                         self._trades_rejected += 1
+                        log.warning(f"☢️ [EXEC-FAULT] O Motor de Execução falhou ao despachar a ordem.")
                 else:
+                    # Modo observação ou offline
                     self._trades_rejected += 1
+                    status = "MT5 Offline" if not (self.hft_bridge and self.hft_bridge._is_connected) else "Engine Missing"
+                    log.info(
+                        f"👁️ [OBSERVE] {verdict.action} {self.SYMBOL} | "
+                        f"Lots: {lot_size:.2f} | NetEV: ${verdict.net_ev:.2f} | "
+                        f"({status} — modo observação)"
+                    )
 
         except Exception as e:
             log.error(f"☢️ COGNITIVE_FAULT: {e}")
@@ -542,11 +537,13 @@ class SolennOmega:
             
             # Criar e configurar o handler da Matrix
             matrix_handler = MatrixLogHandler()
-            matrix_handler.setFormatter(logging.Formatter('%(message)s'))
+            matrix_handler.setFormatter(logging.Formatter('%(asctime)s | %(name)-18s | %(message)s'))
             
             # Adicionar apenas o MatrixHandler e o FileHandler
             root_logger.handlers = [h for h in original_handlers if isinstance(h, logging.FileHandler)]
             root_logger.addHandler(matrix_handler)
+
+        self._is_running = True
 
         log.info("=" * 78)
         log.info("   ██████╗ ██████╗ ██╗     ███████╗███╗   ██╗███╗   ██╗")
@@ -559,13 +556,16 @@ class SolennOmega:
         log.info("   [Ω-SOLÉNN] ORGANISMO COGNITIVO FINANCEIRO — DESPERTAR TOTAL")
         log.info("=" * 78)
 
-        self._is_running = True
-
         # Boot Sequence Visual
         try:
             SolennTerminalMatrix.boot_sequence()
         except Exception:
             pass
+            
+        if not SolennTerminalMatrix._ui_active:
+            log.warning("⚠️ Dashboard Matrix DESATIVADA (TAMANHO INSUFICIENTE). Operando em RAW_LOGS.")
+
+        log.info("━" * 60)
 
         # ━━━ FASE 1: Gênese das Sinapses ━━━
         await self._genesis_synapses()

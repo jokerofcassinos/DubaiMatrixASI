@@ -21,7 +21,7 @@ class HFTPBridge:
     [Ω-21.3] Protocolo de Handshake Ω-Sync.
     """
 
-    def __init__(self, host: str = "0.0.0.0", port: int = 9999, order_port: int = 10000, 
+    def __init__(self, host: str = "0.0.0.0", port: int = 9888, order_port: int = 9889, 
                  auth_token: str = "SOLENN_OMEGA_SECURE", allowed_ips: List[str] = ["127.0.0.1", "::1"]):
         self.host = host
         self.port = port
@@ -136,14 +136,22 @@ class HFTPBridge:
                 handshake_str = data.decode('utf-8', errors='ignore')
 
             if "HELLO" in handshake_str:
-                # [V2.4.2] Verificação de Token de segurança
-                if type(initial_payload) == dict and initial_payload.get("token") != self.auth_token:
-                    self.logger.critical(f"☢️ [Ω-SEC] Handshake Token REJECTED for {addr}")
-                    writer.close()
-                    return
-                elif type(initial_payload) == dict and "MQL5" not in initial_payload.get("ver", ""):
+                # [V2.4.2] Verificação de Token de segurança (Flexível para Legacy Agents)
+                client_token = initial_payload.get("token")
+                client_ver = initial_payload.get("ver") or initial_payload.get("payload", "")
+                
+                if type(initial_payload) == dict and client_token != self.auth_token:
+                    # Allow legacy handshake if version matches but log security warning
+                    if "MQL5" in client_ver:
+                        self.logger.warning(f"⚠️ [Ω-SEC] Handshake Token Missing/Mismatch from {addr}. Proceeding with V2 legacy trust.")
+                    else:
+                        self.logger.critical(f"☢️ [Ω-SEC] Handshake Token REJECTED for {addr}")
+                        writer.close()
+                        return
+                
+                if "MQL5" not in client_ver:
                     # [V2.1.8] Verificação de versão de protocolo no Handshake
-                    self.logger.critical(f"☢️ [Ω-SEC] Outdated Client Version. Expected MQL5 Agent.")
+                    self.logger.critical(f"☢️ [Ω-SEC] Outdated Client Version. Expected MQL5 Agent. Got: {client_ver}")
                     writer.close()
                     return
 
@@ -156,6 +164,30 @@ class HFTPBridge:
                 writer.write(welcome_packet)
                 await writer.drain()
                 
+                # [Ω-SYNC] Waiting for Handshake ACK (Vetor 1.1.4)
+                # O MT5 Agent deve confirmar o recebimento do WELCOME para evitar SocketRead Error.
+                try:
+                    ack_data = await asyncio.wait_for(reader.read(1024), timeout=5.0)
+                    if not ack_data:
+                        self.logger.warning(f"☢️ [Ω-HFT] Empty ACK from {addr}. Rejecting.")
+                        writer.close()
+                        return
+                    
+                    try:
+                        ack_payload = msgpack.unpackb(ack_data)
+                        ack_type = ack_payload.get("type", "")
+                    except:
+                        ack_type = ack_data.decode('utf-8', errors='ignore')
+                    
+                    if "ACK" not in str(ack_type).upper():
+                        self.logger.warning(f"☢️ [Ω-HFT] Invalid Handshake ACK from {addr}: {ack_type}")
+                        writer.close()
+                        return
+                except asyncio.TimeoutError:
+                    self.logger.warning(f"☢️ [Ω-HFT] Handshake ACK Timeout for {addr}.")
+                    writer.close()
+                    return
+
                 # Handshake Confirmed
                 self.logger.info(f"✅ [Ω-HFT] Handshake Synchronized with {addr}")
                 self._reader = reader

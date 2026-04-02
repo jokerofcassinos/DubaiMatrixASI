@@ -52,7 +52,7 @@ public:
         }
         
         // [Ω-V5.2.1] Hello Handshake (Pure Binary Mode)
-        SendPacket("HELLO", "MQL5_AGENT_V2");
+        SendPacket("HELLO", "MQL5_AGENT_V2", "SOLENN_OMEGA_SECURE");
         Print("📤 [Ω-HFT] Hello Handshake Dispatched.");
         
         // [Ω-V5.2.2] Wait for WELCOME ACK (v2.8)
@@ -134,13 +134,20 @@ public:
     }
 
     // [Ω-V5.2.4] Packet Helper (Type-Safe Command)
-    bool SendPacket(string type, string payload="") {
+    bool SendPacket(string type, string payload="", string token="") {
         if(m_socket == INVALID_HANDLE) return false;
         
         m_packer.Clear();
-        m_packer.PackMapHeader(2);
+        int fields = (token == "") ? 2 : 3;
+        m_packer.PackMapHeader(fields);
         m_packer.PackString("type");
         m_packer.PackString(type);
+        
+        if(token != "") {
+            m_packer.PackString("token");
+            m_packer.PackString(token);
+        }
+        
         m_packer.PackString("payload");
         m_packer.PackString(payload);
         

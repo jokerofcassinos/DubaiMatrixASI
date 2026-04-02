@@ -9,7 +9,11 @@ As correções foram implementadas com foco em resiliência e integridade sistê
 - **Redirecionamento de Logs**: Criado o `MatrixLogHandler` no `main.py`. Agora, todas as mensagens de log (incluindo `TICKER_RECEIVED`) são enviadas para o buffer interno da UI em vez de serem impressas diretamente no `stdout`, o que causava a bagunça visual.
 - **Limpeza de Linha**: Adicionado o código ANSI `\033[K` ao final de cada linha da UI para apagar rastros de logs antigos ou redimensionamentos.
 
-### 2. Resolução do Travamento MT5 (Handshake Resilience)
+### 2. Resolução do 'Congelamento Visual' (Terminal UI Resilience)
+- **Fallback Dinâmico**: O `MatrixLogHandler` no `main.py` foi atualizado para ser "consciente da UI". Se a UI Matrix for desativada (ex: terminal com menos de 95 colunas), os logs são redirecionados automaticamente para o `stdout` em tempo real, garantindo que o CEO nunca perda visibilidade do progresso do organismo.
+- **Aviso de Fallback**: Adicionado log de aviso explícito quando o Dashboard Matrix é desativado por restrições de espaço, confirmando a transição para `RAW_LOGS`.
+
+### 3. Resolução do Travamento MT5 (Handshake Resilience)
 - **Timeout de 15 segundos**: No `main.py`, a inicialização do `MetaBridge` agora é protegida por `asyncio.wait_for`. Se o MT5 não responder em 15 segundos, o bot aborta a conexão de execução e entra automaticamente em modo **OBSERVAÇÃO**.
 - **Robustez do Conector**: O `mt5_connector.py` foi atualizado com blocos `try/except` mais granulares para evitar que falhas críticas no C-ffi do MetaTrader derrubem o orquestrador Python.
 
