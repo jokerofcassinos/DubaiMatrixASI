@@ -6,6 +6,7 @@ signal_aggregator (Ω-E109–E162).
 
 from __future__ import annotations
 
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import math
 import random
 import time

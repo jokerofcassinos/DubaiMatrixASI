@@ -6,6 +6,7 @@ SOLÉNNBrain integrates ALL modules: Config→Data→Agents→Decision→Executi
 from __future__ import annotations
 
 import asyncio
+import sys, os; sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import random
 import time
 import unittest
